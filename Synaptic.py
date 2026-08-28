@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger("Synaptic")
 
 # ============================================================
-# CONFIGURATION & CONSTANTS (Sesuai README vSynapse)[span_0](start_span)[span_0](end_span)
+# CONFIGURATION & CONSTANTS (Sesuai README vSynapse)
 # ============================================================
 
 TFS = ["15m", "1h", "4h"]
@@ -33,9 +33,9 @@ IGNORED_SYMBOLS = {
 }
 
 CONFIG = {
-    "min_quote_volume_24h": 5_000_000,  # Sesuai README: 5M USDT[span_1](start_span)[span_1](end_span)
-    "min_abs_change_24h": 4.0,          # Sesuai README: Min absolute 24h change 4%[span_2](start_span)[span_2](end_span)
-    "universe_size": 80,                # Sesuai README: Universe size 80[span_3](start_span)[span_3](end_span)
+    "min_quote_volume_24h": 5_000_000,  # Sesuai README: 5M USDT
+    "min_abs_change_24h": 4.0,          # Sesuai README: Min absolute 24h change 4%
+    "universe_size": 80,                # Sesuai README: Universe size 80
     "momentum_pool": 60,
     "klines": 240,
     "workers_stage1": 8,                # Diturunkan sedikit untuk keamanan rate limit
