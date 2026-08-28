@@ -2,7 +2,6 @@
 
 import argparse
 import json
-import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -11,7 +10,9 @@ import numpy as np
 import pandas as pd
 import requests
 
+
 TFS = ["15m", "1h", "4h"]
+
 
 IGNORED_SYMBOLS = {
     "USDCUSDT",
@@ -25,6 +26,7 @@ IGNORED_SYMBOLS = {
     "PAXGUSDT",
 }
 
+
 CONFIG = {
     "min_quote_volume_24h": 500_000,
     "universe_size": 0,
@@ -35,26 +37,35 @@ CONFIG = {
     "min_score": 6.0,
     "min_candidates": 2,
     "max_results": 5,
+
     "ema_period": 200,
     "volume_ma_period": 20,
     "volume_ratio_min": 1.30,
+
     "macd_fast": 12,
     "macd_slow": 26,
     "macd_signal": 9,
+
     "supertrend_period": 10,
     "supertrend_multiplier": 2.50,
+
     "atr_period": 14,
     "breakout_window": 20,
+
     "momentum_fast_bars": 4,
     "momentum_slow_bars": 16,
+
     "swing_window": 8,
+
     "risk_reward": [1.5, 2.25, 3.0],
 }
+
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
     "Accept": "application/json",
 }
+
 
 BASE_URLS = [
     "https://www.binance.com",
@@ -65,10 +76,16 @@ BASE_URLS = [
     "https://fapi4.binance.com",
 ]
 
+
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
+
 ACTIVE_BASE_URL = None
 
+
+# ============================================================
+# BINANCE API
+# ============================================================
 
 def api(path, params=None, timeout=15):
     global ACTIVE_BASE_URL
@@ -143,6 +160,10 @@ def ticker_24h():
     )
 
 
+# ============================================================
+# UNIVERSE
+# ============================================================
+
 def universe():
     info = exchange_info()
     tickers = ticker_24h()
@@ -156,6 +177,7 @@ def universe():
     rows = []
 
     for item in info.get("symbols", []):
+
         if not isinstance(item, dict):
             continue
 
@@ -185,12 +207,15 @@ def universe():
             quote_volume = float(
                 ticker.get("quoteVolume", 0)
             )
+
             change_24h = float(
                 ticker.get("priceChangePercent", 0)
             )
+
             last_price = float(
                 ticker.get("lastPrice", 0)
             )
+
         except (TypeError, ValueError):
             continue
 
@@ -212,11 +237,16 @@ def universe():
         rows = rows[:CONFIG["universe_size"]]
 
     print(
-        f"[UNIVERSE] {len(rows)} active USDT-M perpetual symbols"
+        f"[UNIVERSE] "
+        f"{len(rows)} active USDT-M perpetual symbols"
     )
 
     return rows
 
+
+# ============================================================
+# KLINES
+# ============================================================
 
 def klines(symbol, interval):
     raw = api(
@@ -268,16 +298,23 @@ def klines(symbol, interval):
         utc=True,
     )
 
-    return df.dropna(
-        subset=[
-            "open",
-            "high",
-            "low",
-            "close",
-            "volume",
-        ]
-    ).reset_index(drop=True)
+    return (
+        df.dropna(
+            subset=[
+                "open",
+                "high",
+                "low",
+                "close",
+                "volume",
+            ]
+        )
+        .reset_index(drop=True)
+    )
 
+
+# ============================================================
+# INDICATORS
+# ============================================================
 
 def add_indicators(df):
     x = df.copy()
@@ -367,32 +404,44 @@ def add_indicators(df):
     )
 
     for i in range(1, len(x)):
+
         if (
-            basic_upper.iloc[i] <
+            basic_upper.iloc[i]
+            <
             final_upper.iloc[i - 1]
             or
-            x["close"].iloc[i - 1] >
+            x["close"].iloc[i - 1]
+            >
             final_upper.iloc[i - 1]
         ):
             final_upper.iloc[i] = basic_upper.iloc[i]
+
         else:
-            final_upper.iloc[i] = final_upper.iloc[i - 1]
+            final_upper.iloc[i] = (
+                final_upper.iloc[i - 1]
+            )
 
         if (
-            basic_lower.iloc[i] >
+            basic_lower.iloc[i]
+            >
             final_lower.iloc[i - 1]
             or
-            x["close"].iloc[i - 1] <
+            x["close"].iloc[i - 1]
+            <
             final_lower.iloc[i - 1]
         ):
             final_lower.iloc[i] = basic_lower.iloc[i]
+
         else:
-            final_lower.iloc[i] = final_lower.iloc[i - 1]
+            final_lower.iloc[i] = (
+                final_lower.iloc[i - 1]
+            )
 
         if (
             direction.iloc[i - 1] == -1
             and
-            x["close"].iloc[i] >
+            x["close"].iloc[i]
+            >
             final_upper.iloc[i - 1]
         ):
             direction.iloc[i] = 1
@@ -400,18 +449,25 @@ def add_indicators(df):
         elif (
             direction.iloc[i - 1] == 1
             and
-            x["close"].iloc[i] <
+            x["close"].iloc[i]
+            <
             final_lower.iloc[i - 1]
         ):
             direction.iloc[i] = -1
 
         else:
-            direction.iloc[i] = direction.iloc[i - 1]
+            direction.iloc[i] = (
+                direction.iloc[i - 1]
+            )
 
         if direction.iloc[i] == 1:
-            supertrend.iloc[i] = final_lower.iloc[i]
+            supertrend.iloc[i] = (
+                final_lower.iloc[i]
+            )
         else:
-            supertrend.iloc[i] = final_upper.iloc[i]
+            supertrend.iloc[i] = (
+                final_upper.iloc[i]
+            )
 
     if len(x):
         supertrend.iloc[0] = final_lower.iloc[0]
@@ -422,13 +478,90 @@ def add_indicators(df):
     return x
 
 
+# ============================================================
+# CHART DATA SERIALIZATION
+# ============================================================
+
+def serialize_chart_data(df):
+    """
+    Converts the analyzed DataFrame into JSON-safe chart data.
+
+    vSch MUST NOT calculate or download market data.
+    Everything needed for visualization is supplied here.
+    """
+
+    required_columns = [
+        "time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "ema200",
+        "macd",
+        "macd_signal",
+        "macd_hist",
+        "atr",
+        "volume_ma",
+        "volume_ratio",
+        "supertrend",
+        "st_dir",
+    ]
+
+    available = [
+        column
+        for column in required_columns
+        if column in df.columns
+    ]
+
+    records = []
+
+    for _, row in df.iterrows():
+
+        item = {}
+
+        for column in available:
+
+            value = row[column]
+
+            if column == "time":
+                if pd.isna(value):
+                    item[column] = None
+                else:
+                    item[column] = (
+                        pd.Timestamp(value)
+                        .isoformat()
+                    )
+                continue
+
+            if pd.isna(value):
+                item[column] = None
+                continue
+
+            if column == "st_dir":
+                item[column] = int(value)
+
+            else:
+                item[column] = float(value)
+
+        records.append(item)
+
+    return records
+
+
+# ============================================================
+# MOMENTUM SCORE
+# ============================================================
+
 def movement_score(df):
+
     if len(df) < 50:
         return -1.0, None
 
     x = add_indicators(df)
 
     last = x.iloc[-1]
+
     close = float(last["close"])
     atr_value = float(last["atr"])
 
@@ -463,15 +596,16 @@ def movement_score(df):
     ) * 100
 
     atr_move = (
-        abs(close - fast_reference) /
+        abs(close - fast_reference)
+        /
         atr_value
     )
 
-    volume_ratio = float(
-        last["volume_ratio"]
-    ) if np.isfinite(
-        last["volume_ratio"]
-    ) else 1.0
+    volume_ratio = (
+        float(last["volume_ratio"])
+        if np.isfinite(last["volume_ratio"])
+        else 1.0
+    )
 
     volume_bonus = min(
         max(volume_ratio, 0.0),
@@ -496,12 +630,15 @@ def movement_score(df):
 
     if close > previous_high:
         breakout_bonus = 2.0
+
     elif close < previous_low:
         breakout_bonus = 2.0
 
     direction = (
         1
-        if float(last["close"]) >= float(last["open"])
+        if float(last["close"])
+        >=
+        float(last["open"])
         else -1
     )
 
@@ -527,7 +664,12 @@ def movement_score(df):
     }
 
 
+# ============================================================
+# TIMEFRAME SCORING
+# ============================================================
+
 def score_tf(df):
+
     x = add_indicators(df)
 
     if len(x) < 210:
@@ -553,18 +695,32 @@ def score_tf(df):
     )
 
     if close > ema:
+
         long_score += 2.0
-        long_reasons.append("above EMA200")
+        long_reasons.append(
+            "above EMA200"
+        )
+
     elif close < ema:
+
         short_score += 2.0
-        short_reasons.append("below EMA200")
+        short_reasons.append(
+            "below EMA200"
+        )
 
     if int(last["st_dir"]) > 0:
+
         long_score += 2.0
-        long_reasons.append("Supertrend bullish")
+        long_reasons.append(
+            "Supertrend bullish"
+        )
+
     else:
+
         short_score += 2.0
-        short_reasons.append("Supertrend bearish")
+        short_reasons.append(
+            "Supertrend bearish"
+        )
 
     macd = float(last["macd"])
     macd_signal = float(last["macd_signal"])
@@ -573,32 +729,46 @@ def score_tf(df):
     hist_previous = float(previous["macd_hist"])
 
     if macd > macd_signal:
+
         long_score += 1.0
-        long_reasons.append("MACD bullish")
+        long_reasons.append(
+            "MACD bullish"
+        )
 
         if hist_now > hist_previous:
+
             long_score += 0.5
-            long_reasons.append("MACD histogram rising")
+            long_reasons.append(
+                "MACD histogram rising"
+            )
 
     elif macd < macd_signal:
+
         short_score += 1.0
-        short_reasons.append("MACD bearish")
+        short_reasons.append(
+            "MACD bearish"
+        )
 
         if hist_now < hist_previous:
+
             short_score += 0.5
-            short_reasons.append("MACD histogram falling")
+            short_reasons.append(
+                "MACD histogram falling"
+            )
 
     if volume_ratio >= CONFIG["volume_ratio_min"]:
 
         candle_open = float(last["open"])
 
         if close > candle_open:
+
             long_score += 1.5
             long_reasons.append(
                 f"volume {volume_ratio:.1f}x"
             )
 
         elif close < candle_open:
+
             short_score += 1.5
             short_reasons.append(
                 f"volume {volume_ratio:.1f}x"
@@ -619,12 +789,18 @@ def score_tf(df):
     )
 
     if close > previous_high:
+
         long_score += 1.5
-        long_reasons.append("20-bar breakout")
+        long_reasons.append(
+            "20-bar breakout"
+        )
 
     elif close < previous_low:
+
         short_score += 1.5
-        short_reasons.append("20-bar breakdown")
+        short_reasons.append(
+            "20-bar breakdown"
+        )
 
     if len(x) >= 7:
 
@@ -649,6 +825,7 @@ def score_tf(df):
             and
             current_low > previous_low_short
         ):
+
             long_score += 1.0
             long_reasons.append(
                 "higher-high / higher-low"
@@ -659,6 +836,7 @@ def score_tf(df):
             and
             current_low < previous_low_short
         ):
+
             short_score += 1.0
             short_reasons.append(
                 "lower-high / lower-low"
@@ -667,18 +845,27 @@ def score_tf(df):
     return {
         "long": round(long_score, 3),
         "short": round(short_score, 3),
+
         "long_reasons": long_reasons,
         "short_reasons": short_reasons,
+
         "close": close,
         "ema200": ema,
         "atr": atr_value,
+
         "volume_ratio": volume_ratio,
+
         "st_dir": int(last["st_dir"]),
+
         "macd": macd,
         "macd_signal": macd_signal,
         "macd_hist": hist_now,
     }
 
+
+# ============================================================
+# ANALYZE SYMBOL
+# ============================================================
 
 def analyze_symbol(
     symbol,
@@ -687,33 +874,61 @@ def analyze_symbol(
     stage1_score,
     stage1_meta,
 ):
+
     data = {}
 
+    # --------------------------------------------------------
+    # 15m
+    # --------------------------------------------------------
+
     try:
+
         scored_15m = score_tf(
             stage1_meta["df"]
         )
 
         if scored_15m is not None:
-            data["15m"] = scored_15m
+
+            data["15m"] = {
+                "score": scored_15m,
+                "df": stage1_meta["df"],
+            }
 
     except Exception as exc:
-        print(f"[MTF] {symbol} 15m: {exc}")
+
+        print(
+            f"[MTF] {symbol} 15m: {exc}"
+        )
+
+    # --------------------------------------------------------
+    # 1h / 4h
+    # --------------------------------------------------------
 
     for tf in ["1h", "4h"]:
+
         try:
+
             candles = klines(
                 symbol,
                 tf,
             )
 
-            scored = score_tf(candles)
+            scored = score_tf(
+                candles
+            )
 
             if scored is not None:
-                data[tf] = scored
+
+                data[tf] = {
+                    "score": scored,
+                    "df": add_indicators(candles),
+                }
 
         except Exception as exc:
-            print(f"[MTF] {symbol} {tf}: {exc}")
+
+            print(
+                f"[MTF] {symbol} {tf}: {exc}"
+            )
 
     if set(data.keys()) != set(TFS):
         return None
@@ -725,12 +940,16 @@ def analyze_symbol(
     }
 
     long_total = sum(
-        weights[tf] * data[tf]["long"]
+        weights[tf]
+        *
+        data[tf]["score"]["long"]
         for tf in TFS
     )
 
     short_total = sum(
-        weights[tf] * data[tf]["short"]
+        weights[tf]
+        *
+        data[tf]["score"]["short"]
         for tf in TFS
     )
 
@@ -754,10 +973,23 @@ def analyze_symbol(
     votes = []
 
     for tf in TFS:
-        if data[tf]["long"] == data[tf]["short"]:
+
+        tf_score = data[tf]["score"]
+
+        if (
+            tf_score["long"]
+            ==
+            tf_score["short"]
+        ):
             votes.append(0)
-        elif data[tf]["long"] > data[tf]["short"]:
+
+        elif (
+            tf_score["long"]
+            >
+            tf_score["short"]
+        ):
             votes.append(1)
+
         else:
             votes.append(-1)
 
@@ -768,8 +1000,9 @@ def analyze_symbol(
 
     four_hour_direction = (
         1
-        if data["4h"]["long"] >
-        data["4h"]["short"]
+        if data["4h"]["score"]["long"]
+        >
+        data["4h"]["score"]["short"]
         else -1
     )
 
@@ -779,7 +1012,11 @@ def analyze_symbol(
     if agreement < 2:
         return None
 
-    df15 = stage1_meta["df"]
+    # --------------------------------------------------------
+    # 15m execution data
+    # --------------------------------------------------------
+
+    df15 = data["15m"]["df"]
 
     current15 = df15.iloc[-1]
 
@@ -823,6 +1060,10 @@ def analyze_symbol(
         atr_value <= 0
     ):
         return None
+
+    # --------------------------------------------------------
+    # Swing
+    # --------------------------------------------------------
 
     swing_n = CONFIG["swing_window"]
 
@@ -880,6 +1121,10 @@ def analyze_symbol(
     if risk_pct > 8.0:
         return None
 
+    # --------------------------------------------------------
+    # TP
+    # --------------------------------------------------------
+
     if side == "LONG":
 
         tp = [
@@ -905,37 +1150,127 @@ def analyze_symbol(
     )
 
     if side == "LONG":
-        reasons = data["15m"]["long_reasons"]
+
+        reasons = (
+            data["15m"]["score"]["long_reasons"]
+        )
+
     else:
-        reasons = data["15m"]["short_reasons"]
+
+        reasons = (
+            data["15m"]["score"]["short_reasons"]
+        )
+
+    # ========================================================
+    # IMPORTANT:
+    # Semua data chart dikirim dari Synaptic.
+    # vSch tidak perlu memanggil Binance.
+    # ========================================================
+
+    chart_data = {}
+
+    for tf in TFS:
+
+        chart_data[tf] = serialize_chart_data(
+            data[tf]["df"]
+        )
+
+    # --------------------------------------------------------
+    # Return candidate
+    # --------------------------------------------------------
 
     return {
+
         "symbol": symbol,
+
         "side": side,
-        "score": round(score, 2),
-        "change24h": round(change_24h, 2),
+
+        "score": round(
+            score,
+            2,
+        ),
+
+        "change24h": round(
+            change_24h,
+            2,
+        ),
+
         "quote_volume24h": round(
             quote_volume_24h,
             2,
         ),
+
         "execution_tf": "15m",
-        "timeframes": data,
+
+        # --------------------------------------------
+        # Analysis
+        # --------------------------------------------
+
+        "timeframes": {
+            tf: data[tf]["score"]
+            for tf in TFS
+        },
+
         "momentum_15m": round(
             move_15,
             3,
         ),
+
         "entry": entry,
+
         "tp": tp,
+
         "sl": sl,
+
         "risk_pct": round(
             risk_pct,
             3,
         ),
+
         "invalidation": invalidation,
+
         "key_points": reasons[:6],
+
         "tf_agreement": agreement,
+
+        # --------------------------------------------
+        # Chart / Visual Layer
+        # --------------------------------------------
+
+        "chart": {
+            "execution_tf": "15m",
+
+            "available_timeframes": TFS,
+
+            "candles": CONFIG["klines"],
+
+            "show_ema200": True,
+
+            "show_supertrend": True,
+
+            "show_volume": True,
+
+            "show_entry": True,
+
+            "show_sl": True,
+
+            "show_tp": True,
+        },
+
+        "chart_levels": {
+            "entry": entry,
+            "sl": sl,
+            "tp": tp,
+        },
+
+        # Semua OHLCV + indikator untuk seluruh timeframe.
+        "chart_data": chart_data,
     }
 
+
+# ============================================================
+# MAIN
+# ============================================================
 
 def main():
 
@@ -950,7 +1285,12 @@ def main():
 
     started = time.time()
 
+    # ========================================================
+    # UNIVERSE
+    # ========================================================
+
     try:
+
         universe_rows = universe()
 
     except Exception as exc:
@@ -971,6 +1311,10 @@ def main():
         )
 
         raise
+
+    # ========================================================
+    # STAGE 1
+    # ========================================================
 
     momentum = []
 
@@ -1016,7 +1360,11 @@ def main():
                     candles
                 )
 
-                if score > 0 and meta is not None:
+                if (
+                    score > 0
+                    and
+                    meta is not None
+                ):
 
                     momentum.append(
                         (
@@ -1044,8 +1392,13 @@ def main():
     ]
 
     print(
-        f"[MOMENTUM] {len(selected)} selected"
+        f"[MOMENTUM] "
+        f"{len(selected)} selected"
     )
+
+    # ========================================================
+    # STAGE 2
+    # ========================================================
 
     results = []
 
@@ -1088,16 +1441,23 @@ def main():
                 if (
                     result
                     and
-                    result["score"] >=
+                    result["score"]
+                    >=
                     CONFIG["min_score"]
                 ):
+
                     results.append(result)
 
             except Exception as exc:
 
                 print(
-                    f"[MTF-SCAN] {symbol}: {exc}"
+                    f"[MTF-SCAN] "
+                    f"{symbol}: {exc}"
                 )
+
+    # ========================================================
+    # SORT
+    # ========================================================
 
     results.sort(
         key=lambda item: item["score"],
@@ -1109,7 +1469,8 @@ def main():
         final_results = []
 
         print(
-            f"[RESULT] {len(results)} valid candidate(s)"
+            f"[RESULT] "
+            f"{len(results)} valid candidate(s)"
         )
 
     else:
@@ -1119,10 +1480,16 @@ def main():
         ]
 
         print(
-            f"[RESULT] {len(final_results)} candidates"
+            f"[RESULT] "
+            f"{len(final_results)} candidates"
         )
 
+    # ========================================================
+    # PAYLOAD
+    # ========================================================
+
     payload = {
+
         "generated_at":
             pd.Timestamp.now(
                 tz="UTC"
@@ -1130,6 +1497,26 @@ def main():
 
         "scanner":
             "Synaptic",
+
+        "architecture": {
+            "market_data":
+                "Synaptic",
+
+            "analysis":
+                "Synaptic",
+
+            "chart_data":
+                "Synaptic",
+
+            "visualizer":
+                "vSch",
+
+            "vSch_api_access":
+                False,
+
+            "vSch_data_source":
+                "synaptic_candidates.json",
+        },
 
         "universe":
             "ALL active USDT-M perpetuals",
@@ -1142,6 +1529,7 @@ def main():
             TFS,
 
         "indicators": {
+
             "EMA":
                 CONFIG["ema_period"],
 
@@ -1160,12 +1548,16 @@ def main():
                     CONFIG["supertrend_period"],
                     CONFIG["supertrend_multiplier"],
                 ],
+
+            "ATR":
+                CONFIG["atr_period"],
         },
 
         "config":
             CONFIG,
 
         "scan_stats": {
+
             "universe":
                 len(universe_rows),
 
@@ -1192,16 +1584,25 @@ def main():
             final_results,
     }
 
+    # ========================================================
+    # WRITE JSON
+    # ========================================================
+
     Path(args.out).write_text(
         json.dumps(
             payload,
             indent=2,
             ensure_ascii=False,
+            allow_nan=False,
         ),
         encoding="utf-8",
     )
 
-    print("=" * 60)
+    # ========================================================
+    # TERMINAL OUTPUT
+    # ========================================================
+
+    print("=" * 72)
 
     for item in final_results:
 
@@ -1217,7 +1618,18 @@ def main():
             f"SL {item['sl']:.8g}"
         )
 
-    print("=" * 60)
+        print(
+            f"  Chart data: "
+            f"15m={len(item['chart_data']['15m'])} "
+            f"1h={len(item['chart_data']['1h'])} "
+            f"4h={len(item['chart_data']['4h'])}"
+        )
+
+    print("=" * 72)
+
+    print(
+        f"Output: {args.out}"
+    )
 
 
 if __name__ == "__main__":
