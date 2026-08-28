@@ -48,11 +48,15 @@ ENTRY = "#1687e8"
 TP = "#14b8a6"
 SL = "#e84b5b"
 
-# Fewer candles for cleaner mobile presentation.
-# These are display counts only.
+# ============================================================
+# VISIBLE CANDLES
+# ============================================================
+#
+# 1H MUST use exactly 33 candles by default.
+#
 VISIBLE_DEFAULTS = {
     "15m": 44,
-    "1h": 44,
+    "1h": 33,
     "4h": 36,
 }
 
@@ -84,6 +88,99 @@ def decimals_from_price(price):
         return 3
 
     return 2
+
+
+# ============================================================
+# TIMEFRAME NORMALIZATION
+# ============================================================
+
+def _normalize_tf(tf):
+    """
+    Normalize timeframe naming so:
+    1H / 1h / 1H -> 1h
+    15M / 15m -> 15m
+    4H / 4h -> 4h
+    """
+
+    value = str(tf).strip().lower()
+
+    aliases = {
+        "1h": "1h",
+        "1hr": "1h",
+        "1hour": "1h",
+
+        "15m": "15m",
+        "15min": "15m",
+        "15minute": "15m",
+
+        "4h": "4h",
+        "4hr": "4h",
+        "4hour": "4h",
+    }
+
+    return aliases.get(value, value)
+
+
+# ============================================================
+# JSON VALUE HELPERS
+# ============================================================
+
+def _first_numeric(data, keys, default=None):
+    """
+    Return the first usable numeric value from candidate JSON.
+    """
+
+    if not isinstance(data, dict):
+        return default
+
+    for key in keys:
+
+        if key not in data:
+            continue
+
+        value = data.get(key)
+
+        if value is None:
+            continue
+
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            continue
+
+    return default
+
+
+def _get_mark_price(setup, fallback):
+    """
+    Prefer an explicit mark/current price from Synaptic JSON.
+
+    Supported keys:
+    - mark_price
+    - markPrice
+    - current_price
+    - currentPrice
+    - price
+
+    Falls back to the latest candle close.
+    """
+
+    value = _first_numeric(
+        setup,
+        [
+            "mark_price",
+            "markPrice",
+            "current_price",
+            "currentPrice",
+            "price",
+        ],
+        None,
+    )
+
+    if value is None:
+        return float(fallback)
+
+    return value
 
 
 # ============================================================
@@ -155,12 +252,15 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
             final_lower.iloc[i] = final_lower.iloc[i - 1]
 
         if direction.iloc[i - 1] == 1:
+
             direction.iloc[i] = (
                 -1
                 if close.iloc[i] < final_lower.iloc[i]
                 else 1
             )
+
         else:
+
             direction.iloc[i] = (
                 1
                 if close.iloc[i] > final_upper.iloc[i]
@@ -377,11 +477,30 @@ def _resolve_visible_count(
     cli_value
 ):
 
+    normalized_tf = _normalize_tf(tf)
+
+    # CLI override remains available.
     if cli_value is not None:
 
         return max(
             20,
             int(cli_value)
+        )
+
+    # --------------------------------------------------------
+    # IMPORTANT:
+    # 1H is hard-set to 33 candles.
+    # --------------------------------------------------------
+
+    if normalized_tf == "1h":
+        return min(
+            33,
+            len(
+                candidate
+                .get("chart_data", {})
+                .get(tf, [])
+            )
+            or 33
         )
 
     chart = candidate.get(
@@ -404,7 +523,7 @@ def _resolve_visible_count(
             visible.get(
                 tf,
                 VISIBLE_DEFAULTS.get(
-                    tf,
+                    normalized_tf,
                     40
                 )
             )
@@ -449,8 +568,6 @@ def _place_level_labels(
         1e-12
     )
 
-    # Smaller than previous version so price levels can
-    # stay closer together.
     min_gap = span * 0.052
 
     edge = span * 0.018
@@ -560,7 +677,6 @@ def _find_swing_points(df):
 
     n = len(df)
 
-    # Larger swing window = fewer labels.
     swing = 3
 
     raw_highs = []
@@ -601,14 +717,6 @@ def _select_important_structure(
     raw_lows,
     df
 ):
-    """
-    Keep only the most useful structural points.
-
-    Priority:
-    - latest swing
-    - major displacement
-    - points near current price
-    """
 
     max_points = 4
 
@@ -745,17 +853,11 @@ def _draw_target_arrow(
         df["close"].iloc[-1]
     )
 
-    # Use TP2 when available because it gives
-    # a clearer directional projection.
     target = (
         tps[1]
         if len(tps) >= 2
         else tps[0]
     )
-
-    # --------------------------------------------------------
-    # Direction
-    # --------------------------------------------------------
 
     if side == "LONG":
 
@@ -764,7 +866,6 @@ def _draw_target_arrow(
 
         start_y = current_price
 
-        # Keep arrow visually away from the level labels.
         target_y = (
             current_price
             + (target - current_price) * 0.72
@@ -785,10 +886,6 @@ def _draw_target_arrow(
         )
 
         rad = -0.22
-
-    # --------------------------------------------------------
-    # Curved arrow
-    # --------------------------------------------------------
 
     arrow = FancyArrowPatch(
         (start_x, start_y),
@@ -849,6 +946,8 @@ def draw_visual_chart(
         )
     )
 
+    normalized_tf = _normalize_tf(tf)
+
     change_24h = float(
         setup.get(
             "change24h",
@@ -862,6 +961,30 @@ def draw_visual_chart(
             0.0
         )
     )
+
+    # --------------------------------------------------------
+    # Base volume / token volume
+    # --------------------------------------------------------
+
+    base_vol = _first_numeric(
+        setup,
+        [
+            "volume24h",
+            "base_volume24h",
+            "baseVolume24h",
+            "volume_24h",
+        ],
+        None,
+    )
+
+    if base_vol is None:
+        base_vol = float(
+            df["volume"].sum()
+        )
+
+    # --------------------------------------------------------
+    # Setup levels
+    # --------------------------------------------------------
 
     entry = float(
         setup["entry"]
@@ -935,7 +1058,7 @@ def draw_visual_chart(
         left=0.065,
         right=0.875,
 
-        top=0.855,
+        top=0.805,
         bottom=0.105,
     )
 
@@ -986,8 +1109,6 @@ def draw_visual_chart(
     # CANDLE WIDTH
     # ========================================================
 
-    # Slightly slimmer than old version so movement
-    # remains visually separated on a phone.
     candle_width = 0.68
 
     # ========================================================
@@ -1071,9 +1192,6 @@ def draw_visual_chart(
     # EMA 200
     # ========================================================
 
-    # IMPORTANT:
-    # This uses the exact EMA 200 serialized by Synaptic
-    # whenever it exists in the JSON.
     ax.plot(
         x,
         df["EMA200"],
@@ -1098,7 +1216,6 @@ def draw_visual_chart(
         df["ST_DIR"] < 0
     )
 
-    # Line
     ax.plot(
         x,
         st_up,
@@ -1132,15 +1249,6 @@ def draw_visual_chart(
     bear = (
         df["ST_DIR"] < 0
     )
-
-    # Bull:
-    # Supertrend -> candle LOW
-    #
-    # Bear:
-    # candle HIGH -> Supertrend
-    #
-    # This makes the Supertrend zone visibly occupy
-    # the candle area instead of being just a thin line.
 
     ax.fill_between(
         x,
@@ -1246,9 +1354,6 @@ def draw_visual_chart(
     # RIGHT-SIDE PRICE LABELS
     # ========================================================
 
-    # Extra horizontal room makes the last candle sit
-    # slightly toward the center rather than touching
-    # the label lane.
     label_x = (
         last_x
         + max(
@@ -1391,7 +1496,6 @@ def draw_visual_chart(
                 0.65
             )
 
-    # Hide unnecessary left price spine
     ax.spines["left"].set_visible(
         False
     )
@@ -1497,42 +1601,77 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # HEADER
+    # HEADER — BINANCE-LIKE
     # ========================================================
 
-    current_price = float(
+    # --------------------------------------------------------
+    # Mark price / scan price
+    # --------------------------------------------------------
+
+    candle_close = float(
         df["close"].iloc[-1]
     )
 
-    # VISUAL intentionally removed.
-    header = (
-        f"{symbol}"
-        f"  •  SETUP {tf.upper()}"
-        f"  •  BIAS {side}"
-    )
-
-    subheader = (
-        f"PRICE "
-        f"{format_price(current_price, dec)}"
-        f"    24H "
-        f"{change_24h:+.2f}%"
-        f"    VOL "
-        f"${q_vol:,.0f}"
+    current_price = _get_mark_price(
+        setup,
+        candle_close
     )
 
     # --------------------------------------------------------
-    # Main header
+    # 24H values
     # --------------------------------------------------------
 
+    high_24h = _first_numeric(
+        setup,
+        [
+            "high24h",
+            "high_24h",
+            "24h_high",
+            "priceChangeHigh",
+        ],
+        None,
+    )
+
+    low_24h = _first_numeric(
+        setup,
+        [
+            "low24h",
+            "low_24h",
+            "24h_low",
+            "priceChangeLow",
+        ],
+        None,
+    )
+
+    # If Synaptic JSON does not serialize 24H high/low,
+    # use the available candle range as a safe visual fallback.
+    if high_24h is None:
+        high_24h = float(
+            df["high"].max()
+        )
+
+    if low_24h is None:
+        low_24h = float(
+            df["low"].min()
+        )
+
+    # ========================================================
+    # HEADER GEOMETRY
+    # ========================================================
+
+    header_left = 0.065
+    header_right = 0.875
+
+    # Large symbol line
     fig.text(
-        0.065,
+        header_left,
         0.945,
 
-        header,
+        f"${symbol}/USDT",
 
         color=TEXT,
 
-        fontsize=14.5,
+        fontsize=22.0,
 
         fontweight="bold",
 
@@ -1541,32 +1680,214 @@ def draw_visual_chart(
     )
 
     # --------------------------------------------------------
-    # Header secondary data
+    # Small current price + 24H change
+    # --------------------------------------------------------
+
+    price_change_color = (
+        ST_UP
+        if change_24h >= 0
+        else ST_DOWN
+    )
+
+    price_y = 0.895
+
+    fig.text(
+        header_left,
+        price_y,
+
+        f"${format_price(current_price, dec)}",
+
+        color=TEXT,
+
+        fontsize=11.5,
+
+        fontweight="bold",
+
+        ha="left",
+        va="center",
+    )
+
+    # 24H percentage placed directly after price
+    fig.text(
+        header_left + 0.225,
+        price_y,
+
+        f"{change_24h:+.2f}%",
+
+        color=price_change_color,
+
+        fontsize=10.5,
+
+        fontweight="bold",
+
+        ha="left",
+        va="center",
+    )
+
+    # --------------------------------------------------------
+    # Yellow Binance-style setup line
     # --------------------------------------------------------
 
     fig.text(
-        0.065,
-        0.910,
+        header_left,
+        0.850,
 
-        subheader,
+        f"SETUP {normalized_tf.upper()}  —  BIAS {side}",
+
+        color="#f0b900",
+
+        fontsize=10.2,
+
+        fontweight="bold",
+
+        ha="left",
+        va="center",
+    )
+
+    # ========================================================
+    # RIGHT HEADER — 24H DATA
+    # ========================================================
+
+    right_x_label = 0.660
+    right_x_value = 0.875
+
+    # Row 1 — 24h High
+    fig.text(
+        right_x_label,
+        0.940,
+
+        "24h High",
 
         color=MUTED,
 
-        fontsize=8.0,
-
-        fontweight="bold",
+        fontsize=8.4,
 
         ha="left",
         va="center",
     )
 
-    # --------------------------------------------------------
-    # Score
-    # --------------------------------------------------------
+    fig.text(
+        right_x_value,
+        0.940,
+
+        format_price(
+            high_24h,
+            dec
+        ),
+
+        color=TEXT,
+
+        fontsize=8.8,
+
+        fontweight="bold",
+
+        ha="right",
+        va="center",
+    )
+
+    # Row 2 — 24h Low
+    fig.text(
+        right_x_label,
+        0.900,
+
+        "24h Low",
+
+        color=MUTED,
+
+        fontsize=8.4,
+
+        ha="left",
+        va="center",
+    )
 
     fig.text(
-        0.875,
-        0.945,
+        right_x_value,
+        0.900,
+
+        format_price(
+            low_24h,
+            dec
+        ),
+
+        color=TEXT,
+
+        fontsize=8.8,
+
+        fontweight="bold",
+
+        ha="right",
+        va="center",
+    )
+
+    # Row 3 — Base volume
+    fig.text(
+        right_x_label,
+        0.860,
+
+        f"24h Vol({symbol})",
+
+        color=MUTED,
+
+        fontsize=8.4,
+
+        ha="left",
+        va="center",
+    )
+
+    fig.text(
+        right_x_value,
+        0.860,
+
+        f"{base_vol:,.2f}",
+
+        color=TEXT,
+
+        fontsize=8.8,
+
+        fontweight="bold",
+
+        ha="right",
+        va="center",
+    )
+
+    # Row 4 — Quote volume
+    fig.text(
+        right_x_label,
+        0.820,
+
+        "24h Vol(USDT)",
+
+        color=MUTED,
+
+        fontsize=8.4,
+
+        ha="left",
+        va="center",
+    )
+
+    fig.text(
+        right_x_value,
+        0.820,
+
+        f"{q_vol:,.2f}",
+
+        color=TEXT,
+
+        fontsize=8.8,
+
+        fontweight="bold",
+
+        ha="right",
+        va="center",
+    )
+
+    # ========================================================
+    # SCORE / MTF
+    # ========================================================
+
+    fig.text(
+        header_right,
+        0.785,
 
         (
             f"SCORE "
@@ -1590,9 +1911,8 @@ def draw_visual_chart(
     # ========================================================
 
     footer = (
-        "Chart sesuai chart Binance"
-        "  •  dibuat dengan Matplotlib"
-        "  •  setup level dari Synapyic JSON"
+        "Setup levels from Synaptic JSON. "
+        "Output optimized for 1:1 mobile viewing."
     )
 
     fig.text(
@@ -1665,7 +1985,8 @@ def main():
 
         help=(
             "Override visible candle count; "
-            "otherwise use Synaptic chart settings"
+            "otherwise use Synaptic chart settings. "
+            "1H defaults to exactly 33 candles."
         )
     )
 
@@ -1734,6 +2055,8 @@ def main():
             )
         )
 
+        normalized_tf = _normalize_tf(tf)
+
         side = str(
             candidate.get(
                 "side",
@@ -1784,12 +2107,27 @@ def main():
             )
 
             # ------------------------------------------------
+            # Force 1H to 33 candles unless CLI overrides it.
+            # ------------------------------------------------
+
+            if (
+                args.chart_candles is None
+                and _normalize_tf(actual_tf) == "1h"
+            ):
+
+                visible = min(
+                    33,
+                    len(df)
+                )
+
+            # ------------------------------------------------
             # Output
             # ------------------------------------------------
 
             output_file = (
                 output_dir
-                / (
+                /
+                (
                     f"{symbol}_"
                     f"{side}_"
                     f"{actual_tf}_"
