@@ -304,31 +304,19 @@ def _draw_structure(ax, df, y_span):
 # LEVEL LABEL PLACEMENT
 # ============================================================
 def _place_level_labels(ax, levels, label_x):
-    ylim = ax.get_ylim()
-    view_span = ylim[1] - ylim[0]
-    min_gap = view_span * 0.035
+    """
+    Place every ENTRY / TP / SL label at its exact price coordinate.
 
-    ordered = sorted(levels, key=lambda item: item["level"])
-    text_ys = [item["level"] for item in ordered]
-
-    for i in range(1, len(text_ys)):
-        if text_ys[i] - text_ys[i - 1] < min_gap:
-            text_ys[i] = text_ys[i - 1] + min_gap
-
-    for i in range(len(text_ys)):
-        text_ys[i] = min(
-            max(text_ys[i], ylim[0] + view_span * 0.02),
-            ylim[1] - view_span * 0.02,
-        )
-
-    for i in range(len(text_ys) - 2, -1, -1):
-        if text_ys[i + 1] - text_ys[i] < min_gap:
-            text_ys[i] = text_ys[i + 1] - min_gap
-
-    for item, ty in zip(ordered, text_ys):
+    No forced vertical spacing is applied. The real market price
+    determines the Y position of the label, not the label layout.
+    Therefore each label stays exactly aligned with its own
+    horizontal price line/grid. If two levels are genuinely close,
+    their labels are allowed to appear close or overlap naturally.
+    """
+    for item in levels:
         ax.text(
             label_x,
-            ty,
+            item["level"],
             f" {item['text']} ",
             color="#ffffff",
             bbox=dict(
