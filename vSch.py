@@ -4,7 +4,8 @@ vSch.py (Final with JSON Support & Custom Chart Settings)
 - EMA 200 & Supertrend (10, 2.5)
 - No Supply/Demand box
 - Header: Black color, flush with chart top, aligned to last candle
-- Automatic JSON file handling from result/synaptic_candidates.json
+- Reads the JSON produced directly by Synaptic.py (synaptic_candidates.json)
+- Writes charts to charts/ by default
 """
 
 import json
@@ -136,8 +137,9 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     tps = setup.get('tp', [])
     tp1 = tps[0] if len(tps) > 0 else setup.get('tp1', entry)
     tp2 = tps[1] if len(tps) > 1 else setup.get('tp2', tp1)
+    tp3 = tps[2] if len(tps) > 2 else setup.get('tp3', tp2)
 
-    all_levels = [float(df['low'].min()), float(df['high'].max()), entry, sl, tp1, tp2]
+    all_levels = [float(df['low'].min()), float(df['high'].max()), entry, sl, tp1, tp2, tp3]
     y_min, y_max = min(all_levels), max(all_levels)
     y_span = max(y_max - y_min, abs(y_min) * 0.01 if y_min != 0 else 0.01)
     y_padding = y_span * 0.12
@@ -185,6 +187,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         (entry, '#1565c0', f"ENTRY  {format_price(entry, setup.get('decimals', 4))}"),
         (tp1, '#00897b', f"TP1  {format_price(tp1, setup.get('decimals', 4))}"),
         (tp2, '#00695c', f"TP2  {format_price(tp2, setup.get('decimals', 4))}"),
+        (tp3, '#004d40', f"TP3  {format_price(tp3, setup.get('decimals', 4))}"),
         (sl, '#c62828', f"SL  {format_price(sl, setup.get('decimals', 4))}"),
     ]
 
@@ -271,93 +274,202 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     plt.close(fig)
 
 
+def _load_candidates(input_path):
+    """Load the exact JSON contract emitted by Synaptic.py."""
+    try:
+        data = json.loads(input_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"Invalid JSON in {input_path}: {exc}") from exc
+
+    if not isinstance(data, dict):
+        raise RuntimeError(f"{input_path} must contain a JSON object.")
+
+    candidates = data.get("candidates", [])
+    if not isinstance(candidates, list):
+        raise RuntimeError("JSON field 'candidates' must be a list.")
+
+    return data, candidates
+
+
+def _build_dataframe(candidate, execution_tf):
+    """Read candles from Synaptic's chart_data without fetching Binance again."""
+    chart_data = candidate.get("chart_data")
+    if not isinstance(chart_data, dict):
+        raise ValueError("missing 'chart_data'")
+
+    candles = chart_data.get(execution_tf)
+
+    # Be tolerant if execution_tf uses a different case.
+    if not candles:
+        for key, value in chart_data.items():
+            if str(key).lower() == str(execution_tf).lower():
+                candles = value
+                execution_tf = key
+                break
+
+    if not candles:
+        raise ValueError(f"no candles for timeframe '{execution_tf}'")
+
+    df = pd.DataFrame(candles)
+
+    # Synaptic serializes the timestamp as "time". Accept timestamp too,
+    # but never require a second Binance/API request.
+    time_col = "time" if "time" in df.columns else "timestamp"
+    required = ["open", "high", "low", "close", "volume"]
+    missing = [col for col in required if col not in df.columns]
+    if missing:
+        raise ValueError(f"missing candle fields: {', '.join(missing)}")
+
+    for col in required:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    df["timestamp"] = (
+        pd.to_datetime(df[time_col], utc=True, errors="coerce")
+        if time_col in df.columns
+        else pd.NaT
+    )
+
+    df = df.dropna(subset=required).reset_index(drop=True)
+    if len(df) < 2:
+        raise ValueError("not enough valid candles")
+
+    # Synaptic already calculated indicators and stored them in JSON.
+    # vSch will use these values when available; otherwise it calculates
+    # them locally from the same candles.
+    for src, dst in [
+        ("ema200", "EMA200"),
+        ("supertrend", "ST"),
+        ("st_dir", "ST_DIR"),
+        ("volume_ma", "VOL_MA"),
+    ]:
+        if src in df.columns:
+            df[dst] = pd.to_numeric(df[src], errors="coerce")
+
+    if "EMA200" not in df:
+        df["EMA200"] = df["close"].ewm(span=200, adjust=False).mean()
+
+    if "ST" not in df or "ST_DIR" not in df:
+        st_vals, st_dir = calculate_supertrend(
+            df, period=10, multiplier=2.5
+        )
+        df["ST"] = st_vals
+        df["ST_DIR"] = st_dir
+
+    if "VOL_MA" not in df:
+        df["VOL_MA"] = df["volume"].rolling(20, min_periods=1).mean()
+
+    return df, execution_tf
+
+
+def _decimals_from_price(price):
+    price = abs(float(price))
+    if price < 0.0001:
+        return 8
+    if price < 0.001:
+        return 7
+    if price < 0.01:
+        return 6
+    if price < 0.1:
+        return 5
+    if price < 1:
+        return 5
+    if price < 10:
+        return 4
+    if price < 100:
+        return 3
+    return 2
+
+
 def main():
-    parser = argparse.ArgumentParser(description="vSch Visualizer")
-    parser.add_argument("--input", default="result/synaptic_candidates.json", help="Path to candidates json")
+    parser = argparse.ArgumentParser(description="vSch - Synaptic JSON chart renderer")
+    parser.add_argument(
+        "--input",
+        default="synaptic_candidates.json",
+        help="JSON produced by Synaptic.py",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="charts",
+        help="Directory for generated PNG charts",
+    )
+    parser.add_argument(
+        "--symbol",
+        default=None,
+        help="Render only this symbol",
+    )
+    parser.add_argument(
+        "--chart-candles",
+        type=int,
+        default=25,
+        help="Number of candles visible in the chart",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input)
-    
-    # Otomatis pastikan folder result/ ada jika belum ada
-    input_path.parent.mkdir(parents=True, exist_ok=True)
-
     if not input_path.exists():
-        print(f"Input file {input_path} not found. Membuat contoh template JSON...")
-        sample_data = {
-            "candidates": [
-                {
-                    "symbol": "BTCUSDT",
-                    "side": "LONG",
-                    "execution_tf": "15m",
-                    "change24h": 2.5,
-                    "quote_volume24h": 1200000000,
-                    "entry": 65000.0,
-                    "sl": 64000.0,
-                    "tp": [67000.0, 69000.0],
-                    "chart_data": {
-                        "15m": [
-                            {"time": "2026-08-29 00:00:00", "open": 64500, "high": 65200, "low": 64400, "close": 65000, "volume": 100}
-                        ]
-                    }
-                }
-            ]
-        }
-        input_path.write_text(json.dumps(sample_data, indent=4), encoding="utf-8")
+        raise FileNotFoundError(
+            f"Synaptic JSON not found: {input_path}. "
+            "Run Synaptic.py first."
+        )
 
-    data = json.loads(input_path.read_text(encoding="utf-8"))
-    candidates = data.get("candidates", [])
+    _, candidates = _load_candidates(input_path)
 
     if not candidates:
-        print("No candidates found in JSON.")
+        print("No candidates found in Synaptic JSON. Nothing to render.")
         return
 
-    charts_dir = Path("result/charts")
-    charts_dir.mkdir(parents=True, exist_ok=True)
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    for c in candidates:
-        symbol = c['symbol']
-        side = c.get('side', 'LONG')
-        exec_tf = c.get('execution_tf', '15m')
-        print(f"Rendering chart for {symbol} ({side}) on timeframe {exec_tf}...")
-
-        chart_data = c.get('chart_data', {})
-        candles_raw = chart_data.get(exec_tf, [])
-
-        if not candles_raw:
-            for fallback_tf in ['15m', '1h', '4h']:
-                if fallback_tf in chart_data:
-                    candles_raw = chart_data[fallback_tf]
-                    exec_tf = fallback_tf
-                    c['execution_tf'] = exec_tf
-                    break
-
-        if not candles_raw:
-            print(f"No candle history found in JSON for {symbol}")
+    rendered = 0
+    for candidate in candidates:
+        symbol = str(candidate.get("symbol", "")).upper()
+        if args.symbol and symbol != args.symbol.upper():
             continue
 
-        df = pd.DataFrame(candles_raw)
-        for col in ['open', 'high', 'low', 'close', 'volume']:
-            if col in df.columns:
-                df[col] = df[col].astype(float)
-        
-        if 'time' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['time'])
-        else:
-            df['timestamp'] = pd.to_datetime('now')
+        side = str(candidate.get("side", "LONG")).upper()
+        execution_tf = str(candidate.get("execution_tf", "15m"))
 
-        price_val = df['close'].iloc[-1]
-        if price_val < 1:
-            decimals = 5
-        elif price_val < 10:
-            decimals = 4
-        elif price_val < 100:
-            decimals = 3
-        else:
-            decimals = 2
-        c['decimals'] = decimals
+        try:
+            # The price levels MUST come from Synaptic's JSON.
+            for field in ("entry", "sl", "tp"):
+                if field not in candidate:
+                    raise ValueError(f"missing top-level field '{field}'")
 
-        output_file = charts_dir / f"{symbol}_{side}_{exec_tf}_chart.png"
-        draw_visual_chart(df, symbol, c, str(output_file))
+            entry = float(candidate["entry"])
+            sl = float(candidate["sl"])
+            tps = candidate.get("tp", [])
+            if not isinstance(tps, list):
+                raise ValueError("'tp' must be a list")
+            if len(tps) < 1:
+                raise ValueError("'tp' contains no targets")
+
+            candidate["decimals"] = int(
+                candidate.get("decimals", _decimals_from_price(entry))
+            )
+
+            df, actual_tf = _build_dataframe(candidate, execution_tf)
+            candidate["execution_tf"] = str(actual_tf)
+
+            output_file = output_dir / f"{symbol}_{side}_{actual_tf}_chart.png"
+
+            print(
+                f"Rendering {symbol} {side} {actual_tf} "
+                f"from Synaptic JSON -> {output_file}"
+            )
+            draw_visual_chart(
+                df,
+                symbol,
+                candidate,
+                str(output_file),
+                config={"chart_candles": max(5, args.chart_candles)},
+            )
+            rendered += 1
+
+        except Exception as exc:
+            print(f"Skipping {symbol or 'UNKNOWN'}: {exc}")
+
+    print(f"Chart generation completed: {rendered} chart(s).")
 
 
 if __name__ == "__main__":
