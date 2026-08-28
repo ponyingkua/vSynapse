@@ -7,6 +7,7 @@ Rules:
 - The chart timeframe is exactly candidate['execution_tf'].
 - Candle/indicator data comes from candidate['chart_data'][execution_tf].
 - Setup levels (Entry/SL/TP) come from Synaptic JSON.
+- Output is optimized for 1:1 mobile viewing.
 """
 
 import argparse
@@ -18,58 +19,46 @@ import pandas as pd
 
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, FancyArrowPatch
+from matplotlib.path import Path as MplPath
 
 
 # ============================================================
-# WHITE UI PALETTE
+# MOBILE / BINANCE-LIKE LIGHT UI
 # ============================================================
 
 BG = "#ffffff"
 PANEL = "#ffffff"
 
-GRID = "#dfe3e8"
-GRID_MINOR = "#edf0f3"
-
+GRID = "#d9dde3"
 TEXT = "#111111"
-MUTED = "#68717c"
+MUTED = "#626b75"
 
-UP = "#16b89a"
-DOWN = "#ef5965"
+UP = "#16b89f"
+DOWN = "#e84b5b"
 
-EMA = "#f2c900"
+EMA = "#f0c400"
 
-ST_UP = "#21b866"
-ST_DOWN = "#ef5965"
+ST_UP = "#22b965"
+ST_DOWN = "#ed5363"
 
-# Soft / bright colors for white UI
-ENTRY = "#93c5fd"
-TP = "#7dd3c7"
-SL = "#fca5a5"
+ENTRY = "#1687e8"
+TP = "#14b8a6"
+SL = "#e84b5b"
 
-# Volume
-VOL_MA = "#c47b32"
-
-
-# ============================================================
-# IDEAL VISIBLE CANDLE COUNTS
-#
-# Fewer candles = clearer price movement.
-# Enough history remains because Synaptic already stores
-# the indicator calculation history separately.
-# ============================================================
-
+# Fewer candles for cleaner mobile presentation.
+# These are display counts only.
 VISIBLE_DEFAULTS = {
-    "15m": 48,
-    "1h": 48,
-    "4h": 42,
+    "15m": 44,
+    "1h": 44,
+    "4h": 36,
 }
 
 
 # ============================================================
-# PRICE FORMAT
+# PRICE FORMATTING
 # ============================================================
 
 def format_price(value, decimals):
@@ -104,7 +93,8 @@ def decimals_from_price(price):
 def calculate_supertrend(df, period=10, multiplier=2.5):
     """
     Fallback only.
-    Normally Synaptic's stored Supertrend is used.
+
+    Normally Synaptic's serialized Supertrend is used.
     """
 
     high = df["high"]
@@ -165,15 +155,12 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
             final_lower.iloc[i] = final_lower.iloc[i - 1]
 
         if direction.iloc[i - 1] == 1:
-
             direction.iloc[i] = (
                 -1
                 if close.iloc[i] < final_lower.iloc[i]
                 else 1
             )
-
         else:
-
             direction.iloc[i] = (
                 1
                 if close.iloc[i] > final_upper.iloc[i]
@@ -193,7 +180,7 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
 
 
 # ============================================================
-# LOAD CANDIDATES
+# JSON
 # ============================================================
 
 def _load_candidates(path):
@@ -207,10 +194,7 @@ def _load_candidates(path):
             "JSON root must be an object"
         )
 
-    candidates = data.get(
-        "candidates",
-        []
-    )
+    candidates = data.get("candidates", [])
 
     if not isinstance(candidates, list):
         raise ValueError(
@@ -221,14 +205,12 @@ def _load_candidates(path):
 
 
 # ============================================================
-# BUILD DATAFRAME
+# DATAFRAME
 # ============================================================
 
 def _build_dataframe(candidate, tf):
 
-    chart_data = candidate.get(
-        "chart_data"
-    )
+    chart_data = candidate.get("chart_data")
 
     if not isinstance(chart_data, dict):
         raise ValueError(
@@ -245,7 +227,6 @@ def _build_dataframe(candidate, tf):
 
                 candles = value
                 tf = key
-
                 break
 
     if not candles:
@@ -275,6 +256,7 @@ def _build_dataframe(candidate, tf):
         )
 
     for c in required:
+
         df[c] = pd.to_numeric(
             df[c],
             errors="coerce"
@@ -298,9 +280,11 @@ def _build_dataframe(candidate, tf):
 
         df["timestamp"] = pd.NaT
 
-    df = df.dropna(
-        subset=required
-    ).reset_index(drop=True)
+    df = (
+        df
+        .dropna(subset=required)
+        .reset_index(drop=True)
+    )
 
     if len(df) < 10:
         raise ValueError(
@@ -309,7 +293,6 @@ def _build_dataframe(candidate, tf):
 
     # --------------------------------------------------------
     # EMA 200
-    # Prefer exact Synaptic JSON value.
     # --------------------------------------------------------
 
     if "ema200" in df:
@@ -351,13 +334,12 @@ def _build_dataframe(candidate, tf):
 
     else:
 
-        (
-            df["ST"],
-            df["ST_DIR"]
-        ) = calculate_supertrend(
-            df,
-            10,
-            2.5
+        df["ST"], df["ST_DIR"] = (
+            calculate_supertrend(
+                df,
+                10,
+                2.5
+            )
         )
 
     # --------------------------------------------------------
@@ -386,7 +368,7 @@ def _build_dataframe(candidate, tf):
 
 
 # ============================================================
-# RESOLVE CANDLE COUNT
+# VISIBLE CANDLES
 # ============================================================
 
 def _resolve_visible_count(
@@ -396,6 +378,7 @@ def _resolve_visible_count(
 ):
 
     if cli_value is not None:
+
         return max(
             20,
             int(cli_value)
@@ -422,7 +405,7 @@ def _resolve_visible_count(
                 tf,
                 VISIBLE_DEFAULTS.get(
                     tf,
-                    48
+                    40
                 )
             )
         )
@@ -454,7 +437,11 @@ def _place_level_labels(
     y_max
 ):
     """
-    Place Entry / TP / SL labels in a clean right-side lane.
+    Place level labels in a clean right-side lane.
+
+    The actual horizontal price lines remain at their true
+    prices. Only the visual label is moved vertically when
+    several levels are too close together.
     """
 
     span = max(
@@ -462,10 +449,11 @@ def _place_level_labels(
         1e-12
     )
 
-    # More compact than previous version,
-    # but still prevents labels from touching.
-    min_gap = span * 0.060
-    edge = span * 0.025
+    # Smaller than previous version so price levels can
+    # stay closer together.
+    min_gap = span * 0.052
+
+    edge = span * 0.018
 
     ordered = sorted(
         levels,
@@ -481,10 +469,7 @@ def _place_level_labels(
     # Forward spacing
     # --------------------------------------------------------
 
-    for i in range(
-        1,
-        len(positions)
-    ):
+    for i in range(1, len(positions)):
 
         if (
             positions[i]
@@ -498,7 +483,7 @@ def _place_level_labels(
             )
 
     # --------------------------------------------------------
-    # Keep labels inside visible price area
+    # Keep inside plot
     # --------------------------------------------------------
 
     upper = y_max - edge
@@ -530,7 +515,7 @@ def _place_level_labels(
         ]
 
     # --------------------------------------------------------
-    # Render
+    # Draw
     # --------------------------------------------------------
 
     for item, y in zip(
@@ -543,18 +528,22 @@ def _place_level_labels(
             y,
             f" {item['text']} ",
             transform=ax.transData,
+
             ha="left",
             va="center",
-            color="#111111",
-            fontsize=8.0,
+
+            color=TEXT,
+            fontsize=7.8,
             fontweight="bold",
+
             bbox=dict(
                 boxstyle="round,pad=0.34",
                 facecolor=item["color"],
-                edgecolor="#ffffff",
-                linewidth=0.55,
-                alpha=0.90,
+                edgecolor=item["color"],
+                linewidth=1.0,
+                alpha=0.18,
             ),
+
             clip_on=False,
             zorder=30,
         )
@@ -564,19 +553,14 @@ def _place_level_labels(
 # MARKET STRUCTURE
 # ============================================================
 
-def _find_significant_structure(df):
-    """
-    Select only important HH / LH / HL / LL points.
-
-    The goal is to avoid filling the chart with labels.
-    """
+def _find_swing_points(df):
 
     highs = df["high"].to_numpy()
     lows = df["low"].to_numpy()
 
     n = len(df)
 
-    # Wider swing detection than before.
+    # Larger swing window = fewer labels.
     swing = 3
 
     raw_highs = []
@@ -587,185 +571,254 @@ def _find_significant_structure(df):
         n - swing
     ):
 
-        left_highs = highs[
-            i - swing:i
+        local_high = highs[
+            i - swing:
+            i + swing + 1
         ]
 
-        right_highs = highs[
-            i + 1:i + swing + 1
+        local_low = lows[
+            i - swing:
+            i + swing + 1
         ]
 
-        left_lows = lows[
-            i - swing:i
-        ]
+        if highs[i] >= local_high.max():
 
-        right_lows = lows[
-            i + 1:i + swing + 1
-        ]
-
-        if (
-            highs[i] >= max(
-                highs[i - swing:i + swing + 1]
-            )
-        ):
             raw_highs.append(
                 (i, highs[i])
             )
 
-        if (
-            lows[i] <= min(
-                lows[i - swing:i + swing + 1]
-            )
-        ):
+        if lows[i] <= local_low.min():
+
             raw_lows.append(
                 (i, lows[i])
             )
 
-    # --------------------------------------------------------
-    # Remove points that are too close together.
-    # --------------------------------------------------------
-
-    def reduce_points(points, min_distance=5):
-
-        if not points:
-            return []
-
-        selected = []
-
-        for point in points:
-
-            if not selected:
-
-                selected.append(point)
-                continue
-
-            previous_i = selected[-1][0]
-
-            if (
-                point[0]
-                - previous_i
-                >= min_distance
-            ):
-
-                selected.append(point)
-
-            else:
-
-                # Keep the stronger extreme.
-                if (
-                    abs(point[1])
-                    > abs(selected[-1][1])
-                ):
-
-                    selected[-1] = point
-
-        return selected
-
-    raw_highs = reduce_points(
-        raw_highs,
-        min_distance=5
-    )
-
-    raw_lows = reduce_points(
-        raw_lows,
-        min_distance=5
-    )
-
-    # --------------------------------------------------------
-    # Keep only recent important structures.
-    # Maximum two highs and two lows.
-    # --------------------------------------------------------
-
-    highs_selected = raw_highs[-2:]
-    lows_selected = raw_lows[-2:]
-
-    return (
-        highs_selected,
-        lows_selected
-    )
+    return raw_highs, raw_lows
 
 
-# ============================================================
-# CURVED TARGET ANNOTATION
-# ============================================================
-
-def _draw_target_curve(
-    ax,
-    last_x,
-    current_price,
-    target,
-    side,
-    x_end
+def _select_important_structure(
+    raw_highs,
+    raw_lows,
+    df
 ):
     """
-    Draw a clean curved directional arrow toward TP.
-    No text is added.
+    Keep only the most useful structural points.
+
+    Priority:
+    - latest swing
+    - major displacement
+    - points near current price
     """
 
-    if target is None:
-        return
+    max_points = 4
 
-    target = float(target)
+    selected_highs = raw_highs[-max_points:]
+    selected_lows = raw_lows[-max_points:]
 
-    # Keep arrow short enough to remain an annotation,
-    # rather than becoming a giant diagonal line.
-    distance = abs(
-        target - current_price
+    return (
+        selected_highs,
+        selected_lows
     )
 
-    if distance <= 0:
-        return
 
-    # Start slightly away from the final candle.
-    start_x = last_x + 0.45
+def _draw_structure(
+    ax,
+    df,
+    span
+):
 
-    # End before the level-label lane.
-    end_x = min(
-        x_end,
-        start_x + 5.5
+    raw_highs, raw_lows = (
+        _find_swing_points(df)
     )
 
-    # Direction
-    if side == "LONG":
+    highs, lows = (
+        _select_important_structure(
+            raw_highs,
+            raw_lows,
+            df
+        )
+    )
 
-        start_y = current_price
-        end_y = (
-            current_price
-            + distance * 0.68
+    # --------------------------------------------------------
+    # High structure
+    # --------------------------------------------------------
+
+    previous_high = None
+
+    for i, price in highs:
+
+        if previous_high is None:
+
+            label = "HH"
+
+        else:
+
+            label = (
+                "HH"
+                if price > previous_high
+                else "LH"
+            )
+
+        previous_high = price
+
+        col = (
+            ST_UP
+            if label == "HH"
+            else ST_DOWN
         )
 
-        rad = 0.20
+        ax.text(
+            i,
+            price + span * 0.014,
+            label,
+            color=col,
+            fontsize=7.4,
+            fontweight="bold",
+            ha="center",
+            va="bottom",
+            zorder=15,
+        )
+
+    # --------------------------------------------------------
+    # Low structure
+    # --------------------------------------------------------
+
+    previous_low = None
+
+    for i, price in lows:
+
+        if previous_low is None:
+
+            label = "HL"
+
+        else:
+
+            label = (
+                "HL"
+                if price > previous_low
+                else "LL"
+            )
+
+        previous_low = price
+
+        col = (
+            ST_UP
+            if label == "HL"
+            else ST_DOWN
+        )
+
+        ax.text(
+            i,
+            price - span * 0.014,
+            label,
+            color=col,
+            fontsize=7.4,
+            fontweight="bold",
+            ha="center",
+            va="top",
+            zorder=15,
+        )
+
+
+# ============================================================
+# CURVED TARGET ARROW
+# ============================================================
+
+def _draw_target_arrow(
+    ax,
+    df,
+    side,
+    entry,
+    tps,
+    span
+):
+
+    if not tps:
+        return
+
+    if len(df) < 5:
+        return
+
+    last_x = len(df) - 1
+
+    current_price = float(
+        df["close"].iloc[-1]
+    )
+
+    # Use TP2 when available because it gives
+    # a clearer directional projection.
+    target = (
+        tps[1]
+        if len(tps) >= 2
+        else tps[0]
+    )
+
+    # --------------------------------------------------------
+    # Direction
+    # --------------------------------------------------------
+
+    if side == "LONG":
+
+        start_x = last_x - 2.5
+        end_x = last_x + 8.0
+
+        start_y = current_price
+
+        # Keep arrow visually away from the level labels.
+        target_y = (
+            current_price
+            + (target - current_price) * 0.72
+        )
+
+        rad = 0.22
 
     else:
 
+        start_x = last_x - 2.5
+        end_x = last_x + 8.0
+
         start_y = current_price
-        end_y = (
+
+        target_y = (
             current_price
-            - distance * 0.68
+            + (target - current_price) * 0.72
         )
 
-        rad = -0.20
+        rad = -0.22
+
+    # --------------------------------------------------------
+    # Curved arrow
+    # --------------------------------------------------------
 
     arrow = FancyArrowPatch(
         (start_x, start_y),
-        (end_x, end_y),
+        (end_x, target_y),
+
         arrowstyle="-|>",
-        mutation_scale=10,
-        linewidth=1.35,
-        linestyle="-",
-        color=TP,
-        alpha=0.62,
+        mutation_scale=13,
+
+        linewidth=1.7,
+
+        color=(
+            ST_UP
+            if side == "LONG"
+            else ST_DOWN
+        ),
+
+        alpha=0.75,
+
         connectionstyle=(
             f"arc3,rad={rad}"
         ),
-        zorder=12,
+
+        zorder=16,
     )
 
     ax.add_patch(arrow)
 
 
 # ============================================================
-# MAIN DRAW FUNCTION
+# MAIN CHART
 # ============================================================
 
 def draw_visual_chart(
@@ -850,17 +903,8 @@ def draw_visual_chart(
         .reset_index(drop=True)
     )
 
-    n = len(df)
-
-    # --------------------------------------------------------
-    # Compress x positions slightly.
-    #
-    # This gives more visual breathing room on the right
-    # without stretching the chart too much.
-    # --------------------------------------------------------
-
     x = np.arange(
-        n,
+        len(df),
         dtype=float
     )
 
@@ -869,25 +913,29 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # FIGURE
+    # 1:1 MOBILE FRAME
     # ========================================================
 
     fig = plt.figure(
-        figsize=(15.0, 8.4),
+        figsize=(10.0, 10.0),
         facecolor=BG
     )
 
     gs = fig.add_gridspec(
         2,
         1,
+
         height_ratios=[
-            5.25,
+            4.9,
             1.0
         ],
+
         hspace=0.035,
-        left=0.055,
-        right=0.87,
-        top=0.865,
+
+        left=0.065,
+        right=0.875,
+
+        top=0.855,
         bottom=0.105,
     )
 
@@ -900,13 +948,8 @@ def draw_visual_chart(
         sharex=ax
     )
 
-    ax.set_facecolor(
-        PANEL
-    )
-
-    axv.set_facecolor(
-        PANEL
-    )
+    ax.set_facecolor(PANEL)
+    axv.set_facecolor(PANEL)
 
     # ========================================================
     # PRICE RANGE
@@ -936,20 +979,15 @@ def draw_visual_chart(
 
     pad = span * 0.085
 
-    y_min = (
-        y_low
-        - pad
-    )
-
-    y_max = (
-        y_high
-        + pad
-    )
+    y_min = y_low - pad
+    y_max = y_high + pad
 
     # ========================================================
     # CANDLE WIDTH
     # ========================================================
 
+    # Slightly slimmer than old version so movement
+    # remains visually separated on a phone.
     candle_width = 0.68
 
     # ========================================================
@@ -971,32 +1009,27 @@ def draw_visual_chart(
             else DOWN
         )
 
-        # ----------------------------------------------------
         # Wick
-        # ----------------------------------------------------
-
         ax.plot(
             [i, i],
             [l, h],
+
             color=body_color,
-            linewidth=1.20,
-            alpha=0.92,
-            zorder=5
+            linewidth=1.05,
+            alpha=0.95,
+
+            zorder=5,
         )
 
-        # ----------------------------------------------------
-        # Candle body
-        # ----------------------------------------------------
-
+        # Body
         body_low = min(
             o,
             c
         )
 
-        # Slightly stronger visual body.
-        body_h = max(
+        body_height = max(
             abs(c - o),
-            (h - l) * 0.018,
+            (h - l) * 0.012,
             1e-12
         )
 
@@ -1006,41 +1039,51 @@ def draw_visual_chart(
                     i - candle_width / 2,
                     body_low
                 ),
+
                 candle_width,
-                body_h,
+                body_height,
+
                 facecolor=body_color,
                 edgecolor=body_color,
-                linewidth=0.35,
+
+                linewidth=0.3,
                 alpha=0.96,
+
                 zorder=6,
             )
         )
 
-        # ----------------------------------------------------
         # Volume
-        # ----------------------------------------------------
-
         axv.bar(
             i,
             float(row.volume),
+
             width=candle_width,
+
             color=body_color,
             alpha=0.28,
+
             linewidth=0,
-            zorder=2
+            zorder=2,
         )
 
     # ========================================================
     # EMA 200
     # ========================================================
 
+    # IMPORTANT:
+    # This uses the exact EMA 200 serialized by Synaptic
+    # whenever it exists in the JSON.
     ax.plot(
         x,
         df["EMA200"],
+
         color=EMA,
-        linewidth=1.85,
+        linewidth=2.0,
+
         label="EMA 200",
-        zorder=9
+
+        zorder=9,
     )
 
     # ========================================================
@@ -1055,36 +1098,31 @@ def draw_visual_chart(
         df["ST_DIR"] < 0
     )
 
+    # Line
     ax.plot(
         x,
         st_up,
+
         color=ST_UP,
-        linewidth=1.85,
+        linewidth=1.9,
+
         label="Supertrend 10 / 2.5",
-        zorder=8
+
+        zorder=8,
     )
 
     ax.plot(
         x,
         st_down,
+
         color=ST_DOWN,
-        linewidth=1.85,
-        zorder=8
+        linewidth=1.9,
+
+        zorder=8,
     )
 
     # ========================================================
     # SUPERTREND ZONE
-    #
-    # Stronger than previous alpha=0.075.
-    #
-    # Bull:
-    # ST -> candle low
-    #
-    # Bear:
-    # ST -> candle high
-    #
-    # This makes the trend region visibly extend across
-    # the candle area.
     # ========================================================
 
     bull = (
@@ -1095,25 +1133,46 @@ def draw_visual_chart(
         df["ST_DIR"] < 0
     )
 
+    # Bull:
+    # Supertrend -> candle LOW
+    #
+    # Bear:
+    # candle HIGH -> Supertrend
+    #
+    # This makes the Supertrend zone visibly occupy
+    # the candle area instead of being just a thin line.
+
     ax.fill_between(
         x,
+
         df["ST"].astype(float),
         df["low"].astype(float),
+
         where=bull,
+
         color=ST_UP,
+
         alpha=0.14,
+
         interpolate=True,
+
         zorder=1,
     )
 
     ax.fill_between(
         x,
+
         df["high"].astype(float),
         df["ST"].astype(float),
+
         where=bear,
+
         color=ST_DOWN,
+
         alpha=0.14,
+
         interpolate=True,
+
         zorder=1,
     )
 
@@ -1121,86 +1180,14 @@ def draw_visual_chart(
     # MARKET STRUCTURE
     # ========================================================
 
-    structure_highs, structure_lows = (
-        _find_significant_structure(df)
+    _draw_structure(
+        ax,
+        df,
+        span
     )
 
-    # --------------------------------------------------------
-    # HIGH STRUCTURE
-    # --------------------------------------------------------
-
-    last_high = None
-
-    for i, price in structure_highs:
-
-        if last_high is None:
-            label = "HH"
-        else:
-            label = (
-                "HH"
-                if price > last_high
-                else "LH"
-            )
-
-        last_high = price
-
-        col = (
-            ST_UP
-            if label == "HH"
-            else DOWN
-        )
-
-        ax.text(
-            i,
-            price + span * 0.018,
-            label,
-            color=col,
-            fontsize=8.0,
-            fontweight="bold",
-            ha="center",
-            va="bottom",
-            zorder=15,
-        )
-
-    # --------------------------------------------------------
-    # LOW STRUCTURE
-    # --------------------------------------------------------
-
-    last_low = None
-
-    for i, price in structure_lows:
-
-        if last_low is None:
-            label = "HL"
-        else:
-            label = (
-                "HL"
-                if price > last_low
-                else "LL"
-            )
-
-        last_low = price
-
-        col = (
-            UP
-            if label == "HL"
-            else DOWN
-        )
-
-        ax.text(
-            i,
-            price - span * 0.018,
-            label,
-            color=col,
-            fontsize=8.0,
-            fontweight="bold",
-            ha="center",
-            va="top",
-            zorder=15,
-        )
-
     # ========================================================
-    # ENTRY / TP / SL LEVELS
+    # ENTRY / TP / SL
     # ========================================================
 
     levels = [
@@ -1232,52 +1219,53 @@ def draw_visual_chart(
         )
     )
 
-    # --------------------------------------------------------
-    # Horizontal level lines
-    # --------------------------------------------------------
+    # ========================================================
+    # LEVEL LINES
+    # ========================================================
 
     for item in levels:
 
         ax.axhline(
             item["level"],
+
             color=item["color"],
-            linestyle=(0, (5, 4)),
-            linewidth=1.05,
-            alpha=0.58,
+
+            linestyle=(
+                0,
+                (5, 4)
+            ),
+
+            linewidth=1.0,
+
+            alpha=0.55,
+
             zorder=3,
         )
 
     # ========================================================
-    # RIGHT-SIDE GAP
-    #
-    # Larger blank area after the final candle.
-    # Labels stay in the same right-side lane concept.
+    # RIGHT-SIDE PRICE LABELS
     # ========================================================
 
+    # Extra horizontal room makes the last candle sit
+    # slightly toward the center rather than touching
+    # the label lane.
     label_x = (
         last_x
         + max(
-            3.8,
-            len(df) * 0.030
+            2.2,
+            len(df) * 0.025
         )
     )
 
-    right_limit = (
-        label_x
-        + max(
-            5.5,
-            len(df) * 0.065
-        )
+    right_space = max(
+        14.0,
+        len(df) * 0.30
     )
 
     ax.set_xlim(
         -1.0,
-        right_limit
+        last_x + right_space
     )
-
-    # ========================================================
-    # PRICE LABELS
-    # ========================================================
 
     _place_level_labels(
         ax,
@@ -1287,30 +1275,23 @@ def draw_visual_chart(
         y_max
     )
 
+    # ========================================================
+    # CURVED DIRECTION / TARGET ARROW
+    # ========================================================
+
+    _draw_target_arrow(
+        ax,
+        df,
+        side,
+        entry,
+        tps,
+        span
+    )
+
     ax.set_ylim(
         y_min,
         y_max
     )
-
-    # ========================================================
-    # CURVED TARGET DIRECTION
-    #
-    # No text.
-    # Uses TP1 as primary destination.
-    # ========================================================
-
-    if tps:
-
-        target = tps[0]
-
-        _draw_target_curve(
-            ax,
-            last_x,
-            float(df["close"].iloc[-1]),
-            target,
-            side,
-            label_x - 0.8
-        )
 
     # ========================================================
     # VOLUME MA
@@ -1319,53 +1300,86 @@ def draw_visual_chart(
     axv.plot(
         x,
         df["VOL_MA"],
-        color=VOL_MA,
+
+        color="#b87333",
+
         linewidth=1.15,
-        alpha=0.80,
-        zorder=4
+        alpha=0.75,
+
+        zorder=3,
     )
 
     # ========================================================
-    # WHITE UI GRID
+    # LIGHT BINANCE-LIKE GRID
     # ========================================================
 
     ax.grid(
         True,
+
         color=GRID,
-        alpha=0.72,
+        alpha=0.65,
+
         linewidth=0.65
     )
 
     axv.grid(
         True,
         axis="y",
+
         color=GRID,
-        alpha=0.65,
+        alpha=0.55,
+
         linewidth=0.65
     )
 
-    ax.set_axisbelow(
-        True
+    ax.set_axisbelow(True)
+    axv.set_axisbelow(True)
+
+    # ========================================================
+    # RIGHT PRICE AXIS
+    # ========================================================
+
+    ax.yaxis.tick_right()
+
+    ax.yaxis.set_label_position(
+        "right"
     )
 
-    axv.set_axisbelow(
-        True
+    ax.tick_params(
+        axis="y",
+        colors=TEXT,
+        labelsize=7.8,
+
+        length=0,
+        pad=5,
+    )
+
+    axv.tick_params(
+        axis="x",
+        colors=MUTED,
+        labelsize=7.2,
+
+        length=3,
+        pad=4,
+    )
+
+    axv.tick_params(
+        axis="y",
+        colors=MUTED,
+        labelsize=7.0,
+
+        length=0,
+        pad=4,
     )
 
     # ========================================================
-    # AXIS STYLING
+    # SPINES
     # ========================================================
 
     for a in (
         ax,
         axv
     ):
-
-        a.tick_params(
-            colors=MUTED,
-            labelsize=8,
-            length=3
-        )
 
         for spine in a.spines.values():
 
@@ -1377,16 +1391,37 @@ def draw_visual_chart(
                 0.65
             )
 
+    # Hide unnecessary left price spine
+    ax.spines["left"].set_visible(
+        False
+    )
+
+    ax.spines["top"].set_visible(
+        False
+    )
+
+    ax.spines["bottom"].set_color(
+        GRID
+    )
+
+    axv.spines["left"].set_visible(
+        False
+    )
+
+    axv.spines["top"].set_visible(
+        False
+    )
+
+    # ========================================================
+    # X AXIS
+    # ========================================================
+
     ax.tick_params(
         labelbottom=False
     )
 
-    # ========================================================
-    # TIME AXIS
-    # ========================================================
-
     tick_count = min(
-        6,
+        5,
         len(df)
     )
 
@@ -1413,7 +1448,7 @@ def draw_visual_chart(
 
             labels.append(
                 ts.strftime(
-                    "%d %b  %H:%M"
+                    "%d %b\n%H:%M"
                 )
             )
 
@@ -1426,7 +1461,7 @@ def draw_visual_chart(
     axv.set_xticklabels(
         labels,
         color=MUTED,
-        fontsize=8
+        fontsize=7.0
     )
 
     # ========================================================
@@ -1435,14 +1470,26 @@ def draw_visual_chart(
 
     legend = ax.legend(
         loc="upper left",
+
         ncol=2,
-        fontsize=8,
+
+        fontsize=7.2,
+
         frameon=True,
+
         facecolor="#ffffff",
-        edgecolor=GRID,
-        framealpha=0.94,
+
+        edgecolor="#d9dde3",
+
+        framealpha=0.92,
+
         labelcolor=TEXT,
-        borderpad=0.50,
+
+        borderpad=0.45,
+
+        handlelength=2.0,
+
+        columnspacing=0.9,
     )
 
     legend.get_frame().set_linewidth(
@@ -1451,18 +1498,13 @@ def draw_visual_chart(
 
     # ========================================================
     # HEADER
-    #
-    # No border.
-    # White background.
-    # Black text.
-    #
-    # VISUAL timeframe removed.
     # ========================================================
 
     current_price = float(
         df["close"].iloc[-1]
     )
 
+    # VISUAL intentionally removed.
     header = (
         f"{symbol}"
         f"  •  SETUP {tf.upper()}"
@@ -1470,57 +1512,75 @@ def draw_visual_chart(
     )
 
     subheader = (
-        f"PRICE {format_price(current_price, dec)}"
-        f"    24H {change_24h:+.2f}%"
-        f"    VOL ${q_vol:,.0f}"
+        f"PRICE "
+        f"{format_price(current_price, dec)}"
+        f"    24H "
+        f"{change_24h:+.2f}%"
+        f"    VOL "
+        f"${q_vol:,.0f}"
     )
 
     # --------------------------------------------------------
-    # Header
+    # Main header
     # --------------------------------------------------------
 
     fig.text(
-        0.055,
-        0.925,
+        0.065,
+        0.945,
+
         header,
+
         color=TEXT,
+
         fontsize=14.5,
+
         fontweight="bold",
+
         ha="left",
         va="center",
     )
 
     # --------------------------------------------------------
-    # Header metadata
+    # Header secondary data
     # --------------------------------------------------------
 
     fig.text(
-        0.055,
-        0.887,
+        0.065,
+        0.910,
+
         subheader,
+
         color=MUTED,
-        fontsize=8.5,
+
+        fontsize=8.0,
+
         fontweight="bold",
+
         ha="left",
         va="center",
     )
 
     # --------------------------------------------------------
-    # Score / MTF
+    # Score
     # --------------------------------------------------------
 
     fig.text(
-        0.87,
-        0.925,
+        0.875,
+        0.945,
+
         (
             f"SCORE "
             f"{float(setup.get('score', 0)):.2f}"
             f"  •  MTF "
             f"{setup.get('tf_agreement', '-')}/3"
         ),
+
         color=TEXT,
-        fontsize=8.5,
+
+        fontsize=7.8,
+
         fontweight="bold",
+
         ha="right",
         va="center",
     )
@@ -1529,17 +1589,22 @@ def draw_visual_chart(
     # FOOTER
     # ========================================================
 
+    footer = (
+        "Chart sesuai chart Binance"
+        "  •  dibuat dengan Matplotlib"
+        "  •  setup level dari Synapyic JSON"
+    )
+
     fig.text(
-        0.055,
-        0.045,
-        (
-            f"EMA 200  •  "
-            f"Supertrend 10 / 2.5  •  "
-            f"{visible_count} candles shown  •  "
-            f"setup levels from Synaptic JSON"
-        ),
+        0.065,
+        0.040,
+
+        footer,
+
         color=MUTED,
-        fontsize=7.5,
+
+        fontsize=7.0,
+
         ha="left",
         va="center",
     )
@@ -1550,11 +1615,16 @@ def draw_visual_chart(
 
     fig.savefig(
         output_path,
-        dpi=160,
+
+        dpi=180,
+
         facecolor=BG,
+
         edgecolor=BG,
+
         bbox_inches="tight",
-        pad_inches=0.12
+
+        pad_inches=0.08,
     )
 
     plt.close(fig)
@@ -1592,6 +1662,7 @@ def main():
         "--chart-candles",
         type=int,
         default=None,
+
         help=(
             "Override visible candle count; "
             "otherwise use Synaptic chart settings"
@@ -1646,13 +1717,14 @@ def main():
 
         if (
             args.symbol
-            and symbol != args.symbol.upper()
+            and symbol
+            != args.symbol.upper()
         ):
             continue
 
         # ====================================================
         # IMPORTANT:
-        # execution_tf remains the single source of truth.
+        # execution_tf determines both setup and visual TF.
         # ====================================================
 
         tf = str(
@@ -1671,6 +1743,10 @@ def main():
 
         try:
 
+            # ------------------------------------------------
+            # Validate setup levels
+            # ------------------------------------------------
+
             for field in (
                 "entry",
                 "sl",
@@ -1680,28 +1756,45 @@ def main():
                 if field not in candidate:
 
                     raise ValueError(
-                        f"missing top-level field "
-                        f"'{field}'"
+                        f"missing top-level "
+                        f"field '{field}'"
                     )
 
             # ------------------------------------------------
-            # Build chart using EXACT execution timeframe.
+            # Exact execution timeframe
             # ------------------------------------------------
 
-            df, actual_tf = _build_dataframe(
-                candidate,
-                tf
+            df, actual_tf = (
+                _build_dataframe(
+                    candidate,
+                    tf
+                )
             )
 
-            visible = _resolve_visible_count(
-                candidate,
-                actual_tf,
-                args.chart_candles
+            # ------------------------------------------------
+            # Visible candle count
+            # ------------------------------------------------
+
+            visible = (
+                _resolve_visible_count(
+                    candidate,
+                    actual_tf,
+                    args.chart_candles
+                )
             )
+
+            # ------------------------------------------------
+            # Output
+            # ------------------------------------------------
 
             output_file = (
                 output_dir
-                / f"{symbol}_{side}_{actual_tf}_chart.png"
+                / (
+                    f"{symbol}_"
+                    f"{side}_"
+                    f"{actual_tf}_"
+                    f"chart.png"
+                )
             )
 
             print(
@@ -1709,7 +1802,8 @@ def main():
                 f"{symbol} | "
                 f"setup={actual_tf} | "
                 f"visual={actual_tf} | "
-                f"candles={visible}"
+                f"candles={visible} | "
+                f"frame=1:1"
             )
 
             draw_visual_chart(
@@ -1738,6 +1832,10 @@ def main():
         f"{rendered} chart(s)."
     )
 
+
+# ============================================================
+# ENTRY POINT
+# ============================================================
 
 if __name__ == "__main__":
     main()
