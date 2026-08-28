@@ -3,14 +3,14 @@ name: vSynapse
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "0 * * * *"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: vsynapse
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   ngokeh:
@@ -49,26 +49,50 @@ jobs:
 
           if not candidates:
               print("No qualifying candidates found. Chart generation skipped.")
-              Path("summary.txt").write_text("No qualifying candidates found for this scan run.\n", encoding="utf-8")
+
+              Path("summary.txt").write_text(
+                  "=== SYNAPTIC SCAN SUMMARY ===\n"
+                  f"Generated at (UTC): {data.get('generated_at', 'N/A')}\n"
+                  "Total Candidates: 0\n"
+                  "========================================\n\n"
+                  "No qualifying candidates found for this scan run.\n",
+                  encoding="utf-8"
+              )
+
           else:
               print(f"Found {len(candidates)} candidates to process.")
+
               lines = [
-                  f"=== SYNAPTIC SCAN SUMMARY ===",
+                  "=== SYNAPTIC SCAN SUMMARY ===",
                   f"Generated at (UTC): {data.get('generated_at', 'N/A')}",
                   f"Total Candidates: {len(candidates)}",
-                  "=" * 40,
+                  "========================================",
                   ""
               ]
+
               for idx, c in enumerate(candidates, 1):
-                  lines.append(f"{idx}. Symbol: {c.get('symbol')} | Side: {c.get('side')} | Score: {c.get('score')}")
+                  lines.append(
+                      f"{idx}. Symbol: {c.get('symbol')} | "
+                      f"Side: {c.get('side')} | "
+                      f"Score: {c.get('score')}"
+                  )
                   lines.append(f"   - Entry : {c.get('entry')}")
                   lines.append(f"   - SL    : {c.get('sl')}")
-                  tps = c.get('tp', [])
-                  lines.append(f"   - TP    : {', '.join(str(tp) for tp in tps)}")
-                  lines.append(f"   - Invalidation: {c.get('invalidation')}")
+
+                  tps = c.get("tp", [])
+                  lines.append(
+                      f"   - TP    : {', '.join(str(tp) for tp in tps)}"
+                  )
+
+                  lines.append(
+                      f"   - Invalidation: {c.get('invalidation')}"
+                  )
                   lines.append("-" * 40)
-              
-              Path("summary.txt").write_text("\n".join(lines), encoding="utf-8")
+
+              Path("summary.txt").write_text(
+                  "\n".join(lines),
+                  encoding="utf-8"
+              )
           PY
 
           if python -c 'import json; print(bool(json.load(open("synaptic_candidates.json", encoding="utf-8")).get("candidates")))' | grep -q True; then
@@ -77,13 +101,51 @@ jobs:
             echo "No candidates; nothing to chart."
           fi
 
-      - name: Upload Synaptic results (Charts & Summary)
+      - name: Create timestamped result folder
+        shell: bash
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%d_%H-%M-%S")
+
+          RESULT_DIR="scan_results/$TIMESTAMP"
+
+          mkdir -p "$RESULT_DIR"
+
+          echo "RESULT_DIR=$RESULT_DIR" >> "$GITHUB_ENV"
+
+          cp synaptic_candidates.json "$RESULT_DIR/"
+          cp summary.txt "$RESULT_DIR/"
+
+          if [ -d "charts" ]; then
+            cp -r charts "$RESULT_DIR/"
+          fi
+
+          echo "========================================"
+          echo "Synaptic result folder:"
+          echo "$RESULT_DIR"
+          echo "========================================"
+
+      - name: Upload Synaptic results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: vsynapse-results
+          name: vsynapse-results-${{ github.run_number }}
           path: |
-            charts/
-            summary.txt
+            ${{ env.RESULT_DIR }}
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Commit scan results
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add scan_results/
+
+          if git diff --cached --quiet; then
+            echo "No new scan results to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: Synaptic scan $RESULT_DIR"
+          git push
