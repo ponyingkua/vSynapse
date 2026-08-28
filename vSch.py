@@ -4,10 +4,10 @@ vSch.py - JSON-only visual renderer for Synaptic.py.
 
 Rules:
 - Never fetch Binance data.
-- The chart timeframe is exactly candidate['execution_tf'].
+- Chart timeframe is exactly candidate['execution_tf'].
 - Candle/indicator data comes from candidate['chart_data'][execution_tf].
 - Setup levels (Entry/SL/TP) come from Synaptic JSON.
-- Output is optimized for 1:1 mobile viewing.
+- Output optimized for 1:1 mobile viewing.
 """
 
 import argparse
@@ -93,14 +93,6 @@ def decimals_from_price(price):
 # ============================================================
 
 def _display_symbol(symbol):
-    """
-    Normalize symbol for visual display.
-
-    Example:
-        1000000BOBUSDT -> 1000000BOB
-        BOBUSDT        -> BOB
-        BOB            -> BOB
-    """
 
     value = str(symbol).upper().strip()
 
@@ -237,27 +229,17 @@ def calculate_supertrend(
             upper.iloc[i] < final_upper.iloc[i - 1]
             or close.iloc[i - 1] > final_upper.iloc[i - 1]
         ):
-
             final_upper.iloc[i] = upper.iloc[i]
-
         else:
-
-            final_upper.iloc[i] = (
-                final_upper.iloc[i - 1]
-            )
+            final_upper.iloc[i] = final_upper.iloc[i - 1]
 
         if (
             lower.iloc[i] > final_lower.iloc[i - 1]
             or close.iloc[i - 1] < final_lower.iloc[i - 1]
         ):
-
             final_lower.iloc[i] = lower.iloc[i]
-
         else:
-
-            final_lower.iloc[i] = (
-                final_lower.iloc[i - 1]
-            )
+            final_lower.iloc[i] = final_lower.iloc[i - 1]
 
         if direction.iloc[i - 1] == 1:
 
@@ -300,10 +282,7 @@ def _load_candidates(path):
     )
 
     if not isinstance(data, dict):
-
-        raise ValueError(
-            "JSON root must be an object"
-        )
+        raise ValueError("JSON root must be an object")
 
     candidates = data.get(
         "candidates",
@@ -311,7 +290,6 @@ def _load_candidates(path):
     )
 
     if not isinstance(candidates, list):
-
         raise ValueError(
             "JSON field 'candidates' must be a list"
         )
@@ -323,20 +301,11 @@ def _load_candidates(path):
 # DATAFRAME
 # ============================================================
 
-def _build_dataframe(
-    candidate,
-    tf
-):
+def _build_dataframe(candidate, tf):
 
-    chart_data = candidate.get(
-        "chart_data"
-    )
+    chart_data = candidate.get("chart_data")
 
-    if not isinstance(
-        chart_data,
-        dict
-    ):
-
+    if not isinstance(chart_data, dict):
         raise ValueError(
             "candidate is missing chart_data"
         )
@@ -347,10 +316,7 @@ def _build_dataframe(
 
         for key, value in chart_data.items():
 
-            if (
-                str(key).lower()
-                == str(tf).lower()
-            ):
+            if str(key).lower() == str(tf).lower():
 
                 candles = value
                 tf = key
@@ -358,14 +324,11 @@ def _build_dataframe(
                 break
 
     if not candles:
-
         raise ValueError(
             f"no chart_data for timeframe {tf}"
         )
 
-    df = pd.DataFrame(
-        candles
-    )
+    df = pd.DataFrame(candles)
 
     required = [
         "open",
@@ -376,13 +339,11 @@ def _build_dataframe(
     ]
 
     missing = [
-        c
-        for c in required
+        c for c in required
         if c not in df.columns
     ]
 
     if missing:
-
         raise ValueError(
             "missing candle fields: "
             + ", ".join(missing)
@@ -415,21 +376,18 @@ def _build_dataframe(
 
     df = (
         df
-        .dropna(
-            subset=required
-        )
+        .dropna(subset=required)
         .reset_index(drop=True)
     )
 
     if len(df) < 10:
-
         raise ValueError(
             "not enough candles in JSON"
         )
 
-    # --------------------------------------------------------
+    # ========================================================
     # EMA 200
-    # --------------------------------------------------------
+    # ========================================================
 
     if "ema200" in df:
 
@@ -449,9 +407,9 @@ def _build_dataframe(
             .mean()
         )
 
-    # --------------------------------------------------------
+    # ========================================================
     # SUPERTREND
-    # --------------------------------------------------------
+    # ========================================================
 
     if (
         "supertrend" in df
@@ -478,9 +436,9 @@ def _build_dataframe(
             )
         )
 
-    # --------------------------------------------------------
+    # ========================================================
     # VOLUME MA
-    # --------------------------------------------------------
+    # ========================================================
 
     if "volume_ma" in df:
 
@@ -513,33 +471,12 @@ def _resolve_visible_count(
     cli_value
 ):
 
-    normalized_tf = _normalize_tf(
-        tf
-    )
+    normalized_tf = _normalize_tf(tf)
 
     if cli_value is not None:
-
         return max(
             20,
             int(cli_value)
-        )
-
-    if normalized_tf == "1h":
-
-        return min(
-            33,
-            len(
-                candidate
-                .get(
-                    "chart_data",
-                    {}
-                )
-                .get(
-                    tf,
-                    []
-                )
-            )
-            or 33
         )
 
     chart = candidate.get(
@@ -552,10 +489,7 @@ def _resolve_visible_count(
             "visible_candles",
             {}
         )
-        if isinstance(
-            chart,
-            dict
-        )
+        if isinstance(chart, dict)
         else {}
     )
 
@@ -597,20 +531,16 @@ def _place_level_labels(
     y_min,
     y_max
 ):
-    """
-    Entry / TP / SL labels are intentionally placed
-    inside the dedicated right-side level lane.
-
-    Candle x positions are NOT modified.
-    """
 
     span = max(
         y_max - y_min,
         1e-12
     )
 
-    min_gap = span * 0.052
-    edge = span * 0.020
+    # Smaller gap than previous version.
+    # Keeps labels compact but readable.
+    min_gap = span * 0.045
+    edge = span * 0.018
 
     ordered = sorted(
         levels,
@@ -623,37 +553,28 @@ def _place_level_labels(
     ]
 
     # --------------------------------------------------------
-    # Vertical spacing
+    # Resolve collisions
     # --------------------------------------------------------
 
-    for i in range(
-        1,
-        len(positions)
-    ):
+    for i in range(1, len(positions)):
 
-        if (
-            positions[i]
-            - positions[i - 1]
-            < min_gap
-        ):
+        required = (
+            positions[i - 1]
+            + min_gap
+        )
 
-            positions[i] = (
-                positions[i - 1]
-                + min_gap
-            )
+        if positions[i] < required:
+            positions[i] = required
 
     # --------------------------------------------------------
-    # Keep labels inside visible price range
+    # Keep labels inside price area
     # --------------------------------------------------------
 
     upper = y_max - edge
 
     if positions[-1] > upper:
 
-        shift = (
-            positions[-1]
-            - upper
-        )
+        shift = positions[-1] - upper
 
         positions = [
             p - shift
@@ -664,10 +585,7 @@ def _place_level_labels(
 
     if positions[0] < lower:
 
-        shift = (
-            lower
-            - positions[0]
-        )
+        shift = lower - positions[0]
 
         positions = [
             p + shift
@@ -675,7 +593,7 @@ def _place_level_labels(
         ]
 
     # --------------------------------------------------------
-    # Draw labels
+    # Draw
     # --------------------------------------------------------
 
     for item, y in zip(
@@ -696,20 +614,20 @@ def _place_level_labels(
 
             color=TEXT,
 
-            fontsize=8.1,
+            fontsize=7.6,
 
             fontweight="bold",
 
             bbox=dict(
-                boxstyle="round,pad=0.36",
+                boxstyle="round,pad=0.30",
 
                 facecolor=item["color"],
 
                 edgecolor=item["color"],
 
-                linewidth=1.0,
+                linewidth=0.8,
 
-                alpha=0.18,
+                alpha=0.16,
             ),
 
             clip_on=False,
@@ -729,7 +647,8 @@ def _find_swing_points(df):
 
     n = len(df)
 
-    swing = 3
+    # Smaller window keeps recent structure responsive.
+    swing = 2
 
     raw_highs = []
     raw_lows = []
@@ -770,25 +689,76 @@ def _find_swing_points(df):
     return raw_highs, raw_lows
 
 
-def _select_important_structure(
+def _classify_structure(points, bullish=True):
+
+    """
+    Classify every swing against the PREVIOUS swing
+    before selecting the visible points.
+
+    This prevents the first visible point from being
+    incorrectly forced to HH / HL.
+    """
+
+    classified = []
+
+    previous = None
+
+    for i, price in points:
+
+        if previous is None:
+
+            label = "H" if bullish else "L"
+
+        else:
+
+            if bullish:
+
+                label = (
+                    "HH"
+                    if price > previous
+                    else "LH"
+                )
+
+            else:
+
+                label = (
+                    "HL"
+                    if price > previous
+                    else "LL"
+                )
+
+        classified.append(
+            (
+                i,
+                price,
+                label
+            )
+        )
+
+        previous = price
+
+    return classified
+
+
+def _select_structure_points(
     raw_highs,
     raw_lows,
-    df
+    max_points=3
 ):
 
-    max_points = 4
-
-    selected_highs = (
-        raw_highs[-max_points:]
+    highs = _classify_structure(
+        raw_highs,
+        bullish=True
     )
 
-    selected_lows = (
-        raw_lows[-max_points:]
+    lows = _classify_structure(
+        raw_lows,
+        bullish=False
     )
 
     return (
-        selected_highs,
-        selected_lows
+        highs[-max_points:],
+        lows[-max_points:]
     )
 
 
@@ -803,34 +773,41 @@ def _draw_structure(
     )
 
     highs, lows = (
-        _select_important_structure(
+        _select_structure_points(
             raw_highs,
             raw_lows,
-            df
+            max_points=3
         )
     )
 
     # --------------------------------------------------------
-    # High structure
+    # Adaptive offsets
     # --------------------------------------------------------
 
-    previous_high = None
+    candle_ranges = (
+        df["high"] - df["low"]
+    )
 
-    for i, price in highs:
+    median_range = float(
+        candle_ranges
+        .rolling(5, min_periods=1)
+        .median()
+        .iloc[-1]
+    )
 
-        if previous_high is None:
+    offset = max(
+        span * 0.010,
+        median_range * 0.42
+    )
 
-            label = "HH"
+    # --------------------------------------------------------
+    # High labels
+    # --------------------------------------------------------
 
-        else:
+    for i, price, label in highs:
 
-            label = (
-                "HH"
-                if price > previous_high
-                else "LH"
-            )
-
-        previous_high = price
+        if label == "H":
+            continue
 
         col = (
             ST_UP
@@ -840,43 +817,40 @@ def _draw_structure(
 
         ax.text(
             i,
-            price + span * 0.014,
+            price + offset,
 
             label,
 
             color=col,
 
-            fontsize=7.8,
+            fontsize=7.2,
 
             fontweight="bold",
 
             ha="center",
             va="bottom",
 
-            zorder=15,
+            bbox=dict(
+                boxstyle="round,pad=0.16",
+
+                facecolor=BG,
+
+                edgecolor="none",
+
+                alpha=0.82,
+            ),
+
+            zorder=18,
         )
 
     # --------------------------------------------------------
-    # Low structure
+    # Low labels
     # --------------------------------------------------------
 
-    previous_low = None
+    for i, price, label in lows:
 
-    for i, price in lows:
-
-        if previous_low is None:
-
-            label = "HL"
-
-        else:
-
-            label = (
-                "HL"
-                if price > previous_low
-                else "LL"
-            )
-
-        previous_low = price
+        if label == "L":
+            continue
 
         col = (
             ST_UP
@@ -886,20 +860,30 @@ def _draw_structure(
 
         ax.text(
             i,
-            price - span * 0.014,
+            price - offset,
 
             label,
 
             color=col,
 
-            fontsize=7.8,
+            fontsize=7.2,
 
             fontweight="bold",
 
             ha="center",
             va="top",
 
-            zorder=15,
+            bbox=dict(
+                boxstyle="round,pad=0.16",
+
+                facecolor=BG,
+
+                edgecolor="none",
+
+                alpha=0.82,
+            ),
+
+            zorder=18,
         )
 
 
@@ -928,26 +912,32 @@ def _draw_target_arrow(
         df["close"].iloc[-1]
     )
 
-    target = (
-        tps[1]
-        if len(tps) >= 2
-        else tps[0]
-    )
+    # --------------------------------------------------------
+    # Always visually point toward TP1.
+    # TP2 / TP3 remain the continuation targets.
+    # --------------------------------------------------------
 
-    start_x = last_x - 2.5
-    end_x = last_x + 8.0
+    target = float(tps[0])
+
+    # Start slightly before the last candle.
+    start_x = last_x - 1.8
+
+    # End inside the level lane but before the label.
+    end_x = last_x + 5.0
 
     start_y = current_price
 
+    # Stop slightly before exact TP1 so the arrow does not
+    # cover the TP label.
     target_y = (
         current_price
-        + (target - current_price) * 0.72
+        + (target - current_price) * 0.88
     )
 
     rad = (
-        0.22
+        0.20
         if side == "LONG"
-        else -0.22
+        else -0.20
     )
 
     arrow = FancyArrowPatch(
@@ -963,9 +953,9 @@ def _draw_target_arrow(
 
         arrowstyle="-|>",
 
-        mutation_scale=13,
+        mutation_scale=11,
 
-        linewidth=1.7,
+        linewidth=1.55,
 
         color=(
             ST_UP
@@ -973,7 +963,7 @@ def _draw_target_arrow(
             else ST_DOWN
         ),
 
-        alpha=0.75,
+        alpha=0.68,
 
         connectionstyle=(
             f"arc3,rad={rad}"
@@ -1023,9 +1013,7 @@ def draw_visual_chart(
         )
     )
 
-    normalized_tf = _normalize_tf(
-        tf
-    )
+    normalized_tf = _normalize_tf(tf)
 
     change_24h = float(
         setup.get(
@@ -1041,9 +1029,9 @@ def draw_visual_chart(
         )
     )
 
-    # --------------------------------------------------------
-    # Base volume
-    # --------------------------------------------------------
+    # ========================================================
+    # BASE VOLUME
+    # ========================================================
 
     base_vol = _first_numeric(
         setup,
@@ -1062,9 +1050,9 @@ def draw_visual_chart(
             df["volume"].sum()
         )
 
-    # --------------------------------------------------------
-    # Setup levels
-    # --------------------------------------------------------
+    # ========================================================
+    # SETUP LEVELS
+    # ========================================================
 
     entry = float(
         setup["entry"]
@@ -1085,9 +1073,7 @@ def draw_visual_chart(
     dec = int(
         setup.get(
             "decimals",
-            decimals_from_price(
-                entry
-            )
+            decimals_from_price(entry)
         )
     )
 
@@ -1117,7 +1103,7 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # 1:1 MOBILE FRAME
+    # FIGURE
     # ========================================================
 
     fig = plt.figure(
@@ -1125,50 +1111,35 @@ def draw_visual_chart(
         facecolor=BG
     )
 
-    # --------------------------------------------------------
-    # IMPORTANT:
-    # Price chart receives substantially more vertical space.
-    # This makes candles visually larger without changing
-    # their x positions.
-    # --------------------------------------------------------
-
     gs = fig.add_gridspec(
         2,
         1,
 
         height_ratios=[
-            5.65,
-            0.82
+            5.75,
+            0.78
         ],
 
         hspace=0.035,
 
         left=0.065,
 
-        # More room on the right for ENTRY / TP / SL lane.
         right=0.875,
 
-        top=0.790,
+        top=0.785,
 
         bottom=0.105,
     )
 
-    ax = fig.add_subplot(
-        gs[0]
-    )
+    ax = fig.add_subplot(gs[0])
 
     axv = fig.add_subplot(
         gs[1],
         sharex=ax
     )
 
-    ax.set_facecolor(
-        PANEL
-    )
-
-    axv.set_facecolor(
-        PANEL
-    )
+    ax.set_facecolor(PANEL)
+    axv.set_facecolor(PANEL)
 
     # ========================================================
     # PRICE RANGE
@@ -1196,7 +1167,7 @@ def draw_visual_chart(
         1e-12
     )
 
-    pad = span * 0.085
+    pad = span * 0.075
 
     y_min = y_low - pad
     y_max = y_high + pad
@@ -1205,9 +1176,7 @@ def draw_visual_chart(
     # CANDLE WIDTH
     # ========================================================
 
-    # Previous: 0.68
-    # New: substantially wider.
-    candle_width = 0.92
+    candle_width = 0.82
 
     # ========================================================
     # CANDLES
@@ -1215,21 +1184,10 @@ def draw_visual_chart(
 
     for i, row in df.iterrows():
 
-        o = float(
-            row.open
-        )
-
-        h = float(
-            row.high
-        )
-
-        l = float(
-            row.low
-        )
-
-        c = float(
-            row.close
-        )
+        o = float(row.open)
+        h = float(row.high)
+        l = float(row.low)
+        c = float(row.close)
 
         up = c >= o
 
@@ -1239,38 +1197,26 @@ def draw_visual_chart(
             else DOWN
         )
 
-        # ----------------------------------------------------
-        # Larger wick
-        # ----------------------------------------------------
-
+        # Wick
         ax.plot(
             [i, i],
             [l, h],
 
             color=body_color,
 
-            linewidth=1.45,
+            linewidth=1.30,
 
-            alpha=0.95,
+            alpha=0.92,
 
             zorder=5,
         )
 
-        # ----------------------------------------------------
-        # Larger body
-        # ----------------------------------------------------
-
-        body_low = min(
-            o,
-            c
-        )
+        # Body
+        body_low = min(o, c)
 
         body_height = max(
             abs(c - o),
-
-            # Slightly larger minimum visual body.
-            (h - l) * 0.018,
-
+            (h - l) * 0.015,
             1e-12
         )
 
@@ -1289,7 +1235,7 @@ def draw_visual_chart(
 
                 edgecolor=body_color,
 
-                linewidth=0.35,
+                linewidth=0.30,
 
                 alpha=0.98,
 
@@ -1297,20 +1243,16 @@ def draw_visual_chart(
             )
         )
 
-        # ----------------------------------------------------
         # Volume
-        # ----------------------------------------------------
-
         axv.bar(
             i,
-
             float(row.volume),
 
             width=candle_width,
 
             color=body_color,
 
-            alpha=0.28,
+            alpha=0.26,
 
             linewidth=0,
 
@@ -1327,7 +1269,7 @@ def draw_visual_chart(
 
         color=EMA,
 
-        linewidth=2.0,
+        linewidth=1.85,
 
         label="EMA 200",
 
@@ -1352,7 +1294,7 @@ def draw_visual_chart(
 
         color=ST_UP,
 
-        linewidth=1.9,
+        linewidth=1.75,
 
         label="Supertrend 10 / 2.5",
 
@@ -1365,7 +1307,7 @@ def draw_visual_chart(
 
         color=ST_DOWN,
 
-        linewidth=1.9,
+        linewidth=1.75,
 
         zorder=8,
     )
@@ -1374,14 +1316,10 @@ def draw_visual_chart(
     # SUPERTREND ZONE
     # ========================================================
 
-    bull = (
-        df["ST_DIR"] > 0
-    )
+    bull = df["ST_DIR"] > 0
+    bear = df["ST_DIR"] < 0
 
-    bear = (
-        df["ST_DIR"] < 0
-    )
-
+    # Reduced opacity so candles remain dominant.
     ax.fill_between(
         x,
 
@@ -1393,7 +1331,7 @@ def draw_visual_chart(
 
         color=ST_UP,
 
-        alpha=0.14,
+        alpha=0.085,
 
         interpolate=True,
 
@@ -1411,7 +1349,7 @@ def draw_visual_chart(
 
         color=ST_DOWN,
 
-        alpha=0.14,
+        alpha=0.085,
 
         interpolate=True,
 
@@ -1429,7 +1367,7 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # ENTRY / TP / SL
+    # LEVELS
     # ========================================================
 
     levels = [
@@ -1477,38 +1415,31 @@ def draw_visual_chart(
                 (5, 4)
             ),
 
-            linewidth=1.0,
+            linewidth=0.95,
 
-            alpha=0.55,
+            alpha=0.48,
 
             zorder=3,
         )
 
     # ========================================================
-    # RIGHT-SIDE LEVEL LANE
-    # ========================================================
-    #
-    # Candle positions stay EXACTLY where they are.
-    #
-    # Only the labels are moved further right.
-    #
-    # This creates the visual area corresponding to the
-    # black box marked in the reference image.
+    # RIGHT LEVEL LANE
     # ========================================================
 
-    level_label_x = (
-        last_x + 3.65
-    )
-
-    # Wider dedicated lane.
+    # Reduced from previous version.
+    # Enough room for labels without producing huge blank space.
     right_space = max(
-        12.0,
-        len(df) * 0.30
+        8.0,
+        len(df) * 0.18
     )
 
     ax.set_xlim(
-        -1.0,
+        -0.8,
         last_x + right_space
+    )
+
+    level_label_x = (
+        last_x + 2.65
     )
 
     _place_level_labels(
@@ -1520,7 +1451,7 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # CURVED DIRECTION / TARGET ARROW
+    # TARGET ARROW
     # ========================================================
 
     _draw_target_arrow(
@@ -1538,24 +1469,89 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # VOLUME MA
+    # VOLUME
     # ========================================================
+
+    volume = df["volume"].astype(float)
+
+    # Use percentile clipping for display only.
+    # The underlying JSON/data is untouched.
+    volume_cap = float(
+        volume.quantile(0.95)
+    )
+
+    if volume_cap > 0:
+
+        display_volume = volume.clip(
+            upper=volume_cap
+        )
+
+    else:
+
+        display_volume = volume
+
+    axv.clear()
+
+    axv.set_facecolor(PANEL)
+
+    for i, row in df.iterrows():
+
+        o = float(row.open)
+        c = float(row.close)
+
+        body_color = (
+            UP
+            if c >= o
+            else DOWN
+        )
+
+        v = float(
+            display_volume.iloc[i]
+        )
+
+        axv.bar(
+            i,
+            v,
+
+            width=candle_width,
+
+            color=body_color,
+
+            alpha=0.27,
+
+            linewidth=0,
+
+            zorder=2,
+        )
+
+    # Volume MA scaled to same display clipping.
+    vol_ma = df["VOL_MA"].astype(float)
+
+    if volume_cap > 0:
+
+        vol_ma_display = vol_ma.clip(
+            upper=volume_cap
+        )
+
+    else:
+
+        vol_ma_display = vol_ma
 
     axv.plot(
         x,
-        df["VOL_MA"],
+        vol_ma_display,
 
         color="#b87333",
 
-        linewidth=1.15,
+        linewidth=1.05,
 
-        alpha=0.75,
+        alpha=0.70,
 
         zorder=3,
     )
 
     # ========================================================
-    # LIGHT BINANCE-LIKE GRID
+    # GRID
     # ========================================================
 
     ax.grid(
@@ -1563,9 +1559,9 @@ def draw_visual_chart(
 
         color=GRID,
 
-        alpha=0.65,
+        alpha=0.62,
 
-        linewidth=0.65
+        linewidth=0.60
     )
 
     axv.grid(
@@ -1575,18 +1571,13 @@ def draw_visual_chart(
 
         color=GRID,
 
-        alpha=0.55,
+        alpha=0.50,
 
-        linewidth=0.65
+        linewidth=0.60
     )
 
-    ax.set_axisbelow(
-        True
-    )
-
-    axv.set_axisbelow(
-        True
-    )
+    ax.set_axisbelow(True)
+    axv.set_axisbelow(True)
 
     # ========================================================
     # RIGHT PRICE AXIS
@@ -1603,7 +1594,7 @@ def draw_visual_chart(
 
         colors=TEXT,
 
-        labelsize=7.8,
+        labelsize=7.6,
 
         length=0,
 
@@ -1615,7 +1606,7 @@ def draw_visual_chart(
 
         colors=MUTED,
 
-        labelsize=7.2,
+        labelsize=7.0,
 
         length=3,
 
@@ -1627,7 +1618,7 @@ def draw_visual_chart(
 
         colors=MUTED,
 
-        labelsize=7.0,
+        labelsize=6.8,
 
         length=0,
 
@@ -1638,40 +1629,18 @@ def draw_visual_chart(
     # SPINES
     # ========================================================
 
-    for a in (
-        ax,
-        axv
-    ):
+    for a in (ax, axv):
 
         for spine in a.spines.values():
 
-            spine.set_color(
-                GRID
-            )
+            spine.set_color(GRID)
+            spine.set_linewidth(0.60)
 
-            spine.set_linewidth(
-                0.65
-            )
+    ax.spines["left"].set_visible(False)
+    ax.spines["top"].set_visible(False)
 
-    ax.spines["left"].set_visible(
-        False
-    )
-
-    ax.spines["top"].set_visible(
-        False
-    )
-
-    ax.spines["bottom"].set_color(
-        GRID
-    )
-
-    axv.spines["left"].set_visible(
-        False
-    )
-
-    axv.spines["top"].set_visible(
-        False
-    )
+    axv.spines["left"].set_visible(False)
+    axv.spines["top"].set_visible(False)
 
     # ========================================================
     # X AXIS
@@ -1736,31 +1705,31 @@ def draw_visual_chart(
 
         ncol=2,
 
-        fontsize=7.2,
+        fontsize=6.9,
 
         frameon=True,
 
         facecolor="#ffffff",
 
-        edgecolor="#d9dde3",
+        edgecolor=GRID,
 
-        framealpha=0.92,
+        framealpha=0.90,
 
         labelcolor=TEXT,
 
-        borderpad=0.45,
+        borderpad=0.38,
 
-        handlelength=2.0,
+        handlelength=1.8,
 
-        columnspacing=0.9,
+        columnspacing=0.8,
     )
 
     legend.get_frame().set_linewidth(
-        0.65
+        0.60
     )
 
     # ========================================================
-    # HEADER
+    # HEADER DATA
     # ========================================================
 
     candle_close = float(
@@ -1771,10 +1740,6 @@ def draw_visual_chart(
         setup,
         candle_close
     )
-
-    # --------------------------------------------------------
-    # 24H values
-    # --------------------------------------------------------
 
     high_24h = _first_numeric(
         setup,
@@ -1799,22 +1764,13 @@ def draw_visual_chart(
     )
 
     if high_24h is None:
-
-        high_24h = float(
-            df["high"].max()
-        )
+        high_24h = float(df["high"].max())
 
     if low_24h is None:
-
-        low_24h = float(
-            df["low"].min()
-        )
+        low_24h = float(df["low"].min())
 
     # ========================================================
     # HEADER GEOMETRY
-    # ========================================================
-    #
-    # Left and right header now use fixed aligned columns.
     # ========================================================
 
     header_left = 0.065
@@ -1827,18 +1783,17 @@ def draw_visual_chart(
     fig.text(
         header_left,
 
-        0.947,
+        0.948,
 
         f"${display_symbol}/USDT",
 
         color=TEXT,
 
-        fontsize=21.5,
+        fontsize=20.5,
 
         fontweight="bold",
 
         ha="left",
-
         va="center",
     )
 
@@ -1848,7 +1803,7 @@ def draw_visual_chart(
         else ST_DOWN
     )
 
-    price_y = 0.897
+    price_y = 0.898
 
     fig.text(
         header_left,
@@ -1859,19 +1814,16 @@ def draw_visual_chart(
 
         color=TEXT,
 
-        fontsize=11.2,
+        fontsize=10.8,
 
         fontweight="bold",
 
         ha="left",
-
         va="center",
     )
 
-    # Percentage is anchored relative to the left price
-    # but moved slightly closer for cleaner alignment.
     fig.text(
-        header_left + 0.225,
+        header_left + 0.215,
 
         price_y,
 
@@ -1879,23 +1831,22 @@ def draw_visual_chart(
 
         color=price_change_color,
 
-        fontsize=10.2,
+        fontsize=9.7,
 
         fontweight="bold",
 
         ha="left",
-
         va="center",
     )
 
-    # --------------------------------------------------------
-    # Setup line
-    # --------------------------------------------------------
+    # ========================================================
+    # SETUP
+    # ========================================================
 
     fig.text(
         header_left,
 
-        0.851,
+        0.852,
 
         (
             f"SETUP "
@@ -1905,23 +1856,16 @@ def draw_visual_chart(
 
         color="#f0b900",
 
-        fontsize=9.9,
+        fontsize=9.5,
 
         fontweight="bold",
 
         ha="left",
-
         va="center",
     )
 
     # ========================================================
     # RIGHT HEADER
-    # ========================================================
-    #
-    # Four clean rows.
-    #
-    # Label column and value column are deliberately separated
-    # so long symbols / volumes cannot collide.
     # ========================================================
 
     right_x_label = 0.635
@@ -1929,31 +1873,25 @@ def draw_visual_chart(
 
     right_rows = [
         (
-            0.947,
+            0.948,
             "24h High",
-            format_price(
-                high_24h,
-                dec
-            ),
+            format_price(high_24h, dec),
         ),
 
         (
-            0.908,
+            0.910,
             "24h Low",
-            format_price(
-                low_24h,
-                dec
-            ),
+            format_price(low_24h, dec),
         ),
 
         (
-            0.869,
+            0.872,
             f"24h Vol({display_symbol})",
             f"{base_vol:,.2f}",
         ),
 
         (
-            0.830,
+            0.834,
             "24h Vol(USDT)",
             f"{q_vol:,.2f}",
         ),
@@ -1970,7 +1908,7 @@ def draw_visual_chart(
 
             color=MUTED,
 
-            fontsize=7.9,
+            fontsize=7.5,
 
             ha="left",
 
@@ -1986,7 +1924,7 @@ def draw_visual_chart(
 
             color=TEXT,
 
-            fontsize=8.5,
+            fontsize=8.1,
 
             fontweight="bold",
 
@@ -1996,13 +1934,13 @@ def draw_visual_chart(
         )
 
     # ========================================================
-    # SCORE / MTF
+    # SCORE
     # ========================================================
 
     fig.text(
         header_right,
 
-        0.792,
+        0.795,
 
         (
             f"SCORE "
@@ -2013,7 +1951,7 @@ def draw_visual_chart(
 
         color=TEXT,
 
-        fontsize=7.6,
+        fontsize=7.3,
 
         fontweight="bold",
 
@@ -2040,7 +1978,7 @@ def draw_visual_chart(
 
         color=MUTED,
 
-        fontsize=7.0,
+        fontsize=6.8,
 
         ha="left",
 
@@ -2062,12 +2000,10 @@ def draw_visual_chart(
 
         bbox_inches="tight",
 
-        pad_inches=0.08,
+        pad_inches=0.06,
     )
 
-    plt.close(
-        fig
-    )
+    plt.close(fig)
 
 
 # ============================================================
@@ -2085,41 +2021,32 @@ def main():
 
     parser.add_argument(
         "--input",
-
         default="synaptic_candidates.json"
     )
 
     parser.add_argument(
         "--output-dir",
-
         default="charts"
     )
 
     parser.add_argument(
         "--symbol",
-
         default=None
     )
 
     parser.add_argument(
         "--chart-candles",
-
         type=int,
-
         default=None,
-
         help=(
             "Override visible candle count; "
-            "otherwise use Synaptic chart settings. "
-            "1H defaults to exactly 33 candles."
+            "otherwise use Synaptic chart settings."
         )
     )
 
     args = parser.parse_args()
 
-    input_path = Path(
-        args.input
-    )
+    input_path = Path(args.input)
 
     if not input_path.exists():
 
@@ -2165,11 +2092,10 @@ def main():
             args.symbol
             and symbol != args.symbol.upper()
         ):
-
             continue
 
         # ====================================================
-        # execution_tf determines both setup and visual TF.
+        # execution_tf controls setup + visual timeframe.
         # ====================================================
 
         tf = str(
@@ -2177,10 +2103,6 @@ def main():
                 "execution_tf",
                 "15m"
             )
-        )
-
-        normalized_tf = _normalize_tf(
-            tf
         )
 
         side = str(
@@ -2193,7 +2115,7 @@ def main():
         try:
 
             # ------------------------------------------------
-            # Validate setup levels
+            # Validate setup
             # ------------------------------------------------
 
             for field in (
@@ -2210,7 +2132,7 @@ def main():
                     )
 
             # ------------------------------------------------
-            # Exact execution timeframe
+            # Build exact execution timeframe
             # ------------------------------------------------
 
             df, actual_tf = (
@@ -2221,7 +2143,7 @@ def main():
             )
 
             # ------------------------------------------------
-            # Visible candle count
+            # Visible candles
             # ------------------------------------------------
 
             visible = (
@@ -2233,7 +2155,7 @@ def main():
             )
 
             # ------------------------------------------------
-            # Force 1H to 33 candles unless CLI overrides it.
+            # Exact 1H default = 33 candles
             # ------------------------------------------------
 
             if (
