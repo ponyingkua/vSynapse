@@ -2,13 +2,12 @@
 """
 vSch.py - JSON-only visual renderer for Synaptic.py.
 
-Rules:
 - Never fetch Binance data.
-- Chart timeframe is exactly candidate['execution_tf'].
+- Chart timeframe is candidate['execution_tf'].
 - Candle/indicator data comes from candidate['chart_data'][execution_tf].
-- Setup levels (Entry/SL/TP) come from Synaptic JSON.
+- Setup levels come from Synaptic JSON.
 - RSI removed completely.
-- Output optimized for 5:2 mobile viewing.
+- Layout/size/visual style follows the supplied vSchart.py reference.
 """
 
 import argparse
@@ -20,38 +19,31 @@ import pandas as pd
 
 import matplotlib
 matplotlib.use("Agg")
-
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle, FancyArrowPatch
+from matplotlib.patches import Rectangle
 
 
 # ============================================================
-# MOBILE / BINANCE-LIKE LIGHT UI
+# STYLE — based on supplied vSchart.py reference
 # ============================================================
-
 BG = "#ffffff"
 PANEL = "#ffffff"
+GRID = "#9e9e9e"
+TEXT = "#212121"
+MUTED = "#455a64"
+AXIS = "#555555"
+SPINE = "#9e9e9e"
 
-GRID = "#d9dde3"
-TEXT = "#111111"
-MUTED = "#626b75"
-
-UP = "#16b89f"
-DOWN = "#e84b5b"
-
-EMA = "#f0c400"
-
-ST_UP = "#22b965"
-ST_DOWN = "#ed5363"
-
-ENTRY = "#1687e8"
-TP = "#14b8a6"
-SL = "#e84b5b"
-
-
-# ============================================================
-# VISIBLE CANDLES
-# ============================================================
+UP = "#26a69a"
+DOWN = "#ef5350"
+EMA = "#1565c0"
+ST_UP = "#2e7d32"
+ST_DOWN = "#c62828"
+ENTRY = "#1565c0"
+TP1 = "#00897b"
+TP2 = "#00695c"
+SL = "#c62828"
+VOLUME_MA = "#e65100"
 
 VISIBLE_DEFAULTS = {
     "15m": 44,
@@ -61,16 +53,14 @@ VISIBLE_DEFAULTS = {
 
 
 # ============================================================
-# PRICE FORMATTING
+# HELPERS
 # ============================================================
-
 def format_price(value, decimals):
     return f"{float(value):.{int(decimals)}f}"
 
 
 def decimals_from_price(price):
     p = abs(float(price))
-
     if p < 0.0001:
         return 8
     if p < 0.001:
@@ -85,95 +75,47 @@ def decimals_from_price(price):
         return 4
     if p < 100:
         return 3
-
     return 2
 
 
-# ============================================================
-# SYMBOL DISPLAY
-# ============================================================
-
 def _display_symbol(symbol):
     value = str(symbol).upper().strip()
+    return value[:-4] if value.endswith("USDT") else value
 
-    if value.endswith("USDT"):
-        value = value[:-4]
-
-    return value
-
-
-# ============================================================
-# TIMEFRAME NORMALIZATION
-# ============================================================
 
 def _normalize_tf(tf):
     value = str(tf).strip().lower()
+    return {
+        "1h": "1h", "1hr": "1h", "1hour": "1h",
+        "15m": "15m", "15min": "15m", "15minute": "15m",
+        "4h": "4h", "4hr": "4h", "4hour": "4h",
+    }.get(value, value)
 
-    aliases = {
-        "1h": "1h",
-        "1hr": "1h",
-        "1hour": "1h",
-
-        "15m": "15m",
-        "15min": "15m",
-        "15minute": "15m",
-
-        "4h": "4h",
-        "4hr": "4h",
-        "4hour": "4h",
-    }
-
-    return aliases.get(value, value)
-
-
-# ============================================================
-# JSON VALUE HELPERS
-# ============================================================
 
 def _first_numeric(data, keys, default=None):
     if not isinstance(data, dict):
         return default
-
     for key in keys:
-        if key not in data:
+        if key not in data or data.get(key) is None:
             continue
-
-        value = data.get(key)
-
-        if value is None:
-            continue
-
         try:
-            return float(value)
+            return float(data[key])
         except (TypeError, ValueError):
-            continue
-
+            pass
     return default
 
 
 def _get_mark_price(setup, fallback):
-    value = _first_numeric(
+    return _first_numeric(
         setup,
-        [
-            "mark_price",
-            "markPrice",
-            "current_price",
-            "currentPrice",
-            "price",
-        ],
-        None,
+        ["mark_price", "markPrice", "current_price", "currentPrice", "price"],
+        fallback,
     )
 
-    if value is None:
-        return float(fallback)
-
-    return value
-
 
 # ============================================================
-# SUPERTREND FALLBACK
+# SUPERTREND FALLBACK — 10 / 2.5
 # ============================================================
-
 def calculate_supertrend(df, period=10, multiplier=2.5):
     high = df["high"]
     low = df["low"]
@@ -181,75 +123,37 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
 
     hl2 = (high + low) / 2.0
     prev_close = close.shift(1)
-
     tr = pd.concat(
-        [
-            high - low,
-            (high - prev_close).abs(),
-            (low - prev_close).abs(),
-        ],
+        [high - low, (high - prev_close).abs(), (low - prev_close).abs()],
         axis=1,
     ).max(axis=1)
 
-    atr = tr.ewm(
-        alpha=1 / period,
-        adjust=False
-    ).mean()
-
+    atr = tr.ewm(alpha=1 / period, adjust=False).mean()
     upper = hl2 + multiplier * atr
     lower = hl2 - multiplier * atr
-
     final_upper = upper.copy()
     final_lower = lower.copy()
 
-    direction = pd.Series(
-        1,
-        index=df.index,
-        dtype=int
-    )
-
-    st = pd.Series(
-        np.nan,
-        index=df.index,
-        dtype=float
-    )
+    direction = pd.Series(1, index=df.index, dtype=int)
+    st = pd.Series(np.nan, index=df.index, dtype=float)
 
     for i in range(1, len(df)):
-
-        if (
-            upper.iloc[i] < final_upper.iloc[i - 1]
-            or close.iloc[i - 1] > final_upper.iloc[i - 1]
-        ):
+        if upper.iloc[i] < final_upper.iloc[i - 1] or close.iloc[i - 1] > final_upper.iloc[i - 1]:
             final_upper.iloc[i] = upper.iloc[i]
         else:
             final_upper.iloc[i] = final_upper.iloc[i - 1]
 
-        if (
-            lower.iloc[i] > final_lower.iloc[i - 1]
-            or close.iloc[i - 1] < final_lower.iloc[i - 1]
-        ):
+        if lower.iloc[i] > final_lower.iloc[i - 1] or close.iloc[i - 1] < final_lower.iloc[i - 1]:
             final_lower.iloc[i] = lower.iloc[i]
         else:
             final_lower.iloc[i] = final_lower.iloc[i - 1]
 
         if direction.iloc[i - 1] == 1:
-            direction.iloc[i] = (
-                -1
-                if close.iloc[i] < final_lower.iloc[i]
-                else 1
-            )
+            direction.iloc[i] = -1 if close.iloc[i] < final_lower.iloc[i] else 1
         else:
-            direction.iloc[i] = (
-                1
-                if close.iloc[i] > final_upper.iloc[i]
-                else -1
-            )
+            direction.iloc[i] = 1 if close.iloc[i] > final_upper.iloc[i] else -1
 
-        st.iloc[i] = (
-            final_lower.iloc[i]
-            if direction.iloc[i] == 1
-            else final_upper.iloc[i]
-        )
+        st.iloc[i] = final_lower.iloc[i] if direction.iloc[i] == 1 else final_upper.iloc[i]
 
     if len(df):
         st.iloc[0] = final_lower.iloc[0]
@@ -258,1531 +162,553 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
 
 
 # ============================================================
-# JSON & DATAFRAME
+# JSON / DATAFRAME
 # ============================================================
-
 def _load_candidates(path):
-    data = json.loads(
-        path.read_text(encoding="utf-8")
-    )
-
+    data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
-        raise ValueError(
-            "JSON root must be an object"
-        )
-
+        raise ValueError("JSON root must be an object")
     candidates = data.get("candidates", [])
-
     if not isinstance(candidates, list):
-        raise ValueError(
-            "JSON field 'candidates' must be a list"
-        )
-
+        raise ValueError("JSON field 'candidates' must be a list")
     return candidates
 
 
 def _build_dataframe(candidate, tf):
     chart_data = candidate.get("chart_data")
-
     if not isinstance(chart_data, dict):
-        raise ValueError(
-            "candidate is missing chart_data"
-        )
+        raise ValueError("candidate is missing chart_data")
 
     candles = chart_data.get(tf)
-
+    actual_tf = tf
     if candles is None:
         for key, value in chart_data.items():
-
             if str(key).lower() == str(tf).lower():
                 candles = value
-                tf = key
+                actual_tf = key
                 break
 
     if not candles:
-        raise ValueError(
-            f"no chart_data for timeframe {tf}"
-        )
+        raise ValueError(f"no chart_data for timeframe {tf}")
 
     df = pd.DataFrame(candles)
-
-    required = [
-        "open",
-        "high",
-        "low",
-        "close",
-        "volume",
-    ]
-
-    missing = [
-        c for c in required
-        if c not in df.columns
-    ]
-
+    required = ["open", "high", "low", "close", "volume"]
+    missing = [c for c in required if c not in df.columns]
     if missing:
-        raise ValueError(
-            "missing candle fields: "
-            + ", ".join(missing)
-        )
+        raise ValueError("missing candle fields: " + ", ".join(missing))
 
     for c in required:
-        df[c] = pd.to_numeric(
-            df[c],
-            errors="coerce"
-        )
+        df[c] = pd.to_numeric(df[c], errors="coerce")
 
-    time_col = (
-        "time"
-        if "time" in df.columns
-        else "timestamp"
-    )
-
+    time_col = "time" if "time" in df.columns else "timestamp"
     if time_col in df.columns:
-        df["timestamp"] = pd.to_datetime(
-            df[time_col],
-            utc=True,
-            errors="coerce"
-        )
+        df["timestamp"] = pd.to_datetime(df[time_col], utc=True, errors="coerce")
     else:
         df["timestamp"] = pd.NaT
 
-    df = df.dropna(
-        subset=required
-    ).reset_index(drop=True)
-
+    df = df.dropna(subset=required).reset_index(drop=True)
     if len(df) < 10:
-        raise ValueError(
-            "not enough candles in JSON"
-        )
-
-    # ========================================================
-    # EMA 200
-    # ========================================================
+        raise ValueError("not enough candles in JSON")
 
     if "ema200" in df:
-        df["EMA200"] = pd.to_numeric(
-            df["ema200"],
-            errors="coerce"
-        )
+        df["EMA200"] = pd.to_numeric(df["ema200"], errors="coerce")
     else:
-        df["EMA200"] = df["close"].ewm(
-            span=200,
-            adjust=False
-        ).mean()
+        df["EMA200"] = df["close"].ewm(span=200, adjust=False).mean()
 
-    # ========================================================
-    # SUPERTREND
-    # ========================================================
-
-    if (
-        "supertrend" in df
-        and "st_dir" in df
-    ):
-        df["ST"] = pd.to_numeric(
-            df["supertrend"],
-            errors="coerce"
-        )
-
-        df["ST_DIR"] = pd.to_numeric(
-            df["st_dir"],
-            errors="coerce"
-        )
+    if "supertrend" in df and "st_dir" in df:
+        df["ST"] = pd.to_numeric(df["supertrend"], errors="coerce")
+        df["ST_DIR"] = pd.to_numeric(df["st_dir"], errors="coerce")
     else:
-        df["ST"], df["ST_DIR"] = calculate_supertrend(
-            df,
-            10,
-            2.5
-        )
-
-    # ========================================================
-    # VOLUME MA
-    # ========================================================
+        df["ST"], df["ST_DIR"] = calculate_supertrend(df, 10, 2.5)
 
     if "volume_ma" in df:
-        df["VOL_MA"] = pd.to_numeric(
-            df["volume_ma"],
-            errors="coerce"
-        )
+        df["VOL_MA"] = pd.to_numeric(df["volume_ma"], errors="coerce")
     else:
-        df["VOL_MA"] = df["volume"].rolling(
-            20,
-            min_periods=1
-        ).mean()
+        df["VOL_MA"] = df["volume"].rolling(20, min_periods=1).mean()
 
-    return df, str(tf)
+    return df, str(actual_tf)
 
 
-def _resolve_visible_count(
-    candidate,
-    tf,
-    cli_value
-):
+def _resolve_visible_count(candidate, tf, cli_value):
     normalized_tf = _normalize_tf(tf)
-
     if cli_value is not None:
-        return max(
-            20,
-            int(cli_value)
-        )
+        return max(20, int(cli_value))
 
-    chart = candidate.get(
-        "chart",
-        {}
-    )
-
-    visible = (
-        chart.get("visible_candles", {})
-        if isinstance(chart, dict)
-        else {}
-    )
-
-    return max(
-        20,
-        int(
-            visible.get(
-                tf,
-                VISIBLE_DEFAULTS.get(
-                    normalized_tf,
-                    40
-                )
-            )
-        )
-    )
+    chart = candidate.get("chart", {})
+    visible = chart.get("visible_candles", {}) if isinstance(chart, dict) else {}
+    return max(20, int(visible.get(tf, VISIBLE_DEFAULTS.get(normalized_tf, 40))))
 
 
 # ============================================================
-# LEVEL HELPERS
+# MARKET STRUCTURE — same clean 2-label approach as reference
 # ============================================================
-
-def _level_label(level, color, text):
-    return {
-        "level": float(level),
-        "color": color,
-        "text": text,
-    }
-
-
-def _place_level_labels(
-    ax,
-    levels,
-    label_x,
-    y_min,
-    y_max
-):
-    """
-    Place price labels closer together vertically.
-
-    IMPORTANT:
-    The actual ENTRY / SL / TP prices are NOT changed.
-    Only the visual label positions are adjusted.
-    """
-
-    span = max(
-        y_max - y_min,
-        1e-12
-    )
-
-    min_gap = span * 0.022
-
-    edge = span * 0.010
-
-    ordered = sorted(
-        levels,
-        key=lambda item: item["level"]
-    )
-
-    positions = [
-        item["level"]
-        for item in ordered
-    ]
-
-    # Prevent overlap.
-    for i in range(1, len(positions)):
-
-        required = (
-            positions[i - 1]
-            + min_gap
-        )
-
-        if positions[i] < required:
-            positions[i] = required
-
-    upper = y_max - edge
-
-    if positions[-1] > upper:
-
-        shift = (
-            positions[-1]
-            - upper
-        )
-
-        positions = [
-            p - shift
-            for p in positions
-        ]
-
-    lower = y_min + edge
-
-    if positions[0] < lower:
-
-        shift = (
-            lower
-            - positions[0]
-        )
-
-        positions = [
-            p + shift
-            for p in positions
-        ]
-
-    for item, y in zip(
-        ordered,
-        positions
-    ):
-
-        ax.text(
-            label_x,
-            y,
-            f" {item['text']} ",
-            transform=ax.transData,
-            ha="left",
-            va="center",
-            color=TEXT,
-            fontsize=7.6,
-            fontweight="bold",
-            bbox=dict(
-                boxstyle="round,pad=0.20",
-                facecolor=item["color"],
-                edgecolor=item["color"],
-                linewidth=0.7,
-                alpha=0.15,
-            ),
-            clip_on=False,
-            zorder=30,
-        )
-
-
-# ============================================================
-# MARKET STRUCTURE
-# ============================================================
-
 def _find_swing_points(df):
     highs = df["high"].to_numpy()
     lows = df["low"].to_numpy()
-
     n = len(df)
-
-    swing = 3
-
+    swing_w = 3
     raw_highs = []
     raw_lows = []
 
-    for i in range(
-        swing,
-        n - swing
-    ):
+    for i in range(swing_w, n - swing_w):
+        local_high = highs[i - swing_w:i + swing_w + 1]
+        local_low = lows[i - swing_w:i + swing_w + 1]
 
-        local_high = highs[
-            i - swing :
-            i + swing + 1
-        ]
-
-        local_low = lows[
-            i - swing :
-            i + swing + 1
-        ]
-
-        if highs[i] >= local_high.max():
-            raw_highs.append(
-                (i, highs[i])
-            )
-
-        if lows[i] <= local_low.min():
-            raw_lows.append(
-                (i, lows[i])
-            )
+        if highs[i] == local_high.max() and highs[i] > highs[i - 1] and highs[i] > highs[i + 1]:
+            raw_highs.append((i, float(highs[i])))
+        if lows[i] == local_low.min() and lows[i] < lows[i - 1] and lows[i] < lows[i + 1]:
+            raw_lows.append((i, float(lows[i])))
 
     return raw_highs, raw_lows
 
 
-def _classify_structure(
-    points,
-    bullish=True
-):
-    classified = []
-
+def _classify_structure(points, bullish=True):
+    result = []
     previous = None
-
-    for i, price in points:
-
+    for idx, price in points:
         if previous is None:
-            label = (
-                "H"
-                if bullish
-                else "L"
-            )
-
+            label = "HH" if bullish else "HL"
+        elif bullish:
+            label = "HH" if price > previous else "LH"
         else:
-
-            if bullish:
-                label = (
-                    "HH"
-                    if price > previous
-                    else "LH"
-                )
-            else:
-                label = (
-                    "HL"
-                    if price > previous
-                    else "LL"
-                )
-
-        classified.append(
-            (i, price, label)
-        )
-
+            label = "HL" if price > previous else "LL"
+        result.append((idx, price, label))
         previous = price
-
-    return classified
-
-
-def _select_structure_points(
-    raw_highs,
-    raw_lows,
-    max_points=3
-):
-    highs = _classify_structure(
-        raw_highs,
-        bullish=True
-    )
-
-    lows = _classify_structure(
-        raw_lows,
-        bullish=False
-    )
-
-    return (
-        highs[-max_points:],
-        lows[-max_points:]
-    )
+    return result
 
 
-def _draw_structure(
-    ax,
-    df,
-    span
-):
-    raw_highs, raw_lows = (
-        _find_swing_points(df)
-    )
+def _draw_structure(ax, df, y_span):
+    raw_highs, raw_lows = _find_swing_points(df)
+    highs = _classify_structure(raw_highs, True)[-2:]
+    lows = _classify_structure(raw_lows, False)[-2:]
+    offset = y_span * 0.028
 
-    highs, lows = (
-        _select_structure_points(
-            raw_highs,
-            raw_lows,
-            max_points=3
-        )
-    )
-
-    candle_ranges = (
-        df["high"] - df["low"]
-    )
-
-    median_range = float(
-        candle_ranges
-        .rolling(
-            5,
-            min_periods=1
-        )
-        .median()
-        .iloc[-1]
-    )
-
-    offset = max(
-        span * 0.010,
-        median_range * 0.42
-    )
-
-    for i, price, label in highs:
-
-        if label == "H":
-            continue
-
-        col = (
-            ST_UP
-            if label == "HH"
-            else ST_DOWN
-        )
-
+    for idx, price, label in highs:
         ax.text(
-            i,
-            price + offset,
-            label,
-            color=col,
-            fontsize=7.2,
-            fontweight="bold",
-            ha="center",
-            va="bottom",
-            bbox=dict(
-                boxstyle="round,pad=0.16",
-                facecolor=BG,
-                edgecolor="none",
-                alpha=0.82,
-            ),
-            zorder=18,
+            idx, price + offset, label,
+            color=ST_UP if label == "HH" else ST_DOWN,
+            fontsize=7, fontweight="bold",
+            ha="center", va="bottom", zorder=7,
         )
 
-    for i, price, label in lows:
-
-        if label == "L":
-            continue
-
-        col = (
-            ST_UP
-            if label == "HL"
-            else ST_DOWN
-        )
-
+    for idx, price, label in lows:
         ax.text(
-            i,
-            price - offset,
-            label,
-            color=col,
-            fontsize=7.2,
-            fontweight="bold",
-            ha="center",
-            va="top",
-            bbox=dict(
-                boxstyle="round,pad=0.16",
-                facecolor=BG,
-                edgecolor="none",
-                alpha=0.82,
-            ),
-            zorder=18,
+            idx, price - offset, label,
+            color=ST_UP if label == "HL" else ST_DOWN,
+            fontsize=7, fontweight="bold",
+            ha="center", va="top", zorder=7,
         )
 
 
-def _draw_target_arrow(
-    ax,
-    df,
-    side,
-    entry,
-    tps,
-    span
-):
-    if not tps or len(df) < 5:
-        return
+# ============================================================
+# LEVEL LABEL PLACEMENT
+# ============================================================
+def _place_level_labels(ax, levels, label_x):
+    ylim = ax.get_ylim()
+    view_span = ylim[1] - ylim[0]
+    min_gap = view_span * 0.035
 
-    last_x = len(df) - 1
+    ordered = sorted(levels, key=lambda item: item["level"])
+    text_ys = [item["level"] for item in ordered]
 
-    current_price = float(
-        df["close"].iloc[-1]
-    )
+    for i in range(1, len(text_ys)):
+        if text_ys[i] - text_ys[i - 1] < min_gap:
+            text_ys[i] = text_ys[i - 1] + min_gap
 
-    target = float(tps[0])
+    for i in range(len(text_ys)):
+        text_ys[i] = min(
+            max(text_ys[i], ylim[0] + view_span * 0.02),
+            ylim[1] - view_span * 0.02,
+        )
 
-    # Arrow tetap dekat candle terakhir.
-    start_x = last_x - 1.2
+    for i in range(len(text_ys) - 2, -1, -1):
+        if text_ys[i + 1] - text_ys[i] < min_gap:
+            text_ys[i] = text_ys[i + 1] - min_gap
 
-    end_x = last_x + 1.25
-
-    start_y = current_price
-
-    target_y = (
-        current_price
-        + (target - current_price) * 0.80
-    )
-
-    rad = (
-        0.20
-        if side == "LONG"
-        else -0.20
-    )
-
-    arrow = FancyArrowPatch(
-        (start_x, start_y),
-        (end_x, target_y),
-        arrowstyle="-|>",
-        mutation_scale=11,
-        linewidth=1.55,
-        color=(
-            ST_UP
-            if side == "LONG"
-            else ST_DOWN
-        ),
-        alpha=0.68,
-        connectionstyle=f"arc3,rad={rad}",
-        zorder=16,
-    )
-
-    ax.add_patch(arrow)
+    for item, ty in zip(ordered, text_ys):
+        ax.text(
+            label_x,
+            ty,
+            f" {item['text']} ",
+            color="#ffffff",
+            bbox=dict(
+                facecolor=item["color"],
+                edgecolor="none",
+                boxstyle="round,pad=0.32",
+                alpha=0.95,
+            ),
+            va="center",
+            ha="left",
+            fontweight="bold",
+            fontsize=7.5,
+            zorder=8,
+            clip_on=False,
+        )
 
 
 # ============================================================
 # MAIN CHART
 # ============================================================
-
-def draw_visual_chart(
-    df,
-    setup,
-    output_path,
-    visible_count
-):
-
-    raw_symbol = str(
-        setup.get(
-            "symbol",
-            "UNKNOWN"
-        )
-    ).upper()
-
-    display_symbol = _display_symbol(
-        raw_symbol
-    )
-
-    side = str(
-        setup.get(
-            "side",
-            "LONG"
-        )
-    ).upper()
-
-    tf = str(
-        setup.get(
-            "execution_tf",
-            "15m"
-        )
-    )
-
+def draw_visual_chart(df, setup, output_path, visible_count):
+    raw_symbol = str(setup.get("symbol", "UNKNOWN")).upper()
+    display_symbol = _display_symbol(raw_symbol)
+    side = str(setup.get("side", "LONG")).upper()
+    tf = str(setup.get("execution_tf", "15m"))
     normalized_tf = _normalize_tf(tf)
+    change_24h = float(setup.get("change24h", 0.0))
 
-    change_24h = float(
-        setup.get(
-            "change24h",
-            0.0
-        )
-    )
+    entry = float(setup["entry"])
+    sl = float(setup["sl"])
+    tps = [float(x) for x in setup.get("tp", [])[:3]]
+    dec = int(setup.get("decimals", decimals_from_price(entry)))
 
-    entry = float(
-        setup["entry"]
-    )
-
-    sl = float(
-        setup["sl"]
-    )
-
-    tps = [
-        float(x)
-        for x in setup.get(
-            "tp",
-            []
-        )[:3]
-    ]
-
-    dec = int(
-        setup.get(
-            "decimals",
-            decimals_from_price(entry)
-        )
-    )
+    visible_count = min(visible_count, len(df))
+    df = df.iloc[-visible_count:].copy().reset_index(drop=True)
+    x = np.arange(len(df))
+    last_x = int(x[-1])
 
     # ========================================================
-    # VISIBLE CANDLES
+    # EXACT REFERENCE FIGURE / TWO-PANEL LAYOUT
     # ========================================================
-
-    visible_count = min(
-        visible_count,
-        len(df)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1,
+        figsize=(12, 6.8),
+        gridspec_kw={"height_ratios": [4.2, 0.75], "hspace": 0.06},
+        sharex=True,
     )
 
-    df = (
-        df.iloc[-visible_count:]
-        .copy()
-        .reset_index(drop=True)
-    )
+    fig.patch.set_facecolor(BG)
+    ax1.set_facecolor(PANEL)
+    ax2.set_facecolor(PANEL)
 
-    x = np.arange(
-        len(df),
-        dtype=float
-    )
-
-    last_x = float(
-        x[-1]
-    )
-
-    # ========================================================
-    # FIGURE
-    #
-    # 5:2 RATIO
-    # ========================================================
-
-    fig = plt.figure(
-        figsize=(12.5, 5.0),
-        facecolor=BG
-    )
-
-    # ========================================================
-    # HANYA 2 PANEL:
-    #
-    # 1. PRICE
-    # 2. VOLUME
-    #
-    # RSI DIHAPUS SEPENUHNYA
-    # ========================================================
-
-    gs = fig.add_gridspec(
-        2,
-        1,
-
-        height_ratios=[
-            5.7,
-            0.85,
-        ],
-
-        hspace=0.040,
-
-        left=0.045,
-        right=0.885,
-
-        top=0.790,
-        bottom=0.100,
-    )
-
-    ax = fig.add_subplot(
-        gs[0]
-    )
-
-    axv = fig.add_subplot(
-        gs[1],
-        sharex=ax
-    )
-
-    ax.set_facecolor(PANEL)
-    axv.set_facecolor(PANEL)
-
-    # ========================================================
-    # PRICE RANGE
-    # ========================================================
-
-    level_values = [
-        entry,
-        sl,
-        *tps,
-    ]
-
-    y_low = min(
-        float(df["low"].min()),
-        *level_values
-    )
-
-    y_high = max(
-        float(df["high"].max()),
-        *level_values
-    )
-
-    span = max(
+    # Price range includes all setup levels.
+    level_values = [entry, sl, *tps]
+    y_low = min(float(df["low"].min()), *level_values)
+    y_high = max(float(df["high"].max()), *level_values)
+    y_span = max(
         y_high - y_low,
-        abs(y_high) * 0.01,
-        1e-12
+        abs(y_low) * 0.01 if y_low != 0 else 0.01,
     )
+    y_padding = y_span * 0.16
+    ax1.set_ylim(y_low - y_padding, y_high + y_padding)
 
-    pad = span * 0.075
+    # Reference candle width = 0.72.
+    candle_width = 0.72
 
-    y_min = y_low - pad
-    y_max = y_high + pad
+    for i in range(len(df)):
+        open_p = float(df["open"].iloc[i])
+        close_p = float(df["close"].iloc[i])
+        high_p = float(df["high"].iloc[i])
+        low_p = float(df["low"].iloc[i])
+        color = UP if close_p >= open_p else DOWN
 
-    # ========================================================
-    # CANDLE SIZE
-    #
-    # DIKUNCI 0.82
-    # ========================================================
-
-    candle_width = 0.82
-
-    # ========================================================
-    # CANDLES & VOLUME
-    # ========================================================
-
-    for i, row in df.iterrows():
-
-        o = float(row.open)
-        h = float(row.high)
-        l = float(row.low)
-        c = float(row.close)
-
-        up = c >= o
-
-        body_color = (
-            UP
-            if up
-            else DOWN
+        ax1.plot(
+            [i, i], [low_p, high_p],
+            color=color, linewidth=1.3,
+            solid_capstyle="round", zorder=5,
         )
 
-        # Wick
-        ax.plot(
-            [i, i],
-            [l, h],
-            color=body_color,
-            linewidth=1.30,
-            alpha=0.92,
-            zorder=5,
-        )
-
-        # Candle body
-        body_low = min(o, c)
-
+        body_bottom = min(open_p, close_p)
         body_height = max(
-            abs(c - o),
-            (h - l) * 0.015,
-            1e-12,
+            abs(close_p - open_p),
+            (high_p - low_p) * 0.012,
         )
 
-        ax.add_patch(
+        ax1.add_patch(
             Rectangle(
-                (
-                    i - candle_width / 2,
-                    body_low
-                ),
+                (i - candle_width / 2, body_bottom),
                 candle_width,
                 body_height,
-
-                facecolor=body_color,
-                edgecolor=body_color,
-
-                linewidth=0.30,
-                alpha=0.98,
-
+                facecolor=color,
+                edgecolor=color,
+                alpha=0.92,
+                linewidth=0,
                 zorder=6,
             )
         )
 
-        # Volume
-        axv.bar(
+        ax2.bar(
             i,
-            float(row.volume),
+            float(df["volume"].iloc[i]),
+            color=color,
+            alpha=0.30,
             width=candle_width,
-            color=body_color,
-            alpha=0.26,
             linewidth=0,
             zorder=2,
         )
 
-    # ========================================================
-    # EMA 200 & SUPERTREND
-    # ========================================================
-
-    ax.plot(
-        x,
-        df["EMA200"],
+    # EMA 200 — indicator retained from original vSch.py.
+    ax1.plot(
+        x, df["EMA200"],
         color=EMA,
-        linewidth=1.85,
+        linewidth=1.4,
         label="EMA 200",
-        zorder=9,
-    )
-
-    st_up = df["ST"].where(
-        df["ST_DIR"] > 0
-    )
-
-    st_down = df["ST"].where(
-        df["ST_DIR"] < 0
-    )
-
-    ax.plot(
-        x,
-        st_up,
-        color=ST_UP,
-        linewidth=1.75,
-        label="Supertrend 10 / 2.5",
-        zorder=8,
-    )
-
-    ax.plot(
-        x,
-        st_down,
-        color=ST_DOWN,
-        linewidth=1.75,
-        zorder=8,
-    )
-
-    bull = df["ST_DIR"] > 0
-    bear = df["ST_DIR"] < 0
-
-    ax.fill_between(
-        x,
-        df["ST"].astype(float),
-        df["low"].astype(float),
-
-        where=bull,
-
-        color=ST_UP,
-        alpha=0.085,
-
-        interpolate=True,
-        zorder=1,
-    )
-
-    ax.fill_between(
-        x,
-        df["high"].astype(float),
-        df["ST"].astype(float),
-
-        where=bear,
-
-        color=ST_DOWN,
-        alpha=0.085,
-
-        interpolate=True,
-        zorder=1,
-    )
-
-    # ========================================================
-    # MARKET STRUCTURE
-    # ========================================================
-
-    _draw_structure(
-        ax,
-        df,
-        span
-    )
-
-    # ========================================================
-    # PRICE LEVELS
-    # ========================================================
-
-    levels = [
-        _level_label(
-            entry,
-            ENTRY,
-            f"ENTRY  {format_price(entry, dec)}"
-        )
-    ]
-
-    for i, value in enumerate(
-        tps,
-        1
-    ):
-
-        levels.append(
-            _level_label(
-                value,
-                TP,
-                f"TP{i}  {format_price(value, dec)}"
-            )
-        )
-
-    levels.append(
-        _level_label(
-            sl,
-            SL,
-            f"SL  {format_price(sl, dec)}"
-        )
-    )
-
-    # ========================================================
-    # LEVEL LINES
-    # ========================================================
-
-    for item in levels:
-
-        ax.axhline(
-            item["level"],
-            color=item["color"],
-            linestyle=(0, (5, 4)),
-            linewidth=0.95,
-            alpha=0.48,
-            zorder=3,
-        )
-
-    # ========================================================
-    # HORIZONTAL SPACE
-    #
-    # Label harga dipindahkan jauh lebih kiri.
-    # ========================================================
-
-    right_space = max(
-        4.0,
-        len(df) * 0.085
-    )
-
-    ax.set_xlim(
-        -0.8,
-        last_x + right_space
-    )
-
-    # ========================================================
-    # PRICE LABEL POSITION
-    # ========================================================
-
-    level_label_x = (
-        last_x + 0.75
-    )
-
-    _place_level_labels(
-        ax,
-        levels,
-        level_label_x,
-        y_min,
-        y_max,
-    )
-
-    # ========================================================
-    # TARGET ARROW
-    # ========================================================
-
-    _draw_target_arrow(
-        ax,
-        df,
-        side,
-        entry,
-        tps,
-        span,
-    )
-
-    ax.set_ylim(
-        y_min,
-        y_max
-    )
-
-    # ========================================================
-    # VOLUME
-    # ========================================================
-
-    volume = df["volume"].astype(float)
-
-    volume_cap = float(
-        volume.quantile(0.95)
-    )
-
-    if volume_cap > 0:
-        display_volume = volume.clip(
-            upper=volume_cap
-        )
-    else:
-        display_volume = volume
-
-    # Clear volume axis.
-    axv.clear()
-
-    axv.set_facecolor(
-        PANEL
-    )
-
-    for i, row in df.iterrows():
-
-        o = float(row.open)
-        c = float(row.close)
-
-        body_color = (
-            UP
-            if c >= o
-            else DOWN
-        )
-
-        axv.bar(
-            i,
-            float(
-                display_volume.iloc[i]
-            ),
-            width=candle_width,
-            color=body_color,
-            alpha=0.27,
-            linewidth=0,
-            zorder=2,
-        )
-
-    vol_ma = df[
-        "VOL_MA"
-    ].astype(float)
-
-    if volume_cap > 0:
-        vol_ma_display = vol_ma.clip(
-            upper=volume_cap
-        )
-    else:
-        vol_ma_display = vol_ma
-
-    axv.plot(
-        x,
-        vol_ma_display,
-        color="#b87333",
-        linewidth=1.05,
-        alpha=0.70,
         zorder=3,
     )
 
-    # ========================================================
-    # GRIDS
-    # ========================================================
+    # Supertrend 10 / 2.5 — retained from original vSch.py.
+    st_up = df["ST"].where(df["ST_DIR"] > 0)
+    st_down = df["ST"].where(df["ST_DIR"] < 0)
 
-    ax.grid(
-        True,
-        color=GRID,
-        alpha=0.62,
-        linewidth=0.60,
+    ax1.plot(
+        x, st_up,
+        color=ST_UP,
+        linewidth=1.4,
+        label="Supertrend 10 / 2.5",
+        zorder=3,
+    )
+    ax1.plot(
+        x, st_down,
+        color=ST_DOWN,
+        linewidth=1.4,
+        zorder=3,
     )
 
-    axv.grid(
-        True,
-        axis="y",
-        color=GRID,
-        alpha=0.50,
-        linewidth=0.60,
+    _draw_structure(ax1, df, y_span)
+
+    # Reference spacing for price labels.
+    gap_from_candle = 4.0
+    label_width_est = 9.5
+    gap_from_edge = 1.8
+    extra_margin = gap_from_candle + label_width_est + gap_from_edge
+    label_x = last_x + gap_from_candle
+
+    ax1.set_xlim(-0.6, last_x + extra_margin)
+    ax2.set_xlim(-0.6, last_x + extra_margin)
+
+    # Price levels.
+    levels = [{
+        "level": entry,
+        "color": ENTRY,
+        "text": f"ENTRY  {format_price(entry, dec)}",
+    }]
+
+    for i, value in enumerate(tps, 1):
+        levels.append({
+            "level": value,
+            "color": TP1 if i == 1 else TP2,
+            "text": f"TP{i}  {format_price(value, dec)}",
+        })
+
+    levels.append({
+        "level": sl,
+        "color": SL,
+        "text": f"SL  {format_price(sl, dec)}",
+    })
+
+    for item in levels:
+        ax1.axhline(
+            y=item["level"],
+            color=item["color"],
+            linestyle="--",
+            linewidth=1.0,
+            alpha=0.70,
+            zorder=2,
+        )
+
+    _place_level_labels(ax1, levels, label_x)
+
+    # Target arrow — same visual treatment as reference.
+    if tps:
+        arrow_color = TP1 if side == "LONG" else SL
+        rad = -0.28 if side == "LONG" else 0.28
+        ax1.annotate(
+            "",
+            xy=(last_x + gap_from_candle * 0.70, tps[0]),
+            xytext=(last_x, entry),
+            arrowprops=dict(
+                arrowstyle="->",
+                color=arrow_color,
+                lw=1.35,
+                linestyle="--",
+                connectionstyle=f"arc3,rad={rad}",
+                mutation_scale=12,
+                alpha=0.80,
+            ),
+        )
+
+    # Volume MA.
+    ax2.plot(
+        x,
+        df["VOL_MA"],
+        color=VOLUME_MA,
+        linewidth=1.2,
+        alpha=0.70,
     )
 
-    ax.set_axisbelow(True)
-    axv.set_axisbelow(True)
+    # Grid.
+    ax1.grid(True, linestyle="-", alpha=0.35, color=GRID)
+    ax2.grid(True, linestyle="-", alpha=0.35, color=GRID)
+    ax1.set_axisbelow(True)
+    ax2.set_axisbelow(True)
 
-    # ========================================================
-    # RIGHT PRICE AXIS
-    # ========================================================
-
-    ax.yaxis.tick_right()
-
-    ax.yaxis.set_label_position(
-        "right"
+    # Legend.
+    legend = ax1.legend(
+        loc="upper left",
+        fontsize=7.5,
+        framealpha=0.95,
+        facecolor=BG,
+        edgecolor="#bdbdbd",
+        labelcolor="#333333",
+        borderpad=0.4,
     )
+    legend.get_frame().set_linewidth(0.7)
 
-    ax.tick_params(
-        axis="y",
-        colors=TEXT,
-        labelsize=7.6,
-        length=0,
-        pad=5,
-    )
+    # Axes.
+    ax1.set_ylabel("Price (USDT)", fontsize=8.5, color=AXIS, labelpad=5)
+    ax2.set_ylabel("Vol", fontsize=8, color=AXIS, labelpad=5)
+    ax1.tick_params(colors=AXIS, labelcolor=AXIS, labelsize=7.5)
+    ax2.tick_params(colors=AXIS, labelcolor=AXIS, labelsize=7.5)
+    ax1.tick_params(labelbottom=False)
 
-    axv.tick_params(
-        labelbottom=False,
-        axis="y",
-        colors=MUTED,
-        labelsize=6.8,
-        length=0,
-        pad=4,
-    )
+    for ax in (ax1, ax2):
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.spines["left"].set_color(SPINE)
+        ax.spines["bottom"].set_color(SPINE)
+        ax.spines["left"].set_linewidth(0.8)
+        ax.spines["bottom"].set_linewidth(0.8)
 
-    # ========================================================
-    # SPINES
-    # ========================================================
-
-    for a in (
-        ax,
-        axv
-    ):
-
-        for spine in a.spines.values():
-
-            spine.set_color(
-                GRID
-            )
-
-            spine.set_linewidth(
-                0.60
-            )
-
-    ax.spines["left"].set_visible(
-        False
-    )
-
-    ax.spines["top"].set_visible(
-        False
-    )
-
-    axv.spines["left"].set_visible(
-        False
-    )
-
-    axv.spines["top"].set_visible(
-        False
-    )
-
-    ax.tick_params(
-        labelbottom=False
-    )
-
-    axv.tick_params(
-        labelbottom=False
-    )
-
-    # ========================================================
-    # X TICKS
-    #
-    # SEKARANG X-TICKS DITARUH DI VOLUME AXIS
-    # KARENA PANEL RSI SUDAH DIHAPUS.
-    # ========================================================
-
-    tick_count = min(
-        5,
-        len(df)
-    )
-
-    tick_idx = np.linspace(
-        0,
-        len(df) - 1,
-        tick_count,
-        dtype=int,
-    )
-
-    axv.set_xticks(
-        tick_idx
-    )
+    # X ticks — six labels like reference.
+    tick_count = min(6, len(df))
+    ticks_idx = np.linspace(0, len(df) - 1, tick_count, dtype=int)
+    ax2.set_xticks(ticks_idx)
 
     labels = []
-
-    for i in tick_idx:
-
-        ts = df[
-            "timestamp"
-        ].iloc[i]
-
-        if pd.notna(ts):
-
-            labels.append(
-                ts.strftime(
-                    "%d %b\n%H:%M"
-                )
-            )
-
-        else:
-            labels.append(
-                str(i)
-            )
-
-    axv.set_xticklabels(
-        labels,
-        color=MUTED,
-        fontsize=7.0,
-    )
-
-    axv.tick_params(
-        axis="x",
-        labelbottom=True,
-        colors=MUTED,
-        length=0,
-        pad=3,
-    )
-
-    # ========================================================
-    # LEGEND
-    # ========================================================
-
-    legend = ax.legend(
-        loc="upper left",
-        ncol=2,
-        fontsize=6.9,
-        frameon=True,
-
-        facecolor="#ffffff",
-        edgecolor=GRID,
-        framealpha=0.90,
-
-        labelcolor=TEXT,
-
-        borderpad=0.38,
-        handlelength=1.8,
-        columnspacing=0.8,
-    )
-
-    legend.get_frame().set_linewidth(
-        0.60
-    )
-
-    # ========================================================
-    # HEADER DATA & LAYOUT
-    # ========================================================
-
-    candle_close = float(
-        df["close"].iloc[-1]
-    )
-
-    current_price = _get_mark_price(
-        setup,
-        candle_close
-    )
-
-    header_left = 0.050
-
-    # ========================================================
-    # TOKEN
-    # ========================================================
-
-    fig.text(
-        header_left,
-        0.955,
-
-        f"${display_symbol}/USDT",
-
-        color=TEXT,
-        fontsize=17.5,
-        fontweight="bold",
-
-        ha="left",
-        va="center",
-    )
-
-    # ========================================================
-    # PRICE + CHANGE
-    # ========================================================
-
-    price_change_color = (
-        ST_UP
-        if change_24h >= 0
-        else ST_DOWN
-    )
-
-    price_y = 0.905
-
-    fig.text(
-        header_left,
-        price_y,
-
-        f"${format_price(current_price, dec)}",
-
-        color=TEXT,
-        fontsize=10.0,
-        fontweight="bold",
-
-        ha="left",
-        va="center",
-    )
-
-    fig.text(
-        header_left + 0.135,
-        price_y,
-
-        f"{change_24h:+.2f}%",
-
-        color=price_change_color,
-        fontsize=9.2,
-        fontweight="bold",
-
-        ha="left",
-        va="center",
-    )
-
-    # ========================================================
-    # SCORE / MTF
-    # ========================================================
-
-    score_val = float(
-        setup.get(
-            "score",
-            0
+    for t in ticks_idx:
+        ts = df["timestamp"].iloc[t]
+        labels.append(
+            ts.strftime("%d %b  %H:%M")
+            if pd.notna(ts)
+            else str(t)
         )
-    )
+    ax2.set_xticklabels(labels, fontsize=7.5, color=AXIS)
 
-    mtf_val = setup.get(
-        "tf_agreement",
-        "-"
-    )
+    # Header — same placement and sizing as reference, with Synaptic fields.
+    structure_label = str(setup.get("structure", "neutral")).upper()
+    style_label = str(setup.get("setup_style", "continuation")).upper()
+
+    confidence = setup.get("confidence", None)
+    if confidence is not None:
+        try:
+            confidence_text = f"{float(confidence):.0f}%"
+        except (TypeError, ValueError):
+            confidence_text = str(confidence)
+        subheader = f"{structure_label}  ·  {style_label}  ·  Conf {confidence_text}"
+    else:
+        score_val = float(setup.get("score", 0))
+        mtf_val = setup.get("tf_agreement", "-")
+        subheader = f"{structure_label}  ·  {style_label}  ·  Score {score_val:.2f}  ·  MTF {mtf_val}/3"
 
     fig.text(
-        header_left,
-        0.862,
-
-        f"SCORE {score_val:.2f}  •  MTF {mtf_val}/3",
-
-        color=MUTED,
-        fontsize=7.5,
+        0.08, 0.965,
+        f"${display_symbol}/USDT {normalized_tf.upper()} - {side} SETUP",
+        fontsize=13,
         fontweight="bold",
-
+        color=TEXT,
         ha="left",
-        va="center",
-    )
-
-    # ========================================================
-    # SETUP / BIAS
-    # ========================================================
-
-    fig.text(
-        header_left,
-        0.820,
-
-        f"SETUP {normalized_tf.upper()}  —  BIAS {side}",
-
-        color="#f0b900",
-        fontsize=8.7,
-        fontweight="bold",
-
-        ha="left",
-        va="center",
-    )
-
-    # ========================================================
-    # FOOTER
-    # ========================================================
-
-    footer = (
-        "Setup levels from Synaptic JSON. "
-        "Output optimized for 5:2 mobile viewing."
+        va="top",
     )
 
     fig.text(
-        header_left,
-        0.025,
-
-        footer,
-
+        0.08, 0.932,
+        subheader,
+        fontsize=9,
         color=MUTED,
-        fontsize=6.4,
-
         ha="left",
-        va="center",
+        va="top",
+        fontweight="medium",
     )
 
-    # ========================================================
-    # SAVE
-    # ========================================================
+    # Footer — same overall appearance as reference.
+    fig.text(
+        0.08, 0.012,
+        f"BINANCE FUTURES  ·  ${display_symbol}/USDT  ·  {normalized_tf.upper()}",
+        fontsize=7,
+        color="#555555",
+        ha="left",
+        va="bottom",
+    )
 
-    fig.savefig(
+    fig.text(
+        0.92, 0.012,
+        "Not financial advice",
+        fontsize=7,
+        color="#555555",
+        ha="right",
+        va="bottom",
+    )
+
+    plt.subplots_adjust(
+        left=0.08,
+        right=0.96,
+        top=0.88,
+        bottom=0.07,
+    )
+
+    plt.savefig(
         output_path,
-
-        dpi=180,
-
-        facecolor=BG,
-        edgecolor=BG,
-
+        dpi=140,
+        facecolor=fig.get_facecolor(),
         bbox_inches="tight",
-        pad_inches=0.06,
+        pad_inches=0.18,
     )
-
     plt.close(fig)
 
 
 # ============================================================
 # MAIN
 # ============================================================
-
 def main():
-
     parser = argparse.ArgumentParser(
-        description=(
-            "vSch - JSON-only "
-            "Synaptic chart renderer"
-        )
+        description="vSch - JSON-only Synaptic chart renderer"
     )
-
-    parser.add_argument(
-        "--input",
-        default="synaptic_candidates.json"
-    )
-
-    parser.add_argument(
-        "--output-dir",
-        default="charts"
-    )
-
-    parser.add_argument(
-        "--symbol",
-        default=None
-    )
-
-    parser.add_argument(
-        "--chart-candles",
-        type=int,
-        default=None
-    )
-
+    parser.add_argument("--input", default="synaptic_candidates.json")
+    parser.add_argument("--output-dir", default="charts")
+    parser.add_argument("--symbol", default=None)
+    parser.add_argument("--chart-candles", type=int, default=None)
     args = parser.parse_args()
 
-    input_path = Path(
-        args.input
-    )
-
+    input_path = Path(args.input)
     if not input_path.exists():
+        raise FileNotFoundError(f"Synaptic JSON not found: {input_path}")
 
-        raise FileNotFoundError(
-            f"Synaptic JSON not found: {input_path}"
-        )
-
-    candidates = _load_candidates(
-        input_path
-    )
-
+    candidates = _load_candidates(input_path)
     if not candidates:
-
-        print(
-            "No candidates found "
-            "in Synaptic JSON. "
-            "Nothing to render."
-        )
-
+        print("No candidates found in Synaptic JSON. Nothing to render.")
         return
 
-    output_dir = Path(
-        args.output_dir
-    )
-
-    output_dir.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     rendered = 0
 
     for candidate in candidates:
+        symbol = str(candidate.get("symbol", "")).upper()
 
-        symbol = str(
-            candidate.get(
-                "symbol",
-                ""
-            )
-        ).upper()
-
-        if (
-            args.symbol
-            and symbol != args.symbol.upper()
-        ):
+        if args.symbol and symbol != args.symbol.upper():
             continue
 
-        tf = str(
-            candidate.get(
-                "execution_tf",
-                "15m"
-            )
-        )
-
-        side = str(
-            candidate.get(
-                "side",
-                "LONG"
-            )
-        ).upper()
+        tf = str(candidate.get("execution_tf", "15m"))
+        side = str(candidate.get("side", "LONG")).upper()
 
         try:
-
-            for field in (
-                "entry",
-                "sl",
-                "tp"
-            ):
-
+            for field in ("entry", "sl", "tp"):
                 if field not in candidate:
+                    raise ValueError(f"missing top-level field '{field}'")
 
-                    raise ValueError(
-                        f"missing top-level "
-                        f"field '{field}'"
-                    )
-
-            df, actual_tf = _build_dataframe(
-                candidate,
-                tf
-            )
-
+            df, actual_tf = _build_dataframe(candidate, tf)
             visible = _resolve_visible_count(
                 candidate,
                 actual_tf,
-                args.chart_candles
+                args.chart_candles,
             )
 
             if (
                 args.chart_candles is None
                 and _normalize_tf(actual_tf) == "1h"
             ):
-
-                visible = min(
-                    33,
-                    len(df)
-                )
+                visible = min(33, len(df))
 
             output_file = (
                 output_dir
@@ -1790,38 +716,24 @@ def main():
             )
 
             print(
-                f"Rendering "
-                f"{symbol} | "
-                f"setup={actual_tf} | "
-                f"candles={visible} | "
-                f"frame=5:2"
+                f"Rendering {symbol} | setup={actual_tf} | "
+                f"candles={visible} | frame=12x6.8 | RSI=OFF"
             )
 
             draw_visual_chart(
                 df,
                 candidate,
                 output_file,
-                visible
+                visible,
             )
 
-            print(
-                f"Chart: {output_file}"
-            )
-
+            print(f"Chart: {output_file}")
             rendered += 1
 
         except Exception as exc:
+            print(f"Skipping {symbol or 'UNKNOWN'}: {exc}")
 
-            print(
-                f"Skipping "
-                f"{symbol or 'UNKNOWN'}: "
-                f"{exc}"
-            )
-
-    print(
-        f"Chart generation completed: "
-        f"{rendered} chart(s)."
-    )
+    print(f"Chart generation completed: {rendered} chart(s).")
 
 
 if __name__ == "__main__":
