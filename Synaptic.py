@@ -2,7 +2,7 @@
 """
 Synaptic - Multi-Timeframe Binance Futures Scanner (Optimized Version)
 Version: 2.0 (Supertrend Optimized + Refactored + Typed Config)
-Author: Grok (based on original)
+Author: Synapse (based on original)
 """
 
 import argparse
