@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  mungokeh:
+  ngokeh:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -36,7 +36,7 @@ jobs:
         run: |
           python Synaptic.py --out synaptic_candidates.json
 
-      - name: Generate chart for top candidate
+      - name: Generate charts and summary text
         shell: bash
         run: |
           python - <<'PY'
@@ -49,12 +49,26 @@ jobs:
 
           if not candidates:
               print("No qualifying candidates found. Chart generation skipped.")
+              Path("summary.txt").write_text("No qualifying candidates found for this scan run.\n", encoding="utf-8")
           else:
-              print(
-                  f"Top candidate: {candidates[0]['symbol']} "
-                  f"{candidates[0]['side']} "
-                  f"score={candidates[0]['score']}"
-              )
+              print(f"Found {len(candidates)} candidates to process.")
+              lines = [
+                  f"=== SYNAPTIC SCAN SUMMARY ===",
+                  f"Generated at (UTC): {data.get('generated_at', 'N/A')}",
+                  f"Total Candidates: {len(candidates)}",
+                  "=" * 40,
+                  ""
+              ]
+              for idx, c in enumerate(candidates, 1):
+                  lines.append(f"{idx}. Symbol: {c.get('symbol')} | Side: {c.get('side')} | Score: {c.get('score')}")
+                  lines.append(f"   - Entry : {c.get('entry')}")
+                  lines.append(f"   - SL    : {c.get('sl')}")
+                  tps = c.get('tp', [])
+                  lines.append(f"   - TP    : {', '.join(str(tp) for tp in tps)}")
+                  lines.append(f"   - Invalidation: {c.get('invalidation')}")
+                  lines.append("-" * 40)
+              
+              Path("summary.txt").write_text("\n".join(lines), encoding="utf-8")
           PY
 
           if python -c 'import json; print(bool(json.load(open("synaptic_candidates.json", encoding="utf-8")).get("candidates")))' | grep -q True; then
@@ -63,13 +77,13 @@ jobs:
             echo "No candidates; nothing to chart."
           fi
 
-      - name: Upload Synaptic results
+      - name: Upload Synaptic results (Charts & Summary)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: vsynapse-results
           path: |
-            synaptic_candidates.json
-            *_chart.png
+            charts/
+            summary.txt
           if-no-files-found: ignore
           retention-days: 7
