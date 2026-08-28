@@ -1,6 +1,7 @@
 """
 vSch.py
-Generate visual chart 5:2 murni dari synaptic_candidates.json tanpa request eksternal.
+Generate visual chart dengan Header Info, Box Transparan, Label HH/LL/HL/LH,
+dan membaca data klines dari 'chart_data' di dalam JSON Synaptic.
 """
 
 import json
@@ -34,15 +35,39 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     n_show = min(chart_candles, len(df))
     df = df.iloc[-n_show:].reset_index(drop=True)
 
-    # Rasio ukuran 5:2 (Lebar 12, Tinggi 4.8)
+    # Layout dengan ruang untuk Header di bagian atas
     fig, (ax1, ax2) = plt.subplots(
-        2, 1, figsize=(12, 4.8),
+        2, 1, figsize=(12, 5.5),
         gridspec_kw={'height_ratios': [4.0, 0.8], 'hspace': 0.05},
         sharex=True
     )
     fig.patch.set_facecolor('#ffffff')
     ax1.set_facecolor('#ffffff')
     ax2.set_facecolor('#ffffff')
+
+    # --- HEADER INFO (Simbol, Side, Change 24h, Vol 24h, Harga) ---
+    side = setup.get('side', 'LONG').upper()
+    change_24h = setup.get('change24h', 0.0)
+    q_vol = setup.get('quote_volume24h', 0.0)
+    current_price = df['close'].iloc[-1]
+    dec = setup.get('decimals', 4)
+
+    chg_color = '#2e7d32' if change_24h >= 0 else '#c62828'
+    side_color = '#1b5e20' if side == 'LONG' else '#b71c1c'
+
+    header_text = (
+        f"  {symbol}  |  "
+        f"BIAS: {side}  |  "
+        f"Price: {format_price(current_price, dec)}  |  "
+        f"24h Change: {change_24h:+.2f}%  |  "
+        f"24h Vol: ${q_vol:,.0f}"
+    )
+    fig.text(
+        0.06, 0.96, header_text,
+        fontsize=9.0, fontweight='bold', color='#ffffff',
+        bbox=dict(facecolor=side_color, edgecolor='none', boxstyle='round,pad=0.4', alpha=0.95),
+        transform=fig.transFigure, zorder=10
+    )
 
     x_indices = np.arange(len(df))
     last_x = int(x_indices[-1])
@@ -116,8 +141,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         last_sl_price = price
 
     # --- TRANSPARANT SUPPORT / DEMAND BOX ---
-    bias = setup.get('side', setup.get('bias', 'LONG')).upper()
-    is_long = (bias == "LONG")
+    is_long = (side == "LONG")
     
     if is_long and labeled_lows:
         box_idx, box_price, _ = labeled_lows[-1]
@@ -149,7 +173,6 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         color = '#26a69a' if label == 'HL' else '#c62828'
         ax1.text(idx, price - (y_span * 0.028), label, color=color, fontsize=6.5, fontweight='bold', ha='center', va='top', zorder=7)
 
-    dec = setup.get('decimals', 4)
     levels = [
         (entry, '#1565c0', f"ENTRY  {format_price(entry, dec)}"),
         (tp1, '#00897b', f"TP1  {format_price(tp1, dec)}"),
@@ -205,14 +228,12 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         ax.spines['left'].set_linewidth(0.8)
         ax.spines['bottom'].set_linewidth(0.8)
 
-    # Menampilkan tanggal/waktu pada sumbu X jika tersedia di data
-    if 'timestamp' in df.columns:
-        ticks_idx = np.linspace(0, len(df) - 1, min(6, len(df)), dtype=int)
-        ax2.set_xticks(ticks_idx)
-        ax2.set_xticklabels([pd.to_datetime(df['timestamp'].iloc[t]).strftime('%d %b  %H:%M') for t in ticks_idx],
-                            fontsize=7.0, color=axis_c)
+    ticks_idx = np.linspace(0, len(df) - 1, min(6, len(df)), dtype=int)
+    ax2.set_xticks(ticks_idx)
+    ax2.set_xticklabels([df['timestamp'].iloc[t].strftime('%d %b  %H:%M') for t in ticks_idx],
+                        fontsize=7.0, color=axis_c)
 
-    plt.subplots_adjust(left=0.06, right=0.95, top=0.95, bottom=0.12)
+    plt.subplots_adjust(left=0.06, right=0.95, top=0.90, bottom=0.12)
     plt.savefig(output_path, dpi=140, facecolor=fig.get_facecolor(),
                 bbox_inches='tight', pad_inches=0.1)
     plt.close(fig)
@@ -240,23 +261,25 @@ def main():
 
     for c in candidates:
         symbol = c['symbol']
-        side = c.get('side', c.get('bias', 'LONG'))
+        side = c.get('side', 'LONG')
         print(f"Rendering chart for {symbol} ({side}) from JSON data...")
 
-        # Mengambil data klines/candles langsung dari struktur JSON yang disiapkan Synaptic.py
-        raw_candles = c.get('candles', c.get('history', []))
-        if not raw_candles:
+        chart_data = c.get('chart_data', {})
+        candles_raw = chart_data.get('15m', [])
+
+        if not candles_raw:
             print(f"No candle history found in JSON for {symbol}")
             continue
 
-        df = pd.DataFrame(raw_candles)
-        # Pastikan kolom standar tersedia
+        df = pd.DataFrame(candles_raw)
         for col in ['open', 'high', 'low', 'close', 'volume']:
             if col in df.columns:
                 df[col] = df[col].astype(float)
-
-        if 'timestamp' not in df.columns and 'open_time' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['open_time'], unit='ms')
+        
+        if 'time' in df.columns:
+            df['timestamp'] = pd.to_datetime(df['time'])
+        else:
+            df['timestamp'] = pd.to_datetime('now')
 
         price_val = df['close'].iloc[-1]
         if price_val < 1:
