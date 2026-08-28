@@ -33,9 +33,8 @@ IGNORED_SYMBOLS = {
 }
 
 CONFIG = {
-    "min_quote_volume_24h": 5_000_000,  # Sesuai README: 5M USDT
-    "min_abs_change_24h": 4.0,          # Sesuai README: Min absolute 24h change 4%
-    "universe_size": 80,                # Sesuai README: Universe size 80
+    "min_quote_volume_24h": 500_000,     # Liquiditas minimum; universe tetap global
+    "universe_size": 0,                 # 0 = seluruh active USDT perpetuals
     "momentum_pool": 60,
     "klines": 240,
     "workers_stage1": 8,                # Diturunkan sedikit untuk keamanan rate limit
@@ -174,11 +173,14 @@ def universe():
 
         if quote_volume < CONFIG["min_quote_volume_24h"] or last_price <= 0:
             continue
-        if abs(change_24h) < CONFIG["min_abs_change_24h"]:
-            continue
 
+        # IMPORTANT: do not filter by 24h % change here.
+        # Stage 1 decides movement/momentum after the complete liquid universe
+        # has been built. This prevents the scanner from becoming a
+        # "trending futures" scanner before technical analysis starts.
         rows.append((symbol, change_24h, quote_volume))
 
+    # Optional hard cap. Default 0 means ALL qualifying active perpetuals.
     if CONFIG["universe_size"] > 0:
         rows = rows[:CONFIG["universe_size"]]
 
@@ -448,9 +450,10 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
             votes.append(1 if tf_score["long"] > tf_score["short"] else -1)
 
     agreement = sum(vote == wanted_direction for vote in votes)
-    four_hour_dir = 1 if data["4h"]["score"]["long"] > data["4h"]["score"]["short"] else -1
-
-    if four_hour_dir != wanted_direction or agreement < 2:
+    # Minimum 2/3 timeframe agreement. 4H is contextual, not a hard gate.
+    # This is intentionally aligned with the requested MTF rule: 15m + 1H
+    # can qualify when 4H disagrees, and vice versa.
+    if agreement < 2:
         return None
 
     df15 = data["15m"]["df"]
@@ -565,6 +568,7 @@ def main():
     logger.info(f"Selected {len(selected)} symbols for Stage 2 multi-timeframe validation.")
 
     results = []
+    mtf_valid = []
     with ThreadPoolExecutor(max_workers=CONFIG["workers_stage2"]) as pool:
         jobs = {
             pool.submit(analyze_symbol, sym, chg, q_vol, s_score, s_meta): sym
@@ -574,19 +578,44 @@ def main():
             sym = jobs[future]
             try:
                 result = future.result()
-                if result and result["score"] >= CONFIG["min_score"]:
-                    results.append(result)
+                if result:
+                    mtf_valid.append(result)
+                    if result["score"] >= CONFIG["min_score"]:
+                        results.append(result)
             except Exception as exc:
                 logger.debug(f"MTF scan error on {sym}: {exc}")
 
     results.sort(key=lambda item: item["score"], reverse=True)
-    final_results = [] if len(results) < CONFIG["min_candidates"] else results[:CONFIG["max_results"]]
+    mtf_valid.sort(key=lambda item: item["score"], reverse=True)
 
+    # Keep the requested minimum of 2 without inventing signals. If fewer than
+    # 2 reach min_score, use the strongest MTF-valid candidates (agreement >=2)
+    # as a transparent fallback. Never exceed max_results.
+    final_results = results[:CONFIG["max_results"]]
+    selection_mode = "min_score"
+    if len(final_results) < CONFIG["min_candidates"]:
+        final_results = mtf_valid[:CONFIG["max_results"]]
+        selection_mode = "mtf_fallback"
+
+    logger.info(
+        f"Stage 2 MTF-valid: {len(mtf_valid)} | "
+        f"min-score valid: {len(results)} | "
+        f"selection={selection_mode}"
+    )
     logger.info(f"Scan completed. Found {len(final_results)} valid candidates.")
 
     payload = {
         "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
         "scanner": "Synaptic",
+        "selection_mode": selection_mode,
+        "scan_stats": {
+            "universe": len(universe_rows),
+            "stage1_selected": len(selected),
+            "mtf_valid": len(mtf_valid),
+            "min_score_valid": len(results),
+            "final_candidates": len(final_results),
+            "elapsed_seconds": round(time.time() - started, 2),
+        },
         "candidates": final_results,
     }
 
