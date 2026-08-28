@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  scan-and-chart:
+  mungokeh:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
