@@ -1,0 +1,58 @@
+name: vSynapse Scanner
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas numpy matplotlib pyyaml
+
+      - name: Run Synaptic scanner
+        run: |
+          python Synaptic.py --out synaptic_candidates.json
+
+      - name: Generate visual charts
+        run: |
+          mkdir -p charts
+          python vSch.py --input synaptic_candidates.json
+          mv *_chart.png charts/ 2>/dev/null || true
+
+      - name: Upload scan results
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsynapse-results
+          path: |
+            synaptic_candidates.json
+            charts/
+
+      - name: Commit latest results
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add synaptic_candidates.json charts/
+
+          git diff --cached --quiet || \
+            git commit -m "chore: update vSynapse scan"
+
+          git push
