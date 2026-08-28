@@ -22,7 +22,6 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, FancyArrowPatch
-from matplotlib.path import Path as MplPath
 
 
 # ============================================================
@@ -48,12 +47,11 @@ ENTRY = "#1687e8"
 TP = "#14b8a6"
 SL = "#e84b5b"
 
+
 # ============================================================
 # VISIBLE CANDLES
 # ============================================================
-#
-# 1H MUST use exactly 33 candles by default.
-#
+
 VISIBLE_DEFAULTS = {
     "15m": 44,
     "1h": 33,
@@ -91,16 +89,32 @@ def decimals_from_price(price):
 
 
 # ============================================================
+# SYMBOL DISPLAY
+# ============================================================
+
+def _display_symbol(symbol):
+    """
+    Normalize symbol for visual display.
+
+    Example:
+        1000000BOBUSDT -> 1000000BOB
+        BOBUSDT        -> BOB
+        BOB            -> BOB
+    """
+
+    value = str(symbol).upper().strip()
+
+    if value.endswith("USDT"):
+        value = value[:-4]
+
+    return value
+
+
+# ============================================================
 # TIMEFRAME NORMALIZATION
 # ============================================================
 
 def _normalize_tf(tf):
-    """
-    Normalize timeframe naming so:
-    1H / 1h / 1H -> 1h
-    15M / 15m -> 15m
-    4H / 4h -> 4h
-    """
 
     value = str(tf).strip().lower()
 
@@ -126,9 +140,6 @@ def _normalize_tf(tf):
 # ============================================================
 
 def _first_numeric(data, keys, default=None):
-    """
-    Return the first usable numeric value from candidate JSON.
-    """
 
     if not isinstance(data, dict):
         return default
@@ -152,18 +163,6 @@ def _first_numeric(data, keys, default=None):
 
 
 def _get_mark_price(setup, fallback):
-    """
-    Prefer an explicit mark/current price from Synaptic JSON.
-
-    Supported keys:
-    - mark_price
-    - markPrice
-    - current_price
-    - currentPrice
-    - price
-
-    Falls back to the latest candle close.
-    """
 
     value = _first_numeric(
         setup,
@@ -187,12 +186,11 @@ def _get_mark_price(setup, fallback):
 # SUPERTREND FALLBACK
 # ============================================================
 
-def calculate_supertrend(df, period=10, multiplier=2.5):
-    """
-    Fallback only.
-
-    Normally Synaptic's serialized Supertrend is used.
-    """
+def calculate_supertrend(
+    df,
+    period=10,
+    multiplier=2.5
+):
 
     high = df["high"]
     low = df["low"]
@@ -239,17 +237,27 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
             upper.iloc[i] < final_upper.iloc[i - 1]
             or close.iloc[i - 1] > final_upper.iloc[i - 1]
         ):
+
             final_upper.iloc[i] = upper.iloc[i]
+
         else:
-            final_upper.iloc[i] = final_upper.iloc[i - 1]
+
+            final_upper.iloc[i] = (
+                final_upper.iloc[i - 1]
+            )
 
         if (
             lower.iloc[i] > final_lower.iloc[i - 1]
             or close.iloc[i - 1] < final_lower.iloc[i - 1]
         ):
+
             final_lower.iloc[i] = lower.iloc[i]
+
         else:
-            final_lower.iloc[i] = final_lower.iloc[i - 1]
+
+            final_lower.iloc[i] = (
+                final_lower.iloc[i - 1]
+            )
 
         if direction.iloc[i - 1] == 1:
 
@@ -286,17 +294,24 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
 def _load_candidates(path):
 
     data = json.loads(
-        path.read_text(encoding="utf-8")
+        path.read_text(
+            encoding="utf-8"
+        )
     )
 
     if not isinstance(data, dict):
+
         raise ValueError(
             "JSON root must be an object"
         )
 
-    candidates = data.get("candidates", [])
+    candidates = data.get(
+        "candidates",
+        []
+    )
 
     if not isinstance(candidates, list):
+
         raise ValueError(
             "JSON field 'candidates' must be a list"
         )
@@ -308,11 +323,20 @@ def _load_candidates(path):
 # DATAFRAME
 # ============================================================
 
-def _build_dataframe(candidate, tf):
+def _build_dataframe(
+    candidate,
+    tf
+):
 
-    chart_data = candidate.get("chart_data")
+    chart_data = candidate.get(
+        "chart_data"
+    )
 
-    if not isinstance(chart_data, dict):
+    if not isinstance(
+        chart_data,
+        dict
+    ):
+
         raise ValueError(
             "candidate is missing chart_data"
         )
@@ -323,18 +347,25 @@ def _build_dataframe(candidate, tf):
 
         for key, value in chart_data.items():
 
-            if str(key).lower() == str(tf).lower():
+            if (
+                str(key).lower()
+                == str(tf).lower()
+            ):
 
                 candles = value
                 tf = key
+
                 break
 
     if not candles:
+
         raise ValueError(
             f"no chart_data for timeframe {tf}"
         )
 
-    df = pd.DataFrame(candles)
+    df = pd.DataFrame(
+        candles
+    )
 
     required = [
         "open",
@@ -345,11 +376,13 @@ def _build_dataframe(candidate, tf):
     ]
 
     missing = [
-        c for c in required
+        c
+        for c in required
         if c not in df.columns
     ]
 
     if missing:
+
         raise ValueError(
             "missing candle fields: "
             + ", ".join(missing)
@@ -382,11 +415,14 @@ def _build_dataframe(candidate, tf):
 
     df = (
         df
-        .dropna(subset=required)
+        .dropna(
+            subset=required
+        )
         .reset_index(drop=True)
     )
 
     if len(df) < 10:
+
         raise ValueError(
             "not enough candles in JSON"
         )
@@ -477,9 +513,10 @@ def _resolve_visible_count(
     cli_value
 ):
 
-    normalized_tf = _normalize_tf(tf)
+    normalized_tf = _normalize_tf(
+        tf
+    )
 
-    # CLI override remains available.
     if cli_value is not None:
 
         return max(
@@ -487,18 +524,20 @@ def _resolve_visible_count(
             int(cli_value)
         )
 
-    # --------------------------------------------------------
-    # IMPORTANT:
-    # 1H is hard-set to 33 candles.
-    # --------------------------------------------------------
-
     if normalized_tf == "1h":
+
         return min(
             33,
             len(
                 candidate
-                .get("chart_data", {})
-                .get(tf, [])
+                .get(
+                    "chart_data",
+                    {}
+                )
+                .get(
+                    tf,
+                    []
+                )
             )
             or 33
         )
@@ -513,7 +552,10 @@ def _resolve_visible_count(
             "visible_candles",
             {}
         )
-        if isinstance(chart, dict)
+        if isinstance(
+            chart,
+            dict
+        )
         else {}
     )
 
@@ -556,11 +598,10 @@ def _place_level_labels(
     y_max
 ):
     """
-    Place level labels in a clean right-side lane.
+    Entry / TP / SL labels are intentionally placed
+    inside the dedicated right-side level lane.
 
-    The actual horizontal price lines remain at their true
-    prices. Only the visual label is moved vertically when
-    several levels are too close together.
+    Candle x positions are NOT modified.
     """
 
     span = max(
@@ -569,8 +610,7 @@ def _place_level_labels(
     )
 
     min_gap = span * 0.052
-
-    edge = span * 0.018
+    edge = span * 0.020
 
     ordered = sorted(
         levels,
@@ -583,10 +623,13 @@ def _place_level_labels(
     ]
 
     # --------------------------------------------------------
-    # Forward spacing
+    # Vertical spacing
     # --------------------------------------------------------
 
-    for i in range(1, len(positions)):
+    for i in range(
+        1,
+        len(positions)
+    ):
 
         if (
             positions[i]
@@ -600,7 +643,7 @@ def _place_level_labels(
             )
 
     # --------------------------------------------------------
-    # Keep inside plot
+    # Keep labels inside visible price range
     # --------------------------------------------------------
 
     upper = y_max - edge
@@ -632,7 +675,7 @@ def _place_level_labels(
         ]
 
     # --------------------------------------------------------
-    # Draw
+    # Draw labels
     # --------------------------------------------------------
 
     for item, y in zip(
@@ -643,25 +686,34 @@ def _place_level_labels(
         ax.text(
             label_x,
             y,
+
             f" {item['text']} ",
+
             transform=ax.transData,
 
             ha="left",
             va="center",
 
             color=TEXT,
-            fontsize=7.8,
+
+            fontsize=8.1,
+
             fontweight="bold",
 
             bbox=dict(
-                boxstyle="round,pad=0.34",
+                boxstyle="round,pad=0.36",
+
                 facecolor=item["color"],
+
                 edgecolor=item["color"],
+
                 linewidth=1.0,
+
                 alpha=0.18,
             ),
 
             clip_on=False,
+
             zorder=30,
         )
 
@@ -700,13 +752,19 @@ def _find_swing_points(df):
         if highs[i] >= local_high.max():
 
             raw_highs.append(
-                (i, highs[i])
+                (
+                    i,
+                    highs[i]
+                )
             )
 
         if lows[i] <= local_low.min():
 
             raw_lows.append(
-                (i, lows[i])
+                (
+                    i,
+                    lows[i]
+                )
             )
 
     return raw_highs, raw_lows
@@ -720,8 +778,13 @@ def _select_important_structure(
 
     max_points = 4
 
-    selected_highs = raw_highs[-max_points:]
-    selected_lows = raw_lows[-max_points:]
+    selected_highs = (
+        raw_highs[-max_points:]
+    )
+
+    selected_lows = (
+        raw_lows[-max_points:]
+    )
 
     return (
         selected_highs,
@@ -778,12 +841,18 @@ def _draw_structure(
         ax.text(
             i,
             price + span * 0.014,
+
             label,
+
             color=col,
-            fontsize=7.4,
+
+            fontsize=7.8,
+
             fontweight="bold",
+
             ha="center",
             va="bottom",
+
             zorder=15,
         )
 
@@ -818,12 +887,18 @@ def _draw_structure(
         ax.text(
             i,
             price - span * 0.014,
+
             label,
+
             color=col,
-            fontsize=7.4,
+
+            fontsize=7.8,
+
             fontweight="bold",
+
             ha="center",
             va="top",
+
             zorder=15,
         )
 
@@ -859,39 +934,35 @@ def _draw_target_arrow(
         else tps[0]
     )
 
-    if side == "LONG":
+    start_x = last_x - 2.5
+    end_x = last_x + 8.0
 
-        start_x = last_x - 2.5
-        end_x = last_x + 8.0
+    start_y = current_price
 
-        start_y = current_price
+    target_y = (
+        current_price
+        + (target - current_price) * 0.72
+    )
 
-        target_y = (
-            current_price
-            + (target - current_price) * 0.72
-        )
-
-        rad = 0.22
-
-    else:
-
-        start_x = last_x - 2.5
-        end_x = last_x + 8.0
-
-        start_y = current_price
-
-        target_y = (
-            current_price
-            + (target - current_price) * 0.72
-        )
-
-        rad = -0.22
+    rad = (
+        0.22
+        if side == "LONG"
+        else -0.22
+    )
 
     arrow = FancyArrowPatch(
-        (start_x, start_y),
-        (end_x, target_y),
+        (
+            start_x,
+            start_y
+        ),
+
+        (
+            end_x,
+            target_y
+        ),
 
         arrowstyle="-|>",
+
         mutation_scale=13,
 
         linewidth=1.7,
@@ -911,7 +982,9 @@ def _draw_target_arrow(
         zorder=16,
     )
 
-    ax.add_patch(arrow)
+    ax.add_patch(
+        arrow
+    )
 
 
 # ============================================================
@@ -925,12 +998,16 @@ def draw_visual_chart(
     visible_count
 ):
 
-    symbol = str(
+    raw_symbol = str(
         setup.get(
             "symbol",
             "UNKNOWN"
         )
     ).upper()
+
+    display_symbol = _display_symbol(
+        raw_symbol
+    )
 
     side = str(
         setup.get(
@@ -946,7 +1023,9 @@ def draw_visual_chart(
         )
     )
 
-    normalized_tf = _normalize_tf(tf)
+    normalized_tf = _normalize_tf(
+        tf
+    )
 
     change_24h = float(
         setup.get(
@@ -963,7 +1042,7 @@ def draw_visual_chart(
     )
 
     # --------------------------------------------------------
-    # Base volume / token volume
+    # Base volume
     # --------------------------------------------------------
 
     base_vol = _first_numeric(
@@ -978,6 +1057,7 @@ def draw_visual_chart(
     )
 
     if base_vol is None:
+
         base_vol = float(
             df["volume"].sum()
         )
@@ -1021,7 +1101,8 @@ def draw_visual_chart(
     )
 
     df = (
-        df.iloc[-visible_count:]
+        df
+        .iloc[-visible_count:]
         .copy()
         .reset_index(drop=True)
     )
@@ -1044,21 +1125,31 @@ def draw_visual_chart(
         facecolor=BG
     )
 
+    # --------------------------------------------------------
+    # IMPORTANT:
+    # Price chart receives substantially more vertical space.
+    # This makes candles visually larger without changing
+    # their x positions.
+    # --------------------------------------------------------
+
     gs = fig.add_gridspec(
         2,
         1,
 
         height_ratios=[
-            4.9,
-            1.0
+            5.65,
+            0.82
         ],
 
         hspace=0.035,
 
         left=0.065,
+
+        # More room on the right for ENTRY / TP / SL lane.
         right=0.875,
 
-        top=0.805,
+        top=0.790,
+
         bottom=0.105,
     )
 
@@ -1071,8 +1162,13 @@ def draw_visual_chart(
         sharex=ax
     )
 
-    ax.set_facecolor(PANEL)
-    axv.set_facecolor(PANEL)
+    ax.set_facecolor(
+        PANEL
+    )
+
+    axv.set_facecolor(
+        PANEL
+    )
 
     # ========================================================
     # PRICE RANGE
@@ -1109,7 +1205,9 @@ def draw_visual_chart(
     # CANDLE WIDTH
     # ========================================================
 
-    candle_width = 0.68
+    # Previous: 0.68
+    # New: substantially wider.
+    candle_width = 0.92
 
     # ========================================================
     # CANDLES
@@ -1117,10 +1215,21 @@ def draw_visual_chart(
 
     for i, row in df.iterrows():
 
-        o = float(row.open)
-        h = float(row.high)
-        l = float(row.low)
-        c = float(row.close)
+        o = float(
+            row.open
+        )
+
+        h = float(
+            row.high
+        )
+
+        l = float(
+            row.low
+        )
+
+        c = float(
+            row.close
+        )
 
         up = c >= o
 
@@ -1130,19 +1239,27 @@ def draw_visual_chart(
             else DOWN
         )
 
-        # Wick
+        # ----------------------------------------------------
+        # Larger wick
+        # ----------------------------------------------------
+
         ax.plot(
             [i, i],
             [l, h],
 
             color=body_color,
-            linewidth=1.05,
+
+            linewidth=1.45,
+
             alpha=0.95,
 
             zorder=5,
         )
 
-        # Body
+        # ----------------------------------------------------
+        # Larger body
+        # ----------------------------------------------------
+
         body_low = min(
             o,
             c
@@ -1150,7 +1267,10 @@ def draw_visual_chart(
 
         body_height = max(
             abs(c - o),
-            (h - l) * 0.012,
+
+            # Slightly larger minimum visual body.
+            (h - l) * 0.018,
+
             1e-12
         )
 
@@ -1162,29 +1282,38 @@ def draw_visual_chart(
                 ),
 
                 candle_width,
+
                 body_height,
 
                 facecolor=body_color,
+
                 edgecolor=body_color,
 
-                linewidth=0.3,
-                alpha=0.96,
+                linewidth=0.35,
+
+                alpha=0.98,
 
                 zorder=6,
             )
         )
 
+        # ----------------------------------------------------
         # Volume
+        # ----------------------------------------------------
+
         axv.bar(
             i,
+
             float(row.volume),
 
             width=candle_width,
 
             color=body_color,
+
             alpha=0.28,
 
             linewidth=0,
+
             zorder=2,
         )
 
@@ -1197,6 +1326,7 @@ def draw_visual_chart(
         df["EMA200"],
 
         color=EMA,
+
         linewidth=2.0,
 
         label="EMA 200",
@@ -1221,6 +1351,7 @@ def draw_visual_chart(
         st_up,
 
         color=ST_UP,
+
         linewidth=1.9,
 
         label="Supertrend 10 / 2.5",
@@ -1233,6 +1364,7 @@ def draw_visual_chart(
         st_down,
 
         color=ST_DOWN,
+
         linewidth=1.9,
 
         zorder=8,
@@ -1254,6 +1386,7 @@ def draw_visual_chart(
         x,
 
         df["ST"].astype(float),
+
         df["low"].astype(float),
 
         where=bull,
@@ -1271,6 +1404,7 @@ def draw_visual_chart(
         x,
 
         df["high"].astype(float),
+
         df["ST"].astype(float),
 
         where=bear,
@@ -1351,19 +1485,24 @@ def draw_visual_chart(
         )
 
     # ========================================================
-    # RIGHT-SIDE PRICE LABELS
+    # RIGHT-SIDE LEVEL LANE
+    # ========================================================
+    #
+    # Candle positions stay EXACTLY where they are.
+    #
+    # Only the labels are moved further right.
+    #
+    # This creates the visual area corresponding to the
+    # black box marked in the reference image.
     # ========================================================
 
-    label_x = (
-        last_x
-        + max(
-            2.2,
-            len(df) * 0.025
-        )
+    level_label_x = (
+        last_x + 3.65
     )
 
+    # Wider dedicated lane.
     right_space = max(
-        14.0,
+        12.0,
         len(df) * 0.30
     )
 
@@ -1375,7 +1514,7 @@ def draw_visual_chart(
     _place_level_labels(
         ax,
         levels,
-        label_x,
+        level_label_x,
         y_min,
         y_max
     )
@@ -1409,6 +1548,7 @@ def draw_visual_chart(
         color="#b87333",
 
         linewidth=1.15,
+
         alpha=0.75,
 
         zorder=3,
@@ -1422,6 +1562,7 @@ def draw_visual_chart(
         True,
 
         color=GRID,
+
         alpha=0.65,
 
         linewidth=0.65
@@ -1429,16 +1570,23 @@ def draw_visual_chart(
 
     axv.grid(
         True,
+
         axis="y",
 
         color=GRID,
+
         alpha=0.55,
 
         linewidth=0.65
     )
 
-    ax.set_axisbelow(True)
-    axv.set_axisbelow(True)
+    ax.set_axisbelow(
+        True
+    )
+
+    axv.set_axisbelow(
+        True
+    )
 
     # ========================================================
     # RIGHT PRICE AXIS
@@ -1452,28 +1600,37 @@ def draw_visual_chart(
 
     ax.tick_params(
         axis="y",
+
         colors=TEXT,
+
         labelsize=7.8,
 
         length=0,
+
         pad=5,
     )
 
     axv.tick_params(
         axis="x",
+
         colors=MUTED,
+
         labelsize=7.2,
 
         length=3,
+
         pad=4,
     )
 
     axv.tick_params(
         axis="y",
+
         colors=MUTED,
+
         labelsize=7.0,
 
         length=0,
+
         pad=4,
     )
 
@@ -1564,7 +1721,9 @@ def draw_visual_chart(
 
     axv.set_xticklabels(
         labels,
+
         color=MUTED,
+
         fontsize=7.0
     )
 
@@ -1601,12 +1760,8 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # HEADER — BINANCE-LIKE
+    # HEADER
     # ========================================================
-
-    # --------------------------------------------------------
-    # Mark price / scan price
-    # --------------------------------------------------------
 
     candle_close = float(
         df["close"].iloc[-1]
@@ -1643,14 +1798,14 @@ def draw_visual_chart(
         None,
     )
 
-    # If Synaptic JSON does not serialize 24H high/low,
-    # use the available candle range as a safe visual fallback.
     if high_24h is None:
+
         high_24h = float(
             df["high"].max()
         )
 
     if low_24h is None:
+
         low_24h = float(
             df["low"].min()
         )
@@ -1658,30 +1813,34 @@ def draw_visual_chart(
     # ========================================================
     # HEADER GEOMETRY
     # ========================================================
+    #
+    # Left and right header now use fixed aligned columns.
+    # ========================================================
 
     header_left = 0.065
     header_right = 0.875
 
-    # Large symbol line
+    # ========================================================
+    # LEFT HEADER
+    # ========================================================
+
     fig.text(
         header_left,
-        0.945,
 
-        f"${symbol}/USDT",
+        0.947,
+
+        f"${display_symbol}/USDT",
 
         color=TEXT,
 
-        fontsize=22.0,
+        fontsize=21.5,
 
         fontweight="bold",
 
         ha="left",
+
         va="center",
     )
-
-    # --------------------------------------------------------
-    # Small current price + 24H change
-    # --------------------------------------------------------
 
     price_change_color = (
         ST_UP
@@ -1689,197 +1848,152 @@ def draw_visual_chart(
         else ST_DOWN
     )
 
-    price_y = 0.895
+    price_y = 0.897
 
     fig.text(
         header_left,
+
         price_y,
 
         f"${format_price(current_price, dec)}",
 
         color=TEXT,
 
-        fontsize=11.5,
+        fontsize=11.2,
 
         fontweight="bold",
 
         ha="left",
+
         va="center",
     )
 
-    # 24H percentage placed directly after price
+    # Percentage is anchored relative to the left price
+    # but moved slightly closer for cleaner alignment.
     fig.text(
         header_left + 0.225,
+
         price_y,
 
         f"{change_24h:+.2f}%",
 
         color=price_change_color,
 
-        fontsize=10.5,
-
-        fontweight="bold",
-
-        ha="left",
-        va="center",
-    )
-
-    # --------------------------------------------------------
-    # Yellow Binance-style setup line
-    # --------------------------------------------------------
-
-    fig.text(
-        header_left,
-        0.850,
-
-        f"SETUP {normalized_tf.upper()}  —  BIAS {side}",
-
-        color="#f0b900",
-
         fontsize=10.2,
 
         fontweight="bold",
 
         ha="left",
+
+        va="center",
+    )
+
+    # --------------------------------------------------------
+    # Setup line
+    # --------------------------------------------------------
+
+    fig.text(
+        header_left,
+
+        0.851,
+
+        (
+            f"SETUP "
+            f"{normalized_tf.upper()}  —  "
+            f"BIAS {side}"
+        ),
+
+        color="#f0b900",
+
+        fontsize=9.9,
+
+        fontweight="bold",
+
+        ha="left",
+
         va="center",
     )
 
     # ========================================================
-    # RIGHT HEADER — 24H DATA
+    # RIGHT HEADER
+    # ========================================================
+    #
+    # Four clean rows.
+    #
+    # Label column and value column are deliberately separated
+    # so long symbols / volumes cannot collide.
     # ========================================================
 
-    right_x_label = 0.660
+    right_x_label = 0.635
     right_x_value = 0.875
 
-    # Row 1 — 24h High
-    fig.text(
-        right_x_label,
-        0.940,
-
-        "24h High",
-
-        color=MUTED,
-
-        fontsize=8.4,
-
-        ha="left",
-        va="center",
-    )
-
-    fig.text(
-        right_x_value,
-        0.940,
-
-        format_price(
-            high_24h,
-            dec
+    right_rows = [
+        (
+            0.947,
+            "24h High",
+            format_price(
+                high_24h,
+                dec
+            ),
         ),
 
-        color=TEXT,
-
-        fontsize=8.8,
-
-        fontweight="bold",
-
-        ha="right",
-        va="center",
-    )
-
-    # Row 2 — 24h Low
-    fig.text(
-        right_x_label,
-        0.900,
-
-        "24h Low",
-
-        color=MUTED,
-
-        fontsize=8.4,
-
-        ha="left",
-        va="center",
-    )
-
-    fig.text(
-        right_x_value,
-        0.900,
-
-        format_price(
-            low_24h,
-            dec
+        (
+            0.908,
+            "24h Low",
+            format_price(
+                low_24h,
+                dec
+            ),
         ),
 
-        color=TEXT,
+        (
+            0.869,
+            f"24h Vol({display_symbol})",
+            f"{base_vol:,.2f}",
+        ),
 
-        fontsize=8.8,
+        (
+            0.830,
+            "24h Vol(USDT)",
+            f"{q_vol:,.2f}",
+        ),
+    ]
 
-        fontweight="bold",
+    for y, label, value in right_rows:
 
-        ha="right",
-        va="center",
-    )
+        fig.text(
+            right_x_label,
 
-    # Row 3 — Base volume
-    fig.text(
-        right_x_label,
-        0.860,
+            y,
 
-        f"24h Vol({symbol})",
+            label,
 
-        color=MUTED,
+            color=MUTED,
 
-        fontsize=8.4,
+            fontsize=7.9,
 
-        ha="left",
-        va="center",
-    )
+            ha="left",
 
-    fig.text(
-        right_x_value,
-        0.860,
+            va="center",
+        )
 
-        f"{base_vol:,.2f}",
+        fig.text(
+            right_x_value,
 
-        color=TEXT,
+            y,
 
-        fontsize=8.8,
+            value,
 
-        fontweight="bold",
+            color=TEXT,
 
-        ha="right",
-        va="center",
-    )
+            fontsize=8.5,
 
-    # Row 4 — Quote volume
-    fig.text(
-        right_x_label,
-        0.820,
+            fontweight="bold",
 
-        "24h Vol(USDT)",
+            ha="right",
 
-        color=MUTED,
-
-        fontsize=8.4,
-
-        ha="left",
-        va="center",
-    )
-
-    fig.text(
-        right_x_value,
-        0.820,
-
-        f"{q_vol:,.2f}",
-
-        color=TEXT,
-
-        fontsize=8.8,
-
-        fontweight="bold",
-
-        ha="right",
-        va="center",
-    )
+            va="center",
+        )
 
     # ========================================================
     # SCORE / MTF
@@ -1887,7 +2001,8 @@ def draw_visual_chart(
 
     fig.text(
         header_right,
-        0.785,
+
+        0.792,
 
         (
             f"SCORE "
@@ -1898,11 +2013,12 @@ def draw_visual_chart(
 
         color=TEXT,
 
-        fontsize=7.8,
+        fontsize=7.6,
 
         fontweight="bold",
 
         ha="right",
+
         va="center",
     )
 
@@ -1917,6 +2033,7 @@ def draw_visual_chart(
 
     fig.text(
         0.065,
+
         0.040,
 
         footer,
@@ -1926,6 +2043,7 @@ def draw_visual_chart(
         fontsize=7.0,
 
         ha="left",
+
         va="center",
     )
 
@@ -1947,7 +2065,9 @@ def draw_visual_chart(
         pad_inches=0.08,
     )
 
-    plt.close(fig)
+    plt.close(
+        fig
+    )
 
 
 # ============================================================
@@ -1965,22 +2085,27 @@ def main():
 
     parser.add_argument(
         "--input",
+
         default="synaptic_candidates.json"
     )
 
     parser.add_argument(
         "--output-dir",
+
         default="charts"
     )
 
     parser.add_argument(
         "--symbol",
+
         default=None
     )
 
     parser.add_argument(
         "--chart-candles",
+
         type=int,
+
         default=None,
 
         help=(
@@ -2038,13 +2163,12 @@ def main():
 
         if (
             args.symbol
-            and symbol
-            != args.symbol.upper()
+            and symbol != args.symbol.upper()
         ):
+
             continue
 
         # ====================================================
-        # IMPORTANT:
         # execution_tf determines both setup and visual TF.
         # ====================================================
 
@@ -2055,7 +2179,9 @@ def main():
             )
         )
 
-        normalized_tf = _normalize_tf(tf)
+        normalized_tf = _normalize_tf(
+            tf
+        )
 
         side = str(
             candidate.get(
