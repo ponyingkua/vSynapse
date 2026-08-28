@@ -1,7 +1,7 @@
 """
-vSch.py
-Generate visual chart dengan Header Info, Box Transparan, Label HH/LL/HL/LH,
-dan membaca data klines dari 'chart_data' di dalam JSON Synaptic.
+vSch.py (Updated)
+25 candles, EMA 200 & Supertrend (10, 2.5), No Supply/Demand box, 
+Header aligned to last candle and flush with chart top, Red header changed to black.
 """
 
 import json
@@ -19,23 +19,77 @@ def format_price(val, decimals):
     return f"{val:.{decimals}f}"
 
 
+def calculate_supertrend(df, period=10, multiplier=2.5):
+    hl2 = (df['high'] + df['low']) / 2
+    # Simple True Range calculation
+    tr1 = df['high'] - df['low']
+    tr2 = (df['high'] - df['close'].shift(1)).abs()
+    tr3 = (df['low'] - df['close'].shift(1)).abs()
+    tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+    atr = tr.rolling(window=period).mean()
+
+    upper_band = hl2 + (multiplier * atr)
+    lower_band = hl2 - (multiplier * atr)
+
+    supertrend = pd.Series(0.0, index=df.index)
+    direction = pd.Series(1, index=df.index)
+
+    for i in range(1, len(df)):
+        if pd.isna(atr.iloc[i]):
+            continue
+        
+        # Upper band rules
+        if df['close'].iloc[i] > upper_band.iloc[i-1]:
+            upper_band.iloc[i] = upper_band.iloc[i]
+        elif upper_band.iloc[i] < upper_band.iloc[i-1] and df['close'].iloc[i-1] <= upper_band.iloc[i-1]:
+            upper_band.iloc[i] = upper_band.iloc[i]
+        else:
+            upper_band.iloc[i] = min(upper_band.iloc[i], upper_band.iloc[i-1])
+
+        # Lower band rules
+        if df['close'].iloc[i] < lower_band.iloc[i-1]:
+            lower_band.iloc[i] = lower_band.iloc[i]
+        elif lower_band.iloc[i] > lower_band.iloc[i-1] and df['close'].iloc[i-1] >= lower_band.iloc[i-1]:
+            lower_band.iloc[i] = lower_band.iloc[i]
+        else:
+            lower_band.iloc[i] = max(lower_band.iloc[i], lower_band.iloc[i-1])
+
+        # Direction rules
+        if direction.iloc[i-1] == 1:
+            if df['close'].iloc[i] < lower_band.iloc[i]:
+                direction.iloc[i] = -1
+            else:
+                direction.iloc[i] = 1
+        else:
+            if df['close'].iloc[i] > upper_band.iloc[i]:
+                direction.iloc[i] = 1
+            else:
+                direction.iloc[i] = -1
+
+        if direction.iloc[i] == 1:
+            supertrend.iloc[i] = lower_band.iloc[i]
+        else:
+            supertrend.iloc[i] = upper_band.iloc[i]
+
+    return supertrend, direction
+
+
 def draw_visual_chart(df, symbol, setup, output_path, config=None):
     if config is None:
         config = {}
 
-    ema_fast = config.get('ema_fast', 20)
-    ema_slow = config.get('ema_slow', 50)
-    chart_candles = config.get('chart_candles', 48)
+    chart_candles = config.get('chart_candles', 25)  # 25 batang candle
 
     df = df.copy()
-    df['EMA20'] = df['close'].ewm(span=ema_fast).mean()
-    df['EMA50'] = df['close'].ewm(span=ema_slow).mean()
+    df['EMA200'] = df['close'].ewm(span=200, min_periods=1).mean()
+    st_vals, st_dir = calculate_supertrend(df, period=10, multiplier=2.5)
+    df['ST'] = st_vals
+    df['ST_DIR'] = st_dir
     df['VOL_MA'] = df['volume'].rolling(20, min_periods=1).mean()
 
     n_show = min(chart_candles, len(df))
     df = df.iloc[-n_show:].reset_index(drop=True)
 
-    # Layout dengan ruang untuk Header di bagian atas
     fig, (ax1, ax2) = plt.subplots(
         2, 1, figsize=(12, 5.5),
         gridspec_kw={'height_ratios': [4.0, 0.8], 'hspace': 0.05},
@@ -45,54 +99,37 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     ax1.set_facecolor('#ffffff')
     ax2.set_facecolor('#ffffff')
 
-    # --- HEADER INFO (Simbol, Side, Change 24h, Vol 24h, Harga) ---
-    side = setup.get('side', 'LONG').upper()
-    change_24h = setup.get('change24h', 0.0)
-    q_vol = setup.get('quote_volume24h', 0.0)
-    current_price = df['close'].iloc[-1]
-    dec = setup.get('decimals', 4)
-
-    chg_color = '#2e7d32' if change_24h >= 0 else '#c62828'
-    side_color = '#1b5e20' if side == 'LONG' else '#b71c1c'
-
-    header_text = (
-        f"  {symbol}  |  "
-        f"BIAS: {side}  |  "
-        f"Price: {format_price(current_price, dec)}  |  "
-        f"24h Change: {change_24h:+.2f}%  |  "
-        f"24h Vol: ${q_vol:,.0f}"
-    )
-    fig.text(
-        0.06, 0.96, header_text,
-        fontsize=9.0, fontweight='bold', color='#ffffff',
-        bbox=dict(facecolor=side_color, edgecolor='none', boxstyle='round,pad=0.4', alpha=0.95),
-        transform=fig.transFigure, zorder=10
-    )
-
     x_indices = np.arange(len(df))
     last_x = int(x_indices[-1])
 
-    # Plot Candlesticks & Volume
+    # Plot Candlesticks & Volume (Lebar candle diperbesar agar jelas)
     for i in range(len(df)):
         open_p = df['open'].iloc[i]
         close_p = df['close'].iloc[i]
         high_p = df['high'].iloc[i]
         low_p = df['low'].iloc[i]
         color = '#26a69a' if close_p >= open_p else '#ef5350'
-        ax1.plot([i, i], [low_p, high_p], color=color, linewidth=1.3, solid_capstyle='round')
+        ax1.plot([i, i], [low_p, high_p], color=color, linewidth=1.5, solid_capstyle='round')
         body_bottom = min(open_p, close_p)
-        body_height = max(abs(close_p - open_p), (high_p - low_p) * 0.012)
-        ax1.add_patch(Rectangle((i - 0.36, body_bottom), 0.72, body_height, color=color, alpha=0.92, linewidth=0))
-        vol_color = '#26a69a4d' if close_p >= open_p else '#ef53504d'
-        ax2.bar(i, df['volume'].iloc[i], color=vol_color, width=0.72, linewidth=0)
+        body_height = max(abs(close_p - open_p), (high_p - low_p) * 0.015)
+        ax1.add_patch(Rectangle((i - 0.42, body_bottom), 0.84, body_height, color=color, alpha=0.95, linewidth=0))
+        vol_color = '#26a69a55' if close_p >= open_p else '#ef535055'
+        ax2.bar(i, df['volume'].iloc[i], color=vol_color, width=0.84, linewidth=0)
 
     ax2.plot(x_indices, df['VOL_MA'], color='#e65100', linewidth=1.2, alpha=0.7)
-    ax1.plot(x_indices, df['EMA20'], color='#1565c0', linewidth=1.4, label='EMA 20', zorder=3)
-    ax1.plot(x_indices, df['EMA50'], color='#ef6c00', linewidth=1.4, label='EMA 50', zorder=3)
+    
+    # Plot EMA 200 & Supertrend
+    ax1.plot(x_indices, df['EMA200'], color='#673ab7', linewidth=1.5, label='EMA 200', zorder=3)
+    
+    # Plot Supertrend line terpisah berdasarkan arah tren
+    st_up = np.where(df['ST_DIR'] == 1, df['ST'], np.nan)
+    st_down = np.where(df['ST_DIR'] == -1, df['ST'], np.nan)
+    ax1.plot(x_indices, st_up, color='#2e7d32', linewidth=1.5, label='Supertrend', zorder=3)
+    ax1.plot(x_indices, st_down, color='#c62828', linewidth=1.5, zorder=3)
 
-    gap_from_candle = 4.0
-    label_width_est = 9.5
-    gap_from_edge = 1.8
+    gap_from_candle = 3.0
+    label_width_est = 8.5
+    gap_from_edge = 1.5
     extra_margin = gap_from_candle + label_width_est + gap_from_edge
     label_x = last_x + gap_from_candle
     ax1.set_xlim(-0.6, last_x + extra_margin)
@@ -107,23 +144,23 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     all_levels = [float(df['low'].min()), float(df['high'].max()), entry, sl, tp1, tp2]
     y_min, y_max = min(all_levels), max(all_levels)
     y_span = max(y_max - y_min, abs(y_min) * 0.01 if y_min != 0 else 0.01)
-    y_padding = y_span * 0.16
+    y_padding = y_span * 0.12
     ax1.set_ylim(y_min - y_padding, y_max + y_padding)
 
     # --- DINAMIS MARKET STRUCTURE (HH, LH, HL, LL) ---
     highs = df['high'].values
     lows = df['low'].values
     n = len(df)
-    swing_w = 3
+    swing_w = 2
     
     raw_highs = []
     for i in range(swing_w, n - swing_w):
-        if highs[i] == highs[i - swing_w:i + swing_w + 1].max() and highs[i] > highs[i - 1] and highs[i] > highs[i + 1]:
+        if highs[i] == highs[i - swing_w:i + swing_w + 1].max() and highs[i] >= highs[i - 1] and highs[i] >= highs[i + 1]:
             raw_highs.append((i, float(highs[i])))
 
     raw_lows = []
     for i in range(swing_w, n - swing_w):
-        if lows[i] == lows[i - swing_w:i + swing_w + 1].min() and lows[i] < lows[i - 1] and lows[i] < lows[i + 1]:
+        if lows[i] == lows[i - swing_w:i + swing_w + 1].min() and lows[i] <= lows[i - 1] and lows[i] <= lows[i + 1]:
             raw_lows.append((i, float(lows[i])))
 
     labeled_highs = []
@@ -140,44 +177,19 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         labeled_lows.append((idx, price, label))
         last_sl_price = price
 
-    # --- TRANSPARANT SUPPORT / DEMAND BOX ---
-    is_long = (side == "LONG")
-    
-    if is_long and labeled_lows:
-        box_idx, box_price, _ = labeled_lows[-1]
-        box_low = box_price
-        box_high = box_low + (y_span * 0.025)
-        box_color = '#26a69a'
-        box_label = "DEMAND"
-    elif not is_long and labeled_highs:
-        box_idx, box_price, _ = labeled_highs[-1]
-        box_high = box_price
-        box_low = box_high - (y_span * 0.025)
-        box_color = '#ef5350'
-        box_label = "SUPPLY"
-    else:
-        box_idx, box_high, box_low, box_color, box_label = None, 0, 0, '#9e9e9e', ""
-
-    if box_label and box_idx is not None:
-        rect = Rectangle((box_idx - 1, box_low), last_x - (box_idx - 1) + gap_from_candle, box_high - box_low,
-                         facecolor=box_color, alpha=0.18, edgecolor=box_color, linewidth=0.8, linestyle='--', zorder=2)
-        ax1.add_patch(rect)
-        ax1.text(box_idx, box_high + (y_span * 0.005), f"{box_label}", color=box_color, fontsize=6.5, 
-                 fontweight='bold', va='bottom', ha='left', zorder=4)
-
     for idx, price, label in labeled_highs[-2:]:
         color = '#2e7d32' if label == 'HH' else '#c62828'
-        ax1.text(idx, price + (y_span * 0.028), label, color=color, fontsize=6.5, fontweight='bold', ha='center', va='bottom', zorder=7)
+        ax1.text(idx, price + (y_span * 0.030), label, color=color, fontsize=7.0, fontweight='bold', ha='center', va='bottom', zorder=7)
 
     for idx, price, label in labeled_lows[-2:]:
         color = '#26a69a' if label == 'HL' else '#c62828'
-        ax1.text(idx, price - (y_span * 0.028), label, color=color, fontsize=6.5, fontweight='bold', ha='center', va='top', zorder=7)
+        ax1.text(idx, price - (y_span * 0.030), label, color=color, fontsize=7.0, fontweight='bold', ha='center', va='top', zorder=7)
 
     levels = [
-        (entry, '#1565c0', f"ENTRY  {format_price(entry, dec)}"),
-        (tp1, '#00897b', f"TP1  {format_price(tp1, dec)}"),
-        (tp2, '#00695c', f"TP2  {format_price(tp2, dec)}"),
-        (sl, '#c62828', f"SL  {format_price(sl, dec)}"),
+        (entry, '#1565c0', f"ENTRY  {format_price(entry, setup.get('decimals', 4))}"),
+        (tp1, '#00897b', f"TP1  {format_price(tp1, setup.get('decimals', 4))}"),
+        (tp2, '#00695c', f"TP2  {format_price(tp2, setup.get('decimals', 4))}"),
+        (sl, '#c62828', f"SL  {format_price(sl, setup.get('decimals', 4))}"),
     ]
 
     for val, color, _ in levels:
@@ -201,8 +213,8 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
 
     for (val, color, label), ty in zip(sorted_lv, text_ys):
         ax1.text(label_x, ty, f" {label} ", color='#ffffff',
-                 bbox=dict(facecolor=color, edgecolor='none', boxstyle='round,pad=0.32', alpha=0.95),
-                 va='center', ha='left', fontweight='bold', fontsize=7.0, zorder=8, clip_on=False)
+                 bbox=dict(facecolor=color, edgecolor='none', boxstyle='round,pad=0.35', alpha=0.95),
+                 va='center', ha='left', fontweight='bold', fontsize=7.5, zorder=8, clip_on=False)
 
     grid_c = '#9e9e9e'
     axis_c = '#555555'
@@ -212,12 +224,12 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     ax1.set_axisbelow(True)
     ax2.set_axisbelow(True)
 
-    leg = ax1.legend(loc='upper left', fontsize=7.0, framealpha=0.95, facecolor='#ffffff',
+    leg = ax1.legend(loc='upper left', fontsize=7.5, framealpha=0.95, facecolor='#ffffff',
                      edgecolor='#bdbdbd', labelcolor='#333333', borderpad=0.4)
     leg.get_frame().set_linewidth(0.7)
 
-    ax1.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.0)
-    ax2.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.0)
+    ax1.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.5)
+    ax2.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.5)
     ax1.tick_params(labelbottom=False)
 
     for ax in (ax1, ax2):
@@ -231,9 +243,35 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     ticks_idx = np.linspace(0, len(df) - 1, min(6, len(df)), dtype=int)
     ax2.set_xticks(ticks_idx)
     ax2.set_xticklabels([df['timestamp'].iloc[t].strftime('%d %b  %H:%M') for t in ticks_idx],
-                        fontsize=7.0, color=axis_c)
+                        fontsize=7.5, color=axis_c)
 
-    plt.subplots_adjust(left=0.06, right=0.95, top=0.90, bottom=0.12)
+    # --- HEADER INFO (Warna Hitam/Gelap, Kandas ke Batas Atas Chart, Lebar Sejajar Candle Terakhir) ---
+    plt.subplots_adjust(left=0.06, right=0.88, top=0.95, bottom=0.12)
+    
+    symbol = setup.get('symbol', 'BTCUSDT')
+    side = setup.get('side', 'LONG').upper()
+    exec_tf = setup.get('execution_tf', '15m').upper()
+    change_24h = setup.get('change24h', 0.0)
+    q_vol = setup.get('quote_volume24h', 0.0)
+    current_price = df['close'].iloc[-1]
+    dec = setup.get('decimals', 4)
+
+    header_text = (
+        f" {symbol} ({exec_tf})  |  "
+        f"BIAS: {side}  |  "
+        f"Price: {format_price(current_price, dec)}  |  "
+        f"24h Change: {change_24h:+.2f}%  |  "
+        f"24h Vol: ${q_vol:,.0f} "
+    )
+
+    # Menempatkan header agar menempel persis di batas atas kotak chart pertama (ax1)
+    ax1.text(
+        0.0, 1.015, header_text,
+        fontsize=8.5, fontweight='bold', color='#ffffff',
+        bbox=dict(facecolor='#111111', edgecolor='none', boxstyle='square,pad=0.5', alpha=0.95),
+        transform=ax1.transAxes, zorder=15, ha='left', va='bottom'
+    )
+
     plt.savefig(output_path, dpi=140, facecolor=fig.get_facecolor(),
                 bbox_inches='tight', pad_inches=0.1)
     plt.close(fig)
@@ -241,7 +279,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
 
 def main():
     parser = argparse.ArgumentParser(description="vSch Visualizer")
-    parser.add_argument("--input", default="synaptic_candidates.json", help="Path to candidates json")
+    parser.add_argument("--input", default="result/synaptic_candidates.json", help="Path to candidates json")
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -256,16 +294,25 @@ def main():
         print("No candidates found in JSON.")
         return
 
-    charts_dir = Path("charts")
+    charts_dir = Path("result/charts")
     charts_dir.mkdir(parents=True, exist_ok=True)
 
     for c in candidates:
         symbol = c['symbol']
         side = c.get('side', 'LONG')
-        print(f"Rendering chart for {symbol} ({side}) from JSON data...")
+        exec_tf = c.get('execution_tf', '15m')
+        print(f"Rendering chart for {symbol} ({side}) on timeframe {exec_tf}...")
 
         chart_data = c.get('chart_data', {})
-        candles_raw = chart_data.get('15m', [])
+        candles_raw = chart_data.get(exec_tf, [])
+
+        if not candles_raw:
+            for fallback_tf in ['15m', '1h', '4h']:
+                if fallback_tf in chart_data:
+                    candles_raw = chart_data[fallback_tf]
+                    exec_tf = fallback_tf
+                    c['execution_tf'] = exec_tf
+                    break
 
         if not candles_raw:
             print(f"No candle history found in JSON for {symbol}")
@@ -292,7 +339,7 @@ def main():
             decimals = 2
         c['decimals'] = decimals
 
-        output_file = charts_dir / f"{symbol}_{side}_chart.png"
+        output_file = charts_dir / f"{symbol}_{side}_{exec_tf}_chart.png"
         draw_visual_chart(df, symbol, c, str(output_file))
 
 
