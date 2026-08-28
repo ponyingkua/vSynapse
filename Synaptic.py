@@ -1,20 +1,9 @@
 #!/usr/bin/env python3
-"""
-Synaptic.py
-Main Binance Futures candidate scanner.
 
-Pipeline:
-1) Build active/liquid USDT perpetual universe.
-2) Score candidates using 15m / 1h / 4h.
-3) Analyze EMA200, Volume, MACD, RSI, Supertrend(10, 2.50).
-4) Select LONG/SHORT direction.
-5) Calculate Entry / TP1-TP3 / SL and invalidation.
-6) Export JSON for vSch.py.
-
-This is a research scanner, not financial advice.
-"""
-
-import argparse, json, math, time
+import argparse
+import json
+import os
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -22,343 +11,1213 @@ import numpy as np
 import pandas as pd
 import requests
 
-BASE = "https://fapi.binance.com"
-TFs = ["15m", "1h", "4h"]
+TFS = ["15m", "1h", "4h"]
+
+IGNORED_SYMBOLS = {
+    "USDCUSDT",
+    "BUSDUSDT",
+    "DAIUSDT",
+    "TUSDUSDT",
+    "FDUSDUSDT",
+    "USDPUSDT",
+    "EURUSDT",
+    "USTCUSDT",
+    "PAXGUSDT",
+}
 
 CONFIG = {
-    "min_quote_volume_24h": 5_000_000,
-    "min_abs_change_24h": 4.0,
-    "universe_size": 80,
+    "min_quote_volume_24h": 500_000,
+    "universe_size": 0,
+    "momentum_pool": 60,
     "klines": 240,
+    "workers_stage1": 12,
+    "workers_stage2": 8,
     "min_score": 6.0,
-    "max_results": 15,
+    "min_candidates": 2,
+    "max_results": 5,
+    "ema_period": 200,
+    "volume_ma_period": 20,
+    "volume_ratio_min": 1.30,
+    "macd_fast": 12,
+    "macd_slow": 26,
+    "macd_signal": 9,
     "supertrend_period": 10,
     "supertrend_multiplier": 2.50,
     "atr_period": 14,
+    "breakout_window": 20,
+    "momentum_fast_bars": 4,
+    "momentum_slow_bars": 16,
+    "swing_window": 8,
     "risk_reward": [1.5, 2.25, 3.0],
-    "max_entry_atr_distance": 2.75,
 }
 
-S = requests.Session()
-S.headers.update({"User-Agent": "Synaptic/1.0"})
+HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "application/json",
+}
+
+BASE_URLS = [
+    "https://www.binance.com",
+    "https://fapi.binance.com",
+    "https://fapi1.binance.com",
+    "https://fapi2.binance.com",
+    "https://fapi3.binance.com",
+    "https://fapi4.binance.com",
+]
+
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+ACTIVE_BASE_URL = None
 
 
-def api(path, params=None):
-    r = S.get(BASE + path, params=params, timeout=15)
-    r.raise_for_status()
-    return r.json()
+def api(path, params=None, timeout=15):
+    global ACTIVE_BASE_URL
+
+    endpoints = []
+
+    if ACTIVE_BASE_URL:
+        endpoints.append(ACTIVE_BASE_URL)
+
+    for base_url in BASE_URLS:
+        if base_url not in endpoints:
+            endpoints.append(base_url)
+
+    last_error = None
+
+    for base_url in endpoints:
+        try:
+            response = SESSION.get(
+                base_url + path,
+                params=params,
+                timeout=timeout,
+            )
+
+            if response.status_code == 451:
+                last_error = "HTTP 451"
+                continue
+
+            if response.status_code in (418, 429):
+                last_error = f"HTTP {response.status_code}"
+                time.sleep(0.5)
+                continue
+
+            if response.status_code != 200:
+                last_error = f"HTTP {response.status_code}"
+                continue
+
+            data = response.json()
+
+            if (
+                isinstance(data, dict)
+                and "code" in data
+                and "msg" in data
+            ):
+                last_error = (
+                    f"{data.get('code')}: "
+                    f"{data.get('msg')}"
+                )
+                continue
+
+            ACTIVE_BASE_URL = base_url
+            return data
+
+        except requests.RequestException as exc:
+            last_error = str(exc)
+
+    raise RuntimeError(
+        f"All Binance endpoints failed: {last_error}"
+    )
+
+
+def exchange_info():
+    return api(
+        "/fapi/v1/exchangeInfo",
+        timeout=20,
+    )
+
+
+def ticker_24h():
+    return api(
+        "/fapi/v1/ticker/24hr",
+        timeout=20,
+    )
 
 
 def universe():
-    tick = api("/fapi/v1/ticker/24hr")
+    info = exchange_info()
+    tickers = ticker_24h()
+
+    ticker_map = {
+        str(item.get("symbol", "")): item
+        for item in tickers
+        if isinstance(item, dict)
+    }
+
     rows = []
-    for x in tick:
-        sym = x["symbol"]
-        if not sym.endswith("USDT") or "_" in sym:
+
+    for item in info.get("symbols", []):
+        if not isinstance(item, dict):
             continue
-        qv = float(x["quoteVolume"])
-        ch = float(x["priceChangePercent"])
-        if qv < CONFIG["min_quote_volume_24h"] or abs(ch) < CONFIG["min_abs_change_24h"]:
+
+        symbol = str(item.get("symbol", ""))
+
+        if not symbol:
             continue
-        activity = abs(ch) * math.log10(max(qv, 1))
-        rows.append((sym, ch, qv, activity))
-    rows.sort(key=lambda z: z[3], reverse=True)
-    return rows[:CONFIG["universe_size"]]
+
+        if item.get("contractType") != "PERPETUAL":
+            continue
+
+        if item.get("quoteAsset") != "USDT":
+            continue
+
+        if item.get("status") != "TRADING":
+            continue
+
+        if symbol in IGNORED_SYMBOLS:
+            continue
+
+        ticker = ticker_map.get(symbol)
+
+        if not ticker:
+            continue
+
+        try:
+            quote_volume = float(
+                ticker.get("quoteVolume", 0)
+            )
+            change_24h = float(
+                ticker.get("priceChangePercent", 0)
+            )
+            last_price = float(
+                ticker.get("lastPrice", 0)
+            )
+        except (TypeError, ValueError):
+            continue
+
+        if quote_volume < CONFIG["min_quote_volume_24h"]:
+            continue
+
+        if last_price <= 0:
+            continue
+
+        rows.append(
+            (
+                symbol,
+                change_24h,
+                quote_volume,
+            )
+        )
+
+    if CONFIG["universe_size"] > 0:
+        rows = rows[:CONFIG["universe_size"]]
+
+    print(
+        f"[UNIVERSE] {len(rows)} active USDT-M perpetual symbols"
+    )
+
+    return rows
 
 
 def klines(symbol, interval):
-    raw = api("/fapi/v1/klines", {
-        "symbol": symbol, "interval": interval, "limit": CONFIG["klines"]
-    })
-    c = ["time","open","high","low","close","volume","close_time",
-         "quote_volume","trades","tb","tq","ignore"]
-    df = pd.DataFrame(raw, columns=c)
-    for col in ["open","high","low","close","volume","quote_volume"]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-    df["time"] = pd.to_datetime(df["time"], unit="ms", utc=True)
-    return df
+    raw = api(
+        "/fapi/v1/klines",
+        {
+            "symbol": symbol,
+            "interval": interval,
+            "limit": CONFIG["klines"],
+        },
+        timeout=15,
+    )
+
+    columns = [
+        "time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "trades",
+        "taker_buy_base",
+        "taker_buy_quote",
+        "ignore",
+    ]
+
+    df = pd.DataFrame(
+        raw,
+        columns=columns,
+    )
+
+    for column in [
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "quote_volume",
+    ]:
+        df[column] = pd.to_numeric(
+            df[column],
+            errors="coerce",
+        )
+
+    df["time"] = pd.to_datetime(
+        df["time"],
+        unit="ms",
+        utc=True,
+    )
+
+    return df.dropna(
+        subset=[
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+        ]
+    ).reset_index(drop=True)
 
 
-def atr(df, n=14):
-    pc = df.close.shift(1)
-    tr = pd.concat([
-        df.high-df.low,
-        (df.high-pc).abs(),
-        (df.low-pc).abs()
-    ], axis=1).max(axis=1)
-    return tr.ewm(alpha=1/n, adjust=False).mean()
-
-
-def indicators(df):
+def add_indicators(df):
     x = df.copy()
-    x["ema200"] = x.close.ewm(span=200, adjust=False).mean()
 
-    # MACD 12/26/9
-    e12 = x.close.ewm(span=12, adjust=False).mean()
-    e26 = x.close.ewm(span=26, adjust=False).mean()
-    x["macd"] = e12 - e26
-    x["macd_signal"] = x.macd.ewm(span=9, adjust=False).mean()
-    x["macd_hist"] = x.macd - x.macd_signal
+    x["ema200"] = x["close"].ewm(
+        span=CONFIG["ema_period"],
+        adjust=False,
+    ).mean()
 
-    # RSI 14
-    delta = x.close.diff()
-    up = delta.clip(lower=0)
-    down = -delta.clip(upper=0)
-    rs = up.ewm(alpha=1/14, adjust=False).mean() / down.ewm(alpha=1/14, adjust=False).mean().replace(0, np.nan)
-    x["rsi"] = 100 - 100/(1+rs)
+    fast = x["close"].ewm(
+        span=CONFIG["macd_fast"],
+        adjust=False,
+    ).mean()
 
-    x["atr"] = atr(x, CONFIG["atr_period"])
-    x["vol_ma20"] = x.volume.rolling(20).mean()
-    x["vol_ratio"] = x.volume / x.vol_ma20
+    slow = x["close"].ewm(
+        span=CONFIG["macd_slow"],
+        adjust=False,
+    ).mean()
 
-    # Supertrend 10 / 2.50
-    n = CONFIG["supertrend_period"]
-    m = CONFIG["supertrend_multiplier"]
-    hl2 = (x.high+x.low)/2
-    basic_ub = hl2 + m*x.atr
-    basic_lb = hl2 - m*x.atr
-    fub = basic_ub.copy()
-    flb = basic_lb.copy()
-    direction = pd.Series(index=x.index, dtype=float)
-    st = pd.Series(index=x.index, dtype=float)
+    x["macd"] = fast - slow
 
-    direction.iloc[0] = 1
-    fub.iloc[0] = basic_ub.iloc[0]
-    flb.iloc[0] = basic_lb.iloc[0]
-    st.iloc[0] = flb.iloc[0]
+    x["macd_signal"] = x["macd"].ewm(
+        span=CONFIG["macd_signal"],
+        adjust=False,
+    ).mean()
+
+    x["macd_hist"] = (
+        x["macd"] -
+        x["macd_signal"]
+    )
+
+    previous_close = x["close"].shift(1)
+
+    true_range = pd.concat(
+        [
+            x["high"] - x["low"],
+            (x["high"] - previous_close).abs(),
+            (x["low"] - previous_close).abs(),
+        ],
+        axis=1,
+    ).max(axis=1)
+
+    x["atr"] = true_range.ewm(
+        alpha=1 / CONFIG["atr_period"],
+        adjust=False,
+    ).mean()
+
+    x["volume_ma"] = x["volume"].rolling(
+        CONFIG["volume_ma_period"]
+    ).mean()
+
+    x["volume_ratio"] = (
+        x["volume"] /
+        x["volume_ma"]
+    )
+
+    multiplier = CONFIG["supertrend_multiplier"]
+
+    hl2 = (
+        x["high"] +
+        x["low"]
+    ) / 2.0
+
+    basic_upper = (
+        hl2 +
+        multiplier * x["atr"]
+    )
+
+    basic_lower = (
+        hl2 -
+        multiplier * x["atr"]
+    )
+
+    final_upper = basic_upper.copy()
+    final_lower = basic_lower.copy()
+
+    direction = pd.Series(
+        1,
+        index=x.index,
+        dtype=int,
+    )
+
+    supertrend = pd.Series(
+        np.nan,
+        index=x.index,
+        dtype=float,
+    )
 
     for i in range(1, len(x)):
-        fub.iloc[i] = basic_ub.iloc[i] if (
-            basic_ub.iloc[i] < fub.iloc[i-1] or x.close.iloc[i-1] > fub.iloc[i-1]
-        ) else fub.iloc[i-1]
-        flb.iloc[i] = basic_lb.iloc[i] if (
-            basic_lb.iloc[i] > flb.iloc[i-1] or x.close.iloc[i-1] < flb.iloc[i-1]
-        ) else flb.iloc[i-1]
-
-        if direction.iloc[i-1] == -1 and x.close.iloc[i] > fub.iloc[i]:
-            direction.iloc[i] = 1
-        elif direction.iloc[i-1] == 1 and x.close.iloc[i] < flb.iloc[i]:
-            direction.iloc[i] = -1
+        if (
+            basic_upper.iloc[i] <
+            final_upper.iloc[i - 1]
+            or
+            x["close"].iloc[i - 1] >
+            final_upper.iloc[i - 1]
+        ):
+            final_upper.iloc[i] = basic_upper.iloc[i]
         else:
-            direction.iloc[i] = direction.iloc[i-1]
+            final_upper.iloc[i] = final_upper.iloc[i - 1]
 
-        st.iloc[i] = flb.iloc[i] if direction.iloc[i] == 1 else fub.iloc[i]
+        if (
+            basic_lower.iloc[i] >
+            final_lower.iloc[i - 1]
+            or
+            x["close"].iloc[i - 1] <
+            final_lower.iloc[i - 1]
+        ):
+            final_lower.iloc[i] = basic_lower.iloc[i]
+        else:
+            final_lower.iloc[i] = final_lower.iloc[i - 1]
 
-    x["supertrend"] = st
+        if (
+            direction.iloc[i - 1] == -1
+            and
+            x["close"].iloc[i] >
+            final_upper.iloc[i - 1]
+        ):
+            direction.iloc[i] = 1
+
+        elif (
+            direction.iloc[i - 1] == 1
+            and
+            x["close"].iloc[i] <
+            final_lower.iloc[i - 1]
+        ):
+            direction.iloc[i] = -1
+
+        else:
+            direction.iloc[i] = direction.iloc[i - 1]
+
+        if direction.iloc[i] == 1:
+            supertrend.iloc[i] = final_lower.iloc[i]
+        else:
+            supertrend.iloc[i] = final_upper.iloc[i]
+
+    if len(x):
+        supertrend.iloc[0] = final_lower.iloc[0]
+
+    x["supertrend"] = supertrend
     x["st_dir"] = direction
+
     return x
 
 
-def score_tf(x):
+def movement_score(df):
+    if len(df) < 50:
+        return -1.0, None
+
+    x = add_indicators(df)
+
     last = x.iloc[-1]
-    prev = x.iloc[-2]
-    score_l = 0.0
-    score_s = 0.0
-    rl, rs = [], []
+    close = float(last["close"])
+    atr_value = float(last["atr"])
 
-    # EMA200
-    if last.close > last.ema200:
-        score_l += 2
-        rl.append("above EMA200")
-    elif last.close < last.ema200:
-        score_s += 2
-        rs.append("below EMA200")
+    if (
+        not np.isfinite(close)
+        or close <= 0
+        or not np.isfinite(atr_value)
+        or atr_value <= 0
+    ):
+        return -1.0, None
 
-    # Supertrend
-    if last.st_dir > 0:
-        score_l += 2
-        rl.append("Supertrend bullish")
-    else:
-        score_s += 2
-        rs.append("Supertrend bearish")
+    fast_n = CONFIG["momentum_fast_bars"]
+    slow_n = CONFIG["momentum_slow_bars"]
 
-    # MACD
-    if last.macd > last.macd_signal and last.macd_hist > prev.macd_hist:
-        score_l += 1.5
-        rl.append("MACD bullish")
-    elif last.macd < last.macd_signal and last.macd_hist < prev.macd_hist:
-        score_s += 1.5
-        rs.append("MACD bearish")
+    if len(x) <= slow_n + 2:
+        return -1.0, None
 
-    # RSI: avoid using extreme as automatic direction.
-    if 52 <= last.rsi <= 68:
-        score_l += 1
-        rl.append(f"RSI {last.rsi:.0f} supportive")
-    elif 32 <= last.rsi <= 48:
-        score_s += 1
-        rs.append(f"RSI {last.rsi:.0f} supportive")
-    elif last.rsi > 72:
-        score_l += 0.25
-        rl.append(f"RSI {last.rsi:.0f} overheated")
-    elif last.rsi < 28:
-        score_s += 0.25
-        rs.append(f"RSI {last.rsi:.0f} oversold")
+    fast_reference = float(
+        x["close"].iloc[-1 - fast_n]
+    )
 
-    # Volume
-    vr = float(last.vol_ratio) if np.isfinite(last.vol_ratio) else 1
-    if vr >= 1.5:
-        if last.close > last.open:
-            score_l += 1.5
-            rl.append(f"volume {vr:.1f}x")
-        elif last.close < last.open:
-            score_s += 1.5
-            rs.append(f"volume {vr:.1f}x")
+    slow_reference = float(
+        x["close"].iloc[-1 - slow_n]
+    )
 
-    # Price action
-    hi20 = x.high.iloc[-21:-1].max()
-    lo20 = x.low.iloc[-21:-1].min()
-    if last.close > hi20:
-        score_l += 2
-        rl.append("20-bar breakout")
-    elif last.close < lo20:
-        score_s += 2
-        rs.append("20-bar breakdown")
+    fast_return = abs(
+        close / fast_reference - 1.0
+    ) * 100
 
-    # Recent 5-bar structure
-    recent = x.iloc[-6:]
-    if recent.high.iloc[-1] > recent.high.iloc[-3] and recent.low.iloc[-1] > recent.low.iloc[-3]:
-        score_l += 1
-        rl.append("higher-high/higher-low")
-    if recent.high.iloc[-1] < recent.high.iloc[-3] and recent.low.iloc[-1] < recent.low.iloc[-3]:
-        score_s += 1
-        rs.append("lower-high/lower-low")
+    slow_return = abs(
+        close / slow_reference - 1.0
+    ) * 100
 
-    return {
-        "long": score_l, "short": score_s,
-        "long_reasons": rl, "short_reasons": rs,
-        "close": float(last.close),
-        "atr": float(last.atr),
-        "ema200": float(last.ema200),
-        "rsi": float(last.rsi),
-        "vol_ratio": vr,
-        "st_dir": int(last.st_dir),
+    atr_move = (
+        abs(close - fast_reference) /
+        atr_value
+    )
+
+    volume_ratio = float(
+        last["volume_ratio"]
+    ) if np.isfinite(
+        last["volume_ratio"]
+    ) else 1.0
+
+    volume_bonus = min(
+        max(volume_ratio, 0.0),
+        4.0,
+    )
+
+    window = CONFIG["breakout_window"]
+
+    previous_high = float(
+        x["high"]
+        .iloc[-window - 1:-1]
+        .max()
+    )
+
+    previous_low = float(
+        x["low"]
+        .iloc[-window - 1:-1]
+        .min()
+    )
+
+    breakout_bonus = 0.0
+
+    if close > previous_high:
+        breakout_bonus = 2.0
+    elif close < previous_low:
+        breakout_bonus = 2.0
+
+    direction = (
+        1
+        if float(last["close"]) >= float(last["open"])
+        else -1
+    )
+
+    score = (
+        fast_return * 2.0
+        +
+        slow_return
+        +
+        min(atr_move, 5.0) * 1.5
+        +
+        volume_bonus * 1.25
+        +
+        breakout_bonus
+    )
+
+    return float(score), {
+        "df": x,
+        "direction": direction,
+        "fast_return": fast_return,
+        "slow_return": slow_return,
+        "volume_ratio": volume_ratio,
+        "atr_move": atr_move,
     }
 
 
-def analyze_symbol(symbol, ch24, qv24):
-    tf_data = {}
-    for tf in TFs:
-        try:
-            d = indicators(klines(symbol, tf))
-            tf_data[tf] = score_tf(d)
-        except Exception:
-            pass
+def score_tf(df):
+    x = add_indicators(df)
 
-    if len(tf_data) < 2:
+    if len(x) < 210:
         return None
 
-    # 4H has the most context, 1H execution structure, 15m timing.
-    weights = {"15m": 0.25, "1h": 0.35, "4h": 0.40}
-    L = sum(weights[t]*tf_data[t]["long"] for t in tf_data)
-    Sh = sum(weights[t]*tf_data[t]["short"] for t in tf_data)
+    last = x.iloc[-1]
+    previous = x.iloc[-2]
 
-    side = "LONG" if L > Sh else "SHORT"
-    score = max(L, Sh)
+    long_score = 0.0
+    short_score = 0.0
 
-    # Require directional agreement from at least 2/3 TFs.
-    votes = [
-        1 if tf_data[t]["long"] > tf_data[t]["short"] else -1
-        for t in tf_data
-    ]
-    agreement = sum(v == (1 if side == "LONG" else -1) for v in votes)
+    long_reasons = []
+    short_reasons = []
+
+    close = float(last["close"])
+    ema = float(last["ema200"])
+    atr_value = float(last["atr"])
+
+    volume_ratio = (
+        float(last["volume_ratio"])
+        if np.isfinite(last["volume_ratio"])
+        else 1.0
+    )
+
+    if close > ema:
+        long_score += 2.0
+        long_reasons.append("above EMA200")
+    elif close < ema:
+        short_score += 2.0
+        short_reasons.append("below EMA200")
+
+    if int(last["st_dir"]) > 0:
+        long_score += 2.0
+        long_reasons.append("Supertrend bullish")
+    else:
+        short_score += 2.0
+        short_reasons.append("Supertrend bearish")
+
+    macd = float(last["macd"])
+    macd_signal = float(last["macd_signal"])
+
+    hist_now = float(last["macd_hist"])
+    hist_previous = float(previous["macd_hist"])
+
+    if macd > macd_signal:
+        long_score += 1.0
+        long_reasons.append("MACD bullish")
+
+        if hist_now > hist_previous:
+            long_score += 0.5
+            long_reasons.append("MACD histogram rising")
+
+    elif macd < macd_signal:
+        short_score += 1.0
+        short_reasons.append("MACD bearish")
+
+        if hist_now < hist_previous:
+            short_score += 0.5
+            short_reasons.append("MACD histogram falling")
+
+    if volume_ratio >= CONFIG["volume_ratio_min"]:
+
+        candle_open = float(last["open"])
+
+        if close > candle_open:
+            long_score += 1.5
+            long_reasons.append(
+                f"volume {volume_ratio:.1f}x"
+            )
+
+        elif close < candle_open:
+            short_score += 1.5
+            short_reasons.append(
+                f"volume {volume_ratio:.1f}x"
+            )
+
+    window = CONFIG["breakout_window"]
+
+    previous_high = float(
+        x["high"]
+        .iloc[-window - 1:-1]
+        .max()
+    )
+
+    previous_low = float(
+        x["low"]
+        .iloc[-window - 1:-1]
+        .min()
+    )
+
+    if close > previous_high:
+        long_score += 1.5
+        long_reasons.append("20-bar breakout")
+
+    elif close < previous_low:
+        short_score += 1.5
+        short_reasons.append("20-bar breakdown")
+
+    if len(x) >= 7:
+
+        current_high = float(
+            x["high"].iloc[-1]
+        )
+
+        previous_high_short = float(
+            x["high"].iloc[-4]
+        )
+
+        current_low = float(
+            x["low"].iloc[-1]
+        )
+
+        previous_low_short = float(
+            x["low"].iloc[-4]
+        )
+
+        if (
+            current_high > previous_high_short
+            and
+            current_low > previous_low_short
+        ):
+            long_score += 1.0
+            long_reasons.append(
+                "higher-high / higher-low"
+            )
+
+        elif (
+            current_high < previous_high_short
+            and
+            current_low < previous_low_short
+        ):
+            short_score += 1.0
+            short_reasons.append(
+                "lower-high / lower-low"
+            )
+
+    return {
+        "long": round(long_score, 3),
+        "short": round(short_score, 3),
+        "long_reasons": long_reasons,
+        "short_reasons": short_reasons,
+        "close": close,
+        "ema200": ema,
+        "atr": atr_value,
+        "volume_ratio": volume_ratio,
+        "st_dir": int(last["st_dir"]),
+        "macd": macd,
+        "macd_signal": macd_signal,
+        "macd_hist": hist_now,
+    }
+
+
+def analyze_symbol(
+    symbol,
+    change_24h,
+    quote_volume_24h,
+    stage1_score,
+    stage1_meta,
+):
+    data = {}
+
+    try:
+        scored_15m = score_tf(
+            stage1_meta["df"]
+        )
+
+        if scored_15m is not None:
+            data["15m"] = scored_15m
+
+    except Exception as exc:
+        print(f"[MTF] {symbol} 15m: {exc}")
+
+    for tf in ["1h", "4h"]:
+        try:
+            candles = klines(
+                symbol,
+                tf,
+            )
+
+            scored = score_tf(candles)
+
+            if scored is not None:
+                data[tf] = scored
+
+        except Exception as exc:
+            print(f"[MTF] {symbol} {tf}: {exc}")
+
+    if set(data.keys()) != set(TFS):
+        return None
+
+    weights = {
+        "15m": 0.25,
+        "1h": 0.35,
+        "4h": 0.40,
+    }
+
+    long_total = sum(
+        weights[tf] * data[tf]["long"]
+        for tf in TFS
+    )
+
+    short_total = sum(
+        weights[tf] * data[tf]["short"]
+        for tf in TFS
+    )
+
+    side = (
+        "LONG"
+        if long_total > short_total
+        else "SHORT"
+    )
+
+    raw_score = max(
+        long_total,
+        short_total,
+    )
+
+    wanted_direction = (
+        1
+        if side == "LONG"
+        else -1
+    )
+
+    votes = []
+
+    for tf in TFS:
+        if data[tf]["long"] == data[tf]["short"]:
+            votes.append(0)
+        elif data[tf]["long"] > data[tf]["short"]:
+            votes.append(1)
+        else:
+            votes.append(-1)
+
+    agreement = sum(
+        vote == wanted_direction
+        for vote in votes
+    )
+
+    four_hour_direction = (
+        1
+        if data["4h"]["long"] >
+        data["4h"]["short"]
+        else -1
+    )
+
+    if four_hour_direction != wanted_direction:
+        return None
 
     if agreement < 2:
-        score -= 1.5
+        return None
 
-    # Pick execution TF: strongest directional score, preferring 1h.
-    candidates = []
-    for tf, d in tf_data.items():
-        s = d["long"] if side == "LONG" else d["short"]
-        candidates.append((s, {"1h": 0.15, "15m": 0.05, "4h": 0.10}[tf], tf))
-    _, _, exec_tf = max(candidates)
+    df15 = stage1_meta["df"]
 
-    d = indicators(klines(symbol, exec_tf))
-    last = d.iloc[-1]
-    price = float(last.close)
-    a = float(last.atr)
+    current15 = df15.iloc[-1]
 
-    # Entry around current market price, with a small ATR pullback bias.
+    reference15 = df15.iloc[
+        -1 - CONFIG["momentum_fast_bars"]
+    ]
+
+    current_close = float(
+        current15["close"]
+    )
+
+    reference_close = float(
+        reference15["close"]
+    )
+
+    move_15 = (
+        current_close /
+        reference_close -
+        1.0
+    ) * 100
+
+    if side == "LONG" and move_15 <= 0:
+        return None
+
+    if side == "SHORT" and move_15 >= 0:
+        return None
+
+    price = float(
+        df15["close"].iloc[-1]
+    )
+
+    atr_value = float(
+        df15["atr"].iloc[-1]
+    )
+
+    if (
+        not np.isfinite(price)
+        or
+        not np.isfinite(atr_value)
+        or
+        atr_value <= 0
+    ):
+        return None
+
+    swing_n = CONFIG["swing_window"]
+
+    swing_low = float(
+        df15["low"]
+        .iloc[-swing_n:]
+        .min()
+    )
+
+    swing_high = float(
+        df15["high"]
+        .iloc[-swing_n:]
+        .max()
+    )
+
     entry = price
 
     if side == "LONG":
-        swing_low = float(d.low.iloc[-8:].min())
-        sl = min(swing_low, price - 1.15*a)
-        risk = entry - sl
-        if risk <= 0:
-            return None
-        tps = [entry + risk*r for r in CONFIG["risk_reward"]]
-        invalid = f"Close below {sl:.8g} / loss of recent swing low"
-    else:
-        swing_high = float(d.high.iloc[-8:].max())
-        sl = max(swing_high, price + 1.15*a)
-        risk = sl - entry
-        if risk <= 0:
-            return None
-        tps = [entry - risk*r for r in CONFIG["risk_reward"]]
-        invalid = f"Close above {sl:.8g} / reclaim of recent swing high"
 
-    # Avoid absurdly wide risk.
-    risk_pct = abs(entry-sl)/entry*100
-    if risk_pct > 8:
+        sl = min(
+            swing_low,
+            entry - 1.25 * atr_value,
+        )
+
+        risk = entry - sl
+
+        invalidation = (
+            f"Close below {sl:.8g} / "
+            f"loss of recent 15m swing low"
+        )
+
+    else:
+
+        sl = max(
+            swing_high,
+            entry + 1.25 * atr_value,
+        )
+
+        risk = sl - entry
+
+        invalidation = (
+            f"Close above {sl:.8g} / "
+            f"reclaim of recent 15m swing high"
+        )
+
+    if risk <= 0:
         return None
+
+    risk_pct = (
+        risk /
+        entry *
+        100
+    )
+
+    if risk_pct > 8.0:
+        return None
+
+    if side == "LONG":
+
+        tp = [
+            entry + risk * rr
+            for rr in CONFIG["risk_reward"]
+        ]
+
+    else:
+
+        tp = [
+            entry - risk * rr
+            for rr in CONFIG["risk_reward"]
+        ]
+
+    momentum_bonus = min(
+        stage1_score / 25.0,
+        1.5,
+    )
+
+    score = (
+        raw_score +
+        momentum_bonus
+    )
+
+    if side == "LONG":
+        reasons = data["15m"]["long_reasons"]
+    else:
+        reasons = data["15m"]["short_reasons"]
 
     return {
         "symbol": symbol,
         "side": side,
         "score": round(score, 2),
-        "change24h": round(ch24, 2),
-        "quote_volume24h": round(qv24, 2),
-        "execution_tf": exec_tf,
-        "timeframes": tf_data,
-        "entry": entry,
-        "tp": tps,
-        "sl": sl,
-        "risk_pct": risk_pct,
-        "invalidation": invalid,
-        "key_points": (
-            tf_data[exec_tf]["long_reasons"]
-            if side == "LONG" else tf_data[exec_tf]["short_reasons"]
+        "change24h": round(change_24h, 2),
+        "quote_volume24h": round(
+            quote_volume_24h,
+            2,
         ),
+        "execution_tf": "15m",
+        "timeframes": data,
+        "momentum_15m": round(
+            move_15,
+            3,
+        ),
+        "entry": entry,
+        "tp": tp,
+        "sl": sl,
+        "risk_pct": round(
+            risk_pct,
+            3,
+        ),
+        "invalidation": invalidation,
+        "key_points": reasons[:6],
+        "tf_agreement": agreement,
     }
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="synaptic_candidates.json")
-    args = ap.parse_args()
 
-    uni = universe()
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--out",
+        default="synaptic_candidates.json",
+    )
+
+    args = parser.parse_args()
+
+    started = time.time()
+
+    try:
+        universe_rows = universe()
+
+    except Exception as exc:
+
+        print(
+            f"[FATAL] Cannot build universe: {exc}"
+        )
+
+        Path(args.out).write_text(
+            json.dumps(
+                {
+                    "candidates": [],
+                    "error": str(exc),
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+
+        raise
+
+    momentum = []
+
+    print(
+        f"[STAGE 1] Scanning "
+        f"{len(universe_rows)} symbols on 15m..."
+    )
+
+    with ThreadPoolExecutor(
+        max_workers=CONFIG["workers_stage1"]
+    ) as pool:
+
+        jobs = {
+            pool.submit(
+                klines,
+                symbol,
+                "15m",
+            ): (
+                symbol,
+                change_24h,
+                quote_volume_24h,
+            )
+            for (
+                symbol,
+                change_24h,
+                quote_volume_24h,
+            ) in universe_rows
+        }
+
+        for future in as_completed(jobs):
+
+            (
+                symbol,
+                change_24h,
+                quote_volume_24h,
+            ) = jobs[future]
+
+            try:
+
+                candles = future.result()
+
+                score, meta = movement_score(
+                    candles
+                )
+
+                if score > 0 and meta is not None:
+
+                    momentum.append(
+                        (
+                            score,
+                            symbol,
+                            change_24h,
+                            quote_volume_24h,
+                            meta,
+                        )
+                    )
+
+            except Exception as exc:
+
+                print(
+                    f"[15m-SCAN] {symbol}: {exc}"
+                )
+
+    momentum.sort(
+        key=lambda row: row[0],
+        reverse=True,
+    )
+
+    selected = momentum[
+        :CONFIG["momentum_pool"]
+    ]
+
+    print(
+        f"[MOMENTUM] {len(selected)} selected"
+    )
+
     results = []
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
-        jobs = [pool.submit(analyze_symbol, *u[:3]) for u in uni]
-        for j in as_completed(jobs):
-            try:
-                r = j.result()
-                if r and r["score"] >= CONFIG["min_score"]:
-                    results.append(r)
-            except Exception:
-                pass
+    print(
+        "[STAGE 2] "
+        "15m / 1h / 4h validation..."
+    )
 
-    results.sort(key=lambda r: r["score"], reverse=True)
-    results = results[:CONFIG["max_results"]]
+    with ThreadPoolExecutor(
+        max_workers=CONFIG["workers_stage2"]
+    ) as pool:
+
+        jobs = {
+            pool.submit(
+                analyze_symbol,
+                symbol,
+                change_24h,
+                quote_volume_24h,
+                stage_score,
+                stage_meta,
+            ): symbol
+
+            for (
+                stage_score,
+                symbol,
+                change_24h,
+                quote_volume_24h,
+                stage_meta,
+            ) in selected
+        }
+
+        for future in as_completed(jobs):
+
+            symbol = jobs[future]
+
+            try:
+
+                result = future.result()
+
+                if (
+                    result
+                    and
+                    result["score"] >=
+                    CONFIG["min_score"]
+                ):
+                    results.append(result)
+
+            except Exception as exc:
+
+                print(
+                    f"[MTF-SCAN] {symbol}: {exc}"
+                )
+
+    results.sort(
+        key=lambda item: item["score"],
+        reverse=True,
+    )
+
+    if len(results) < CONFIG["min_candidates"]:
+
+        final_results = []
+
+        print(
+            f"[RESULT] {len(results)} valid candidate(s)"
+        )
+
+    else:
+
+        final_results = results[
+            :CONFIG["max_results"]
+        ]
+
+        print(
+            f"[RESULT] {len(final_results)} candidates"
+        )
 
     payload = {
-        "generated_at": pd.Timestamp.utcnow().isoformat(),
-        "config": CONFIG,
-        "candidates": results,
+        "generated_at":
+            pd.Timestamp.now(
+                tz="UTC"
+            ).isoformat(),
+
+        "scanner":
+            "Synaptic",
+
+        "universe":
+            "ALL active USDT-M perpetuals",
+
+        "selection_method":
+            "15m movement + momentum, "
+            "then 15m/1h/4h confirmation",
+
+        "timeframes":
+            TFS,
+
+        "indicators": {
+            "EMA":
+                CONFIG["ema_period"],
+
+            "Volume":
+                CONFIG["volume_ma_period"],
+
+            "MACD":
+                [
+                    CONFIG["macd_fast"],
+                    CONFIG["macd_slow"],
+                    CONFIG["macd_signal"],
+                ],
+
+            "Supertrend":
+                [
+                    CONFIG["supertrend_period"],
+                    CONFIG["supertrend_multiplier"],
+                ],
+        },
+
+        "config":
+            CONFIG,
+
+        "scan_stats": {
+            "universe":
+                len(universe_rows),
+
+            "momentum_scanned":
+                len(momentum),
+
+            "momentum_pool":
+                len(selected),
+
+            "valid_before_limit":
+                len(results),
+
+            "final_candidates":
+                len(final_results),
+
+            "elapsed_seconds":
+                round(
+                    time.time() - started,
+                    2,
+                ),
+        },
+
+        "candidates":
+            final_results,
     }
 
-    Path(args.out).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    Path(args.out).write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
 
-    print(f"Candidates: {len(results)}")
-    for r in results:
+    print("=" * 60)
+
+    for item in final_results:
+
         print(
-            f'{r["symbol"]:14} {r["side"]:5} '
-            f'Score {r["score"]:4.1f} | TF {r["execution_tf"]:>3} | '
-            f'Entry {r["entry"]:.8g} | TP {r["tp"][0]:.8g}/{r["tp"][1]:.8g}/{r["tp"][2]:.8g} | '
-            f'SL {r["sl"]:.8g}'
+            f"{item['symbol']} "
+            f"{item['side']} | "
+            f"Score {item['score']:.2f} | "
+            f"TF {item['tf_agreement']}/3 | "
+            f"Entry {item['entry']:.8g} | "
+            f"TP1 {item['tp'][0]:.8g} | "
+            f"TP2 {item['tp'][1]:.8g} | "
+            f"TP3 {item['tp'][2]:.8g} | "
+            f"SL {item['sl']:.8g}"
         )
+
+    print("=" * 60)
 
 
 if __name__ == "__main__":
