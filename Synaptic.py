@@ -466,25 +466,35 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
     if side == "SHORT" and move_15 >= 0:
         return None
 
-    price = float(df15["close"].iloc[-1])
-    atr_value = float(df15["atr"].iloc[-1])
+    # The setup timeframe is the strongest directional timeframe for the
+    # selected side. The visual MUST use this same timeframe.
+    tf_rank = {"1h": 3, "4h": 2, "15m": 1}
+    tf_candidates = []
+    for tf in TFS:
+        tf_score = data[tf]["score"]["long"] if side == "LONG" else data[tf]["score"]["short"]
+        tf_candidates.append((float(tf_score), tf_rank[tf], tf))
+    _, _, execution_tf = max(tf_candidates)
+
+    exec_df = data[execution_tf]["df"]
+    price = float(exec_df["close"].iloc[-1])
+    atr_value = float(exec_df["atr"].iloc[-1])
 
     if not np.isfinite(price) or not np.isfinite(atr_value) or atr_value <= 0:
         return None
 
     swing_n = CONFIG["swing_window"]
-    swing_low = float(df15["low"].iloc[-swing_n:].min())
-    swing_high = float(df15["high"].iloc[-swing_n:].max())
+    swing_low = float(exec_df["low"].iloc[-swing_n:].min())
+    swing_high = float(exec_df["high"].iloc[-swing_n:].max())
     entry = price
 
     if side == "LONG":
         sl = min(swing_low, entry - 1.25 * atr_value)
         risk = entry - sl
-        invalidation = f"Close below {sl:.8g} / loss of recent 15m swing low"
+        invalidation = f"Close below {sl:.8g} / loss of recent {execution_tf} swing low"
     else:
         sl = max(swing_high, entry + 1.25 * atr_value)
         risk = sl - entry
-        invalidation = f"Close above {sl:.8g} / reclaim of recent 15m swing high"
+        invalidation = f"Close above {sl:.8g} / reclaim of recent {execution_tf} swing high"
 
     if risk <= 0:
         return None
@@ -506,7 +516,7 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
         "score": round(score, 2),
         "change24h": round(change_24h, 2),
         "quote_volume24h": round(quote_volume_24h, 2),
-        "execution_tf": "15m",
+        "execution_tf": execution_tf,
         "timeframes": {tf: data[tf]["score"] for tf in TFS},
         "momentum_15m": round(move_15, 3),
         "entry": entry,
@@ -517,9 +527,10 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
         "key_points": reasons[:6],
         "tf_agreement": agreement,
         "chart": {
-            "execution_tf": "15m",
+            "execution_tf": execution_tf,
             "available_timeframes": TFS,
-            "candles": CONFIG["klines"],
+            "analysis_candles": CONFIG["klines"],
+            "visible_candles": {"15m": 60, "1h": 60, "4h": 50},
             "show_ema200": True,
             "show_supertrend": True,
             "show_volume": True,
