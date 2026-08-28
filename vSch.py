@@ -1,7 +1,10 @@
 """
-vSch.py (Updated)
-25 candles, EMA 200 & Supertrend (10, 2.5), No Supply/Demand box, 
-Header aligned to last candle and flush with chart top, Red header changed to black.
+vSch.py (Final with JSON Support & Custom Chart Settings)
+- 25 Candles
+- EMA 200 & Supertrend (10, 2.5)
+- No Supply/Demand box
+- Header: Black color, flush with chart top, aligned to last candle
+- Automatic JSON file handling from result/synaptic_candidates.json
 """
 
 import json
@@ -21,7 +24,6 @@ def format_price(val, decimals):
 
 def calculate_supertrend(df, period=10, multiplier=2.5):
     hl2 = (df['high'] + df['low']) / 2
-    # Simple True Range calculation
     tr1 = df['high'] - df['low']
     tr2 = (df['high'] - df['close'].shift(1)).abs()
     tr3 = (df['low'] - df['close'].shift(1)).abs()
@@ -38,7 +40,6 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
         if pd.isna(atr.iloc[i]):
             continue
         
-        # Upper band rules
         if df['close'].iloc[i] > upper_band.iloc[i-1]:
             upper_band.iloc[i] = upper_band.iloc[i]
         elif upper_band.iloc[i] < upper_band.iloc[i-1] and df['close'].iloc[i-1] <= upper_band.iloc[i-1]:
@@ -46,7 +47,6 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
         else:
             upper_band.iloc[i] = min(upper_band.iloc[i], upper_band.iloc[i-1])
 
-        # Lower band rules
         if df['close'].iloc[i] < lower_band.iloc[i-1]:
             lower_band.iloc[i] = lower_band.iloc[i]
         elif lower_band.iloc[i] > lower_band.iloc[i-1] and df['close'].iloc[i-1] >= lower_band.iloc[i-1]:
@@ -54,7 +54,6 @@ def calculate_supertrend(df, period=10, multiplier=2.5):
         else:
             lower_band.iloc[i] = max(lower_band.iloc[i], lower_band.iloc[i-1])
 
-        # Direction rules
         if direction.iloc[i-1] == 1:
             if df['close'].iloc[i] < lower_band.iloc[i]:
                 direction.iloc[i] = -1
@@ -78,7 +77,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     if config is None:
         config = {}
 
-    chart_candles = config.get('chart_candles', 25)  # 25 batang candle
+    chart_candles = config.get('chart_candles', 25)
 
     df = df.copy()
     df['EMA200'] = df['close'].ewm(span=200, min_periods=1).mean()
@@ -102,7 +101,6 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     x_indices = np.arange(len(df))
     last_x = int(x_indices[-1])
 
-    # Plot Candlesticks & Volume (Lebar candle diperbesar agar jelas)
     for i in range(len(df)):
         open_p = df['open'].iloc[i]
         close_p = df['close'].iloc[i]
@@ -118,10 +116,8 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
 
     ax2.plot(x_indices, df['VOL_MA'], color='#e65100', linewidth=1.2, alpha=0.7)
     
-    # Plot EMA 200 & Supertrend
     ax1.plot(x_indices, df['EMA200'], color='#673ab7', linewidth=1.5, label='EMA 200', zorder=3)
     
-    # Plot Supertrend line terpisah berdasarkan arah tren
     st_up = np.where(df['ST_DIR'] == 1, df['ST'], np.nan)
     st_down = np.where(df['ST_DIR'] == -1, df['ST'], np.nan)
     ax1.plot(x_indices, st_up, color='#2e7d32', linewidth=1.5, label='Supertrend', zorder=3)
@@ -147,7 +143,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     y_padding = y_span * 0.12
     ax1.set_ylim(y_min - y_padding, y_max + y_padding)
 
-    # --- DINAMIS MARKET STRUCTURE (HH, LH, HL, LL) ---
+    # Market Structure Labels (HH, LH, HL, LL)
     highs = df['high'].values
     lows = df['low'].values
     n = len(df)
@@ -195,7 +191,6 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     for val, color, _ in levels:
         ax1.axhline(y=val, color=color, linestyle='--', linewidth=1.0, alpha=0.7, zorder=2)
 
-    # Label harga di sebelah kanan
     ylim = ax1.get_ylim()
     view_span = ylim[1] - ylim[0]
     min_gap = view_span * 0.035
@@ -245,7 +240,7 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     ax2.set_xticklabels([df['timestamp'].iloc[t].strftime('%d %b  %H:%M') for t in ticks_idx],
                         fontsize=7.5, color=axis_c)
 
-    # --- HEADER INFO (Warna Hitam/Gelap, Kandas ke Batas Atas Chart, Lebar Sejajar Candle Terakhir) ---
+    # --- HEADER INFO ---
     plt.subplots_adjust(left=0.06, right=0.88, top=0.95, bottom=0.12)
     
     symbol = setup.get('symbol', 'BTCUSDT')
@@ -264,7 +259,6 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         f"24h Vol: ${q_vol:,.0f} "
     )
 
-    # Menempatkan header agar menempel persis di batas atas kotak chart pertama (ax1)
     ax1.text(
         0.0, 1.015, header_text,
         fontsize=8.5, fontweight='bold', color='#ffffff',
@@ -283,9 +277,32 @@ def main():
     args = parser.parse_args()
 
     input_path = Path(args.input)
+    
+    # Otomatis pastikan folder result/ ada jika belum ada
+    input_path.parent.mkdir(parents=True, exist_ok=True)
+
     if not input_path.exists():
-        print(f"Input file {input_path} not found.")
-        return
+        print(f"Input file {input_path} not found. Membuat contoh template JSON...")
+        sample_data = {
+            "candidates": [
+                {
+                    "symbol": "BTCUSDT",
+                    "side": "LONG",
+                    "execution_tf": "15m",
+                    "change24h": 2.5,
+                    "quote_volume24h": 1200000000,
+                    "entry": 65000.0,
+                    "sl": 64000.0,
+                    "tp": [67000.0, 69000.0],
+                    "chart_data": {
+                        "15m": [
+                            {"time": "2026-08-29 00:00:00", "open": 64500, "high": 65200, "low": 64400, "close": 65000, "volume": 100}
+                        ]
+                    }
+                }
+            ]
+        }
+        input_path.write_text(json.dumps(sample_data, indent=4), encoding="utf-8")
 
     data = json.loads(input_path.read_text(encoding="utf-8"))
     candidates = data.get("candidates", [])
