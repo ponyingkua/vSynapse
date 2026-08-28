@@ -8,14 +8,14 @@ import pandas as pd
 
 
 def load_candidates(path):
-    data = json.loads(
-        Path(path).read_text(encoding="utf-8")
-    )
+    file_path = Path(path)
+    if not file_path.exists():
+        raise SystemExit(f"File {path} tidak ditemukan.")
+    
+    data = json.loads(file_path.read_text(encoding="utf-8"))
     candidates = data.get("candidates", [])
     if not candidates:
-        raise SystemExit(
-            "No candidates in synaptic_candidates.json"
-        )
+        print("[INFO] Tidak ada kandidat ditemukan di dalam file JSON.")
     return data, candidates
 
 
@@ -39,12 +39,12 @@ def render(c):
     agreement = int(c.get("tf_agreement", 0))
     timeframes = c.get("timeframes", {})
 
-    # Mengambil chart_data asli dari payload yang disediakan Synaptic
     exec_tf = c.get("execution_tf", "15m")
     chart_records = c.get("chart_data", {}).get(exec_tf, [])
 
     if not chart_records:
-        raise SystemExit(f"No chart data found for timeframe {exec_tf} in candidate {symbol}")
+        print(f"[WARNING] No chart data for {symbol}")
+        return None
 
     df = pd.DataFrame(chart_records)
     if "time" in df.columns:
@@ -55,7 +55,6 @@ def render(c):
         facecolor="#0b0f14"
     )
 
-    # Layout: Chart Utama di atas, Volume di bawah, Panel Info di kanan
     ax_main = fig.add_axes([0.05, 0.20, 0.68, 0.70])
     ax_vol = fig.add_axes([0.05, 0.08, 0.68, 0.10])
     ax_info = fig.add_axes([0.75, 0.08, 0.22, 0.82])
@@ -64,7 +63,6 @@ def render(c):
     ax_vol.set_facecolor("#0b0f14")
     ax_info.set_facecolor("#0b0f14")
 
-    # Batas Harga Chart berdasarkan data asli Synaptic
     all_prices = [entry, sl] + tps + list(df['high']) + list(df['low'])
     if 'ema200' in df.columns:
         all_prices += [p for p in df['ema200'].dropna() if p > 0]
@@ -79,7 +77,6 @@ def render(c):
     ax_main.set_ylim(low_price - padding, high_price + padding)
     ax_main.set_xlim(-1, len(df))
 
-    # --- PLOTTING CANDLESTICK ASLI ---
     width = 0.6
     for i in range(len(df)):
         o = df['open'].iloc[i]
@@ -88,7 +85,6 @@ def render(c):
         l = df['low'].iloc[i]
 
         color = '#0ecb81' if cl >= o else '#f6465d'
-
         ax_main.plot([i, i], [l, h], color=color, linewidth=1, zorder=1)
         rect = Rectangle(
             (i - width/2, min(o, cl)), width, abs(cl - o),
@@ -96,14 +92,11 @@ def render(c):
         )
         ax_main.add_patch(rect)
 
-    # --- PLOTTING INDIKATOR DARI SYNAPTIC ---
     if 'ema200' in df.columns:
         ax_main.plot(range(len(df)), df['ema200'], color='#f08c00', linewidth=1.2, label='EMA 200', zorder=3)
-
     if 'supertrend' in df.columns:
         ax_main.plot(range(len(df)), df['supertrend'], color='#748ffc', linewidth=1.0, linestyle='--', label='Supertrend', zorder=3)
 
-    # --- GARIS LEVEL TRADING (Entry, TP, SL) ---
     levels = [
         ("SL", sl, "#ff6b6b", "-."),
         ("Entry", entry, "#4dabf7", "-"),
@@ -113,24 +106,9 @@ def render(c):
     ]
 
     for name, price, color, linestyle in levels:
-        ax_main.axhline(
-            price,
-            color=color,
-            linewidth=1.3,
-            linestyle=linestyle,
-            zorder=4
-        )
-        ax_main.text(
-            len(df) - 1,
-            price,
-            f"  {name} {fmt(price)}",
-            color=color,
-            fontsize=8.5,
-            va="center",
-            fontweight="bold"
-        )
+        ax_main.axhline(price, color=color, linewidth=1.3, linestyle=linestyle, zorder=4)
+        ax_main.text(len(df) - 1, price, f"  {name} {fmt(price)}", color=color, fontsize=8.5, va="center", fontweight="bold")
 
-    # --- VOLUME PLOT ---
     if 'volume' in df.columns:
         vol_colors = ['#0ecb81' if df['close'].iloc[i] >= df['open'].iloc[i] else '#f6465d' for i in range(len(df))]
         ax_vol.bar(range(len(df)), df['volume'], color=vol_colors, alpha=0.8, width=0.8)
@@ -138,7 +116,6 @@ def render(c):
     ax_vol.set_xticks([])
     ax_vol.set_yticks([])
 
-    # --- STYLING AXES ---
     for ax in [ax_main, ax_vol]:
         ax.grid(True, alpha=0.12, linewidth=0.7)
         for spine in ax.spines.values():
@@ -148,21 +125,8 @@ def render(c):
     ax_main.set_ylabel("Price", color="#9aa7b5", fontsize=9)
     ax_main.set_xticks([])
 
-    # --- HEADER & INFO PANEL KANAN ---
-    fig.text(
-        0.05, 0.94,
-        f"{symbol}  |  {side}",
-        fontsize=18,
-        fontweight="bold",
-        color="white"
-    )
-
-    fig.text(
-        0.05, 0.905,
-        f"Score {score:.2f}   |   MTF agreement {agreement}/3   |   15m momentum {momentum:+.3f}%",
-        fontsize=10,
-        color="#c8d1dc"
-    )
+    fig.text(0.05, 0.94, f"{symbol}  |  {side}", fontsize=18, fontweight="bold", color="white")
+    fig.text(0.05, 0.905, f"Score {score:.2f}   |   MTF agreement {agreement}/3   |   15m momentum {momentum:+.3f}%", fontsize=10, color="#c8d1dc")
 
     ax_info.axis("off")
     y = 0.96
@@ -202,14 +166,12 @@ def render(c):
         ax_info.text(0.02, y, f"• {point}", fontsize=8, color="#c8d1dc", wrap=True, transform=ax_info.transAxes)
         y -= 0.04
 
-    fig.text(
-        0.05, 0.03,
-        "Synaptic data visualization | Powered by vSch",
-        fontsize=8,
-        color="#6f7d8c"
-    )
+    fig.text(0.05, 0.03, "Synaptic data visualization | Powered by vSch", fontsize=8, color="#6f7d8c")
 
-    out = Path(f"{symbol}_{side}_chart.png")
+    charts_dir = Path("charts")
+    charts_dir.mkdir(exist_ok=True)
+    out = charts_dir / f"{symbol}_{side}_chart.png"
+
     fig.savefig(out, dpi=170, facecolor=fig.get_facecolor(), bbox_inches="tight")
     plt.close(fig)
     return out
@@ -221,26 +183,27 @@ def main():
     parser.add_argument("--symbol", default="")
     args = parser.parse_args()
 
-    data, candidates = load_candidates(args.input)
+    _, candidates = load_candidates(args.input)
+    if not candidates:
+        return
 
     if args.symbol:
         candidates = [item for item in candidates if item["symbol"].upper() == args.symbol.upper()]
         if not candidates:
-            raise SystemExit(f"{args.symbol} not found.")
-
-    candidates.sort(key=lambda item: float(item.get("score", 0)), reverse=True)
-    candidate = candidates[0]
+            raise SystemExit(f"Simbol {args.symbol} tidak ditemukan dalam kandidat.")
 
     print("=" * 60)
-    print(f"Visualizing: {candidate['symbol']} {candidate['side']}")
-    print(f"Score: {candidate.get('score', 0)}")
-    print(f"TF agreement: {candidate.get('tf_agreement', 0)}/3")
-    print(f"Entry: {fmt(candidate['entry'])}")
-    print(f"SL: {fmt(candidate['sl'])}")
+    print(f"Mulai merender chart untuk {len(candidates)} kandidat...")
     print("=" * 60)
 
-    out = render(candidate)
-    print(f"Chart: {out}")
+    for candidate in candidates:
+        symbol = candidate["symbol"]
+        side = candidate["side"]
+        out = render(candidate)
+        if out:
+            print(f"[SUCCESS] Chart saved: {out}")
+
+    print("=" * 60)
 
 
 if __name__ == "__main__":
