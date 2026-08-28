@@ -47,7 +47,7 @@ VOLUME_MA = "#e65100"
 
 VISIBLE_DEFAULTS = {
     "15m": 44,
-    "1h": 33,
+    "1h": 48,
     "4h": 36,
 }
 
@@ -307,11 +307,10 @@ def _place_level_labels(ax, levels, label_x):
     """
     Place every ENTRY / TP / SL label at its exact price coordinate.
 
-    No forced vertical spacing is applied. The real market price
-    determines the Y position of the label, not the label layout.
-    Therefore each label stays exactly aligned with its own
-    horizontal price line/grid. If two levels are genuinely close,
-    their labels are allowed to appear close or overlap naturally.
+    The real price level determines the Y position of the label.
+    No minimum-gap redistribution or visual spacing is applied.
+    This keeps each label exactly aligned with its own horizontal
+    price line/grid, even when two levels are genuinely close.
     """
     for item in levels:
         ax.text(
@@ -425,7 +424,7 @@ def draw_visual_chart(df, setup, output_path, visible_count):
             zorder=2,
         )
 
-    # EMA 200 — indicator retained from original vSch.py.
+    # EMA 200 — real EMA200 values; no artificial curvature or visual distortion.
     ax1.plot(
         x, df["EMA200"],
         color=EMA,
@@ -691,12 +690,6 @@ def main():
                 actual_tf,
                 args.chart_candles,
             )
-
-            if (
-                args.chart_candles is None
-                and _normalize_tf(actual_tf) == "1h"
-            ):
-                visible = min(33, len(df))
 
             output_file = (
                 output_dir
