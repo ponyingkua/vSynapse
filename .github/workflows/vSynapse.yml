@@ -47,6 +47,25 @@ jobs:
           data = json.loads(p.read_text(encoding="utf-8"))
           candidates = data.get("candidates", [])
 
+          def fmt_num(value):
+              """
+              Clean floating-point artifacts without changing
+              the actual numerical value materially.
+              """
+              if value is None:
+                  return "N/A"
+
+              try:
+                  value = float(value)
+
+                  # Prevent ugly floating-point output such as:
+                  # 0.014080500000000003
+                  text = f"{value:.12f}".rstrip("0").rstrip(".")
+
+                  return text if text else "0"
+              except (TypeError, ValueError):
+                  return str(value)
+
           if not candidates:
               print("No qualifying candidates found. Chart generation skipped.")
 
@@ -71,28 +90,48 @@ jobs:
               ]
 
               for idx, c in enumerate(candidates, 1):
+
+                  symbol = c.get("symbol", "N/A")
+                  side = c.get("side", "N/A")
+                  score = c.get("score", "N/A")
+
                   lines.append(
-                      f"{idx}. Symbol: {c.get('symbol')} | "
-                      f"Side: {c.get('side')} | "
-                      f"Score: {c.get('score')}"
+                      f"{idx}. Symbol: {symbol} | "
+                      f"Side: {side} | "
+                      f"Score: {score}"
                   )
-                  lines.append(f"   - Entry : {c.get('entry')}")
-                  lines.append(f"   - SL    : {c.get('sl')}")
+
+                  lines.append(
+                      f"   - Entry : {fmt_num(c.get('entry'))}"
+                  )
+
+                  lines.append(
+                      f"   - SL    : {fmt_num(c.get('sl'))}"
+                  )
 
                   tps = c.get("tp", [])
+
+                  formatted_tps = [
+                      fmt_num(tp)
+                      for tp in tps
+                  ]
+
                   lines.append(
-                      f"   - TP    : {', '.join(str(tp) for tp in tps)}"
+                      f"   - TP    : {', '.join(formatted_tps)}"
                   )
 
                   lines.append(
-                      f"   - Invalidation: {c.get('invalidation')}"
+                      f"   - Invalidation: "
+                      f"{c.get('invalidation', 'N/A')}"
                   )
+
                   lines.append("-" * 40)
 
               Path("summary.txt").write_text(
                   "\n".join(lines),
                   encoding="utf-8"
               )
+
           PY
 
           if python -c 'import json; print(bool(json.load(open("synaptic_candidates.json", encoding="utf-8")).get("candidates")))' | grep -q True; then
