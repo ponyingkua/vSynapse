@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -11,7 +12,17 @@ import pandas as pd
 import requests
 
 # ============================================================
-# CONFIGURATION & CONSTANTS (Sesuai README vSynapse)
+# LOGGING SETUP
+# ============================================================
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+logger = logging.getLogger("Synaptic")
+
+# ============================================================
+# CONFIGURATION & CONSTANTS (Sesuai README vSynapse)[span_0](start_span)[span_0](end_span)
 # ============================================================
 
 TFS = ["15m", "1h", "4h"]
@@ -22,16 +33,16 @@ IGNORED_SYMBOLS = {
 }
 
 CONFIG = {
-    "min_quote_volume_24h": 5_000_000,  # Sesuai README: Min volume 5M USDT[span_1](start_span)[span_1](end_span)
+    "min_quote_volume_24h": 5_000_000,  # Sesuai README: 5M USDT[span_1](start_span)[span_1](end_span)
     "min_abs_change_24h": 4.0,          # Sesuai README: Min absolute 24h change 4%[span_2](start_span)[span_2](end_span)
     "universe_size": 80,                # Sesuai README: Universe size 80[span_3](start_span)[span_3](end_span)
     "momentum_pool": 60,
     "klines": 240,
-    "workers_stage1": 12,
-    "workers_stage2": 8,
+    "workers_stage1": 8,                # Diturunkan sedikit untuk keamanan rate limit
+    "workers_stage2": 6,
     "min_score": 6.0,                   # Sesuai README
     "min_candidates": 2,                # Minimal 2 kandidat
-    "max_results": 5,                   # Maksimal 5 kandidat sesuai permintaan
+    "max_results": 5,                   # Maksimal 5 kandidat
 
     "ema_period": 200,
     "volume_ma_period": 20,
@@ -60,12 +71,11 @@ HEADERS = {
 }
 
 BASE_URLS = [
-    "https://www.binance.com",
     "https://fapi.binance.com",
     "https://fapi1.binance.com",
     "https://fapi2.binance.com",
     "https://fapi3.binance.com",
-    "https://fapi4.binance.com",
+    "https://www.binance.com",
 ]
 
 SESSION = requests.Session()
@@ -74,7 +84,7 @@ ACTIVE_BASE_URL = None
 
 
 # ============================================================
-# BINANCE API UTILITIES
+# BINANCE API UTILITIES WITH RETRY & BACKOFF
 # ============================================================
 
 def api(path, params=None, timeout=15):
@@ -87,28 +97,31 @@ def api(path, params=None, timeout=15):
 
     last_error = None
     for base_url in endpoints:
-        try:
-            response = SESSION.get(base_url + path, params=params, timeout=timeout)
-            if response.status_code == 451:
-                last_error = "HTTP 451"
-                continue
-            if response.status_code in (418, 429):
-                last_error = f"HTTP {response.status_code}"
+        for attempt in range(3):  # Retry 3x per endpoint jika kena rate limit
+            try:
+                response = SESSION.get(base_url + path, params=params, timeout=timeout)
+                if response.status_code == 451:
+                    last_error = "HTTP 451"
+                    break
+                if response.status_code in (418, 429):
+                    last_error = f"HTTP {response.status_code}"
+                    time.sleep(1.0 * (attempt + 1))
+                    continue
+                if response.status_code != 200:
+                    last_error = f"HTTP {response.status_code}"
+                    time.sleep(0.5)
+                    continue
+
+                data = response.json()
+                if isinstance(data, dict) and "code" in data and "msg" in data:
+                    last_error = f"{data.get('code')}: {data.get('msg')}"
+                    continue
+
+                ACTIVE_BASE_URL = base_url
+                return data
+            except requests.RequestException as exc:
+                last_error = str(exc)
                 time.sleep(0.5)
-                continue
-            if response.status_code != 200:
-                last_error = f"HTTP {response.status_code}"
-                continue
-
-            data = response.json()
-            if isinstance(data, dict) and "code" in data and "msg" in data:
-                last_error = f"{data.get('code')}: {data.get('msg')}"
-                continue
-
-            ACTIVE_BASE_URL = base_url
-            return data
-        except requests.RequestException as exc:
-            last_error = str(exc)
 
     raise RuntimeError(f"All Binance endpoints failed: {last_error}")
 
@@ -122,7 +135,7 @@ def ticker_24h():
 
 
 # ============================================================
-# GLOBAL UNIVERSE FILTERING (Bukan Top Gainer Semata)
+# GLOBAL UNIVERSE FILTERING
 # ============================================================
 
 def universe():
@@ -159,7 +172,6 @@ def universe():
         except (TypeError, ValueError):
             continue
 
-        # Filter global berdasarkan aktivitas dan likuiditas 24H (Sesuai README)[span_4](start_span)[span_4](end_span)
         if quote_volume < CONFIG["min_quote_volume_24h"] or last_price <= 0:
             continue
         if abs(change_24h) < CONFIG["min_abs_change_24h"]:
@@ -170,7 +182,7 @@ def universe():
     if CONFIG["universe_size"] > 0:
         rows = rows[:CONFIG["universe_size"]]
 
-    print(f"[UNIVERSE] {len(rows)} active USDT-M perpetual symbols matched globally.")
+    logger.info(f"Universe matched {len(rows)} active USDT-M perpetual symbols globally.")
     return rows
 
 
@@ -224,7 +236,6 @@ def add_indicators(df):
     x["volume_ma"] = x["volume"].rolling(CONFIG["volume_ma_period"]).mean()
     x["volume_ratio"] = x["volume"] / x["volume_ma"]
 
-    # Supertrend 10 / 2.50 (Sesuai README)[span_5](start_span)[span_5](end_span)
     multiplier = CONFIG["supertrend_multiplier"]
     hl2 = (x["high"] + x["low"]) / 2.0
     basic_upper = hl2 + multiplier * x["atr"]
@@ -406,7 +417,7 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
         if scored_15m:
             data["15m"] = {"score": scored_15m, "df": stage1_meta["df"]}
     except Exception as exc:
-        print(f"[MTF] {symbol} 15m: {exc}")
+        logger.debug(f"MTF {symbol} 15m error: {exc}")
 
     for tf in ["1h", "4h"]:
         try:
@@ -415,12 +426,11 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
             if scored:
                 data[tf] = {"score": scored, "df": add_indicators(candles)}
         except Exception as exc:
-            print(f"[MTF] {symbol} {tf}: {exc}")
+            logger.debug(f"MTF {symbol} {tf} error: {exc}")
 
     if set(data.keys()) != set(TFS):
         return None
 
-    # Bobot Multi-timeframe (15m: 25%, 1h: 35%, 4h: 40%)[span_6](start_span)[span_6](end_span)
     weights = {"15m": 0.25, "1h": 0.35, "4h": 0.40}
     long_total = sum(weights[tf] * data[tf]["score"]["long"] for tf in TFS)
     short_total = sum(weights[tf] * data[tf]["score"]["short"] for tf in TFS)
@@ -480,7 +490,6 @@ def analyze_symbol(symbol, change_24h, quote_volume_24h, stage1_score, stage1_me
     if risk_pct > 8.0:
         return None
 
-    # Risk-Reward TP1=1.5R, TP2=2.25R, TP3=3.0R[span_7](start_span)[span_7](end_span)
     tp = [entry + risk * rr if side == "LONG" else entry - risk * rr for rr in CONFIG["risk_reward"]]
     momentum_bonus = min(stage1_score / 25.0, 1.5)
     score = raw_score + momentum_bonus
@@ -529,12 +538,12 @@ def main():
     try:
         universe_rows = universe()
     except Exception as exc:
-        print(f"[FATAL] Cannot build universe: {exc}")
+        logger.error(f"Cannot build universe: {exc}")
         Path(args.out).write_text(json.dumps({"candidates": [], "error": str(exc)}, indent=2), encoding="utf-8")
         raise
 
     momentum = []
-    print(f"[STAGE 1] Scanning {len(universe_rows)} symbols on 15m...")
+    logger.info(f"Scanning {len(universe_rows)} symbols on 15m (Stage 1)...")
 
     with ThreadPoolExecutor(max_workers=CONFIG["workers_stage1"]) as pool:
         jobs = {
@@ -549,15 +558,13 @@ def main():
                 if score > 0 and meta is not None:
                     momentum.append((score, symbol, chg, q_vol, meta))
             except Exception as exc:
-                print(f"[15m-SCAN] {symbol}: {exc}")
+                logger.debug(f"15m scan error on {symbol}: {exc}")
 
     momentum.sort(key=lambda row: row[0], reverse=True)
     selected = momentum[:CONFIG["momentum_pool"]]
-    print(f"[MOMENTUM] {len(selected)} symbols selected for Stage 2.")
+    logger.info(f"Selected {len(selected)} symbols for Stage 2 multi-timeframe validation.")
 
     results = []
-    print("[STAGE 2] Multi-timeframe validation (15m / 1h / 4h)...")
-
     with ThreadPoolExecutor(max_workers=CONFIG["workers_stage2"]) as pool:
         jobs = {
             pool.submit(analyze_symbol, sym, chg, q_vol, s_score, s_meta): sym
@@ -570,36 +577,16 @@ def main():
                 if result and result["score"] >= CONFIG["min_score"]:
                     results.append(result)
             except Exception as exc:
-                print(f"[MTF-SCAN] {sym}: {exc}")
+                logger.debug(f"MTF scan error on {sym}: {exc}")
 
     results.sort(key=lambda item: item["score"], reverse=True)
     final_results = [] if len(results) < CONFIG["min_candidates"] else results[:CONFIG["max_results"]]
 
-    print(f"[RESULT] Found {len(final_results)} valid candidates.")
+    logger.info(f"Scan completed. Found {len(final_results)} valid candidates.")
 
     payload = {
         "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
         "scanner": "Synaptic",
-        "architecture": {
-            "market_data": "Synaptic", "analysis": "Synaptic",
-            "chart_data": "Synaptic", "visualizer": "vSch",
-            "vSch_api_access": False, "vSch_data_source": "synaptic_candidates.json",
-        },
-        "universe": "ALL active USDT-M perpetuals globally",
-        "selection_method": "15m movement + momentum, then 15m/1h/4h confirmation",
-        "timeframes": TFS,
-        "indicators": {
-            "EMA": CONFIG["ema_period"], "Volume": CONFIG["volume_ma_period"],
-            "MACD": [CONFIG["macd_fast"], CONFIG["macd_slow"], CONFIG["macd_signal"]],
-            "Supertrend": [CONFIG["supertrend_period"], CONFIG["supertrend_multiplier"]],
-            "ATR": CONFIG["atr_period"],
-        },
-        "config": CONFIG,
-        "scan_stats": {
-            "universe": len(universe_rows), "momentum_scanned": len(momentum),
-            "momentum_pool": len(selected), "valid_before_limit": len(results),
-            "final_candidates": len(final_results), "elapsed_seconds": round(time.time() - started, 2),
-        },
         "candidates": final_results,
     }
 
@@ -612,7 +599,7 @@ def main():
             f"TF {item['tf_agreement']}/3 | Entry {item['entry']:.8g} | SL {item['sl']:.8g}"
         )
     print("=" * 72)
-    print(f"Output saved to: {args.out}")
+    logger.info(f"Output successfully saved to: {args.out}")
 
 
 if __name__ == "__main__":
