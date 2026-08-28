@@ -537,10 +537,9 @@ def _place_level_labels(
         1e-12
     )
 
-    # Smaller gap than previous version.
-    # Keeps labels compact but readable.
-    min_gap = span * 0.045
-    edge = span * 0.018
+    # Diperketat sedikit agar lebih fleksibel saat level berdekatan
+    min_gap = span * 0.038
+    edge = span * 0.015
 
     ordered = sorted(
         levels,
@@ -619,15 +618,15 @@ def _place_level_labels(
             fontweight="bold",
 
             bbox=dict(
-                boxstyle="round,pad=0.30",
+                boxstyle="round,pad=0.20", # Padding kotak diperkecil agar kompak
 
                 facecolor=item["color"],
 
                 edgecolor=item["color"],
 
-                linewidth=0.8,
+                linewidth=0.7,
 
-                alpha=0.16,
+                alpha=0.15,
             ),
 
             clip_on=False,
@@ -647,8 +646,8 @@ def _find_swing_points(df):
 
     n = len(df)
 
-    # Smaller window keeps recent structure responsive.
-    swing = 2
+    # Window dinaikkan dari 2 ke 3 agar struktur lebih signifikan & tidak terlalu padat
+    swing = 3
 
     raw_highs = []
     raw_lows = []
@@ -919,19 +918,18 @@ def _draw_target_arrow(
 
     target = float(tps[0])
 
-    # Start slightly before the last candle.
-    start_x = last_x - 1.8
+    # Mulai sedikit lebih dekat agar proporsional
+    start_x = last_x - 1.2
 
-    # End inside the level lane but before the label.
-    end_x = last_x + 5.0
+    # Panjang panah dikurangi agar tidak terlalu menjorok ke kanan/menabrak label
+    end_x = last_x + 2.0
 
     start_y = current_price
 
-    # Stop slightly before exact TP1 so the arrow does not
-    # cover the TP label.
+    # Berhenti di 80% perjalanan menuju TP1 agar tidak menabrak teks label TP1
     target_y = (
         current_price
-        + (target - current_price) * 0.88
+        + (target - current_price) * 0.80
     )
 
     rad = (
@@ -1120,15 +1118,15 @@ def draw_visual_chart(
             0.78
         ],
 
-        hspace=0.035,
+        hspace=0.030,
 
-        left=0.065,
+        left=0.060,
 
-        right=0.875,
+        right=0.850, # Sedikit disempitkan agar area label kanan lebih lega
 
-        top=0.785,
+        top=0.770,   # Menurunkan posisi atas chart agar jarak dengan header aman
 
-        bottom=0.105,
+        bottom=0.100,
     )
 
     ax = fig.add_subplot(gs[0])
@@ -1426,8 +1424,6 @@ def draw_visual_chart(
     # RIGHT LEVEL LANE
     # ========================================================
 
-    # Reduced from previous version.
-    # Enough room for labels without producing huge blank space.
     right_space = max(
         8.0,
         len(df) * 0.18
@@ -1774,7 +1770,7 @@ def draw_visual_chart(
     # ========================================================
 
     header_left = 0.065
-    header_right = 0.875
+    header_right = 0.850
 
     # ========================================================
     # LEFT HEADER
@@ -1868,8 +1864,8 @@ def draw_visual_chart(
     # RIGHT HEADER
     # ========================================================
 
-    right_x_label = 0.635
-    right_x_value = 0.875
+    right_x_label = 0.610
+    right_x_value = 0.850
 
     right_rows = [
         (
