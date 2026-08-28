@@ -1,13 +1,18 @@
 """
 vSch.py
-Generate visual chart lengkap dengan panel samping, S/D box transparan, dan Market Structure.
+Generate visual chart untuk setup trading dengan dukungan Supply/Demand Box & Market Structure.
 """
 
+import json
+import argparse
+from pathlib import Path
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
+import pandas as pd
+import requests
 
 
 def format_price(val, decimals):
@@ -15,6 +20,9 @@ def format_price(val, decimals):
 
 
 def draw_visual_chart(df, symbol, setup, output_path, config=None):
+    """
+    Draw chart setup dengan tema terang, kotak S/D transparan, dan struktur pasar dinamis.
+    """
     if config is None:
         config = {}
 
@@ -30,18 +38,15 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
     n_show = min(chart_candles, len(df))
     df = df.iloc[-n_show:].reset_index(drop=True)
 
-    # Menggunakan rasio layout yang pas (lebar 13, tinggi 7.2) untuk memberi ruang panel kanan
+    # Menggunakan layout ukuran 12 x 6.8 dengan rasio grid [4.2, 0.75] sesuai kode kedua Anda
     fig, (ax1, ax2) = plt.subplots(
-        2, 1, figsize=(13, 7.2),
+        2, 1, figsize=(12, 6.8),
         gridspec_kw={'height_ratios': [4.2, 0.75], 'hspace': 0.06},
         sharex=True
     )
-    
-    # Warna latar belakang ala tema bersih/terang atau disesuaikan dengan selera
-    bg_color = '#121212'
-    fig.patch.set_facecolor(bg_color)
-    ax1.set_facecolor(bg_color)
-    ax2.set_facecolor(bg_color)
+    fig.patch.set_facecolor('#ffffff')
+    ax1.set_facecolor('#ffffff')
+    ax2.set_facecolor('#ffffff')
 
     x_indices = np.arange(len(df))
     last_x = int(x_indices[-1])
@@ -60,29 +65,30 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         vol_color = '#26a69a4d' if close_p >= open_p else '#ef53504d'
         ax2.bar(i, df['volume'].iloc[i], color=vol_color, width=0.72, linewidth=0)
 
-    ax2.plot(x_indices, df['VOL_MA'], color='#ff9800', linewidth=1.2, alpha=0.7)
-    ax1.plot(x_indices, df['EMA20'], color='#29b6f6', linewidth=1.4, label='EMA 20', zorder=3)
-    ax1.plot(x_indices, df['EMA50'], color='#ffa726', linewidth=1.4, label='EMA 50', zorder=3)
+    ax2.plot(x_indices, df['VOL_MA'], color='#e65100', linewidth=1.2, alpha=0.7)
+    ax1.plot(x_indices, df['EMA20'], color='#1565c0', linewidth=1.4, label='EMA 20', zorder=3)
+    ax1.plot(x_indices, df['EMA50'], color='#ef6c00', linewidth=1.4, label='EMA 50', zorder=3)
 
-    # Batasi sumbu X agar ada ruang untuk label di kanan
-    gap_from_candle = 3.0
-    label_width_est = 7.0
-    extra_margin = gap_from_candle + label_width_est
+    gap_from_candle = 4.0
+    label_width_est = 9.5
+    gap_from_edge = 1.8
+    extra_margin = gap_from_candle + label_width_est + gap_from_edge
     label_x = last_x + gap_from_candle
     ax1.set_xlim(-0.6, last_x + extra_margin)
     ax2.set_xlim(-0.6, last_x + extra_margin)
 
-    # --- PENGATURAN SUMBU Y AGAR TIDAK TERLALU PANJANG (FIX OVER-STRETCHED) ---
+    # Ambil data level dari setup
     entry = setup['entry']
     sl = setup['sl']
-    price_min = min(df['low'].min(), entry, sl)
-    price_max = max(df['high'].max(), entry, sl)
-    y_span = price_max - price_min
-    if y_span == 0:
-        y_span = price_max * 0.05
-    y_padding = y_span * 0.15
-    ax1.set_ylim(price_min - y_padding, price_max + y_padding)
-    # ------------------------------------------------------------------------
+    tps = setup.get('tp', [])
+    tp1 = tps[0] if len(tps) > 0 else setup.get('tp1', entry)
+    tp2 = tps[1] if len(tps) > 1 else setup.get('tp2', tp1)
+
+    all_levels = [float(df['low'].min()), float(df['high'].max()), entry, sl, tp1, tp2]
+    y_min, y_max = min(all_levels), max(all_levels)
+    y_span = max(y_max - y_min, abs(y_min) * 0.01 if y_min != 0 else 0.01)
+    y_padding = y_span * 0.16
+    ax1.set_ylim(y_min - y_padding, y_max + y_padding)
 
     # --- DINAMIS MARKET STRUCTURE (HH, LH, HL, LL) ---
     highs = df['high'].values
@@ -114,104 +120,194 @@ def draw_visual_chart(df, symbol, setup, output_path, config=None):
         labeled_lows.append((idx, price, label))
         last_sl_price = price
 
-    # --- TAMBAHAN: TRANSPARANT SUPPLY / DEMAND BOX ---
-    is_long = setup['bias'] == "LONG"
+    # --- TRANSPARANT SUPPORT / DEMAND BOX (ZONA ORDER BLOCK) ---
+    bias = setup.get('side', setup.get('bias', 'LONG')).upper()
+    is_long = (bias == "LONG")
+    
     if is_long and labeled_lows:
         box_idx, box_price, _ = labeled_lows[-1]
         box_low = box_price
-        box_high = box_low + (y_span * 0.03)
+        box_high = box_low + (y_span * 0.025)
         box_color = '#26a69a'
         box_label = "DEMAND ZONE"
     elif not is_long and labeled_highs:
         box_idx, box_price, _ = labeled_highs[-1]
         box_high = box_price
-        box_low = box_high - (y_span * 0.03)
+        box_low = box_high - (y_span * 0.025)
         box_color = '#ef5350'
         box_label = "SUPPLY ZONE"
     else:
         box_idx, box_high, box_low, box_color, box_label = None, 0, 0, '#9e9e9e', ""
 
-    if box_label:
+    if box_label and box_idx is not None:
         rect = Rectangle((box_idx - 1, box_low), last_x - (box_idx - 1) + gap_from_candle, box_high - box_low,
-                         facecolor=box_color, alpha=0.15, edgecolor=box_color, linewidth=0.8, linestyle='--', zorder=2)
+                         facecolor=box_color, alpha=0.18, edgecolor=box_color, linewidth=0.8, linestyle='--', zorder=2)
         ax1.add_patch(rect)
-        ax1.text(box_idx, box_high + (y_span * 0.005), f"{box_label}", color=box_color, fontsize=6.5, 
+        ax1.text(box_idx, box_high + (y_span * 0.005), f"{box_label}", color=box_color, fontsize=7, 
                  fontweight='bold', va='bottom', ha='left', zorder=4)
 
-    # Render label Market Structure
+    # Render label Market Structure di chart
     for idx, price, label in labeled_highs[-2:]:
-        color = '#2e7d32' if label == 'HH' else '#ef5350'
-        ax1.text(idx, price + (y_span * 0.02), label, color=color, fontsize=7, fontweight='bold', ha='center', va='bottom', zorder=7)
+        color = '#2e7d32' if label == 'HH' else '#c62828'
+        ax1.text(idx, price + (y_span * 0.028), label, color=color, fontsize=7, fontweight='bold',
+                 ha='center', va='bottom', zorder=7)
 
     for idx, price, label in labeled_lows[-2:]:
-        color = '#26a69a' if label == 'HL' else '#ef5350'
-        ax1.text(idx, price - (y_span * 0.02), label, color=color, fontsize=7, fontweight='bold', ha='center', va='top', zorder=7)
+        color = '#2e7d32' if label == 'HL' else '#c62828'
+        ax1.text(idx, price - (y_span * 0.028), label, color=color, fontsize=7, fontweight='bold',
+                 ha='center', va='top', zorder=7)
 
-    # Garis Level (Entry, SL, TP)
-    dec = setup['decimals']
+    # Panah indikasi setup
+    arrow_color = '#00897b' if is_long else '#c62828'
+    rad = -0.28 if is_long else 0.28
+    ax1.annotate('', xy=(last_x + gap_from_candle * 0.7, tp1),
+                xytext=(last_x, entry),
+                arrowprops=dict(arrowstyle='->', color=arrow_color, lw=1.35, linestyle='--',
+                                connectionstyle=f'arc3,rad={rad}', mutation_scale=12, alpha=0.8))
+
+    dec = setup.get('decimals', 4)
     levels = [
-        (setup['entry'], '#29b6f6', f"Entry {format_price(setup['entry'], dec)}"),
-        (setup['sl'], '#ef5350', f"SL {format_price(setup['sl'], dec)}"),
+        (entry, '#1565c0', f"ENTRY  {format_price(entry, dec)}"),
+        (tp1, '#00897b', f"TP1  {format_price(tp1, dec)}"),
+        (tp2, '#00695c', f"TP2  {format_price(tp2, dec)}"),
+        (sl, '#c62828', f"SL  {format_price(sl, dec)}"),
     ]
-    if 'tp1' in setup and setup['tp1']:
-        levels.append((setup['tp1'], '#26a69a', f"TP1 {format_price(setup['tp1'], dec)}"))
-    if 'tp2' in setup and setup['tp2']:
-        levels.append((setup['tp2'], '#26a69a', f"TP2 {format_price(setup['tp2'], dec)}"))
-    if 'tp3' in setup and setup['tp3']:
-        levels.append((setup['tp3'], '#26a69a', f"TP3 {format_price(setup['tp3'], dec)}"))
 
-    for val, color, label in levels:
-        ax1.axhline(y=val, color=color, linestyle='-.', linewidth=1.0, alpha=0.8, zorder=2)
-        ax1.text(label_x, val, f" {label} ", color=color, fontsize=7, fontweight='bold', va='center', ha='left', zorder=5)
+    for val, color, _ in levels:
+        ax1.axhline(y=val, color=color, linestyle='--', linewidth=1.0, alpha=0.7, zorder=2)
 
-    # --- PANEL INFORMASI DI SISI KANAN LUAR CHART ---
-    coin = symbol.replace('USDT', '')
-    bias = setup['bias']
-    score = setup.get('score', 0)
+    # Label harga di sebelah kanan agar tidak saling bertumpuk
+    ylim = ax1.get_ylim()
+    view_span = ylim[1] - ylim[0]
+    min_gap = view_span * 0.035
+    sorted_lv = sorted([(val, color, label) for val, color, label in levels], key=lambda t: t[0])
+    text_ys = [t[0] for t in sorted_lv]
     
-    # Judul Utama di Kiri Atas
-    fig.text(0.08, 0.95, f"{symbol}  |  {bias}", fontsize=15, fontweight='bold', color='#ffffff', ha='left', va='top')
-    fig.text(0.08, 0.915, f"Score {score}  |  Setup Kualitas Tinggi", fontsize=8.5, color='#b0bec5', ha='left', va='top')
+    for i in range(1, len(text_ys)):
+        if text_ys[i] - text_ys[i - 1] < min_gap:
+            text_ys[i] = text_ys[i - 1] + min_gap
+    for i in range(len(text_ys)):
+        text_ys[i] = min(max(text_ys[i], ylim[0] + view_span * 0.02), ylim[1] - view_span * 0.02)
+    for i in range(len(text_ys) - 2, -1, -1):
+        if text_ys[i + 1] - text_ys[i] < min_gap:
+            text_ys[i] = text_ys[i + 1] - min_gap
 
-    # Panel Kanan (Trade Levels & Invalidation)
-    r_x = 0.74
-    fig.text(r_x, 0.95, "TRADE LEVELS", fontsize=9, fontweight='bold', color='#ffffff', ha='left', va='top')
-    fig.text(r_x, 0.92, f"Entry  {format_price(setup['entry'], dec)}", fontsize=8, color='#29b6f6', ha='left', va='top')
-    fig.text(r_x, 0.89, f"SL     {format_price(setup['sl'], dec)}", fontsize=8, color='#ef5350', ha='left', va='top')
-    if 'tp1' in setup:
-        fig.text(r_x, 0.86, f"TP1    {format_price(setup['tp1'], dec)}", fontsize=8, color='#26a69a', ha='left', va='top')
-    if 'tp2' in setup:
-        fig.text(r_x, 0.83, f"TP2    {format_price(setup['tp2'], dec)}", fontsize=8, color='#26a69a', ha='left', va='top')
+    for (val, color, label), ty in zip(sorted_lv, text_ys):
+        ax1.text(label_x, ty, f" {label} ", color='#ffffff',
+                 bbox=dict(facecolor=color, edgecolor='none', boxstyle='round,pad=0.32', alpha=0.95),
+                 va='center', ha='left', fontweight='bold', fontsize=7.5, zorder=8, clip_on=False)
 
-    fig.text(r_x, 0.78, "INVALIDATION", fontsize=9, fontweight='bold', color='#ffffff', ha='left', va='top')
-    fig.text(r_x, 0.75, setup.get('invalidation', 'Close beyond SL level'), fontsize=7.5, color='#ef5350', ha='left', va='top', wrap=True)
+    coin = symbol.replace('USDT', '')
+    style_label = setup.get('setup_style', 'continuation').upper()
+    structure_label = setup.get('structure', 'neutral').upper()
+    conf = setup.get('confidence', setup.get('score', 0))
 
-    # Styling Grid & Axis
-    grid_c = '#262626'
-    axis_c = '#888888'
-    ax1.grid(True, linestyle='-', alpha=0.3, color=grid_c)
-    ax2.grid(True, linestyle='-', alpha=0.3, color=grid_c)
+    fig.text(0.08, 0.965, f"${coin}/USDT 1H - {bias} SETUP",
+             fontsize=13, fontweight='bold', color='#212121', ha='left', va='top')
+    fig.text(0.08, 0.932, f"{structure_label}  ·  {style_label}  ·  Conf {conf}%",
+             fontsize=9, color='#455a64', ha='left', va='top', fontweight='medium')
+
+    grid_c = '#9e9e9e'
+    axis_c = '#555555'
+    spine_c = '#9e9e9e'
+    ax1.grid(True, linestyle='-', alpha=0.35, color=grid_c)
+    ax2.grid(True, linestyle='-', alpha=0.35, color=grid_c)
     ax1.set_axisbelow(True)
     ax2.set_axisbelow(True)
 
-    ax1.set_ylabel('Price', fontsize=8, color=axis_c)
-    ax2.set_ylabel('Vol', fontsize=8, color=axis_c)
-    ax1.tick_params(colors=axis_c, labelsize=7)
-    ax2.tick_params(colors=axis_c, labelsize=7)
+    leg = ax1.legend(loc='upper left', fontsize=7.5, framealpha=0.95, facecolor='#ffffff',
+                     edgecolor='#bdbdbd', labelcolor='#333333', borderpad=0.4)
+    leg.get_frame().set_linewidth(0.7)
+
+    ax1.set_ylabel('Price (USDT)', fontsize=8.5, color=axis_c, labelpad=5)
+    ax2.set_ylabel('Vol', fontsize=8, color=axis_c, labelpad=5)
+    ax1.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.5)
+    ax2.tick_params(colors=axis_c, labelcolor=axis_c, labelsize=7.5)
     ax1.tick_params(labelbottom=False)
 
     for ax in (ax1, ax2):
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
-        ax.spines['left'].set_color('#444444')
-        ax.spines['bottom'].set_color('#444444')
+        ax.spines['left'].set_color(spine_c)
+        ax.spines['bottom'].set_color(spine_c)
+        ax.spines['left'].set_linewidth(0.8)
+        ax.spines['bottom'].set_linewidth(0.8)
 
-    ticks_idx = np.linspace(0, len(df) - 1, 5, dtype=int)
+    ticks_idx = np.linspace(0, len(df) - 1, 6, dtype=int)
     ax2.set_xticks(ticks_idx)
-    ax2.set_xticklabels([df['timestamp'].iloc[t].strftime('%d %b %H:%M') for t in ticks_idx], fontsize=7, color=axis_c)
+    ax2.set_xticklabels([df['timestamp'].iloc[t].strftime('%d %b  %H:%M') for t in ticks_idx],
+                        fontsize=7.5, color=axis_c)
 
-    fig.text(0.08, 0.015, "Synaptic data visualization | Powered by vSch", fontsize=7, color='#777777', ha='left', va='bottom')
+    fig.text(0.08, 0.012, f"BINANCE FUTURES  ·  ${coin}/USDT  ·  1H",
+             fontsize=7, color='#555555', ha='left', va='bottom')
+    fig.text(0.92, 0.012, "Not financial advice",
+             fontsize=7, color='#555555', ha='right', va='bottom')
 
-    plt.subplots_adjust(left=0.08, right=0.71, top=0.88, bottom=0.08)
-    plt.savefig(output_path, dpi=140, facecolor=fig.get_facecolor(), bbox_inches='tight', pad_inches=0.15)
+    plt.subplots_adjust(left=0.08, right=0.96, top=0.88, bottom=0.07)
+    plt.savefig(output_path, dpi=140, facecolor=fig.get_facecolor(),
+                bbox_inches='tight', pad_inches=0.18)
     plt.close(fig)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="vSch Visualizer")
+    parser.add_argument("--input", default="synaptic_candidates.json", help="Path to candidates json")
+    args = parser.parse_args()
+
+    input_path = Path(args.input)
+    if not input_path.exists():
+        print(f"Input file {input_path} not found.")
+        return
+
+    data = json.loads(input_path.read_text(encoding="utf-8"))
+    candidates = data.get("candidates", [])
+
+    if not candidates:
+        print("No candidates found in JSON.")
+        return
+
+    # Pastikan direktori charts/ dibuat otomatis agar artifact tidak kosong
+    charts_dir = Path("charts")
+    charts_dir.mkdir(parents=True, exist_ok=True)
+
+    for c in candidates:
+        symbol = c['symbol']
+        side = c.get('side', c.get('bias', 'LONG'))
+        print(f"Rendering chart for {symbol} ({side})...")
+
+        url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval=1h&limit=100"
+        try:
+            resp = requests.get(url, timeout=10)
+            raw = resp.json()
+            if not isinstance(raw, list):
+                print(f"Failed to fetch klines for {symbol}")
+                continue
+
+            df = pd.DataFrame(raw, columns=[
+                'open_time', 'open', 'high', 'low', 'close', 'volume',
+                'close_time', 'quote_asset_volume', 'number_of_trades',
+                'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore'
+            ])
+            for col in ['open', 'high', 'low', 'close', 'volume']:
+                df[col] = df[col].astype(float)
+            df['timestamp'] = pd.to_datetime(df['open_time'], unit='ms')
+
+            price_val = df['close'].iloc[-1]
+            if price_val < 1:
+                decimals = 5
+            elif price_val < 10:
+                decimals = 4
+            elif price_val < 100:
+                decimals = 3
+            else:
+                decimals = 2
+            c['decimals'] = decimals
+
+            output_file = charts_dir / f"{symbol}_{side}_chart.png"
+            draw_visual_chart(df, symbol, c, str(output_file))
+        except Exception as e:
+            print(f"Error rendering {symbol}: {e}")
+
+
+if __name__ == "__main__":
+    main()
