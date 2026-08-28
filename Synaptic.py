@@ -22,31 +22,60 @@ import numpy as np
 import pandas as pd
 import requests
 
-BASE = "https://fapi.binance.com"
+BASE_URLS = [
+    "https://www.binance.com",
+    "https://fapi.binance.com",
+    "https://fapi1.binance.com",
+    "https://fapi2.binance.com",
+    "https://fapi3.binance.com",
+    "https://fapi4.binance.com",
+]
+ACTIVE_BASE = None
 TFs = ["15m", "1h", "4h"]
 
 CONFIG = {
     "min_quote_volume_24h": 5_000_000,
-    "min_abs_change_24h": 4.0,
+    "min_abs_change_24h": 2.0,
     "universe_size": 80,
     "klines": 240,
     "min_score": 6.0,
-    "max_results": 15,
+    "min_results": 2,
+    "max_results": 5,
     "supertrend_period": 10,
     "supertrend_multiplier": 2.50,
     "atr_period": 14,
     "risk_reward": [1.5, 2.25, 3.0],
-    "max_entry_atr_distance": 2.75,
 }
 
 S = requests.Session()
-S.headers.update({"User-Agent": "Synaptic/1.0"})
+S.headers.update({"User-Agent": "Mozilla/5.0", "Accept": "application/json"})
 
 
 def api(path, params=None):
-    r = S.get(BASE + path, params=params, timeout=15)
-    r.raise_for_status()
-    return r.json()
+    global ACTIVE_BASE
+    endpoints = []
+    if ACTIVE_BASE:
+        endpoints.append(ACTIVE_BASE)
+    endpoints.extend(x for x in BASE_URLS if x not in endpoints)
+    last_error = None
+    for base in endpoints:
+        try:
+            r = S.get(base + path, params=params, timeout=15)
+            print(f"[API] {r.status_code} {base}{path}")
+            if r.status_code == 451:
+                continue
+            if r.status_code != 200:
+                last_error = f"HTTP {r.status_code}"
+                continue
+            data = r.json()
+            if isinstance(data, dict) and "code" in data and "msg" in data:
+                last_error = f"{data.get('code')}: {data.get('msg')}"
+                continue
+            ACTIVE_BASE = base
+            return data
+        except (requests.RequestException, ValueError) as e:
+            last_error = e
+    raise RuntimeError(f"All Binance Futures API endpoints failed. Last error: {last_error}")
 
 
 def universe():
@@ -99,13 +128,6 @@ def indicators(df):
     x["macd"] = e12 - e26
     x["macd_signal"] = x.macd.ewm(span=9, adjust=False).mean()
     x["macd_hist"] = x.macd - x.macd_signal
-
-    # RSI 14
-    delta = x.close.diff()
-    up = delta.clip(lower=0)
-    down = -delta.clip(upper=0)
-    rs = up.ewm(alpha=1/14, adjust=False).mean() / down.ewm(alpha=1/14, adjust=False).mean().replace(0, np.nan)
-    x["rsi"] = 100 - 100/(1+rs)
 
     x["atr"] = atr(x, CONFIG["atr_period"])
     x["vol_ma20"] = x.volume.rolling(20).mean()
@@ -164,7 +186,7 @@ def score_tf(x):
         score_s += 2
         rs.append("below EMA200")
 
-    # Supertrend
+    # Supertrend 10 / 2.5
     if last.st_dir > 0:
         score_l += 2
         rl.append("Supertrend bullish")
@@ -172,39 +194,25 @@ def score_tf(x):
         score_s += 2
         rs.append("Supertrend bearish")
 
-    # MACD
+    # MACD 12/26/9 + histogram momentum
     if last.macd > last.macd_signal and last.macd_hist > prev.macd_hist:
-        score_l += 1.5
+        score_l += 2
         rl.append("MACD bullish")
     elif last.macd < last.macd_signal and last.macd_hist < prev.macd_hist:
-        score_s += 1.5
+        score_s += 2
         rs.append("MACD bearish")
 
-    # RSI: avoid using extreme as automatic direction.
-    if 52 <= last.rsi <= 68:
-        score_l += 1
-        rl.append(f"RSI {last.rsi:.0f} supportive")
-    elif 32 <= last.rsi <= 48:
-        score_s += 1
-        rs.append(f"RSI {last.rsi:.0f} supportive")
-    elif last.rsi > 72:
-        score_l += 0.25
-        rl.append(f"RSI {last.rsi:.0f} overheated")
-    elif last.rsi < 28:
-        score_s += 0.25
-        rs.append(f"RSI {last.rsi:.0f} oversold")
-
-    # Volume
-    vr = float(last.vol_ratio) if np.isfinite(last.vol_ratio) else 1
+    # Volume confirmation
+    vr = float(last.vol_ratio) if np.isfinite(last.vol_ratio) else 1.0
     if vr >= 1.5:
         if last.close > last.open:
-            score_l += 1.5
+            score_l += 2
             rl.append(f"volume {vr:.1f}x")
         elif last.close < last.open:
-            score_s += 1.5
+            score_s += 2
             rs.append(f"volume {vr:.1f}x")
 
-    # Price action
+    # Price action: recent breakout / breakdown
     hi20 = x.high.iloc[-21:-1].max()
     lo20 = x.low.iloc[-21:-1].min()
     if last.close > hi20:
@@ -214,22 +222,12 @@ def score_tf(x):
         score_s += 2
         rs.append("20-bar breakdown")
 
-    # Recent 5-bar structure
-    recent = x.iloc[-6:]
-    if recent.high.iloc[-1] > recent.high.iloc[-3] and recent.low.iloc[-1] > recent.low.iloc[-3]:
-        score_l += 1
-        rl.append("higher-high/higher-low")
-    if recent.high.iloc[-1] < recent.high.iloc[-3] and recent.low.iloc[-1] < recent.low.iloc[-3]:
-        score_s += 1
-        rs.append("lower-high/lower-low")
-
     return {
         "long": score_l, "short": score_s,
         "long_reasons": rl, "short_reasons": rs,
         "close": float(last.close),
         "atr": float(last.atr),
         "ema200": float(last.ema200),
-        "rsi": float(last.rsi),
         "vol_ratio": vr,
         "st_dir": int(last.st_dir),
     }
@@ -341,7 +339,11 @@ def main():
                 pass
 
     results.sort(key=lambda r: r["score"], reverse=True)
-    results = results[:CONFIG["max_results"]]
+    if len(results) < CONFIG["min_results"]:
+        print(f"Only {len(results)} qualifying candidates; minimum required is {CONFIG['min_results']}.")
+        results = []
+    else:
+        results = results[:CONFIG["max_results"]]
 
     payload = {
         "generated_at": pd.Timestamp.utcnow().isoformat(),
