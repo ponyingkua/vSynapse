@@ -85,13 +85,13 @@ READY = "#1565c0"
 
 # Sangat tipis/transparan agar zona retest tidak mengganggu
 # candle dan struktur chart.
-RETEST_ZONE_ALPHA = 0.055
+RETEST_ZONE_ALPHA = 0.025
 
 # Marker breakout "B"
 BREAKOUT_MARKER_SIZE = 8
 
 # Arrow ENTRY READY
-ENTRY_ARROW_SIZE = 10
+ENTRY_ARROW_SIZE = 8
 
 VISIBLE_DEFAULTS = {
     "15m": 60,
@@ -947,8 +947,7 @@ def _draw_retest_zone(
 # BREAKOUT MARKER
 #
 # BREAKOUT:
-#     marker "B" pada candle pertama yang menembus
-#     reference_level.
+#     marker "B" kecil tepat di candle breakout.
 #
 # Hanya visual.
 # Tidak menentukan setup baru.
@@ -1084,7 +1083,7 @@ def _draw_breakout_marker(
     )
 
     offset = (
-        y_span * 0.018
+        y_span * 0.012
     )
 
     if setup_style == "BREAKOUT":
@@ -1123,9 +1122,7 @@ def _draw_breakout_marker(
 # ENTRY READY MARKER
 #
 # ENTRY_READY:
-#     panah kecil ↑ pada candle terakhir.
-#
-# Tidak lagi menggunakan label text di sisi kanan.
+#     panah kecil pada candle terakhir.
 # ============================================================
 
 def _draw_entry_ready_marker(
@@ -1159,7 +1156,7 @@ def _draw_entry_ready_marker(
     )
 
     offset = (
-        y_span * 0.022
+        y_span * 0.02
     )
 
     side = str(
@@ -1180,16 +1177,16 @@ def _draw_entry_ready_marker(
             "",
             xy=(
                 idx,
-                marker_y + offset * 0.65,
+                marker_y + offset * 0.5,
             ),
             xytext=(
                 idx,
-                marker_y + offset * 0.05,
+                marker_y - offset * 0.5,
             ),
             arrowprops=dict(
                 arrowstyle="->",
                 color=READY,
-                lw=1.25,
+                lw=1.2,
                 mutation_scale=ENTRY_ARROW_SIZE,
             ),
             zorder=10,
@@ -1207,16 +1204,16 @@ def _draw_entry_ready_marker(
             "",
             xy=(
                 idx,
-                marker_y - offset * 0.65,
+                marker_y - offset * 0.5,
             ),
             xytext=(
                 idx,
-                marker_y - offset * 0.05,
+                marker_y + offset * 0.5,
             ),
             arrowprops=dict(
                 arrowstyle="->",
                 color=READY,
-                lw=1.25,
+                lw=1.2,
                 mutation_scale=ENTRY_ARROW_SIZE,
             ),
             zorder=10,
@@ -1262,17 +1259,13 @@ def _draw_reference_level(
     # BREAKOUT / BREAKDOWN
     #
     # reference_level = level yang ditembus.
-    #
-    # Level tetap ditampilkan karena penting sebagai
-    # referensi retest.
+    # Label "RETEST LEVEL" dihapus sesuai permintaan.
     # --------------------------------------------------------
 
     if setup_style in (
         "BREAKOUT",
         "BREAKDOWN",
     ):
-
-        label = "RETEST LEVEL"
 
         ax.axhline(
             y=reference_level,
@@ -1281,28 +1274,6 @@ def _draw_reference_level(
             linewidth=1.1,
             alpha=0.80,
             zorder=2,
-        )
-
-        ax.text(
-            label_x,
-            reference_level,
-            (
-                f" {label}  "
-                f"{format_price(reference_level, dec)} "
-            ),
-            color="#ffffff",
-            bbox=dict(
-                facecolor=REFERENCE,
-                edgecolor="none",
-                boxstyle="round,pad=0.28",
-                alpha=0.90,
-            ),
-            va="center",
-            ha="left",
-            fontweight="bold",
-            fontsize=7,
-            zorder=8,
-            clip_on=False,
         )
 
 
@@ -1692,9 +1663,7 @@ def draw_visual_chart(
     # RETEST ZONE
     #
     # WAITING RETEST:
-    #     hanya tampilkan area sangat tipis/transparan.
-    #
-    # Tidak ada label teks WAITING RETEST di chart.
+    #     hanya tampilkan area transparan sangat tipis.
     # ========================================================
 
     _draw_retest_zone(
@@ -1784,7 +1753,7 @@ def draw_visual_chart(
     # BREAKOUT MARKER
     #
     # BREAKOUT:
-    #     B kecil pada candle yang menembus reference level.
+    #     B kecil tepat di candle breakout.
     # ========================================================
 
     _draw_breakout_marker(
@@ -1799,8 +1768,6 @@ def draw_visual_chart(
     #
     # ENTRY_READY:
     #     panah kecil pada candle terakhir.
-    #
-    # Tidak ada lagi box ENTRY READY di sisi kanan.
     # ========================================================
 
     _draw_entry_ready_marker(
@@ -1812,15 +1779,6 @@ def draw_visual_chart(
 
     # ========================================================
     # TARGET ARROW
-    #
-    # ENTRY_READY:
-    #     tetap menunjukkan jalur entry -> TP1.
-    #
-    # WAITING_*:
-    #     jangan membuat chart terlihat seolah harga sekarang
-    #     sudah masuk.
-    #
-    # Arrow tetap dimulai dari entry ideal, bukan candle terakhir.
     # ========================================================
 
     if tps:
@@ -2036,11 +1994,6 @@ def draw_visual_chart(
 
     # ========================================================
     # HEADER
-    #
-    # Status tetap ditampilkan di header agar informasi
-    # ENTRY_READY / WAITING RETEST tidak hilang.
-    #
-    # Visual chart tidak lagi memakai box status di kanan.
     # ========================================================
 
     state_text = _entry_state_text(
@@ -2285,10 +2238,6 @@ def main():
             reference_level = candidate.get(
                 "reference_level"
             )
-
-            # Jangan mengubah nilainya.
-            # Hanya validasi bahwa jika ada,
-            # nilainya numeric.
 
             if reference_level is not None:
 
