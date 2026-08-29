@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T07:12:20.554313+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: MASKUSDT | Side: LONG | Score: 7.06
+   - Entry : 0.448504196796
+   - SL    : 0.4348
+   - TP    : 0.46906049199, 0.479338639587, 0.489616787183
+   - Invalidation: Close below 0.4348 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: RECALLUSDT | Side: LONG | Score: 6.56
+   - Entry : 0.047010010359
+   - SL    : 0.04568
+   - TP    : 0.049005025897, 0.050002533666, 0.051000041435
+   - Invalidation: Close below 0.04568 / loss of recent 15m swing low
+----------------------------------------
