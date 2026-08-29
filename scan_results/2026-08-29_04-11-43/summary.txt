@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T04:11:39.436102+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ICNTUSDT | Side: SHORT | Score: 8.08
+   - Entry : 0.1075
+   - SL    : 0.1108
+   - TP    : 0.10255, 0.100075, 0.0976
+   - Invalidation: Close above 0.1108 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: CLOUSDT | Side: LONG | Score: 6.89
+   - Entry : 0.12178
+   - SL    : 0.11303
+   - TP    : 0.134905, 0.1414675, 0.14803
+   - Invalidation: Close below 0.11303 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: METUSDT | Side: SHORT | Score: 6.61
+   - Entry : 0.2044
+   - SL    : 0.2086
+   - TP    : 0.1981, 0.19495, 0.1918
+   - Invalidation: Close above 0.2086 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: XNYUSDT | Side: LONG | Score: 6.6
+   - Entry : 0.007153
+   - SL    : 0.006989
+   - TP    : 0.007399, 0.007522, 0.007645
+   - Invalidation: Close below 0.006989 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: BTRUSDT | Side: LONG | Score: 6.27
+   - Entry : 0.17256
+   - SL    : 0.16196
+   - TP    : 0.18846, 0.19641, 0.20436
+   - Invalidation: Close below 0.16196 / loss of recent 15m swing low
+----------------------------------------
