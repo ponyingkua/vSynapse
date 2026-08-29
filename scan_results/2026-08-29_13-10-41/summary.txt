@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T13:10:37.398934+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: VTHOUSDT | Side: LONG | Score: 7.04
+   - Entry : 0.0004062
+   - SL    : 0.0003959
+   - TP    : 0.00042165, 0.000429375, 0.0004371
+   - Invalidation: Close below 0.0003959 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: BICOUSDT | Side: SHORT | Score: 6.7
+   - Entry : 0.02174
+   - SL    : 0.02253
+   - TP    : 0.020555, 0.0199625, 0.01937
+   - Invalidation: Close above 0.02253 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: FORMUSDT | Side: LONG | Score: 6.65
+   - Entry : 0.241243343142
+   - SL    : 0.2335
+   - TP    : 0.252858357854, 0.258665865211, 0.264473372567
+   - Invalidation: Close below 0.2335 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: DODOXUSDT | Side: SHORT | Score: 7.74
+   - Entry : 0.019623464661
+   - SL    : 0.020139
+   - TP    : 0.018850161652, 0.018463510147, 0.018076858643
+   - Invalidation: Close above 0.020139 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: TWTUSDT | Side: LONG | Score: 7.41
+   - Entry : 0.474612307058
+   - SL    : 0.4519
+   - TP    : 0.508680767646, 0.52571499794, 0.542749228233
+   - Invalidation: Close below 0.4519 / loss of recent 1h swing low
+----------------------------------------
