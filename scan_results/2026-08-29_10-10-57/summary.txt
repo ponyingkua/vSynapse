@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T10:10:52.482303+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BELUSDT | Side: LONG | Score: 6.78
+   - Entry : 0.118837623384
+   - SL    : 0.11537
+   - TP    : 0.124039058459, 0.126639775997, 0.129240493534
+   - Invalidation: Close below 0.11537 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: MAGICUSDT | Side: LONG | Score: 6.37
+   - Entry : 0.04602
+   - SL    : 0.04506
+   - TP    : 0.04746, 0.04818, 0.0489
+   - Invalidation: Close below 0.04506 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: COTIUSDT | Side: LONG | Score: 8.59
+   - Entry : 0.013434676601
+   - SL    : 0.012649
+   - TP    : 0.014613191502, 0.015202448952, 0.015791706403
+   - Invalidation: Close below 0.012649 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: YBUSDT | Side: LONG | Score: 7.24
+   - Entry : 0.096991263439
+   - SL    : 0.0945
+   - TP    : 0.100728158598, 0.102596606178, 0.104465053757
+   - Invalidation: Close below 0.0945 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: REDUSDT | Side: LONG | Score: 6.4
+   - Entry : 0.110729787494
+   - SL    : 0.107
+   - TP    : 0.116324468736, 0.119121809357, 0.121919149978
+   - Invalidation: Close below 0.107 / loss of recent 1h swing low
+----------------------------------------
