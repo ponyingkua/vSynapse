@@ -173,12 +173,6 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
    
- - name: Run Synaptic Pipeline
-      run: |
-        python Synaptic.py --out synaptic_candidates.json
-        python vSch.py --input synaptic_candidates.json --output-dir charts
-        python dashboard.py --input synaptic_candidates.json --charts-dir charts --output dashboard.html
-
       - name: Commit scan results
         shell: bash
         run: |
