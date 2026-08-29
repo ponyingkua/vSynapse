@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T00:53:01.110839+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: NILUSDT | Side: LONG | Score: 8.63
+   - Entry : 0.044261581085
+   - SL    : 0.043204202508
+   - TP    : 0.04584764895, 0.046640682883, 0.047433716816
+   - Invalidation: Close below 0.043204203 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: MAGMAUSDT | Side: LONG | Score: 7.99
+   - Entry : 0.297705156243
+   - SL    : 0.274873085187
+   - TP    : 0.331953262827, 0.349077316119, 0.36620136941
+   - Invalidation: Close below 0.27487309 / loss of recent 15m swing low
+----------------------------------------
