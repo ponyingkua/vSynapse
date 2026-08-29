@@ -6,6 +6,9 @@ vSch.py - JSON-only visual renderer for Synaptic.py.
 - Chart timeframe is candidate['execution_tf'].
 - Candle/indicator data comes from candidate['chart_data'][execution_tf].
 - Setup levels come from Synaptic JSON.
+- Setup classification (setup_style: BREAKOUT / PULLBACK /
+  CONTINUATION / EXTENDED) is produced by Synaptic's Setup
+  Engine and only displayed here, never recomputed.
 - RSI removed completely.
 - Layout/size/visual style follows the supplied vSchart.py reference.
 """
@@ -572,6 +575,10 @@ def draw_visual_chart(df, setup, output_path, visible_count):
     ax2.set_xticklabels(labels, fontsize=7.5, color=AXIS)
 
     # Header — same placement and sizing as reference, with Synaptic fields.
+    #
+    # setup_style berasal langsung dari Setup Engine di Synaptic.py
+    # (BREAKOUT / PULLBACK / CONTINUATION / EXTENDED). vSch.py
+    # hanya menampilkannya sebagai teks, tidak menghitung ulang.
     structure_label = str(setup.get("structure", "neutral")).upper()
     style_label = str(setup.get("setup_style", "continuation")).upper()
 
