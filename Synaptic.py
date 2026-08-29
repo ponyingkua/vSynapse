@@ -123,6 +123,18 @@ CONFIG = {
     "momentum_slow_bars": 16,
 
     # --------------------------------------------------------
+    # Setup engine
+    # --------------------------------------------------------
+
+    # Pullback: jarak maksimum close ke EMA200 (dalam ATR)
+    # agar tetap dianggap zona retracement yang valid.
+    "setup_pullback_atr": 1.0,
+
+    # Extended: jarak minimum close ke EMA200 (dalam ATR)
+    # sebelum dianggap terlalu jauh / overextended.
+    "setup_extended_atr": 3.0,
+
+    # --------------------------------------------------------
     # Structure / risk
     # --------------------------------------------------------
 
@@ -1289,6 +1301,100 @@ def score_tf(df):
 
 
 # ============================================================
+# SETUP ENGINE
+#
+# Mengklasifikasikan price action pada execution_tf menjadi
+# salah satu dari 5 tipe setup, murni dari data yang sudah
+# dihitung oleh score_tf() (EMA200, Supertrend, ATR, reasons).
+#
+# Tidak ada indikator baru yang diperkenalkan di sini.
+# ============================================================
+
+def classify_setup(tf_score, side):
+
+    reasons = (
+        tf_score["long_reasons"]
+        if side == "LONG"
+        else tf_score["short_reasons"]
+    )
+
+    is_breakout = any(
+        "breakout" in reason or "breakdown" in reason
+        for reason in reasons
+    )
+
+    close = float(tf_score["close"])
+    ema = float(tf_score["ema200"])
+    atr_value = float(tf_score["atr"])
+    st_dir = int(tf_score["st_dir"])
+
+    if not np.isfinite(atr_value) or atr_value <= 0:
+        return "NO_SETUP"
+
+    trend_aligned = (
+        (side == "LONG" and close > ema and st_dir > 0)
+        or
+        (side == "SHORT" and close < ema and st_dir < 0)
+    )
+
+    ema_distance_atr = abs(close - ema) / atr_value
+
+    # --------------------------------------------------------
+    # Prioritas: breakout paling eksplisit, lalu extended
+    # (terlalu jauh dari EMA200), baru pullback / continuation.
+    # --------------------------------------------------------
+
+    if is_breakout:
+        return "BREAKOUT"
+
+    if ema_distance_atr >= CONFIG["setup_extended_atr"]:
+        return "EXTENDED"
+
+    if (
+        trend_aligned
+        and ema_distance_atr <= CONFIG["setup_pullback_atr"]
+    ):
+        return "PULLBACK"
+
+    if trend_aligned:
+        return "CONTINUATION"
+
+    return "NO_SETUP"
+
+
+# ============================================================
+# ENTRY LOGIC
+#
+# Menentukan entry price berdasarkan tipe setup dari
+# Setup Engine di atas.
+# ============================================================
+
+def build_entry(setup_style, side, price, exec_df, atr_value):
+
+    # PULLBACK: entry mengacu ke level EMA200 execution_tf
+    # (zona retracement), dibatasi agar tidak menyimpang
+    # jauh dari harga pasar saat ini.
+    #
+    # BREAKOUT / CONTINUATION / EXTENDED: entry mengikuti
+    # harga pasar saat ini, karena price action sudah
+    # bergerak sesuai arah sinyal.
+
+    if setup_style != "PULLBACK":
+        return price
+
+    ema_level = float(
+        exec_df.iloc[-1]["ema200"]
+    )
+
+    max_drift = 0.5 * atr_value
+
+    if side == "LONG":
+        return max(ema_level, price - max_drift)
+
+    return min(ema_level, price + max_drift)
+
+
+# ============================================================
 # SYMBOL ANALYSIS
 # ============================================================
 
@@ -1538,6 +1644,42 @@ def analyze_symbol(
         return None
 
     # --------------------------------------------------------
+    # SETUP ENGINE
+    #
+    # Klasifikasi kondisi price action pada execution_tf
+    # menjadi salah satu dari:
+    # BREAKOUT / PULLBACK / CONTINUATION / EXTENDED / NO_SETUP.
+    #
+    # Tidak mengarang sinyal: NO_SETUP berarti tidak ada
+    # struktur entry yang jelas, kandidat ditolak di sini.
+    # --------------------------------------------------------
+
+    exec_score = data[execution_tf]["score"]
+
+    setup_style = classify_setup(
+        exec_score,
+        side,
+    )
+
+    if setup_style == "NO_SETUP":
+        return None
+
+    # --------------------------------------------------------
+    # ENTRY LOGIC
+    #
+    # Entry price ditentukan berdasarkan tipe setup dari
+    # Setup Engine di atas.
+    # --------------------------------------------------------
+
+    entry = build_entry(
+        setup_style,
+        side,
+        price,
+        exec_df,
+        atr_value,
+    )
+
+    # --------------------------------------------------------
     # Risk
     # --------------------------------------------------------
 
@@ -1559,8 +1701,6 @@ def analyze_symbol(
         .iloc[-swing_n:]
         .max()
     )
-
-    entry = price
 
     if side == "LONG":
 
@@ -1660,6 +1800,8 @@ def analyze_symbol(
         "symbol": symbol,
 
         "side": side,
+
+        "setup_style": setup_style,
 
         "score": round(
             score,
