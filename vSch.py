@@ -74,10 +74,24 @@ VOLUME_MA = "#e65100"
 # dipakai terutama untuk breakout/breakdown.
 REFERENCE = "#7b1fa2"
 
-# State label.
+# State:
+# hanya dipakai untuk header.
 WAITING = "#ef6c00"
 READY = "#1565c0"
 
+# ------------------------------------------------------------
+# Visual markers
+# ------------------------------------------------------------
+
+# Sangat tipis/transparan agar zona retest tidak mengganggu
+# candle dan struktur chart.
+RETEST_ZONE_ALPHA = 0.055
+
+# Marker breakout "B"
+BREAKOUT_MARKER_SIZE = 8
+
+# Arrow ENTRY READY
+ENTRY_ARROW_SIZE = 10
 
 VISIBLE_DEFAULTS = {
     "15m": 60,
@@ -723,7 +737,7 @@ def _place_level_labels(
 
 
 # ============================================================
-# ENTRY STATE TEXT
+# ENTRY STATE
 # ============================================================
 
 def _entry_state_text(state):
@@ -775,6 +789,442 @@ def _entry_state_color(state):
 
 
 # ============================================================
+# RETEST ZONE
+#
+# Hanya visual.
+# Tidak mengubah reference_level dari Synaptic.
+#
+# Zona dibuat sangat tipis/transparan.
+# ============================================================
+
+def _calculate_retest_zone(
+    reference_level,
+    setup,
+    y_span,
+):
+
+    # Jika Synaptic menyediakan batas zona secara eksplisit,
+    # renderer akan menggunakannya.
+    zone_low = _first_numeric(
+        setup,
+        [
+            "retest_zone_low",
+            "retest_low",
+        ],
+        None,
+    )
+
+    zone_high = _first_numeric(
+        setup,
+        [
+            "retest_zone_high",
+            "retest_high",
+        ],
+        None,
+    )
+
+    if (
+        zone_low is not None
+        and
+        zone_high is not None
+        and
+        zone_high > zone_low
+    ):
+        return (
+            float(zone_low),
+            float(zone_high),
+        )
+
+    # --------------------------------------------------------
+    # Fallback visual.
+    #
+    # Sangat tipis: sekitar 0.15% dari reference level.
+    # Dibatasi supaya tidak terlalu lebar atau terlalu kecil.
+    # --------------------------------------------------------
+
+    reference_abs = abs(
+        float(reference_level)
+    )
+
+    percentage_width = (
+        reference_abs * 0.0015
+    )
+
+    minimum_width = (
+        y_span * 0.008
+    )
+
+    zone_half_width = max(
+        percentage_width,
+        minimum_width,
+    )
+
+    # Jangan biarkan zona menjadi terlalu tebal.
+    maximum_half_width = (
+        y_span * 0.025
+    )
+
+    zone_half_width = min(
+        zone_half_width,
+        maximum_half_width,
+    )
+
+    return (
+        float(reference_level - zone_half_width),
+        float(reference_level + zone_half_width),
+    )
+
+
+def _draw_retest_zone(
+    ax,
+    setup,
+    reference_level,
+    y_span,
+    x_start,
+    x_end,
+):
+
+    setup_style = str(
+        setup.get(
+            "setup_style",
+            "",
+        )
+    ).upper()
+
+    entry_state = str(
+        setup.get(
+            "entry_state",
+            "",
+        )
+    ).upper()
+
+    if setup_style not in (
+        "BREAKOUT",
+        "BREAKDOWN",
+    ):
+        return
+
+    if entry_state != "WAITING_RETEST":
+        return
+
+    if reference_level is None:
+        return
+
+    zone_low, zone_high = (
+        _calculate_retest_zone(
+            reference_level,
+            setup,
+            y_span,
+        )
+    )
+
+    height = (
+        zone_high
+        - zone_low
+    )
+
+    if height <= 0:
+        return
+
+    ax.add_patch(
+        Rectangle(
+            (
+                x_start,
+                zone_low,
+            ),
+            x_end - x_start,
+            height,
+            facecolor=REFERENCE,
+            edgecolor="none",
+            alpha=RETEST_ZONE_ALPHA,
+            linewidth=0,
+            zorder=1,
+        )
+    )
+
+
+# ============================================================
+# BREAKOUT MARKER
+#
+# BREAKOUT:
+#     marker "B" pada candle pertama yang menembus
+#     reference_level.
+#
+# Hanya visual.
+# Tidak menentukan setup baru.
+# ============================================================
+
+def _find_breakout_candle(
+    df,
+    reference_level,
+    setup_style,
+):
+
+    if (
+        reference_level is None
+        or len(df) < 2
+    ):
+        return None
+
+    if setup_style == "BREAKOUT":
+
+        for i in range(
+            1,
+            len(df),
+        ):
+
+            previous_close = float(
+                df["close"].iloc[i - 1]
+            )
+
+            current_close = float(
+                df["close"].iloc[i]
+            )
+
+            current_high = float(
+                df["high"].iloc[i]
+            )
+
+            if (
+                previous_close
+                <= reference_level
+                and
+                (
+                    current_close
+                    > reference_level
+                    or
+                    current_high
+                    > reference_level
+                )
+            ):
+                return i
+
+    elif setup_style == "BREAKDOWN":
+
+        for i in range(
+            1,
+            len(df),
+        ):
+
+            previous_close = float(
+                df["close"].iloc[i - 1]
+            )
+
+            current_close = float(
+                df["close"].iloc[i]
+            )
+
+            current_low = float(
+                df["low"].iloc[i]
+            )
+
+            if (
+                previous_close
+                >= reference_level
+                and
+                (
+                    current_close
+                    < reference_level
+                    or
+                    current_low
+                    < reference_level
+                )
+            ):
+                return i
+
+    return None
+
+
+def _draw_breakout_marker(
+    ax,
+    df,
+    setup,
+    y_span,
+):
+
+    setup_style = str(
+        setup.get(
+            "setup_style",
+            "",
+        )
+    ).upper()
+
+    if setup_style not in (
+        "BREAKOUT",
+        "BREAKDOWN",
+    ):
+        return
+
+    reference_level = _first_numeric(
+        setup,
+        [
+            "reference_level",
+        ],
+        None,
+    )
+
+    if reference_level is None:
+        return
+
+    idx = _find_breakout_candle(
+        df,
+        reference_level,
+        setup_style,
+    )
+
+    if idx is None:
+        return
+
+    high_p = float(
+        df["high"].iloc[idx]
+    )
+
+    low_p = float(
+        df["low"].iloc[idx]
+    )
+
+    offset = (
+        y_span * 0.018
+    )
+
+    if setup_style == "BREAKOUT":
+
+        marker_y = (
+            high_p
+            + offset
+        )
+
+        va = "bottom"
+
+    else:
+
+        marker_y = (
+            low_p
+            - offset
+        )
+
+        va = "top"
+
+    ax.text(
+        idx,
+        marker_y,
+        "B",
+        color=REFERENCE,
+        fontsize=BREAKOUT_MARKER_SIZE,
+        fontweight="bold",
+        ha="center",
+        va=va,
+        zorder=10,
+        clip_on=False,
+    )
+
+
+# ============================================================
+# ENTRY READY MARKER
+#
+# ENTRY_READY:
+#     panah kecil ↑ pada candle terakhir.
+#
+# Tidak lagi menggunakan label text di sisi kanan.
+# ============================================================
+
+def _draw_entry_ready_marker(
+    ax,
+    df,
+    setup,
+    y_span,
+):
+
+    entry_state = str(
+        setup.get(
+            "entry_state",
+            "",
+        )
+    ).upper()
+
+    if entry_state != "ENTRY_READY":
+        return
+
+    if len(df) == 0:
+        return
+
+    idx = len(df) - 1
+
+    high_p = float(
+        df["high"].iloc[idx]
+    )
+
+    low_p = float(
+        df["low"].iloc[idx]
+    )
+
+    offset = (
+        y_span * 0.022
+    )
+
+    side = str(
+        setup.get(
+            "side",
+            "LONG",
+        )
+    ).upper()
+
+    if side == "LONG":
+
+        marker_y = (
+            low_p
+            - offset
+        )
+
+        ax.annotate(
+            "",
+            xy=(
+                idx,
+                marker_y + offset * 0.65,
+            ),
+            xytext=(
+                idx,
+                marker_y + offset * 0.05,
+            ),
+            arrowprops=dict(
+                arrowstyle="->",
+                color=READY,
+                lw=1.25,
+                mutation_scale=ENTRY_ARROW_SIZE,
+            ),
+            zorder=10,
+            annotation_clip=False,
+        )
+
+    else:
+
+        marker_y = (
+            high_p
+            + offset
+        )
+
+        ax.annotate(
+            "",
+            xy=(
+                idx,
+                marker_y - offset * 0.65,
+            ),
+            xytext=(
+                idx,
+                marker_y - offset * 0.05,
+            ),
+            arrowprops=dict(
+                arrowstyle="->",
+                color=READY,
+                lw=1.25,
+                mutation_scale=ENTRY_ARROW_SIZE,
+            ),
+            zorder=10,
+            annotation_clip=False,
+        )
+
+
+# ============================================================
 # DRAW REFERENCE LEVEL
 # ============================================================
 
@@ -813,8 +1263,8 @@ def _draw_reference_level(
     #
     # reference_level = level yang ditembus.
     #
-    # Ini penting karena Synaptic sekarang memakai level
-    # tersebut sebagai acuan retest.
+    # Level tetap ditampilkan karena penting sebagai
+    # referensi retest.
     # --------------------------------------------------------
 
     if setup_style in (
@@ -822,11 +1272,7 @@ def _draw_reference_level(
         "BREAKDOWN",
     ):
 
-        label = (
-            "RETEST LEVEL"
-            if setup_style == "BREAKOUT"
-            else "RETEST LEVEL"
-        )
+        label = "RETEST LEVEL"
 
         ax.axhline(
             y=reference_level,
@@ -1243,6 +1689,24 @@ def draw_visual_chart(
     )
 
     # ========================================================
+    # RETEST ZONE
+    #
+    # WAITING RETEST:
+    #     hanya tampilkan area sangat tipis/transparan.
+    #
+    # Tidak ada label teks WAITING RETEST di chart.
+    # ========================================================
+
+    _draw_retest_zone(
+        ax1,
+        setup,
+        reference_level,
+        y_span,
+        -0.6,
+        last_x + extra_margin,
+    )
+
+    # ========================================================
     # PRICE LEVELS
     # ========================================================
 
@@ -1307,12 +1771,6 @@ def draw_visual_chart(
 
     # ========================================================
     # REFERENCE LEVEL
-    #
-    # BREAKOUT/BREAKDOWN:
-    #     level yang ditembus.
-    #
-    # EXTENDED/CONTINUATION/PULLBACK:
-    #     biasanya EMA200, yang sudah terlihat melalui EMA.
     # ========================================================
 
     _draw_reference_level(
@@ -1323,69 +1781,33 @@ def draw_visual_chart(
     )
 
     # ========================================================
-    # ENTRY STATE MARKER
+    # BREAKOUT MARKER
     #
-    # INI BAGIAN UTAMA YANG SEBELUMNYA BELUM DITAMPILKAN.
-    #
-    # ENTRY_READY:
-    #     harga sekarang sudah dekat entry ideal.
-    #
-    # WAITING_RETEST:
-    #     breakout sudah terjadi tetapi harga terlalu jauh
-    #     dari retest level.
-    #
-    # WAITING_PULLBACK:
-    #     harga terlalu jauh dari zona pullback.
+    # BREAKOUT:
+    #     B kecil pada candle yang menembus reference level.
     # ========================================================
 
-    state_text = _entry_state_text(
-        entry_state
+    _draw_breakout_marker(
+        ax1,
+        df,
+        setup,
+        y_span,
     )
 
-    state_color = _entry_state_color(
-        entry_state
-    )
+    # ========================================================
+    # ENTRY READY MARKER
+    #
+    # ENTRY_READY:
+    #     panah kecil pada candle terakhir.
+    #
+    # Tidak ada lagi box ENTRY READY di sisi kanan.
+    # ========================================================
 
-    # State label sedikit di bawah/atas entry line
-    # supaya tidak menutupi angka entry.
-
-    state_y = entry
-
-    state_offset = (
-        y_span * 0.035
-    )
-
-    if side == "LONG":
-
-        state_y = (
-            entry
-            - state_offset
-        )
-
-    else:
-
-        state_y = (
-            entry
-            + state_offset
-        )
-
-    ax1.text(
-        label_x,
-        state_y,
-        f" {state_text} ",
-        color="#ffffff",
-        bbox=dict(
-            facecolor=state_color,
-            edgecolor="none",
-            boxstyle="round,pad=0.28",
-            alpha=0.90,
-        ),
-        va="center",
-        ha="left",
-        fontweight="bold",
-        fontsize=6.8,
-        zorder=9,
-        clip_on=False,
+    _draw_entry_ready_marker(
+        ax1,
+        df,
+        setup,
+        y_span,
     )
 
     # ========================================================
@@ -1615,17 +2037,15 @@ def draw_visual_chart(
     # ========================================================
     # HEADER
     #
-    # Sekarang menampilkan:
+    # Status tetap ditampilkan di header agar informasi
+    # ENTRY_READY / WAITING RETEST tidak hilang.
     #
-    # STRUCTURE
-    # SETUP STYLE
-    # ENTRY STATE
-    # SCORE
-    # MTF
-    #
-    # Ini membuat chart tidak lagi ambigu antara
-    # ENTRY_READY dan WAITING_PULLBACK.
+    # Visual chart tidak lagi memakai box status di kanan.
     # ========================================================
+
+    state_text = _entry_state_text(
+        entry_state
+    )
 
     subheader = (
         f"{structure}"
