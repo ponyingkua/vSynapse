@@ -45,10 +45,28 @@ jobs:
           data = json.loads(p.read_text(encoding="utf-8"))
           candidates = data.get("candidates", [])
 
-          def fmt_num(value):
+          def fmt_num(value, decimals=None):
               """
-              Clean floating-point artifacts without changing
-              the actual numerical value materially.
+              Format angka dengan jumlah desimal TETAP (fixed-point),
+              bukan menebak lewat rstrip.
+
+              PENTING:
+              Versi lama memakai:
+                  f"{value:.12f}".rstrip("0").rstrip(".")
+              Ini membuang SEMUA trailing zero tanpa pandang bulu --
+              termasuk nol yang MEMANG signifikan hasil pembulatan
+              di Synaptic (mis. 4.8260 -> jadi "4.826", 0.070510 ->
+              jadi "0.07051"). Akibatnya jumlah desimal antar entry/
+              sl/tp dalam satu kandidat jadi tidak konsisten.
+
+              Sekarang: kalau field "decimals" tersedia di kandidat
+              (dikirim oleh Synaptic.py, sama persis dengan yang
+              dipakai vSch.py untuk chart), pakai itu sebagai jumlah
+              desimal tetap -- summary.txt jadi konsisten dengan chart.
+
+              Kalau "decimals" tidak ada (kompatibilitas mundur ke
+              JSON versi lama), baru fallback ke pembersihan
+              floating-point noise seperti sebelumnya.
               """
               if value is None:
                   return "N/A"
@@ -56,8 +74,11 @@ jobs:
               try:
                   value = float(value)
 
-                  # Prevent ugly floating-point output such as:
-                  # 0.014080500000000003
+                  if decimals is not None:
+                      return f"{value:.{int(decimals)}f}"
+
+                  # Fallback lama -- hanya dipakai kalau JSON tidak
+                  # menyediakan "decimals" sama sekali.
                   text = f"{value:.12f}".rstrip("0").rstrip(".")
 
                   return text if text else "0"
@@ -93,6 +114,11 @@ jobs:
                   side = c.get("side", "N/A")
                   score = c.get("score", "N/A")
 
+                  # Jumlah desimal tetap untuk seluruh kandidat ini
+                  # (entry/sl/tp) -- diambil dari Synaptic.py, sama
+                  # dengan yang dipakai vSch.py untuk render chart.
+                  decimals = c.get("decimals")
+
                   lines.append(
                       f"{idx}. Symbol: {symbol} | "
                       f"Side: {side} | "
@@ -100,17 +126,17 @@ jobs:
                   )
 
                   lines.append(
-                      f"   - Entry : {fmt_num(c.get('entry'))}"
+                      f"   - Entry : {fmt_num(c.get('entry'), decimals)}"
                   )
 
                   lines.append(
-                      f"   - SL    : {fmt_num(c.get('sl'))}"
+                      f"   - SL    : {fmt_num(c.get('sl'), decimals)}"
                   )
 
                   tps = c.get("tp", [])
 
                   formatted_tps = [
-                      fmt_num(tp)
+                      fmt_num(tp, decimals)
                       for tp in tps
                   ]
 
@@ -186,4 +212,3 @@ jobs:
 
           git commit -m "chore: Synaptic scan $RESULT_DIR"
           git push
- 
