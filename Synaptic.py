@@ -6,6 +6,7 @@ import logging
 import random
 import threading
 import time
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -25,6 +26,117 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("Synaptic")
+
+
+# ============================================================
+# REJECTION TRAIL (DEBUG)
+#
+# Sebelumnya setiap kandidat yang gugur di Stage 1 / Stage 2
+# cuma "return None" tanpa jejak -- begitu funnel mengecil dari
+# ratusan symbol jadi 0 kandidat, tidak ada cara untuk tahu di
+# titik mana dan KENAPA mereka gugur (kecuali baca ulang kode).
+#
+# RejectionTracker mencatat setiap penolakan dengan:
+#   stage   : "stage1" / "stage2"
+#   symbol
+#   reason  : kode alasan singkat & stabil (bukan kalimat bebas),
+#             supaya bisa di-agregasi jadi funnel counter.
+#   detail  : angka pendukung (mis. score, threshold terkait)
+#             untuk beberapa sample pertama tiap reason.
+#
+# Thread-safe (dipakai dari dalam ThreadPoolExecutor worker),
+# overhead-nya kecil (cuma counter + sample list dibatasi).
+# ============================================================
+
+class RejectionTracker:
+
+    def __init__(self, max_samples_per_reason=5):
+        self._lock = threading.Lock()
+        self._counts = defaultdict(Counter)
+        self._samples = defaultdict(list)
+        self._max_samples = max_samples_per_reason
+
+    def note(self, stage, symbol, reason, **detail):
+
+        with self._lock:
+
+            self._counts[stage][reason] += 1
+
+            bucket = self._samples[(stage, reason)]
+
+            if len(bucket) < self._max_samples:
+                entry = {"symbol": symbol}
+                entry.update(detail)
+                bucket.append(entry)
+
+        if detail:
+            logger.debug(
+                "[%s] %s gugur (%s): %s",
+                stage, symbol, reason, detail,
+            )
+        else:
+            logger.debug(
+                "[%s] %s gugur (%s)",
+                stage, symbol, reason,
+            )
+
+    def summary(self):
+        with self._lock:
+            return {
+                stage: dict(
+                    counter.most_common()
+                )
+                for stage, counter in self._counts.items()
+            }
+
+    def samples(self):
+        with self._lock:
+            return {
+                f"{stage}:{reason}": list(entries)
+                for (stage, reason), entries in self._samples.items()
+            }
+
+    def reset(self):
+        with self._lock:
+            self._counts.clear()
+            self._samples.clear()
+
+
+REJECTIONS = RejectionTracker()
+
+
+def _log_rejection_funnel():
+    """Cetak ringkasan alasan gugur per stage ke logger.
+
+    Dipanggil di akhir scan (baik yang berhasil dapat kandidat
+    maupun yang berakhir kosong) supaya funnel selalu terlihat
+    di log, bukan cuma bisa diakses lewat --debug.
+    """
+
+    summary = REJECTIONS.summary()
+
+    if not summary:
+        return
+
+    for stage in ("universe", "stage1", "stage2"):
+
+        reasons = summary.get(stage)
+
+        if not reasons:
+            continue
+
+        total = sum(reasons.values())
+
+        logger.info(
+            "Rejection funnel [%s] -- total gugur: %d",
+            stage, total,
+        )
+
+        for reason, count in reasons.items():
+            logger.info(
+                "  - %-32s %d",
+                reason, count,
+            )
 
 
 # ============================================================
@@ -144,6 +256,18 @@ CONFIG = {
     "extended_momentum_penalty_factor": 0.6,
 
     # --------------------------------------------------------
+    # Stage 1 -- liquidity / volatility sanity gate
+    # --------------------------------------------------------
+
+    # Filter coin yang secara teknikal "mati"/choppy: ATR
+    # (candle 15m) terlalu kecil dibanding harga. Volume 24h
+    # saja tidak cukup -- symbol likuid tapi range-nya sempit
+    # tetap bisa lolos ke momentum_pool dan menghasilkan setup
+    # yang secara struktural tidak layak ditradingkan. Nilai
+    # dalam persen (ATR / close * 100).
+    "min_atr_pct": 0.15,
+
+    # --------------------------------------------------------
     # Momentum
     # --------------------------------------------------------
 
@@ -198,6 +322,55 @@ CONFIG = {
         2.25,
         3.0,
     ],
+
+    # --------------------------------------------------------
+    # Higher-timeframe (1D) bias
+    # --------------------------------------------------------
+
+    # Konteks makro tambahan di luar TFS (15m/1h/4h). Bukan
+    # hard filter -- kalau sisi trade (LONG/SHORT) melawan tren
+    # EMA200 di timeframe ini, skor akhirnya didiskon. Kalau
+    # data 1D gagal diambil, bias dianggap netral (tidak ada
+    # penalty), supaya scan tetap jalan.
+    "htf_bias_tf": "1d",
+
+    "htf_bias_penalty_factor": 0.85,
+
+    # --------------------------------------------------------
+    # Diversity / correlation filter
+    # --------------------------------------------------------
+
+    # Tanpa filter ini, 5 kandidat final bisa saja semua alt
+    # yang gerak bareng (mis. sekumpulan alt yang sama-sama
+    # ngikut BTC) -- kelihatan "5 sinyal" padahal secara market
+    # cuma 1 gerakan yang sama diulang-ulang. Korelasi dihitung
+    # dari return candle timeframe di bawah ini, HANYA dibanding
+    # kandidat lain yang searah (LONG vs LONG, SHORT vs SHORT)
+    # -- dua koin berkorelasi tinggi tapi beda arah bukan
+    # duplikasi, itu tetap dua bet yang berbeda.
+    "diversity_correlation_tf": "1h",
+
+    # Jumlah candle (dari data yang sudah difetch, tidak ada
+    # API call tambahan) yang dipakai untuk menghitung korelasi.
+    "diversity_lookback": 50,
+
+    # Kandidat dibuang dari daftar final kalau korelasi
+    # return-nya terhadap kandidat lain yang SUDAH terpilih
+    # (searah) >= ambang ini.
+    "diversity_max_correlation": 0.85,
+
+    # --------------------------------------------------------
+    # Funding rate (crowded-trade guard)
+    # --------------------------------------------------------
+
+    # Funding rate (per 8 jam, dari /fapi/v1/premiumIndex) yang
+    # SEARAH sisi trade dan melewati ambang ini (dalam persen)
+    # dianggap sinyal crowded trade -- risiko funding-squeeze
+    # naik. Bukan hard veto (supaya tidak "mengarang" penolakan
+    # di luar data teknikal), tapi skor akhirnya didiskon.
+    "funding_rate_alert_pct": 0.05,
+
+    "funding_rate_penalty_factor": 0.7,
 
     # --------------------------------------------------------
     # API
@@ -538,6 +711,19 @@ def ticker_24h():
     )
 
 
+def premium_index():
+    """
+    Funding rate + mark price seluruh symbol dalam satu call.
+
+    Dipakai untuk crowded-trade guard (funding_rate_alert_pct).
+    Endpoint baru -- tidak mengubah endpoint yang sudah ada.
+    """
+    return api(
+        "/fapi/v1/premiumIndex",
+        timeout=15,
+    )
+
+
 # ============================================================
 # UNIVERSE
 # ============================================================
@@ -555,6 +741,31 @@ def universe():
         if isinstance(item, dict)
     }
 
+    # Funding rate map. Kalau endpoint ini gagal, scan tetap
+    # jalan -- funding rate cuma dipakai sebagai penalty
+    # tambahan, bukan syarat wajib.
+    funding_map = {}
+
+    try:
+
+        premium = premium_index()
+
+        funding_map = {
+            str(item.get("symbol", "")): float(
+                item.get("lastFundingRate", 0) or 0
+            )
+            for item in premium
+            if isinstance(item, dict)
+        }
+
+    except Exception as exc:
+
+        logger.warning(
+            "Funding rate unavailable, "
+            "continuing without it: %s",
+            exc,
+        )
+
     rows = []
 
     for item in info.get("symbols", []):
@@ -568,20 +779,38 @@ def universe():
             continue
 
         if item.get("contractType") != "PERPETUAL":
+            REJECTIONS.note(
+                "universe", symbol, "not_perpetual",
+                contract_type=item.get("contractType"),
+            )
             continue
 
         if item.get("quoteAsset") != "USDT":
+            REJECTIONS.note(
+                "universe", symbol, "quote_not_usdt",
+                quote_asset=item.get("quoteAsset"),
+            )
             continue
 
         if item.get("status") != "TRADING":
+            REJECTIONS.note(
+                "universe", symbol, "not_trading",
+                status=item.get("status"),
+            )
             continue
 
         if symbol in IGNORED_SYMBOLS:
+            REJECTIONS.note(
+                "universe", symbol, "in_ignored_list",
+            )
             continue
 
         ticker = ticker_map.get(symbol)
 
         if not ticker:
+            REJECTIONS.note(
+                "universe", symbol, "no_ticker_data",
+            )
             continue
 
         try:
@@ -598,7 +827,12 @@ def universe():
                 ticker.get("lastPrice", 0)
             )
 
-        except (TypeError, ValueError):
+        except (TypeError, ValueError) as exc:
+
+            REJECTIONS.note(
+                "universe", symbol, "invalid_ticker_values",
+                error=str(exc),
+            )
 
             continue
 
@@ -606,10 +840,24 @@ def universe():
             quote_volume
             < CONFIG["min_quote_volume_24h"]
         ):
+            REJECTIONS.note(
+                "universe", symbol, "quote_volume_below_min",
+                quote_volume=quote_volume,
+                min_quote_volume_24h=CONFIG["min_quote_volume_24h"],
+            )
             continue
 
         if last_price <= 0:
+            REJECTIONS.note(
+                "universe", symbol, "invalid_last_price",
+                last_price=last_price,
+            )
             continue
+
+        funding_rate = funding_map.get(
+            symbol,
+            0.0,
+        )
 
         # IMPORTANT:
         #
@@ -623,6 +871,7 @@ def universe():
                 symbol,
                 change_24h,
                 quote_volume,
+                funding_rate,
             )
         )
 
@@ -713,6 +962,78 @@ def klines(symbol, interval):
     ).reset_index(drop=True)
 
     return df
+
+
+# ============================================================
+# HIGHER-TIMEFRAME (1D) BIAS
+#
+# Konteks makro tambahan, terpisah dari TFS (15m/1h/4h) yang
+# dipakai untuk MTF agreement -- tidak mengubah skema voting
+# yang sudah ada. Cuma EMA200 harian, dihitung dari close
+# (tidak perlu ATR/MACD/Supertrend harian).
+# ============================================================
+
+def daily_bias(symbol):
+
+    try:
+
+        candles = klines(
+            symbol,
+            CONFIG["htf_bias_tf"],
+        )
+
+        if len(candles) < CONFIG["ema_period"] + 5:
+            return None
+
+        closes = candles["close"]
+
+        ema = closes.ewm(
+            span=CONFIG["ema_period"],
+            adjust=False,
+        ).mean()
+
+        signal_offset = (
+            1 if CONFIG["confirm_on_closed_bar"] else 0
+        )
+
+        pos = (
+            len(closes) - 1 - signal_offset
+        )
+
+        if pos < 1:
+            return None
+
+        close_value = float(
+            closes.iloc[pos]
+        )
+
+        ema_value = float(
+            ema.iloc[pos]
+        )
+
+        if (
+            not np.isfinite(close_value)
+            or not np.isfinite(ema_value)
+        ):
+            return None
+
+        if close_value > ema_value:
+            return "BULLISH"
+
+        if close_value < ema_value:
+            return "BEARISH"
+
+        return "NEUTRAL"
+
+    except Exception as exc:
+
+        logger.debug(
+            "Daily bias %s error: %s",
+            symbol,
+            exc,
+        )
+
+        return None
 
 
 # ============================================================
@@ -1003,9 +1324,13 @@ def serialize_chart_data(df):
 # MOVEMENT / MOMENTUM SCORE
 # ============================================================
 
-def movement_score(df):
+def movement_score(df, symbol=None):
 
     if len(df) < 51:
+        REJECTIONS.note(
+            "stage1", symbol, "insufficient_candles",
+            have=len(df), need=51,
+        )
         return -1.0, None
 
     # IMPORTANT:
@@ -1033,6 +1358,10 @@ def movement_score(df):
     signal_pos = n - 1 - signal_offset
 
     if signal_pos < 1:
+        REJECTIONS.note(
+            "stage1", symbol, "insufficient_signal_position",
+            signal_pos=signal_pos,
+        )
         return -1.0, None
 
     last = x.iloc[signal_pos]
@@ -1046,6 +1375,29 @@ def movement_score(df):
         or not np.isfinite(atr_value)
         or atr_value <= 0
     ):
+        REJECTIONS.note(
+            "stage1", symbol, "invalid_price_or_atr",
+            close=close, atr=atr_value,
+        )
+        return -1.0, None
+
+    # --------------------------------------------------------
+    # Liquidity / volatility sanity gate.
+    #
+    # Volume 24h (di universe()) tidak menjamin range candle
+    # cukup lebar untuk ditradingkan. Symbol dengan ATR/close
+    # terlalu kecil (choppy/dead) dibuang di sini, sebelum
+    # sempat mendominasi momentum_pool.
+    # --------------------------------------------------------
+
+    atr_pct = (atr_value / close) * 100
+
+    if atr_pct < CONFIG["min_atr_pct"]:
+        REJECTIONS.note(
+            "stage1", symbol, "atr_below_min",
+            atr_pct=round(atr_pct, 4),
+            min_atr_pct=CONFIG["min_atr_pct"],
+        )
         return -1.0, None
 
     fast_n = CONFIG[
@@ -1057,6 +1409,10 @@ def movement_score(df):
     ]
 
     if signal_pos <= slow_n + 1:
+        REJECTIONS.note(
+            "stage1", symbol, "insufficient_history_for_momentum",
+            signal_pos=signal_pos, slow_n=slow_n,
+        )
         return -1.0, None
 
     fast_ref = float(
@@ -1072,6 +1428,10 @@ def movement_score(df):
     )
 
     if fast_ref <= 0 or slow_ref <= 0:
+        REJECTIONS.note(
+            "stage1", symbol, "invalid_reference_price",
+            fast_ref=fast_ref, slow_ref=slow_ref,
+        )
         return -1.0, None
 
     fast_return = (
@@ -1106,6 +1466,10 @@ def movement_score(df):
     ]
 
     if signal_pos <= window:
+        REJECTIONS.note(
+            "stage1", symbol, "insufficient_history_for_breakout",
+            signal_pos=signal_pos, window=window,
+        )
         return -1.0, None
 
     prev_high = float(
@@ -1186,7 +1550,7 @@ def movement_score(df):
 # TIMEFRAME SCORE
 # ============================================================
 
-def score_tf(df):
+def score_tf(df, symbol=None, tf=None):
 
     if "ema200" not in df.columns:
         x = add_indicators(df)
@@ -1194,6 +1558,10 @@ def score_tf(df):
         x = df
 
     if len(x) < 210:
+        REJECTIONS.note(
+            "stage2", symbol, "tf_insufficient_candles",
+            tf=tf, have=len(x), need=210,
+        )
         return None
 
     n = len(x)
@@ -1217,6 +1585,11 @@ def score_tf(df):
     signal_pos = n - 1 - signal_offset
 
     if signal_pos <= CONFIG["breakout_window"]:
+        REJECTIONS.note(
+            "stage2", symbol, "tf_insufficient_signal_position",
+            tf=tf, signal_pos=signal_pos,
+            breakout_window=CONFIG["breakout_window"],
+        )
         return None
 
     last = x.iloc[signal_pos]
@@ -1235,12 +1608,24 @@ def score_tf(df):
     atr_value = float(last["atr"])
 
     if not np.isfinite(close):
+        REJECTIONS.note(
+            "stage2", symbol, "tf_invalid_close",
+            tf=tf, close=close,
+        )
         return None
 
     if not np.isfinite(ema):
+        REJECTIONS.note(
+            "stage2", symbol, "tf_invalid_ema",
+            tf=tf, ema=ema,
+        )
         return None
 
     if not np.isfinite(atr_value) or atr_value <= 0:
+        REJECTIONS.note(
+            "stage2", symbol, "tf_invalid_atr",
+            tf=tf, atr=atr_value,
+        )
         return None
 
     if not np.isfinite(live_close) or live_close <= 0:
@@ -1761,6 +2146,7 @@ def analyze_symbol(
     quote_volume_24h,
     stage1_score,
     stage1_meta,
+    funding_rate=0.0,
 ):
 
     data = {}
@@ -1769,7 +2155,7 @@ def analyze_symbol(
 
         df15 = stage1_meta["df"]
 
-        scored_15m = score_tf(df15)
+        scored_15m = score_tf(df15, symbol=symbol, tf="15m")
 
         if scored_15m:
 
@@ -1780,10 +2166,10 @@ def analyze_symbol(
 
     except Exception as exc:
 
-        logger.debug(
-            "MTF %s 15m error: %s",
-            symbol,
-            exc,
+        REJECTIONS.note(
+            "stage2", symbol,
+            f"tf_exception:{type(exc).__name__}",
+            tf="15m", error=str(exc),
         )
 
     # --------------------------------------------------------
@@ -1800,6 +2186,10 @@ def analyze_symbol(
             )
 
             if len(candles) < 210:
+                REJECTIONS.note(
+                    "stage2", symbol, "tf_insufficient_klines_raw",
+                    tf=tf, have=len(candles), need=210,
+                )
                 continue
 
             enriched = add_indicators(
@@ -1807,7 +2197,9 @@ def analyze_symbol(
             )
 
             scored = score_tf(
-                enriched
+                enriched,
+                symbol=symbol,
+                tf=tf,
             )
 
             if scored:
@@ -1819,15 +2211,19 @@ def analyze_symbol(
 
         except Exception as exc:
 
-            logger.debug(
-                "MTF %s %s error: %s",
-                symbol,
-                tf,
-                exc,
+            REJECTIONS.note(
+                "stage2", symbol,
+                f"tf_exception:{type(exc).__name__}",
+                tf=tf, error=str(exc),
             )
 
     # Semua timeframe wajib tersedia.
     if set(data.keys()) != set(TFS):
+        REJECTIONS.note(
+            "stage2", symbol, "missing_timeframe_data",
+            have=sorted(data.keys()),
+            missing=sorted(set(TFS) - set(data.keys())),
+        )
         return None
 
     # --------------------------------------------------------
@@ -1902,6 +2298,10 @@ def analyze_symbol(
     )
 
     if agreement < 2:
+        REJECTIONS.note(
+            "stage2", symbol, "insufficient_tf_agreement",
+            side=side, agreement=agreement,
+        )
         return None
 
     # --------------------------------------------------------
@@ -1925,6 +2325,10 @@ def analyze_symbol(
     )
 
     if reference_close <= 0:
+        REJECTIONS.note(
+            "stage2", symbol, "invalid_reference_close",
+            reference_close=reference_close,
+        )
         return None
 
     move_15 = (
@@ -1945,12 +2349,22 @@ def analyze_symbol(
         side == "LONG"
         and move_15 < min_momentum
     ):
+        REJECTIONS.note(
+            "stage2", symbol, "weak_momentum_15m",
+            side=side, move_15=round(move_15, 4),
+            min_momentum=min_momentum,
+        )
         return None
 
     if (
         side == "SHORT"
         and move_15 > -min_momentum
     ):
+        REJECTIONS.note(
+            "stage2", symbol, "weak_momentum_15m",
+            side=side, move_15=round(move_15, 4),
+            min_momentum=min_momentum,
+        )
         return None
 
     # --------------------------------------------------------
@@ -2006,6 +2420,11 @@ def analyze_symbol(
         or not np.isfinite(atr_value)
         or atr_value <= 0
     ):
+        REJECTIONS.note(
+            "stage2", symbol, "invalid_price_or_atr_exec",
+            execution_tf=execution_tf,
+            price=price, atr=atr_value,
+        )
         return None
 
     # --------------------------------------------------------
@@ -2028,6 +2447,10 @@ def analyze_symbol(
     )
 
     if setup_info["setup_style"] == "NO_SETUP":
+        REJECTIONS.note(
+            "stage2", symbol, "no_setup",
+            side=side, execution_tf=execution_tf,
+        )
         return None
 
     setup_style = setup_info["setup_style"]
@@ -2058,6 +2481,11 @@ def analyze_symbol(
     ]
 
     if len(exec_df) < swing_n:
+        REJECTIONS.note(
+            "stage2", symbol, "insufficient_swing_data",
+            execution_tf=execution_tf,
+            have=len(exec_df), need=swing_n,
+        )
         return None
 
     swing_low = float(
@@ -2103,6 +2531,10 @@ def analyze_symbol(
         )
 
     if risk <= 0:
+        REJECTIONS.note(
+            "stage2", symbol, "non_positive_risk",
+            side=side, entry=entry, sl=sl,
+        )
         return None
 
     risk_pct = (
@@ -2110,6 +2542,11 @@ def analyze_symbol(
     ) * 100
 
     if risk_pct > 8.0:
+        REJECTIONS.note(
+            "stage2", symbol, "risk_too_high",
+            side=side, risk_pct=round(risk_pct, 3),
+            max_risk_pct=8.0,
+        )
         return None
 
     # --------------------------------------------------------
@@ -2127,6 +2564,61 @@ def analyze_symbol(
     ]
 
     # --------------------------------------------------------
+    # Funding rate -- crowded trade guard.
+    #
+    # Funding SEARAH sisi trade di atas ambang berarti mayoritas
+    # posisi terbuka sudah searah kita (crowded) -> risiko
+    # funding-squeeze / mean-reversion mendadak naik. Bukan hard
+    # veto (data teknikal tetap valid), tapi skor akhirnya
+    # didiskon dan ditandai transparan di output.
+    # --------------------------------------------------------
+
+    funding_pct = float(funding_rate) * 100
+
+    funding_alert = False
+
+    funding_penalty = 1.0
+
+    if (
+        side == "LONG"
+        and funding_pct >= CONFIG["funding_rate_alert_pct"]
+    ) or (
+        side == "SHORT"
+        and funding_pct <= -CONFIG["funding_rate_alert_pct"]
+    ):
+
+        funding_alert = True
+
+        funding_penalty = CONFIG[
+            "funding_rate_penalty_factor"
+        ]
+
+    # --------------------------------------------------------
+    # Higher-timeframe (1D) bias -- macro trend guard.
+    #
+    # Kalau tren EMA200 harian melawan sisi trade, skor akhirnya
+    # didiskon. Gagal fetch / data kurang -> dianggap netral,
+    # tidak ada penalty (tidak mengarang bias dari data yang
+    # tidak ada).
+    # --------------------------------------------------------
+
+    htf_bias = daily_bias(symbol)
+
+    htf_penalty = 1.0
+
+    if (
+        htf_bias == "BEARISH"
+        and side == "LONG"
+    ) or (
+        htf_bias == "BULLISH"
+        and side == "SHORT"
+    ):
+
+        htf_penalty = CONFIG[
+            "htf_bias_penalty_factor"
+        ]
+
+    # --------------------------------------------------------
     # Final score
     # --------------------------------------------------------
 
@@ -2138,7 +2630,7 @@ def analyze_symbol(
     score = (
         raw_score
         + momentum_bonus
-    )
+    ) * funding_penalty * htf_penalty
 
     reasons = (
         data["15m"]["score"][
@@ -2191,6 +2683,15 @@ def analyze_symbol(
             quote_volume_24h,
             2,
         ),
+
+        "funding_rate_pct": round(
+            funding_pct,
+            4,
+        ),
+
+        "funding_alert": funding_alert,
+
+        "htf_bias": htf_bias,
 
         "execution_tf": execution_tf,
 
@@ -2266,7 +2767,7 @@ def analyze_symbol(
 
 def stage1_worker(row):
 
-    symbol, change_24h, quote_volume = row
+    symbol, change_24h, quote_volume, funding_rate = row
 
     try:
 
@@ -2276,6 +2777,10 @@ def stage1_worker(row):
         )
 
         if len(candles) < 51:
+            REJECTIONS.note(
+                "stage1", symbol, "insufficient_klines_raw",
+                have=len(candles), need=51,
+            )
             return None
 
         enriched = add_indicators(
@@ -2283,13 +2788,21 @@ def stage1_worker(row):
         )
 
         score, meta = movement_score(
-            enriched
+            enriched,
+            symbol=symbol,
         )
 
         if (
             score <= 0
             or meta is None
         ):
+            # Reason spesifik sudah dicatat di dalam
+            # movement_score(); ini fallback kalau ada jalur
+            # yang lolos tanpa note (mis. score memang <=0).
+            REJECTIONS.note(
+                "stage1", symbol, "non_positive_score",
+                score=score,
+            )
             return None
 
         # Pastikan metadata menggunakan
@@ -2301,15 +2814,16 @@ def stage1_worker(row):
             symbol,
             change_24h,
             quote_volume,
+            funding_rate,
             meta,
         )
 
     except Exception as exc:
 
-        logger.debug(
-            "15m scan error on %s: %s",
-            symbol,
-            exc,
+        REJECTIONS.note(
+            "stage1", symbol,
+            f"exception:{type(exc).__name__}",
+            error=str(exc),
         )
 
         return None
@@ -2326,6 +2840,7 @@ def stage2_worker(item):
         symbol,
         change_24h,
         quote_volume,
+        funding_rate,
         stage1_meta,
     ) = item
 
@@ -2337,14 +2852,15 @@ def stage2_worker(item):
             quote_volume,
             stage1_score,
             stage1_meta,
+            funding_rate=funding_rate,
         )
 
     except Exception as exc:
 
-        logger.debug(
-            "MTF scan error on %s: %s",
-            symbol,
-            exc,
+        REJECTIONS.note(
+            "stage2", symbol,
+            f"exception:{type(exc).__name__}",
+            error=str(exc),
         )
 
         return None
@@ -2376,6 +2892,151 @@ def _entry_state_rank(entry_state):
 
 
 # ============================================================
+# DIVERSITY / CORRELATION FILTER
+#
+# Dihitung dari chart_data yang SUDAH ada di tiap kandidat
+# (hasil analyze_symbol) -- tidak ada API call tambahan.
+# ============================================================
+
+def _closes_from_chart(candidate, tf, window):
+
+    records = (
+        candidate.get("chart_data", {})
+        .get(tf, [])
+    )
+
+    closes = [
+        record["close"]
+        for record in records[-(window + 1):]
+        if record.get("close") is not None
+    ]
+
+    return closes
+
+
+def _pct_returns(closes):
+
+    if len(closes) < 5:
+        return None
+
+    arr = np.asarray(
+        closes,
+        dtype=float,
+    )
+
+    with np.errstate(
+        divide="ignore",
+        invalid="ignore",
+    ):
+
+        returns = (
+            np.diff(arr) / arr[:-1]
+        )
+
+    returns = returns[
+        np.isfinite(returns)
+    ]
+
+    if len(returns) < 5:
+        return None
+
+    return returns
+
+
+def _return_correlation(candidate_a, candidate_b, tf, window):
+
+    returns_a = _pct_returns(
+        _closes_from_chart(candidate_a, tf, window)
+    )
+
+    returns_b = _pct_returns(
+        _closes_from_chart(candidate_b, tf, window)
+    )
+
+    if returns_a is None or returns_b is None:
+        return None
+
+    n = min(
+        len(returns_a),
+        len(returns_b),
+    )
+
+    if n < 5:
+        return None
+
+    a = returns_a[-n:]
+    b = returns_b[-n:]
+
+    if np.std(a) == 0 or np.std(b) == 0:
+        return None
+
+    corr = float(
+        np.corrcoef(a, b)[0, 1]
+    )
+
+    if not np.isfinite(corr):
+        return None
+
+    return corr
+
+
+def select_diverse_candidates(candidates, max_results):
+
+    # Greedy: jalan dari kandidat terkuat ke terlemah (list
+    # input sudah terurut). Kandidat dilewati (bukan dibuang
+    # permanen dari pertimbangan) kalau korelasinya terlalu
+    # tinggi dengan kandidat SEARAH yang sudah lolos -- jadi
+    # slot yang kosong tetap bisa diisi kandidat berikutnya
+    # yang lebih "berbeda" secara pergerakan harga.
+
+    tf = CONFIG["diversity_correlation_tf"]
+    window = CONFIG["diversity_lookback"]
+    threshold = CONFIG["diversity_max_correlation"]
+
+    selected = []
+
+    for candidate in candidates:
+
+        if len(selected) >= max_results:
+            break
+
+        too_correlated = False
+
+        for chosen in selected:
+
+            if chosen["side"] != candidate["side"]:
+                continue
+
+            corr = _return_correlation(
+                candidate,
+                chosen,
+                tf,
+                window,
+            )
+
+            if corr is not None and corr >= threshold:
+
+                too_correlated = True
+
+                logger.debug(
+                    "%s dropped: correlated %.2f "
+                    "with %s (already selected)",
+                    candidate["symbol"],
+                    corr,
+                    chosen["symbol"],
+                )
+
+                break
+
+        if too_correlated:
+            continue
+
+        selected.append(candidate)
+
+    return selected
+
+
+# ============================================================
 # MAIN
 # ============================================================
 
@@ -2396,6 +3057,11 @@ def main():
     args = parser.parse_args()
 
     started = time.time()
+
+    # Reset rejection trail supaya funnel di run ini bersih
+    # (penting kalau main() pernah dipanggil lebih dari sekali
+    # dalam proses yang sama, mis. dari test/REPL).
+    REJECTIONS.reset()
 
     # ========================================================
     # UNIVERSE
@@ -2507,6 +3173,8 @@ def main():
             "found in Stage 1."
         )
 
+        _log_rejection_funnel()
+
         payload = {
             "generated_at":
                 pd.Timestamp.now(
@@ -2547,6 +3215,8 @@ def main():
                         2,
                     ),
             },
+
+            "rejection_stats": REJECTIONS.summary(),
 
             "candidates": [],
         }
@@ -2652,9 +3322,16 @@ def main():
     # FINAL SELECTION
     # ========================================================
 
-    final_results = results[
-        :CONFIG["max_results"]
-    ]
+    # Diversity filter diterapkan di sini, BUKAN dengan slicing
+    # langsung -- daftar sudah terurut (entry_state lalu score),
+    # jadi kandidat terkuat tetap diprioritaskan; yang dilewati
+    # cuma yang terlalu berkorelasi dengan kandidat searah yang
+    # sudah lolos duluan.
+
+    final_results = select_diverse_candidates(
+        results,
+        CONFIG["max_results"],
+    )
 
     selection_mode = "min_score"
 
@@ -2670,9 +3347,10 @@ def main():
         < CONFIG["min_candidates"]
     ):
 
-        final_results = mtf_valid[
-            :CONFIG["max_results"]
-        ]
+        final_results = select_diverse_candidates(
+            mtf_valid,
+            CONFIG["max_results"],
+        )
 
         selection_mode = (
             "mtf_fallback"
@@ -2707,6 +3385,8 @@ def main():
         total_elapsed,
         len(final_results),
     )
+
+    _log_rejection_funnel()
 
     # ========================================================
     # PAYLOAD
@@ -2769,6 +3449,15 @@ def main():
             "workers_stage2":
                 CONFIG["workers_stage2"],
         },
+
+        # Funnel lengkap: berapa banyak symbol gugur di tiap
+        # stage, per alasan. Contoh konkret tiap alasan (symbol +
+        # angka pendukung, dibatasi beberapa sample) ada di
+        # REJECTIONS.samples() -- sengaja TIDAK dimasukkan ke
+        # payload utama supaya file output tetap ringkas; kalau
+        # perlu debug mendalam, panggil REJECTIONS.samples()
+        # secara terpisah atau jalankan dengan level DEBUG.
+        "rejection_stats": REJECTIONS.summary(),
 
         "candidates":
             final_results,
