@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T00:29:40.214684+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: XANUSDT | Side: LONG | Score: 9.14
+   - Entry : 0.012058236351
+   - SL    : 0.01180901555
+   - TP    : 0.012432067552, 0.012618983153, 0.012805898753
+   - Invalidation: Close below 0.011809016 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: NILUSDT | Side: LONG | Score: 8.76
+   - Entry : 0.044261581085
+   - SL    : 0.043209828402
+   - TP    : 0.045839210109, 0.046628024621, 0.047416839133
+   - Invalidation: Close below 0.043209828 / loss of recent 15m swing low
+----------------------------------------
