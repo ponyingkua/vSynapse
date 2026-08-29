@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T05:46:43.160161+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MAVUSDT | Side: LONG | Score: 5.2
+   - Entry : 0.011021072011
+   - SL    : 0.010825
+   - TP    : 0.011315180027, 0.011462234035, 0.011609288043
+   - Invalidation: Close below 0.010825 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: BSVUSDT | Side: LONG | Score: 4.91
+   - Entry : 16.86
+   - SL    : 16.56
+   - TP    : 17.31, 17.535, 17.76
+   - Invalidation: Close below 16.56 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: IDUSDT | Side: LONG | Score: 4.86
+   - Entry : 0.03138
+   - SL    : 0.03106
+   - TP    : 0.03186, 0.0321, 0.03234
+   - Invalidation: Close below 0.03106 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: ALPINEUSDT | Side: LONG | Score: 4.67
+   - Entry : 0.351115811588
+   - SL    : 0.3447
+   - TP    : 0.36073952897, 0.365551387662, 0.370363246353
+   - Invalidation: Close below 0.3447 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: PIEVERSEUSDT | Side: LONG | Score: 4.59
+   - Entry : 1.0414
+   - SL    : 1.0274
+   - TP    : 1.0624, 1.0729, 1.0834
+   - Invalidation: Close below 1.0274 / loss of recent 15m swing low
+----------------------------------------
