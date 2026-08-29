@@ -116,11 +116,44 @@ CONFIG = {
     "breakout_window": 20,
 
     # --------------------------------------------------------
+    # Repaint guard
+    # --------------------------------------------------------
+
+    # Kalau True, semua deteksi sinyal (EMA/Supertrend/MACD/
+    # breakout/volume) memakai candle TERAKHIR YANG SUDAH
+    # CLOSED, bukan candle yang masih berjalan. Mencegah sinyal
+    # muncul lalu hilang lagi sebelum candle-nya selesai
+    # (repaint/whiplash). Harga live tetap dipakai terpisah
+    # untuk keputusan entry_state / ideal_entry, jadi tidak
+    # kehilangan presisi harga saat ini.
+    "confirm_on_closed_bar": True,
+
+    # --------------------------------------------------------
+    # Stage 1 -- extension penalty
+    # --------------------------------------------------------
+
+    # movement_score() secara desain menghargai pergerakan yang
+    # SUDAH terjadi (fast_return/atr_move/breakout_bonus), jadi
+    # secara struktural condong ke koin yang sudah lari jauh.
+    # Untuk symbol yang jaraknya ke EMA200 (dalam ATR) sudah
+    # sebesar ini, skor Stage 1-nya didiskon supaya tidak
+    # mendominasi momentum_pool dan menutup ruang setup yang
+    # masih segar.
+    "extended_momentum_penalty_atr": 4.0,
+
+    "extended_momentum_penalty_factor": 0.6,
+
+    # --------------------------------------------------------
     # Momentum
     # --------------------------------------------------------
 
     "momentum_fast_bars": 4,
     "momentum_slow_bars": 16,
+
+    # Filter minimum kekuatan momentum 15m searah sisi trade
+    # (dalam persen). Dulu cuma cek tanda (>0 / <0) tanpa
+    # ambang -> pergerakan 0.01% pun lolos sebagai konfirmasi.
+    "min_momentum_15m_pct": 0.15,
 
     # --------------------------------------------------------
     # Setup engine
@@ -133,6 +166,26 @@ CONFIG = {
     # Extended: jarak minimum close ke EMA200 (dalam ATR)
     # sebelum dianggap terlalu jauh / overextended.
     "setup_extended_atr": 3.0,
+
+    # Continuation "near" band: batas jarak ke EMA200 (dalam ATR)
+    # yang masih dianggap wajar untuk entry di harga pasar
+    # (market/chase ringan). Lebih dari ini -> tunggu pullback,
+    # jangan chase.
+    "continuation_near_atr": 1.5,
+
+    # Entry Engine -----------------------------------------------
+    #
+    # ENTRY_READY vs WAITING_*: seberapa dekat harga sekarang
+    # boleh menyimpang dari entry ideal (dalam ATR) sebelum
+    # dianggap "belum sampai", bukan "sudah siap".
+    "entry_ready_atr": 0.35,
+
+    # BREAKOUT / BREAKDOWN: buffer di atas/bawah level breakout
+    # untuk entry retest (dalam ATR). Ini yang mencegah entry
+    # chase jauh setelah candle impulsif besar -- entry ideal
+    # dijepit balik ke dekat level yang ditembus, bukan ikut
+    # harga yang sudah lari jauh.
+    "breakout_chase_buffer_atr": 0.25,
 
     # --------------------------------------------------------
     # Structure / risk
@@ -952,7 +1005,7 @@ def serialize_chart_data(df):
 
 def movement_score(df):
 
-    if len(df) < 50:
+    if len(df) < 51:
         return -1.0, None
 
     # IMPORTANT:
@@ -962,7 +1015,27 @@ def movement_score(df):
     else:
         x = df
 
-    last = x.iloc[-1]
+    n = len(x)
+
+    # --------------------------------------------------------
+    # Repaint guard.
+    #
+    # signal_offset = 1 -> bar acuan adalah candle terakhir yang
+    # SUDAH CLOSED (x.iloc[-2]), bukan candle yang masih
+    # berjalan. Mencegah momentum score naik-turun sendiri
+    # sebelum candle terakhir selesai.
+    # --------------------------------------------------------
+
+    signal_offset = (
+        1 if CONFIG["confirm_on_closed_bar"] else 0
+    )
+
+    signal_pos = n - 1 - signal_offset
+
+    if signal_pos < 1:
+        return -1.0, None
+
+    last = x.iloc[signal_pos]
 
     close = float(last["close"])
     atr_value = float(last["atr"])
@@ -983,18 +1056,18 @@ def movement_score(df):
         "momentum_slow_bars"
     ]
 
-    if len(x) <= slow_n + 2:
+    if signal_pos <= slow_n + 1:
         return -1.0, None
 
     fast_ref = float(
         x["close"].iloc[
-            -1 - fast_n
+            signal_pos - fast_n
         ]
     )
 
     slow_ref = float(
         x["close"].iloc[
-            -1 - slow_n
+            signal_pos - slow_n
         ]
     )
 
@@ -1032,18 +1105,18 @@ def movement_score(df):
         "breakout_window"
     ]
 
-    if len(x) <= window + 1:
+    if signal_pos <= window:
         return -1.0, None
 
     prev_high = float(
         x["high"]
-        .iloc[-window - 1:-1]
+        .iloc[signal_pos - window:signal_pos]
         .max()
     )
 
     prev_low = float(
         x["low"]
-        .iloc[-window - 1:-1]
+        .iloc[signal_pos - window:signal_pos]
         .min()
     )
 
@@ -1062,13 +1135,42 @@ def movement_score(df):
         else -1
     )
 
+    # --------------------------------------------------------
+    # Extension penalty.
+    #
+    # movement_score menghargai pergerakan yang SUDAH terjadi,
+    # jadi tanpa penalti, Stage 1 struktural condong ke koin
+    # yang sudah lari jauh dari EMA200 -- mendesak keluar setup
+    # yang masih segar. Kalau jarak ke EMA200 (dalam ATR) sudah
+    # ekstrem, skor didiskon dengan faktor tetap.
+    # --------------------------------------------------------
+
+    ema_value = float(last["ema200"])
+
+    penalty = 1.0
+
+    if np.isfinite(ema_value) and ema_value > 0:
+
+        extension_atr = (
+            abs(close - ema_value) / atr_value
+        )
+
+        if (
+            extension_atr
+            >= CONFIG["extended_momentum_penalty_atr"]
+        ):
+
+            penalty = CONFIG[
+                "extended_momentum_penalty_factor"
+            ]
+
     score = (
         fast_return * 2.0
         + slow_return
         + min(atr_move, 5.0) * 1.5
         + volume_bonus * 1.25
         + breakout_bonus
-    )
+    ) * penalty
 
     return float(score), {
         "df": x,
@@ -1094,8 +1196,33 @@ def score_tf(df):
     if len(x) < 210:
         return None
 
-    last = x.iloc[-1]
-    previous = x.iloc[-2]
+    n = len(x)
+
+    # --------------------------------------------------------
+    # Repaint guard.
+    #
+    # signal_offset = 1 -> semua sinyal (EMA/Supertrend/MACD/
+    # volume/breakout) dihitung dari candle terakhir yang
+    # SUDAH CLOSED (x.iloc[-2]), bukan candle yang masih
+    # berjalan. Harga live (x.iloc[-1]) tetap diekspos sebagai
+    # "live_close" untuk keputusan entry_state/ideal_entry di
+    # Setup Engine, jadi presisi harga saat ini tidak hilang --
+    # yang distabilkan cuma klasifikasi regime-nya.
+    # --------------------------------------------------------
+
+    signal_offset = (
+        1 if CONFIG["confirm_on_closed_bar"] else 0
+    )
+
+    signal_pos = n - 1 - signal_offset
+
+    if signal_pos <= CONFIG["breakout_window"]:
+        return None
+
+    last = x.iloc[signal_pos]
+    previous = x.iloc[signal_pos - 1]
+
+    live_close = float(x.iloc[-1]["close"])
 
     long_score = 0.0
     short_score = 0.0
@@ -1115,6 +1242,9 @@ def score_tf(df):
 
     if not np.isfinite(atr_value) or atr_value <= 0:
         return None
+
+    if not np.isfinite(live_close) or live_close <= 0:
+        live_close = close
 
     volume_ratio = float(
         last["volume_ratio"]
@@ -1239,19 +1369,32 @@ def score_tf(df):
         "breakout_window"
     ]
 
-    if len(x) > window + 1:
+    # breakout_level_up / breakout_level_down disimpan (bukan cuma
+    # dipakai sesaat) karena Setup/Entry Engine butuh level aktual
+    # yang ditembus, bukan cuma boolean "breakout ya/tidak".
+    #
+    # Window-nya diambil relatif ke signal_pos (bar closed acuan),
+    # bukan ke baris paling akhir -- konsisten dengan repaint
+    # guard di atas.
+    breakout_level_up = None
+    breakout_level_down = None
+
+    if signal_pos > window:
 
         previous_high = float(
             x["high"]
-            .iloc[-window - 1:-1]
+            .iloc[signal_pos - window:signal_pos]
             .max()
         )
 
         previous_low = float(
             x["low"]
-            .iloc[-window - 1:-1]
+            .iloc[signal_pos - window:signal_pos]
             .min()
         )
+
+        breakout_level_up = previous_high
+        breakout_level_down = previous_low
 
         if close > previous_high:
 
@@ -1284,6 +1427,8 @@ def score_tf(df):
 
         "close": close,
 
+        "live_close": live_close,
+
         "ema200": ema,
 
         "atr": atr_value,
@@ -1297,6 +1442,10 @@ def score_tf(df):
         "macd_signal": macd_signal,
 
         "macd_hist": hist_now,
+
+        "breakout_level_up": breakout_level_up,
+
+        "breakout_level_down": breakout_level_down,
     }
 
 
@@ -1310,7 +1459,44 @@ def score_tf(df):
 # Tidak ada indikator baru yang diperkenalkan di sini.
 # ============================================================
 
-def classify_setup(tf_score, side):
+def _no_setup_result():
+
+    return {
+        "setup_style": "NO_SETUP",
+        "entry_state": "NO_SETUP",
+        "ideal_entry": None,
+        "reference_level": None,
+    }
+
+
+def classify_setup(tf_score, side, live_price=None):
+
+    # --------------------------------------------------------
+    # Return value sekarang berupa dict, bukan string tunggal:
+    #
+    #   setup_style     : BREAKOUT / BREAKDOWN / PULLBACK /
+    #                      CONTINUATION / EXTENDED / NO_SETUP
+    #                      -> regime / konteks price action.
+    #                      Dihitung dari "close" di tf_score,
+    #                      yaitu candle yang SUDAH CLOSED kalau
+    #                      confirm_on_closed_bar aktif -> stabil,
+    #                      tidak flip-flop sebelum candle selesai.
+    #
+    #   entry_state     : ENTRY_READY / WAITING_PULLBACK /
+    #                      WAITING_RETEST / NO_SETUP
+    #                      -> apakah harga SAAT INI (live_price,
+    #                         bukan closed-bar) sudah di zona
+    #                         entry ideal, atau belum.
+    #
+    #   ideal_entry     : level harga acuan untuk build_entry().
+    #                      Untuk BREAKOUT/BREAKDOWN dan
+    #                      EXTENDED/CONTINUATION-jauh, ini BUKAN
+    #                      harga saat ini -> supaya entry tidak
+    #                      chase candle yang sudah lari jauh.
+    #
+    #   reference_level : level breakout atau EMA200 yang jadi
+    #                      acuan (untuk ditampilkan di chart).
+    # --------------------------------------------------------
 
     reasons = (
         tf_score["long_reasons"]
@@ -1329,7 +1515,17 @@ def classify_setup(tf_score, side):
     st_dir = int(tf_score["st_dir"])
 
     if not np.isfinite(atr_value) or atr_value <= 0:
-        return "NO_SETUP"
+        return _no_setup_result()
+
+    # market_price = harga LIVE (tick sekarang), dipakai khusus
+    # untuk menentukan seberapa dekat harga saat ini ke entry
+    # ideal (entry_state). Regime (setup_style) tetap pakai
+    # "close" (closed-bar) di atas supaya tidak repaint.
+    market_price = (
+        float(live_price)
+        if live_price is not None and np.isfinite(live_price)
+        else close
+    )
 
     trend_aligned = (
         (side == "LONG" and close > ema and st_dir > 0)
@@ -1358,28 +1554,156 @@ def classify_setup(tf_score, side):
         else (ema - close) / atr_value
     )
 
+    entry_ready_band = (
+        CONFIG["entry_ready_atr"] * atr_value
+    )
+
     # --------------------------------------------------------
-    # Prioritas: breakout paling eksplisit, lalu extended
-    # (terlalu jauh dari EMA200 SEARAH posisi), baru
-    # pullback / continuation.
+    # BREAKOUT / BREAKDOWN
+    #
+    # Entry ideal dijepit ke area RETEST level yang ditembus
+    # (level + buffer kecil), bukan ke close saat ini. Kalau
+    # candle breakout sudah lari jauh dari level (impulsif),
+    # ideal_entry akan jauh dari harga sekarang -> entry_state
+    # jadi WAITING_RETEST, bukan dipaksa ENTRY_READY di harga
+    # yang sudah "telat"/chase.
     # --------------------------------------------------------
 
     if is_breakout:
-        return "BREAKOUT"
+
+        setup_style = (
+            "BREAKOUT" if side == "LONG" else "BREAKDOWN"
+        )
+
+        level = (
+            tf_score.get("breakout_level_up")
+            if side == "LONG"
+            else tf_score.get("breakout_level_down")
+        )
+
+        if level is None or not np.isfinite(level):
+
+            return {
+                "setup_style": setup_style,
+                "entry_state": "ENTRY_READY",
+                "ideal_entry": market_price,
+                "reference_level": None,
+            }
+
+        buffer_ = (
+            CONFIG["breakout_chase_buffer_atr"] * atr_value
+        )
+
+        if side == "LONG":
+            ideal_entry = min(market_price, level + buffer_)
+        else:
+            ideal_entry = max(market_price, level - buffer_)
+
+        distance = abs(market_price - ideal_entry)
+
+        entry_state = (
+            "ENTRY_READY"
+            if distance <= entry_ready_band
+            else "WAITING_RETEST"
+        )
+
+        return {
+            "setup_style": setup_style,
+            "entry_state": entry_state,
+            "ideal_entry": ideal_entry,
+            "reference_level": level,
+        }
+
+    # --------------------------------------------------------
+    # EXTENDED
+    #
+    # Terlalu jauh dari EMA200 searah posisi. Entry ideal TIDAK
+    # lagi ikut harga sekarang (dulu: chase harga di puncak
+    # extension) -- diarahkan ke zona pullback (EMA200 +/-
+    # setup_pullback_atr). Hampir selalu akan jadi
+    # WAITING_PULLBACK, kecuali harga memang sudah balik ke
+    # zona itu saat ini juga.
+    # --------------------------------------------------------
 
     if directional_distance_atr >= CONFIG["setup_extended_atr"]:
-        return "EXTENDED"
+
+        pullback_level = (
+            ema + CONFIG["setup_pullback_atr"] * atr_value
+            if side == "LONG"
+            else ema - CONFIG["setup_pullback_atr"] * atr_value
+        )
+
+        distance = abs(market_price - pullback_level)
+
+        entry_state = (
+            "ENTRY_READY"
+            if distance <= entry_ready_band
+            else "WAITING_PULLBACK"
+        )
+
+        return {
+            "setup_style": "EXTENDED",
+            "entry_state": entry_state,
+            "ideal_entry": pullback_level,
+            "reference_level": ema,
+        }
+
+    # --------------------------------------------------------
+    # PULLBACK
+    #
+    # Harga sudah berada di zona retracement yang valid ->
+    # selalu ENTRY_READY. Level presisi tetap dihitung ulang
+    # di build_entry() (dengan max_drift) supaya identik
+    # dengan perilaku versi sebelumnya.
+    # --------------------------------------------------------
 
     if (
         trend_aligned
         and directional_distance_atr <= CONFIG["setup_pullback_atr"]
     ):
-        return "PULLBACK"
+
+        return {
+            "setup_style": "PULLBACK",
+            "entry_state": "ENTRY_READY",
+            "ideal_entry": market_price,
+            "reference_level": ema,
+        }
+
+    # --------------------------------------------------------
+    # CONTINUATION
+    #
+    # Trend masih valid tapi sudah di luar zona pullback murni.
+    # Kalau masih dalam batas wajar (continuation_near_atr) ->
+    # entry market masih layak (ENTRY_READY). Kalau sudah lebih
+    # jauh dari itu (tapi belum EXTENDED) -> jangan chase,
+    # arahkan ke zona pullback dan tandai WAITING_PULLBACK.
+    # --------------------------------------------------------
 
     if trend_aligned:
-        return "CONTINUATION"
 
-    return "NO_SETUP"
+        if directional_distance_atr <= CONFIG["continuation_near_atr"]:
+
+            return {
+                "setup_style": "CONTINUATION",
+                "entry_state": "ENTRY_READY",
+                "ideal_entry": market_price,
+                "reference_level": ema,
+            }
+
+        pullback_level = (
+            ema + CONFIG["setup_pullback_atr"] * atr_value
+            if side == "LONG"
+            else ema - CONFIG["setup_pullback_atr"] * atr_value
+        )
+
+        return {
+            "setup_style": "CONTINUATION",
+            "entry_state": "WAITING_PULLBACK",
+            "ideal_entry": pullback_level,
+            "reference_level": ema,
+        }
+
+    return _no_setup_result()
 
 
 # ============================================================
@@ -1389,18 +1713,31 @@ def classify_setup(tf_score, side):
 # Setup Engine di atas.
 # ============================================================
 
-def build_entry(setup_style, side, price, exec_df, atr_value):
+def build_entry(setup_info, side, price, exec_df, atr_value):
 
-    # PULLBACK: entry mengacu ke level EMA200 execution_tf
-    # (zona retracement), dibatasi agar tidak menyimpang
-    # jauh dari harga pasar saat ini.
+    # setup_info datang dari classify_setup() dan sudah berisi
+    # "ideal_entry" yang dihitung sesuai tipe setup:
     #
-    # BREAKOUT / CONTINUATION / EXTENDED: entry mengikuti
-    # harga pasar saat ini, karena price action sudah
-    # bergerak sesuai arah sinyal.
+    # - BREAKOUT/BREAKDOWN : dijepit ke area retest level yang
+    #                        ditembus (tidak chase candle
+    #                        impulsif).
+    # - EXTENDED / CONTINUATION (jauh) : diarahkan ke zona
+    #                        pullback EMA200, bukan harga
+    #                        puncak/dasar extension.
+    # - PULLBACK / CONTINUATION (dekat) : boleh entry di harga
+    #                        pasar saat ini.
+    #
+    # PULLBACK di-refine lagi di sini memakai EMA200 execution_tf
+    # yang paling baru + max_drift, identik dengan perilaku versi
+    # sebelumnya, supaya tidak ada regresi pada setup PULLBACK.
 
-    if setup_style != "PULLBACK":
+    ideal_entry = setup_info.get("ideal_entry")
+
+    if ideal_entry is None or not np.isfinite(ideal_entry):
         return price
+
+    if setup_info["setup_style"] != "PULLBACK":
+        return ideal_entry
 
     ema_level = float(
         exec_df.iloc[-1]["ema200"]
@@ -1596,15 +1933,23 @@ def analyze_symbol(
         - 1.0
     ) * 100
 
+    # Dulu cuma cek tanda (>0 / <0) tanpa ambang minimum, jadi
+    # pergerakan sekecil apapun (bisa cuma noise) lolos sebagai
+    # "konfirmasi arah". Sekarang wajib minimal
+    # min_momentum_15m_pct searah sisi trade.
+    min_momentum = CONFIG[
+        "min_momentum_15m_pct"
+    ]
+
     if (
         side == "LONG"
-        and move_15 <= 0
+        and move_15 < min_momentum
     ):
         return None
 
     if (
         side == "SHORT"
-        and move_15 >= 0
+        and move_15 > -min_momentum
     ):
         return None
 
@@ -1676,13 +2021,18 @@ def analyze_symbol(
 
     exec_score = data[execution_tf]["score"]
 
-    setup_style = classify_setup(
+    setup_info = classify_setup(
         exec_score,
         side,
+        live_price=price,
     )
 
-    if setup_style == "NO_SETUP":
+    if setup_info["setup_style"] == "NO_SETUP":
         return None
+
+    setup_style = setup_info["setup_style"]
+    entry_state = setup_info["entry_state"]
+    reference_level = setup_info["reference_level"]
 
     # --------------------------------------------------------
     # ENTRY LOGIC
@@ -1692,7 +2042,7 @@ def analyze_symbol(
     # --------------------------------------------------------
 
     entry = build_entry(
-        setup_style,
+        setup_info,
         side,
         price,
         exec_df,
@@ -1823,6 +2173,10 @@ def analyze_symbol(
 
         "setup_style": setup_style,
 
+        "entry_state": entry_state,
+
+        "reference_level": reference_level,
+
         "score": round(
             score,
             2,
@@ -1921,7 +2275,7 @@ def stage1_worker(row):
             "15m",
         )
 
-        if len(candles) < 50:
+        if len(candles) < 51:
             return None
 
         enriched = add_indicators(
@@ -1994,6 +2348,31 @@ def stage2_worker(item):
         )
 
         return None
+
+
+# ============================================================
+# RANKING HELPER
+#
+# ENTRY_READY diprioritaskan di atas WAITING_RETEST/
+# WAITING_PULLBACK -- kandidat yang paling siap dieksekusi
+# SEKARANG naik ke atas daftar, bukan cuma diurutkan dari
+# score mentah (yang bisa saja tinggi justru karena setup-nya
+# lagi extended/chase).
+# ============================================================
+
+_ENTRY_STATE_RANK = {
+    "ENTRY_READY": 0,
+    "WAITING_RETEST": 1,
+    "WAITING_PULLBACK": 2,
+}
+
+
+def _entry_state_rank(entry_state):
+
+    return _ENTRY_STATE_RANK.get(
+        entry_state,
+        99,
+    )
 
 
 # ============================================================
@@ -2252,13 +2631,21 @@ def main():
     )
 
     results.sort(
-        key=lambda item: item["score"],
-        reverse=True,
+        key=lambda item: (
+            _entry_state_rank(
+                item["entry_state"]
+            ),
+            -item["score"],
+        ),
     )
 
     mtf_valid.sort(
-        key=lambda item: item["score"],
-        reverse=True,
+        key=lambda item: (
+            _entry_state_rank(
+                item["entry_state"]
+            ),
+            -item["score"],
+        ),
     )
 
     # ========================================================
