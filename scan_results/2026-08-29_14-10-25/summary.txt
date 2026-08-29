@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T14:10:22.475602+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: TWTUSDT | Side: LONG | Score: 7.69
+   - Entry : 0.4893
+   - SL    : 0.4519
+   - TP    : 0.5454, 0.57345, 0.6015
+   - Invalidation: Close below 0.4519 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: DRIFTUSDT | Side: LONG | Score: 6.92
+   - Entry : 0.012954439706
+   - SL    : 0.01242
+   - TP    : 0.013756099265, 0.014156929044, 0.014557758824
+   - Invalidation: Close below 0.01242 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PHAROSUSDT | Side: LONG | Score: 6.85
+   - Entry : 0.424
+   - SL    : 0.4157
+   - TP    : 0.43645, 0.442675, 0.4489
+   - Invalidation: Close below 0.4157 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: SWARMSUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.008251
+   - SL    : 0.007933
+   - TP    : 0.008728, 0.0089665, 0.009205
+   - Invalidation: Close below 0.007933 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: PHAUSDT | Side: LONG | Score: 6.48
+   - Entry : 0.0254
+   - SL    : 0.02426
+   - TP    : 0.02711, 0.027965, 0.02882
+   - Invalidation: Close below 0.02426 / loss of recent 1h swing low
+----------------------------------------
