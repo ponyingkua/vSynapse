@@ -46,28 +46,6 @@ jobs:
           candidates = data.get("candidates", [])
 
           def fmt_num(value, decimals=None):
-              """
-              Format angka dengan jumlah desimal TETAP (fixed-point),
-              bukan menebak lewat rstrip.
-
-              PENTING:
-              Versi lama memakai:
-                  f"{value:.12f}".rstrip("0").rstrip(".")
-              Ini membuang SEMUA trailing zero tanpa pandang bulu --
-              termasuk nol yang MEMANG signifikan hasil pembulatan
-              di Synaptic (mis. 4.8260 -> jadi "4.826", 0.070510 ->
-              jadi "0.07051"). Akibatnya jumlah desimal antar entry/
-              sl/tp dalam satu kandidat jadi tidak konsisten.
-
-              Sekarang: kalau field "decimals" tersedia di kandidat
-              (dikirim oleh Synaptic.py, sama persis dengan yang
-              dipakai vSch.py untuk chart), pakai itu sebagai jumlah
-              desimal tetap -- summary.txt jadi konsisten dengan chart.
-
-              Kalau "decimals" tidak ada (kompatibilitas mundur ke
-              JSON versi lama), baru fallback ke pembersihan
-              floating-point noise seperti sebelumnya.
-              """
               if value is None:
                   return "N/A"
 
@@ -77,11 +55,9 @@ jobs:
                   if decimals is not None:
                       return f"{value:.{int(decimals)}f}"
 
-                  # Fallback lama -- hanya dipakai kalau JSON tidak
-                  # menyediakan "decimals" sama sekali.
                   text = f"{value:.12f}".rstrip("0").rstrip(".")
-
                   return text if text else "0"
+
               except (TypeError, ValueError):
                   return str(value)
 
@@ -109,14 +85,9 @@ jobs:
               ]
 
               for idx, c in enumerate(candidates, 1):
-
                   symbol = c.get("symbol", "N/A")
                   side = c.get("side", "N/A")
                   score = c.get("score", "N/A")
-
-                  # Jumlah desimal tetap untuk seluruh kandidat ini
-                  # (entry/sl/tp) -- diambil dari Synaptic.py, sama
-                  # dengan yang dipakai vSch.py untuk render chart.
                   decimals = c.get("decimals")
 
                   lines.append(
@@ -134,7 +105,6 @@ jobs:
                   )
 
                   tps = c.get("tp", [])
-
                   formatted_tps = [
                       fmt_num(tp, decimals)
                       for tp in tps
@@ -155,7 +125,6 @@ jobs:
                   "\n".join(lines),
                   encoding="utf-8"
               )
-
           PY
 
           if python -c 'import json; print(bool(json.load(open("synaptic_candidates.json", encoding="utf-8")).get("candidates")))' | grep -q True; then
@@ -187,6 +156,11 @@ jobs:
           echo "$RESULT_DIR"
           echo "========================================"
 
+      - name: Build belenggu dashboard
+        shell: bash
+        run: |
+          python belenggu.py --results-dir scan_results --out belenggu.html
+
       - name: Upload Synaptic results
         if: always()
         uses: actions/upload-artifact@v4
@@ -196,17 +170,18 @@ jobs:
             ${{ env.RESULT_DIR }}
           if-no-files-found: ignore
           retention-days: 7
-   
-      - name: Commit scan results
+
+      - name: Commit scan results and dashboard
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add scan_results/
+          git add belenggu.html
 
           if git diff --cached --quiet; then
-            echo "No new scan results to commit."
+            echo "No new scan results or dashboard changes to commit."
             exit 0
           fi
 
