@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>belenggu</title>
+<style>
+  :root {
+    --up: #26a69a; --down: #ef5350; --ema: #1565c0;
+    --border: #e0e0e0; --bg: #fafafa; --panel: #ffffff;
+    --text: #212121; --muted: #607d8b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+  .section-title {
+    font-size: 0.85rem; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--muted);
+    margin: 28px 0 12px; border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+  .muted { color: var(--muted); }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-bottom: 28px;
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+  .card .value { font-size: 1.6rem; font-weight: 700; }
+  .card ul { list-style: none; margin: 0; padding: 0; font-size: 0.85rem; }
+  .card li { display: flex; justify-content: space-between; padding: 3px 0; }
+  .trend-svg { display: block; }
+  .run-card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; margin-bottom: 12px; padding: 12px 16px;
+  }
+  .run-card summary {
+    cursor: pointer; display: flex; align-items: center; gap: 10px;
+    font-weight: 600; list-style: none;
+  }
+  .run-card summary::-webkit-details-marker { display: none; }
+  .run-card summary::before { content: "\25B8"; color: var(--muted); }
+  .run-card[open] summary::before { content: "\25BE"; }
+  .run-time { font-size: 0.95rem; }
+  .run-count { margin-left: auto; font-size: 0.8rem; color: var(--muted); }
+  .funnel { font-size: 0.78rem; margin: 8px 0 12px; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.82rem; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; }
+  td.num { font-variant-numeric: tabular-nums; }
+  tr:hover td { background: #f5f5f5; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 999px;
+    color: #fff; font-size: 0.7rem; font-weight: 600;
+  }
+  .warn-dot { color: #ef6c00; font-weight: 700; }
+  a { color: #1565c0; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { margin-top: 24px; color: var(--muted); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+
+  <h1>Synaptic Scan Belenggu</h1>
+  <div class="subtitle">
+    Dibuat (UTC): 2026-08-29T23:50:11.872051+00:00
+    &middot; JSON-only, tidak menghitung ulang sinyal.
+  </div>
+
+  
+    <details class="run-card" open>
+      <summary>
+        <span class="run-time">2026-08-29T23:50:07.212008+00:00</span>
+        <span class="run-id muted">(2026-08-29_23-50-11)</span>
+        <span class="badge" style="background:#607d8b">mtf_fallback</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 488 &rarr; stage1 60 &rarr; mtf-valid 29 &rarr; final 5 &middot; 275.48s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CFGUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.8</td><td>15m (3/3)</td><td class="num">0.12350</td><td class="num">0.12480</td><td class="num">0.12155, 0.12058, 0.11960</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_23-50-11/charts/CFGUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>SKRUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.68</td><td>15m (3/3)</td><td class="num">0.01105</td><td class="num">0.01038</td><td class="num">0.01206, 0.01256, 0.01306</td><td>BEARISH</td><td></td><td><a href="scan_results/2026-08-29_23-50-11/charts/SKRUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>EDGEUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.96</td><td>15m (2/3)</td><td class="num">0.37780</td><td class="num">0.38630</td><td class="num">0.36505, 0.35868, 0.35230</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_23-50-11/charts/EDGEUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>TURBOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.9</td><td>15m (2/3)</td><td class="num">0.001034</td><td class="num">0.001016</td><td class="num">0.001062, 0.001076, 0.001090</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_23-50-11/charts/TURBOUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>EULUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#1565c0">PULLBACK</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.74</td><td>15m (3/3)</td><td class="num">1.3870</td><td class="num">1.3671</td><td class="num">1.4169, 1.4318, 1.4467</td><td>BEARISH</td><td></td><td><a href="scan_results/2026-08-29_23-50-11/charts/EULUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T21:08:29.712914+00:00</span>
+        <span class="run-id muted">(2026-08-29_21-08-33)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">4 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 490 &rarr; stage1 60 &rarr; mtf-valid 28 &rarr; final 4 &middot; 265.03s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>POLUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.26</td><td>1h (3/3)</td><td class="num">0.10224</td><td class="num">0.10533</td><td class="num">0.09760, 0.09529, 0.09297</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_21-08-33/charts/POLUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>CYSUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.14</td><td>15m (2/3)</td><td class="num">0.70090</td><td class="num">0.67750</td><td class="num">0.73600, 0.75355, 0.77110</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_21-08-33/charts/CYSUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>COTIUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.96</td><td>4h (3/3)</td><td class="num">0.01188</td><td class="num">0.01108</td><td class="num">0.01307, 0.01367, 0.01426</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_21-08-33/charts/COTIUSDT_LONG_4h_chart.png" target="_blank">chart</a></td></tr><tr><td>TSTUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.34</td><td>4h (3/3)</td><td class="num">0.01565</td><td class="num">0.01444</td><td class="num">0.01746, 0.01837, 0.01928</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_21-08-33/charts/TSTUSDT_LONG_4h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T19:00:08.910757+00:00</span>
+        <span class="run-id muted">(2026-08-29_19-00-12)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 500 &rarr; stage1 60 &rarr; mtf-valid 17 &rarr; final 2 &middot; 246.82s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>UNIUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.05</td><td>15m (3/3)</td><td class="num">4.6750</td><td class="num">4.5840</td><td class="num">4.8115, 4.8798, 4.9480</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_19-00-12/charts/UNIUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>TSTUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.27</td><td>4h (3/3)</td><td class="num">0.01559</td><td class="num">0.01435</td><td class="num">0.01744, 0.01837, 0.01930</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_19-00-12/charts/TSTUSDT_LONG_4h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T18:35:45.047478+00:00</span>
+        <span class="run-id muted">(2026-08-29_18-35-48)</span>
+        <span class="badge" style="background:#607d8b">mtf_fallback</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 503 &rarr; stage1 60 &rarr; mtf-valid 21 &rarr; final 5 &middot; 268.41s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>UNIUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.97</td><td>15m (3/3)</td><td class="num">4.6578</td><td class="num">4.5830</td><td class="num">4.7699, 4.8260, 4.8821</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_18-35-48/charts/UNIUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>CTRUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.21</td><td>15m (3/3)</td><td class="num">0.009756</td><td class="num">0.009648</td><td class="num">0.009918, 0.009999, 0.010080</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_18-35-48/charts/CTRUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>LISTAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.08</td><td>15m (2/3)</td><td class="num">0.07051</td><td class="num">0.06881</td><td class="num">0.07306, 0.07434, 0.07561</td><td>BEARISH</td><td></td><td><a href="scan_results/2026-08-29_18-35-48/charts/LISTAUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>MAVIAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#1565c0">PULLBACK</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.64</td><td>1h (3/3)</td><td class="num">0.02987</td><td class="num">0.02844</td><td class="num">0.03201, 0.03309, 0.03416</td><td>BEARISH</td><td></td><td><a href="scan_results/2026-08-29_18-35-48/charts/MAVIAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>CHIPUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#26a69a">CONTINUATION</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.01</td><td>15m (2/3)</td><td class="num">0.04164</td><td class="num">0.04069</td><td class="num">0.04307, 0.04378, 0.04449</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_18-35-48/charts/CHIPUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T15:41:03.049832+00:00</span>
+        <span class="run-id muted">(2026-08-29_15-41-06)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">4 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 511 &rarr; stage1 60 &rarr; mtf-valid 28 &rarr; final 4 &middot; 280.32s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>HYPEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.49</td><td>15m (3/3)</td><td class="num">82.896</td><td class="num">81.514</td><td class="num">84.969, 86.0055, 87.042</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_15-41-06/charts/HYPEUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>PIEVERSEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">7.09</td><td>1h (3/3)</td><td class="num">1.053276482234</td><td class="num">1.0179</td><td class="num">1.106341205585, 1.13287356726, 1.159405928936</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_15-41-06/charts/PIEVERSEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>KOMAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#26a69a">CONTINUATION</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.72</td><td>4h (3/3)</td><td class="num">0.013528727457</td><td class="num">0.012715535887</td><td class="num">0.01474851481, 0.015358408487, 0.015968302164</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_15-41-06/charts/KOMAUSDT_LONG_4h_chart.png" target="_blank">chart</a></td></tr><tr><td>PUMPUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#26a69a">CONTINUATION</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.19</td><td>15m (3/3)</td><td class="num">0.004725966118</td><td class="num">0.004624</td><td class="num">0.004878915295, 0.004955389883, 0.005031864472</td><td>BULLISH</td><td></td><td><a href="scan_results/2026-08-29_15-41-06/charts/PUMPUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T14:10:22.475602+00:00</span>
+        <span class="run-id muted">(2026-08-29_14-10-25)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 514 &rarr; stage1 60 &rarr; mtf-valid 37 &rarr; final 5 &middot; 229.15s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>TWTUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.69</td><td>1h (3/3)</td><td class="num">0.4893</td><td class="num">0.4519</td><td class="num">0.5454, 0.57345, 0.6015</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_14-10-25/charts/TWTUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>DRIFTUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.92</td><td>1h (3/3)</td><td class="num">0.012954439706</td><td class="num">0.01242</td><td class="num">0.013756099265, 0.014156929044, 0.014557758824</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_14-10-25/charts/DRIFTUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>PHAROSUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.85</td><td>1h (3/3)</td><td class="num">0.424</td><td class="num">0.4157</td><td class="num">0.43645, 0.442675, 0.4489</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_14-10-25/charts/PHAROSUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>SWARMSUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.76</td><td>1h (3/3)</td><td class="num">0.008251</td><td class="num">0.007933</td><td class="num">0.008728, 0.0089665, 0.009205</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_14-10-25/charts/SWARMSUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>PHAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#26a69a">CONTINUATION</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.48</td><td>1h (3/3)</td><td class="num">0.0254</td><td class="num">0.02426</td><td class="num">0.02711, 0.027965, 0.02882</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_14-10-25/charts/PHAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T13:10:37.398934+00:00</span>
+        <span class="run-id muted">(2026-08-29_13-10-41)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 25 &rarr; final 5 &middot; 260.42s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>VTHOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.04</td><td>15m (3/3)</td><td class="num">0.0004062</td><td class="num">0.0003959</td><td class="num">0.00042165, 0.000429375, 0.0004371</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_13-10-41/charts/VTHOUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>BICOUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.7</td><td>15m (3/3)</td><td class="num">0.02174</td><td class="num">0.02253</td><td class="num">0.020555, 0.0199625, 0.01937</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_13-10-41/charts/BICOUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>FORMUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.65</td><td>1h (3/3)</td><td class="num">0.241243343142</td><td class="num">0.2335</td><td class="num">0.252858357854, 0.258665865211, 0.264473372567</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_13-10-41/charts/FORMUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>DODOXUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">7.74</td><td>1h (3/3)</td><td class="num">0.019623464661</td><td class="num">0.020139</td><td class="num">0.018850161652, 0.018463510147, 0.018076858643</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_13-10-41/charts/DODOXUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>TWTUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">7.41</td><td>1h (3/3)</td><td class="num">0.474612307058</td><td class="num">0.4519</td><td class="num">0.508680767646, 0.52571499794, 0.542749228233</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_13-10-41/charts/TWTUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T12:12:00.092833+00:00</span>
+        <span class="run-id muted">(2026-08-29_12-12-04)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 513 &rarr; stage1 60 &rarr; mtf-valid 26 &rarr; final 5 &middot; 262.17s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>DOLOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">8.89</td><td>1h (3/3)</td><td class="num">0.02648</td><td class="num">0.02529</td><td class="num">0.028265, 0.0291575, 0.03005</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_12-12-04/charts/DOLOUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>KOMAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.8</td><td>1h (3/3)</td><td class="num">0.014051</td><td class="num">0.0131</td><td class="num">0.0154775, 0.01619075, 0.016904</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_12-12-04/charts/KOMAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>IOTAUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.92</td><td>15m (3/3)</td><td class="num">0.03812</td><td class="num">0.03875</td><td class="num">0.037175, 0.0367025, 0.03623</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_12-12-04/charts/IOTAUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>ROBOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">9.09</td><td>1h (3/3)</td><td class="num">0.01484594732</td><td class="num">0.01406</td><td class="num">0.0160248683, 0.01661432879, 0.01720378928</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_12-12-04/charts/ROBOUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ZKPUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">8.5</td><td>1h (3/3)</td><td class="num">0.045032226888</td><td class="num">0.04309</td><td class="num">0.047945567221, 0.049402237387, 0.050858907553</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_12-12-04/charts/ZKPUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T11:10:46.989842+00:00</span>
+        <span class="run-id muted">(2026-08-29_11-10-51)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 512 &rarr; stage1 60 &rarr; mtf-valid 33 &rarr; final 5 &middot; 233.46s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>龙虾USDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.58</td><td>15m (3/3)</td><td class="num">0.069280923479</td><td class="num">0.064</td><td class="num">0.077202308698, 0.081163001307, 0.085123693917</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_11-10-51/charts/龙虾USDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>YBUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.33</td><td>1h (3/3)</td><td class="num">0.09889081605</td><td class="num">0.0945</td><td class="num">0.105477040126, 0.108770152164, 0.112063264202</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_11-10-51/charts/YBUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>我踏马来了USDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.03</td><td>15m (3/3)</td><td class="num">0.012147</td><td class="num">0.011538</td><td class="num">0.0130605, 0.01351725, 0.013974</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_11-10-51/charts/我踏马来了USDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>KOMAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.73</td><td>1h (3/3)</td><td class="num">0.013628</td><td class="num">0.0131</td><td class="num">0.01442, 0.014816, 0.015212</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_11-10-51/charts/KOMAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>BANKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.72</td><td>15m (2/3)</td><td class="num">0.037532637303</td><td class="num">0.03634</td><td class="num">0.039321593258, 0.040216071235, 0.041110549212</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_11-10-51/charts/BANKUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T10:10:52.482303+00:00</span>
+        <span class="run-id muted">(2026-08-29_10-10-57)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 513 &rarr; stage1 60 &rarr; mtf-valid 31 &rarr; final 5 &middot; 260.92s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BELUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.78</td><td>15m (3/3)</td><td class="num">0.118837623384</td><td class="num">0.11537</td><td class="num">0.124039058459, 0.126639775997, 0.129240493534</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_10-10-57/charts/BELUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>MAGICUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.37</td><td>1h (2/3)</td><td class="num">0.04602</td><td class="num">0.04506</td><td class="num">0.04746, 0.04818, 0.0489</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_10-10-57/charts/MAGICUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>COTIUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">8.59</td><td>1h (3/3)</td><td class="num">0.013434676601</td><td class="num">0.012649</td><td class="num">0.014613191502, 0.015202448952, 0.015791706403</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_10-10-57/charts/COTIUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>YBUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">7.24</td><td>1h (3/3)</td><td class="num">0.096991263439</td><td class="num">0.0945</td><td class="num">0.100728158598, 0.102596606178, 0.104465053757</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_10-10-57/charts/YBUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>REDUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">6.4</td><td>1h (2/3)</td><td class="num">0.110729787494</td><td class="num">0.107</td><td class="num">0.116324468736, 0.119121809357, 0.121919149978</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_10-10-57/charts/REDUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T09:11:01.153754+00:00</span>
+        <span class="run-id muted">(2026-08-29_09-11-05)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 514 &rarr; stage1 60 &rarr; mtf-valid 29 &rarr; final 5 &middot; 239.41s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1000RATSUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.67</td><td>1h (2/3)</td><td class="num">0.040177374135</td><td class="num">0.04198</td><td class="num">0.037473435337, 0.036121465938, 0.034769496539</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_09-11-05/charts/1000RATSUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>OPUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">6.88</td><td>15m (3/3)</td><td class="num">0.088288785623</td><td class="num">0.0892</td><td class="num">0.086921964058, 0.086238553275, 0.085555142492</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_09-11-05/charts/OPUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>CROSSUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">6.71</td><td>1h (2/3)</td><td class="num">0.112767086276</td><td class="num">0.11974</td><td class="num">0.10230771569, 0.097078030396, 0.091848345103</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_09-11-05/charts/CROSSUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>APRUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.97</td><td>1h (3/3)</td><td class="num">0.204259144815</td><td class="num">0.209805435947</td><td class="num">0.195939708118, 0.191779989769, 0.18762027142</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_09-11-05/charts/APRUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>MASKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.93</td><td>1h (3/3)</td><td class="num">0.433098156009</td><td class="num">0.423560035808</td><td class="num">0.447405336311, 0.454558926462, 0.461712516613</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_09-11-05/charts/MASKUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T07:12:20.554313+00:00</span>
+        <span class="run-id muted">(2026-08-29_07-12-23)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 514 &rarr; stage1 60 &rarr; mtf-valid 26 &rarr; final 2 &middot; 246.92s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MASKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">7.06</td><td>1h (3/3)</td><td class="num">0.448504196796</td><td class="num">0.4348</td><td class="num">0.46906049199, 0.479338639587, 0.489616787183</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_07-12-23/charts/MASKUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>RECALLUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">6.56</td><td>15m (3/3)</td><td class="num">0.047010010359</td><td class="num">0.04568</td><td class="num">0.049005025897, 0.050002533666, 0.051000041435</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_07-12-23/charts/RECALLUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T06:12:50.616489+00:00</span>
+        <span class="run-id muted">(2026-08-29_06-12-54)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 30 &rarr; final 5 &middot; 256.72s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>POWRUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.04</td><td>1h (3/3)</td><td class="num">0.046918442323</td><td class="num">0.04528</td><td class="num">0.049376105808, 0.05060493755, 0.051833769293</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-12-54/charts/POWRUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>STARUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.8</td><td>1h (3/3)</td><td class="num">0.119475325955</td><td class="num">0.12593</td><td class="num">0.109793314887, 0.104952309353, 0.100111303819</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-12-54/charts/STARUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>OGNUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.4</td><td>1h (3/3)</td><td class="num">0.01868</td><td class="num">0.01812</td><td class="num">0.01952, 0.01994, 0.02036</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-12-54/charts/OGNUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ALPINEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.14</td><td>1h (3/3)</td><td class="num">0.35344566564</td><td class="num">0.3465</td><td class="num">0.363864164099, 0.369073413329, 0.374282662558</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-12-54/charts/ALPINEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>BIGTIMEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.12</td><td>1h (3/3)</td><td class="num">0.006533</td><td class="num">0.006315</td><td class="num">0.00686, 0.0070235, 0.007187</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-12-54/charts/BIGTIMEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T06:02:54.876492+00:00</span>
+        <span class="run-id muted">(2026-08-29_06-02-58)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 515 &rarr; stage1 60 &rarr; mtf-valid 33 &rarr; final 5 &middot; 239.46s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>OGNUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">7.26</td><td>1h (3/3)</td><td class="num">0.01867</td><td class="num">0.01812</td><td class="num">0.019495, 0.0199075, 0.02032</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-02-58/charts/OGNUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>STARUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKDOWN</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.8</td><td>1h (3/3)</td><td class="num">0.12022</td><td class="num">0.12593</td><td class="num">0.111655, 0.1073725, 0.10309</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-02-58/charts/STARUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>QTUMUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.72</td><td>1h (2/3)</td><td class="num">0.8419</td><td class="num">0.8122</td><td class="num">0.88645, 0.908725, 0.931</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-02-58/charts/QTUMUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ANKRUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.67</td><td>15m (3/3)</td><td class="num">0.004061</td><td class="num">0.003995</td><td class="num">0.00416, 0.0042095, 0.004259</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-02-58/charts/ANKRUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>ALPINEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.14</td><td>1h (3/3)</td><td class="num">0.3533</td><td class="num">0.3465</td><td class="num">0.3635, 0.3686, 0.3737</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_06-02-58/charts/ALPINEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T05:46:43.160161+00:00</span>
+        <span class="run-id muted">(2026-08-29_05-46-47)</span>
+        <span class="badge" style="background:#607d8b">mtf_fallback</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 28 &rarr; final 5 &middot; 236.5s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MAVUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">5.2</td><td>15m (2/3)</td><td class="num">0.011021072011</td><td class="num">0.010825</td><td class="num">0.011315180027, 0.011462234035, 0.011609288043</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-46-47/charts/MAVUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>BSVUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.91</td><td>1h (2/3)</td><td class="num">16.86</td><td class="num">16.56</td><td class="num">17.31, 17.535, 17.76</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-46-47/charts/BSVUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>IDUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.86</td><td>15m (3/3)</td><td class="num">0.03138</td><td class="num">0.03106</td><td class="num">0.03186, 0.0321, 0.03234</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-46-47/charts/IDUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>ALPINEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#1565c0">PULLBACK</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.67</td><td>1h (3/3)</td><td class="num">0.351115811588</td><td class="num">0.3447</td><td class="num">0.36073952897, 0.365551387662, 0.370363246353</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-46-47/charts/ALPINEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>PIEVERSEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">4.59</td><td>15m (2/3)</td><td class="num">1.0414</td><td class="num">1.0274</td><td class="num">1.0624, 1.0729, 1.0834</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-46-47/charts/PIEVERSEUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T05:26:36.071266+00:00</span>
+        <span class="run-id muted">(2026-08-29_05-26-38)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 26 &rarr; final 2 &middot; 257.23s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XVSUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.39</td><td>15m (3/3)</td><td class="num">3.206</td><td class="num">3.148</td><td class="num">3.293, 3.3365, 3.38</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-26-38/charts/XVSUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>BSVUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#ef6c00">WAITING_RETEST</span></td><td class="num">6.02</td><td>15m (2/3)</td><td class="num">16.915470969454</td><td class="num">16.68</td><td class="num">17.268677423636, 17.445280650727, 17.621883877817</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-26-38/charts/BSVUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T05:12:17.558000+00:00</span>
+        <span class="run-id muted">(2026-08-29_05-12-20)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">3 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 26 &rarr; final 3 &middot; 263.1s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BIGTIMEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#1565c0">ENTRY_READY</span></td><td class="num">6.35</td><td>1h (3/3)</td><td class="num">0.006484</td><td class="num">0.006291</td><td class="num">0.0067735, 0.00691825, 0.007063</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-12-20/charts/BIGTIMEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>MELANIAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.19</td><td>1h (3/3)</td><td class="num">0.108624687371</td><td class="num">0.104261046574</td><td class="num">0.115170148565, 0.118442879163, 0.12171560976</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-12-20/charts/MELANIAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ETHWUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#26a69a">CONTINUATION</span></td><td><span class="badge" style="background:#ef6c00">WAITING_PULLBACK</span></td><td class="num">6.09</td><td>1h (3/3)</td><td class="num">0.276744671746</td><td class="num">0.2696</td><td class="num">0.287461679365, 0.292820183175, 0.298178686984</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_05-12-20/charts/ETHWUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T04:11:39.436102+00:00</span>
+        <span class="run-id muted">(2026-08-29_04-11-43)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 515 &rarr; stage1 60 &rarr; mtf-valid 37 &rarr; final 5 &middot; 258.35s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ICNTUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.08</td><td>15m (3/3)</td><td class="num">0.1075</td><td class="num">0.1108</td><td class="num">0.10255, 0.100075, 0.0976</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_04-11-43/charts/ICNTUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>CLOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.89</td><td>15m (3/3)</td><td class="num">0.12178</td><td class="num">0.11303</td><td class="num">0.134905, 0.1414675, 0.14803</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_04-11-43/charts/CLOUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>METUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.61</td><td>15m (3/3)</td><td class="num">0.2044</td><td class="num">0.2086</td><td class="num">0.1981, 0.19495, 0.1918</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_04-11-43/charts/METUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>XNYUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.6</td><td>15m (3/3)</td><td class="num">0.007153</td><td class="num">0.006989</td><td class="num">0.007399, 0.007522, 0.007645</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_04-11-43/charts/XNYUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>BTRUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.27</td><td>15m (3/3)</td><td class="num">0.17256</td><td class="num">0.16196</td><td class="num">0.18846, 0.19641, 0.20436</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_04-11-43/charts/BTRUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T03:27:47.599109+00:00</span>
+        <span class="run-id muted">(2026-08-29_03-27-51)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 515 &rarr; stage1 60 &rarr; mtf-valid 36 &rarr; final 5 &middot; 258.08s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ICNTUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.52</td><td>1h (3/3)</td><td class="num">0.1088</td><td class="num">0.1136</td><td class="num">0.1016, 0.098, 0.0944</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-27-51/charts/ICNTUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>UBUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.38</td><td>15m (3/3)</td><td class="num">0.14084</td><td class="num">0.13466</td><td class="num">0.15011, 0.154745, 0.15938</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-27-51/charts/UBUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>SOONUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.26</td><td>15m (3/3)</td><td class="num">0.2104</td><td class="num">0.2061</td><td class="num">0.21685, 0.220075, 0.2233</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-27-51/charts/SOONUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>LSKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.93</td><td>1h (3/3)</td><td class="num">0.10262</td><td class="num">0.09688</td><td class="num">0.11123, 0.115535, 0.11984</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-27-51/charts/LSKUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>DOLOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.48</td><td>1h (3/3)</td><td class="num">0.02586</td><td class="num">0.02504</td><td class="num">0.02709, 0.027705, 0.02832</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-27-51/charts/DOLOUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T03:12:17.682319+00:00</span>
+        <span class="run-id muted">(2026-08-29_03-12-22)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 29 &rarr; final 5 &middot; 263.65s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MOVEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.11</td><td>15m (3/3)</td><td class="num">0.009506</td><td class="num">0.009037</td><td class="num">0.0102095, 0.01056125, 0.010913</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-12-22/charts/MOVEUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>OGNUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.9</td><td>15m (3/3)</td><td class="num">0.01867</td><td class="num">0.01818</td><td class="num">0.019405, 0.0197725, 0.02014</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-12-22/charts/OGNUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>DOLOUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.87</td><td>15m (3/3)</td><td class="num">0.02581</td><td class="num">0.02536</td><td class="num">0.026485, 0.0268225, 0.02716</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-12-22/charts/DOLOUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>MASKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.81</td><td>15m (3/3)</td><td class="num">0.445</td><td class="num">0.4348</td><td class="num">0.4603, 0.46795, 0.4756</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-12-22/charts/MASKUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>ICNTUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.73</td><td>15m (3/3)</td><td class="num">0.1095</td><td class="num">0.111</td><td class="num">0.10725, 0.106125, 0.105</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_03-12-22/charts/ICNTUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T02:21:20.128960+00:00</span>
+        <span class="run-id muted">(2026-08-29_02-21-22)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">3 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 27 &rarr; final 3 &middot; 234.97s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>HOMEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.96</td><td>1h (3/3)</td><td class="num">0.006392</td><td class="num">0.005936</td><td class="num">0.007076, 0.007418, 0.00776</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-21-22/charts/HOMEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>GUAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.1</td><td>15m (3/3)</td><td class="num">0.04203</td><td class="num">0.04103</td><td class="num">0.04353, 0.04428, 0.04503</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-21-22/charts/GUAUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>SPACEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.05</td><td>15m (2/3)</td><td class="num">0.005062</td><td class="num">0.004882</td><td class="num">0.005332, 0.005467, 0.005602</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-21-22/charts/SPACEUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T02:11:49.134472+00:00</span>
+        <span class="run-id muted">(2026-08-29_02-11-52)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">3 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 516 &rarr; stage1 60 &rarr; mtf-valid 33 &rarr; final 3 &middot; 246.15s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>RIFUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.72</td><td>15m (3/3)</td><td class="num">0.07426</td><td class="num">0.07588</td><td class="num">0.07183, 0.070615, 0.0694</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-11-52/charts/RIFUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>ARKMUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.54</td><td>1h (3/3)</td><td class="num">0.116</td><td class="num">0.1093</td><td class="num">0.12605, 0.131075, 0.1361</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-11-52/charts/ARKMUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ARPAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.22</td><td>15m (3/3)</td><td class="num">0.009626</td><td class="num">0.009505</td><td class="num">0.0098075, 0.00989825, 0.009989</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_02-11-52/charts/ARPAUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T01:56:42.877614+00:00</span>
+        <span class="run-id muted">(2026-08-29_01-56-48)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 25 &rarr; final 5 &middot; 237.88s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.63</td><td>1h (3/3)</td><td class="num">0.1415</td><td class="num">0.1355</td><td class="num">0.1505, 0.155, 0.1595</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-56-48/charts/BUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>ARKMUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.84</td><td>15m (3/3)</td><td class="num">0.1152</td><td class="num">0.112</td><td class="num">0.12, 0.1224, 0.1248</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-56-48/charts/ARKMUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>LSKUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.72</td><td>15m (3/3)</td><td class="num">0.10036</td><td class="num">0.09739</td><td class="num">0.104815, 0.1070425, 0.10927</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-56-48/charts/LSKUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>HOMEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#7b1fa2">BREAKOUT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.41</td><td>1h (2/3)</td><td class="num">0.006348</td><td class="num">0.005924</td><td class="num">0.006984, 0.007302, 0.00762</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-56-48/charts/HOMEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>COOKIEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#ef6c00">EXTENDED</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.38</td><td>1h (3/3)</td><td class="num">0.011884</td><td class="num">0.01122</td><td class="num">0.01288, 0.013378, 0.013876</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-56-48/charts/COOKIEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T01:36:10.816311+00:00</span>
+        <span class="run-id muted">(2026-08-29_01-36-15)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 23 &rarr; final 5 &middot; 236.36s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>EDUUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.66</td><td>1h (3/3)</td><td class="num">0.04926</td><td class="num">0.04613</td><td class="num">0.053955, 0.0563025, 0.05865</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-36-15/charts/EDUUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>BLESSUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.42</td><td>1h (3/3)</td><td class="num">0.011679</td><td class="num">0.010857</td><td class="num">0.012912, 0.0135285, 0.014145</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-36-15/charts/BLESSUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>BUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.37</td><td>1h (2/3)</td><td class="num">0.1406</td><td class="num">0.1355</td><td class="num">0.14825, 0.152075, 0.1559</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-36-15/charts/BUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>YBUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.35</td><td>15m (3/3)</td><td class="num">0.09623</td><td class="num">0.09449</td><td class="num">0.09884, 0.100145, 0.10145</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-36-15/charts/YBUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>PLUMEUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.26</td><td>1h (3/3)</td><td class="num">0.01447</td><td class="num">0.01345</td><td class="num">0.016, 0.016765, 0.01753</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_01-36-15/charts/PLUMEUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T01:20:54.332990+00:00</span>
+        <span class="run-id muted">(2026-08-29_01-20-59)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 2 &rarr; final 2 &middot; 249.09s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BANUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.5</td><td>- (3/3)</td><td class="num">0.072757552839</td><td class="num">0.073145379367</td><td class="num">0.072175813046, 0.071884943149, 0.071594073253</td><td>-</td><td></td><td>-</td></tr><tr><td>MOVRUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.58</td><td>- (3/3)</td><td class="num">0.779028668245</td><td class="num">0.810876687063</td><td class="num">0.731256640018, 0.707370625905, 0.683484611791</td><td>-</td><td></td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T00:53:01.110839+00:00</span>
+        <span class="run-id muted">(2026-08-29_00-53-05)</span>
+        <span class="badge" style="background:#607d8b">N/A</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 2 &rarr; final 2 &middot; 254.25s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>NILUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.63</td><td>15m (3/3)</td><td class="num">0.044261581085</td><td class="num">0.043204202508</td><td class="num">0.04584764895, 0.046640682883, 0.047433716816</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_00-53-05/charts/NILUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>MAGMAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.99</td><td>15m (3/3)</td><td class="num">0.297705156243</td><td class="num">0.274873085187</td><td class="num">0.331953262827, 0.349077316119, 0.36620136941</td><td>-</td><td></td><td><a href="scan_results/2026-08-29_00-53-05/charts/MAGMAUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T00:29:40.214684+00:00</span>
+        <span class="run-id muted">(2026-08-29_00-29-43)</span>
+        <span class="badge" style="background:#607d8b">N/A</span>
+        <span class="run-count">2 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 2 &rarr; final 2 &middot; 229.75s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XANUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">9.14</td><td>15m (3/3)</td><td class="num">0.012058236351</td><td class="num">0.01180901555</td><td class="num">0.012432067552, 0.012618983153, 0.012805898753</td><td>-</td><td></td><td>-</td></tr><tr><td>NILUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">8.76</td><td>15m (3/3)</td><td class="num">0.044261581085</td><td class="num">0.043209828402</td><td class="num">0.045839210109, 0.046628024621, 0.047416839133</td><td>-</td><td></td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T00:11:07.671317+00:00</span>
+        <span class="run-id muted">(2026-08-29_00-11-07)</span>
+        <span class="badge" style="background:#607d8b">no_stage1_candidates</span>
+        <span class="run-count">0 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 0 &rarr; mtf-valid 0 &rarr; final 0 &middot; 197.7s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="12" class="muted">Tidak ada kandidat pada scan ini.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-29T00:04:24.758416+00:00</span>
+        <span class="run-id muted">(2026-08-29_00-04-24)</span>
+        <span class="badge" style="background:#607d8b">no_stage1_candidates</span>
+        <span class="run-count">0 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 0 &rarr; mtf-valid 0 &rarr; final 0 &middot; 197.35s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="12" class="muted">Tidak ada kandidat pada scan ini.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-28T23:51:09.698514+00:00</span>
+        <span class="run-id muted">(2026-08-28_23-51-09)</span>
+        <span class="badge" style="background:#607d8b">no_stage1_candidates</span>
+        <span class="run-count">0 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 0 &rarr; mtf-valid 0 &rarr; final 0 &middot; 196.78s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="12" class="muted">Tidak ada kandidat pada scan ini.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-28T23:11:47.072471+00:00</span>
+        <span class="run-id muted">(2026-08-28_23-11-50)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">4 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 517 &rarr; stage1 60 &rarr; mtf-valid 24 &rarr; final 4 &middot; 263.09s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XANUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.64</td><td>1h (3/3)</td><td class="num">0.012901</td><td class="num">0.011883</td><td class="num">0.014428, 0.0151915, 0.015955</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_23-11-50/charts/XANUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>KNCUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.01</td><td>15m (3/3)</td><td class="num">0.1167</td><td class="num">0.1143</td><td class="num">0.1203, 0.1221, 0.1239</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_23-11-50/charts/KNCUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>CYSUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.26</td><td>15m (3/3)</td><td class="num">0.6178</td><td class="num">0.6498</td><td class="num">0.5698, 0.5458, 0.5218</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_23-11-50/charts/CYSUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>STBLUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.17</td><td>15m (3/3)</td><td class="num">0.02778</td><td class="num">0.02735</td><td class="num">0.028425, 0.0287475, 0.02907</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_23-11-50/charts/STBLUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-28T22:08:26.803462+00:00</span>
+        <span class="run-id muted">(2026-08-28_22-08-29)</span>
+        <span class="badge" style="background:#607d8b">mtf_fallback</span>
+        <span class="run-count">5 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 518 &rarr; stage1 60 &rarr; mtf-valid 30 &rarr; final 5 &middot; 250.98s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>USUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">7.26</td><td>15m (3/3)</td><td class="num">0.019058</td><td class="num">0.018254</td><td class="num">0.020264, 0.020867, 0.02147</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_22-08-29/charts/USUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>NILUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">5.89</td><td>1h (3/3)</td><td class="num">0.04765</td><td class="num">0.04421</td><td class="num">0.05281, 0.05539, 0.05797</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_22-08-29/charts/NILUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>AIGENSYNUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">5.64</td><td>1h (3/3)</td><td class="num">0.01949</td><td class="num">0.02015</td><td class="num">0.0185, 0.018005, 0.01751</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_22-08-29/charts/AIGENSYNUSDT_SHORT_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>BULLAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">5.62</td><td>15m (2/3)</td><td class="num">0.016819</td><td class="num">0.016656</td><td class="num">0.0170635, 0.01718575, 0.017308</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_22-08-29/charts/BULLAUSDT_LONG_15m_chart.png" target="_blank">chart</a></td></tr><tr><td>LAUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">5.58</td><td>4h (3/3)</td><td class="num">0.05409</td><td class="num">0.05784</td><td class="num">0.048465, 0.0456525, 0.04284</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_22-08-29/charts/LAUSDT_SHORT_4h_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <span class="run-time">2026-08-28T21:41:32.320897+00:00</span>
+        <span class="run-id muted">(2026-08-28_21-41-36)</span>
+        <span class="badge" style="background:#607d8b">min_score</span>
+        <span class="run-count">3 kandidat</span>
+      </summary>
+      <p class="funnel muted">universe 518 &rarr; stage1 60 &rarr; mtf-valid 22 &rarr; final 3 &middot; 260.44s</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Side</th><th>Setup</th>
+              <th>Entry State</th><th>Score</th><th>Exec TF</th>
+              <th>Entry</th><th>SL</th><th>TP</th>
+              <th>HTF Bias</th><th></th><th>Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>DIAUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.97</td><td>1h (3/3)</td><td class="num">0.1479</td><td class="num">0.1383</td><td class="num">0.1623, 0.1695, 0.1767</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_21-41-36/charts/DIAUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>XANUSDT</td><td><span class="badge" style="background:#2e7d32">LONG</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.3</td><td>1h (3/3)</td><td class="num">0.012771</td><td class="num">0.011883</td><td class="num">0.014103, 0.014769, 0.015435</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_21-41-36/charts/XANUSDT_LONG_1h_chart.png" target="_blank">chart</a></td></tr><tr><td>AIGENSYNUSDT</td><td><span class="badge" style="background:#c62828">SHORT</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td><span class="badge" style="background:#607d8b">N/A</span></td><td class="num">6.23</td><td>15m (3/3)</td><td class="num">0.01956</td><td class="num">0.01989</td><td class="num">0.019065, 0.0188175, 0.01857</td><td>-</td><td></td><td><a href="scan_results/2026-08-28_21-41-36/charts/AIGENSYNUSDT_SHORT_15m_chart.png" target="_blank">chart</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    
+
+  <h2 class="section-title">Ringkasan Agregat</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total scan run</h3>
+      <div class="value">33</div>
+    </div>
+    <div class="card">
+      <h3>Total kandidat (semua run)</h3>
+      <div class="value">121</div>
+    </div>
+    <div class="card">
+      <h3>Tren kandidat final / run</h3>
+      <svg viewBox="0 0 680 120" width="100%" height="120" class="trend-svg"><polyline points="12.0,50.4 32.5,12.0 53.0,31.2 73.5,108.0 94.0,108.0 114.5,108.0 135.0,69.6 155.5,69.6 176.0,69.6 196.5,12.0 217.0,12.0 237.5,50.4 258.0,50.4 278.5,12.0 299.0,12.0 319.5,12.0 340.0,50.4 360.5,69.6 381.0,12.0 401.5,12.0 422.0,12.0 442.5,69.6 463.0,12.0 483.5,12.0 504.0,12.0 524.5,12.0 545.0,12.0 565.5,12.0 586.0,31.2 606.5,12.0 627.0,69.6 647.5,31.2 668.0,12.0" fill="none" stroke="#1565c0" stroke-width="2" /><circle cx="12.0" cy="50.4" r="3" fill="#1565c0"><title>2026-08-28_21-41-36: 3</title></circle><circle cx="32.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-28_22-08-29: 5</title></circle><circle cx="53.0" cy="31.2" r="3" fill="#1565c0"><title>2026-08-28_23-11-50: 4</title></circle><circle cx="73.5" cy="108.0" r="3" fill="#1565c0"><title>2026-08-28_23-51-09: 0</title></circle><circle cx="94.0" cy="108.0" r="3" fill="#1565c0"><title>2026-08-29_00-04-24: 0</title></circle><circle cx="114.5" cy="108.0" r="3" fill="#1565c0"><title>2026-08-29_00-11-07: 0</title></circle><circle cx="135.0" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_00-29-43: 2</title></circle><circle cx="155.5" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_00-53-05: 2</title></circle><circle cx="176.0" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_01-20-59: 2</title></circle><circle cx="196.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_01-36-15: 5</title></circle><circle cx="217.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_01-56-48: 5</title></circle><circle cx="237.5" cy="50.4" r="3" fill="#1565c0"><title>2026-08-29_02-11-52: 3</title></circle><circle cx="258.0" cy="50.4" r="3" fill="#1565c0"><title>2026-08-29_02-21-22: 3</title></circle><circle cx="278.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_03-12-22: 5</title></circle><circle cx="299.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_03-27-51: 5</title></circle><circle cx="319.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_04-11-43: 5</title></circle><circle cx="340.0" cy="50.4" r="3" fill="#1565c0"><title>2026-08-29_05-12-20: 3</title></circle><circle cx="360.5" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_05-26-38: 2</title></circle><circle cx="381.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_05-46-47: 5</title></circle><circle cx="401.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_06-02-58: 5</title></circle><circle cx="422.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_06-12-54: 5</title></circle><circle cx="442.5" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_07-12-23: 2</title></circle><circle cx="463.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_09-11-05: 5</title></circle><circle cx="483.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_10-10-57: 5</title></circle><circle cx="504.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_11-10-51: 5</title></circle><circle cx="524.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_12-12-04: 5</title></circle><circle cx="545.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_13-10-41: 5</title></circle><circle cx="565.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_14-10-25: 5</title></circle><circle cx="586.0" cy="31.2" r="3" fill="#1565c0"><title>2026-08-29_15-41-06: 4</title></circle><circle cx="606.5" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_18-35-48: 5</title></circle><circle cx="627.0" cy="69.6" r="3" fill="#1565c0"><title>2026-08-29_19-00-12: 2</title></circle><circle cx="647.5" cy="31.2" r="3" fill="#1565c0"><title>2026-08-29_21-08-33: 4</title></circle><circle cx="668.0" cy="12.0" r="3" fill="#1565c0"><title>2026-08-29_23-50-11: 5</title></circle></svg>
+    </div>
+    <div class="card">
+      <h3>Symbol paling sering muncul</h3>
+      <ul><li><span>KOMAUSDT</span><span class="muted">3x</span></li><li><span>DOLOUSDT</span><span class="muted">3x</span></li><li><span>YBUSDT</span><span class="muted">3x</span></li><li><span>MASKUSDT</span><span class="muted">3x</span></li><li><span>OGNUSDT</span><span class="muted">3x</span></li><li><span>ALPINEUSDT</span><span class="muted">3x</span></li><li><span>ICNTUSDT</span><span class="muted">3x</span></li><li><span>NILUSDT</span><span class="muted">3x</span></li></ul>
+    </div>
+  </div>
+
+  <footer>
+    belenggu.py &middot; not financial advice
+  </footer>
+
+</body>
+</html>

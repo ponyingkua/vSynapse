@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T23:50:07.212008+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CFGUSDT | Side: SHORT | Score: 5.8
+   - Entry : 0.12350
+   - SL    : 0.12480
+   - TP    : 0.12155, 0.12058, 0.11960
+   - Invalidation: Close above 0.1248 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: SKRUSDT | Side: LONG | Score: 5.68
+   - Entry : 0.01105
+   - SL    : 0.01038
+   - TP    : 0.01206, 0.01256, 0.01306
+   - Invalidation: Close below 0.010383 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: EDGEUSDT | Side: SHORT | Score: 4.96
+   - Entry : 0.37780
+   - SL    : 0.38630
+   - TP    : 0.36505, 0.35868, 0.35230
+   - Invalidation: Close above 0.3863 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: TURBOUSDT | Side: LONG | Score: 4.9
+   - Entry : 0.001034
+   - SL    : 0.001016
+   - TP    : 0.001062, 0.001076, 0.001090
+   - Invalidation: Close below 0.0010158 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: EULUSDT | Side: LONG | Score: 4.74
+   - Entry : 1.3870
+   - SL    : 1.3671
+   - TP    : 1.4169, 1.4318, 1.4467
+   - Invalidation: Close below 1.3671 / loss of recent 15m swing low
+----------------------------------------
