@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T12:12:00.092833+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: DOLOUSDT | Side: LONG | Score: 8.89
+   - Entry : 0.02648
+   - SL    : 0.02529
+   - TP    : 0.028265, 0.0291575, 0.03005
+   - Invalidation: Close below 0.02529 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: KOMAUSDT | Side: LONG | Score: 7.8
+   - Entry : 0.014051
+   - SL    : 0.0131
+   - TP    : 0.0154775, 0.01619075, 0.016904
+   - Invalidation: Close below 0.0131 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: IOTAUSDT | Side: SHORT | Score: 6.92
+   - Entry : 0.03812
+   - SL    : 0.03875
+   - TP    : 0.037175, 0.0367025, 0.03623
+   - Invalidation: Close above 0.03875 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: ROBOUSDT | Side: LONG | Score: 9.09
+   - Entry : 0.01484594732
+   - SL    : 0.01406
+   - TP    : 0.0160248683, 0.01661432879, 0.01720378928
+   - Invalidation: Close below 0.01406 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: ZKPUSDT | Side: LONG | Score: 8.5
+   - Entry : 0.045032226888
+   - SL    : 0.04309
+   - TP    : 0.047945567221, 0.049402237387, 0.050858907553
+   - Invalidation: Close below 0.04309 / loss of recent 1h swing low
+----------------------------------------
