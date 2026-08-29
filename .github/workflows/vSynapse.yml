@@ -188,3 +188,9 @@ jobs:
 
           git commit -m "chore: Synaptic scan $RESULT_DIR"
           git push
+
+- name: Run Synaptic Pipeline
+        run: |
+          python Synaptic.py --out synaptic_candidates.json
+          python vSch.py --input synaptic_candidates.json --output-dir charts
+          python dashboard.py --input synaptic_candidates.json --charts-dir charts --output dashboard.html
