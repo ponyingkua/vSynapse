@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T01:56:42.877614+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BUSDT | Side: LONG | Score: 7.63
+   - Entry : 0.1415
+   - SL    : 0.1355
+   - TP    : 0.1505, 0.155, 0.1595
+   - Invalidation: Close below 0.1355 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ARKMUSDT | Side: LONG | Score: 6.84
+   - Entry : 0.1152
+   - SL    : 0.112
+   - TP    : 0.12, 0.1224, 0.1248
+   - Invalidation: Close below 0.112 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: LSKUSDT | Side: LONG | Score: 6.72
+   - Entry : 0.10036
+   - SL    : 0.09739
+   - TP    : 0.104815, 0.1070425, 0.10927
+   - Invalidation: Close below 0.09739 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: HOMEUSDT | Side: LONG | Score: 6.41
+   - Entry : 0.006348
+   - SL    : 0.005924
+   - TP    : 0.006984, 0.007302, 0.00762
+   - Invalidation: Close below 0.005924 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: COOKIEUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.011884
+   - SL    : 0.01122
+   - TP    : 0.01288, 0.013378, 0.013876
+   - Invalidation: Close below 0.01122 / loss of recent 1h swing low
+----------------------------------------
