@@ -181,10 +181,7 @@ jobs:
           if [ -d "charts" ]; then
             cp -r charts "$RESULT_DIR/"
           fi
-- name: Build dashboard
-        shell: bash
-        run: |
-          belenggu.py --results-dir scan_results --out dashboard.html
+
           echo "========================================"
           echo "Synaptic result folder:"
           echo "$RESULT_DIR"
