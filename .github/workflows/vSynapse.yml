@@ -181,7 +181,10 @@ jobs:
           if [ -d "charts" ]; then
             cp -r charts "$RESULT_DIR/"
           fi
-
+- name: Build dashboard
+        shell: bash
+        run: |
+          python vDash.py --results-dir scan_results --out dashboard.html
           echo "========================================"
           echo "Synaptic result folder:"
           echo "$RESULT_DIR"
@@ -196,10 +199,7 @@ jobs:
             ${{ env.RESULT_DIR }}
           if-no-files-found: ignore
           retention-days: 7
-   - name: Build dashboard
-        shell: bash
-        run: |
-          python vDash.py --results-dir scan_results --out dashboard.html
+   
       - name: Commit scan results
         shell: bash
         run: |
