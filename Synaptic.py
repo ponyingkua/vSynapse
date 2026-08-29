@@ -164,6 +164,46 @@ IGNORED_SYMBOLS = {
 
 
 # ============================================================
+# PRICE DECIMALS
+#
+# Dipakai untuk membulatkan entry/sl/tp SEBELUM ditulis ke
+# JSON output, supaya semua konsumen data (vSch.py, summary.txt,
+# notifikasi bot, dll) melihat angka yang sama-sama rapi --
+# bukan float mentah hasil kalkulasi (mis. 1.053276482234).
+#
+# Logika identik dengan decimals_from_price() di vSch.py,
+# supaya chart dan JSON tidak pernah "beda pembulatan".
+# ============================================================
+
+def decimals_from_price(price):
+
+    p = abs(float(price))
+
+    if p < 0.0001:
+        return 8
+
+    if p < 0.001:
+        return 7
+
+    if p < 0.01:
+        return 6
+
+    if p < 0.1:
+        return 5
+
+    if p < 1:
+        return 5
+
+    if p < 10:
+        return 4
+
+    if p < 100:
+        return 3
+
+    return 2
+
+
+# ============================================================
 # CONFIGURATION
 # ============================================================
 
@@ -2564,6 +2604,23 @@ def analyze_symbol(
     ]
 
     # --------------------------------------------------------
+    # Rounding harga -- supaya entry/sl/tp konsisten dengan
+    # chart (vSch.py) dan tidak menampilkan noise float
+    # (mis. 1.053276482234) di JSON/summary output.
+    #
+    # Jumlah desimal ditentukan dari magnitude harga entry,
+    # sama persis dengan decimals_from_price() di vSch.py, dan
+    # disimpan sebagai "decimals" supaya semua konsumen data
+    # (chart, notifikasi, summary) pakai angka yang sama.
+    # --------------------------------------------------------
+
+    price_decimals = decimals_from_price(entry)
+
+    entry = round(entry, price_decimals)
+    sl = round(sl, price_decimals)
+    tp = [round(t, price_decimals) for t in tp]
+
+    # --------------------------------------------------------
     # Funding rate -- crowded trade guard.
     #
     # Funding SEARAH sisi trade di atas ambang berarti mayoritas
@@ -2668,6 +2725,8 @@ def analyze_symbol(
         "entry_state": entry_state,
 
         "reference_level": reference_level,
+
+        "decimals": price_decimals,
 
         "score": round(
             score,
