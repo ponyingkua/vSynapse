@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-29T11:10:46.989842+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: 龙虾USDT | Side: LONG | Score: 7.58
+   - Entry : 0.069280923479
+   - SL    : 0.064
+   - TP    : 0.077202308698, 0.081163001307, 0.085123693917
+   - Invalidation: Close below 0.064 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: YBUSDT | Side: LONG | Score: 7.33
+   - Entry : 0.09889081605
+   - SL    : 0.0945
+   - TP    : 0.105477040126, 0.108770152164, 0.112063264202
+   - Invalidation: Close below 0.0945 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: 我踏马来了USDT | Side: LONG | Score: 7.03
+   - Entry : 0.012147
+   - SL    : 0.011538
+   - TP    : 0.0130605, 0.01351725, 0.013974
+   - Invalidation: Close below 0.011538 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: KOMAUSDT | Side: LONG | Score: 6.73
+   - Entry : 0.013628
+   - SL    : 0.0131
+   - TP    : 0.01442, 0.014816, 0.015212
+   - Invalidation: Close below 0.0131 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: BANKUSDT | Side: LONG | Score: 6.72
+   - Entry : 0.037532637303
+   - SL    : 0.03634
+   - TP    : 0.039321593258, 0.040216071235, 0.041110549212
+   - Invalidation: Close below 0.03634 / loss of recent 15m swing low
+----------------------------------------
