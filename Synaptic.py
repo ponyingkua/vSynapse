@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-Synaptic - Multi-Timeframe Binance Futures Scanner (Optimized Version)
-Version: 2.0 (Supertrend Optimized + Refactored + Typed Config)
-Author: vSynapse (based on original)
-"""
 
 import argparse
 import json
@@ -13,14 +8,11 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import (
-    Any, Dict, List, Optional, Tuple, Union, Callable,
-    Literal, TypedDict
-)
 
 import numpy as np
 import pandas as pd
 import requests
+
 
 # ============================================================
 # LOGGING
@@ -46,96 +38,56 @@ TFS = ["15m", "1h", "4h"]
 # SYMBOL FILTER
 # ============================================================
 
-IGNORED_SYMBOLS: set[str] = {
-    "USDCUSDT", "BUSDUSDT", "DAIUSDT", "TUSDUSDT", "FDUSDUSDT",
-    "USDPUSDT", "EURUSDT", "USTCUSDT", "PAXGUSDT",
+IGNORED_SYMBOLS = {
+    "USDCUSDT",
+    "BUSDUSDT",
+    "DAIUSDT",
+    "TUSDUSDT",
+    "FDUSDUSDT",
+    "USDPUSDT",
+    "EURUSDT",
+    "USTCUSDT",
+    "PAXGUSDT",
 }
 
 
 # ============================================================
-# CONFIGURATION (Typed & Extended)
+# CONFIGURATION
 # ============================================================
 
-class Config(TypedDict):
-    """Extended typed configuration for better maintainability."""
+CONFIG = {
 
-    # Universe
-    min_quote_volume_24h: int
-    universe_size: int
-
-    # Stage 1
-    momentum_pool: int
-    klines: int
-    workers_stage1: int
-
-    # Stage 2
-    workers_stage2: int
-
-    # Candidate selection
-    min_score: float
-    min_candidates: int
-    max_results: int
-
-    # Indicators
-    ema_period: int
-    volume_ma_period: int
-    volume_ratio_min: float
-
-    macd_fast: int
-    macd_slow: int
-    macd_signal: int
-
-    supertrend_period: int
-    supertrend_multiplier: float
-
-    atr_period: int
-    breakout_window: int
-
-    # Momentum
-    momentum_fast_bars: int
-    momentum_slow_bars: int
-
-    # Structure / risk
-    swing_window: int
-
-    risk_reward: list[float]
-
-    # Setup Engine
-    pullback_ema_atr_lower: float
-    pullback_ema_atr_upper: float
-    extended_atr: float
-
-    # API
-    api_timeout: int
-    api_retries: int
-    retry_base_delay: float
-
-    # Chart defaults
-    visible_candles: dict[str, int]
-
-
-CONFIG: Config = {
     # --------------------------------------------------------
     # Universe
     # --------------------------------------------------------
+
     "min_quote_volume_24h": 500_000,
-    "universe_size": 0,  # 0 = all active USDT perpetuals
+
+    # 0 = seluruh active USDT perpetual
+    "universe_size": 0,
 
     # --------------------------------------------------------
     # Stage 1
     # --------------------------------------------------------
+
     "momentum_pool": 60,
+
+    # Cukup untuk EMA200 + indikator lain.
     "klines": 240,
+
+    # Concurrency Stage 1.
     "workers_stage1": 16,
 
     # --------------------------------------------------------
     # Stage 2
     # --------------------------------------------------------
+
     "workers_stage2": 12,
 
     # --------------------------------------------------------
     # Candidate selection
     # --------------------------------------------------------
+
     "min_score": 6.0,
     "min_candidates": 2,
     "max_results": 5,
@@ -143,7 +95,9 @@ CONFIG: Config = {
     # --------------------------------------------------------
     # Indicators
     # --------------------------------------------------------
+
     "ema_period": 200,
+
     "volume_ma_period": 20,
     "volume_ratio_min": 1.30,
 
@@ -155,24 +109,32 @@ CONFIG: Config = {
     "supertrend_multiplier": 2.50,
 
     "atr_period": 14,
+
     "breakout_window": 20,
 
     # --------------------------------------------------------
     # Momentum
     # --------------------------------------------------------
+
     "momentum_fast_bars": 4,
     "momentum_slow_bars": 16,
 
     # --------------------------------------------------------
     # Structure / risk
     # --------------------------------------------------------
+
     "swing_window": 8,
 
-    "risk_reward": [1.5, 2.25, 3.0],
+    "risk_reward": [
+        1.5,
+        2.25,
+        3.0,
+    ],
 
     # --------------------------------------------------------
     # Setup Engine
     # --------------------------------------------------------
+
     "pullback_ema_atr_lower": 0.50,
     "pullback_ema_atr_upper": 1.00,
     "extended_atr": 2.50,
@@ -180,13 +142,17 @@ CONFIG: Config = {
     # --------------------------------------------------------
     # API
     # --------------------------------------------------------
+
     "api_timeout": 10,
+
     "api_retries": 2,
+
     "retry_base_delay": 0.35,
 
     # --------------------------------------------------------
     # Chart defaults
     # --------------------------------------------------------
+
     "visible_candles": {
         "15m": 60,
         "1h": 48,
@@ -207,15 +173,30 @@ BASE_URLS = [
     "https://www.binance.com",
 ]
 
-HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "application/json",
+}
+
+
+# ============================================================
+# THREAD LOCAL SESSION
+# ============================================================
 
 _thread_local = threading.local()
 
 
-def get_session() -> requests.Session:
-    """Thread-local session to avoid global session contention."""
-    session = getattr(_thread_local, "session", None)
+def get_session():
+    """
+    Setiap worker thread mempunyai Session sendiri.
+    """
+
+    session = getattr(
+        _thread_local,
+        "session",
+        None,
+    )
 
     if session is None:
         session = requests.Session()
@@ -229,31 +210,48 @@ def get_session() -> requests.Session:
 # API ENGINE
 # ============================================================
 
-def _retry_delay(
-    attempt: int,
-    response: Optional[requests.Response] = None
-) -> float:
+def _retry_delay(attempt, response=None):
+    """
+    Delay pendek dan terkontrol.
+    """
 
     if response is not None:
-        retry_after = response.headers.get("Retry-After")
+        retry_after = response.headers.get(
+            "Retry-After"
+        )
 
         if retry_after:
             try:
                 value = float(retry_after)
-                return min(max(value, 0.2), 5.0)
-            except (TypeError, ValueError):
+                return min(
+                    max(value, 0.2),
+                    5.0,
+                )
+            except (
+                TypeError,
+                ValueError,
+            ):
                 pass
 
     base = CONFIG["retry_base_delay"]
+
     delay = base * (2 ** attempt)
-    delay += random.uniform(0.05, 0.20)
 
-    return min(delay, 3.0)
+    delay += random.uniform(
+        0.05,
+        0.20,
+    )
+
+    return min(
+        delay,
+        3.0,
+    )
 
 
-def _parse_response(
-    response: requests.Response
-) -> Optional[Union[Dict, List]]:
+def _parse_response(response):
+    """
+    Parse response JSON dengan aman.
+    """
 
     try:
         return response.json()
@@ -261,24 +259,25 @@ def _parse_response(
         return None
 
 
-def api(
-    path: str,
-    params: Optional[dict] = None,
-    timeout: Optional[int] = None,
-) -> Any:
-    """Central Binance API request with full retry logic."""
+def api(path, params=None, timeout=None):
+    """
+    Central Binance API request.
+    """
 
     if timeout is None:
         timeout = CONFIG["api_timeout"]
 
     session = get_session()
+
     last_error = None
 
     for base_url in BASE_URLS:
 
         url = base_url + path
 
-        for attempt in range(CONFIG["api_retries"] + 1):
+        for attempt in range(
+            CONFIG["api_retries"] + 1
+        ):
 
             try:
 
@@ -290,14 +289,23 @@ def api(
 
                 status = response.status_code
 
+                # ------------------------------------------------
+                # Normal response
+                # ------------------------------------------------
+
                 if status == 200:
 
-                    data = _parse_response(response)
+                    data = _parse_response(
+                        response
+                    )
 
                     if data is None:
+
                         last_error = (
-                            f"{base_url} HTTP 200 but invalid JSON"
+                            f"{base_url} "
+                            "HTTP 200 but invalid JSON"
                         )
+
                         break
 
                     if (
@@ -305,108 +313,200 @@ def api(
                         and "code" in data
                         and "msg" in data
                     ):
+
                         last_error = (
-                            f"{data.get('code')}: {data.get('msg')}"
+                            f"{data.get('code')}: "
+                            f"{data.get('msg')}"
                         )
 
-                        if attempt < CONFIG["api_retries"]:
+                        if (
+                            attempt
+                            < CONFIG["api_retries"]
+                        ):
+
                             time.sleep(
-                                _retry_delay(attempt, response)
+                                _retry_delay(
+                                    attempt,
+                                    response,
+                                )
                             )
+
                             continue
 
                         break
 
                     return data
 
+                # ------------------------------------------------
+                # 202
+                # ------------------------------------------------
+
                 if status == 202:
 
-                    data = _parse_response(response)
+                    data = _parse_response(
+                        response
+                    )
 
-                    if isinstance(data, (dict, list)) and not (
-                        isinstance(data, dict)
-                        and "code" in data
-                        and "msg" in data
+                    if isinstance(
+                        data,
+                        (dict, list),
                     ):
-                        return data
 
-                    last_error = f"{base_url} HTTP 202"
+                        if not (
+                            isinstance(
+                                data,
+                                dict,
+                            )
+                            and "code" in data
+                            and "msg" in data
+                        ):
 
-                    if attempt < CONFIG["api_retries"]:
+                            return data
+
+                    last_error = (
+                        f"{base_url} HTTP 202"
+                    )
+
+                    if (
+                        attempt
+                        < CONFIG["api_retries"]
+                    ):
+
                         time.sleep(
-                            _retry_delay(attempt, response)
+                            _retry_delay(
+                                attempt,
+                                response,
+                            )
                         )
+
                         continue
 
                     break
 
-                if status in (418, 429):
+                # ------------------------------------------------
+                # Rate limit
+                # ------------------------------------------------
 
-                    last_error = f"{base_url} HTTP {status}"
+                if status in (
+                    418,
+                    429,
+                ):
 
-                    if attempt < CONFIG["api_retries"]:
+                    last_error = (
+                        f"{base_url} HTTP {status}"
+                    )
+
+                    if (
+                        attempt
+                        < CONFIG["api_retries"]
+                    ):
+
                         time.sleep(
-                            _retry_delay(attempt, response)
+                            _retry_delay(
+                                attempt,
+                                response,
+                            )
                         )
+
                         continue
 
                     break
+
+                # ------------------------------------------------
+                # 451
+                # ------------------------------------------------
 
                 if status == 451:
 
-                    last_error = f"{base_url} HTTP 451"
+                    last_error = (
+                        f"{base_url} HTTP 451"
+                    )
+
                     break
 
-                last_error = f"{base_url} HTTP {status}"
+                # ------------------------------------------------
+                # Other HTTP errors
+                # ------------------------------------------------
 
-                if attempt < CONFIG["api_retries"]:
+                last_error = (
+                    f"{base_url} HTTP {status}"
+                )
+
+                if (
+                    attempt
+                    < CONFIG["api_retries"]
+                ):
+
                     time.sleep(
-                        _retry_delay(attempt, response)
+                        _retry_delay(
+                            attempt,
+                            response,
+                        )
                     )
+
                     continue
 
                 break
 
             except requests.Timeout:
 
-                last_error = f"{base_url} timeout"
+                last_error = (
+                    f"{base_url} timeout"
+                )
 
-                if attempt < CONFIG["api_retries"]:
-                    time.sleep(_retry_delay(attempt))
+                if (
+                    attempt
+                    < CONFIG["api_retries"]
+                ):
+
+                    time.sleep(
+                        _retry_delay(attempt)
+                    )
+
                     continue
 
                 break
 
             except requests.RequestException as exc:
 
-                last_error = f"{base_url}: {exc}"
+                last_error = (
+                    f"{base_url}: {exc}"
+                )
 
-                if attempt < CONFIG["api_retries"]:
-                    time.sleep(_retry_delay(attempt))
+                if (
+                    attempt
+                    < CONFIG["api_retries"]
+                ):
+
+                    time.sleep(
+                        _retry_delay(attempt)
+                    )
+
                     continue
 
                 break
 
     raise RuntimeError(
-        f"All Binance endpoints failed: {last_error}"
+        "All Binance endpoints failed: "
+        f"{last_error}"
     )
 
 
 # ============================================================
-# BASIC ENDPOINTS
+# BASIC API ENDPOINTS
 # ============================================================
 
-def exchange_info() -> dict:
+def exchange_info():
     return api(
         "/fapi/v1/exchangeInfo",
-        timeout=15
+        timeout=15,
     )
 
 
-def ticker_24h() -> list:
+def ticker_24h():
     return api(
         "/fapi/v1/ticker/24hr",
-        timeout=15
+        timeout=15,
     )
 
 
@@ -414,7 +514,7 @@ def ticker_24h() -> list:
 # UNIVERSE
 # ============================================================
 
-def universe() -> list[tuple[str, float, float]]:
+def universe():
 
     started = time.time()
 
@@ -429,50 +529,87 @@ def universe() -> list[tuple[str, float, float]]:
 
     rows = []
 
-    for item in info.get("symbols", []):
+    for item in info.get(
+        "symbols",
+        [],
+    ):
 
-        if not isinstance(item, dict):
+        if not isinstance(
+            item,
+            dict,
+        ):
             continue
 
-        symbol = str(item.get("symbol", ""))
+        symbol = str(
+            item.get(
+                "symbol",
+                "",
+            )
+        )
 
         if not symbol:
             continue
 
-        if item.get("contractType") != "PERPETUAL":
+        if item.get(
+            "contractType"
+        ) != "PERPETUAL":
             continue
 
-        if item.get("quoteAsset") != "USDT":
+        if item.get(
+            "quoteAsset"
+        ) != "USDT":
             continue
 
-        if item.get("status") != "TRADING":
+        if item.get(
+            "status"
+        ) != "TRADING":
             continue
 
         if symbol in IGNORED_SYMBOLS:
             continue
 
-        ticker = ticker_map.get(symbol)
+        ticker = ticker_map.get(
+            symbol
+        )
 
         if not ticker:
             continue
 
         try:
+
             quote_volume = float(
-                ticker.get("quoteVolume", 0)
+                ticker.get(
+                    "quoteVolume",
+                    0,
+                )
             )
 
             change_24h = float(
-                ticker.get("priceChangePercent", 0)
+                ticker.get(
+                    "priceChangePercent",
+                    0,
+                )
             )
 
             last_price = float(
-                ticker.get("lastPrice", 0)
+                ticker.get(
+                    "lastPrice",
+                    0,
+                )
             )
 
-        except (TypeError, ValueError):
+        except (
+            TypeError,
+            ValueError,
+        ):
             continue
 
-        if quote_volume < CONFIG["min_quote_volume_24h"]:
+        if (
+            quote_volume
+            < CONFIG[
+                "min_quote_volume_24h"
+            ]
+        ):
             continue
 
         if last_price <= 0:
@@ -487,12 +624,20 @@ def universe() -> list[tuple[str, float, float]]:
         )
 
     if CONFIG["universe_size"] > 0:
-        rows = rows[:CONFIG["universe_size"]]
 
-    elapsed = time.time() - started
+        rows = rows[
+            :CONFIG["universe_size"]
+        ]
+
+    elapsed = (
+        time.time()
+        - started
+    )
 
     logger.info(
-        "Universe matched %d active USDT-M perpetual symbols globally (%.2fs).",
+        "Universe matched %d active "
+        "USDT-M perpetual symbols globally "
+        "(%.2fs).",
         len(rows),
         elapsed,
     )
@@ -501,218 +646,112 @@ def universe() -> list[tuple[str, float, float]]:
 
 
 # ============================================================
-# SUPER TREND
+# KLINES
 # ============================================================
 
-def calculate_supertrend(
-    high: np.ndarray,
-    low: np.ndarray,
-    close: np.ndarray,
-    period: int = 10,
-    multiplier: float = 3.0,
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """
-    Standard SuperTrend calculation.
+def klines(
+    symbol,
+    interval,
+):
 
-    Perbaikan hanya pada perhitungan True Range:
-    semua array TR sekarang memiliki panjang yang sama.
+    raw = api(
+        "/fapi/v1/klines",
+        {
+            "symbol": symbol,
+            "interval": interval,
+            "limit": CONFIG["klines"],
+        },
+        timeout=CONFIG["api_timeout"],
+    )
 
-    Tidak mengubah endpoint atau logic scanner lainnya.
-    """
+    columns = [
+        "time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "trades",
+        "taker_buy_base",
+        "taker_buy_quote",
+        "ignore",
+    ]
 
-    n = len(high)
+    df = pd.DataFrame(
+        raw,
+        columns=columns,
+    )
 
-    if n < period + 1:
-        return (
-            np.full(n, np.nan),
-            np.full(n, 0, dtype=int),
-            np.full(n, np.nan),
+    numeric_columns = [
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "quote_volume",
+    ]
+
+    for col in numeric_columns:
+
+        df[col] = pd.to_numeric(
+            df[col],
+            errors="coerce",
         )
 
-    # --------------------------------------------------------
-    # Previous close
-    # --------------------------------------------------------
-
-    previous_close = np.empty(
-        n,
-        dtype=float
+    df["time"] = pd.to_datetime(
+        df["time"],
+        unit="ms",
+        utc=True,
+        errors="coerce",
     )
 
-    previous_close[0] = close[0]
-    previous_close[1:] = close[:-1]
-
-    # --------------------------------------------------------
-    # True Range
-    # --------------------------------------------------------
-
-    tr0 = high - low
-
-    tr1 = np.abs(
-        high - previous_close
+    df = df.dropna(
+        subset=[
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+        ]
+    ).reset_index(
+        drop=True
     )
 
-    tr2 = np.abs(
-        low - previous_close
-    )
-
-    tr = np.maximum.reduce(
-        [tr0, tr1, tr2]
-    )
-
-    # --------------------------------------------------------
-    # ATR
-    # --------------------------------------------------------
-
-    atr = (
-        pd.Series(tr)
-        .ewm(
-            alpha=1 / period,
-            adjust=False
-        )
-        .mean()
-        .to_numpy()
-    )
-
-    # --------------------------------------------------------
-    # Basic bands
-    # --------------------------------------------------------
-
-    hl2 = (
-        high + low
-    ) / 2.0
-
-    basic_upper = (
-        hl2
-        + multiplier * atr
-    )
-
-    basic_lower = (
-        hl2
-        - multiplier * atr
-    )
-
-    # --------------------------------------------------------
-    # Final bands
-    # --------------------------------------------------------
-
-    final_upper = np.full(
-        n,
-        np.nan,
-        dtype=float
-    )
-
-    final_lower = np.full(
-        n,
-        np.nan,
-        dtype=float
-    )
-
-    direction = np.full(
-        n,
-        1,
-        dtype=int
-    )
-
-    supertrend_line = np.full(
-        n,
-        np.nan,
-        dtype=float
-    )
-
-    # Initial values
-    final_upper[0] = basic_upper[0]
-    final_lower[0] = basic_lower[0]
-
-    direction[0] = 1
-
-    supertrend_line[0] = (
-        final_lower[0]
-    )
-
-    # --------------------------------------------------------
-    # Main loop
-    # --------------------------------------------------------
-
-    for i in range(1, n):
-
-        # Final upper
-        if (
-            basic_upper[i] < final_upper[i - 1]
-            or close[i - 1] > final_upper[i - 1]
-        ):
-            final_upper[i] = basic_upper[i]
-        else:
-            final_upper[i] = final_upper[i - 1]
-
-        # Final lower
-        if (
-            basic_lower[i] > final_lower[i - 1]
-            or close[i - 1] < final_lower[i - 1]
-        ):
-            final_lower[i] = basic_lower[i]
-        else:
-            final_lower[i] = final_lower[i - 1]
-
-        # Direction
-        if direction[i - 1] == 1:
-
-            if (
-                close[i] < final_lower[i - 1]
-                and close[i] < final_lower[i]
-            ):
-                direction[i] = -1
-            else:
-                direction[i] = 1
-
-        else:
-
-            if (
-                close[i] > final_upper[i - 1]
-                and close[i] > final_upper[i]
-            ):
-                direction[i] = 1
-            else:
-                direction[i] = -1
-
-        # Supertrend line
-        if direction[i] > 0:
-            supertrend_line[i] = final_lower[i]
-        else:
-            supertrend_line[i] = final_upper[i]
-
-    return (
-        supertrend_line,
-        direction,
-        atr,
-    )
+    return df
 
 
 # ============================================================
 # INDICATORS
 # ============================================================
 
-def add_indicators(
-    df: pd.DataFrame
-) -> pd.DataFrame:
+def add_indicators(df):
 
     x = df.copy()
 
+    # --------------------------------------------------------
     # EMA 200
+    # --------------------------------------------------------
+
     x["ema200"] = (
         x["close"]
         .ewm(
             span=CONFIG["ema_period"],
-            adjust=False
+            adjust=False,
         )
         .mean()
     )
 
+    # --------------------------------------------------------
     # MACD
+    # --------------------------------------------------------
+
     fast = (
         x["close"]
         .ewm(
             span=CONFIG["macd_fast"],
-            adjust=False
+            adjust=False,
         )
         .mean()
     )
@@ -721,7 +760,7 @@ def add_indicators(
         x["close"]
         .ewm(
             span=CONFIG["macd_slow"],
-            adjust=False
+            adjust=False,
         )
         .mean()
     )
@@ -732,7 +771,7 @@ def add_indicators(
         x["macd"]
         .ewm(
             span=CONFIG["macd_signal"],
-            adjust=False
+            adjust=False,
         )
         .mean()
     )
@@ -742,7 +781,10 @@ def add_indicators(
         - x["macd_signal"]
     )
 
+    # --------------------------------------------------------
     # ATR
+    # --------------------------------------------------------
+
     previous_close = (
         x["close"].shift(1)
     )
@@ -766,17 +808,20 @@ def add_indicators(
         true_range
         .ewm(
             alpha=1 / CONFIG["atr_period"],
-            adjust=False
+            adjust=False,
         )
         .mean()
     )
 
+    # --------------------------------------------------------
     # Volume
+    # --------------------------------------------------------
+
     x["volume_ma"] = (
         x["volume"]
         .rolling(
             CONFIG["volume_ma_period"],
-            min_periods=1
+            min_periods=1,
         )
         .mean()
     )
@@ -785,40 +830,154 @@ def add_indicators(
         x["volume"]
         / x["volume_ma"].replace(
             0,
-            np.nan
+            np.nan,
         )
     )
 
-    # SuperTrend
-    high = x["high"].to_numpy()
-    low = x["low"].to_numpy()
-    close = x["close"].to_numpy()
+    # --------------------------------------------------------
+    # Supertrend 10 / 2.5
+    # --------------------------------------------------------
 
-    (
-        st_line,
-        st_dir,
-        atr_st
-    ) = calculate_supertrend(
-        high,
-        low,
-        close,
-        CONFIG["supertrend_period"],
-        CONFIG["supertrend_multiplier"],
+    period = CONFIG[
+        "supertrend_period"
+    ]
+
+    multiplier = CONFIG[
+        "supertrend_multiplier"
+    ]
+
+    hl2 = (
+        x["high"]
+        + x["low"]
+    ) / 2.0
+
+    basic_upper = (
+        hl2
+        + multiplier * x["atr"]
     )
 
-    x["supertrend"] = st_line
-    x["st_dir"] = st_dir
+    basic_lower = (
+        hl2
+        - multiplier * x["atr"]
+    )
+
+    final_upper = (
+        basic_upper.copy()
+    )
+
+    final_lower = (
+        basic_lower.copy()
+    )
+
+    direction = pd.Series(
+        1,
+        index=x.index,
+        dtype=int,
+    )
+
+    supertrend = pd.Series(
+        np.nan,
+        index=x.index,
+        dtype=float,
+    )
+
+    for i in range(
+        1,
+        len(x),
+    ):
+
+        if (
+            basic_upper.iloc[i]
+            < final_upper.iloc[i - 1]
+            or
+            x["close"].iloc[i - 1]
+            > final_upper.iloc[i - 1]
+        ):
+
+            final_upper.iloc[i] = (
+                basic_upper.iloc[i]
+            )
+
+        else:
+
+            final_upper.iloc[i] = (
+                final_upper.iloc[i - 1]
+            )
+
+        if (
+            basic_lower.iloc[i]
+            > final_lower.iloc[i - 1]
+            or
+            x["close"].iloc[i - 1]
+            < final_lower.iloc[i - 1]
+        ):
+
+            final_lower.iloc[i] = (
+                basic_lower.iloc[i]
+            )
+
+        else:
+
+            final_lower.iloc[i] = (
+                final_lower.iloc[i - 1]
+            )
+
+        if (
+            direction.iloc[i - 1] == -1
+            and
+            x["close"].iloc[i]
+            > final_upper.iloc[i - 1]
+        ):
+
+            direction.iloc[i] = 1
+
+        elif (
+            direction.iloc[i - 1] == 1
+            and
+            x["close"].iloc[i]
+            < final_lower.iloc[i - 1]
+        ):
+
+            direction.iloc[i] = -1
+
+        else:
+
+            direction.iloc[i] = (
+                direction.iloc[i - 1]
+            )
+
+        if direction.iloc[i] > 0:
+
+            supertrend.iloc[i] = (
+                final_lower.iloc[i]
+            )
+
+        else:
+
+            supertrend.iloc[i] = (
+                final_upper.iloc[i]
+            )
+
+    if len(x):
+
+        supertrend.iloc[0] = (
+            final_lower.iloc[0]
+        )
+
+    x["supertrend"] = supertrend
+    x["st_dir"] = direction
 
     return x
 
 
 # ============================================================
-# CLOSED CANDLES
+# CLOSED CANDLE
 # ============================================================
 
-def closed_candles(
-    df: pd.DataFrame
-) -> pd.DataFrame:
+def closed_candles(df):
+    """
+    Setup engine hanya menggunakan candle yang sudah close.
+    """
 
     if len(df) <= 1:
         return df.copy()
@@ -834,12 +993,45 @@ def closed_candles(
 # SETUP ENGINE
 # ============================================================
 
-def determine_setup(
-    df: pd.DataFrame,
-    side: Literal["LONG", "SHORT"]
-) -> dict[str, Any]:
+def determine_setup(df, side):
+    """
+    Setup Engine 1H.
 
-    if df is None or len(df) < 210:
+    Klasifikasi:
+
+        BREAKOUT
+        PULLBACK
+        CONTINUATION
+        EXTENDED
+        NO_SETUP
+
+    Urutan prioritas:
+
+        1. Validasi data
+        2. Trend alignment
+        3. Extended detection
+        4. Breakout detection
+        5. Pullback detection
+        6. Continuation detection
+        7. No setup
+
+    Prinsip:
+
+        - EMA200 menentukan posisi trend.
+        - Supertrend 10/2.5 menentukan arah trend.
+        - MACD menentukan momentum.
+        - Volume digunakan untuk confirmation.
+        - Breakout harus melewati high/low sebelumnya.
+        - Pullback harus benar-benar menunjukkan retracement.
+        - Continuation tidak boleh sekadar candle hijau/merah biasa.
+        - Harga terlalu jauh dari EMA200 tidak dikejar.
+    """
+
+    if (
+        df is None
+        or len(df) < 210
+    ):
+
         return {
             "setup": "NO_SETUP",
             "status": "NO_SETUP",
@@ -848,28 +1040,82 @@ def determine_setup(
         }
 
     x = df.copy()
+
     last = x.iloc[-1]
 
-    close = float(last["close"])
-    ema = float(last["ema200"])
-    atr = float(last["atr"])
-    st_dir = int(last["st_dir"])
-    macd = float(last["macd"])
-    macd_signal = float(last["macd_signal"])
-    macd_hist = float(last["macd_hist"])
-    volume_ratio = float(last["volume_ratio"])
+    previous = x.iloc[-2]
+
+    close = float(
+        last["close"]
+    )
+
+    open_price = float(
+        last["open"]
+    )
+
+    high = float(
+        last["high"]
+    )
+
+    low = float(
+        last["low"]
+    )
+
+    ema = float(
+        last["ema200"]
+    )
+
+    atr = float(
+        last["atr"]
+    )
+
+    st_dir = int(
+        last["st_dir"]
+    )
+
+    macd = float(
+        last["macd"]
+    )
+
+    macd_signal = float(
+        last["macd_signal"]
+    )
+
+    macd_hist = float(
+        last["macd_hist"]
+    )
+
+    previous_macd_hist = float(
+        previous["macd_hist"]
+    )
+
+    volume_ratio = float(
+        last["volume_ratio"]
+    )
+
+    # --------------------------------------------------------
+    # VALIDATION
+    # --------------------------------------------------------
 
     values = [
         close,
+        open_price,
+        high,
+        low,
         ema,
         atr,
         macd,
         macd_signal,
         macd_hist,
+        previous_macd_hist,
         volume_ratio,
     ]
 
-    if not all(np.isfinite(v) for v in values):
+    if not all(
+        np.isfinite(v)
+        for v in values
+    ):
+
         return {
             "setup": "NO_SETUP",
             "status": "NO_SETUP",
@@ -877,15 +1123,23 @@ def determine_setup(
             "reason": "invalid indicator data",
         }
 
-    if close <= 0 or ema <= 0 or atr <= 0:
+    if (
+        close <= 0
+        or ema <= 0
+        or atr <= 0
+    ):
+
         return {
             "setup": "NO_SETUP",
             "status": "NO_SETUP",
             "entry_zone": None,
-            "reason": "invalid indicator data",
+            "reason": "invalid price or ATR",
         }
 
-    # Directional alignment
+    # --------------------------------------------------------
+    # DIRECTIONAL ALIGNMENT
+    # --------------------------------------------------------
+
     if side == "LONG":
 
         trend_aligned = (
@@ -903,39 +1157,52 @@ def determine_setup(
         )
 
     if not trend_aligned:
+
         return {
             "setup": "NO_SETUP",
             "status": "NO_SETUP",
             "entry_zone": None,
             "reason": (
-                "EMA200 / Supertrend / MACD "
-                "alignment failed"
+                "EMA200 / Supertrend / "
+                "MACD alignment failed"
             ),
         }
+
+    # --------------------------------------------------------
+    # VOLUME
+    # --------------------------------------------------------
 
     volume_confirmed = (
         volume_ratio
         >= CONFIG["volume_ratio_min"]
     )
 
-    # Breakout history
-    window = CONFIG["breakout_window"]
+    # --------------------------------------------------------
+    # BREAKOUT HISTORY
+    # --------------------------------------------------------
 
-    if len(x) <= window + 1:
+    window = CONFIG[
+        "breakout_window"
+    ]
+
+    if len(x) <= window + 2:
+
         return {
             "setup": "NO_SETUP",
             "status": "NO_SETUP",
             "entry_zone": None,
-            "reason": "insufficient breakout history",
+            "reason": (
+                "insufficient breakout history"
+            ),
         }
 
-    previous_high = (
+    previous_high = float(
         x["high"]
         .iloc[-window - 1:-1]
         .max()
     )
 
-    previous_low = (
+    previous_low = float(
         x["low"]
         .iloc[-window - 1:-1]
         .min()
@@ -949,7 +1216,10 @@ def determine_setup(
         close < previous_low
     )
 
-    # Distance from EMA200
+    # --------------------------------------------------------
+    # DISTANCE FROM EMA200
+    # --------------------------------------------------------
+
     distance_from_ema = abs(
         close - ema
     )
@@ -958,14 +1228,17 @@ def determine_setup(
         distance_from_ema / atr
     )
 
-    # Pullback zone
-    pullback_lower = (
-        CONFIG["pullback_ema_atr_lower"]
-    )
+    # --------------------------------------------------------
+    # PULLBACK ZONE
+    # --------------------------------------------------------
 
-    pullback_upper = (
-        CONFIG["pullback_ema_atr_upper"]
-    )
+    pullback_lower = CONFIG[
+        "pullback_ema_atr_lower"
+    ]
+
+    pullback_upper = CONFIG[
+        "pullback_ema_atr_upper"
+    ]
 
     if side == "LONG":
 
@@ -991,9 +1264,14 @@ def determine_setup(
             + pullback_lower * atr
         )
 
-    zone_low, zone_high = (
-        min(zone_low, zone_high),
-        max(zone_low, zone_high),
+    zone_low = min(
+        zone_low,
+        zone_high,
+    )
+
+    zone_high = max(
+        zone_low,
+        zone_high,
     )
 
     in_pullback_zone = (
@@ -1002,10 +1280,17 @@ def determine_setup(
         <= zone_high
     )
 
-    # Extended
-    extended_limit = (
-        CONFIG["extended_atr"]
-    )
+    # --------------------------------------------------------
+    # EXTENDED
+    # --------------------------------------------------------
+    #
+    # Harga terlalu jauh dari EMA200.
+    # Jangan chase harga.
+    # --------------------------------------------------------
+
+    extended_limit = CONFIG[
+        "extended_atr"
+    ]
 
     if distance_atr > extended_limit:
 
@@ -1022,10 +1307,38 @@ def determine_setup(
             ),
         }
 
-    # Breakout / Breakdown
+    # --------------------------------------------------------
+    # BREAKOUT ENGINE
+    # --------------------------------------------------------
+    #
+    # Breakout harus mempunyai:
+    #
+    # - close melewati 20-bar level
+    # - candle searah
+    # - volume confirmation
+    # - MACD tetap aligned
+    #
+    # Jika breakout terjadi tetapi volume belum cukup,
+    # jangan langsung menganggap READY.
+    # --------------------------------------------------------
+
     if side == "LONG" and breakout_long:
 
-        if volume_confirmed:
+        breakout_candle_ok = (
+            close > open_price
+        )
+
+        breakout_momentum_ok = (
+            macd_hist >= 0
+            and macd_hist
+            >= previous_macd_hist
+        )
+
+        if (
+            breakout_candle_ok
+            and breakout_momentum_ok
+            and volume_confirmed
+        ):
 
             return {
                 "setup": "BREAKOUT",
@@ -1035,8 +1348,9 @@ def determine_setup(
                     float(close),
                 ],
                 "reason": (
-                    "1H 20-bar breakout "
-                    "with volume confirmation"
+                    "1H 20-bar breakout with "
+                    "bullish candle, momentum "
+                    "and volume confirmation"
                 ),
             }
 
@@ -1048,14 +1362,29 @@ def determine_setup(
                 float(zone_high),
             ],
             "reason": (
-                "1H breakout without volume "
-                "confirmation; wait for pullback"
+                "1H breakout detected but "
+                "confirmation is incomplete; "
+                "wait for pullback"
             ),
         }
 
     if side == "SHORT" and breakout_short:
 
-        if volume_confirmed:
+        breakout_candle_ok = (
+            close < open_price
+        )
+
+        breakout_momentum_ok = (
+            macd_hist <= 0
+            and macd_hist
+            <= previous_macd_hist
+        )
+
+        if (
+            breakout_candle_ok
+            and breakout_momentum_ok
+            and volume_confirmed
+        ):
 
             return {
                 "setup": "BREAKDOWN",
@@ -1065,8 +1394,9 @@ def determine_setup(
                     float(close),
                 ],
                 "reason": (
-                    "1H 20-bar breakdown "
-                    "with volume confirmation"
+                    "1H 20-bar breakdown with "
+                    "bearish candle, momentum "
+                    "and volume confirmation"
                 ),
             }
 
@@ -1078,31 +1408,104 @@ def determine_setup(
                 float(zone_high),
             ],
             "reason": (
-                "1H breakdown without volume "
-                "confirmation; wait for pullback"
+                "1H breakdown detected but "
+                "confirmation is incomplete; "
+                "wait for pullback"
             ),
         }
 
-    # Pullback
-    if in_pullback_zone:
+    # --------------------------------------------------------
+    # PULLBACK ENGINE
+    # --------------------------------------------------------
+    #
+    # Tidak cukup hanya:
+    #
+    #     close berada dekat EMA200
+    #
+    # Harus ada retracement nyata dari recent impulse.
+    # --------------------------------------------------------
 
-        if side == "LONG":
+    lookback = max(
+        CONFIG["swing_window"],
+        CONFIG["momentum_fast_bars"],
+        6,
+    )
 
-            valid_structure = (
-                close > ema
-                and st_dir > 0
-                and macd > macd_signal
+    if len(x) >= lookback + 3:
+
+        recent = x.iloc[
+            -lookback - 1:-1
+        ]
+
+        recent_high = float(
+            recent["high"].max()
+        )
+
+        recent_low = float(
+            recent["low"].min()
+        )
+
+    else:
+
+        recent_high = previous_high
+        recent_low = previous_low
+
+    # --------------------------------------------------------
+    # LONG PULLBACK
+    # --------------------------------------------------------
+
+    if side == "LONG":
+
+        retracement_size = (
+            recent_high - close
+        )
+
+        retracement_atr = (
+            retracement_size / atr
+        )
+
+        recent_impulse = (
+            recent_high - recent_low
+        )
+
+        impulse_atr = (
+            recent_impulse / atr
+            if atr > 0
+            else 0.0
+        )
+
+        pullback_retrace = (
+            retracement_atr >= 0.50
+            and recent_impulse > atr
+        )
+
+        zone_interaction = (
+            low <= zone_high
+            and close >= zone_low
+        )
+
+        bullish_rejection = (
+            close > open_price
+            or close > float(
+                previous["close"]
             )
+        )
 
-        else:
+        pullback_momentum = (
+            macd_hist >= 0
+            or macd_hist
+            > previous_macd_hist
+        )
 
-            valid_structure = (
-                close < ema
-                and st_dir < 0
-                and macd < macd_signal
-            )
+        valid_pullback = (
+            in_pullback_zone
+            and pullback_retrace
+            and zone_interaction
+            and bullish_rejection
+            and pullback_momentum
+        )
 
-        if valid_structure:
+        if valid_pullback:
 
             return {
                 "setup": "PULLBACK",
@@ -1112,52 +1515,251 @@ def determine_setup(
                     float(zone_high),
                 ],
                 "reason": (
-                    "price returned to EMA200 "
-                    "pullback zone with trend alignment"
+                    "1H bullish retracement reached "
+                    "EMA200 pullback zone with "
+                    "structure and momentum intact"
                 ),
             }
 
-    # Continuation
+        # Harga sudah memasuki area tetapi belum
+        # memberikan confirmation yang cukup.
+        if (
+            in_pullback_zone
+            and zone_interaction
+            and pullback_retrace
+        ):
+
+            return {
+                "setup": "PULLBACK",
+                "status": "WAITING PULLBACK",
+                "entry_zone": [
+                    float(zone_low),
+                    float(zone_high),
+                ],
+                "reason": (
+                    "price retraced into the "
+                    "EMA200 pullback area but "
+                    "bullish confirmation is incomplete"
+                ),
+            }
+
+    # --------------------------------------------------------
+    # SHORT PULLBACK
+    # --------------------------------------------------------
+
+    else:
+
+        retracement_size = (
+            close - recent_low
+        )
+
+        retracement_atr = (
+            retracement_size / atr
+        )
+
+        recent_impulse = (
+            recent_high - recent_low
+        )
+
+        impulse_atr = (
+            recent_impulse / atr
+            if atr > 0
+            else 0.0
+        )
+
+        pullback_retrace = (
+            retracement_atr >= 0.50
+            and recent_impulse > atr
+        )
+
+        zone_interaction = (
+            high >= zone_low
+            and close <= zone_high
+        )
+
+        bearish_rejection = (
+            close < open_price
+            or close < float(
+                previous["close"]
+            )
+        )
+
+        pullback_momentum = (
+            macd_hist <= 0
+            or macd_hist
+            < previous_macd_hist
+        )
+
+        valid_pullback = (
+            in_pullback_zone
+            and pullback_retrace
+            and zone_interaction
+            and bearish_rejection
+            and pullback_momentum
+        )
+
+        if valid_pullback:
+
+            return {
+                "setup": "PULLBACK",
+                "status": "READY",
+                "entry_zone": [
+                    float(zone_low),
+                    float(zone_high),
+                ],
+                "reason": (
+                    "1H bearish retracement reached "
+                    "EMA200 pullback zone with "
+                    "structure and momentum intact"
+                ),
+            }
+
+        if (
+            in_pullback_zone
+            and zone_interaction
+            and pullback_retrace
+        ):
+
+            return {
+                "setup": "PULLBACK",
+                "status": "WAITING PULLBACK",
+                "entry_zone": [
+                    float(zone_low),
+                    float(zone_high),
+                ],
+                "reason": (
+                    "price retraced into the "
+                    "EMA200 pullback area but "
+                    "bearish confirmation is incomplete"
+                ),
+            }
+
+    # --------------------------------------------------------
+    # CONTINUATION ENGINE
+    # --------------------------------------------------------
+    #
+    # Continuation hanya digunakan jika:
+    #
+    # - bukan breakout
+    # - bukan pullback
+    # - harga tetap berada di trend side
+    # - momentum tetap searah
+    # - candle current searah
+    # - momentum histogram mendukung
+    #
+    # Volume confirmation tetap diperlukan untuk READY.
+    # --------------------------------------------------------
+
     if side == "LONG":
 
-        momentum_ok = (
-            close > last["open"]
-            and macd_hist >= 0
+        candle_direction = (
+            close > open_price
+        )
+
+        previous_close = float(
+            previous["close"]
+        )
+
+        continuation_price = (
+            close > previous_close
+        )
+
+        histogram_support = (
+            macd_hist >= 0
+        )
+
+        histogram_not_collapsing = (
+            macd_hist
+            >= previous_macd_hist
+        )
+
+        continuation_ok = (
+            candle_direction
+            and continuation_price
+            and histogram_support
+            and histogram_not_collapsing
+            and close > ema
+            and st_dir > 0
         )
 
     else:
 
-        momentum_ok = (
-            close < last["open"]
-            and macd_hist <= 0
+        candle_direction = (
+            close < open_price
         )
 
-    if momentum_ok and volume_confirmed:
+        previous_close = float(
+            previous["close"]
+        )
+
+        continuation_price = (
+            close < previous_close
+        )
+
+        histogram_support = (
+            macd_hist <= 0
+        )
+
+        histogram_not_collapsing = (
+            macd_hist
+            <= previous_macd_hist
+        )
+
+        continuation_ok = (
+            candle_direction
+            and continuation_price
+            and histogram_support
+            and histogram_not_collapsing
+            and close < ema
+            and st_dir < 0
+        )
+
+    if continuation_ok:
+
+        if volume_confirmed:
+
+            return {
+                "setup": "CONTINUATION",
+                "status": "READY",
+                "entry_zone": [
+                    float(close),
+                    float(close),
+                ],
+                "reason": (
+                    "trend continuation confirmed "
+                    "by price action, MACD momentum "
+                    "and volume"
+                ),
+            }
 
         return {
             "setup": "CONTINUATION",
-            "status": "READY",
+            "status": "WAITING PULLBACK",
             "entry_zone": [
-                float(close),
-                float(close),
+                float(zone_low),
+                float(zone_high),
             ],
             "reason": (
-                "trend aligned with momentum "
-                "and volume confirmation"
+                "trend continuation is present "
+                "but volume confirmation is weak; "
+                "wait for pullback"
             ),
         }
 
-    # Trend aligned but no clean entry
+    # --------------------------------------------------------
+    # TREND ALIGNED BUT NO CLEAN SETUP
+    # --------------------------------------------------------
+
     return {
-        "setup": "CONTINUATION",
-        "status": "WAITING PULLBACK",
+        "setup": "NO_SETUP",
+        "status": "NO_SETUP",
         "entry_zone": [
             float(zone_low),
             float(zone_high),
         ],
         "reason": (
-            "trend aligned but momentum confirmation "
-            "is insufficient; wait for pullback"
+            "trend aligned but no clean "
+            "breakout, pullback or continuation"
         ),
     }
 
@@ -1166,9 +1768,7 @@ def determine_setup(
 # CHART SERIALIZATION
 # ============================================================
 
-def serialize_chart_data(
-    df: pd.DataFrame
-) -> list[dict[str, Any]]:
+def serialize_chart_data(df):
 
     required_columns = [
         "time",
@@ -1204,24 +1804,29 @@ def serialize_chart_data(
 
             value = row[col]
 
-            if pd.isna(value):
-                item[col] = None
-                continue
-
             if col == "time":
 
                 item[col] = (
                     None
                     if pd.isna(value)
-                    else pd.Timestamp(value).isoformat()
+                    else pd.Timestamp(
+                        value
+                    ).isoformat()
                 )
 
                 continue
 
+            if pd.isna(value):
+
+                item[col] = None
+                continue
+
             if col == "st_dir":
+
                 item[col] = int(value)
 
             else:
+
                 item[col] = float(value)
 
         records.append(item)
@@ -1233,12 +1838,7 @@ def serialize_chart_data(
 # MOVEMENT / MOMENTUM SCORE
 # ============================================================
 
-def movement_score(
-    df: pd.DataFrame
-) -> Tuple[
-    float,
-    Optional[dict[str, Any]]
-]:
+def movement_score(df):
 
     if len(df) < 50:
         return -1.0, None
@@ -1250,8 +1850,13 @@ def movement_score(
 
     last = x.iloc[-1]
 
-    close = float(last["close"])
-    atr_value = float(last["atr"])
+    close = float(
+        last["close"]
+    )
+
+    atr_value = float(
+        last["atr"]
+    )
 
     if (
         not np.isfinite(close)
@@ -1259,78 +1864,107 @@ def movement_score(
         or not np.isfinite(atr_value)
         or atr_value <= 0
     ):
+
         return -1.0, None
 
-    fast_n = CONFIG["momentum_fast_bars"]
-    slow_n = CONFIG["momentum_slow_bars"]
+    fast_n = CONFIG[
+        "momentum_fast_bars"
+    ]
+
+    slow_n = CONFIG[
+        "momentum_slow_bars"
+    ]
 
     if len(x) <= slow_n + 2:
         return -1.0, None
 
     fast_ref = float(
-        x["close"].iloc[-1 - fast_n]
+        x["close"].iloc[
+            -1 - fast_n
+        ]
     )
 
     slow_ref = float(
-        x["close"].iloc[-1 - slow_n]
+        x["close"].iloc[
+            -1 - slow_n
+        ]
     )
 
-    if fast_ref <= 0 or slow_ref <= 0:
+    if (
+        fast_ref <= 0
+        or slow_ref <= 0
+    ):
+
         return -1.0, None
 
     fast_return = (
-        abs(close / fast_ref - 1.0)
+        abs(
+            close / fast_ref - 1.0
+        )
         * 100
     )
 
     slow_return = (
-        abs(close / slow_ref - 1.0)
+        abs(
+            close / slow_ref - 1.0
+        )
         * 100
     )
 
     atr_move = (
-        abs(close - fast_ref)
+        abs(
+            close - fast_ref
+        )
         / atr_value
     )
 
     volume_ratio = float(
-        last.get("volume_ratio", 1.0)
+        last["volume_ratio"]
     )
+
+    if not np.isfinite(
+        volume_ratio
+    ):
+
+        volume_ratio = 1.0
 
     volume_bonus = min(
         max(volume_ratio, 0.0),
-        4.0
+        4.0,
     )
 
-    window = CONFIG["breakout_window"]
+    window = CONFIG[
+        "breakout_window"
+    ]
 
     if len(x) <= window + 1:
         return -1.0, None
 
-    prev_high = (
+    prev_high = float(
         x["high"]
         .iloc[-window - 1:-1]
         .max()
     )
 
-    prev_low = (
+    prev_low = float(
         x["low"]
         .iloc[-window - 1:-1]
         .min()
     )
 
-    breakout_bonus = (
-        2.0
-        if (
-            close > prev_high
-            or close < prev_low
-        )
-        else 0.0
-    )
+    breakout_bonus = 0.0
+
+    if (
+        close > prev_high
+        or close < prev_low
+    ):
+
+        breakout_bonus = 2.0
 
     direction = (
         1
-        if close >= last["open"]
+        if float(last["close"])
+        >= float(last["open"])
         else -1
     )
 
@@ -1356,9 +1990,7 @@ def movement_score(
 # TIMEFRAME SCORE
 # ============================================================
 
-def score_tf(
-    df: pd.DataFrame
-) -> Optional[dict[str, Any]]:
+def score_tf(df):
 
     if "ema200" not in df.columns:
         x = add_indicators(df)
@@ -1374,29 +2006,52 @@ def score_tf(
     long_score = 0.0
     short_score = 0.0
 
-    long_reasons: list[str] = []
-    short_reasons: list[str] = []
+    long_reasons = []
+    short_reasons = []
 
-    close = float(last["close"])
-    ema = float(last["ema200"])
-    atr_value = float(last["atr"])
-
-    volume_ratio = float(
-        last.get("volume_ratio", 1.0)
+    close = float(
+        last["close"]
     )
 
-    if (
-        not np.isfinite(close)
-        or not np.isfinite(ema)
-        or not np.isfinite(atr_value)
-        or atr_value <= 0
-    ):
+    ema = float(
+        last["ema200"]
+    )
+
+    atr_value = float(
+        last["atr"]
+    )
+
+    if not np.isfinite(close):
         return None
 
+    if not np.isfinite(ema):
+        return None
+
+    if (
+        not np.isfinite(atr_value)
+        or atr_value <= 0
+    ):
+
+        return None
+
+    volume_ratio = float(
+        last["volume_ratio"]
+    )
+
+    if not np.isfinite(
+        volume_ratio
+    ):
+
+        volume_ratio = 1.0
+
+    # --------------------------------------------------------
     # EMA 200
+    # --------------------------------------------------------
+
     if close > ema:
 
         long_score += 2.0
+
         long_reasons.append(
             "above EMA200"
         )
@@ -1404,16 +2059,23 @@ def score_tf(
     elif close < ema:
 
         short_score += 2.0
+
         short_reasons.append(
             "below EMA200"
         )
 
+    # --------------------------------------------------------
     # Supertrend
-    st_dir = int(last["st_dir"])
+    # --------------------------------------------------------
+
+    st_dir = int(
+        last["st_dir"]
+    )
 
     if st_dir > 0:
 
         long_score += 2.0
+
         long_reasons.append(
             "Supertrend bullish"
         )
@@ -1421,12 +2083,19 @@ def score_tf(
     else:
 
         short_score += 2.0
+
         short_reasons.append(
             "Supertrend bearish"
         )
 
+    # --------------------------------------------------------
     # MACD
-    macd = float(last["macd"])
+    # --------------------------------------------------------
+
+    macd = float(
+        last["macd"]
+    )
+
     macd_signal = float(
         last["macd_signal"]
     )
@@ -1442,6 +2111,7 @@ def score_tf(
     if macd > macd_signal:
 
         long_score += 1.0
+
         long_reasons.append(
             "MACD bullish"
         )
@@ -1449,6 +2119,7 @@ def score_tf(
         if hist_now > hist_previous:
 
             long_score += 0.5
+
             long_reasons.append(
                 "MACD histogram rising"
             )
@@ -1456,6 +2127,7 @@ def score_tf(
     elif macd < macd_signal:
 
         short_score += 1.0
+
         short_reasons.append(
             "MACD bearish"
         )
@@ -1463,42 +2135,57 @@ def score_tf(
         if hist_now < hist_previous:
 
             short_score += 0.5
+
             short_reasons.append(
                 "MACD histogram falling"
             )
 
+    # --------------------------------------------------------
     # Volume
+    # --------------------------------------------------------
+
     if (
         volume_ratio
         >= CONFIG["volume_ratio_min"]
     ):
 
-        if close > last["open"]:
+        if close > float(
+            last["open"]
+        ):
 
             long_score += 1.5
+
             long_reasons.append(
                 f"volume {volume_ratio:.1f}x"
             )
 
-        elif close < last["open"]:
+        elif close < float(
+            last["open"]
+        ):
 
             short_score += 1.5
+
             short_reasons.append(
                 f"volume {volume_ratio:.1f}x"
             )
 
+    # --------------------------------------------------------
     # Breakout
-    window = CONFIG["breakout_window"]
+    # --------------------------------------------------------
+
+    window = CONFIG[
+        "breakout_window"
+    ]
 
     if len(x) > window + 1:
 
-        previous_high = (
+        previous_high = float(
             x["high"]
             .iloc[-window - 1:-1]
             .max()
         )
 
-        previous_low = (
+        previous_low = float(
             x["low"]
             .iloc[-window - 1:-1]
             .min()
@@ -1507,6 +2194,7 @@ def score_tf(
         if close > previous_high:
 
             long_score += 1.5
+
             long_reasons.append(
                 "20-bar breakout"
             )
@@ -1514,22 +2202,40 @@ def score_tf(
         elif close < previous_low:
 
             short_score += 1.5
+
             short_reasons.append(
                 "20-bar breakdown"
             )
 
     return {
-        "long": round(long_score, 3),
-        "short": round(short_score, 3),
+        "long": round(
+            long_score,
+            3,
+        ),
+
+        "short": round(
+            short_score,
+            3,
+        ),
+
         "long_reasons": long_reasons,
+
         "short_reasons": short_reasons,
+
         "close": close,
+
         "ema200": ema,
+
         "atr": atr_value,
+
         "volume_ratio": volume_ratio,
+
         "st_dir": st_dir,
+
         "macd": macd,
+
         "macd_signal": macd_signal,
+
         "macd_hist": hist_now,
     }
 
@@ -1539,17 +2245,17 @@ def score_tf(
 # ============================================================
 
 def analyze_symbol(
-    symbol: str,
-    change_24h: float,
-    quote_volume_24h: float,
-    stage1_score: float,
-    stage1_meta: dict,
-) -> Optional[dict[str, Any]]:
+    symbol,
+    change_24h,
+    quote_volume_24h,
+    stage1_score,
+    stage1_meta,
+):
 
-    data: dict[str, Any] = {}
+    data = {}
 
     # --------------------------------------------------------
-    # 15m MTF
+    # 15M
     # --------------------------------------------------------
 
     try:
@@ -1558,7 +2264,9 @@ def analyze_symbol(
             stage1_meta["df"]
         )
 
-        scored_15m = score_tf(df15)
+        scored_15m = score_tf(
+            df15
+        )
 
         if scored_15m:
 
@@ -1579,13 +2287,16 @@ def analyze_symbol(
     # 1H + 4H
     # --------------------------------------------------------
 
-    for tf in ["1h", "4h"]:
+    for tf in [
+        "1h",
+        "4h",
+    ]:
 
         try:
 
             candles = klines(
                 symbol,
-                tf
+                tf,
             )
 
             candles = closed_candles(
@@ -1619,14 +2330,41 @@ def analyze_symbol(
                 exc,
             )
 
+    # --------------------------------------------------------
+    # Semua timeframe wajib tersedia.
+    # --------------------------------------------------------
+
     if set(data.keys()) != set(TFS):
         return None
 
-    # --------------------------------------------------------
-    # 4H Bias
-    # --------------------------------------------------------
+    # ========================================================
+    # MTF SCORING
+    # ========================================================
+
+    weights = {
+        "15m": 0.25,
+        "1h": 0.35,
+        "4h": 0.40,
+    }
+
+    long_total = sum(
+        weights[tf]
+        * data[tf]["score"]["long"]
+        for tf in TFS
+    )
+
+    short_total = sum(
+        weights[tf]
+        * data[tf]["score"]["short"]
+        for tf in TFS
+    )
+
+    # ========================================================
+    # LONG / SHORT DIRECTION
+    # ========================================================
 
     df4h = data["4h"]["df"]
+
     last4h = df4h.iloc[-1]
 
     close4h = float(
@@ -1661,133 +2399,41 @@ def analyze_symbol(
         and macd4h < signal4h
     )
 
-    if not long_4h_bias and not short_4h_bias:
+    # 4H harus mempunyai directional bias.
+    if (
+        not long_4h_bias
+        and not short_4h_bias
+    ):
+
         return None
 
-    side = (
-        "LONG"
-        if long_4h_bias
-        else "SHORT"
-    )
+    # MTF score menentukan arah kandidat.
+    if long_total > short_total:
 
-    # --------------------------------------------------------
-    # 1H Setup
-    # --------------------------------------------------------
+        side = "LONG"
 
-    setup_1h = determine_setup(
-        data["1h"]["df"],
-        side
-    )
+    elif short_total > long_total:
 
-    if setup_1h["setup"] == "NO_SETUP":
-        return None
-
-    setup_status = setup_1h["status"]
-
-    # --------------------------------------------------------
-    # 15m Execution Filters
-    # --------------------------------------------------------
-
-    df15 = data["15m"]["df"]
-    last15 = df15.iloc[-1]
-
-    current_close = float(
-        last15["close"]
-    )
-
-    fast_n = CONFIG["momentum_fast_bars"]
-
-    if len(df15) <= fast_n + 1:
-        return None
-
-    reference_close = float(
-        df15.iloc[-1 - fast_n]["close"]
-    )
-
-    move_15 = (
-        current_close
-        / reference_close
-        - 1.0
-    ) * 100
-
-    volume_ratio_15 = float(
-        last15["volume_ratio"]
-    )
-
-    macd15 = float(
-        last15["macd"]
-    )
-
-    signal15 = float(
-        last15["macd_signal"]
-    )
-
-    st15 = int(
-        last15["st_dir"]
-    )
-
-    ema15 = float(
-        last15["ema200"]
-    )
-
-    if side == "LONG":
-
-        execution_aligned = (
-            current_close > ema15
-            and st15 > 0
-            and macd15 > signal15
-            and move_15 > 0
-            and volume_ratio_15
-            >= CONFIG["volume_ratio_min"]
-        )
+        side = "SHORT"
 
     else:
 
-        execution_aligned = (
-            current_close < ema15
-            and st15 < 0
-            and macd15 < signal15
-            and move_15 < 0
-            and volume_ratio_15
-            >= CONFIG["volume_ratio_min"]
-        )
-
-    if not execution_aligned:
         return None
 
-    if setup_1h["setup"] == "EXTENDED":
+    # 4H bias wajib sama dengan direction MTF.
+    if (
+        side == "LONG"
+        and not long_4h_bias
+    ):
 
-        setup_status = "WAITING PULLBACK"
+        return None
 
-    elif setup_1h["setup"] == "PULLBACK":
+    if (
+        side == "SHORT"
+        and not short_4h_bias
+    ):
 
-        setup_status = "READY"
-
-    else:
-
-        setup_status = "READY"
-
-    # --------------------------------------------------------
-    # MTF Score
-    # --------------------------------------------------------
-
-    weights = {
-        "15m": 0.25,
-        "1h": 0.35,
-        "4h": 0.40,
-    }
-
-    long_total = sum(
-        weights[tf]
-        * data[tf]["score"]["long"]
-        for tf in TFS
-    )
-
-    short_total = sum(
-        weights[tf]
-        * data[tf]["score"]["short"]
-        for tf in TFS
-    )
+        return None
 
     raw_score = (
         long_total
@@ -1800,6 +2446,10 @@ def analyze_symbol(
         if side == "LONG"
         else -1
     )
+
+    # ========================================================
+    # MTF AGREEMENT
+    # ========================================================
 
     votes = []
 
@@ -1830,12 +2480,186 @@ def analyze_symbol(
         for vote in votes
     )
 
+    # Minimal 2 dari 3 timeframe harus searah.
     if agreement < 2:
         return None
 
-    # --------------------------------------------------------
-    # Entry / Risk / TP
-    # --------------------------------------------------------
+    # ========================================================
+    # SETUP ENGINE
+    # ========================================================
+    #
+    # SEKARANG BARU dipanggil setelah:
+    #
+    # 4H + 1H + 15M
+    #       ↓
+    # scoring
+    #       ↓
+    # long / short
+    #       ↓
+    # MTF agreement
+    #       ↓
+    # SETUP ENGINE
+    #
+    # Sesuai arsitektur pada diagram.
+    # ========================================================
+
+    setup_1h = determine_setup(
+        data["1h"]["df"],
+        side,
+    )
+
+    if (
+        setup_1h["setup"]
+        == "NO_SETUP"
+    ):
+
+        return None
+
+    setup_status = (
+        setup_1h["status"]
+    )
+
+    # ========================================================
+    # 15M EXECUTION
+    # ========================================================
+
+    df15 = data["15m"]["df"]
+
+    last15 = df15.iloc[-1]
+
+    current_close = float(
+        last15["close"]
+    )
+
+    fast_n = CONFIG[
+        "momentum_fast_bars"
+    ]
+
+    if len(df15) <= fast_n + 1:
+        return None
+
+    reference_close = float(
+        df15.iloc[
+            -1 - fast_n
+        ]["close"]
+    )
+
+    if reference_close <= 0:
+        return None
+
+    move_15 = (
+        current_close
+        / reference_close
+        - 1.0
+    ) * 100
+
+    volume_ratio_15 = float(
+        last15["volume_ratio"]
+    )
+
+    macd15 = float(
+        last15["macd"]
+    )
+
+    signal15 = float(
+        last15["macd_signal"]
+    )
+
+    st15 = int(
+        last15["st_dir"]
+    )
+
+    ema15 = float(
+        last15["ema200"]
+    )
+
+    # ========================================================
+    # Mandatory 15m execution filters
+    # ========================================================
+
+    if side == "LONG":
+
+        execution_aligned = (
+            current_close > ema15
+            and st15 > 0
+            and macd15 > signal15
+            and move_15 > 0
+            and volume_ratio_15
+            >= CONFIG[
+                "volume_ratio_min"
+            ]
+        )
+
+    else:
+
+        execution_aligned = (
+            current_close < ema15
+            and st15 < 0
+            and macd15 < signal15
+            and move_15 < 0
+            and volume_ratio_15
+            >= CONFIG[
+                "volume_ratio_min"
+            ]
+        )
+
+    if not execution_aligned:
+        return None
+
+    # ========================================================
+    # FINAL SETUP STATUS
+    # ========================================================
+
+    if (
+        setup_1h["setup"]
+        == "EXTENDED"
+    ):
+
+        setup_status = (
+            "WAITING PULLBACK"
+        )
+
+    elif (
+        setup_1h["setup"]
+        == "PULLBACK"
+    ):
+
+        setup_status = "READY"
+
+    elif (
+        setup_1h["setup"]
+        in (
+            "BREAKOUT",
+            "BREAKDOWN",
+            "CONTINUATION",
+        )
+    ):
+
+        # Jangan mengubah WAITING PULLBACK
+        # dari Setup Engine menjadi READY
+        # hanya karena 15m valid.
+        if (
+            setup_1h["status"]
+            == "WAITING PULLBACK"
+        ):
+
+            setup_status = (
+                "WAITING PULLBACK"
+            )
+
+        else:
+
+            setup_status = "READY"
+
+    else:
+
+        setup_status = (
+            setup_1h["status"]
+        )
+
+    # ========================================================
+    # EXECUTION TIMEFRAME
+    # ========================================================
 
     execution_tf = "15m"
 
@@ -1851,18 +2675,34 @@ def analyze_symbol(
         exec_df.iloc[-1]["atr"]
     )
 
-    entry_zone = setup_1h[
-        "entry_zone"
-    ]
+    if (
+        not np.isfinite(price)
+        or price <= 0
+        or not np.isfinite(atr_value)
+        or atr_value <= 0
+    ):
+
+        return None
+
+    # ========================================================
+    # ENTRY
+    # ========================================================
+
+    entry_zone = (
+        setup_1h["entry_zone"]
+    )
 
     if entry_zone is None:
         return None
 
-    if setup_status == "WAITING PULLBACK":
+    if (
+        setup_status
+        == "WAITING PULLBACK"
+    ):
 
         entry = (
-            entry_zone[0]
-            + entry_zone[1]
+            float(entry_zone[0])
+            + float(entry_zone[1])
         ) / 2.0
 
     else:
@@ -1873,13 +2713,16 @@ def analyze_symbol(
         not np.isfinite(entry)
         or entry <= 0
     ):
+
         return None
 
-    # --------------------------------------------------------
-    # Swing
-    # --------------------------------------------------------
+    # ========================================================
+    # RISK
+    # ========================================================
 
-    swing_n = CONFIG["swing_window"]
+    swing_n = CONFIG[
+        "swing_window"
+    ]
 
     if len(exec_df) < swing_n:
         return None
@@ -1896,38 +2739,38 @@ def analyze_symbol(
         .max()
     )
 
-    # --------------------------------------------------------
-    # Stop Loss
-    # --------------------------------------------------------
-
     if side == "LONG":
 
         sl = min(
             swing_low,
-            entry - 1.25 * atr_value
+            entry - 1.25 * atr_value,
         )
 
-        risk = entry - sl
+        risk = (
+            entry - sl
+        )
 
         invalidation = (
             f"Close below {sl:.8g} / "
-            f"loss of recent {execution_tf} "
-            "swing low"
+            f"loss of recent "
+            f"{execution_tf} swing low"
         )
 
     else:
 
         sl = max(
             swing_high,
-            entry + 1.25 * atr_value
+            entry + 1.25 * atr_value,
         )
 
-        risk = sl - entry
+        risk = (
+            sl - entry
+        )
 
         invalidation = (
             f"Close above {sl:.8g} / "
-            f"reclaim of recent {execution_tf} "
-            "swing high"
+            f"reclaim of recent "
+            f"{execution_tf} swing high"
         )
 
     if risk <= 0:
@@ -1940,26 +2783,31 @@ def analyze_symbol(
     if risk_pct > 8.0:
         return None
 
-    # --------------------------------------------------------
-    # Take Profit
-    # --------------------------------------------------------
+    # ========================================================
+    # TP
+    # ========================================================
 
     tp = [
+
         (
             entry + risk * rr
             if side == "LONG"
-            else entry - risk * rr
+            else
+            entry - risk * rr
         )
-        for rr in CONFIG["risk_reward"]
+
+        for rr in CONFIG[
+            "risk_reward"
+        ]
     ]
 
-    # --------------------------------------------------------
-    # Final Score
-    # --------------------------------------------------------
+    # ========================================================
+    # FINAL SCORE
+    # ========================================================
 
     momentum_bonus = min(
         stage1_score / 25.0,
-        1.5
+        1.5,
     )
 
     score = (
@@ -1968,14 +2816,19 @@ def analyze_symbol(
     )
 
     reasons = (
-        data["15m"]["score"]["long_reasons"]
+        data["15m"]["score"][
+            "long_reasons"
+        ]
         if side == "LONG"
-        else data["15m"]["score"]["short_reasons"]
+        else
+        data["15m"]["score"][
+            "short_reasons"
+        ]
     )
 
-    # --------------------------------------------------------
-    # Chart
-    # --------------------------------------------------------
+    # ========================================================
+    # CHART DATA
+    # ========================================================
 
     chart_data = {
         tf: serialize_chart_data(
@@ -1984,62 +2837,117 @@ def analyze_symbol(
         for tf in TFS
     }
 
-    # --------------------------------------------------------
-    # Return
-    # --------------------------------------------------------
+    # ========================================================
+    # OUTPUT
+    # ========================================================
 
     return {
+
         "symbol": symbol,
+
         "side": side,
-        "score": round(score, 2),
-        "change24h": round(change_24h, 2),
+
+        "score": round(
+            score,
+            2,
+        ),
+
+        "change24h": round(
+            change_24h,
+            2,
+        ),
+
         "quote_volume24h": round(
             quote_volume_24h,
-            2
+            2,
         ),
+
         "execution_tf": execution_tf,
-        "setup": setup_1h["setup"],
-        "setup_status": setup_status,
-        "setup_reason": setup_1h["reason"],
-        "entry_zone": [
-            float(entry_zone[0]),
-            float(entry_zone[1])
+
+        "setup": setup_1h[
+            "setup"
         ],
+
+        "setup_status": setup_status,
+
+        "setup_reason": setup_1h[
+            "reason"
+        ],
+
+        "entry_zone": (
+            [
+                float(entry_zone[0]),
+                float(entry_zone[1]),
+            ]
+            if entry_zone is not None
+            else None
+        ),
+
         "timeframes": {
             tf: data[tf]["score"]
             for tf in TFS
         },
+
         "momentum_15m": round(
             move_15,
-            3
+            3,
         ),
+
         "entry": entry,
+
         "tp": tp,
+
         "sl": sl,
+
         "risk_pct": round(
             risk_pct,
-            3
+            3,
         ),
+
         "invalidation": invalidation,
+
         "key_points": reasons[:6],
+
         "tf_agreement": agreement,
+
         "chart": {
+
             "execution_tf": execution_tf,
+
             "available_timeframes": TFS,
-            "analysis_candles": CONFIG["klines"],
-            "visible_candles": CONFIG["visible_candles"],
+
+            "analysis_candles": CONFIG[
+                "klines"
+            ],
+
+            "visible_candles": {
+                "15m": 60,
+                "1h": 48,
+                "4h": 50,
+            },
+
             "show_ema200": True,
+
             "show_supertrend": True,
+
             "show_volume": True,
+
             "show_entry": True,
+
             "show_sl": True,
+
             "show_tp": True,
         },
+
         "chart_levels": {
+
             "entry": entry,
+
             "sl": sl,
+
             "tp": tp,
         },
+
         "chart_data": chart_data,
     }
 
@@ -2048,17 +2956,7 @@ def analyze_symbol(
 # STAGE 1 WORKER
 # ============================================================
 
-def stage1_worker(
-    row: tuple[str, float, float]
-) -> Optional[
-    tuple[
-        float,
-        str,
-        float,
-        float,
-        dict
-    ]
-]:
+def stage1_worker(row):
 
     symbol, change_24h, quote_volume = row
 
@@ -2066,7 +2964,7 @@ def stage1_worker(
 
         candles = klines(
             symbol,
-            "15m"
+            "15m",
         )
 
         if len(candles) < 50:
@@ -2084,7 +2982,11 @@ def stage1_worker(
             enriched
         )
 
-        if score <= 0 or meta is None:
+        if (
+            score <= 0
+            or meta is None
+        ):
+
             return None
 
         meta["df"] = enriched
@@ -2112,15 +3014,7 @@ def stage1_worker(
 # STAGE 2 WORKER
 # ============================================================
 
-def stage2_worker(
-    item: tuple[
-        float,
-        str,
-        float,
-        float,
-        dict
-    ]
-) -> Optional[dict[str, Any]]:
+def stage2_worker(item):
 
     (
         stage1_score,
@@ -2152,109 +3046,30 @@ def stage2_worker(
 
 
 # ============================================================
-# KLINES
-# ============================================================
-
-def klines(
-    symbol: str,
-    interval: str
-) -> pd.DataFrame:
-
-    raw = api(
-        "/fapi/v1/klines",
-        {
-            "symbol": symbol,
-            "interval": interval,
-            "limit": CONFIG["klines"],
-        },
-        timeout=CONFIG["api_timeout"],
-    )
-
-    columns = [
-        "time",
-        "open",
-        "high",
-        "low",
-        "close",
-        "volume",
-        "close_time",
-        "quote_volume",
-        "trades",
-        "taker_buy_base",
-        "taker_buy_quote",
-        "ignore",
-    ]
-
-    df = pd.DataFrame(
-        raw,
-        columns=columns
-    )
-
-    numeric_columns = [
-        "open",
-        "high",
-        "low",
-        "close",
-        "volume",
-        "quote_volume",
-    ]
-
-    for col in numeric_columns:
-
-        df[col] = pd.to_numeric(
-            df[col],
-            errors="coerce"
-        )
-
-    df["time"] = pd.to_datetime(
-        df["time"],
-        unit="ms",
-        utc=True,
-        errors="coerce"
-    )
-
-    df = (
-        df.dropna(
-            subset=[
-                "open",
-                "high",
-                "low",
-                "close",
-                "volume",
-            ]
-        )
-        .reset_index(drop=True)
-    )
-
-    return df
-
-
-# ============================================================
 # MAIN
 # ============================================================
 
-def main() -> None:
+def main():
 
     parser = argparse.ArgumentParser(
         description=(
             "Synaptic multi-timeframe "
-            "Binance Futures scanner "
-            "(optimized)"
+            "Binance Futures scanner"
         )
     )
 
     parser.add_argument(
         "--out",
-        default="synaptic_candidates.json"
+        default="synaptic_candidates.json",
     )
 
     args = parser.parse_args()
 
     started = time.time()
 
-    # --------------------------------------------------------
-    # Universe
-    # --------------------------------------------------------
+    # ========================================================
+    # UNIVERSE
+    # ========================================================
 
     try:
 
@@ -2267,15 +3082,15 @@ def main() -> None:
             exc,
         )
 
-        Path(args.out).write_text(
+        Path(
+            args.out
+        ).write_text(
             json.dumps(
                 {
                     "candidates": [],
                     "error": str(exc),
                 },
                 indent=2,
-                ensure_ascii=False,
-                allow_nan=False,
             ),
             encoding="utf-8",
         )
@@ -2283,13 +3098,14 @@ def main() -> None:
         raise
 
     if not universe_rows:
+
         raise RuntimeError(
             "Universe is empty."
         )
 
-    # --------------------------------------------------------
-    # Stage 1
-    # --------------------------------------------------------
+    # ========================================================
+    # STAGE 1
+    # ========================================================
 
     stage1_started = time.time()
 
@@ -2297,19 +3113,23 @@ def main() -> None:
         "Scanning %d symbols on 15m "
         "(Stage 1, workers=%d)...",
         len(universe_rows),
-        CONFIG["workers_stage1"],
+        CONFIG[
+            "workers_stage1"
+        ],
     )
 
     momentum = []
 
     with ThreadPoolExecutor(
-        max_workers=CONFIG["workers_stage1"]
+        max_workers=CONFIG[
+            "workers_stage1"
+        ]
     ) as pool:
 
         futures = [
             pool.submit(
                 stage1_worker,
-                row
+                row,
             )
             for row in universe_rows
         ]
@@ -2320,10 +3140,15 @@ def main() -> None:
 
             try:
 
-                result = future.result()
+                result = (
+                    future.result()
+                )
 
                 if result is not None:
-                    momentum.append(result)
+
+                    momentum.append(
+                        result
+                    )
 
             except Exception as exc:
 
@@ -2334,7 +3159,7 @@ def main() -> None:
 
     momentum.sort(
         key=lambda row: row[0],
-        reverse=True
+        reverse=True,
     )
 
     selected = momentum[
@@ -2356,37 +3181,61 @@ def main() -> None:
 
     if not selected:
 
+        logger.warning(
+            "No momentum candidates "
+            "found in Stage 1."
+        )
+
         payload = {
-            "generated_at": (
-                pd.Timestamp
-                .now(tz="UTC")
-                .isoformat()
-            ),
-            "scanner": "Synaptic",
-            "selection_mode": (
-                "no_stage1_candidates"
-            ),
+
+            "generated_at":
+                pd.Timestamp.now(
+                    tz="UTC"
+                ).isoformat(),
+
+            "scanner":
+                "Synaptic",
+
+            "selection_mode":
+                "no_stage1_candidates",
+
             "scan_stats": {
-                "universe": len(
-                    universe_rows
-                ),
-                "stage1_selected": 0,
-                "mtf_valid": 0,
-                "min_score_valid": 0,
-                "final_candidates": 0,
-                "stage1_seconds": round(
-                    stage1_elapsed,
-                    2
-                ),
-                "elapsed_seconds": round(
-                    time.time() - started,
-                    2
-                ),
+
+                "universe":
+                    len(universe_rows),
+
+                "stage1_selected":
+                    0,
+
+                "mtf_valid":
+                    0,
+
+                "min_score_valid":
+                    0,
+
+                "final_candidates":
+                    0,
+
+                "stage1_seconds":
+                    round(
+                        stage1_elapsed,
+                        2,
+                    ),
+
+                "elapsed_seconds":
+                    round(
+                        time.time()
+                        - started,
+                        2,
+                    ),
             },
+
             "candidates": [],
         }
 
-        Path(args.out).write_text(
+        Path(
+            args.out
+        ).write_text(
             json.dumps(
                 payload,
                 indent=2,
@@ -2398,30 +3247,36 @@ def main() -> None:
 
         return
 
-    # --------------------------------------------------------
-    # Stage 2
-    # --------------------------------------------------------
+    # ========================================================
+    # STAGE 2
+    # ========================================================
 
     stage2_started = time.time()
 
     logger.info(
-        "Selected %d symbols for Stage 2 "
-        "MTF validation (workers=%d)...",
+        "Selected %d symbols for "
+        "Stage 2 MTF validation "
+        "(workers=%d)...",
         len(selected),
-        CONFIG["workers_stage2"],
+        CONFIG[
+            "workers_stage2"
+        ],
     )
 
     results = []
+
     mtf_valid = []
 
     with ThreadPoolExecutor(
-        max_workers=CONFIG["workers_stage2"]
+        max_workers=CONFIG[
+            "workers_stage2"
+        ]
     ) as pool:
 
         futures = [
             pool.submit(
                 stage2_worker,
-                item
+                item,
             )
             for item in selected
         ]
@@ -2432,18 +3287,27 @@ def main() -> None:
 
             try:
 
-                result = future.result()
+                result = (
+                    future.result()
+                )
 
                 if result is None:
                     continue
 
-                mtf_valid.append(result)
+                mtf_valid.append(
+                    result
+                )
 
                 if (
                     result["score"]
-                    >= CONFIG["min_score"]
+                    >= CONFIG[
+                        "min_score"
+                    ]
                 ):
-                    results.append(result)
+
+                    results.append(
+                        result
+                    )
 
             except Exception as exc:
 
@@ -2452,9 +3316,13 @@ def main() -> None:
                     exc,
                 )
 
+    # ========================================================
+    # FINAL SORT / TOP 5
+    # ========================================================
+
     results.sort(
         key=lambda x: x["score"],
-        reverse=True
+        reverse=True,
     )
 
     final_candidates = results[
@@ -2466,39 +3334,44 @@ def main() -> None:
         - started
     )
 
-    # --------------------------------------------------------
-    # Payload
-    # --------------------------------------------------------
-
     payload = {
-        "generated_at": (
-            pd.Timestamp
-            .now(tz="UTC")
-            .isoformat()
-        ),
-        "scanner": "Synaptic",
+
+        "generated_at":
+            pd.Timestamp.now(
+                tz="UTC"
+            ).isoformat(),
+
+        "scanner":
+            "Synaptic",
+
         "scan_stats": {
-            "universe": len(
-                universe_rows
-            ),
-            "stage1_selected": len(
-                selected
-            ),
-            "mtf_valid": len(
-                mtf_valid
-            ),
-            "final_candidates": len(
-                final_candidates
-            ),
-            "elapsed_seconds": round(
-                elapsed_total,
-                2
-            ),
+
+            "universe":
+                len(universe_rows),
+
+            "stage1_selected":
+                len(selected),
+
+            "mtf_valid":
+                len(mtf_valid),
+
+            "final_candidates":
+                len(final_candidates),
+
+            "elapsed_seconds":
+                round(
+                    elapsed_total,
+                    2,
+                ),
         },
-        "candidates": final_candidates,
+
+        "candidates":
+            final_candidates,
     }
 
-    Path(args.out).write_text(
+    Path(
+        args.out
+    ).write_text(
         json.dumps(
             payload,
             indent=2,
@@ -2515,10 +3388,6 @@ def main() -> None:
         args.out,
     )
 
-
-# ============================================================
-# ENTRY POINT
-# ============================================================
 
 if __name__ == "__main__":
     main()
