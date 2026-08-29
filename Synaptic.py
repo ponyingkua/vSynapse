@@ -1337,22 +1337,42 @@ def classify_setup(tf_score, side):
         (side == "SHORT" and close < ema and st_dir < 0)
     )
 
-    ema_distance_atr = abs(close - ema) / atr_value
+    # --------------------------------------------------------
+    # Jarak ke EMA200 dalam ATR, BERTANDA searah sisi trade.
+    #
+    # Positif  -> close berada di sisi yang menguntungkan
+    #             posisi (di atas EMA untuk LONG, di bawah
+    #             EMA untuk SHORT).
+    # Negatif  -> close berada di sisi yang berlawanan arah
+    #             (mis. LONG tapi close di bawah EMA200).
+    #
+    # PENTING: EXTENDED wajib pakai jarak bertanda ini, bukan
+    # jarak absolut. Kalau pakai abs(), symbol yang close-nya
+    # jauh di sisi BERLAWANAN arah trade bisa salah kelabeli
+    # EXTENDED padahal seharusnya NO_SETUP.
+    # --------------------------------------------------------
+
+    directional_distance_atr = (
+        (close - ema) / atr_value
+        if side == "LONG"
+        else (ema - close) / atr_value
+    )
 
     # --------------------------------------------------------
     # Prioritas: breakout paling eksplisit, lalu extended
-    # (terlalu jauh dari EMA200), baru pullback / continuation.
+    # (terlalu jauh dari EMA200 SEARAH posisi), baru
+    # pullback / continuation.
     # --------------------------------------------------------
 
     if is_breakout:
         return "BREAKOUT"
 
-    if ema_distance_atr >= CONFIG["setup_extended_atr"]:
+    if directional_distance_atr >= CONFIG["setup_extended_atr"]:
         return "EXTENDED"
 
     if (
         trend_aligned
-        and ema_distance_atr <= CONFIG["setup_pullback_atr"]
+        and directional_distance_atr <= CONFIG["setup_pullback_atr"]
     ):
         return "PULLBACK"
 
