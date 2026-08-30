@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-belenggu.py - JSON-only static dashboard builder for Synaptic scan history
+belenggu.py - JSON-only static dashboard builder for Synaptic Futures Journey
 
 COMPATIBLE WITH:
     Synaptic.py + vSch.py output layout, i.e. a repo tree like:
@@ -480,7 +480,7 @@ def build_html(runs, aggregate):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Synaptic</title>
+<title>Synaptic Futures Journey</title>
 <style>
   :root {{
     --up: {UP}; --down: {DOWN}; --ema: {EMA};
@@ -548,7 +548,7 @@ def build_html(runs, aggregate):
 </head>
 <body>
 
-  <h1>Synaptic Crypto Journey</h1>
+  <h1>Synaptic Futures Journey</h1>
   <div class="subtitle">
     Dibuat (UTC): {esc(generated_at)}
     &middot; JSON-only, tidak menghitung ulang sinyal.
@@ -595,7 +595,7 @@ def main():
     parser = argparse.ArgumentParser(
         description=(
             "belenggu - JSON-only static dashboard "
-            "for Synaptic scan history"
+            "for Synaptic Futures Journey"
         )
     )
 
