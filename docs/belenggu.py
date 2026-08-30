@@ -1,36 +1,8 @@
-
 #!/usr/bin/env python3
-"""
-belenggu.py - JSON-only static dashboard builder for Synaptic Futures Journey
-
-COMPATIBLE WITH:
-    Synaptic.py + vSch.py output layout, i.e. a repo tree like:
-
-        scan_results/
-            2026-08-29_15-41-03/
-                synaptic_candidates.json
-                summary.txt
-                charts/
-                    HYPEUSDT_LONG_15m_chart.png
-                    ...
-            2026-08-29_18-35-45/
-                synaptic_candidates.json
-                ...
-
-IMPORTANT:
-- Tidak melakukan Binance API call.
-- Tidak menghitung ulang setup/entry/score.
-- Semua angka (entry/sl/tp) ditampilkan memakai field "decimals"
-  yang sudah dikirim Synaptic.py -- konsisten dengan chart (vSch.py)
-  dan summary.txt.
-- Hanya membaca file JSON yang sudah ada di disk dan merender
-  jadi satu halaman HTML statis, self-contained (CSS inline,
-  tanpa dependency eksternal / CDN).
-- Link chart di dashboard mengasumsikan belenggu.html diletakkan
-  SEJAJAR dengan folder --results-dir (default: root repo),
-  supaya path relatif ke charts/ tetap valid saat dibuka di
-  GitHub Pages atau langsung dari file lokal.
-"""
+"""belenggu.py - JSON-only dark dashboard builder for Synaptic Futures Journey.
+Baca scan_results/<timestamp>/synaptic_candidates.json, render satu file HTML
+statis, self-contained. Link chart mengasumsikan belenggu.html sejajar dengan
+folder --results-dir."""
 
 import argparse
 import html
@@ -40,33 +12,33 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-# ============================================================
-# STYLE
-#
-# Palet warna sengaja SAMA PERSIS dengan vSch.py, supaya
-# dashboard dan chart terasa satu keluarga visual.
-# ============================================================
+# DESIGN TOKENS
 
-UP = "#26a69a"
-DOWN = "#ef5350"
-EMA = "#1565c0"
-ST_UP = "#2e7d32"
-ST_DOWN = "#c62828"
-REFERENCE = "#7b1fa2"
-WAITING = "#ef6c00"
-READY = "#1565c0"
-MUTED = "#607d8b"
-BG = "#f5f7fa"
-PANEL = "#ffffff"
-BORDER = "#e2e8f0"
-TEXT = "#1e293b"
-TEXT_SOFT = "#64748b"
+BG = "#080808"
+PANEL = "#131313"
+PANEL_SOFT = "#1b1b1b"
+BORDER = "#2b2b2b"
+TEXT = "#f0f0ec"
+TEXT_SOFT = "#8c8c86"
+MUTED = "#4a4a46"
+
+ACCENT = "#e6b526"      # kuning Binance, dimutedkan - aksen utama
+ACCENT_DEEP = "#a9840f" # kuning gelap/perunggu - aksen sekunder
+UP = "#4aa88f"          # long (teal muted, tetap dipisah dari kuning
+                        # karena ini sinyal fungsional, bukan dekorasi)
+DOWN = "#bd5c53"        # short (terracotta muted)
+LINK = ACCENT           # chart link & tren ikut kuning
+REFERENCE = ACCENT_DEEP # breakout/breakdown
+READY = UP              # entry ready = sinyal "go", pakai warna sama dgn long
+WAITING = ACCENT
+GOLD = ACCENT_DEEP      # top symbols
+CYAN = TEXT_SOFT        # total run - dinetralkan, bukan metrik "sinyal"
 
 
 SETUP_COLORS = {
     "BREAKOUT": REFERENCE,
     "BREAKDOWN": REFERENCE,
-    "PULLBACK": EMA,
+    "PULLBACK": LINK,
     "CONTINUATION": UP,
     "EXTENDED": WAITING,
     "NO_SETUP": MUTED,
@@ -80,18 +52,12 @@ ENTRY_STATE_COLORS = {
 }
 
 SIDE_COLORS = {
-    "LONG": ST_UP,
-    "SHORT": ST_DOWN,
+    "LONG": UP,
+    "SHORT": DOWN,
 }
 
 
-# ============================================================
 # NUMBER FORMATTING
-#
-# Sama persis dengan fmt_num() di vSynapse.yml -- kalau field
-# "decimals" tersedia, pakai fixed-point. Kalau tidak (JSON
-# lama), fallback ke pembersihan floating-point noise.
-# ============================================================
 
 def fmt_num(value, decimals=None):
 
@@ -116,26 +82,16 @@ def esc(value):
     return html.escape(str(value)) if value is not None else "N/A"
 
 
-# ============================================================
 # LOAD RUNS
-# ============================================================
 
 def _iter_run_dirs(results_dir):
 
     if not results_dir.exists():
         return []
 
-    dirs = [
-        d for d in results_dir.iterdir()
-        if d.is_dir()
-    ]
+    dirs = [d for d in results_dir.iterdir() if d.is_dir()]
 
-    # Nama folder dari workflow berformat YYYY-MM-DD_HH-MM-SS,
-    # jadi sort leksikografis == sort kronologis.
-    dirs.sort(
-        key=lambda d: d.name,
-        reverse=True,
-    )
+    dirs.sort(key=lambda d: d.name, reverse=True)
 
     return dirs
 
@@ -148,9 +104,7 @@ def _load_run(run_dir):
         return None
 
     try:
-        data = json.loads(
-            json_path.read_text(encoding="utf-8")
-        )
+        data = json.loads(json_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         print(f"Skip {run_dir.name}: {exc}")
         return None
@@ -158,11 +112,7 @@ def _load_run(run_dir):
     if not isinstance(data, dict):
         return None
 
-    return {
-        "run_id": run_dir.name,
-        "dir": run_dir,
-        "data": data,
-    }
+    return {"run_id": run_dir.name, "dir": run_dir, "data": data}
 
 
 def load_runs(results_dir, max_runs=None):
@@ -175,21 +125,14 @@ def load_runs(results_dir, max_runs=None):
     runs = []
 
     for run_dir in run_dirs:
-
         run = _load_run(run_dir)
-
         if run is not None:
             runs.append(run)
 
     return runs
 
 
-# ============================================================
-# CHART LOOKUP
-#
-# Nama file chart mengikuti persis konvensi vSch.py:
-#   f"{symbol}_{side}_{execution_tf}_chart.png"
-# ============================================================
+# CHART LOOKUP: f"{symbol}_{side}_{execution_tf}_chart.png"
 
 def find_chart(run, candidate):
 
@@ -200,10 +143,7 @@ def find_chart(run, candidate):
     if not (symbol and side and tf):
         return None
 
-    chart_path = (
-        run["dir"] / "charts" /
-        f"{symbol}_{side}_{tf}_chart.png"
-    )
+    chart_path = run["dir"] / "charts" / f"{symbol}_{side}_{tf}_chart.png"
 
     if chart_path.exists():
         return chart_path
@@ -211,22 +151,41 @@ def find_chart(run, candidate):
     return None
 
 
-# ============================================================
 # BADGE HELPER
-# ============================================================
 
 def badge(text, color, extra_class=""):
-
     return (
         f'<span class="badge {extra_class}" '
-        f'style="background:{color}">'
+        f'style="color:{color};border-color:{color}55;background:{color}1f">'
         f'{esc(text)}</span>'
     )
 
 
-# ============================================================
+# SCORE METER
+
+def render_score_meter(score, segments=10):
+
+    try:
+        score_f = float(score)
+    except (TypeError, ValueError):
+        return f'<span class="num muted">{esc(score)}</span>'
+
+    filled = round(max(min(score_f, segments), 0))
+
+    bars = "".join(
+        f'<span class="meter-seg{" on" if i < filled else ""}"></span>'
+        for i in range(segments)
+    )
+
+    return (
+        f'<div class="score-wrap">'
+        f'<span class="score-val">{score_f:.1f}</span>'
+        f'<div class="meter">{bars}</div>'
+        f'</div>'
+    )
+
+
 # AGGREGATE STATS
-# ============================================================
 
 def build_aggregate(runs):
 
@@ -241,7 +200,6 @@ def build_aggregate(runs):
     for run in runs:
 
         candidates = run["data"].get("candidates", [])
-
         total_candidates += len(candidates)
 
         for c in candidates:
@@ -257,16 +215,10 @@ def build_aggregate(runs):
                     pass
 
         stats = run["data"].get("scan_stats", {})
-
         trend_points.append(
-            (
-                run["run_id"],
-                stats.get("final_candidates", len(candidates)),
-            )
+            (run["run_id"], stats.get("final_candidates", len(candidates)))
         )
 
-    # Trend chart butuh urutan kronologis (lama -> baru),
-    # sedangkan `runs` sudah newest-first untuk listing.
     trend_points.reverse()
 
     avg_score = round(sum(scores) / len(scores), 2) if scores else None
@@ -283,32 +235,27 @@ def build_aggregate(runs):
     }
 
 
-# ============================================================
-# SVG SPARKLINE (tanpa library eksternal)
-# ============================================================
+# SVG SPARKLINE
 
 def render_trend_svg(trend_points, width=680, height=110):
 
     if len(trend_points) < 2:
         return (
             '<p class="muted small">'
-            'Belum cukup data untuk grafik tren '
-            '(minimal 2 scan run).'
-            '</p>'
+            "Belum cukup data untuk grafik tren "
+            "(minimal 2 scan run)."
+            "</p>"
         )
 
     values = [v for _, v in trend_points]
 
     v_min = min(values)
     v_max = max(values)
-
     v_range = (v_max - v_min) or 1
 
     pad = 14
-
     usable_w = width - pad * 2
     usable_h = height - pad * 2
-
     n = len(values)
 
     def x_at(i):
@@ -318,47 +265,46 @@ def render_trend_svg(trend_points, width=680, height=110):
         return pad + usable_h * (1 - (v - v_min) / v_range)
 
     points = " ".join(
-        f"{x_at(i):.1f},{y_at(v):.1f}"
-        for i, v in enumerate(values)
+        f"{x_at(i):.1f},{y_at(v):.1f}" for i, v in enumerate(values)
     )
 
-    # Area fill di bawah line
     area_points = (
-        f"{x_at(0):.1f},{height - pad} " +
-        points +
-        f" {x_at(n-1):.1f},{height - pad}"
+        f"{x_at(0):.1f},{height - pad} "
+        + points
+        + f" {x_at(n - 1):.1f},{height - pad}"
     )
 
     dots = "".join(
         f'<circle cx="{x_at(i):.1f}" cy="{y_at(v):.1f}" '
-        f'r="3.5" fill="{EMA}" stroke="#fff" stroke-width="1.5">'
-        f'<title>{esc(trend_points[i][0])}: {v}</title>'
-        f'</circle>'
+        f'r="3.5" fill="{LINK}" stroke="{BG}" stroke-width="1.5">'
+        f"<title>{esc(trend_points[i][0])}: {v}</title>"
+        f"</circle>"
         for i, v in enumerate(values)
     )
 
     return (
-        f'<svg viewBox="0 0 {width} {height}" '
-        f'width="100%" height="{height}" '
+        f'<svg viewBox="0 0 {width} {height}" width="100%" height="{height}" '
         f'class="trend-svg" preserveAspectRatio="none">'
-        f'<defs>'
+        f"<defs>"
         f'<linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">'
-        f'<stop offset="0%" stop-color="{EMA}" stop-opacity="0.25"/>'
-        f'<stop offset="100%" stop-color="{EMA}" stop-opacity="0.02"/>'
-        f'</linearGradient>'
-        f'</defs>'
+        f'<stop offset="0%" stop-color="{LINK}" stop-opacity="0.3"/>'
+        f'<stop offset="100%" stop-color="{LINK}" stop-opacity="0"/>'
+        f"</linearGradient>"
+        f'<filter id="glow" x="-20%" y="-50%" width="140%" height="200%">'
+        f'<feGaussianBlur stdDeviation="2.4" result="blur"/>'
+        f'<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>'
+        f"</filter>"
+        f"</defs>"
         f'<polygon points="{area_points}" fill="url(#trendGrad)" />'
-        f'<polyline points="{points}" fill="none" '
-        f'stroke="{EMA}" stroke-width="2.2" stroke-linecap="round" '
-        f'stroke-linejoin="round" />'
-        f'{dots}'
-        f'</svg>'
+        f'<polyline points="{points}" fill="none" stroke="{LINK}" '
+        f'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+        f'filter="url(#glow)" />'
+        f"{dots}"
+        f"</svg>"
     )
 
 
-# ============================================================
 # CANDIDATE ROW
-# ============================================================
 
 def render_candidate_row(run, candidate):
 
@@ -377,68 +323,52 @@ def render_candidate_row(run, candidate):
     sl = fmt_num(candidate.get("sl"), decimals)
 
     tps = candidate.get("tp", []) or []
-    tp_text = ", ".join(
-        fmt_num(t, decimals) for t in tps
-    )
+    tp_text = ", ".join(fmt_num(t, decimals) for t in tps)
 
     chart_path = find_chart(run, candidate)
-
-    chart_cell = '<span class="muted">—</span>'
+    chart_cell = '<span class="muted">&mdash;</span>'
 
     if chart_path is not None:
-
         rel = chart_path.relative_to(run["dir"].parent.parent)
-
         chart_cell = (
-            f'<a class="chart-link" href="{rel.as_posix()}" target="_blank" '
-            f'rel="noopener">Chart ↗</a>'
+            f'<a class="chart-link" href="{rel.as_posix()}" '
+            f'target="_blank" rel="noopener">Chart &#8599;</a>'
         )
 
     funding_cell = (
-        '<span class="warn-dot" title="Funding rate crowded">'
-        '⚠</span>'
-        if funding_alert else
-        '<span class="muted">—</span>'
+        '<span class="warn-dot" title="Funding rate crowded">&#9888;</span>'
+        if funding_alert
+        else '<span class="muted">&mdash;</span>'
     )
 
-    bias_cell = esc(htf_bias) if htf_bias else '<span class="muted">—</span>'
+    bias_cell = esc(htf_bias) if htf_bias else '<span class="muted">&mdash;</span>'
 
-    # Score visual bar (0-10 scale assumed)
-    try:
-        score_f = float(score)
-        bar_w = min(max(score_f / 10 * 100, 4), 100)
-        score_bar = (
-            f'<div class="score-wrap">'
-            f'<span class="score-val">{esc(score)}</span>'
-            f'<div class="score-bar"><div class="score-fill" style="width:{bar_w:.0f}%"></div></div>'
-            f'</div>'
-        )
-    except (TypeError, ValueError):
-        score_bar = f'<span class="num">{esc(score)}</span>'
+    score_cell = render_score_meter(score)
 
-    side_class = "side-long" if side == "LONG" else "side-short" if side == "SHORT" else ""
+    side_class = (
+        "side-long" if side == "LONG" else "side-short" if side == "SHORT" else ""
+    )
 
     return (
         f'<tr class="{side_class}">'
         f'<td class="sym">{esc(symbol)}</td>'
-        f'<td>{badge(side, SIDE_COLORS.get(side, MUTED))}</td>'
-        f'<td>{badge(setup_style, SETUP_COLORS.get(setup_style, MUTED))}</td>'
-        f'<td>{badge(entry_state, ENTRY_STATE_COLORS.get(entry_state, MUTED))}</td>'
-        f'<td>{score_bar}</td>'
-        f'<td class="tf">{esc(execution_tf)} <span class="muted">({esc(tf_agreement)}/3)</span></td>'
+        f"<td>{badge(side, SIDE_COLORS.get(side, MUTED))}</td>"
+        f"<td>{badge(setup_style, SETUP_COLORS.get(setup_style, MUTED))}</td>"
+        f"<td>{badge(entry_state, ENTRY_STATE_COLORS.get(entry_state, MUTED))}</td>"
+        f"<td>{score_cell}</td>"
+        f'<td class="tf">{esc(execution_tf)} '
+        f'<span class="muted">({esc(tf_agreement)}/3)</span></td>'
         f'<td class="num">{entry}</td>'
         f'<td class="num">{sl}</td>'
         f'<td class="num tp">{tp_text}</td>'
-        f'<td>{bias_cell}</td>'
+        f"<td>{bias_cell}</td>"
         f'<td class="center">{funding_cell}</td>'
         f'<td class="center">{chart_cell}</td>'
-        '</tr>'
+        "</tr>"
     )
 
 
-# ============================================================
 # RUN SECTION
-# ============================================================
 
 def render_run_section(run, open_by_default=False):
 
@@ -451,10 +381,7 @@ def render_run_section(run, open_by_default=False):
     open_attr = " open" if open_by_default else ""
 
     rows_html = (
-        "".join(
-            render_candidate_row(run, c)
-            for c in candidates
-        )
+        "".join(render_candidate_row(run, c) for c in candidates)
         if candidates
         else (
             '<tr><td colspan="12" class="empty-row">'
@@ -463,15 +390,14 @@ def render_run_section(run, open_by_default=False):
         )
     )
 
-    # Funnel chips
     funnel_parts = [
-        ("Universe", stats.get("universe", "-")),
-        ("Stage 1", stats.get("stage1_selected", "-")),
-        ("MTF Valid", stats.get("mtf_valid", "-")),
-        ("Final", stats.get("final_candidates", len(candidates))),
+        ("UNIVERSE", stats.get("universe", "-")),
+        ("STAGE 1", stats.get("stage1_selected", "-")),
+        ("MTF VALID", stats.get("mtf_valid", "-")),
+        ("FINAL", stats.get("final_candidates", len(candidates))),
     ]
 
-    funnel_html = " → ".join(
+    funnel_html = '<span class="funnel-arrow">&rarr;</span>'.join(
         f'<span class="funnel-chip"><b>{label}</b> {val}</span>'
         for label, val in funnel_parts
     )
@@ -481,8 +407,8 @@ def render_run_section(run, open_by_default=False):
         elapsed = f"{elapsed:.1f}s"
 
     return f"""
-    **Summary:**
-
+    <details class="run-card"{open_attr}>
+      <summary>
         <div class="run-summary">
           <div class="run-left">
             <span class="run-time">{esc(generated_at)}</span>
@@ -494,7 +420,7 @@ def render_run_section(run, open_by_default=False):
             <span class="run-elapsed muted">{elapsed}</span>
           </div>
         </div>
-      
+      </summary>
       <div class="run-body">
         <div class="funnel-line">{funnel_html}</div>
         <div class="table-wrap">
@@ -521,43 +447,38 @@ def render_run_section(run, open_by_default=False):
           </table>
         </div>
       </div>
+    </details>
     """
 
 
-# ============================================================
 # BUILD HTML
-# ============================================================
 
 def build_html(runs, aggregate):
 
     generated_at = datetime.now(timezone.utc).isoformat()
 
     top_symbols_html = "".join(
-        f'<li><span class="sym-name">{esc(sym)}</span>'
-        f'<span class="sym-count">{count}×</span></li>'
-        for sym, count in aggregate["top_symbols"]
+        f'<li><span class="sym-rank">{i:02d}</span>'
+        f'<span class="sym-name">{esc(sym)}</span>'
+        f'<span class="sym-count">{count}&times;</span></li>'
+        for i, (sym, count) in enumerate(aggregate["top_symbols"], 1)
     ) or '<li class="muted">Belum ada data.</li>'
 
     trend_svg = render_trend_svg(aggregate["trend_points"])
 
-    # Side distribution
     long_c = aggregate["side_counter"].get("LONG", 0)
     short_c = aggregate["side_counter"].get("SHORT", 0)
     total_side = long_c + short_c or 1
     long_pct = round(long_c / total_side * 100)
     short_pct = 100 - long_pct
 
-    # Entry state
     ready_c = aggregate["state_counter"].get("ENTRY_READY", 0)
-    waiting_c = (
-        aggregate["state_counter"].get("WAITING_RETEST", 0) +
-        aggregate["state_counter"].get("WAITING_PULLBACK", 0)
-    )
+    waiting_c = aggregate["state_counter"].get(
+        "WAITING_RETEST", 0
+    ) + aggregate["state_counter"].get("WAITING_PULLBACK", 0)
 
     avg_score_html = (
-        f"{aggregate['avg_score']}"
-        if aggregate["avg_score"] is not None
-        else "—"
+        f"{aggregate['avg_score']}" if aggregate["avg_score"] is not None else "&mdash;"
     )
 
     if runs:
@@ -568,8 +489,8 @@ def build_html(runs, aggregate):
     else:
         run_sections = (
             '<div class="empty-state">'
-            '<p>Belum ada scan_results yang ditemukan.</p>'
-            '</div>'
+            "<p>Belum ada scan_results yang ditemukan.</p>"
+            "</div>"
         )
 
     return f"""<!DOCTYPE html>
@@ -577,71 +498,102 @@ def build_html(runs, aggregate):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Synaptic Futures Journey</title>
+<title>Synaptic // Futures Journey</title>
 <style>
   :root {{
-    --up: {UP};
-    --down: {DOWN};
-    --ema: {EMA};
-    --st-up: {ST_UP};
-    --st-down: {ST_DOWN};
-    --border: {BORDER};
     --bg: {BG};
     --panel: {PANEL};
+    --panel-soft: {PANEL_SOFT};
+    --border: {BORDER};
     --text: {TEXT};
     --text-soft: {TEXT_SOFT};
     --muted: {MUTED};
+    --accent: {ACCENT};
+    --up: {UP};
+    --down: {DOWN};
+    --link: {LINK};
     --ready: {READY};
     --waiting: {WAITING};
-    --radius: 12px;
-    --shadow: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+    --radius: 8px;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }}
 
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
+  @media (prefers-reduced-motion: reduce) {{
+    * {{ animation: none !important; transition: none !important; }}
+  }}
+
   body {{
-    background: var(--bg);
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #101a26 0%, transparent 60%),
+      repeating-linear-gradient(180deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px),
+      var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--sans);
     line-height: 1.5;
-    padding: 28px 20px 48px;
+    padding: 32px 20px 56px;
     max-width: 1280px;
     margin: 0 auto;
   }}
 
   /* Header */
   .header {{
-    margin-bottom: 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
   }}
   .header h1 {{
-    font-size: 1.55rem;
-    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 1.6rem;
+    font-weight: 800;
     letter-spacing: -0.02em;
-    margin-bottom: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
   }}
+  .header h1 .slash {{ color: var(--text); }}
   .header .subtitle {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: var(--text-soft);
-    font-size: 0.875rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
   }}
-  .header .subtitle code {{
-    background: #e2e8f0;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+  .live-dot {{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ready);
+    box-shadow: 0 0 0 0 rgba(57,217,138,0.6);
+    animation: pulse 2s infinite;
+  }}
+  @keyframes pulse {{
+    0%   {{ box-shadow: 0 0 0 0 rgba(57,217,138,0.5); }}
+    70%  {{ box-shadow: 0 0 0 6px rgba(57,217,138,0); }}
+    100% {{ box-shadow: 0 0 0 0 rgba(57,217,138,0); }}
   }}
 
   /* Section titles */
   .section-title {{
-    font-size: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--text-soft);
-    margin: 32px 0 14px;
+    margin: 34px 0 14px;
     display: flex;
     align-items: center;
     gap: 10px;
   }}
+  .section-title::before {{ content: "//"; color: var(--accent); }}
   .section-title::after {{
     content: "";
     flex: 1;
@@ -653,32 +605,34 @@ def build_html(runs, aggregate):
   .cards {{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-bottom: 8px;
+    gap: 12px;
   }}
   .card {{
     background: var(--panel);
     border: 1px solid var(--border);
+    border-top: 2px solid var(--card-accent, var(--border));
     border-radius: var(--radius);
     padding: 16px 18px;
-    box-shadow: var(--shadow);
   }}
   .card h3 {{
-    font-size: 0.72rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     color: var(--text-soft);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }}
   .card .value {{
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-family: var(--mono);
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.2;
+    color: var(--text);
   }}
   .card .sub {{
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-soft);
     margin-top: 4px;
   }}
@@ -686,71 +640,70 @@ def build_html(runs, aggregate):
   /* Side split bar */
   .side-bar {{
     display: flex;
-    height: 8px;
-    border-radius: 4px;
+    height: 6px;
+    border-radius: 3px;
     overflow: hidden;
-    margin-top: 10px;
-    background: #e2e8f0;
+    margin-top: 12px;
+    background: var(--border);
   }}
-  .side-bar .long {{ background: var(--st-up); }}
-  .side-bar .short {{ background: var(--st-down); }}
+  .side-bar .long {{ background: var(--up); }}
+  .side-bar .short {{ background: var(--down); }}
   .side-legend {{
     display: flex;
     justify-content: space-between;
-    font-size: 0.75rem;
-    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    margin-top: 8px;
     color: var(--text-soft);
   }}
 
   /* Top symbols list */
-  .card ul {{
-    list-style: none;
-    font-size: 0.85rem;
-  }}
+  .card ul {{ list-style: none; font-size: 0.85rem; }}
   .card li {{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 4px 0;
-    border-bottom: 1px solid #f1f5f9;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--panel-soft);
   }}
   .card li:last-child {{ border-bottom: none; }}
-  .sym-name {{ font-weight: 500; }}
+  .sym-rank {{
+    font-family: var(--mono);
+    color: {GOLD};
+    font-size: 0.72rem;
+    width: 18px;
+  }}
+  .sym-name {{ font-weight: 500; flex: 1; }}
   .sym-count {{
+    font-family: var(--mono);
     color: var(--text-soft);
-    font-variant-numeric: tabular-nums;
-    font-size: 0.8rem;
+    font-size: 0.76rem;
   }}
 
-  /* Trend SVG */
-  .trend-svg {{ display: block; margin-top: 4px; }}
+  .trend-svg {{ display: block; margin-top: 2px; }}
 
   /* Run cards */
   .run-card {{
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    margin-bottom: 12px;
-    box-shadow: var(--shadow);
+    margin-bottom: 10px;
     overflow: hidden;
   }}
   .run-card summary {{
     cursor: pointer;
     list-style: none;
-    padding: 14px 18px;
+    padding: 13px 16px;
     user-select: none;
   }}
   .run-card summary::-webkit-details-marker {{ display: none; }}
   .run-card summary::before {{
-    content: "▸";
-    color: var(--text-soft);
+    content: "&#9656;";
+    color: var(--accent);
     margin-right: 10px;
-    font-size: 0.85rem;
-    transition: transform 0.15s ease;
+    font-size: 0.78rem;
   }}
-  .run-card[open] summary::before {{
-    content: "▾";
-  }}
+  .run-card[open] summary::before {{ content: "&#9662;"; }}
   .run-summary {{
     display: flex;
     align-items: center;
@@ -758,173 +711,106 @@ def build_html(runs, aggregate):
     gap: 12px;
     flex-wrap: wrap;
   }}
-  .run-left {{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }}
-  .run-right {{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }}
-  .run-time {{
-    font-weight: 600;
-    font-size: 0.95rem;
-  }}
-  .run-id {{
-    font-size: 0.78rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  }}
-  .run-count {{
-    font-size: 0.85rem;
-  }}
-  .run-elapsed {{
-    font-size: 0.8rem;
-  }}
-  .mode-badge {{
-    font-size: 0.65rem !important;
-  }}
+  .run-left {{ display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }}
+  .run-right {{ display: flex; align-items: center; gap: 12px; }}
+  .run-time {{ font-family: var(--mono); font-weight: 600; font-size: 0.88rem; }}
+  .run-id {{ font-family: var(--mono); font-size: 0.72rem; }}
+  .run-count {{ font-size: 0.84rem; }}
+  .run-elapsed {{ font-family: var(--mono); font-size: 0.76rem; }}
+  .mode-badge {{ font-size: 0.62rem !important; }}
 
-  .run-body {{
-    padding: 0 18px 16px;
-    border-top: 1px solid var(--border);
-  }}
+  .run-body {{ padding: 0 16px 16px; border-top: 1px solid var(--border); }}
 
   /* Funnel */
   .funnel-line {{
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
     align-items: center;
-    font-size: 0.78rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
     color: var(--text-soft);
     padding: 12px 0 10px;
   }}
   .funnel-chip {{
-    background: #f1f5f9;
-    padding: 3px 8px;
-    border-radius: 6px;
+    background: var(--panel-soft);
+    padding: 3px 9px;
+    border-radius: 4px;
     white-space: nowrap;
   }}
-  .funnel-chip b {{
-    color: var(--text);
-    font-weight: 600;
-  }}
+  .funnel-chip b {{ color: var(--text); font-weight: 600; }}
+  .funnel-arrow {{ color: var(--accent); margin: 0 6px; }}
 
   /* Table */
   .table-wrap {{
     overflow-x: auto;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid var(--border);
   }}
-  table {{
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.82rem;
-    min-width: 900px;
-  }}
-  th, td {{
-    padding: 9px 12px;
-    text-align: left;
-    white-space: nowrap;
-  }}
+  table {{ border-collapse: collapse; width: 100%; font-size: 0.8rem; min-width: 900px; }}
+  th, td {{ padding: 9px 12px; text-align: left; white-space: nowrap; }}
   th {{
-    background: #f8fafc;
+    background: var(--panel-soft);
     color: var(--text-soft);
+    font-family: var(--mono);
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
   }}
-  td {{
-    border-bottom: 1px solid #f1f5f9;
-  }}
+  td {{ border-bottom: 1px solid var(--panel-soft); }}
   tr:last-child td {{ border-bottom: none; }}
-  tr:hover td {{ background: #f8fafc; }}
-  tr.side-long:hover td {{ background: #f0fdf4; }}
-  tr.side-short:hover td {{ background: #fef2f2; }}
+  tr:hover td {{ background: var(--panel-soft); }}
+  tr.side-long:hover td {{ background: #10241f; }}
+  tr.side-short:hover td {{ background: #2a1417; }}
 
-  td.sym {{
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }}
-  td.num {{
-    font-variant-numeric: tabular-nums;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.8rem;
-  }}
-  td.tp {{
-    max-width: 200px;
-    white-space: normal;
-    line-height: 1.35;
-  }}
+  td.sym {{ font-family: var(--mono); font-weight: 600; }}
+  td.num {{ font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 0.78rem; }}
+  td.tp {{ max-width: 200px; white-space: normal; line-height: 1.35; }}
   td.center {{ text-align: center; }}
-  td.tf {{ font-size: 0.8rem; }}
+  td.tf {{ font-size: 0.78rem; }}
 
-  .empty-row {{
-    text-align: center;
-    color: var(--text-soft);
-    padding: 24px !important;
-  }}
+  .empty-row {{ text-align: center; color: var(--text-soft); padding: 24px !important; }}
 
-  /* Score bar */
-  .score-wrap {{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 90px;
-  }}
+  /* Score meter (signature element) */
+  .score-wrap {{ display: flex; align-items: center; gap: 8px; min-width: 110px; }}
   .score-val {{
+    font-family: var(--mono);
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    font-size: 0.85rem;
-    min-width: 28px;
+    font-size: 0.8rem;
+    min-width: 26px;
+    color: var(--accent);
   }}
-  .score-bar {{
-    flex: 1;
-    height: 5px;
-    background: #e2e8f0;
-    border-radius: 3px;
-    overflow: hidden;
+  .meter {{ display: flex; gap: 2px; align-items: flex-end; }}
+  .meter-seg {{
+    width: 5px;
+    height: 12px;
+    background: var(--border);
+    border-radius: 1px;
   }}
-  .score-fill {{
-    height: 100%;
-    background: linear-gradient(90deg, var(--ema), #42a5f5);
-    border-radius: 3px;
+  .meter-seg.on {{
+    background: var(--accent);
+    box-shadow: 0 0 4px {ACCENT}99;
   }}
 
   /* Badges */
   .badge {{
     display: inline-block;
-    padding: 2px 9px;
-    border-radius: 999px;
-    color: #fff;
-    font-size: 0.68rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-family: var(--mono);
+    font-size: 0.64rem;
     font-weight: 600;
     letter-spacing: 0.02em;
-    line-height: 1.4;
+    line-height: 1.5;
   }}
 
-  /* Chart link */
-  .chart-link {{
-    color: var(--ema);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }}
-  .chart-link:hover {{
-    text-decoration: underline;
-  }}
+  .chart-link {{ color: var(--link); text-decoration: none; font-weight: 500; font-size: 0.78rem; }}
+  .chart-link:hover {{ text-decoration: underline; }}
 
-  .warn-dot {{
-    color: var(--waiting);
-    font-size: 1rem;
-  }}
+  .warn-dot {{ color: var(--waiting); font-size: 0.95rem; }}
 
   .muted {{ color: var(--text-soft); }}
   .small {{ font-size: 0.8rem; }}
@@ -939,21 +825,21 @@ def build_html(runs, aggregate):
   }}
 
   footer {{
-    margin-top: 36px;
+    margin-top: 40px;
     padding-top: 16px;
     border-top: 1px solid var(--border);
     color: var(--text-soft);
-    font-size: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
   }}
 
-  /* Responsive */
   @media (max-width: 640px) {{
-    body {{ padding: 16px 12px 32px; }}
-    .header h1 {{ font-size: 1.3rem; }}
+    body {{ padding: 20px 12px 40px; }}
+    .header h1 {{ font-size: 1.05rem; }}
     .cards {{ grid-template-columns: 1fr 1fr; }}
     .run-summary {{ flex-direction: column; align-items: flex-start; }}
   }}
@@ -962,61 +848,61 @@ def build_html(runs, aggregate):
 <body>
 
   <header class="header">
-    <h1>Synaptic Futures Journey</h1>
+    <h1>SYNAPTIC<span class="slash">//</span>FUTURES JOURNEY</h1>
     <div class="subtitle">
-      Dibuat (UTC): {esc(generated_at)}
-      · JSON-only, tidak menghitung ulang sinyal
+      <span class="live-dot"></span>
+      generated {esc(generated_at)} UTC
     </div>
   </header>
 
   <h2 class="section-title">Ringkasan Agregat</h2>
 
   <div class="cards">
-    <div class="card">
+    <div class="card" style="--card-accent:{CYAN}">
       <h3>Total Scan Run</h3>
-      <div class="value">{aggregate['total_runs']}</div>
+      <div class="value" style="color:{CYAN}">{aggregate['total_runs']}</div>
       <div class="sub">run terbaru diproses</div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{ACCENT}">
       <h3>Total Kandidat</h3>
-      <div class="value">{aggregate['total_candidates']}</div>
+      <div class="value" style="color:{ACCENT}">{aggregate['total_candidates']}</div>
       <div class="sub">semua run digabung</div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{REFERENCE}">
       <h3>Avg Score</h3>
-      <div class="value">{avg_score_html}</div>
+      <div class="value" style="color:{REFERENCE}">{avg_score_html}</div>
       <div class="sub">rata-rata semua kandidat</div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{READY}">
       <h3>Entry State</h3>
-      <div class="value" style="font-size:1.35rem">
+      <div class="value" style="font-size:1.3rem">
         <span style="color:var(--ready)">{ready_c}</span>
-        <span class="muted" style="font-weight:400;font-size:0.9rem"> ready</span>
+        <span class="muted" style="font-weight:400;font-size:0.85rem"> ready</span>
       </div>
       <div class="sub">{waiting_c} waiting</div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{UP}">
       <h3>Side Distribution</h3>
       <div class="side-bar">
         <div class="long" style="width:{long_pct}%"></div>
         <div class="short" style="width:{short_pct}%"></div>
       </div>
       <div class="side-legend">
-        <span style="color:var(--st-up)">LONG {long_c}</span>
-        <span style="color:var(--st-down)">SHORT {short_c}</span>
+        <span style="color:var(--up)">LONG {long_c}</span>
+        <span style="color:var(--down)">SHORT {short_c}</span>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{LINK}">
       <h3>Tren Final / Run</h3>
       {trend_svg}
     </div>
 
-    <div class="card">
+    <div class="card" style="--card-accent:{GOLD}">
       <h3>Symbol Paling Sering</h3>
       <ul>{top_symbols_html}</ul>
     </div>
@@ -1027,8 +913,8 @@ def build_html(runs, aggregate):
   {run_sections}
 
   <footer>
-    <span>belenggu.py · not financial advice</span>
-    <span>Palet warna selaras dengan vSch.py charts</span>
+    <span>belenggu.py &middot; not financial advice</span>
+    <span>dark terminal build</span>
   </footer>
 
 </body>
@@ -1036,17 +922,12 @@ def build_html(runs, aggregate):
 """
 
 
-# ============================================================
 # MAIN
-# ============================================================
 
 def main():
 
     parser = argparse.ArgumentParser(
-        description=(
-            "belenggu - JSON-only static dashboard "
-            "for Synaptic Futures Journey"
-        )
+        description="belenggu - JSON-only static dashboard for Synaptic Futures Journey"
     )
 
     parser.add_argument(
@@ -1075,17 +956,14 @@ def main():
     args = parser.parse_args()
 
     results_dir = Path(args.results_dir)
-
     runs = load_runs(results_dir, max_runs=args.max_runs)
 
     print(f"Ditemukan {len(runs)} scan run di '{results_dir}'.")
 
     aggregate = build_aggregate(runs)
-
     output_html = build_html(runs, aggregate)
 
     output_path = Path(args.out)
-
     output_path.write_text(output_html, encoding="utf-8")
 
     print(f"Dashboard tersimpan: {output_path}")
