@@ -140,7 +140,7 @@ jobs:
         run: |
           TIMESTAMP=$(date -u +"%Y-%m-%d_%H-%M-%S")
 
-          RESULT_DIR="scan_results/$TIMESTAMP"
+          RESULT_DIR="docs/scan_results/$TIMESTAMP"
 
           mkdir -p "$RESULT_DIR"
 
@@ -162,7 +162,7 @@ jobs:
         shell: bash
         run: |
           python docs/tracker.py \
-            --results-dir scan_results \
+            --results-dir docs/scan_results \
             --log trade_log.json \
             --stats-out winrate_stats.json
 
@@ -170,7 +170,7 @@ jobs:
         shell: bash
         run: |
           python docs/belenggu.py \
-            --results-dir scan_results \
+            --results-dir docs/scan_results \
             --out docs/belenggu.html \
             --stats-file winrate_stats.json
 
@@ -190,7 +190,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add scan_results/
+          git add docs/scan_results/
           git add docs/belenggu.html
           git add trade_log.json
           git add winrate_stats.json
