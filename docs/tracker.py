@@ -27,13 +27,37 @@ Usage:
 
 import argparse
 import json
+import random
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-BINANCE_KLINES_URL = "https://fapi.binance.com/fapi/v1/klines"
+# ============================================================
+# BINANCE ENDPOINTS
+#
+# Ported from Synaptic.py: fallback antar-endpoint, retry per
+# endpoint, penanganan status 451 / 429 / 418.
+# ============================================================
+
+BASE_URLS = [
+    "https://fapi.binance.com",
+    "https://fapi1.binance.com",
+    "https://fapi2.binance.com",
+    "https://fapi3.binance.com",
+    "https://www.binance.com",
+]
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "application/json",
+}
+
+API_TIMEOUT = 10
+API_RETRIES = 2
+RETRY_BASE_DELAY = 0.35
 
 # Milliseconds per candle, used to convert "candles" into elapsed time.
 TF_MS = {
@@ -69,12 +93,57 @@ def now_ms():
     return int(datetime.now(timezone.utc).timestamp() * 1000)
 
 
-# BINANCE KLINES
+# ============================================================
+# API ENGINE (ported from Synaptic.py)
+# ============================================================
+
+def _retry_delay(attempt, retry_after=None):
+    """
+    Delay pendek dan terkontrol.
+
+    Retry-After digunakan bila Binance mengirimkannya.
+    """
+
+    if retry_after is not None:
+        try:
+            value = float(retry_after)
+            return min(max(value, 0.2), 5.0)
+        except (TypeError, ValueError):
+            pass
+
+    base = RETRY_BASE_DELAY
+    delay = base * (2 ** attempt)
+
+    # Jitter kecil supaya banyak worker tidak retry
+    # pada milidetik yang sama.
+    delay += random.uniform(0.05, 0.20)
+
+    return min(delay, 3.0)
+
+
+def _parse_response(raw_body):
+    """
+    Parse response JSON dengan aman.
+    """
+
+    try:
+        return json.loads(raw_body.decode("utf-8"))
+    except (ValueError, UnicodeDecodeError, AttributeError):
+        return None
+
 
 def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
-    """Fetch OHLC candles from Binance USDT-M futures. Returns [] on any
-    failure so the caller can safely retry next cycle instead of crashing
-    the whole run over one bad symbol/network hiccup."""
+    """Fetch OHLC candles from Binance USDT-M futures.
+
+    Ported from Synaptic.py api() logic:
+    - Fallback antar BASE_URLS
+    - Retry per endpoint (API_RETRIES)
+    - Penanganan status 200 / 202 / 418 / 429 / 451
+    - Timeout + RequestException handling
+
+    Returns [] on total failure so the caller can safely retry next
+    cycle instead of crashing the whole run over one bad symbol/network hiccup.
+    """
 
     params = {
         "symbol": symbol,
@@ -85,20 +154,242 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
     if end_time_ms is not None:
         params["endTime"] = str(end_time_ms)
 
-    url = f"{BINANCE_KLINES_URL}?{urllib.parse.urlencode(params)}"
+    query = urllib.parse.urlencode(params)
+    path = f"/fapi/v1/klines?{query}"
 
-    try:
-        with urllib.request.urlopen(url, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        print(f"  ! kline fetch failed for {symbol} {interval}: {exc}")
-        return []
+    last_error = None
 
-    if isinstance(data, dict) and data.get("code"):
-        print(f"  ! Binance error for {symbol} {interval}: {data}")
-        return []
+    for base_url in BASE_URLS:
 
-    return data
+        url = base_url + path
+
+        for attempt in range(API_RETRIES + 1):
+
+            try:
+
+                req = urllib.request.Request(url, headers=HEADERS)
+
+                with urllib.request.urlopen(req, timeout=API_TIMEOUT) as resp:
+
+                    status = resp.status
+                    raw_body = resp.read()
+
+                    # ------------------------------------------------
+                    # Normal response
+                    # ------------------------------------------------
+
+                    if status == 200:
+
+                        data = _parse_response(raw_body)
+
+                        if data is None:
+                            last_error = (
+                                f"{base_url} HTTP 200 but invalid JSON"
+                            )
+                            break
+
+                        if (
+                            isinstance(data, dict)
+                            and "code" in data
+                            and "msg" in data
+                        ):
+                            last_error = (
+                                f"{data.get('code')}: "
+                                f"{data.get('msg')}"
+                            )
+
+                            if attempt < API_RETRIES:
+                                time.sleep(
+                                    _retry_delay(attempt)
+                                )
+                                continue
+
+                            break
+
+                        return data
+
+                    # ------------------------------------------------
+                    # 202
+                    # ------------------------------------------------
+                    #
+                    # Jangan langsung menganggap endpoint mati.
+                    #
+                    # Beberapa gateway/proxy dapat mengembalikan
+                    # 202 sementara request masih diproses.
+                    # ------------------------------------------------
+
+                    if status == 202:
+
+                        data = _parse_response(raw_body)
+
+                        if isinstance(data, (dict, list)):
+
+                            # Jika ternyata body sudah berisi data
+                            # Binance yang bisa dipakai, gunakan.
+                            if not (
+                                isinstance(data, dict)
+                                and "code" in data
+                                and "msg" in data
+                            ):
+                                return data
+
+                        last_error = f"{base_url} HTTP 202"
+
+                        if attempt < API_RETRIES:
+                            time.sleep(_retry_delay(attempt))
+                            continue
+
+                        # Setelah retry lokal habis,
+                        # baru pindah endpoint.
+                        break
+
+                    # ------------------------------------------------
+                    # Rate limit
+                    # ------------------------------------------------
+
+                    if status in (418, 429):
+
+                        last_error = f"{base_url} HTTP {status}"
+
+                        retry_after = resp.headers.get("Retry-After")
+
+                        if attempt < API_RETRIES:
+                            time.sleep(
+                                _retry_delay(attempt, retry_after)
+                            )
+                            continue
+
+                        break
+
+                    # ------------------------------------------------
+                    # 451
+                    # ------------------------------------------------
+
+                    if status == 451:
+
+                        last_error = f"{base_url} HTTP 451"
+
+                        # Tidak perlu retry berkali-kali
+                        break
+
+                    # ------------------------------------------------
+                    # Other HTTP errors
+                    # ------------------------------------------------
+
+                    last_error = f"{base_url} HTTP {status}"
+
+                    if attempt < API_RETRIES:
+                        time.sleep(_retry_delay(attempt))
+                        continue
+
+                    break
+
+            except urllib.error.HTTPError as exc:
+
+                status = exc.code
+                retry_after = None
+
+                try:
+                    retry_after = exc.headers.get("Retry-After")
+                except Exception:
+                    pass
+
+                # ------------------------------------------------
+                # Rate limit (via HTTPError)
+                # ------------------------------------------------
+
+                if status in (418, 429):
+
+                    last_error = f"{base_url} HTTP {status}"
+
+                    if attempt < API_RETRIES:
+                        time.sleep(
+                            _retry_delay(attempt, retry_after)
+                        )
+                        continue
+
+                    break
+
+                # ------------------------------------------------
+                # 451
+                # ------------------------------------------------
+
+                if status == 451:
+
+                    last_error = f"{base_url} HTTP 451"
+                    break
+
+                # ------------------------------------------------
+                # 202 via HTTPError (unlikely but handle)
+                # ------------------------------------------------
+
+                if status == 202:
+
+                    try:
+                        raw_body = exc.read()
+                        data = _parse_response(raw_body)
+
+                        if isinstance(data, (dict, list)):
+                            if not (
+                                isinstance(data, dict)
+                                and "code" in data
+                                and "msg" in data
+                            ):
+                                return data
+                    except Exception:
+                        pass
+
+                    last_error = f"{base_url} HTTP 202"
+
+                    if attempt < API_RETRIES:
+                        time.sleep(_retry_delay(attempt))
+                        continue
+
+                    break
+
+                last_error = f"{base_url} HTTP {status}"
+
+                if attempt < API_RETRIES:
+                    time.sleep(_retry_delay(attempt))
+                    continue
+
+                break
+
+            except TimeoutError:
+
+                last_error = f"{base_url} timeout"
+
+                if attempt < API_RETRIES:
+                    time.sleep(_retry_delay(attempt))
+                    continue
+
+                break
+
+            except urllib.error.URLError as exc:
+
+                last_error = f"{base_url}: {exc}"
+
+                if attempt < API_RETRIES:
+                    time.sleep(_retry_delay(attempt))
+                    continue
+
+                break
+
+            except Exception as exc:
+
+                last_error = f"{base_url}: {exc}"
+
+                if attempt < API_RETRIES:
+                    time.sleep(_retry_delay(attempt))
+                    continue
+
+                break
+
+    print(
+        f"  ! kline fetch failed for {symbol} {interval}: "
+        f"All Binance endpoints failed: {last_error}"
+    )
+    return []
 
 
 # OUTCOME LOGIC
