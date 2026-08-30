@@ -20,101 +20,6 @@
       "added_at": "2026-08-30T18:51:50.927665+00:00"
     },
     {
-      "id": "LITUSDT_LONG_15m_2026-08-30_18-51-55",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.7084,
-      "sl": 3.6374,
-      "tp": [
-        3.815,
-        3.8682,
-        3.9215
-      ],
-      "decimals": 4,
-      "run_id": "2026-08-30_18-51-55",
-      "first_seen": "2026-08-30T18:51:50.927665+00:00",
-      "added_at": "2026-08-30T18:51:50.927665+00:00"
-    },
-    {
-      "id": "LITUSDT_LONG_1h_2026-08-30_19-09-31",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.7062,
-      "sl": 3.4882,
-      "tp": [
-        4.0331,
-        4.1966,
-        4.3601
-      ],
-      "decimals": 4,
-      "run_id": "2026-08-30_19-09-31",
-      "first_seen": "2026-08-30T19:09:27.250182+00:00",
-      "added_at": "2026-08-30T19:09:27.250182+00:00"
-    },
-    {
-      "id": "LITUSDT_LONG_1h_2026-08-30_19-21-49",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.7062,
-      "sl": 3.4882,
-      "tp": [
-        4.0331,
-        4.1966,
-        4.3601
-      ],
-      "decimals": 4,
-      "run_id": "2026-08-30_19-21-49",
-      "first_seen": "2026-08-30T19:21:45.751008+00:00",
-      "added_at": "2026-08-30T19:21:45.751008+00:00"
-    },
-    {
-      "id": "LITUSDT_LONG_1h_2026-08-30_19-47-41",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.7062,
-      "sl": 3.4882,
-      "tp": [
-        4.0331,
-        4.1966,
-        4.3601
-      ],
-      "decimals": 4,
-      "run_id": "2026-08-30_19-47-41",
-      "first_seen": "2026-08-30T19:47:39.570233+00:00",
-      "added_at": "2026-08-30T19:47:39.570233+00:00"
-    },
-    {
-      "id": "NIGHTUSDT_SHORT_1h_2026-08-30_21-09-40",
-      "symbol": "NIGHTUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01893,
-      "sl": 0.01948,
-      "tp": [
-        0.01811,
-        0.0177,
-        0.01728
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-30_21-09-40",
-      "first_seen": "2026-08-30T21:09:37.341566+00:00",
-      "added_at": "2026-08-30T21:09:37.341566+00:00"
-    },
-    {
       "id": "REUSDT_SHORT_1h_2026-08-30_21-09-40",
       "symbol": "REUSDT",
       "side": "SHORT",
@@ -170,6 +75,63 @@
       "run_id": "2026-08-30_21-09-40",
       "first_seen": "2026-08-30T21:09:37.341566+00:00",
       "added_at": "2026-08-30T21:09:37.341566+00:00"
+    },
+    {
+      "id": "ZESTUSDT_SHORT_15m_2026-08-30_22-09-13",
+      "symbol": "ZESTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.13878,
+      "sl": 0.1402,
+      "tp": [
+        0.13665,
+        0.13559,
+        0.13452
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_22-09-13",
+      "first_seen": "2026-08-30T22:09:11.189733+00:00",
+      "added_at": "2026-08-30T22:09:11.189733+00:00"
+    },
+    {
+      "id": "USELESSUSDT_LONG_1h_2026-08-30_22-09-13",
+      "symbol": "USELESSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06665,
+      "sl": 0.06207,
+      "tp": [
+        0.07351,
+        0.07694,
+        0.08037
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_22-09-13",
+      "first_seen": "2026-08-30T22:09:11.189733+00:00",
+      "added_at": "2026-08-30T22:09:11.189733+00:00"
+    },
+    {
+      "id": "AEVOUSDT_LONG_1h_2026-08-30_22-09-13",
+      "symbol": "AEVOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0228,
+      "sl": 0.02136,
+      "tp": [
+        0.02495,
+        0.02603,
+        0.0271
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_22-09-13",
+      "first_seen": "2026-08-30T22:09:11.189733+00:00",
+      "added_at": "2026-08-30T22:09:11.189733+00:00"
     }
   ],
   "open": [
@@ -388,6 +350,125 @@
       "first_seen": "2026-08-30T20:09:05.090290+00:00",
       "added_at": "2026-08-30T20:09:05.090290+00:00",
       "triggered_at": "2026-08-30T21:59:59.999000+00:00"
+    },
+    {
+      "id": "LAUSDT_LONG_1h_2026-08-30_22-09-13",
+      "symbol": "LAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0596,
+      "sl": 0.05711,
+      "tp": [
+        0.06335,
+        0.06522,
+        0.06709
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_22-09-13",
+      "first_seen": "2026-08-30T22:09:11.189733+00:00",
+      "triggered_at": "2026-08-30T22:09:11.189733+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_15m_2026-08-30_18-51-55",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7084,
+      "sl": 3.6374,
+      "tp": [
+        3.815,
+        3.8682,
+        3.9215
+      ],
+      "decimals": 4,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "added_at": "2026-08-30T18:51:50.927665+00:00",
+      "triggered_at": "2026-08-30T21:59:59.999000+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_1h_2026-08-30_19-09-31",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7062,
+      "sl": 3.4882,
+      "tp": [
+        4.0331,
+        4.1966,
+        4.3601
+      ],
+      "decimals": 4,
+      "run_id": "2026-08-30_19-09-31",
+      "first_seen": "2026-08-30T19:09:27.250182+00:00",
+      "added_at": "2026-08-30T19:09:27.250182+00:00",
+      "triggered_at": "2026-08-30T21:59:59.999000+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_1h_2026-08-30_19-21-49",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7062,
+      "sl": 3.4882,
+      "tp": [
+        4.0331,
+        4.1966,
+        4.3601
+      ],
+      "decimals": 4,
+      "run_id": "2026-08-30_19-21-49",
+      "first_seen": "2026-08-30T19:21:45.751008+00:00",
+      "added_at": "2026-08-30T19:21:45.751008+00:00",
+      "triggered_at": "2026-08-30T21:59:59.999000+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_1h_2026-08-30_19-47-41",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7062,
+      "sl": 3.4882,
+      "tp": [
+        4.0331,
+        4.1966,
+        4.3601
+      ],
+      "decimals": 4,
+      "run_id": "2026-08-30_19-47-41",
+      "first_seen": "2026-08-30T19:47:39.570233+00:00",
+      "added_at": "2026-08-30T19:47:39.570233+00:00",
+      "triggered_at": "2026-08-30T21:59:59.999000+00:00"
+    },
+    {
+      "id": "NIGHTUSDT_SHORT_1h_2026-08-30_21-09-40",
+      "symbol": "NIGHTUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01893,
+      "sl": 0.01948,
+      "tp": [
+        0.01811,
+        0.0177,
+        0.01728
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_21-09-40",
+      "first_seen": "2026-08-30T21:09:37.341566+00:00",
+      "added_at": "2026-08-30T21:09:37.341566+00:00",
+      "triggered_at": "2026-08-30T22:59:59.999000+00:00"
     }
   ],
   "closed": [
@@ -637,6 +718,7 @@
     "2026-08-30_19-21-49",
     "2026-08-30_19-47-41",
     "2026-08-30_20-09-10",
-    "2026-08-30_21-09-40"
+    "2026-08-30_21-09-40",
+    "2026-08-30_22-09-13"
   ]
 }

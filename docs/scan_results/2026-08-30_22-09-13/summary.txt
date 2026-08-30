@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T22:09:11.189733+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: LAUSDT | Side: LONG | Score: 7.07
+   - Entry : 0.05960
+   - SL    : 0.05711
+   - TP    : 0.06335, 0.06522, 0.06709
+   - Invalidation: Close below 0.05711 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ZESTUSDT | Side: SHORT | Score: 7.13
+   - Entry : 0.13878
+   - SL    : 0.14020
+   - TP    : 0.13665, 0.13559, 0.13452
+   - Invalidation: Close above 0.1402 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: USELESSUSDT | Side: LONG | Score: 7.03
+   - Entry : 0.06665
+   - SL    : 0.06207
+   - TP    : 0.07351, 0.07694, 0.08037
+   - Invalidation: Close below 0.06207 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: AEVOUSDT | Side: LONG | Score: 6.31
+   - Entry : 0.02280
+   - SL    : 0.02136
+   - TP    : 0.02495, 0.02603, 0.02710
+   - Invalidation: Close below 0.02136 / loss of recent 1h swing low
+----------------------------------------
