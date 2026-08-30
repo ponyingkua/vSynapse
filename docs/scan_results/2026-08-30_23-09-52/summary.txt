@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T23:09:48.676229+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: NAORISUSDT | Side: SHORT | Score: 7.69
+   - Entry : 0.02771
+   - SL    : 0.02886
+   - TP    : 0.02599, 0.02513, 0.02427
+   - Invalidation: Close above 0.02886 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: AIGENSYNUSDT | Side: SHORT | Score: 7.29
+   - Entry : 0.01966
+   - SL    : 0.02019
+   - TP    : 0.01886, 0.01846, 0.01806
+   - Invalidation: Close above 0.02019 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: CLANKERUSDT | Side: SHORT | Score: 6.94
+   - Entry : 12.420
+   - SL    : 12.880
+   - TP    : 11.729, 11.384, 11.039
+   - Invalidation: Close above 12.88 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: GRASSUSDT | Side: LONG | Score: 6.67
+   - Entry : 0.36981
+   - SL    : 0.36250
+   - TP    : 0.38077, 0.38626, 0.39174
+   - Invalidation: Close below 0.3625 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: PORTALUSDT | Side: LONG | Score: 6.61
+   - Entry : 0.01548
+   - SL    : 0.01524
+   - TP    : 0.01584, 0.01602, 0.01620
+   - Invalidation: Close below 0.01524 / loss of recent 15m swing low
+----------------------------------------
