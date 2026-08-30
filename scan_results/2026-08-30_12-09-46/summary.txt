@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T12:09:44.027139+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MIRAUSDT | Side: LONG | Score: 6.68
+   - Entry : 0.04417
+   - SL    : 0.04147
+   - TP    : 0.04822, 0.05025, 0.05227
+   - Invalidation: Close below 0.04147 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: DOLOUSDT | Side: LONG | Score: 6.43
+   - Entry : 0.02660
+   - SL    : 0.02507
+   - TP    : 0.02889, 0.03004, 0.03119
+   - Invalidation: Close below 0.02507 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: UNIUSDT | Side: LONG | Score: 8.97
+   - Entry : 5.0109
+   - SL    : 4.7810
+   - TP    : 5.3558, 5.5283, 5.7007
+   - Invalidation: Close below 4.781 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: CAKEUSDT | Side: LONG | Score: 7.48
+   - Entry : 1.7569
+   - SL    : 1.7338
+   - TP    : 1.7916, 1.8089, 1.8262
+   - Invalidation: Close below 1.7338 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SUSHIUSDT | Side: LONG | Score: 7.11
+   - Entry : 0.19839
+   - SL    : 0.19110
+   - TP    : 0.20931, 0.21478, 0.22024
+   - Invalidation: Close below 0.1911 / loss of recent 1h swing low
+----------------------------------------
