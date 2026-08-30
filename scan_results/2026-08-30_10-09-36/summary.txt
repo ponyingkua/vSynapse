@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T10:09:31.966438+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: DOLOUSDT | Side: LONG | Score: 6.08
+   - Entry : 0.02623
+   - SL    : 0.02526
+   - TP    : 0.02768, 0.02841, 0.02914
+   - Invalidation: Close below 0.02526 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ZKUSDT | Side: LONG | Score: 7.42
+   - Entry : 0.008987
+   - SL    : 0.008401
+   - TP    : 0.009866, 0.010306, 0.010745
+   - Invalidation: Close below 0.008401 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PROVEUSDT | Side: LONG | Score: 6.42
+   - Entry : 0.17438
+   - SL    : 0.16960
+   - TP    : 0.18155, 0.18514, 0.18873
+   - Invalidation: Close below 0.1696 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ZORAUSDT | Side: LONG | Score: 6.2
+   - Entry : 0.006513
+   - SL    : 0.006182
+   - TP    : 0.007009, 0.007257, 0.007506
+   - Invalidation: Close below 0.006182 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: WCTUSDT | Side: LONG | Score: 6.19
+   - Entry : 0.03964
+   - SL    : 0.03694
+   - TP    : 0.04369, 0.04572, 0.04774
+   - Invalidation: Close below 0.03694 / loss of recent 1h swing low
+----------------------------------------
