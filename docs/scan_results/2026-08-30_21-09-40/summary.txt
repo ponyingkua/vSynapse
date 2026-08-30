@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T21:09:37.341566+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: NIGHTUSDT | Side: SHORT | Score: 7.89
+   - Entry : 0.01893
+   - SL    : 0.01948
+   - TP    : 0.01811, 0.01770, 0.01728
+   - Invalidation: Close above 0.01948 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: REUSDT | Side: SHORT | Score: 7.06
+   - Entry : 0.48199
+   - SL    : 0.49310
+   - TP    : 0.46532, 0.45698, 0.44865
+   - Invalidation: Close above 0.4931 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: ENJUSDT | Side: SHORT | Score: 6.88
+   - Entry : 0.02488
+   - SL    : 0.02549
+   - TP    : 0.02396, 0.02350, 0.02304
+   - Invalidation: Close above 0.02549 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: JASMYUSDT | Side: SHORT | Score: 6.19
+   - Entry : 0.004495
+   - SL    : 0.004653
+   - TP    : 0.004257, 0.004138, 0.004019
+   - Invalidation: Close above 0.004653 / reclaim of recent 1h swing high
+----------------------------------------
