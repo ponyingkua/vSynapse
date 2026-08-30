@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T05:09:49.337642+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: VETUSDT | Side: LONG | Score: 6.68
+   - Entry : 0.007198
+   - SL    : 0.006694
+   - TP    : 0.007955, 0.008334, 0.008712
+   - Invalidation: Close below 0.006694 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ZRXUSDT | Side: LONG | Score: 6.31
+   - Entry : 0.09720
+   - SL    : 0.09550
+   - TP    : 0.09975, 0.10102, 0.10230
+   - Invalidation: Close below 0.0955 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: CATIUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.05377
+   - SL    : 0.05281
+   - TP    : 0.05521, 0.05593, 0.05665
+   - Invalidation: Close below 0.05281 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: TRIAUSDT | Side: SHORT | Score: 7.47
+   - Entry : 0.005328
+   - SL    : 0.005587
+   - TP    : 0.004940, 0.004746, 0.004552
+   - Invalidation: Close above 0.005587 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: MOCAUSDT | Side: LONG | Score: 6.49
+   - Entry : 0.008854
+   - SL    : 0.008580
+   - TP    : 0.009266, 0.009471, 0.009677
+   - Invalidation: Close below 0.00858 / loss of recent 1h swing low
+----------------------------------------
