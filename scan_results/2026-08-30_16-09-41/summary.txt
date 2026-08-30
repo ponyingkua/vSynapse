@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T16:09:38.140613+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: IDOLUSDT | Side: SHORT | Score: 7.69
+   - Entry : 0.01518
+   - SL    : 0.01549
+   - TP    : 0.01472, 0.01448, 0.01425
+   - Invalidation: Close above 0.01549 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: CAKEUSDT | Side: LONG | Score: 8.88
+   - Entry : 1.8651
+   - SL    : 1.7416
+   - TP    : 2.0504, 2.1430, 2.2356
+   - Invalidation: Close below 1.7416 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PLUMEUSDT | Side: LONG | Score: 8.09
+   - Entry : 0.01509
+   - SL    : 0.01416
+   - TP    : 0.01649, 0.01719, 0.01789
+   - Invalidation: Close below 0.01416 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ERAUSDT | Side: LONG | Score: 8.07
+   - Entry : 0.06354
+   - SL    : 0.05891
+   - TP    : 0.07048, 0.07395, 0.07742
+   - Invalidation: Close below 0.05891 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: STARUSDT | Side: LONG | Score: 7.86
+   - Entry : 0.12459
+   - SL    : 0.12162
+   - TP    : 0.12905, 0.13128, 0.13351
+   - Invalidation: Close below 0.12162 / loss of recent 1h swing low
+----------------------------------------
