@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T11:09:40.792029+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: COAIUSDT | Side: SHORT | Score: 6.91
+   - Entry : 0.29698
+   - SL    : 0.30330
+   - TP    : 0.28749, 0.28275, 0.27800
+   - Invalidation: Close above 0.3033 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: MAGICUSDT | Side: LONG | Score: 6.37
+   - Entry : 0.04978
+   - SL    : 0.04625
+   - TP    : 0.05509, 0.05774, 0.06039
+   - Invalidation: Close below 0.04625 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: MINAUSDT | Side: LONG | Score: 6.3
+   - Entry : 0.06548
+   - SL    : 0.06293
+   - TP    : 0.06929, 0.07120, 0.07311
+   - Invalidation: Close below 0.06293 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: CELOUSDT | Side: LONG | Score: 6.18
+   - Entry : 0.07522
+   - SL    : 0.07270
+   - TP    : 0.07899, 0.08088, 0.08277
+   - Invalidation: Close below 0.0727 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: PLUMEUSDT | Side: LONG | Score: 6.26
+   - Entry : 0.01424
+   - SL    : 0.01411
+   - TP    : 0.01444, 0.01453, 0.01463
+   - Invalidation: Close below 0.014106796 / loss of recent 15m swing low
+----------------------------------------
