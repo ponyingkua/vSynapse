@@ -1,0 +1,105 @@
+{
+  "pending": [
+    {
+      "id": "SKRUSDT_LONG_15m_2026-08-30_18-51-55",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01835,
+      "sl": 0.01692,
+      "tp": [
+        0.02049,
+        0.02155,
+        0.02262
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "added_at": "2026-08-30T18:51:50.927665+00:00"
+    },
+    {
+      "id": "DASHUSDT_LONG_15m_2026-08-30_18-51-55",
+      "symbol": "DASHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 43.404,
+      "sl": 42.01,
+      "tp": [
+        45.495,
+        46.541,
+        47.586
+      ],
+      "decimals": 3,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "added_at": "2026-08-30T18:51:50.927665+00:00"
+    },
+    {
+      "id": "BARDUSDT_LONG_4h_2026-08-30_18-51-55",
+      "symbol": "BARDUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.12822,
+      "sl": 0.1189,
+      "tp": [
+        0.14219,
+        0.14918,
+        0.15616
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "added_at": "2026-08-30T18:51:50.927665+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_15m_2026-08-30_18-51-55",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7084,
+      "sl": 3.6374,
+      "tp": [
+        3.815,
+        3.8682,
+        3.9215
+      ],
+      "decimals": 4,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "added_at": "2026-08-30T18:51:50.927665+00:00"
+    }
+  ],
+  "open": [
+    {
+      "id": "TACUSDT_SHORT_15m_2026-08-30_18-51-55",
+      "symbol": "TACUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002342,
+      "sl": 0.002419,
+      "tp": [
+        0.002226,
+        0.002168,
+        0.00211
+      ],
+      "decimals": 6,
+      "run_id": "2026-08-30_18-51-55",
+      "first_seen": "2026-08-30T18:51:50.927665+00:00",
+      "triggered_at": "2026-08-30T18:51:50.927665+00:00"
+    }
+  ],
+  "closed": [],
+  "ingested_runs": [
+    "2026-08-30_18-51-55"
+  ]
+}

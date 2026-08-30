@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T18:51:50.927665+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: TACUSDT | Side: SHORT | Score: 6.09
+   - Entry : 0.002342
+   - SL    : 0.002419
+   - TP    : 0.002226, 0.002168, 0.002110
+   - Invalidation: Close above 0.002419 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: SKRUSDT | Side: LONG | Score: 7.38
+   - Entry : 0.01835
+   - SL    : 0.01692
+   - TP    : 0.02049, 0.02155, 0.02262
+   - Invalidation: Close below 0.016923 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: DASHUSDT | Side: LONG | Score: 6.69
+   - Entry : 43.404
+   - SL    : 42.010
+   - TP    : 45.495, 46.541, 47.586
+   - Invalidation: Close below 42.01 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BARDUSDT | Side: LONG | Score: 6.45
+   - Entry : 0.12822
+   - SL    : 0.11890
+   - TP    : 0.14219, 0.14918, 0.15616
+   - Invalidation: Close below 0.1189 / loss of recent 4h swing low
+----------------------------------------
+5. Symbol: LITUSDT | Side: LONG | Score: 6.01
+   - Entry : 3.7084
+   - SL    : 3.6374
+   - TP    : 3.8150, 3.8682, 3.9215
+   - Invalidation: Close below 3.6374 / loss of recent 15m swing low
+----------------------------------------
