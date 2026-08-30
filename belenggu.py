@@ -548,7 +548,7 @@ def build_html(runs, aggregate):
 </head>
 <body>
 
-  <h1>Synaptic Scan Belenggu</h1>
+  <h1>Synaptic Crypto Journey</h1>
   <div class="subtitle">
     Dibuat (UTC): {esc(generated_at)}
     &middot; JSON-only, tidak menghitung ulang sinyal.
