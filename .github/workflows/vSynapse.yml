@@ -3,7 +3,7 @@ name: vSynapse
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 * * * *'
 
 permissions:
   contents: write
@@ -28,9 +28,9 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-  run: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy pandas requests matplotlib
 
       - name: Run Synaptic scanner
         run: |
@@ -188,4 +188,24 @@ jobs:
           fi
 
           git commit -m "chore: Synaptic scan $RESULT_DIR"
-          git push
+
+          # Retry push: kalau remote sudah berubah (misal workflow lain baru push),
+          # fetch + rebase lalu coba lagi, sampai 5 kali.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Push berhasil."
+              exit 0
+            fi
+
+            echo "Push gagal (percobaan $i), fetch + rebase lalu coba lagi..."
+            git fetch origin main
+            git rebase origin/main || {
+              echo "Rebase konflik, batalkan rebase."
+              git rebase --abort
+              exit 1
+            }
+            sleep 5
+          done
+
+          echo "Gagal push setelah beberapa percobaan."
+          exit 1
