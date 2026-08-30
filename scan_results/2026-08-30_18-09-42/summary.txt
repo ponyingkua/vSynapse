@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T18:09:38.476427+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ZAMAUSDT | Side: LONG | Score: 6.36
+   - Entry : 0.05431
+   - SL    : 0.05068
+   - TP    : 0.05975, 0.06247, 0.06519
+   - Invalidation: Close below 0.05068 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: SAPIENUSDT | Side: LONG | Score: 6.43
+   - Entry : 0.08342
+   - SL    : 0.08137
+   - TP    : 0.08649, 0.08802, 0.08956
+   - Invalidation: Close below 0.08137 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: POLUSDT | Side: SHORT | Score: 6.43
+   - Entry : 0.10035
+   - SL    : 0.10608
+   - TP    : 0.09176, 0.08747, 0.08317
+   - Invalidation: Close above 0.10608 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: API3USDT | Side: LONG | Score: 6.03
+   - Entry : 0.23493
+   - SL    : 0.23060
+   - TP    : 0.24142, 0.24467, 0.24792
+   - Invalidation: Close below 0.2306 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: MEUSDT | Side: SHORT | Score: 6.36
+   - Entry : 0.06371
+   - SL    : 0.06444
+   - TP    : 0.06261, 0.06207, 0.06152
+   - Invalidation: Close above 0.064438004 / reclaim of recent 1h swing high
+----------------------------------------

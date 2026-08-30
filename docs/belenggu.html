@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,6 +119,9 @@
     border-radius: var(--radius);
     padding: 16px 18px;
   }
+  .card.wide {
+    grid-column: 1 / -1;
+  }
   .card h3 {
     font-family: var(--mono);
     font-size: 0.66rem;
@@ -162,23 +165,28 @@
     color: var(--text-soft);
   }
 
-  /* Top symbols list */
-  .card ul { list-style: none; font-size: 0.85rem; }
-  .card li {
+  /* Top symbols grid (wide card) */
+  .symbol-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .symbol-chip {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--panel-soft);
+    gap: 8px;
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 0.85rem;
   }
-  .card li:last-child { border-bottom: none; }
   .sym-rank {
     font-family: var(--mono);
     color: #a9840f;
     font-size: 0.72rem;
-    width: 18px;
   }
-  .sym-name { font-weight: 500; flex: 1; }
+  .sym-name { font-weight: 600; }
   .sym-count {
     font-family: var(--mono);
     color: var(--text-soft);
@@ -356,38 +364,43 @@
     <h1>SYNAPTIC<span class="slash">//</span>FUTURES JOURNEY</h1>
     <div class="subtitle">
       <span class="live-dot"></span>
-      generated 2026-08-30T17:09:34.357152+00:00 UTC
+      generated 2026-08-30T18:09:43.329333+00:00 UTC
     </div>
   </header>
 
-  <h2 class="section-title">Ringkasan Agregat</h2>
+  <h2 class="section-title">Aggregate Summary</h2>
 
   <div class="cards">
+    <div class="card wide" style="--card-accent:#a9840f">
+      <h3>Most Frequent Symbols</h3>
+      <div class="symbol-grid"><div class="symbol-chip"><span class="sym-rank">01</span><span class="sym-name">PLUMEUSDT</span><span class="sym-count">5&times;</span></div><div class="symbol-chip"><span class="sym-rank">02</span><span class="sym-name">UNIUSDT</span><span class="sym-count">5&times;</span></div><div class="symbol-chip"><span class="sym-rank">03</span><span class="sym-name">DOLOUSDT</span><span class="sym-count">5&times;</span></div><div class="symbol-chip"><span class="sym-rank">04</span><span class="sym-name">CAKEUSDT</span><span class="sym-count">4&times;</span></div><div class="symbol-chip"><span class="sym-rank">05</span><span class="sym-name">POLUSDT</span><span class="sym-count">3&times;</span></div><div class="symbol-chip"><span class="sym-rank">06</span><span class="sym-name">STARUSDT</span><span class="sym-count">3&times;</span></div><div class="symbol-chip"><span class="sym-rank">07</span><span class="sym-name">BSVUSDT</span><span class="sym-count">3&times;</span></div><div class="symbol-chip"><span class="sym-rank">08</span><span class="sym-name">XANUSDT</span><span class="sym-count">3&times;</span></div></div>
+    </div>
+
     <div class="card" style="--card-accent:#8c8c86">
-      <h3>Total Scan Run</h3>
+      <h3>Total Scan Runs</h3>
       <div class="value" style="color:#8c8c86">50</div>
-      <div class="sub">run terbaru diproses</div>
+      <div class="sub">recent runs processed</div>
     </div>
 
     <div class="card" style="--card-accent:#e6b526">
-      <h3>Total Kandidat</h3>
+      <h3>Total Candidates</h3>
       <div class="value" style="color:#e6b526">201</div>
-      <div class="sub">semua run digabung</div>
+      <div class="sub">across all runs combined</div>
     </div>
 
     <div class="card" style="--card-accent:#a9840f">
       <h3>Avg Score</h3>
-      <div class="value" style="color:#a9840f">6.74</div>
-      <div class="sub">rata-rata semua kandidat</div>
+      <div class="value" style="color:#a9840f">6.75</div>
+      <div class="sub">average across all candidates</div>
     </div>
 
     <div class="card" style="--card-accent:#4aa88f">
       <h3>Entry State</h3>
       <div class="value" style="font-size:1.3rem">
-        <span style="color:var(--ready)">95</span>
+        <span style="color:var(--ready)">96</span>
         <span class="muted" style="font-weight:400;font-size:0.85rem"> ready</span>
       </div>
-      <div class="sub">60 waiting</div>
+      <div class="sub">64 waiting</div>
     </div>
 
     <div class="card" style="--card-accent:#4aa88f">
@@ -403,20 +416,57 @@
     </div>
 
     <div class="card" style="--card-accent:#e6b526">
-      <h3>Tren Final / Run</h3>
-      <svg viewBox="0 0 680 110" width="100%" height="110" class="trend-svg" preserveAspectRatio="none"><defs><linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6b526" stop-opacity="0.3"/><stop offset="100%" stop-color="#e6b526" stop-opacity="0"/></linearGradient><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="14.0,96 14.0,14.0 27.3,30.4 40.6,96.0 53.9,96.0 67.2,96.0 80.5,63.2 93.8,63.2 107.1,63.2 120.4,14.0 133.8,14.0 147.1,46.8 160.4,46.8 173.7,14.0 187.0,14.0 200.3,14.0 213.6,46.8 226.9,63.2 240.2,14.0 253.5,14.0 266.8,14.0 280.1,63.2 293.4,14.0 306.7,14.0 320.0,14.0 333.3,14.0 346.7,14.0 360.0,14.0 373.3,30.4 386.6,14.0 399.9,63.2 413.2,30.4 426.5,14.0 439.8,14.0 453.1,14.0 466.4,14.0 479.7,46.8 493.0,14.0 506.3,14.0 519.6,30.4 532.9,30.4 546.2,14.0 559.6,63.2 572.9,14.0 586.2,14.0 599.5,14.0 612.8,14.0 626.1,14.0 639.4,14.0 652.7,14.0 666.0,14.0 666.0,96" fill="url(#trendGrad)" /><polyline points="14.0,14.0 27.3,30.4 40.6,96.0 53.9,96.0 67.2,96.0 80.5,63.2 93.8,63.2 107.1,63.2 120.4,14.0 133.8,14.0 147.1,46.8 160.4,46.8 173.7,14.0 187.0,14.0 200.3,14.0 213.6,46.8 226.9,63.2 240.2,14.0 253.5,14.0 266.8,14.0 280.1,63.2 293.4,14.0 306.7,14.0 320.0,14.0 333.3,14.0 346.7,14.0 360.0,14.0 373.3,30.4 386.6,14.0 399.9,63.2 413.2,30.4 426.5,14.0 439.8,14.0 453.1,14.0 466.4,14.0 479.7,46.8 493.0,14.0 506.3,14.0 519.6,30.4 532.9,30.4 546.2,14.0 559.6,63.2 572.9,14.0 586.2,14.0 599.5,14.0 612.8,14.0 626.1,14.0 639.4,14.0 652.7,14.0 666.0,14.0" fill="none" stroke="#e6b526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" /><circle cx="14.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-28_22-08-29: 5</title></circle><circle cx="27.3" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-28_23-11-50: 4</title></circle><circle cx="40.6" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-28_23-51-09: 0</title></circle><circle cx="53.9" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-04-24: 0</title></circle><circle cx="67.2" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-11-07: 0</title></circle><circle cx="80.5" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-29-43: 2</title></circle><circle cx="93.8" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-53-05: 2</title></circle><circle cx="107.1" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-20-59: 2</title></circle><circle cx="120.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-36-15: 5</title></circle><circle cx="133.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-56-48: 5</title></circle><circle cx="147.1" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_02-11-52: 3</title></circle><circle cx="160.4" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_02-21-22: 3</title></circle><circle cx="173.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_03-12-22: 5</title></circle><circle cx="187.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_03-27-51: 5</title></circle><circle cx="200.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_04-11-43: 5</title></circle><circle cx="213.6" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-12-20: 3</title></circle><circle cx="226.9" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-26-38: 2</title></circle><circle cx="240.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-46-47: 5</title></circle><circle cx="253.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_06-02-58: 5</title></circle><circle cx="266.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_06-12-54: 5</title></circle><circle cx="280.1" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_07-12-23: 2</title></circle><circle cx="293.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_09-11-05: 5</title></circle><circle cx="306.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_10-10-57: 5</title></circle><circle cx="320.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_11-10-51: 5</title></circle><circle cx="333.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_12-12-04: 5</title></circle><circle cx="346.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_13-10-41: 5</title></circle><circle cx="360.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_14-10-25: 5</title></circle><circle cx="373.3" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_15-41-06: 4</title></circle><circle cx="386.6" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_18-35-48: 5</title></circle><circle cx="399.9" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_19-00-12: 2</title></circle><circle cx="413.2" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_21-08-33: 4</title></circle><circle cx="426.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_23-50-11: 5</title></circle><circle cx="439.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_00-02-54: 5</title></circle><circle cx="453.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_02-08-59: 5</title></circle><circle cx="466.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_02-41-11: 5</title></circle><circle cx="479.7" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_03-09-16: 3</title></circle><circle cx="493.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_04-09-41: 5</title></circle><circle cx="506.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_05-09-53: 5</title></circle><circle cx="519.6" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_06-10-00: 4</title></circle><circle cx="532.9" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_07-09-34: 4</title></circle><circle cx="546.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_08-09-27: 5</title></circle><circle cx="559.6" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_09-09-13: 2</title></circle><circle cx="572.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_10-09-36: 5</title></circle><circle cx="586.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_11-09-44: 5</title></circle><circle cx="599.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_12-09-46: 5</title></circle><circle cx="612.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_13-09-04: 5</title></circle><circle cx="626.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_14-09-54: 5</title></circle><circle cx="639.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_15-09-31: 5</title></circle><circle cx="652.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_16-09-41: 5</title></circle><circle cx="666.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_17-09-33: 5</title></circle></svg>
-    </div>
-
-    <div class="card" style="--card-accent:#a9840f">
-      <h3>Symbol Paling Sering</h3>
-      <ul><li><span class="sym-rank">01</span><span class="sym-name">PLUMEUSDT</span><span class="sym-count">5&times;</span></li><li><span class="sym-rank">02</span><span class="sym-name">UNIUSDT</span><span class="sym-count">5&times;</span></li><li><span class="sym-rank">03</span><span class="sym-name">DOLOUSDT</span><span class="sym-count">5&times;</span></li><li><span class="sym-rank">04</span><span class="sym-name">CAKEUSDT</span><span class="sym-count">4&times;</span></li><li><span class="sym-rank">05</span><span class="sym-name">STARUSDT</span><span class="sym-count">3&times;</span></li><li><span class="sym-rank">06</span><span class="sym-name">BSVUSDT</span><span class="sym-count">3&times;</span></li><li><span class="sym-rank">07</span><span class="sym-name">XANUSDT</span><span class="sym-count">3&times;</span></li><li><span class="sym-rank">08</span><span class="sym-name">BIGTIMEUSDT</span><span class="sym-count">3&times;</span></li></ul>
+      <h3>Final Candidates / Run Trend</h3>
+      <svg viewBox="0 0 680 110" width="100%" height="110" class="trend-svg" preserveAspectRatio="none"><defs><linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6b526" stop-opacity="0.3"/><stop offset="100%" stop-color="#e6b526" stop-opacity="0"/></linearGradient><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="14.0,96 14.0,30.4 27.3,96.0 40.6,96.0 53.9,96.0 67.2,63.2 80.5,63.2 93.8,63.2 107.1,14.0 120.4,14.0 133.8,46.8 147.1,46.8 160.4,14.0 173.7,14.0 187.0,14.0 200.3,46.8 213.6,63.2 226.9,14.0 240.2,14.0 253.5,14.0 266.8,63.2 280.1,14.0 293.4,14.0 306.7,14.0 320.0,14.0 333.3,14.0 346.7,14.0 360.0,30.4 373.3,14.0 386.6,63.2 399.9,30.4 413.2,14.0 426.5,14.0 439.8,14.0 453.1,14.0 466.4,46.8 479.7,14.0 493.0,14.0 506.3,30.4 519.6,30.4 532.9,14.0 546.2,63.2 559.6,14.0 572.9,14.0 586.2,14.0 599.5,14.0 612.8,14.0 626.1,14.0 639.4,14.0 652.7,14.0 666.0,14.0 666.0,96" fill="url(#trendGrad)" /><polyline points="14.0,30.4 27.3,96.0 40.6,96.0 53.9,96.0 67.2,63.2 80.5,63.2 93.8,63.2 107.1,14.0 120.4,14.0 133.8,46.8 147.1,46.8 160.4,14.0 173.7,14.0 187.0,14.0 200.3,46.8 213.6,63.2 226.9,14.0 240.2,14.0 253.5,14.0 266.8,63.2 280.1,14.0 293.4,14.0 306.7,14.0 320.0,14.0 333.3,14.0 346.7,14.0 360.0,30.4 373.3,14.0 386.6,63.2 399.9,30.4 413.2,14.0 426.5,14.0 439.8,14.0 453.1,14.0 466.4,46.8 479.7,14.0 493.0,14.0 506.3,30.4 519.6,30.4 532.9,14.0 546.2,63.2 559.6,14.0 572.9,14.0 586.2,14.0 599.5,14.0 612.8,14.0 626.1,14.0 639.4,14.0 652.7,14.0 666.0,14.0" fill="none" stroke="#e6b526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" /><circle cx="14.0" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-28_23-11-50: 4</title></circle><circle cx="27.3" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-28_23-51-09: 0</title></circle><circle cx="40.6" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-04-24: 0</title></circle><circle cx="53.9" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-11-07: 0</title></circle><circle cx="67.2" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-29-43: 2</title></circle><circle cx="80.5" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_00-53-05: 2</title></circle><circle cx="93.8" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-20-59: 2</title></circle><circle cx="107.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-36-15: 5</title></circle><circle cx="120.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_01-56-48: 5</title></circle><circle cx="133.8" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_02-11-52: 3</title></circle><circle cx="147.1" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_02-21-22: 3</title></circle><circle cx="160.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_03-12-22: 5</title></circle><circle cx="173.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_03-27-51: 5</title></circle><circle cx="187.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_04-11-43: 5</title></circle><circle cx="200.3" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-12-20: 3</title></circle><circle cx="213.6" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-26-38: 2</title></circle><circle cx="226.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_05-46-47: 5</title></circle><circle cx="240.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_06-02-58: 5</title></circle><circle cx="253.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_06-12-54: 5</title></circle><circle cx="266.8" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_07-12-23: 2</title></circle><circle cx="280.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_09-11-05: 5</title></circle><circle cx="293.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_10-10-57: 5</title></circle><circle cx="306.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_11-10-51: 5</title></circle><circle cx="320.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_12-12-04: 5</title></circle><circle cx="333.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_13-10-41: 5</title></circle><circle cx="346.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_14-10-25: 5</title></circle><circle cx="360.0" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_15-41-06: 4</title></circle><circle cx="373.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_18-35-48: 5</title></circle><circle cx="386.6" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_19-00-12: 2</title></circle><circle cx="399.9" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_21-08-33: 4</title></circle><circle cx="413.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-29_23-50-11: 5</title></circle><circle cx="426.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_00-02-54: 5</title></circle><circle cx="439.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_02-08-59: 5</title></circle><circle cx="453.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_02-41-11: 5</title></circle><circle cx="466.4" cy="46.8" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_03-09-16: 3</title></circle><circle cx="479.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_04-09-41: 5</title></circle><circle cx="493.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_05-09-53: 5</title></circle><circle cx="506.3" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_06-10-00: 4</title></circle><circle cx="519.6" cy="30.4" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_07-09-34: 4</title></circle><circle cx="532.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_08-09-27: 5</title></circle><circle cx="546.2" cy="63.2" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_09-09-13: 2</title></circle><circle cx="559.6" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_10-09-36: 5</title></circle><circle cx="572.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_11-09-44: 5</title></circle><circle cx="586.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_12-09-46: 5</title></circle><circle cx="599.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_13-09-04: 5</title></circle><circle cx="612.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_14-09-54: 5</title></circle><circle cx="626.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_15-09-31: 5</title></circle><circle cx="639.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_16-09-41: 5</title></circle><circle cx="652.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_17-09-33: 5</title></circle><circle cx="666.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_18-09-42: 5</title></circle></svg>
     </div>
   </div>
 
-  <h2 class="section-title">Scan Runs (terbaru dulu)</h2>
+  <h2 class="section-title">Scan Runs (most recent first)</h2>
 
   
     <details class="run-card" open>
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T18:09:38.476427+00:00</span>
+            <span class="run-id muted">2026-08-30_18-09-42</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">278.2s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 494</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 24</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-long"><td class="sym">ZAMAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.05431</td><td class="num">0.05068</td><td class="num tp">0.05975, 0.06247, 0.06519</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-30_18-09-42/charts/ZAMAUSDT_LONG_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">SAPIENUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.08342</td><td class="num">0.08137</td><td class="num tp">0.08649, 0.08802, 0.08956</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-30_18-09-42/charts/SAPIENUSDT_LONG_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-short"><td class="sym">POLUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.10035</td><td class="num">0.10608</td><td class="num tp">0.09176, 0.08747, 0.08317</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-30_18-09-42/charts/POLUSDT_SHORT_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">API3USDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.23493</td><td class="num">0.23060</td><td class="num tp">0.24142, 0.24467, 0.24792</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-30_18-09-42/charts/API3USDT_LONG_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-short"><td class="sym">MEUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">EXTENDED</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_PULLBACK</span></td><td><div class="score-wrap"><span class="score-val">6.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.06371</td><td class="num">0.06444</td><td class="num tp">0.06261, 0.06207, 0.06152</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-30_18-09-42/charts/MEUSDT_SHORT_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
       <summary>
         <div class="run-summary">
           <div class="run-left">
@@ -425,7 +475,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">267.3s</span>
           </div>
         </div>
@@ -467,7 +517,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">265.0s</span>
           </div>
         </div>
@@ -509,7 +559,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">261.9s</span>
           </div>
         </div>
@@ -551,7 +601,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">285.0s</span>
           </div>
         </div>
@@ -593,7 +643,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">245.4s</span>
           </div>
         </div>
@@ -635,7 +685,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">264.2s</span>
           </div>
         </div>
@@ -677,7 +727,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">250.2s</span>
           </div>
         </div>
@@ -719,7 +769,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">257.5s</span>
           </div>
         </div>
@@ -761,7 +811,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">247.6s</span>
           </div>
         </div>
@@ -803,7 +853,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">248.4s</span>
           </div>
         </div>
@@ -845,7 +895,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>4</strong> kandidat</span>
+            <span class="run-count"><strong>4</strong> candidates</span>
             <span class="run-elapsed muted">265.0s</span>
           </div>
         </div>
@@ -887,7 +937,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>4</strong> kandidat</span>
+            <span class="run-count"><strong>4</strong> candidates</span>
             <span class="run-elapsed muted">264.8s</span>
           </div>
         </div>
@@ -929,7 +979,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">281.0s</span>
           </div>
         </div>
@@ -971,7 +1021,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">260.1s</span>
           </div>
         </div>
@@ -1013,7 +1063,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>3</strong> kandidat</span>
+            <span class="run-count"><strong>3</strong> candidates</span>
             <span class="run-elapsed muted">257.3s</span>
           </div>
         </div>
@@ -1055,7 +1105,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">249.1s</span>
           </div>
         </div>
@@ -1097,7 +1147,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">250.2s</span>
           </div>
         </div>
@@ -1139,7 +1189,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">272.8s</span>
           </div>
         </div>
@@ -1181,7 +1231,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">275.5s</span>
           </div>
         </div>
@@ -1223,7 +1273,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>4</strong> kandidat</span>
+            <span class="run-count"><strong>4</strong> candidates</span>
             <span class="run-elapsed muted">265.0s</span>
           </div>
         </div>
@@ -1265,7 +1315,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">246.8s</span>
           </div>
         </div>
@@ -1307,7 +1357,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">268.4s</span>
           </div>
         </div>
@@ -1349,7 +1399,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>4</strong> kandidat</span>
+            <span class="run-count"><strong>4</strong> candidates</span>
             <span class="run-elapsed muted">280.3s</span>
           </div>
         </div>
@@ -1391,7 +1441,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">229.2s</span>
           </div>
         </div>
@@ -1433,7 +1483,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">260.4s</span>
           </div>
         </div>
@@ -1475,7 +1525,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">262.2s</span>
           </div>
         </div>
@@ -1517,7 +1567,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">233.5s</span>
           </div>
         </div>
@@ -1559,7 +1609,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">260.9s</span>
           </div>
         </div>
@@ -1601,7 +1651,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">239.4s</span>
           </div>
         </div>
@@ -1643,7 +1693,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">246.9s</span>
           </div>
         </div>
@@ -1685,7 +1735,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">256.7s</span>
           </div>
         </div>
@@ -1727,7 +1777,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">239.5s</span>
           </div>
         </div>
@@ -1769,7 +1819,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">236.5s</span>
           </div>
         </div>
@@ -1811,7 +1861,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">257.2s</span>
           </div>
         </div>
@@ -1853,7 +1903,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>3</strong> kandidat</span>
+            <span class="run-count"><strong>3</strong> candidates</span>
             <span class="run-elapsed muted">263.1s</span>
           </div>
         </div>
@@ -1895,7 +1945,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">258.4s</span>
           </div>
         </div>
@@ -1937,7 +1987,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">258.1s</span>
           </div>
         </div>
@@ -1979,7 +2029,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">263.6s</span>
           </div>
         </div>
@@ -2021,7 +2071,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>3</strong> kandidat</span>
+            <span class="run-count"><strong>3</strong> candidates</span>
             <span class="run-elapsed muted">235.0s</span>
           </div>
         </div>
@@ -2063,7 +2113,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>3</strong> kandidat</span>
+            <span class="run-count"><strong>3</strong> candidates</span>
             <span class="run-elapsed muted">246.2s</span>
           </div>
         </div>
@@ -2105,7 +2155,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">237.9s</span>
           </div>
         </div>
@@ -2147,7 +2197,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
+            <span class="run-count"><strong>5</strong> candidates</span>
             <span class="run-elapsed muted">236.4s</span>
           </div>
         </div>
@@ -2189,7 +2239,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">249.1s</span>
           </div>
         </div>
@@ -2231,7 +2281,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">254.2s</span>
           </div>
         </div>
@@ -2273,7 +2323,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>2</strong> kandidat</span>
+            <span class="run-count"><strong>2</strong> candidates</span>
             <span class="run-elapsed muted">229.8s</span>
           </div>
         </div>
@@ -2315,7 +2365,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">no_stage1_candidates</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>0</strong> kandidat</span>
+            <span class="run-count"><strong>0</strong> candidates</span>
             <span class="run-elapsed muted">197.7s</span>
           </div>
         </div>
@@ -2341,7 +2391,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td colspan="12" class="empty-row">Tidak ada kandidat pada scan ini.</td></tr>
+              <tr><td colspan="12" class="empty-row">No candidates found in this scan.</td></tr>
             </tbody>
           </table>
         </div>
@@ -2357,7 +2407,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">no_stage1_candidates</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>0</strong> kandidat</span>
+            <span class="run-count"><strong>0</strong> candidates</span>
             <span class="run-elapsed muted">197.3s</span>
           </div>
         </div>
@@ -2383,7 +2433,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td colspan="12" class="empty-row">Tidak ada kandidat pada scan ini.</td></tr>
+              <tr><td colspan="12" class="empty-row">No candidates found in this scan.</td></tr>
             </tbody>
           </table>
         </div>
@@ -2399,7 +2449,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">no_stage1_candidates</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>0</strong> kandidat</span>
+            <span class="run-count"><strong>0</strong> candidates</span>
             <span class="run-elapsed muted">196.8s</span>
           </div>
         </div>
@@ -2425,7 +2475,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td colspan="12" class="empty-row">Tidak ada kandidat pada scan ini.</td></tr>
+              <tr><td colspan="12" class="empty-row">No candidates found in this scan.</td></tr>
             </tbody>
           </table>
         </div>
@@ -2441,7 +2491,7 @@
             <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>4</strong> kandidat</span>
+            <span class="run-count"><strong>4</strong> candidates</span>
             <span class="run-elapsed muted">263.1s</span>
           </div>
         </div>
@@ -2468,48 +2518,6 @@
             </thead>
             <tbody>
               <tr class="side-long"><td class="sym">XANUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">7.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.012901</td><td class="num">0.011883</td><td class="num tp">0.014428, 0.0151915, 0.015955</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_23-11-50/charts/XANUSDT_LONG_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">KNCUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">7.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.1167</td><td class="num">0.1143</td><td class="num tp">0.1203, 0.1221, 0.1239</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_23-11-50/charts/KNCUSDT_LONG_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-short"><td class="sym">CYSUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">6.3</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.6178</td><td class="num">0.6498</td><td class="num tp">0.5698, 0.5458, 0.5218</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_23-11-50/charts/CYSUSDT_SHORT_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">STBLUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">6.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.02778</td><td class="num">0.02735</td><td class="num tp">0.028425, 0.0287475, 0.02907</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_23-11-50/charts/STBLUSDT_LONG_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-    
-    <details class="run-card">
-      <summary>
-        <div class="run-summary">
-          <div class="run-left">
-            <span class="run-time">2026-08-28T22:08:26.803462+00:00</span>
-            <span class="run-id muted">2026-08-28_22-08-29</span>
-            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
-          </div>
-          <div class="run-right">
-            <span class="run-count"><strong>5</strong> kandidat</span>
-            <span class="run-elapsed muted">251.0s</span>
-          </div>
-        </div>
-      </summary>
-      <div class="run-body">
-        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 518</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 30</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Symbol</th>
-                <th>Side</th>
-                <th>Setup</th>
-                <th>Entry State</th>
-                <th>Score</th>
-                <th>Exec TF</th>
-                <th>Entry</th>
-                <th>SL</th>
-                <th>TP</th>
-                <th>HTF Bias</th>
-                <th></th>
-                <th>Chart</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="side-long"><td class="sym">USUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">7.3</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.019058</td><td class="num">0.018254</td><td class="num tp">0.020264, 0.020867, 0.02147</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_22-08-29/charts/USUSDT_LONG_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">NILUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">5.9</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.04765</td><td class="num">0.04421</td><td class="num tp">0.05281, 0.05539, 0.05797</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_22-08-29/charts/NILUSDT_LONG_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-short"><td class="sym">AIGENSYNUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">5.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.01949</td><td class="num">0.02015</td><td class="num tp">0.0185, 0.018005, 0.01751</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_22-08-29/charts/AIGENSYNUSDT_SHORT_1h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-long"><td class="sym">BULLAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">5.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(2/3)</span></td><td class="num">0.016819</td><td class="num">0.016656</td><td class="num tp">0.0170635, 0.01718575, 0.017308</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_22-08-29/charts/BULLAUSDT_LONG_15m_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr><tr class="side-short"><td class="sym">LAUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><span class="badge " style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">N/A</span></td><td><div class="score-wrap"><span class="score-val">5.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">4h <span class="muted">(3/3)</span></td><td class="num">0.05409</td><td class="num">0.05784</td><td class="num tp">0.048465, 0.0456525, 0.04284</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><a class="chart-link" href="scan_results/2026-08-28_22-08-29/charts/LAUSDT_SHORT_4h_chart.png" target="_blank" rel="noopener">Chart &#8599;</a></td></tr>
             </tbody>
           </table>
         </div>
