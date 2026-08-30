@@ -8,9 +8,6 @@ on:
 permissions:
   contents: write
 
-permissions:
-  contents: write
-
 concurrency:
   group: vsynapse
   cancel-in-progress: false
