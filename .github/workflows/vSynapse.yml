@@ -158,10 +158,21 @@ jobs:
           echo "$RESULT_DIR"
           echo "========================================"
 
+      - name: Update win-rate tracker
+        shell: bash
+        run: |
+          python docs/tracker.py \
+            --results-dir scan_results \
+            --log trade_log.json \
+            --stats-out winrate_stats.json
+
       - name: Build belenggu dashboard
         shell: bash
         run: |
-          python docs/belenggu.py --results-dir scan_results --out docs/belenggu.html
+          python docs/belenggu.py \
+            --results-dir scan_results \
+            --out docs/belenggu.html \
+            --stats-file winrate_stats.json
 
       - name: Upload Synaptic results
         if: always()
@@ -181,6 +192,8 @@ jobs:
 
           git add scan_results/
           git add docs/belenggu.html
+          git add trade_log.json
+          git add winrate_stats.json
 
           if git diff --cached --quiet; then
             echo "No new scan results or dashboard changes to commit."
