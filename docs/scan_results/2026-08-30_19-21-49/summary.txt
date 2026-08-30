@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T19:21:45.751008+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PYTHUSDT | Side: LONG | Score: 6.46
+   - Entry : 0.05010
+   - SL    : 0.04857
+   - TP    : 0.05238, 0.05353, 0.05467
+   - Invalidation: Close below 0.04857 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: DASHUSDT | Side: LONG | Score: 7.43
+   - Entry : 43.491
+   - SL    : 40.910
+   - TP    : 47.363, 49.299, 51.235
+   - Invalidation: Close below 40.91 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: LITUSDT | Side: LONG | Score: 7.23
+   - Entry : 3.7062
+   - SL    : 3.4882
+   - TP    : 4.0331, 4.1966, 4.3601
+   - Invalidation: Close below 3.4882 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ARPAUSDT | Side: LONG | Score: 6.53
+   - Entry : 0.009863
+   - SL    : 0.009735
+   - TP    : 0.010056, 0.010152, 0.010248
+   - Invalidation: Close below 0.009735 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: MONUSDT | Side: LONG | Score: 6.39
+   - Entry : 0.02808
+   - SL    : 0.02726
+   - TP    : 0.02931, 0.02993, 0.03054
+   - Invalidation: Close below 0.02726 / loss of recent 15m swing low
+----------------------------------------
