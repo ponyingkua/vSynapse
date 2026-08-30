@@ -480,7 +480,7 @@ def build_html(runs, aggregate):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>belenggu</title>
+<title>Synaptic</title>
 <style>
   :root {{
     --up: {UP}; --down: {DOWN}; --ema: {EMA};
