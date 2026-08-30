@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T07:09:31.588670+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: BLUAIUSDT | Side: LONG | Score: 6.7
+   - Entry : 0.01361
+   - SL    : 0.01300
+   - TP    : 0.01453, 0.01499, 0.01545
+   - Invalidation: Close below 0.012996 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: FHEUSDT | Side: SHORT | Score: 7.79
+   - Entry : 0.02225
+   - SL    : 0.02352
+   - TP    : 0.02033, 0.01938, 0.01842
+   - Invalidation: Close above 0.02352 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: CTRUSDT | Side: LONG | Score: 6.51
+   - Entry : 0.009832
+   - SL    : 0.009629
+   - TP    : 0.010136, 0.010288, 0.010440
+   - Invalidation: Close below 0.009629 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: PLUMEUSDT | Side: LONG | Score: 6.35
+   - Entry : 0.01407
+   - SL    : 0.01381
+   - TP    : 0.01445, 0.01465, 0.01484
+   - Invalidation: Close below 0.013812384 / loss of recent 1h swing low
+----------------------------------------
