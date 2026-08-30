@@ -242,8 +242,8 @@ def render_trend_svg(trend_points, width=680, height=110):
     if len(trend_points) < 2:
         return (
             '<p class="muted small">'
-            "Belum cukup data untuk grafik tren "
-            "(minimal 2 scan run)."
+            "Not enough data for a trend chart "
+            "(minimum 2 scan runs)."
             "</p>"
         )
 
@@ -385,7 +385,7 @@ def render_run_section(run, open_by_default=False):
         if candidates
         else (
             '<tr><td colspan="12" class="empty-row">'
-            "Tidak ada kandidat pada scan ini."
+            "No candidates found in this scan."
             "</td></tr>"
         )
     )
@@ -416,7 +416,7 @@ def render_run_section(run, open_by_default=False):
             {badge(selection_mode, MUTED, "mode-badge")}
           </div>
           <div class="run-right">
-            <span class="run-count"><strong>{len(candidates)}</strong> kandidat</span>
+            <span class="run-count"><strong>{len(candidates)}</strong> candidates</span>
             <span class="run-elapsed muted">{elapsed}</span>
           </div>
         </div>
@@ -458,11 +458,12 @@ def build_html(runs, aggregate):
     generated_at = datetime.now(timezone.utc).isoformat()
 
     top_symbols_html = "".join(
-        f'<li><span class="sym-rank">{i:02d}</span>'
+        f'<div class="symbol-chip">'
+        f'<span class="sym-rank">{i:02d}</span>'
         f'<span class="sym-name">{esc(sym)}</span>'
-        f'<span class="sym-count">{count}&times;</span></li>'
+        f'<span class="sym-count">{count}&times;</span></div>'
         for i, (sym, count) in enumerate(aggregate["top_symbols"], 1)
-    ) or '<li class="muted">Belum ada data.</li>'
+    ) or '<span class="muted">No data yet.</span>'
 
     trend_svg = render_trend_svg(aggregate["trend_points"])
 
@@ -489,12 +490,12 @@ def build_html(runs, aggregate):
     else:
         run_sections = (
             '<div class="empty-state">'
-            "<p>Belum ada scan_results yang ditemukan.</p>"
+            "<p>No scan_results found yet.</p>"
             "</div>"
         )
 
     return f"""<!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -614,6 +615,9 @@ def build_html(runs, aggregate):
     border-radius: var(--radius);
     padding: 16px 18px;
   }}
+  .card.wide {{
+    grid-column: 1 / -1;
+  }}
   .card h3 {{
     font-family: var(--mono);
     font-size: 0.66rem;
@@ -657,23 +661,28 @@ def build_html(runs, aggregate):
     color: var(--text-soft);
   }}
 
-  /* Top symbols list */
-  .card ul {{ list-style: none; font-size: 0.85rem; }}
-  .card li {{
+  /* Top symbols grid (wide card) */
+  .symbol-grid {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }}
+  .symbol-chip {{
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--panel-soft);
+    gap: 8px;
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 0.85rem;
   }}
-  .card li:last-child {{ border-bottom: none; }}
   .sym-rank {{
     font-family: var(--mono);
     color: {GOLD};
     font-size: 0.72rem;
-    width: 18px;
   }}
-  .sym-name {{ font-weight: 500; flex: 1; }}
+  .sym-name {{ font-weight: 600; }}
   .sym-count {{
     font-family: var(--mono);
     color: var(--text-soft);
@@ -855,25 +864,30 @@ def build_html(runs, aggregate):
     </div>
   </header>
 
-  <h2 class="section-title">Ringkasan Agregat</h2>
+  <h2 class="section-title">Aggregate Summary</h2>
 
   <div class="cards">
+    <div class="card wide" style="--card-accent:{GOLD}">
+      <h3>Most Frequent Symbols</h3>
+      <div class="symbol-grid">{top_symbols_html}</div>
+    </div>
+
     <div class="card" style="--card-accent:{CYAN}">
-      <h3>Total Scan Run</h3>
+      <h3>Total Scan Runs</h3>
       <div class="value" style="color:{CYAN}">{aggregate['total_runs']}</div>
-      <div class="sub">run terbaru diproses</div>
+      <div class="sub">recent runs processed</div>
     </div>
 
     <div class="card" style="--card-accent:{ACCENT}">
-      <h3>Total Kandidat</h3>
+      <h3>Total Candidates</h3>
       <div class="value" style="color:{ACCENT}">{aggregate['total_candidates']}</div>
-      <div class="sub">semua run digabung</div>
+      <div class="sub">across all runs combined</div>
     </div>
 
     <div class="card" style="--card-accent:{REFERENCE}">
       <h3>Avg Score</h3>
       <div class="value" style="color:{REFERENCE}">{avg_score_html}</div>
-      <div class="sub">rata-rata semua kandidat</div>
+      <div class="sub">average across all candidates</div>
     </div>
 
     <div class="card" style="--card-accent:{READY}">
@@ -898,17 +912,12 @@ def build_html(runs, aggregate):
     </div>
 
     <div class="card" style="--card-accent:{LINK}">
-      <h3>Tren Final / Run</h3>
+      <h3>Final Candidates / Run Trend</h3>
       {trend_svg}
-    </div>
-
-    <div class="card" style="--card-accent:{GOLD}">
-      <h3>Symbol Paling Sering</h3>
-      <ul>{top_symbols_html}</ul>
     </div>
   </div>
 
-  <h2 class="section-title">Scan Runs (terbaru dulu)</h2>
+  <h2 class="section-title">Scan Runs (most recent first)</h2>
 
   {run_sections}
 
@@ -933,13 +942,13 @@ def main():
     parser.add_argument(
         "--results-dir",
         default="scan_results",
-        help="Folder berisi sub-folder timestamped hasil scan.",
+        help="Folder containing timestamped scan-result subfolders.",
     )
 
     parser.add_argument(
         "--out",
         default="belenggu.html",
-        help="Path output HTML.",
+        help="Output HTML path.",
     )
 
     parser.add_argument(
@@ -947,9 +956,9 @@ def main():
         type=int,
         default=50,
         help=(
-            "Batas jumlah run terbaru yang diproses "
-            "(supaya file JSON lama/besar tidak memperlambat "
-            "build dashboard). Default 50."
+            "Limit on how many recent runs are processed "
+            "(so old/large JSON files don't slow down the "
+            "dashboard build). Default 50."
         ),
     )
 
@@ -958,7 +967,7 @@ def main():
     results_dir = Path(args.results_dir)
     runs = load_runs(results_dir, max_runs=args.max_runs)
 
-    print(f"Ditemukan {len(runs)} scan run di '{results_dir}'.")
+    print(f"Found {len(runs)} scan run(s) in '{results_dir}'.")
 
     aggregate = build_aggregate(runs)
     output_html = build_html(runs, aggregate)
@@ -966,7 +975,7 @@ def main():
     output_path = Path(args.out)
     output_path.write_text(output_html, encoding="utf-8")
 
-    print(f"Dashboard tersimpan: {output_path}")
+    print(f"Dashboard saved: {output_path}")
 
 
 if __name__ == "__main__":
