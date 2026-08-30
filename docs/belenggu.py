@@ -82,6 +82,70 @@ def esc(value):
     return html.escape(str(value)) if value is not None else "N/A"
 
 
+# WIN-RATE STATS (optional - produced by tracker.py)
+
+def load_winrate_stats(path):
+    """Reads the stats file tracker.py writes. Returns None if it doesn't
+    exist yet or is unreadable, so the dashboard degrades gracefully for
+    anyone not running the tracker."""
+
+    if not path.exists():
+        return None
+
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"Skip winrate stats ({path}): {exc}")
+        return None
+
+
+def render_winrate_card(stats):
+
+    if stats is None or not stats.get("resolved_trades"):
+        return ""
+
+    win_rate = stats.get("win_rate_pct")
+    win_rate_html = f"{win_rate}%" if win_rate is not None else "&mdash;"
+    win_color = UP if (win_rate or 0) >= 50 else DOWN
+
+    avg_r = stats.get("avg_r_multiple")
+    avg_r_html = f"{avg_r:+.2f}R" if avg_r is not None else "&mdash;"
+
+    setup_rows = "".join(
+        f'<div class="setup-row">'
+        f'<span class="setup-name">{esc(setup)}</span>'
+        f'<span class="setup-record">{v["wins"]}W / {v["losses"]}L</span>'
+        f'<span class="setup-rate" style="color:{UP if (v["win_rate_pct"] or 0) >= 50 else DOWN}">'
+        f'{v["win_rate_pct"]}%</span>'
+        f'</div>'
+        for setup, v in sorted(
+            stats.get("by_setup_style", {}).items(),
+            key=lambda kv: kv[1]["wins"] + kv[1]["losses"],
+            reverse=True,
+        )
+    )
+
+    return f"""
+    <div class="card wide" style="--card-accent:{win_color}">
+      <h3>Win Rate (Resolved Trades)</h3>
+      <div class="winrate-summary">
+        <div class="winrate-main">
+          <span class="value" style="color:{win_color}">{win_rate_html}</span>
+          <span class="sub">{stats['wins']}W / {stats['losses']}L &middot; {stats['resolved_trades']} resolved</span>
+        </div>
+        <div class="winrate-secondary">
+          <div><span class="muted">Avg R multiple</span><br><strong>{avg_r_html}</strong></div>
+          <div><span class="muted">Open</span><br><strong>{stats.get('currently_open', 0)}</strong></div>
+          <div><span class="muted">Pending entry</span><br><strong>{stats.get('currently_pending', 0)}</strong></div>
+          <div><span class="muted">Expired / never triggered</span><br>
+            <strong>{stats.get('expired_unresolved', 0)} / {stats.get('never_triggered', 0)}</strong></div>
+        </div>
+      </div>
+      {f'<div class="setup-breakdown">{setup_rows}</div>' if setup_rows else ""}
+    </div>
+    """
+
+
 # LOAD RUNS
 
 def _iter_run_dirs(results_dir):
@@ -453,7 +517,7 @@ def render_run_section(run, open_by_default=False):
 
 # BUILD HTML
 
-def build_html(runs, aggregate):
+def build_html(runs, aggregate, winrate_stats=None):
 
     generated_at = datetime.now(timezone.utc).isoformat()
 
@@ -833,6 +897,45 @@ def build_html(runs, aggregate):
     color: var(--text-soft);
   }}
 
+  /* Win-rate card */
+  .winrate-summary {{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }}
+  .winrate-main {{ display: flex; flex-direction: column; gap: 4px; }}
+  .winrate-main .value {{ font-family: var(--mono); font-size: 2rem; font-weight: 700; }}
+  .winrate-secondary {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 0.82rem;
+  }}
+  .winrate-secondary strong {{ font-family: var(--mono); }}
+  .setup-breakdown {{
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }}
+  .setup-row {{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+  }}
+  .setup-name {{
+    font-family: var(--mono);
+    font-weight: 600;
+    width: 130px;
+  }}
+  .setup-record {{ color: var(--text-soft); width: 90px; }}
+  .setup-rate {{ font-family: var(--mono); font-weight: 600; }}
+
   footer {{
     margin-top: 40px;
     padding-top: 16px;
@@ -867,6 +970,8 @@ def build_html(runs, aggregate):
   <h2 class="section-title">Aggregate Summary</h2>
 
   <div class="cards">
+    {render_winrate_card(winrate_stats)}
+
     <div class="card wide" style="--card-accent:{GOLD}">
       <h3>Most Frequent Symbols</h3>
       <div class="symbol-grid">{top_symbols_html}</div>
@@ -962,6 +1067,12 @@ def main():
         ),
     )
 
+    parser.add_argument(
+        "--stats-file",
+        default="winrate_stats.json",
+        help="Optional win-rate stats produced by tracker.py. Skipped if not found.",
+    )
+
     args = parser.parse_args()
 
     results_dir = Path(args.results_dir)
@@ -970,7 +1081,8 @@ def main():
     print(f"Found {len(runs)} scan run(s) in '{results_dir}'.")
 
     aggregate = build_aggregate(runs)
-    output_html = build_html(runs, aggregate)
+    winrate_stats = load_winrate_stats(Path(args.stats_file))
+    output_html = build_html(runs, aggregate, winrate_stats)
 
     output_path = Path(args.out)
     output_path.write_text(output_html, encoding="utf-8")
