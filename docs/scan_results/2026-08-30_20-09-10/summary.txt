@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-30T20:09:05.090290+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: 1000LUNCUSDT | Side: SHORT | Score: 6.69
+   - Entry : 0.05227
+   - SL    : 0.05277
+   - TP    : 0.05152, 0.05114, 0.05077
+   - Invalidation: Close above 0.05277 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: OPUSDT | Side: SHORT | Score: 6.21
+   - Entry : 0.08875
+   - SL    : 0.08993
+   - TP    : 0.08698, 0.08609, 0.08521
+   - Invalidation: Close above 0.08993 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: ZORAUSDT | Side: LONG | Score: 6.17
+   - Entry : 0.007204
+   - SL    : 0.006849
+   - TP    : 0.007737, 0.008003, 0.008269
+   - Invalidation: Close below 0.006849 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: LITUSDT | Side: LONG | Score: 8.17
+   - Entry : 3.7858
+   - SL    : 3.4911
+   - TP    : 4.2277, 4.4487, 4.6697
+   - Invalidation: Close below 3.4911 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: GALAUSDT | Side: SHORT | Score: 6.65
+   - Entry : 0.001754
+   - SL    : 0.001784
+   - TP    : 0.001710, 0.001687, 0.001665
+   - Invalidation: Close above 0.001784 / reclaim of recent 15m swing high
+----------------------------------------
