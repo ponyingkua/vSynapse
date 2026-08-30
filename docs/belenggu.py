@@ -393,10 +393,10 @@ def render_candidate_row(run, candidate):
     chart_cell = '<span class="muted">&mdash;</span>'
 
     if chart_path is not None:
-        rel = chart_path.relative_to(run["dir"].parent.parent)
+        rel = chart_path.relative_to(run["dir"].parent.parent).as_posix()
         chart_cell = (
-            f'<a class="chart-link" href="{rel.as_posix()}" '
-            f'target="_blank" rel="noopener">Chart &#8599;</a>'
+            f'<img class="chart-thumb" src="{rel}" alt="{esc(symbol)} chart" '
+            f'loading="lazy" onclick="openLightbox(\'{rel}\')">'
         )
 
     funding_cell = (
@@ -883,6 +883,39 @@ def build_html(runs, aggregate, winrate_stats=None):
   .chart-link {{ color: var(--link); text-decoration: none; font-weight: 500; font-size: 0.78rem; }}
   .chart-link:hover {{ text-decoration: underline; }}
 
+  .chart-thumb {{
+    width: 84px;
+    height: 48px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    display: block;
+    background: var(--panel-soft);
+    transition: border-color 0.15s ease;
+  }}
+  .chart-thumb:hover {{ border-color: var(--accent); }}
+
+  .lightbox-overlay {{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.86);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    cursor: zoom-out;
+  }}
+  .lightbox-overlay.open {{ display: flex; }}
+  .lightbox-overlay img {{
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }}
+
   .warn-dot {{ color: var(--waiting); font-size: 0.95rem; }}
 
   .muted {{ color: var(--text-soft); }}
@@ -1030,6 +1063,26 @@ def build_html(runs, aggregate, winrate_stats=None):
     <span>belenggu.py &middot; not financial advice</span>
     <span>dark terminal build</span>
   </footer>
+
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Chart preview">
+  </div>
+
+  <script>
+    function openLightbox(src) {{
+      var overlay = document.getElementById('lightboxOverlay');
+      var img = document.getElementById('lightboxImg');
+      img.src = src;
+      overlay.classList.add('open');
+    }}
+    function closeLightbox() {{
+      document.getElementById('lightboxOverlay').classList.remove('open');
+      document.getElementById('lightboxImg').src = '';
+    }}
+    document.addEventListener('keydown', function(e) {{
+      if (e.key === 'Escape') closeLightbox();
+    }});
+  </script>
 
 </body>
 </html>
