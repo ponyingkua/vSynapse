@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T04:09:54.655627+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: 1000RATSUSDT | Side: LONG | Score: 6.09
+   - Entry : 0.04073
+   - SL    : 0.03974
+   - TP    : 0.04222, 0.04296, 0.04370
+   - Invalidation: Close below 0.03974 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: DOGSUSDT | Side: LONG | Score: 5.46
+   - Entry : 0.00004012
+   - SL    : 0.00003842
+   - TP    : 0.00004267, 0.00004395, 0.00004522
+   - Invalidation: Close below 3.842e-05 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: AGLDUSDT | Side: LONG | Score: 5.11
+   - Entry : 0.16799
+   - SL    : 0.15910
+   - TP    : 0.18132, 0.18799, 0.19466
+   - Invalidation: Close below 0.1591 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: LINEAUSDT | Side: LONG | Score: 4.8
+   - Entry : 0.002511
+   - SL    : 0.002462
+   - TP    : 0.002584, 0.002621, 0.002658
+   - Invalidation: Close below 0.002462 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: ACEUSDT | Side: LONG | Score: 4.72
+   - Entry : 0.17746
+   - SL    : 0.17053
+   - TP    : 0.18786, 0.19305, 0.19825
+   - Invalidation: Close below 0.17053 / loss of recent 15m swing low
+----------------------------------------
