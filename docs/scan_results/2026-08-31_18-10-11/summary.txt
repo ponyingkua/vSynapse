@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T18:10:09.045622+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: LUMIAUSDT | Side: LONG | Score: 6.52
+   - Entry : 0.08827
+   - SL    : 0.08632
+   - TP    : 0.09120, 0.09266, 0.09412
+   - Invalidation: Close below 0.08632 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: JOEUSDT | Side: LONG | Score: 6.45
+   - Entry : 0.03197
+   - SL    : 0.03058
+   - TP    : 0.03405, 0.03510, 0.03614
+   - Invalidation: Close below 0.03058 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ZECUSDT | Side: LONG | Score: 6.05
+   - Entry : 847.41
+   - SL    : 829.66
+   - TP    : 874.03, 887.35, 900.66
+   - Invalidation: Close below 829.66 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: ARBUSDT | Side: LONG | Score: 6.85
+   - Entry : 0.09032
+   - SL    : 0.08471
+   - TP    : 0.09874, 0.10295, 0.10715
+   - Invalidation: Close below 0.08471 / loss of recent 1h swing low
+----------------------------------------
