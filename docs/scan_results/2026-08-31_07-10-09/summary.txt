@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T07:10:05.491431+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: SXTUSDT | Side: LONG | Score: 6.47
+   - Entry : 0.008802
+   - SL    : 0.008649
+   - TP    : 0.009032, 0.009146, 0.009261
+   - Invalidation: Close below 0.008649 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: FLOWUSDT | Side: SHORT | Score: 8.11
+   - Entry : 0.02640
+   - SL    : 0.02757
+   - TP    : 0.02465, 0.02378, 0.02290
+   - Invalidation: Close above 0.02757 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: ENSOUSDT | Side: LONG | Score: 7.29
+   - Entry : 0.90180
+   - SL    : 0.83700
+   - TP    : 0.99901, 1.04762, 1.09622
+   - Invalidation: Close below 0.837 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: 0GUSDT | Side: LONG | Score: 6.58
+   - Entry : 0.17263
+   - SL    : 0.15920
+   - TP    : 0.19277, 0.20284, 0.21291
+   - Invalidation: Close below 0.1592 / loss of recent 4h swing low
+----------------------------------------

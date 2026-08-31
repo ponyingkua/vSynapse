@@ -56,6 +56,63 @@
       "run_id": "2026-08-31_05-09-58",
       "first_seen": "2026-08-31T05:09:55.757892+00:00",
       "added_at": "2026-08-31T05:09:55.757892+00:00"
+    },
+    {
+      "id": "FLOWUSDT_SHORT_1h_2026-08-31_07-10-09",
+      "symbol": "FLOWUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0264,
+      "sl": 0.02757,
+      "tp": [
+        0.02465,
+        0.02378,
+        0.0229
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_07-10-09",
+      "first_seen": "2026-08-31T07:10:05.491431+00:00",
+      "added_at": "2026-08-31T07:10:05.491431+00:00"
+    },
+    {
+      "id": "ENSOUSDT_LONG_1h_2026-08-31_07-10-09",
+      "symbol": "ENSOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.9018,
+      "sl": 0.837,
+      "tp": [
+        0.99901,
+        1.04762,
+        1.09622
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_07-10-09",
+      "first_seen": "2026-08-31T07:10:05.491431+00:00",
+      "added_at": "2026-08-31T07:10:05.491431+00:00"
+    },
+    {
+      "id": "0GUSDT_LONG_4h_2026-08-31_07-10-09",
+      "symbol": "0GUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.17263,
+      "sl": 0.1592,
+      "tp": [
+        0.19277,
+        0.20284,
+        0.21291
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_07-10-09",
+      "first_seen": "2026-08-31T07:10:05.491431+00:00",
+      "added_at": "2026-08-31T07:10:05.491431+00:00"
     }
   ],
   "open": [
@@ -325,25 +382,6 @@
         0.003465
       ],
       "decimals": 6,
-      "run_id": "2026-08-31_03-10-03",
-      "first_seen": "2026-08-31T03:09:59.143856+00:00",
-      "triggered_at": "2026-08-31T03:09:59.143856+00:00"
-    },
-    {
-      "id": "USUSDT_LONG_15m_2026-08-31_03-10-03",
-      "symbol": "USUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01772,
-      "sl": 0.01715,
-      "tp": [
-        0.01856,
-        0.01899,
-        0.01941
-      ],
-      "decimals": 5,
       "run_id": "2026-08-31_03-10-03",
       "first_seen": "2026-08-31T03:09:59.143856+00:00",
       "triggered_at": "2026-08-31T03:09:59.143856+00:00"
@@ -694,6 +732,25 @@
       "run_id": "2026-08-31_06-11-11",
       "first_seen": "2026-08-31T06:11:06.386118+00:00",
       "triggered_at": "2026-08-31T06:11:06.386118+00:00"
+    },
+    {
+      "id": "SXTUSDT_LONG_15m_2026-08-31_07-10-09",
+      "symbol": "SXTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008802,
+      "sl": 0.008649,
+      "tp": [
+        0.009032,
+        0.009146,
+        0.009261
+      ],
+      "decimals": 6,
+      "run_id": "2026-08-31_07-10-09",
+      "first_seen": "2026-08-31T07:10:05.491431+00:00",
+      "triggered_at": "2026-08-31T07:10:05.491431+00:00"
     }
   ],
   "closed": [
@@ -1579,6 +1636,32 @@
       "bars_held": 9,
       "closed_at": "2026-08-31T05:29:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "USUSDT_LONG_15m_2026-08-31_03-10-03",
+      "symbol": "USUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01772,
+      "sl": 0.01715,
+      "tp": [
+        0.01856,
+        0.01899,
+        0.01941
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_03-10-03",
+      "first_seen": "2026-08-31T03:09:59.143856+00:00",
+      "triggered_at": "2026-08-31T03:09:59.143856+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.01715,
+      "tp_index": null,
+      "bar_time": 1788157799999,
+      "bars_held": 13,
+      "closed_at": "2026-08-31T06:29:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -1596,6 +1679,7 @@
     "2026-08-31_03-10-03",
     "2026-08-31_04-09-59",
     "2026-08-31_05-09-58",
-    "2026-08-31_06-11-11"
+    "2026-08-31_06-11-11",
+    "2026-08-31_07-10-09"
   ]
 }
