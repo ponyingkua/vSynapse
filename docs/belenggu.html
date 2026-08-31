@@ -174,16 +174,19 @@
   .symbol-chip {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: var(--chip-w, auto);
+    gap: 8px;
     background: var(--panel-soft);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 7px 12px;
     font-size: 0.85rem;
   }
-  .sym-name { font-weight: 600; font-family: var(--mono); }
+  .sym-rank {
+    font-family: var(--mono);
+    color: #a9840f;
+    font-size: 0.72rem;
+  }
+  .sym-name { font-weight: 600; }
   .sym-count {
     font-family: var(--mono);
     color: var(--text-soft);
@@ -208,12 +211,12 @@
   }
   .run-card summary::-webkit-details-marker { display: none; }
   .run-card summary::before {
-    content: "▸";
+    content: "&#9656;";
     color: var(--accent);
     margin-right: 10px;
     font-size: 0.78rem;
   }
-  .run-card[open] summary::before { content: "▾"; }
+  .run-card[open] summary::before { content: "&#9662;"; }
   .run-summary {
     display: flex;
     align-items: center;
@@ -392,6 +395,14 @@
     flex-direction: column;
     gap: 6px;
   }
+  .breakdown-label {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
   .setup-row {
     display: flex;
     align-items: center;
@@ -401,10 +412,11 @@
   .setup-name {
     font-family: var(--mono);
     font-weight: 600;
-    width: 130px;
+    flex: 1;
+    min-width: 130px;
   }
   .setup-record { color: var(--text-soft); width: 90px; }
-  .setup-rate { font-family: var(--mono); font-weight: 600; }
+  .setup-rate { font-family: var(--mono); font-weight: 600; width: 50px; text-align: right; }
 
   footer {
     margin-top: 40px;
@@ -433,7 +445,7 @@
     <h1>SYNAPTIC<span class="slash">//</span>FUTURES JOURNEY</h1>
     <div class="subtitle">
       <span class="live-dot"></span>
-      generated 2026-08-31T08:15:17.508873+00:00 UTC
+      generated 2026-08-31T09:16:52.425407+00:00 UTC
     </div>
   </header>
 
@@ -450,63 +462,64 @@
         </div>
         <div class="winrate-secondary">
           <div><span class="muted">Avg R multiple</span><br><strong>-0.47R</strong></div>
-          <div><span class="muted">Open</span><br><strong>37</strong></div>
+          <div><span class="muted">Open</span><br><strong>42</strong></div>
           <div><span class="muted">Pending entry</span><br><strong>6</strong></div>
           <div><span class="muted">Expired / never triggered</span><br>
             <strong>0 / 3</strong></div>
         </div>
       </div>
-      <div class="setup-breakdown"><div class="setup-row"><span class="setup-name">BREAKOUT</span><span class="setup-record">1W / 19L</span><span class="setup-rate" style="color:#bd5c53">5.0%</span></div><div class="setup-row"><span class="setup-name">BREAKDOWN</span><span class="setup-record">6W / 6L</span><span class="setup-rate" style="color:#4aa88f">50.0%</span></div><div class="setup-row"><span class="setup-name">EXTENDED</span><span class="setup-record">0W / 1L</span><span class="setup-rate" style="color:#bd5c53">0.0%</span></div></div>
+      <div class="setup-breakdown"><div class="breakdown-label">By setup style</div><div class="setup-row"><span class="setup-name">BREAKOUT</span><span class="setup-record">1W / 19L</span><span class="setup-rate" style="color:#bd5c53">5.0%</span></div><div class="setup-row"><span class="setup-name">BREAKDOWN</span><span class="setup-record">6W / 6L</span><span class="setup-rate" style="color:#4aa88f">50.0%</span></div><div class="setup-row"><span class="setup-name">EXTENDED</span><span class="setup-record">0W / 1L</span><span class="setup-rate" style="color:#bd5c53">0.0%</span></div></div>
+      <div class="setup-breakdown"><div class="breakdown-label">By daily (HTF) trend alignment</div><div class="setup-row"><span class="setup-name">Unknown / neutral bias</span><span class="setup-record">7W / 26L</span><span class="setup-rate" style="color:#bd5c53">21.2%</span></div></div>
     </div>
     
 
     <div class="card wide" style="--card-accent:#a9840f">
       <h3>Most Frequent Symbols</h3>
-      <div class="symbol-grid" style="--chip-w:16ch"><div class="symbol-chip"><span class="sym-name">PROVEUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-name">STABLEUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">SCRUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">CYSUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">QUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">SXTUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">FLOWUSDT</span><span class="sym-count">1&times;</span></div><div class="symbol-chip"><span class="sym-name">ENSOUSDT</span><span class="sym-count">1&times;</span></div></div>
+      <div class="symbol-grid"><div class="symbol-chip"><span class="sym-rank">01</span><span class="sym-name">LITUSDT</span><span class="sym-count">5&times;</span></div><div class="symbol-chip"><span class="sym-rank">02</span><span class="sym-name">DASHUSDT</span><span class="sym-count">4&times;</span></div><div class="symbol-chip"><span class="sym-rank">03</span><span class="sym-name">AEVOUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-rank">04</span><span class="sym-name">ZESTUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-rank">05</span><span class="sym-name">PROVEUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-rank">06</span><span class="sym-name">TACUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-rank">07</span><span class="sym-name">BELUSDT</span><span class="sym-count">2&times;</span></div><div class="symbol-chip"><span class="sym-rank">08</span><span class="sym-name">ARPAUSDT</span><span class="sym-count">2&times;</span></div></div>
     </div>
 
     <div class="card" style="--card-accent:#8c8c86">
       <h3>Total Scan Runs</h3>
-      <div class="value" style="color:#8c8c86">10</div>
+      <div class="value" style="color:#8c8c86">18</div>
       <div class="sub">recent runs processed</div>
     </div>
 
     <div class="card" style="--card-accent:#e6b526">
       <h3>Total Candidates</h3>
-      <div class="value" style="color:#e6b526">46</div>
+      <div class="value" style="color:#e6b526">84</div>
       <div class="sub">across all runs combined</div>
     </div>
 
     <div class="card" style="--card-accent:#a9840f">
       <h3>Avg Score</h3>
-      <div class="value" style="color:#a9840f">6.3</div>
+      <div class="value" style="color:#a9840f">6.46</div>
       <div class="sub">average across all candidates</div>
     </div>
 
     <div class="card" style="--card-accent:#4aa88f">
       <h3>Entry State</h3>
       <div class="value" style="font-size:1.3rem">
-        <span style="color:var(--ready)">36</span>
+        <span style="color:var(--ready)">50</span>
         <span class="muted" style="font-weight:400;font-size:0.85rem"> ready</span>
       </div>
-      <div class="sub">10 waiting</div>
+      <div class="sub">34 waiting</div>
     </div>
 
     <div class="card" style="--card-accent:#4aa88f">
       <h3>Side Distribution</h3>
       <div class="side-bar">
-        <div class="long" style="width:61%"></div>
-        <div class="short" style="width:39%"></div>
+        <div class="long" style="width:64%"></div>
+        <div class="short" style="width:36%"></div>
       </div>
       <div class="side-legend">
-        <span style="color:var(--up)">LONG 28</span>
-        <span style="color:var(--down)">SHORT 18</span>
+        <span style="color:var(--up)">LONG 54</span>
+        <span style="color:var(--down)">SHORT 30</span>
       </div>
     </div>
 
     <div class="card" style="--card-accent:#e6b526">
       <h3>Final Candidates / Run Trend</h3>
-      <svg viewBox="0 0 680 110" width="100%" height="110" class="trend-svg" preserveAspectRatio="none"><defs><linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6b526" stop-opacity="0.3"/><stop offset="100%" stop-color="#e6b526" stop-opacity="0"/></linearGradient><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="14.0,96 14.0,14.0 86.4,14.0 158.9,14.0 231.3,14.0 303.8,14.0 376.2,14.0 448.7,96.0 521.1,14.0 593.6,41.3 666.0,14.0 666.0,96" fill="url(#trendGrad)" /><polyline points="14.0,14.0 86.4,14.0 158.9,14.0 231.3,14.0 303.8,14.0 376.2,14.0 448.7,96.0 521.1,14.0 593.6,41.3 666.0,14.0" fill="none" stroke="#e6b526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" /><circle cx="14.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_23-09-52: 5</title></circle><circle cx="86.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_00-11-01: 5</title></circle><circle cx="158.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_01-09-03: 5</title></circle><circle cx="231.3" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_02-09-27: 5</title></circle><circle cx="303.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_03-10-03: 5</title></circle><circle cx="376.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_04-09-59: 5</title></circle><circle cx="448.7" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_05-09-58: 2</title></circle><circle cx="521.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_06-11-11: 5</title></circle><circle cx="593.6" cy="41.3" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_07-10-09: 4</title></circle><circle cx="666.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_08-09-54: 5</title></circle></svg>
+      <svg viewBox="0 0 680 110" width="100%" height="110" class="trend-svg" preserveAspectRatio="none"><defs><linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6b526" stop-opacity="0.3"/><stop offset="100%" stop-color="#e6b526" stop-opacity="0"/></linearGradient><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="14.0,96 14.0,14.0 52.4,14.0 90.7,14.0 129.1,14.0 167.4,14.0 205.8,41.3 244.1,41.3 282.5,14.0 320.8,14.0 359.2,14.0 397.5,14.0 435.9,14.0 474.2,14.0 512.6,96.0 550.9,14.0 589.3,41.3 627.6,14.0 666.0,14.0 666.0,96" fill="url(#trendGrad)" /><polyline points="14.0,14.0 52.4,14.0 90.7,14.0 129.1,14.0 167.4,14.0 205.8,41.3 244.1,41.3 282.5,14.0 320.8,14.0 359.2,14.0 397.5,14.0 435.9,14.0 474.2,14.0 512.6,96.0 550.9,14.0 589.3,41.3 627.6,14.0 666.0,14.0" fill="none" stroke="#e6b526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" /><circle cx="14.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_18-51-55: 5</title></circle><circle cx="52.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_19-09-31: 5</title></circle><circle cx="90.7" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_19-21-49: 5</title></circle><circle cx="129.1" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_19-47-41: 5</title></circle><circle cx="167.4" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_20-09-10: 5</title></circle><circle cx="205.8" cy="41.3" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_21-09-40: 4</title></circle><circle cx="244.1" cy="41.3" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_22-09-13: 4</title></circle><circle cx="282.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-30_23-09-52: 5</title></circle><circle cx="320.8" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_00-11-01: 5</title></circle><circle cx="359.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_01-09-03: 5</title></circle><circle cx="397.5" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_02-09-27: 5</title></circle><circle cx="435.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_03-10-03: 5</title></circle><circle cx="474.2" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_04-09-59: 5</title></circle><circle cx="512.6" cy="96.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_05-09-58: 2</title></circle><circle cx="550.9" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_06-11-11: 5</title></circle><circle cx="589.3" cy="41.3" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_07-10-09: 4</title></circle><circle cx="627.6" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_08-09-54: 5</title></circle><circle cx="666.0" cy="14.0" r="3.5" fill="#e6b526" stroke="#080808" stroke-width="1.5"><title>2026-08-31_09-10-00: 5</title></circle></svg>
     </div>
   </div>
 
@@ -514,6 +527,48 @@
 
   
     <details class="run-card" open>
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-31T09:09:56.609095+00:00</span>
+            <span class="run-id muted">2026-08-31_09-10-00</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">mtf_fallback</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">282.8s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 518</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 22</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-short"><td class="sym">AEVOUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(2/3)</span></td><td class="num">0.02215</td><td class="num">0.02250</td><td class="num tp">0.02163, 0.02137, 0.02111</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-31_09-10-00/charts/AEVOUSDT_SHORT_15m_chart.png" alt="AEVOUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-31_09-10-00/charts/AEVOUSDT_SHORT_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">CRVUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">5.8</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.30879</td><td class="num">0.30460</td><td class="num tp">0.31508, 0.31823, 0.32137</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-31_09-10-00/charts/CRVUSDT_LONG_15m_chart.png" alt="CRVUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-31_09-10-00/charts/CRVUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">SOLVUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">5.8</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.002956</td><td class="num">0.002835</td><td class="num tp">0.003137, 0.003228, 0.003319</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-31_09-10-00/charts/SOLVUSDT_LONG_1h_chart.png" alt="SOLVUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-31_09-10-00/charts/SOLVUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">EDGEUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">5.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(2/3)</span></td><td class="num">0.37557</td><td class="num">0.34840</td><td class="num tp">0.41632, 0.43670, 0.45708</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-31_09-10-00/charts/EDGEUSDT_LONG_1h_chart.png" alt="EDGEUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-31_09-10-00/charts/EDGEUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">ZESTUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">CONTINUATION</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">4.8</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(2/3)</span></td><td class="num">0.13730</td><td class="num">0.14153</td><td class="num tp">0.13096, 0.12778, 0.12461</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-31_09-10-00/charts/ZESTUSDT_SHORT_15m_chart.png" alt="ZESTUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-31_09-10-00/charts/ZESTUSDT_SHORT_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
       <summary>
         <div class="run-summary">
           <div class="run-left">
@@ -927,6 +982,300 @@
             </thead>
             <tbody>
               <tr class="side-short"><td class="sym">NAORISUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">7.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.02771</td><td class="num">0.02886</td><td class="num tp">0.02599, 0.02513, 0.02427</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_23-09-52/charts/NAORISUSDT_SHORT_1h_chart.png" alt="NAORISUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_23-09-52/charts/NAORISUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">AIGENSYNUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">7.3</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.01966</td><td class="num">0.02019</td><td class="num tp">0.01886, 0.01846, 0.01806</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_23-09-52/charts/AIGENSYNUSDT_SHORT_1h_chart.png" alt="AIGENSYNUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_23-09-52/charts/AIGENSYNUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">CLANKERUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.9</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">12.420</td><td class="num">12.880</td><td class="num tp">11.729, 11.384, 11.039</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_23-09-52/charts/CLANKERUSDT_SHORT_1h_chart.png" alt="CLANKERUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_23-09-52/charts/CLANKERUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">GRASSUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.36981</td><td class="num">0.36250</td><td class="num tp">0.38077, 0.38626, 0.39174</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_23-09-52/charts/GRASSUSDT_LONG_15m_chart.png" alt="GRASSUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_23-09-52/charts/GRASSUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">PORTALUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.01548</td><td class="num">0.01524</td><td class="num tp">0.01584, 0.01602, 0.01620</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_23-09-52/charts/PORTALUSDT_LONG_15m_chart.png" alt="PORTALUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_23-09-52/charts/PORTALUSDT_LONG_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T22:09:11.189733+00:00</span>
+            <span class="run-id muted">2026-08-30_22-09-13</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>4</strong> candidates</span>
+            <span class="run-elapsed muted">249.9s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 501</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 24</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 4</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-long"><td class="sym">LAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">7.1</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.05960</td><td class="num">0.05711</td><td class="num tp">0.06335, 0.06522, 0.06709</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_22-09-13/charts/LAUSDT_LONG_1h_chart.png" alt="LAUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_22-09-13/charts/LAUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">ZESTUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.1</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.13878</td><td class="num">0.14020</td><td class="num tp">0.13665, 0.13559, 0.13452</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_22-09-13/charts/ZESTUSDT_SHORT_15m_chart.png" alt="ZESTUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_22-09-13/charts/ZESTUSDT_SHORT_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">USELESSUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.06665</td><td class="num">0.06207</td><td class="num tp">0.07351, 0.07694, 0.08037</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_22-09-13/charts/USELESSUSDT_LONG_1h_chart.png" alt="USELESSUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_22-09-13/charts/USELESSUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">AEVOUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.3</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(2/3)</span></td><td class="num">0.02280</td><td class="num">0.02136</td><td class="num tp">0.02495, 0.02603, 0.02710</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_22-09-13/charts/AEVOUSDT_LONG_1h_chart.png" alt="AEVOUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_22-09-13/charts/AEVOUSDT_LONG_1h_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T21:09:37.341566+00:00</span>
+            <span class="run-id muted">2026-08-30_21-09-40</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>4</strong> candidates</span>
+            <span class="run-elapsed muted">264.9s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 500</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 29</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 4</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-short"><td class="sym">NIGHTUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.9</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.01893</td><td class="num">0.01948</td><td class="num tp">0.01811, 0.01770, 0.01728</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_21-09-40/charts/NIGHTUSDT_SHORT_1h_chart.png" alt="NIGHTUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_21-09-40/charts/NIGHTUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">REUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.1</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.48199</td><td class="num">0.49310</td><td class="num tp">0.46532, 0.45698, 0.44865</td><td><span class="muted">&mdash;</span></td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_21-09-40/charts/REUSDT_SHORT_1h_chart.png" alt="REUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_21-09-40/charts/REUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">ENJUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.9</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.02488</td><td class="num">0.02549</td><td class="num tp">0.02396, 0.02350, 0.02304</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_21-09-40/charts/ENJUSDT_SHORT_1h_chart.png" alt="ENJUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_21-09-40/charts/ENJUSDT_SHORT_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">JASMYUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.004495</td><td class="num">0.004653</td><td class="num tp">0.004257, 0.004138, 0.004019</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_21-09-40/charts/JASMYUSDT_SHORT_1h_chart.png" alt="JASMYUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_21-09-40/charts/JASMYUSDT_SHORT_1h_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T20:09:05.090290+00:00</span>
+            <span class="run-id muted">2026-08-30_20-09-10</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">245.4s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 496</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 27</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-short"><td class="sym">1000LUNCUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.05227</td><td class="num">0.05277</td><td class="num tp">0.05152, 0.05114, 0.05077</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_20-09-10/charts/1000LUNCUSDT_SHORT_15m_chart.png" alt="1000LUNCUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_20-09-10/charts/1000LUNCUSDT_SHORT_15m_chart.png')"></td></tr><tr class="side-short"><td class="sym">OPUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.08875</td><td class="num">0.08993</td><td class="num tp">0.08698, 0.08609, 0.08521</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_20-09-10/charts/OPUSDT_SHORT_15m_chart.png" alt="OPUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_20-09-10/charts/OPUSDT_SHORT_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">ZORAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.007204</td><td class="num">0.006849</td><td class="num tp">0.007737, 0.008003, 0.008269</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_20-09-10/charts/ZORAUSDT_LONG_15m_chart.png" alt="ZORAUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_20-09-10/charts/ZORAUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">LITUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">8.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">3.7858</td><td class="num">3.4911</td><td class="num tp">4.2277, 4.4487, 4.6697</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_20-09-10/charts/LITUSDT_LONG_1h_chart.png" alt="LITUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_20-09-10/charts/LITUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">GALAUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.001754</td><td class="num">0.001784</td><td class="num tp">0.001710, 0.001687, 0.001665</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_20-09-10/charts/GALAUSDT_SHORT_15m_chart.png" alt="GALAUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_20-09-10/charts/GALAUSDT_SHORT_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T19:47:39.570233+00:00</span>
+            <span class="run-id muted">2026-08-30_19-47-41</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">239.5s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 494</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 24</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-long"><td class="sym">DASHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">7.1</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">43.491</td><td class="num">40.910</td><td class="num tp">47.363, 49.299, 51.235</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-47-41/charts/DASHUSDT_LONG_1h_chart.png" alt="DASHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-47-41/charts/DASHUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">BELUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.11985</td><td class="num">0.11869</td><td class="num tp">0.12159, 0.12246, 0.12333</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-47-41/charts/BELUSDT_LONG_15m_chart.png" alt="BELUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-47-41/charts/BELUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">LITUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">3.7062</td><td class="num">3.4882</td><td class="num tp">4.0331, 4.1966, 4.3601</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-47-41/charts/LITUSDT_LONG_1h_chart.png" alt="LITUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-47-41/charts/LITUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">ARPAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.6</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.009863</td><td class="num">0.009735</td><td class="num tp">0.010056, 0.010152, 0.010248</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-47-41/charts/ARPAUSDT_LONG_1h_chart.png" alt="ARPAUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-47-41/charts/ARPAUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-short"><td class="sym">MEUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.06038</td><td class="num">0.06088</td><td class="num tp">0.05962, 0.05924, 0.05886</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-47-41/charts/MEUSDT_SHORT_15m_chart.png" alt="MEUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-47-41/charts/MEUSDT_SHORT_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T19:21:45.751008+00:00</span>
+            <span class="run-id muted">2026-08-30_19-21-49</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">267.4s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 493</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 29</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-long"><td class="sym">PYTHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.5</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.05010</td><td class="num">0.04857</td><td class="num tp">0.05238, 0.05353, 0.05467</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-21-49/charts/PYTHUSDT_LONG_15m_chart.png" alt="PYTHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-21-49/charts/PYTHUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">DASHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">43.491</td><td class="num">40.910</td><td class="num tp">47.363, 49.299, 51.235</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-21-49/charts/DASHUSDT_LONG_1h_chart.png" alt="DASHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-21-49/charts/DASHUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">LITUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">3.7062</td><td class="num">3.4882</td><td class="num tp">4.0331, 4.1966, 4.3601</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-21-49/charts/LITUSDT_LONG_1h_chart.png" alt="LITUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-21-49/charts/LITUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">ARPAUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.5</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.009863</td><td class="num">0.009735</td><td class="num tp">0.010056, 0.010152, 0.010248</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-21-49/charts/ARPAUSDT_LONG_1h_chart.png" alt="ARPAUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-21-49/charts/ARPAUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">MONUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.02808</td><td class="num">0.02726</td><td class="num tp">0.02931, 0.02993, 0.03054</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-21-49/charts/MONUSDT_LONG_15m_chart.png" alt="MONUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-21-49/charts/MONUSDT_LONG_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T19:09:27.250182+00:00</span>
+            <span class="run-id muted">2026-08-30_19-09-31</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">260.7s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 493</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 30</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-long"><td class="sym">BARDUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">7.2</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">0.13050</td><td class="num">0.12520</td><td class="num tp">0.13845, 0.14242, 0.14640</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-09-31/charts/BARDUSDT_LONG_1h_chart.png" alt="BARDUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-09-31/charts/BARDUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">DASHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">8.3</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">43.491</td><td class="num">40.910</td><td class="num tp">47.363, 49.299, 51.235</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-09-31/charts/DASHUSDT_LONG_1h_chart.png" alt="DASHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-09-31/charts/DASHUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">LITUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">3.7062</td><td class="num">3.4882</td><td class="num tp">4.0331, 4.1966, 4.3601</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-09-31/charts/LITUSDT_LONG_1h_chart.png" alt="LITUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-09-31/charts/LITUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">ZENUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.5</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">1h <span class="muted">(3/3)</span></td><td class="num">5.3844</td><td class="num">5.0770</td><td class="num tp">5.8455, 6.0761, 6.3066</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-09-31/charts/ZENUSDT_LONG_1h_chart.png" alt="ZENUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-09-31/charts/ZENUSDT_LONG_1h_chart.png')"></td></tr><tr class="side-long"><td class="sym">PYTHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">EXTENDED</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_PULLBACK</span></td><td><div class="score-wrap"><span class="score-val">6.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.04829</td><td class="num">0.04786</td><td class="num tp">0.04892, 0.04924, 0.04956</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_19-09-31/charts/PYTHUSDT_LONG_15m_chart.png" alt="PYTHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_19-09-31/charts/PYTHUSDT_LONG_15m_chart.png')"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    
+    <details class="run-card">
+      <summary>
+        <div class="run-summary">
+          <div class="run-left">
+            <span class="run-time">2026-08-30T18:51:50.927665+00:00</span>
+            <span class="run-id muted">2026-08-30_18-51-55</span>
+            <span class="badge mode-badge" style="color:#4a4a46;border-color:#4a4a4655;background:#4a4a461f">min_score</span>
+          </div>
+          <div class="run-right">
+            <span class="run-count"><strong>5</strong> candidates</span>
+            <span class="run-elapsed muted">274.5s</span>
+          </div>
+        </div>
+      </summary>
+      <div class="run-body">
+        <div class="funnel-line"><span class="funnel-chip"><b>UNIVERSE</b> 494</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>STAGE 1</b> 60</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>MTF VALID</b> 35</span><span class="funnel-arrow">&rarr;</span><span class="funnel-chip"><b>FINAL</b> 5</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Side</th>
+                <th>Setup</th>
+                <th>Entry State</th>
+                <th>Score</th>
+                <th>Exec TF</th>
+                <th>Entry</th>
+                <th>SL</th>
+                <th>TP</th>
+                <th>HTF Bias</th>
+                <th></th>
+                <th>Chart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="side-short"><td class="sym">TACUSDT</td><td><span class="badge " style="color:#bd5c53;border-color:#bd5c5355;background:#bd5c531f">SHORT</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKDOWN</span></td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">ENTRY_READY</span></td><td><div class="score-wrap"><span class="score-val">6.1</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.002342</td><td class="num">0.002419</td><td class="num tp">0.002226, 0.002168, 0.002110</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_18-51-55/charts/TACUSDT_SHORT_15m_chart.png" alt="TACUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_18-51-55/charts/TACUSDT_SHORT_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">SKRUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">7.4</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">0.01835</td><td class="num">0.01692</td><td class="num tp">0.02049, 0.02155, 0.02262</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_18-51-55/charts/SKRUSDT_LONG_15m_chart.png" alt="SKRUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_18-51-55/charts/SKRUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">DASHUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.7</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">43.404</td><td class="num">42.010</td><td class="num tp">45.495, 46.541, 47.586</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_18-51-55/charts/DASHUSDT_LONG_15m_chart.png" alt="DASHUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_18-51-55/charts/DASHUSDT_LONG_15m_chart.png')"></td></tr><tr class="side-long"><td class="sym">BARDUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.5</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">4h <span class="muted">(3/3)</span></td><td class="num">0.12822</td><td class="num">0.11890</td><td class="num tp">0.14219, 0.14918, 0.15616</td><td>BEARISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_18-51-55/charts/BARDUSDT_LONG_4h_chart.png" alt="BARDUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_18-51-55/charts/BARDUSDT_LONG_4h_chart.png')"></td></tr><tr class="side-long"><td class="sym">LITUSDT</td><td><span class="badge " style="color:#4aa88f;border-color:#4aa88f55;background:#4aa88f1f">LONG</span></td><td><span class="badge " style="color:#a9840f;border-color:#a9840f55;background:#a9840f1f">BREAKOUT</span></td><td><span class="badge " style="color:#e6b526;border-color:#e6b52655;background:#e6b5261f">WAITING_RETEST</span></td><td><div class="score-wrap"><span class="score-val">6.0</span><div class="meter"><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg on"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span><span class="meter-seg"></span></div></div></td><td class="tf">15m <span class="muted">(3/3)</span></td><td class="num">3.7084</td><td class="num">3.6374</td><td class="num tp">3.8150, 3.8682, 3.9215</td><td>BULLISH</td><td class="center"><span class="muted">&mdash;</span></td><td class="center"><img class="chart-thumb" src="scan_results/2026-08-30_18-51-55/charts/LITUSDT_LONG_15m_chart.png" alt="LITUSDT chart" loading="lazy" onclick="openLightbox('scan_results/2026-08-30_18-51-55/charts/LITUSDT_LONG_15m_chart.png')"></td></tr>
             </tbody>
           </table>
         </div>

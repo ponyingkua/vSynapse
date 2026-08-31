@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T09:09:56.609095+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: AEVOUSDT | Side: SHORT | Score: 5.97
+   - Entry : 0.02215
+   - SL    : 0.02250
+   - TP    : 0.02163, 0.02137, 0.02111
+   - Invalidation: Close above 0.022497661 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: CRVUSDT | Side: LONG | Score: 5.83
+   - Entry : 0.30879
+   - SL    : 0.30460
+   - TP    : 0.31508, 0.31823, 0.32137
+   - Invalidation: Close below 0.3046 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: SOLVUSDT | Side: LONG | Score: 5.78
+   - Entry : 0.002956
+   - SL    : 0.002835
+   - TP    : 0.003137, 0.003228, 0.003319
+   - Invalidation: Close below 0.002835 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: EDGEUSDT | Side: LONG | Score: 5.64
+   - Entry : 0.37557
+   - SL    : 0.34840
+   - TP    : 0.41632, 0.43670, 0.45708
+   - Invalidation: Close below 0.3484 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: ZESTUSDT | Side: SHORT | Score: 4.85
+   - Entry : 0.13730
+   - SL    : 0.14153
+   - TP    : 0.13096, 0.12778, 0.12461
+   - Invalidation: Close above 0.14153 / reclaim of recent 15m swing high
+----------------------------------------

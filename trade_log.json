@@ -828,6 +828,111 @@
       "first_seen": "2026-08-31T07:10:05.491431+00:00",
       "added_at": "2026-08-31T07:10:05.491431+00:00",
       "triggered_at": "2026-08-31T08:59:59.999000+00:00"
+    },
+    {
+      "id": "AEVOUSDT_SHORT_15m_2026-08-31_09-10-00",
+      "symbol": "AEVOUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02215,
+      "sl": 0.0225,
+      "tp": [
+        0.02163,
+        0.02137,
+        0.02111
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-08-31_09-10-00",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.30879,
+      "sl": 0.3046,
+      "tp": [
+        0.31508,
+        0.31823,
+        0.32137
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
+    },
+    {
+      "id": "SOLVUSDT_LONG_1h_2026-08-31_09-10-00",
+      "symbol": "SOLVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002956,
+      "sl": 0.002835,
+      "tp": [
+        0.003137,
+        0.003228,
+        0.003319
+      ],
+      "decimals": 6,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
+    },
+    {
+      "id": "EDGEUSDT_LONG_1h_2026-08-31_09-10-00",
+      "symbol": "EDGEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.37557,
+      "sl": 0.3484,
+      "tp": [
+        0.41632,
+        0.4367,
+        0.45708
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
+    },
+    {
+      "id": "ZESTUSDT_SHORT_15m_2026-08-31_09-10-00",
+      "symbol": "ZESTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1373,
+      "sl": 0.14153,
+      "tp": [
+        0.13096,
+        0.12778,
+        0.12461
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
     }
   ],
   "closed": [
@@ -1785,6 +1890,7 @@
     "2026-08-31_05-09-58",
     "2026-08-31_06-11-11",
     "2026-08-31_07-10-09",
-    "2026-08-31_08-09-54"
+    "2026-08-31_08-09-54",
+    "2026-08-31_09-10-00"
   ]
 }
