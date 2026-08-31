@@ -391,7 +391,7 @@ def save_trade_log(path, trade_log):
 
 # INGEST NEW CANDIDATES
 
-def ingest_new_runs(trade_log, results_dir):
+def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
     ingested = set(trade_log.get("ingested_runs", []))
     run_dirs = _iter_run_dirs_ascending(results_dir)
     new_run_names = []
@@ -432,6 +432,12 @@ def ingest_new_runs(trade_log, results_dir):
                 "decimals": c.get("decimals"),
                 "run_id": run["run_id"],
                 "first_seen": generated_at,
+                # Tag config_version dari luar (bukan dibaca otomatis dari
+                # Synaptic.py) - naikkan versinya di workflow tiap kali
+                # CONFIG di Synaptic.py diubah secara berarti, supaya
+                # evaluasi win-rate bisa dipecah "sebelum vs sesudah"
+                # tanpa perlu filter manual by tanggal.
+                "config_version": config_version,
             }
 
             if entry_state == "ENTRY_READY":
@@ -553,6 +559,7 @@ def compute_stats(trade_log):
         "avg_r_multiple": avg_r,
         "by_setup_style": _group_win_rate(resolved, lambda t: t.get("setup_style")),
         "by_side": _group_win_rate(resolved, lambda t: t.get("side")),
+        "by_config_version": _group_win_rate(resolved, lambda t: t.get("config_version")),
         "expired_unresolved": len([t for t in closed if t.get("outcome") == "EXPIRED"]),
         "never_triggered": len([t for t in closed if t.get("outcome") == "NEVER_TRIGGERED"]),
         "currently_open": len(trade_log.get("open", [])),
@@ -572,13 +579,23 @@ def main():
     parser.add_argument("--max-hold-candles", type=int, default=60, help="Bars an OPEN trade can run before it EXPIREs unresolved.")
     parser.add_argument("--pending-expiry-candles", type=int, default=15, help="Bars a PENDING entry can wait before NEVER_TRIGGERED.")
     parser.add_argument("--klines-limit", type=int, default=1000, help="Max candles fetched per API call (Binance cap is 1000).")
+    parser.add_argument(
+        "--config-version",
+        default="unversioned",
+        help=(
+            "Free-form label stamped on every new trade ingested this run. "
+            "Bump it (e.g. v1 -> v2) whenever CONFIG in Synaptic.py changes "
+            "meaningfully, so winrate_stats.json's by_config_version can "
+            "compare before/after without manual date filtering."
+        ),
+    )
 
     args = parser.parse_args()
 
     log_path = Path(args.log)
     trade_log = load_trade_log(log_path)
 
-    new_runs = ingest_new_runs(trade_log, Path(args.results_dir))
+    new_runs = ingest_new_runs(trade_log, Path(args.results_dir), config_version=args.config_version)
     if new_runs:
         print(f"Ingested {len(new_runs)} new run(s): {', '.join(new_runs)}")
     else:
