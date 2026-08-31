@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T02:09:22.496642+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ZBTUSDT | Side: SHORT | Score: 6.38
+   - Entry : 0.07902
+   - SL    : 0.08314
+   - TP    : 0.07283, 0.06974, 0.06664
+   - Invalidation: Close above 0.08314 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: EULUSDT | Side: SHORT | Score: 7.87
+   - Entry : 1.2574
+   - SL    : 1.3466
+   - TP    : 1.1236, 1.0567, 0.9898
+   - Invalidation: Close above 1.3466 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: SLXUSDT | Side: SHORT | Score: 6.27
+   - Entry : 0.06829
+   - SL    : 0.07246
+   - TP    : 0.06203, 0.05890, 0.05577
+   - Invalidation: Close above 0.07246 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: RIVERUSDT | Side: SHORT | Score: 7.01
+   - Entry : 1.8916
+   - SL    : 1.9478
+   - TP    : 1.8072, 1.7651, 1.7229
+   - Invalidation: Close above 1.947774 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: TACUSDT | Side: SHORT | Score: 6.28
+   - Entry : 0.002356
+   - SL    : 0.002404
+   - TP    : 0.002285, 0.002249, 0.002213
+   - Invalidation: Close above 0.0024040567 / reclaim of recent 15m swing high
+----------------------------------------
