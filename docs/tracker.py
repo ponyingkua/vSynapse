@@ -32,6 +32,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -58,6 +59,21 @@ HEADERS = {
 API_TIMEOUT = 10
 API_RETRIES = 2
 RETRY_BASE_DELAY = 0.35
+
+# Berapa banyak fetch klines yang boleh berjalan bersamaan. Ini network-bound
+# (nunggu response Binance), bukan CPU-bound, jadi thread biasa (bukan
+# multiprocessing) sudah cukup - GIL tidak jadi bottleneck di sini.
+MAX_FETCH_WORKERS = 8
+
+# Dua record dengan symbol+timeframe yang sama dan start-time berdekatan
+# (dalam window ini) digabung jadi SATU fetch klines, lalu hasilnya dipotong
+# ulang per-record. Ini yang memangkas jumlah request untuk simbol yang
+# sering muncul berulang (mis. DASHUSDT/LITUSDT muncul di banyak run
+# berturut-turut). Nilainya sengaja kecil relatif terhadap
+# --max-hold-candles/--pending-expiry-candles default supaya tidak
+# memotong candle yang sebetulnya perlu dicek (lihat catatan di
+# _bucket_groups).
+DEDUPE_WINDOW_MS = 6 * 60 * 60 * 1000  # 6 jam
 
 # Milliseconds per candle, used to convert "candles" into elapsed time.
 TF_MS = {
@@ -132,6 +148,7 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
     path = f"/fapi/v1/klines?{query}"
 
     last_error = None
+    fetch_started = time.monotonic()
 
     for base_url in BASE_URLS:
 
@@ -163,6 +180,7 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                                 continue
                             break
 
+                        _log_fetch_timing(symbol, interval, base_url, fetch_started, ok=True)
                         return data
 
                     if status == 202:
@@ -171,6 +189,7 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
 
                         if isinstance(data, (dict, list)):
                             if not (isinstance(data, dict) and "code" in data and "msg" in data):
+                                _log_fetch_timing(symbol, interval, base_url, fetch_started, ok=True)
                                 return data
 
                         last_error = f"{base_url} HTTP 202"
@@ -231,6 +250,7 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                         data = _parse_response(raw_body)
                         if isinstance(data, (dict, list)):
                             if not (isinstance(data, dict) and "code" in data and "msg" in data):
+                                _log_fetch_timing(symbol, interval, base_url, fetch_started, ok=True)
                                 return data
                     except Exception:
                         pass
@@ -268,8 +288,25 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                     continue
                 break
 
+    _log_fetch_timing(symbol, interval, None, fetch_started, ok=False, error=last_error)
     print(f"  ! kline fetch failed for {symbol} {interval}: All Binance endpoints failed: {last_error}")
     return []
+
+
+def _log_fetch_timing(symbol, interval, base_url, started_at, ok, error=None):
+    """Diagnostik ringan (poin 'c') - kelihatan langsung di log job Actions,
+    tidak perlu perubahan apapun di workflow.yml karena stdout job selalu
+    ter-capture otomatis. Kalau di log ternyata banyak baris 'slow=' atau
+    endpoint selain fapi.binance.com yang sering menang, itu tandanya
+    endpoint utama kena throttle/geo-block dari runner GitHub Actions -
+    reorder BASE_URLS supaya endpoint yang menang duluan ditaruh di depan."""
+
+    elapsed = time.monotonic() - started_at
+    if ok:
+        slow_tag = " slow=1" if elapsed > 3.0 else ""
+        print(f"  fetch {symbol} {interval}: {elapsed:.2f}s via {base_url}{slow_tag}")
+    else:
+        print(f"  fetch {symbol} {interval}: {elapsed:.2f}s FAILED ({error})")
 
 
 # OUTCOME LOGIC
@@ -458,34 +495,102 @@ def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
     return new_run_names
 
 
+# ============================================================
+# FETCH DEDUPE / GROUPING (poin b)
+#
+# Symbol yang sama sering nongol di banyak record pending/open sekaligus
+# (mis. DASHUSDT muncul di 5+ run beruntun sebagai trade terpisah-pisah).
+# Daripada fetch klines satu-satu per record, kelompokkan record dengan
+# symbol+timeframe sama yang start-time-nya berdekatan (dalam
+# DEDUPE_WINDOW_MS), fetch SEKALI dari titik start paling awal di grup itu,
+# lalu setiap record memakai potongan klines yang relevan buat dirinya
+# (klines dengan open_time >= start_time record itu sendiri).
+#
+# Window dedupe sengaja dibuat kecil relatif terhadap panjang hidup
+# trade (lihat --max-hold-candles / --pending-expiry-candles) supaya
+# fetch tunggal (limit=1000 candle) masih cukup jauh menjangkau ke masa
+# sekarang untuk SEMUA anggota grup - tidak ada candle yang "terpotong".
+# ============================================================
+
+def _bucket_groups(records, start_field):
+    """Mengelompokkan records ke dalam grup (symbol, tf, bucket) dimana
+    bucket = start_time // DEDUPE_WINDOW_MS. Return dict
+    {(symbol, tf, bucket): [records...]}."""
+
+    groups = {}
+    for r in records:
+        start_ms = iso_to_ms(r[start_field])
+        bucket = start_ms // DEDUPE_WINDOW_MS
+        key = (r["symbol"], r["execution_tf"], bucket)
+        groups.setdefault(key, []).append(r)
+    return groups
+
+
+def _fetch_grouped_klines(groups, klines_limit, max_workers=MAX_FETCH_WORKERS, start_field="added_at"):
+    """Fetch satu kali per grup (paralel via ThreadPoolExecutor - network
+    bound, aman diparalel walau ada GIL). Return dict
+    {group_key: (min_start_ms, klines)}."""
+
+    def _fetch(key, records):
+        symbol, tf, _bucket = key
+        min_start = min(iso_to_ms(r[start_field]) for r in records)
+        klines = fetch_klines(symbol, tf, min_start, limit=klines_limit)
+        return key, min_start, klines
+
+    results = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(_fetch, key, records): key
+            for key, records in groups.items()
+        }
+        for fut in as_completed(futures):
+            key, min_start, klines = fut.result()
+            results[key] = (min_start, klines)
+
+    return results
+
+
 # UPDATE PENDING -> OPEN / NEVER_TRIGGERED
 
 def update_pending(trade_log, pending_expiry_candles, klines_limit):
     still_pending = []
     current_ms = now_ms()
 
-    for record in trade_log["pending"]:
-        added_ms = iso_to_ms(record["added_at"])
-        tf_ms = TF_MS.get(record["execution_tf"], TF_MS["1h"])
+    groups = _bucket_groups(trade_log["pending"], start_field="added_at")
+    print(f"  {len(trade_log['pending'])} pending record(s) -> {len(groups)} fetch group(s)")
+    fetched = _fetch_grouped_klines(groups, klines_limit, start_field="added_at")
 
-        klines = fetch_klines(record["symbol"], record["execution_tf"], added_ms, limit=klines_limit)
+    for key, records in groups.items():
+        _min_start, klines = fetched[key]
 
         if not klines:
-            still_pending.append(record)
+            still_pending.extend(records)
             continue
 
-        trigger_time = check_entry_triggered(record["entry"], klines)
-        elapsed_candles = (current_ms - added_ms) / tf_ms
+        for record in records:
+            added_ms = iso_to_ms(record["added_at"])
+            tf_ms = TF_MS.get(record["execution_tf"], TF_MS["1h"])
 
-        if trigger_time is not None:
-            record["triggered_at"] = ms_to_iso(trigger_time)
-            trade_log["open"].append(record)
-        elif elapsed_candles >= pending_expiry_candles:
-            record["outcome"] = "NEVER_TRIGGERED"
-            record["closed_at"] = ms_to_iso(current_ms)
-            trade_log["closed"].append(record)
-        else:
-            still_pending.append(record)
+            # Potong ke candle yang relevan buat record ini saja (grup bisa
+            # berisi beberapa record dengan added_at sedikit berbeda).
+            record_klines = [k for k in klines if k[0] >= added_ms]
+
+            if not record_klines:
+                still_pending.append(record)
+                continue
+
+            trigger_time = check_entry_triggered(record["entry"], record_klines)
+            elapsed_candles = (current_ms - added_ms) / tf_ms
+
+            if trigger_time is not None:
+                record["triggered_at"] = ms_to_iso(trigger_time)
+                trade_log["open"].append(record)
+            elif elapsed_candles >= pending_expiry_candles:
+                record["outcome"] = "NEVER_TRIGGERED"
+                record["closed_at"] = ms_to_iso(current_ms)
+                trade_log["closed"].append(record)
+            else:
+                still_pending.append(record)
 
     trade_log["pending"] = still_pending
 
@@ -496,35 +601,46 @@ def update_open(trade_log, max_hold_candles, klines_limit):
     still_open = []
     current_ms = now_ms()
 
-    for record in trade_log["open"]:
-        triggered_ms = iso_to_ms(record["triggered_at"])
-        tf_ms = TF_MS.get(record["execution_tf"], TF_MS["1h"])
+    groups = _bucket_groups(trade_log["open"], start_field="triggered_at")
+    print(f"  {len(trade_log['open'])} open record(s) -> {len(groups)} fetch group(s)")
+    fetched = _fetch_grouped_klines(groups, klines_limit, start_field="triggered_at")
 
-        klines = fetch_klines(record["symbol"], record["execution_tf"], triggered_ms, limit=klines_limit)
+    for key, records in groups.items():
+        _min_start, klines = fetched[key]
 
         if not klines:
-            still_open.append(record)
+            still_open.extend(records)
             continue
 
-        result = simulate_outcome(record, klines)
+        for record in records:
+            triggered_ms = iso_to_ms(record["triggered_at"])
+            tf_ms = TF_MS.get(record["execution_tf"], TF_MS["1h"])
 
-        if result is not None:
-            record.update(result)
-            record["closed_at"] = ms_to_iso(result["bar_time"])
-            record["r_multiple"] = compute_r_multiple(record)
-            trade_log["closed"].append(record)
-            continue
+            record_klines = [k for k in klines if k[0] >= triggered_ms]
 
-        elapsed_candles = (current_ms - triggered_ms) / tf_ms
-        if elapsed_candles >= max_hold_candles:
-            last_close = float(klines[-1][4])
-            record["outcome"] = "EXPIRED"
-            record["exit_price"] = last_close
-            record["closed_at"] = ms_to_iso(klines[-1][6])
-            record["r_multiple"] = compute_r_multiple(record)
-            trade_log["closed"].append(record)
-        else:
-            still_open.append(record)
+            if not record_klines:
+                still_open.append(record)
+                continue
+
+            result = simulate_outcome(record, record_klines)
+
+            if result is not None:
+                record.update(result)
+                record["closed_at"] = ms_to_iso(result["bar_time"])
+                record["r_multiple"] = compute_r_multiple(record)
+                trade_log["closed"].append(record)
+                continue
+
+            elapsed_candles = (current_ms - triggered_ms) / tf_ms
+            if elapsed_candles >= max_hold_candles:
+                last_close = float(record_klines[-1][4])
+                record["outcome"] = "EXPIRED"
+                record["exit_price"] = last_close
+                record["closed_at"] = ms_to_iso(record_klines[-1][6])
+                record["r_multiple"] = compute_r_multiple(record)
+                trade_log["closed"].append(record)
+            else:
+                still_open.append(record)
 
     trade_log["open"] = still_open
 
