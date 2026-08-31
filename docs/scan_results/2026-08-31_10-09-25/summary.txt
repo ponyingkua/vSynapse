@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T10:09:22.921374+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: TACUSDT | Side: SHORT | Score: 6.73
+   - Entry : 0.002201
+   - SL    : 0.002342
+   - TP    : 0.001989, 0.001883, 0.001778
+   - Invalidation: Close above 0.002342 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: VELVETUSDT | Side: SHORT | Score: 6.1
+   - Entry : 0.22916
+   - SL    : 0.23218
+   - TP    : 0.22463, 0.22236, 0.22009
+   - Invalidation: Close above 0.23217738 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: ENSOUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.88170
+   - SL    : 0.83000
+   - TP    : 0.95926, 0.99803, 1.03681
+   - Invalidation: Close below 0.83 / loss of recent 4h swing low
+----------------------------------------

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T09:53:52.903000+00:00",
+  "generated_at": "2026-08-31T10:16:07.768000+00:00",
   "resolved_trades": 33,
   "wins": 7,
   "losses": 26,
@@ -50,6 +50,6 @@
   },
   "expired_unresolved": 0,
   "never_triggered": 3,
-  "currently_open": 47,
-  "currently_pending": 6
+  "currently_open": 49,
+  "currently_pending": 7
 }
