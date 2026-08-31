@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T16:09:57.013215+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: XANUSDT | Side: LONG | Score: 6.9
+   - Entry : 0.01357
+   - SL    : 0.01277
+   - TP    : 0.01478, 0.01538, 0.01598
+   - Invalidation: Close below 0.012767 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BICOUSDT | Side: LONG | Score: 6.28
+   - Entry : 0.02309
+   - SL    : 0.02145
+   - TP    : 0.02555, 0.02678, 0.02801
+   - Invalidation: Close below 0.02145 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: IDOLUSDT | Side: SHORT | Score: 8.88
+   - Entry : 0.01467
+   - SL    : 0.01511
+   - TP    : 0.01401, 0.01368, 0.01336
+   - Invalidation: Close above 0.01511 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: BERAUSDT | Side: LONG | Score: 7.68
+   - Entry : 0.18077
+   - SL    : 0.17180
+   - TP    : 0.19422, 0.20095, 0.20767
+   - Invalidation: Close below 0.1718 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SYNUSDT | Side: SHORT | Score: 6.19
+   - Entry : 0.09446
+   - SL    : 0.09590
+   - TP    : 0.09229, 0.09121, 0.09013
+   - Invalidation: Close above 0.0959 / reclaim of recent 15m swing high
+----------------------------------------
