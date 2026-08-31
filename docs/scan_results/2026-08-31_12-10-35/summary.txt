@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T12:10:31.572656+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: DRIFTUSDT | Side: SHORT | Score: 7.97
+   - Entry : 0.01218
+   - SL    : 0.01259
+   - TP    : 0.01156, 0.01126, 0.01095
+   - Invalidation: Close above 0.01259 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: CATIUSDT | Side: LONG | Score: 7.95
+   - Entry : 0.05494
+   - SL    : 0.05374
+   - TP    : 0.05674, 0.05764, 0.05854
+   - Invalidation: Close below 0.05374 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: BARDUSDT | Side: LONG | Score: 6.86
+   - Entry : 0.13360
+   - SL    : 0.12640
+   - TP    : 0.14440, 0.14980, 0.15520
+   - Invalidation: Close below 0.1264 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: VELODROMEUSDT | Side: LONG | Score: 6.5
+   - Entry : 0.02236
+   - SL    : 0.02213
+   - TP    : 0.02271, 0.02288, 0.02305
+   - Invalidation: Close below 0.02213 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: POLUSDT | Side: SHORT | Score: 7.69
+   - Entry : 0.09218
+   - SL    : 0.09617
+   - TP    : 0.08620, 0.08321, 0.08022
+   - Invalidation: Close above 0.09617 / reclaim of recent 1h swing high
+----------------------------------------
