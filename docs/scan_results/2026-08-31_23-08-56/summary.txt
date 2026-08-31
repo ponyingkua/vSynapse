@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T23:08:54.521545+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: AIOUSDT | Side: SHORT | Score: 6.95
+   - Entry : 0.04452
+   - SL    : 0.04589
+   - TP    : 0.04248, 0.04145, 0.04043
+   - Invalidation: Close above 0.04589 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: NEARUSDT | Side: LONG | Score: 6.92
+   - Entry : 1.9095
+   - SL    : 1.8470
+   - TP    : 2.0033, 2.0502, 2.0971
+   - Invalidation: Close below 1.847 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PTBUSDT | Side: SHORT | Score: 6.33
+   - Entry : 0.0007921
+   - SL    : 0.0008080
+   - TP    : 0.0007682, 0.0007562, 0.0007443
+   - Invalidation: Close above 0.00080798532 / reclaim of recent 1h swing high
+----------------------------------------
