@@ -1,25 +1,6 @@
 {
   "pending": [
     {
-      "id": "BTWUSDT_SHORT_1h_2026-08-31_05-09-58",
-      "symbol": "BTWUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.39091,
-      "sl": 0.42156,
-      "tp": [
-        0.34493,
-        0.32194,
-        0.29894
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_05-09-58",
-      "first_seen": "2026-08-31T05:09:55.757892+00:00",
-      "added_at": "2026-08-31T05:09:55.757892+00:00"
-    },
-    {
       "id": "0GUSDT_LONG_4h_2026-08-31_07-10-09",
       "symbol": "0GUSDT",
       "side": "LONG",
@@ -247,6 +228,27 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "added_at": "2026-08-31T20:09:33.922563+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_1h_2026-08-31_21-09-09",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.5588,
+      "sl": 0.5331,
+      "tp": [
+        0.59736,
+        0.61663,
+        0.63591
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_21-09-09",
+      "first_seen": "2026-08-31T21:09:06.752258+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-08-31T21:09:06.752258+00:00"
     }
   ],
   "open": [
@@ -1199,6 +1201,27 @@
       "config_version": "v1",
       "added_at": "2026-08-31T17:10:08.528833+00:00",
       "triggered_at": "2026-08-31T19:59:59.999000+00:00"
+    },
+    {
+      "id": "CTRUSDT_LONG_1h_2026-08-31_21-09-09",
+      "symbol": "CTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.009629,
+      "sl": 0.009174,
+      "tp": [
+        0.010312,
+        0.010653,
+        0.010994
+      ],
+      "decimals": 6,
+      "run_id": "2026-08-31_21-09-09",
+      "first_seen": "2026-08-31T21:09:06.752258+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T21:09:06.752258+00:00"
     }
   ],
   "closed": [
@@ -3240,6 +3263,27 @@
       "bars_held": 20,
       "closed_at": "2026-08-31T19:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BTWUSDT_SHORT_1h_2026-08-31_05-09-58",
+      "symbol": "BTWUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.39091,
+      "sl": 0.42156,
+      "tp": [
+        0.34493,
+        0.32194,
+        0.29894
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_05-09-58",
+      "first_seen": "2026-08-31T05:09:55.757892+00:00",
+      "added_at": "2026-08-31T05:09:55.757892+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-08-31T21:09:09.277000+00:00"
     }
   ],
   "ingested_runs": [
@@ -3273,6 +3317,7 @@
     "2026-08-31_17-10-12",
     "2026-08-31_18-10-11",
     "2026-08-31_19-09-35",
-    "2026-08-31_20-09-37"
+    "2026-08-31_20-09-37",
+    "2026-08-31_21-09-09"
   ]
 }

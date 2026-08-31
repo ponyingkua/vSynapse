@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T21:09:06.752258+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: CTRUSDT | Side: LONG | Score: 7.17
+   - Entry : 0.009629
+   - SL    : 0.009174
+   - TP    : 0.010312, 0.010653, 0.010994
+   - Invalidation: Close below 0.009174 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ETHFIUSDT | Side: LONG | Score: 7.11
+   - Entry : 0.55880
+   - SL    : 0.53310
+   - TP    : 0.59736, 0.61663, 0.63591
+   - Invalidation: Close below 0.5331 / loss of recent 1h swing low
+----------------------------------------
