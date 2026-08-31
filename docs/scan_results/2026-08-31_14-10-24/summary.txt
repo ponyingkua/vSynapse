@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T14:10:20.968596+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MITOUSDT | Side: SHORT | Score: 6.97
+   - Entry : 0.02156
+   - SL    : 0.02233
+   - TP    : 0.02041, 0.01984, 0.01927
+   - Invalidation: Close above 0.02233 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: SNXUSDT | Side: SHORT | Score: 6.67
+   - Entry : 0.20429
+   - SL    : 0.20730
+   - TP    : 0.19977, 0.19751, 0.19525
+   - Invalidation: Close above 0.2073 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: BANANAUSDT | Side: SHORT | Score: 6.25
+   - Entry : 3.7760
+   - SL    : 3.8320
+   - TP    : 3.6920, 3.6500, 3.6080
+   - Invalidation: Close above 3.832 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: GRTUSDT | Side: SHORT | Score: 6.2
+   - Entry : 0.01613
+   - SL    : 0.01636
+   - TP    : 0.01578, 0.01561, 0.01544
+   - Invalidation: Close above 0.01636 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: ARXUSDT | Side: SHORT | Score: 6.12
+   - Entry : 0.11950
+   - SL    : 0.12190
+   - TP    : 0.11590, 0.11410, 0.11230
+   - Invalidation: Close above 0.1219 / reclaim of recent 15m swing high
+----------------------------------------
