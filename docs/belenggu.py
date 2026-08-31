@@ -1088,7 +1088,7 @@ def build_html(runs, aggregate, winrate_stats=None):
 
   <footer>
     <span>belenggu.py &middot; not financial advice</span>
-       <span>made with <span style="color:{ACCENT}">&#9670;</span> by <b>vSynapse</b></span>
+    <span>dark terminal build</span>
   </footer>
 
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
