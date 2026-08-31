@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T05:09:55.757892+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: MIRAUSDT | Side: LONG | Score: 7.37
+   - Entry : 0.04640
+   - SL    : 0.04292
+   - TP    : 0.05162, 0.05424, 0.05685
+   - Invalidation: Close below 0.04292 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BTWUSDT | Side: SHORT | Score: 6.6
+   - Entry : 0.39091
+   - SL    : 0.42156
+   - TP    : 0.34493, 0.32194, 0.29894
+   - Invalidation: Close above 0.42156 / reclaim of recent 1h swing high
+----------------------------------------
