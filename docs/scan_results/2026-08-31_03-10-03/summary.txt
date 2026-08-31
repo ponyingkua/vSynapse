@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T03:09:59.143856+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: IOTXUSDT | Side: LONG | Score: 5.97
+   - Entry : 0.002895
+   - SL    : 0.002705
+   - TP    : 0.003180, 0.003322, 0.003465
+   - Invalidation: Close below 0.002705 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: SPXUSDT | Side: SHORT | Score: 5.46
+   - Entry : 0.52060
+   - SL    : 0.53710
+   - TP    : 0.49585, 0.48347, 0.47110
+   - Invalidation: Close above 0.5371 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: USUSDT | Side: LONG | Score: 4.83
+   - Entry : 0.01772
+   - SL    : 0.01715
+   - TP    : 0.01856, 0.01899, 0.01941
+   - Invalidation: Close below 0.017153 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: ZECUSDT | Side: SHORT | Score: 4.8
+   - Entry : 815.41
+   - SL    : 838.79
+   - TP    : 780.33, 762.79, 745.26
+   - Invalidation: Close above 838.79 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: POWERUSDT | Side: LONG | Score: 4.52
+   - Entry : 0.08255
+   - SL    : 0.07906
+   - TP    : 0.08779, 0.09041, 0.09303
+   - Invalidation: Close below 0.07906 / loss of recent 1h swing low
+----------------------------------------
