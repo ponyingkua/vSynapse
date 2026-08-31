@@ -1,33 +1,75 @@
-vSynapse
-Binance Futures scanner for active LONG / SHORT candidates.
-vSynapse combines price action, technical indicators, and multi-timeframe analysis to identify active market candidates and generate Entry, TP, SL, Invalidation, and charts.
-For research and educational purposes only. Not financial advice.
-How It Works
+# 🧠 vSynapse
+
+**Binance Futures scanner untuk kandidat LONG / SHORT yang aktif.**
+
+vSynapse memadukan *price action*, indikator teknikal, dan analisis multi-timeframe untuk menemukan kandidat pasar yang aktif — lengkap dengan Entry, TP, SL, level invalidasi, dan chart otomatis.
+
+> ⚠️ **Disclaimer**: Untuk riset & edukasi saja. **Not Financial Advice (NFA).**
+
+---
+
+## ⚙️ Cara Kerja
+
+```
 Binance Futures
       ↓
-Active Coins
+Filter Active Coins
       ↓
-15m / 1h / 4h Analysis
+Analisis 15m / 1h / 4h
       ↓
 Price Action + Indicators
       ↓
-LONG / SHORT
+Sinyal LONG / SHORT
       ↓
 Entry / TP / SL / Invalidation
       ↓
-Chart
-Indicators
-EMA200
-Volume
-MACD
-Supertrend
-Run Locally
+Chart & Ringkasan
+```
+
+**Indikator yang dipakai:** `EMA200` · `Volume` · `MACD` · `Supertrend`
+
+---
+
+## 🚀 Menjalankan Secara Lokal
+
+**1. Install dependencies**
+```bash
 pip install requests pandas numpy matplotlib pyyaml
+```
 
+**2. Jalankan scanner**
+```bash
 python Synaptic.py --out synaptic_candidates.json
+```
 
+**3. Generate chart & ringkasan**
+```bash
 python vSch.py --input synaptic_candidates.json
-GitHub Actions
-The scanner can run manually or automatically using GitHub Actions.
+```
 
-NFA
+---
+
+## 🤖 Otomatisasi via GitHub Actions
+
+Scanner ini bisa dijalankan otomatis lewat GitHub Actions — tidak perlu server aktif 24 jam. Cukup atur jadwal (cron) di workflow, dan vSynapse akan scan pasar sesuai interval yang ditentukan.
+
+---
+
+## 📁 Struktur Proyek
+
+```
+├── Synaptic.py     # Scanner utama
+├── vSch.py         # Generator chart & ringkasan
+└── .github/
+    └── workflows/  # Workflow otomatisasi
+```
+
+---
+
+## ⚠️ Disclaimer
+
+Proyek ini dibuat untuk **tujuan riset dan edukasi**. Semua output (sinyal, entry, TP, SL) **bukan merupakan nasihat finansial**. Selalu lakukan riset sendiri (DYOR) sebelum mengambil keputusan trading.
+
+---
+
+<p align="center">Made with 🧠 by <b>vSynapse</b></p>
