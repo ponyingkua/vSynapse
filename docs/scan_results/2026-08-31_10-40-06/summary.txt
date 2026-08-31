@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T10:40:02.345618+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PARTIUSDT | Side: SHORT | Score: 5.25
+   - Entry : 0.02426
+   - SL    : 0.02472
+   - TP    : 0.02357, 0.02323, 0.02288
+   - Invalidation: Close above 0.02472 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: XPINUSDT | Side: SHORT | Score: 5.15
+   - Entry : 0.001091
+   - SL    : 0.001111
+   - TP    : 0.001061, 0.001046, 0.001031
+   - Invalidation: Close above 0.001111 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: ZENUSDT | Side: LONG | Score: 4.83
+   - Entry : 5.5220
+   - SL    : 5.2650
+   - TP    : 5.9075, 6.1003, 6.2930
+   - Invalidation: Close below 5.265 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: 2ZUSDT | Side: SHORT | Score: 4.82
+   - Entry : 0.05351
+   - SL    : 0.05430
+   - TP    : 0.05232, 0.05173, 0.05114
+   - Invalidation: Close above 0.0543 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: ROBOUSDT | Side: SHORT | Score: 4.66
+   - Entry : 0.01311
+   - SL    : 0.01385
+   - TP    : 0.01199, 0.01143, 0.01088
+   - Invalidation: Close above 0.013851373 / reclaim of recent 4h swing high
+----------------------------------------
