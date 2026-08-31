@@ -1,18 +1,13 @@
 vSynapse
-
-vSynapse adalah scanner kandidat Binance Futures berbasis price action, indikator, dan multi-timeframe analysis.
-
-Scanner mencari koin yang sedang aktif, menentukan bias LONG/SHORT, lalu menghasilkan Entry, TP, SL, Invalidation, dan chart.
-
-«For research and educational purposes only. Not financial advice.»
-
+Binance Futures scanner for active LONG / SHORT candidates.
+vSynapse combines price action, technical indicators, and multi-timeframe analysis to identify active market candidates and generate Entry, TP, SL, Invalidation, and charts.
+For research and educational purposes only. Not financial advice.
 How It Works
-
 Binance Futures
       ↓
 Active Coins
       ↓
-15m / 1h / 4h
+15m / 1h / 4h Analysis
       ↓
 Price Action + Indicators
       ↓
@@ -21,32 +16,18 @@ LONG / SHORT
 Entry / TP / SL / Invalidation
       ↓
 Chart
-
-Indikator utama:
-
-- EMA200
-- Volume
-- MACD
-- Supertrend
-
+Indicators
+EMA200
+Volume
+MACD
+Supertrend
 Run Locally
-
 pip install requests pandas numpy matplotlib pyyaml
+
 python Synaptic.py --out synaptic_candidates.json
+
 python vSch.py --input synaptic_candidates.json
-
 GitHub Actions
+The scanner can run manually or automatically using GitHub Actions.
 
-Workflow dapat dijalankan secara manual maupun otomatis menggunakan cron.
-
-Hasil scan disimpan sebagai:
-
-synaptic_candidates.json
-
-Chart disimpan di:
-
-charts/
-
-vSynapse adalah proyek riset untuk membantu menemukan kandidat market yang aktif dan memiliki konfluensi arah.
-
-Not financial advice.
+NFA
