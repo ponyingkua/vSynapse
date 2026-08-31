@@ -44,11 +44,18 @@ from pathlib import Path
 # ============================================================
 
 BASE_URLS = [
+    # www.binance.com ditaruh PERTAMA: dari log diagnostik run terakhir,
+    # 100% fetch berhasil lewat endpoint ini dan 0% berhasil lewat 4
+    # endpoint fapi* di bawah - IP runner GitHub Actions tampaknya
+    # diblokir/di-throttle oleh fapi*.binance.com. Endpoint fapi* tetap
+    # dipertahankan sebagai fallback (kalau www.binance.com suatu saat
+    # kena rate limit/berubah), tapi sekarang di urutan belakang supaya
+    # tidak membuang waktu retry ke endpoint yang hampir pasti gagal.
+    "https://www.binance.com",
     "https://fapi.binance.com",
     "https://fapi1.binance.com",
     "https://fapi2.binance.com",
     "https://fapi3.binance.com",
-    "https://www.binance.com",
 ]
 
 HEADERS = {
