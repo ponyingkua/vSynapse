@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T20:09:33.922563+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: CCUSDT | Side: LONG | Score: 6.82
+   - Entry : 0.12317
+   - SL    : 0.11607
+   - TP    : 0.13382, 0.13915, 0.14448
+   - Invalidation: Close below 0.11607 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: IOUSDT | Side: SHORT | Score: 6.09
+   - Entry : 0.12895
+   - SL    : 0.13140
+   - TP    : 0.12527, 0.12342, 0.12158
+   - Invalidation: Close above 0.1314 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: SYRUPUSDT | Side: LONG | Score: 7.12
+   - Entry : 0.18280
+   - SL    : 0.17488
+   - TP    : 0.19468, 0.20062, 0.20656
+   - Invalidation: Close below 0.17488 / loss of recent 1h swing low
+----------------------------------------
