@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T11:09:51.670455+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SOMIUSDT | Side: LONG | Score: 7.9
+   - Entry : 0.12390
+   - SL    : 0.11600
+   - TP    : 0.13575, 0.14167, 0.14760
+   - Invalidation: Close below 0.116 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: CHIPUSDT | Side: LONG | Score: 6.92
+   - Entry : 0.04081
+   - SL    : 0.03984
+   - TP    : 0.04226, 0.04299, 0.04372
+   - Invalidation: Close below 0.03984 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: XANUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.01324
+   - SL    : 0.01283
+   - TP    : 0.01386, 0.01417, 0.01448
+   - Invalidation: Close below 0.012829 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: MORPHOUSDT | Side: LONG | Score: 6.85
+   - Entry : 2.5709
+   - SL    : 2.4642
+   - TP    : 2.7309, 2.8109, 2.8909
+   - Invalidation: Close below 2.4642 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: FUSDT | Side: LONG | Score: 6.47
+   - Entry : 0.003251
+   - SL    : 0.003173
+   - TP    : 0.003368, 0.003427, 0.003485
+   - Invalidation: Close below 0.003173 / loss of recent 15m swing low
+----------------------------------------
