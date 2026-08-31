@@ -432,6 +432,10 @@ def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
                 "decimals": c.get("decimals"),
                 "run_id": run["run_id"],
                 "first_seen": generated_at,
+                # Bias EMA200 harian (BULLISH/BEARISH/NEUTRAL/None) pada
+                # saat kandidat muncul - dipakai compute_stats() untuk
+                # mengelompokkan trade "selaras" vs "melawan" tren harian.
+                "htf_bias": c.get("htf_bias"),
                 # Tag config_version dari luar (bukan dibaca otomatis dari
                 # Synaptic.py) - naikkan versinya di workflow tiap kali
                 # CONFIG di Synaptic.py diubah secara berarti, supaya
@@ -527,6 +531,28 @@ def update_open(trade_log, max_hold_candles, klines_limit):
 
 # STATS
 
+def _htf_alignment(record):
+    """Classifies a resolved trade as ALIGNED (side agrees with the daily
+    EMA200 bias) or COUNTER (side fights it). Missing/NEUTRAL bias data
+    (funding/API hiccups, or a genuinely flat daily trend) goes to
+    UNKNOWN_OR_NEUTRAL rather than being silently dropped, so the group
+    sizes in by_htf_alignment always add up to the full resolved count."""
+
+    bias = record.get("htf_bias")
+    side = record.get("side")
+
+    if not bias or bias == "NEUTRAL" or not side:
+        return "UNKNOWN_OR_NEUTRAL"
+
+    if (side == "LONG" and bias == "BULLISH") or (side == "SHORT" and bias == "BEARISH"):
+        return "ALIGNED"
+
+    if (side == "LONG" and bias == "BEARISH") or (side == "SHORT" and bias == "BULLISH"):
+        return "COUNTER"
+
+    return "UNKNOWN_OR_NEUTRAL"
+
+
 def _group_win_rate(records, key_fn):
     groups = {}
     for r in records:
@@ -560,6 +586,7 @@ def compute_stats(trade_log):
         "by_setup_style": _group_win_rate(resolved, lambda t: t.get("setup_style")),
         "by_side": _group_win_rate(resolved, lambda t: t.get("side")),
         "by_config_version": _group_win_rate(resolved, lambda t: t.get("config_version")),
+        "by_htf_alignment": _group_win_rate(resolved, _htf_alignment),
         "expired_unresolved": len([t for t in closed if t.get("outcome") == "EXPIRED"]),
         "never_triggered": len([t for t in closed if t.get("outcome") == "NEVER_TRIGGERED"]),
         "currently_open": len(trade_log.get("open", [])),
