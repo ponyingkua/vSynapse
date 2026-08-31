@@ -99,6 +99,34 @@ def load_winrate_stats(path):
         return None
 
 
+def _render_breakdown_rows(groups, label_map=None):
+    """Shared renderer for any {key: {wins, losses, win_rate_pct}} breakdown
+    - used for by_setup_style and by_htf_alignment so both look consistent."""
+
+    label_map = label_map or {}
+
+    return "".join(
+        f'<div class="setup-row">'
+        f'<span class="setup-name">{esc(label_map.get(key, key))}</span>'
+        f'<span class="setup-record">{v["wins"]}W / {v["losses"]}L</span>'
+        f'<span class="setup-rate" style="color:{UP if (v["win_rate_pct"] or 0) >= 50 else DOWN}">'
+        f'{v["win_rate_pct"]}%</span>'
+        f'</div>'
+        for key, v in sorted(
+            groups.items(),
+            key=lambda kv: kv[1]["wins"] + kv[1]["losses"],
+            reverse=True,
+        )
+    )
+
+
+HTF_ALIGNMENT_LABELS = {
+    "ALIGNED": "Aligned with daily trend",
+    "COUNTER": "Against daily trend",
+    "UNKNOWN_OR_NEUTRAL": "Unknown / neutral bias",
+}
+
+
 def render_winrate_card(stats):
 
     if stats is None or not stats.get("resolved_trades"):
@@ -111,19 +139,8 @@ def render_winrate_card(stats):
     avg_r = stats.get("avg_r_multiple")
     avg_r_html = f"{avg_r:+.2f}R" if avg_r is not None else "&mdash;"
 
-    setup_rows = "".join(
-        f'<div class="setup-row">'
-        f'<span class="setup-name">{esc(setup)}</span>'
-        f'<span class="setup-record">{v["wins"]}W / {v["losses"]}L</span>'
-        f'<span class="setup-rate" style="color:{UP if (v["win_rate_pct"] or 0) >= 50 else DOWN}">'
-        f'{v["win_rate_pct"]}%</span>'
-        f'</div>'
-        for setup, v in sorted(
-            stats.get("by_setup_style", {}).items(),
-            key=lambda kv: kv[1]["wins"] + kv[1]["losses"],
-            reverse=True,
-        )
-    )
+    setup_rows = _render_breakdown_rows(stats.get("by_setup_style", {}))
+    htf_rows = _render_breakdown_rows(stats.get("by_htf_alignment", {}), HTF_ALIGNMENT_LABELS)
 
     return f"""
     <div class="card wide" style="--card-accent:{win_color}">
@@ -141,7 +158,8 @@ def render_winrate_card(stats):
             <strong>{stats.get('expired_unresolved', 0)} / {stats.get('never_triggered', 0)}</strong></div>
         </div>
       </div>
-      {f'<div class="setup-breakdown">{setup_rows}</div>' if setup_rows else ""}
+      {f'<div class="setup-breakdown"><div class="breakdown-label">By setup style</div>{setup_rows}</div>' if setup_rows else ""}
+      {f'<div class="setup-breakdown"><div class="breakdown-label">By daily (HTF) trend alignment</div>{htf_rows}</div>' if htf_rows else ""}
     </div>
     """
 
@@ -521,18 +539,12 @@ def build_html(runs, aggregate, winrate_stats=None):
 
     generated_at = datetime.now(timezone.utc).isoformat()
 
-    # Chip width = longest symbol name + headroom for the count badge/padding,
-    # so every "Most Frequent Symbols" chip renders at the same width instead
-    # of hugging its own text. No rank number anymore - order already comes
-    # from Counter.most_common(), sorted by how often each symbol appeared.
-    max_sym_len = max((len(sym) for sym, _ in aggregate["top_symbols"]), default=0)
-    chip_min_ch = max_sym_len + 6
-
     top_symbols_html = "".join(
         f'<div class="symbol-chip">'
+        f'<span class="sym-rank">{i:02d}</span>'
         f'<span class="sym-name">{esc(sym)}</span>'
         f'<span class="sym-count">{count}&times;</span></div>'
-        for sym, count in aggregate["top_symbols"]
+        for i, (sym, count) in enumerate(aggregate["top_symbols"], 1)
     ) or '<span class="muted">No data yet.</span>'
 
     trend_svg = render_trend_svg(aggregate["trend_points"])
@@ -740,16 +752,19 @@ def build_html(runs, aggregate, winrate_stats=None):
   .symbol-chip {{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: var(--chip-w, auto);
+    gap: 8px;
     background: var(--panel-soft);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 7px 12px;
     font-size: 0.85rem;
   }}
-  .sym-name {{ font-weight: 600; font-family: var(--mono); }}
+  .sym-rank {{
+    font-family: var(--mono);
+    color: {GOLD};
+    font-size: 0.72rem;
+  }}
+  .sym-name {{ font-weight: 600; }}
   .sym-count {{
     font-family: var(--mono);
     color: var(--text-soft);
@@ -774,12 +789,12 @@ def build_html(runs, aggregate, winrate_stats=None):
   }}
   .run-card summary::-webkit-details-marker {{ display: none; }}
   .run-card summary::before {{
-    content: "▸";
+    content: "&#9656;";
     color: var(--accent);
     margin-right: 10px;
     font-size: 0.78rem;
   }}
-  .run-card[open] summary::before {{ content: "▾"; }}
+  .run-card[open] summary::before {{ content: "&#9662;"; }}
   .run-summary {{
     display: flex;
     align-items: center;
@@ -958,6 +973,14 @@ def build_html(runs, aggregate, winrate_stats=None):
     flex-direction: column;
     gap: 6px;
   }}
+  .breakdown-label {{
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }}
   .setup-row {{
     display: flex;
     align-items: center;
@@ -967,10 +990,11 @@ def build_html(runs, aggregate, winrate_stats=None):
   .setup-name {{
     font-family: var(--mono);
     font-weight: 600;
-    width: 130px;
+    flex: 1;
+    min-width: 130px;
   }}
   .setup-record {{ color: var(--text-soft); width: 90px; }}
-  .setup-rate {{ font-family: var(--mono); font-weight: 600; }}
+  .setup-rate {{ font-family: var(--mono); font-weight: 600; width: 50px; text-align: right; }}
 
   footer {{
     margin-top: 40px;
@@ -1010,7 +1034,7 @@ def build_html(runs, aggregate, winrate_stats=None):
 
     <div class="card wide" style="--card-accent:{GOLD}">
       <h3>Most Frequent Symbols</h3>
-      <div class="symbol-grid" style="--chip-w:{chip_min_ch}ch">{top_symbols_html}</div>
+      <div class="symbol-grid">{top_symbols_html}</div>
     </div>
 
     <div class="card" style="--card-accent:{CYAN}">
@@ -1115,12 +1139,11 @@ def main():
     parser.add_argument(
         "--max-runs",
         type=int,
-        default=10,
+        default=50,
         help=(
-            "Limit on how many recent runs are processed AND rendered as "
-            "run-cards. Each run embeds a full candidate table plus chart "
-            "thumbnails, so a high number bloats the HTML and slows the "
-            "page down for little benefit. Default 10."
+            "Limit on how many recent runs are processed "
+            "(so old/large JSON files don't slow down the "
+            "dashboard build). Default 50."
         ),
     )
 
