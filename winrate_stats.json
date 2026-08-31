@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-31T07:15:38.646000+00:00",
-  "resolved_trades": 32,
+  "generated_at": "2026-08-31T08:15:17.243000+00:00",
+  "resolved_trades": 33,
   "wins": 7,
-  "losses": 25,
-  "win_rate_pct": 21.9,
-  "avg_r_multiple": -0.45,
+  "losses": 26,
+  "win_rate_pct": 21.2,
+  "avg_r_multiple": -0.47,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 1,
@@ -13,8 +13,8 @@
     },
     "BREAKDOWN": {
       "wins": 6,
-      "losses": 5,
-      "win_rate_pct": 54.5
+      "losses": 6,
+      "win_rate_pct": 50.0
     },
     "EXTENDED": {
       "wins": 0,
@@ -30,12 +30,12 @@
     },
     "SHORT": {
       "wins": 6,
-      "losses": 5,
-      "win_rate_pct": 54.5
+      "losses": 6,
+      "win_rate_pct": 50.0
     }
   },
   "expired_unresolved": 0,
   "never_triggered": 3,
-  "currently_open": 33,
+  "currently_open": 37,
   "currently_pending": 6
 }

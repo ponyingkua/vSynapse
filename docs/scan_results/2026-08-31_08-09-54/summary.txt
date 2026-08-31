@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T08:09:50.455242+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PROVEUSDT | Side: LONG | Score: 7.53
+   - Entry : 0.18138
+   - SL    : 0.17480
+   - TP    : 0.19126, 0.19620, 0.20114
+   - Invalidation: Close below 0.1748 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: STABLEUSDT | Side: SHORT | Score: 6.5
+   - Entry : 0.02636
+   - SL    : 0.02682
+   - TP    : 0.02567, 0.02533, 0.02498
+   - Invalidation: Close above 0.02682 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: SCRUSDT | Side: LONG | Score: 6.48
+   - Entry : 0.02450
+   - SL    : 0.02303
+   - TP    : 0.02671, 0.02781, 0.02891
+   - Invalidation: Close below 0.02303 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: CYSUSDT | Side: LONG | Score: 8.85
+   - Entry : 0.87387
+   - SL    : 0.81040
+   - TP    : 0.96908, 1.01669, 1.06429
+   - Invalidation: Close below 0.8104 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: QUSDT | Side: LONG | Score: 7.98
+   - Entry : 0.02429
+   - SL    : 0.02340
+   - TP    : 0.02562, 0.02629, 0.02696
+   - Invalidation: Close below 0.0234 / loss of recent 1h swing low
+----------------------------------------
