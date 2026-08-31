@@ -8,6 +8,13 @@ on:
 permissions:
   contents: write
 
+env:
+  # Naikkan (v1 -> v2 -> ...) tiap kali CONFIG di Synaptic.py diubah
+  # secara berarti. Dipakai tracker.py buat tag config_version di
+  # trade_log.json, supaya winrate_stats.json bisa dibandingkan
+  # "sebelum vs sesudah" tanpa filter tanggal manual.
+  SYNAPTIC_CONFIG_VERSION: "v1"
+
 concurrency:
   group: vsynapse
   cancel-in-progress: false
@@ -164,7 +171,8 @@ jobs:
           python docs/tracker.py \
             --results-dir docs/scan_results \
             --log trade_log.json \
-            --stats-out winrate_stats.json
+            --stats-out winrate_stats.json \
+            --config-version "${{ env.SYNAPTIC_CONFIG_VERSION }}"
 
       - name: Build belenggu dashboard
         shell: bash
