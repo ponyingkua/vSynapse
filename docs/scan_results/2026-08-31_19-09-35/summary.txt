@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T19:09:29.097985+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: XPINUSDT | Side: SHORT | Score: 6.57
+   - Entry : 0.001096
+   - SL    : 0.001118
+   - TP    : 0.001064, 0.001047, 0.001031
+   - Invalidation: Close above 0.001118 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: CCUSDT | Side: LONG | Score: 6.55
+   - Entry : 0.12146
+   - SL    : 0.11607
+   - TP    : 0.12954, 0.13358, 0.13762
+   - Invalidation: Close below 0.11607 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ZECUSDT | Side: LONG | Score: 6.43
+   - Entry : 825.72
+   - SL    : 806.19
+   - TP    : 855.01, 869.66, 884.30
+   - Invalidation: Close below 806.19304 / loss of recent 1h swing low
+----------------------------------------
