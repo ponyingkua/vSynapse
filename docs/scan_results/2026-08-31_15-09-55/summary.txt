@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T15:09:53.704461+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: USELESSUSDT | Side: LONG | Score: 8.15
+   - Entry : 0.07256
+   - SL    : 0.06694
+   - TP    : 0.08100, 0.08522, 0.08944
+   - Invalidation: Close below 0.06694 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MORPHOUSDT | Side: LONG | Score: 6.93
+   - Entry : 2.6240
+   - SL    : 2.5142
+   - TP    : 2.7887, 2.8710, 2.9533
+   - Invalidation: Close below 2.5142 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: 1000BONKUSDT | Side: LONG | Score: 6.23
+   - Entry : 0.003012
+   - SL    : 0.002810
+   - TP    : 0.003315, 0.003466, 0.003617
+   - Invalidation: Close below 0.00281 / loss of recent 1h swing low
+----------------------------------------
