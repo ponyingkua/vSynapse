@@ -539,12 +539,19 @@ def build_html(runs, aggregate, winrate_stats=None):
 
     generated_at = datetime.now(timezone.utc).isoformat()
 
+    def _short_symbol(sym):
+        sym = str(sym)
+        for suffix in ("USDT", "USDC", "BUSD"):
+            if sym.endswith(suffix):
+                sym = sym[: -len(suffix)]
+                break
+        return f"${sym}"
+
     top_symbols_html = "".join(
         f'<div class="symbol-chip">'
-        f'<span class="sym-rank">{i:02d}</span>'
-        f'<span class="sym-name">{esc(sym)}</span>'
+        f'<span class="sym-name">{esc(_short_symbol(sym))}</span>'
         f'<span class="sym-count">{count}&times;</span></div>'
-        for i, (sym, count) in enumerate(aggregate["top_symbols"], 1)
+        for sym, count in aggregate["top_symbols"]
     ) or '<span class="muted">No data yet.</span>'
 
     trend_svg = render_trend_svg(aggregate["trend_points"])
@@ -745,30 +752,31 @@ def build_html(runs, aggregate, winrate_stats=None):
 
   /* Top symbols grid (wide card) */
   .symbol-grid {{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }}
   .symbol-chip {{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     background: var(--panel-soft);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 7px 12px;
+    padding: 9px 12px;
     font-size: 0.85rem;
-  }}
-  .sym-rank {{
-    font-family: var(--mono);
-    color: {GOLD};
-    font-size: 0.72rem;
   }}
   .sym-name {{ font-weight: 600; }}
   .sym-count {{
     font-family: var(--mono);
     color: var(--text-soft);
     font-size: 0.76rem;
+    flex-shrink: 0;
+  }}
+
+  @media (max-width: 640px) {{
+    .symbol-grid {{ grid-template-columns: repeat(2, 1fr); }}
   }}
 
   .trend-svg {{ display: block; margin-top: 2px; }}
@@ -789,12 +797,13 @@ def build_html(runs, aggregate, winrate_stats=None):
   }}
   .run-card summary::-webkit-details-marker {{ display: none; }}
   .run-card summary::before {{
-    content: "&#9656;";
+    content: "\\25B8";
     color: var(--accent);
     margin-right: 10px;
     font-size: 0.78rem;
+    display: inline-block;
   }}
-  .run-card[open] summary::before {{ content: "&#9662;"; }}
+  .run-card[open] summary::before {{ content: "\\25BE"; }}
   .run-summary {{
     display: flex;
     align-items: center;
