@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T17:10:08.528833+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: DASHUSDT | Side: LONG | Score: 8.59
+   - Entry : 44.971
+   - SL    : 42.410
+   - TP    : 48.812, 50.732, 52.652
+   - Invalidation: Close below 42.41 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ZENUSDT | Side: LONG | Score: 6.68
+   - Entry : 5.7023
+   - SL    : 5.2890
+   - TP    : 6.3223, 6.6323, 6.9423
+   - Invalidation: Close below 5.289 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: HYPEUSDT | Side: LONG | Score: 6.57
+   - Entry : 83.106
+   - SL    : 80.508
+   - TP    : 87.004, 88.952, 90.901
+   - Invalidation: Close below 80.508 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: TWTUSDT | Side: LONG | Score: 6.23
+   - Entry : 0.50471
+   - SL    : 0.47350
+   - TP    : 0.55153, 0.57494, 0.59834
+   - Invalidation: Close below 0.4735 / loss of recent 1h swing low
+----------------------------------------
