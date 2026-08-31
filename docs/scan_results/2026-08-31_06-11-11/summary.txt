@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T06:11:06.386118+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HANAUSDT | Side: LONG | Score: 5.52
+   - Entry : 0.02122
+   - SL    : 0.02008
+   - TP    : 0.02293, 0.02378, 0.02464
+   - Invalidation: Close below 0.02008 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: TOWNSUSDT | Side: LONG | Score: 5.42
+   - Entry : 0.002599
+   - SL    : 0.002414
+   - TP    : 0.002877, 0.003016, 0.003155
+   - Invalidation: Close below 0.002414 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: FORMUSDT | Side: LONG | Score: 5.3
+   - Entry : 0.26137
+   - SL    : 0.25370
+   - TP    : 0.27287, 0.27862, 0.28437
+   - Invalidation: Close below 0.2537 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: REDUSDT | Side: LONG | Score: 5.22
+   - Entry : 0.11022
+   - SL    : 0.10540
+   - TP    : 0.11746, 0.12107, 0.12469
+   - Invalidation: Close below 0.1054 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: INITUSDT | Side: LONG | Score: 4.65
+   - Entry : 0.05742
+   - SL    : 0.05605
+   - TP    : 0.05947, 0.06050, 0.06153
+   - Invalidation: Close below 0.05605 / loss of recent 15m swing low
+----------------------------------------
