@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T01:09:00.115697+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PROVEUSDT | Side: LONG | Score: 5.79
+   - Entry : 0.17750
+   - SL    : 0.16970
+   - TP    : 0.18920, 0.19505, 0.20090
+   - Invalidation: Close below 0.1697 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ONTUSDT | Side: LONG | Score: 5.36
+   - Entry : 0.05463
+   - SL    : 0.05172
+   - TP    : 0.05899, 0.06118, 0.06336
+   - Invalidation: Close below 0.05172 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: MUBARAKUSDT | Side: LONG | Score: 4.94
+   - Entry : 0.02154
+   - SL    : 0.02018
+   - TP    : 0.02358, 0.02460, 0.02561
+   - Invalidation: Close below 0.02018 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BELUSDT | Side: LONG | Score: 4.65
+   - Entry : 0.11949
+   - SL    : 0.11490
+   - TP    : 0.12637, 0.12982, 0.13326
+   - Invalidation: Close below 0.1149 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: STGUSDT | Side: LONG | Score: 4.28
+   - Entry : 0.16730
+   - SL    : 0.15850
+   - TP    : 0.18050, 0.18710, 0.19370
+   - Invalidation: Close below 0.1585 / loss of recent 1h swing low
+----------------------------------------

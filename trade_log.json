@@ -309,6 +309,101 @@
       "first_seen": "2026-08-30T22:09:11.189733+00:00",
       "added_at": "2026-08-30T22:09:11.189733+00:00",
       "triggered_at": "2026-08-30T23:59:59.999000+00:00"
+    },
+    {
+      "id": "PROVEUSDT_LONG_15m_2026-08-31_01-09-03",
+      "symbol": "PROVEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1775,
+      "sl": 0.1697,
+      "tp": [
+        0.1892,
+        0.19505,
+        0.2009
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_01-09-03",
+      "first_seen": "2026-08-31T01:09:00.115697+00:00",
+      "triggered_at": "2026-08-31T01:09:00.115697+00:00"
+    },
+    {
+      "id": "ONTUSDT_LONG_15m_2026-08-31_01-09-03",
+      "symbol": "ONTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05463,
+      "sl": 0.05172,
+      "tp": [
+        0.05899,
+        0.06118,
+        0.06336
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_01-09-03",
+      "first_seen": "2026-08-31T01:09:00.115697+00:00",
+      "triggered_at": "2026-08-31T01:09:00.115697+00:00"
+    },
+    {
+      "id": "MUBARAKUSDT_LONG_15m_2026-08-31_01-09-03",
+      "symbol": "MUBARAKUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02154,
+      "sl": 0.02018,
+      "tp": [
+        0.02358,
+        0.0246,
+        0.02561
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_01-09-03",
+      "first_seen": "2026-08-31T01:09:00.115697+00:00",
+      "triggered_at": "2026-08-31T01:09:00.115697+00:00"
+    },
+    {
+      "id": "BELUSDT_LONG_15m_2026-08-31_01-09-03",
+      "symbol": "BELUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.11949,
+      "sl": 0.1149,
+      "tp": [
+        0.12637,
+        0.12982,
+        0.13326
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_01-09-03",
+      "first_seen": "2026-08-31T01:09:00.115697+00:00",
+      "triggered_at": "2026-08-31T01:09:00.115697+00:00"
+    },
+    {
+      "id": "STGUSDT_LONG_1h_2026-08-31_01-09-03",
+      "symbol": "STGUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1673,
+      "sl": 0.1585,
+      "tp": [
+        0.1805,
+        0.1871,
+        0.1937
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_01-09-03",
+      "first_seen": "2026-08-31T01:09:00.115697+00:00",
+      "triggered_at": "2026-08-31T01:09:00.115697+00:00"
     }
   ],
   "closed": [
@@ -1033,6 +1128,7 @@
     "2026-08-30_21-09-40",
     "2026-08-30_22-09-13",
     "2026-08-30_23-09-52",
-    "2026-08-31_00-11-01"
+    "2026-08-31_00-11-01",
+    "2026-08-31_01-09-03"
   ]
 }
