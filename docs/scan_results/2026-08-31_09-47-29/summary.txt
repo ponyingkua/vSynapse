@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T09:47:25.339290+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: 我踏马来了USDT | Side: SHORT | Score: 5.74
+   - Entry : 0.01131
+   - SL    : 0.01201
+   - TP    : 0.01026, 0.00974, 0.00922
+   - Invalidation: Close above 0.012008 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: AIAUSDT | Side: LONG | Score: 4.82
+   - Entry : 0.07963
+   - SL    : 0.07820
+   - TP    : 0.08176, 0.08283, 0.08390
+   - Invalidation: Close below 0.0782 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: HAEDALUSDT | Side: SHORT | Score: 4.68
+   - Entry : 0.01816
+   - SL    : 0.01856
+   - TP    : 0.01755, 0.01725, 0.01695
+   - Invalidation: Close above 0.01856 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: BERAUSDT | Side: LONG | Score: 4.64
+   - Entry : 0.17530
+   - SL    : 0.17090
+   - TP    : 0.18190, 0.18520, 0.18850
+   - Invalidation: Close below 0.1709 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: APRUSDT | Side: SHORT | Score: 4.05
+   - Entry : 0.18990
+   - SL    : 0.19460
+   - TP    : 0.18285, 0.17933, 0.17580
+   - Invalidation: Close above 0.1946 / reclaim of recent 15m swing high
+----------------------------------------
