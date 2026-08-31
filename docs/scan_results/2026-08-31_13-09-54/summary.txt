@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T13:09:52.033766+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: XNYUSDT | Side: SHORT | Score: 6.16
+   - Entry : 0.006755
+   - SL    : 0.006842
+   - TP    : 0.006624, 0.006559, 0.006494
+   - Invalidation: Close above 0.006842 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: PHAROSUSDT | Side: SHORT | Score: 7.0
+   - Entry : 0.41285
+   - SL    : 0.42920
+   - TP    : 0.38832, 0.37606, 0.36380
+   - Invalidation: Close above 0.4292 / reclaim of recent 1h swing high
+----------------------------------------
