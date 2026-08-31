@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-08-31T00:10:58.153697+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CELOUSDT | Side: SHORT | Score: 8.02
+   - Entry : 0.07245
+   - SL    : 0.07578
+   - TP    : 0.06745, 0.06495, 0.06245
+   - Invalidation: Close above 0.07578 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: XVGUSDT | Side: SHORT | Score: 7.71
+   - Entry : 0.002413
+   - SL    : 0.002600
+   - TP    : 0.002132, 0.001991, 0.001850
+   - Invalidation: Close above 0.0026 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: THETAUSDT | Side: SHORT | Score: 7.7
+   - Entry : 0.16689
+   - SL    : 0.17510
+   - TP    : 0.15458, 0.14842, 0.14227
+   - Invalidation: Close above 0.1751 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: SAFEUSDT | Side: SHORT | Score: 7.44
+   - Entry : 0.08725
+   - SL    : 0.09180
+   - TP    : 0.08043, 0.07702, 0.07361
+   - Invalidation: Close above 0.0918 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: HYPERUSDT | Side: SHORT | Score: 7.43
+   - Entry : 0.06422
+   - SL    : 0.06625
+   - TP    : 0.06117, 0.05965, 0.05813
+   - Invalidation: Close above 0.06625 / reclaim of recent 1h swing high
+----------------------------------------

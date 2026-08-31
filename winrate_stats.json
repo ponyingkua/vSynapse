@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-30T23:13:51.818000+00:00",
-  "resolved_trades": 12,
-  "wins": 5,
-  "losses": 7,
-  "win_rate_pct": 41.7,
-  "avg_r_multiple": 0.04,
+  "generated_at": "2026-08-31T00:15:04.559000+00:00",
+  "resolved_trades": 26,
+  "wins": 7,
+  "losses": 19,
+  "win_rate_pct": 26.9,
+  "avg_r_multiple": -0.33,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 1,
-      "losses": 6,
-      "win_rate_pct": 14.3
+      "losses": 18,
+      "win_rate_pct": 5.3
     },
     "BREAKDOWN": {
-      "wins": 4,
+      "wins": 6,
       "losses": 0,
       "win_rate_pct": 100.0
     },
@@ -25,17 +25,17 @@
   "by_side": {
     "LONG": {
       "wins": 1,
-      "losses": 7,
-      "win_rate_pct": 12.5
+      "losses": 19,
+      "win_rate_pct": 5.0
     },
     "SHORT": {
-      "wins": 4,
+      "wins": 6,
       "losses": 0,
       "win_rate_pct": 100.0
     }
   },
   "expired_unresolved": 0,
   "never_triggered": 1,
-  "currently_open": 19,
-  "currently_pending": 6
+  "currently_open": 11,
+  "currently_pending": 5
 }
