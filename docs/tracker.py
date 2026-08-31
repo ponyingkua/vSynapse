@@ -98,12 +98,6 @@ def now_ms():
 # ============================================================
 
 def _retry_delay(attempt, retry_after=None):
-    """
-    Delay pendek dan terkontrol.
-
-    Retry-After digunakan bila Binance mengirimkannya.
-    """
-
     if retry_after is not None:
         try:
             value = float(retry_after)
@@ -113,19 +107,11 @@ def _retry_delay(attempt, retry_after=None):
 
     base = RETRY_BASE_DELAY
     delay = base * (2 ** attempt)
-
-    # Jitter kecil supaya banyak worker tidak retry
-    # pada milidetik yang sama.
     delay += random.uniform(0.05, 0.20)
-
     return min(delay, 3.0)
 
 
 def _parse_response(raw_body):
-    """
-    Parse response JSON dengan aman.
-    """
-
     try:
         return json.loads(raw_body.decode("utf-8"))
     except (ValueError, UnicodeDecodeError, AttributeError):
@@ -133,18 +119,6 @@ def _parse_response(raw_body):
 
 
 def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
-    """Fetch OHLC candles from Binance USDT-M futures.
-
-    Ported from Synaptic.py api() logic:
-    - Fallback antar BASE_URLS
-    - Retry per endpoint (API_RETRIES)
-    - Penanganan status 200 / 202 / 418 / 429 / 451
-    - Timeout + RequestException handling
-
-    Returns [] on total failure so the caller can safely retry next
-    cycle instead of crashing the whole run over one bad symbol/network hiccup.
-    """
-
     params = {
         "symbol": symbol,
         "interval": interval,
@@ -174,63 +148,29 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                     status = resp.status
                     raw_body = resp.read()
 
-                    # ------------------------------------------------
-                    # Normal response
-                    # ------------------------------------------------
-
                     if status == 200:
 
                         data = _parse_response(raw_body)
 
                         if data is None:
-                            last_error = (
-                                f"{base_url} HTTP 200 but invalid JSON"
-                            )
+                            last_error = f"{base_url} HTTP 200 but invalid JSON"
                             break
 
-                        if (
-                            isinstance(data, dict)
-                            and "code" in data
-                            and "msg" in data
-                        ):
-                            last_error = (
-                                f"{data.get('code')}: "
-                                f"{data.get('msg')}"
-                            )
-
+                        if isinstance(data, dict) and "code" in data and "msg" in data:
+                            last_error = f"{data.get('code')}: {data.get('msg')}"
                             if attempt < API_RETRIES:
-                                time.sleep(
-                                    _retry_delay(attempt)
-                                )
+                                time.sleep(_retry_delay(attempt))
                                 continue
-
                             break
 
                         return data
-
-                    # ------------------------------------------------
-                    # 202
-                    # ------------------------------------------------
-                    #
-                    # Jangan langsung menganggap endpoint mati.
-                    #
-                    # Beberapa gateway/proxy dapat mengembalikan
-                    # 202 sementara request masih diproses.
-                    # ------------------------------------------------
 
                     if status == 202:
 
                         data = _parse_response(raw_body)
 
                         if isinstance(data, (dict, list)):
-
-                            # Jika ternyata body sudah berisi data
-                            # Binance yang bisa dipakai, gunakan.
-                            if not (
-                                isinstance(data, dict)
-                                and "code" in data
-                                and "msg" in data
-                            ):
+                            if not (isinstance(data, dict) and "code" in data and "msg" in data):
                                 return data
 
                         last_error = f"{base_url} HTTP 202"
@@ -239,42 +179,22 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                             time.sleep(_retry_delay(attempt))
                             continue
 
-                        # Setelah retry lokal habis,
-                        # baru pindah endpoint.
                         break
-
-                    # ------------------------------------------------
-                    # Rate limit
-                    # ------------------------------------------------
 
                     if status in (418, 429):
 
                         last_error = f"{base_url} HTTP {status}"
-
                         retry_after = resp.headers.get("Retry-After")
 
                         if attempt < API_RETRIES:
-                            time.sleep(
-                                _retry_delay(attempt, retry_after)
-                            )
+                            time.sleep(_retry_delay(attempt, retry_after))
                             continue
 
                         break
 
-                    # ------------------------------------------------
-                    # 451
-                    # ------------------------------------------------
-
                     if status == 451:
-
                         last_error = f"{base_url} HTTP 451"
-
-                        # Tidak perlu retry berkali-kali
                         break
-
-                    # ------------------------------------------------
-                    # Other HTTP errors
-                    # ------------------------------------------------
 
                     last_error = f"{base_url} HTTP {status}"
 
@@ -294,128 +214,77 @@ def fetch_klines(symbol, interval, start_time_ms, limit=1000, end_time_ms=None):
                 except Exception:
                     pass
 
-                # ------------------------------------------------
-                # Rate limit (via HTTPError)
-                # ------------------------------------------------
-
                 if status in (418, 429):
-
                     last_error = f"{base_url} HTTP {status}"
-
                     if attempt < API_RETRIES:
-                        time.sleep(
-                            _retry_delay(attempt, retry_after)
-                        )
+                        time.sleep(_retry_delay(attempt, retry_after))
                         continue
-
                     break
 
-                # ------------------------------------------------
-                # 451
-                # ------------------------------------------------
-
                 if status == 451:
-
                     last_error = f"{base_url} HTTP 451"
                     break
 
-                # ------------------------------------------------
-                # 202 via HTTPError (unlikely but handle)
-                # ------------------------------------------------
-
                 if status == 202:
-
                     try:
                         raw_body = exc.read()
                         data = _parse_response(raw_body)
-
                         if isinstance(data, (dict, list)):
-                            if not (
-                                isinstance(data, dict)
-                                and "code" in data
-                                and "msg" in data
-                            ):
+                            if not (isinstance(data, dict) and "code" in data and "msg" in data):
                                 return data
                     except Exception:
                         pass
 
                     last_error = f"{base_url} HTTP 202"
-
                     if attempt < API_RETRIES:
                         time.sleep(_retry_delay(attempt))
                         continue
-
                     break
 
                 last_error = f"{base_url} HTTP {status}"
-
                 if attempt < API_RETRIES:
                     time.sleep(_retry_delay(attempt))
                     continue
-
                 break
 
             except TimeoutError:
-
                 last_error = f"{base_url} timeout"
-
                 if attempt < API_RETRIES:
                     time.sleep(_retry_delay(attempt))
                     continue
-
                 break
 
             except urllib.error.URLError as exc:
-
                 last_error = f"{base_url}: {exc}"
-
                 if attempt < API_RETRIES:
                     time.sleep(_retry_delay(attempt))
                     continue
-
                 break
 
             except Exception as exc:
-
                 last_error = f"{base_url}: {exc}"
-
                 if attempt < API_RETRIES:
                     time.sleep(_retry_delay(attempt))
                     continue
-
                 break
 
-    print(
-        f"  ! kline fetch failed for {symbol} {interval}: "
-        f"All Binance endpoints failed: {last_error}"
-    )
+    print(f"  ! kline fetch failed for {symbol} {interval}: All Binance endpoints failed: {last_error}")
     return []
 
 
 # OUTCOME LOGIC
 
 def check_entry_triggered(entry_price, klines):
-    """Entry counts as triggered the first candle whose [low, high] range
-    contains the entry price - direction-agnostic, works for retest and
-    pullback setups alike."""
-
     entry_price = float(entry_price)
-
     for k in klines:
         low = float(k[3])
         high = float(k[2])
         if low <= entry_price <= high:
-            return k[6]  # close_time of the triggering candle
-
+            return k[6]
     return None
 
 
 def simulate_outcome(record, klines):
-    """Walk candles forward from entry. First touch of SL or any TP decides
-    the outcome; if both are touched in the same candle, SL wins (the
-    conservative assumption - you can't know which came first intra-candle).
-    Returns None if unresolved within the given klines."""
-
     side = record["side"]
     sl = float(record["sl"])
     tps = [float(t) for t in (record.get("tp") or []) if t is not None]
@@ -431,8 +300,12 @@ def simulate_outcome(record, klines):
         for i, tp in enumerate(tps):
             hit = (high >= tp) if side == "LONG" else (low <= tp)
             if hit:
-                tp_hit_index = i
-                break
+                tp_hit_index = i  # keep going - don't stop at the first
+                                  # (nearest) target; a single impulsive
+                                  # candle can blow through TP1+TP2+TP3 at
+                                  # once, and the outcome should reflect
+                                  # the FARTHEST one actually reached, not
+                                  # just the nearest.
 
         if sl_hit:
             return {
@@ -456,9 +329,6 @@ def simulate_outcome(record, klines):
 
 
 def compute_r_multiple(record):
-    """R multiple realized: -1.0 on a loss (exited exactly at SL), positive
-    on a win sized by which TP was hit relative to initial risk."""
-
     try:
         entry = float(record["entry"])
         sl = float(record["sl"])
@@ -475,13 +345,13 @@ def compute_r_multiple(record):
     return round((entry - exit_price) / risk, 2)
 
 
-# SCAN RESULT LOADING (self-contained - mirrors belenggu.py's loader)
+# SCAN RESULT LOADING
 
 def _iter_run_dirs_ascending(results_dir):
     if not results_dir.exists():
         return []
     dirs = [d for d in results_dir.iterdir() if d.is_dir()]
-    dirs.sort(key=lambda d: d.name)  # oldest first: ingest chronologically
+    dirs.sort(key=lambda d: d.name)
     return dirs
 
 
