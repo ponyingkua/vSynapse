@@ -20,6 +20,27 @@ Run this once per scan cycle (same cron as the scanner), ideally right after
 a new scan_results/<timestamp>/ folder is written and before belenggu.py
 rebuilds the dashboard.
 
+PATCH NOTES - dua bug bias-ke-LOSS yang ditemukan dari winrate_stats.json
+(23.4% win rate yang mencurigakan rendah), keduanya diperbaiki di revisi ini:
+
+  1. "Entry candle hilang dari simulasi" - check_entry_triggered() dulu
+     mengembalikan close_time candle entry, lalu update_open() memfilter
+     `k[0] >= triggered_ms`. Karena open_time candle manapun selalu <
+     close_time-nya sendiri, candle entry OTOMATIS terpotong dari
+     simulasi - move impulsif (entry disentuh lalu langsung lanjut ke TP
+     di candle yang sama) tidak pernah tercatat WIN. FIX: sekarang
+     mengembalikan open_time, jadi candle entry ikut disimulasikan.
+
+  2. "SL vs TP dalam satu candle selalu dimenangkan SL" - kalau dalam satu
+     candle SL dan TP sama-sama tersentuh (umum di TF kecil / candle
+     bervolatilitas tinggi), tracker dulu selalu asumsi SL duluan. FIX:
+     sekarang dicoba dibedah dulu pakai candle di timeframe yang lebih
+     halus (DISAMBIGUATION_TF) untuk melihat urutan sebenarnya. Kalau
+     tetap tidak bisa dibedah (sudah di TF paling halus / fetch gagal),
+     baru fallback ke asumsi SL-duluan yang lama - tapi record ditandai
+     intrabar_ambiguous=True supaya kelihatan di stats, bukan diam-diam
+     dianggap pasti.
+
 Usage:
     python3 tracker.py --results-dir scan_results --log trade_log.json \\
         --stats-out winrate_stats.json
@@ -96,6 +117,26 @@ TF_MS = {
     "8h": 28_800_000,
     "12h": 43_200_000,
     "1d": 86_400_000,
+}
+
+# Dipetakan ke timeframe yang lebih halus, dipakai _resolve_ambiguous_candle()
+# untuk membedah candle di mana SL dan TP tersentuh sekaligus (bug #2). None
+# berarti sudah di TF paling halus yang didukung - tidak ada lagi TF di
+# bawahnya untuk membedah lebih jauh, jadi harus fallback ke asumsi
+# konservatif (SL duluan).
+DISAMBIGUATION_TF = {
+    "1m": None,
+    "3m": "1m",
+    "5m": "1m",
+    "15m": "1m",
+    "30m": "5m",
+    "1h": "5m",
+    "2h": "15m",
+    "4h": "15m",
+    "6h": "30m",
+    "8h": "30m",
+    "12h": "1h",
+    "1d": "1h",
 }
 
 
@@ -319,12 +360,90 @@ def _log_fetch_timing(symbol, interval, base_url, started_at, ok, error=None):
 # OUTCOME LOGIC
 
 def check_entry_triggered(entry_price, klines):
+    """Return open_time (k[0]) dari candle pertama yang menyentuh
+    entry_price - BUKAN close_time (k[6]) seperti sebelumnya.
+
+    FIX bug #1: update_open() memfilter klines simulasi dengan
+    `k[0] >= triggered_ms`. Kalau triggered_ms = close_time candle entry,
+    candle entry itu sendiri otomatis kepotong (open_time-nya selalu <
+    close_time-nya sendiri) dan tidak pernah ikut disimulasikan.
+    Mengembalikan open_time membuat candle entry ikut disertakan
+    (k[0] >= triggered_ms == True untuk dirinya sendiri).
+    """
     entry_price = float(entry_price)
     for k in klines:
         low = float(k[3])
         high = float(k[2])
         if low <= entry_price <= high:
-            return k[6]
+            return k[0]
+    return None
+
+
+def _resolve_ambiguous_candle(record, candle):
+    """FIX bug #2: kalau dalam satu candle SL dan TP sama-sama tersentuh,
+    coba bedah candle itu pakai candle di timeframe lebih halus
+    (DISAMBIGUATION_TF) untuk melihat urutan sebenarnya, alih-alih
+    langsung asumsi SL duluan.
+
+    Return dict {"outcome", "exit_price", "tp_index", "resolved_via"} kalau
+    berhasil dibedah. Return None kalau tidak bisa dibedah (TF sudah paling
+    halus, atau fetch sub-candle gagal/kosong) - caller-nya (simulate_outcome)
+    yang bertanggung jawab fallback ke asumsi SL-duluan sambil menandai
+    intrabar_ambiguous=True.
+
+    Rekursif turun satu TF lagi kalau di sub-candle pun keduanya masih
+    tersentuh bersamaan, sampai TF paling halus (DISAMBIGUATION_TF[tf] is
+    None) atau berhasil dibedah.
+    """
+    side = record["side"]
+    sl = float(record["sl"])
+    tps = [float(t) for t in (record.get("tp") or []) if t is not None]
+
+    sub_tf = DISAMBIGUATION_TF.get(record["execution_tf"])
+    if sub_tf is None:
+        return None
+
+    open_time, close_time = candle[0], candle[6]
+    sub_klines = fetch_klines(
+        record["symbol"], sub_tf, open_time, limit=1000, end_time_ms=close_time
+    )
+    if not sub_klines:
+        return None
+
+    for sub_k in sub_klines:
+        sub_high = float(sub_k[2])
+        sub_low = float(sub_k[3])
+
+        sub_sl_hit = (sub_low <= sl) if side == "LONG" else (sub_high >= sl)
+
+        sub_tp_hit_index = None
+        for i, tp in enumerate(tps):
+            hit = (sub_high >= tp) if side == "LONG" else (sub_low <= tp)
+            if hit:
+                sub_tp_hit_index = i  # farthest TP tersentuh di sub-candle ini
+
+        if sub_sl_hit and sub_tp_hit_index is not None:
+            # Masih ambigu di TF ini juga - coba turun satu tingkat lagi.
+            deeper_record = {**record, "execution_tf": sub_tf}
+            deeper = _resolve_ambiguous_candle(deeper_record, sub_k)
+            return deeper  # None kalau tetap tidak bisa dibedah
+
+        if sub_sl_hit:
+            return {
+                "outcome": "LOSS",
+                "exit_price": sl,
+                "tp_index": None,
+                "resolved_via": "subcandle",
+            }
+
+        if sub_tp_hit_index is not None:
+            return {
+                "outcome": "WIN",
+                "exit_price": tps[sub_tp_hit_index],
+                "tp_index": sub_tp_hit_index,
+                "resolved_via": "subcandle",
+            }
+
     return None
 
 
@@ -351,6 +470,29 @@ def simulate_outcome(record, klines):
                                   # the FARTHEST one actually reached, not
                                   # just the nearest.
 
+        if sl_hit and tp_hit_index is not None:
+            # FIX bug #2 - ambigu: SL dan TP tersentuh di candle yang sama.
+            # Jangan langsung asumsi SL menang, coba bedah pakai sub-candle
+            # dulu.
+            resolved = _resolve_ambiguous_candle(record, k)
+            if resolved is not None:
+                return {
+                    **resolved,
+                    "bar_time": close_time,
+                    "bars_held": idx + 1,
+                    "intrabar_ambiguous": False,
+                }
+            # Tidak bisa dibedah - fallback ke asumsi konservatif lama
+            # (SL duluan), tapi DITANDAI supaya kelihatan di stats.
+            return {
+                "outcome": "LOSS",
+                "exit_price": sl,
+                "tp_index": None,
+                "bar_time": close_time,
+                "bars_held": idx + 1,
+                "intrabar_ambiguous": True,
+            }
+
         if sl_hit:
             return {
                 "outcome": "LOSS",
@@ -358,6 +500,7 @@ def simulate_outcome(record, klines):
                 "tp_index": None,
                 "bar_time": close_time,
                 "bars_held": idx + 1,
+                "intrabar_ambiguous": False,
             }
 
         if tp_hit_index is not None:
@@ -367,6 +510,7 @@ def simulate_outcome(record, klines):
                 "tp_index": tp_hit_index,
                 "bar_time": close_time,
                 "bars_held": idx + 1,
+                "intrabar_ambiguous": False,
             }
 
     return None
@@ -489,7 +633,21 @@ def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
             }
 
             if entry_state == "ENTRY_READY":
-                record["triggered_at"] = generated_at
+                # FIX (varian bug #1): jangan pakai generated_at mentah.
+                # generated_at jatuh di TENGAH candle yang sedang berjalan
+                # saat scan (open_time candle itu < generated_at), jadi
+                # kalau dipakai apa adanya sebagai triggered_at, fetch_klines
+                # (yang memfilter open_time >= startTime) akan MEMBUANG
+                # candle yang sedang berjalan itu dan simulasi baru mulai
+                # dari candle penuh berikutnya - gerakan yang langsung
+                # tembus TP/SL di sisa candle berjalan itu tidak pernah
+                # tercatat. Floor ke batas candle supaya candle yang sedang
+                # berjalan itu ikut disertakan, konsisten dengan fix di
+                # check_entry_triggered().
+                tf_ms = TF_MS.get(tf, TF_MS["1h"])
+                generated_ms = iso_to_ms(generated_at)
+                floored_ms = (generated_ms // tf_ms) * tf_ms
+                record["triggered_at"] = ms_to_iso(floored_ms)
                 trade_log["open"].append(record)
             else:
                 record["added_at"] = generated_at
@@ -623,6 +781,9 @@ def update_open(trade_log, max_hold_candles, klines_limit):
             triggered_ms = iso_to_ms(record["triggered_at"])
             tf_ms = TF_MS.get(record["execution_tf"], TF_MS["1h"])
 
+            # Sekarang triggered_ms adalah open_time candle entry (lihat fix
+            # di check_entry_triggered), jadi filter ">=" ini otomatis ikut
+            # menyertakan candle entry itu sendiri - bug #1 selesai di sini.
             record_klines = [k for k in klines if k[0] >= triggered_ms]
 
             if not record_klines:
@@ -699,6 +860,14 @@ def compute_stats(trade_log):
     r_values = [t["r_multiple"] for t in resolved if t.get("r_multiple") is not None]
     avg_r = round(sum(r_values) / len(r_values), 2) if r_values else None
 
+    # Transparansi utk fix bug #2: berapa trade yang outcome-nya berhasil
+    # dibedah pakai sub-candle (resolved_via="subcandle") vs yang terpaksa
+    # masih pakai fallback konservatif SL-duluan karena tidak bisa dibedah
+    # lebih jauh (intrabar_ambiguous=True). Kalau angka kedua ini besar,
+    # win rate yang dilaporkan masih under-estimate.
+    disambiguated = len([t for t in resolved if t.get("resolved_via") == "subcandle"])
+    ambiguous_fallback = len([t for t in resolved if t.get("intrabar_ambiguous")])
+
     return {
         "generated_at": ms_to_iso(now_ms()),
         "resolved_trades": len(resolved),
@@ -714,6 +883,8 @@ def compute_stats(trade_log):
         "never_triggered": len([t for t in closed if t.get("outcome") == "NEVER_TRIGGERED"]),
         "currently_open": len(trade_log.get("open", [])),
         "currently_pending": len(trade_log.get("pending", [])),
+        "intrabar_disambiguated_via_subcandle": disambiguated,
+        "intrabar_ambiguous_fallback_to_sl": ambiguous_fallback,
     }
 
 
