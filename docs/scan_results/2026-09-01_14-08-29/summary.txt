@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T14:08:25.395728+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: TIAUSDT | Side: LONG | Score: 7.69
+   - Entry : 0.34749
+   - SL    : 0.32260
+   - TP    : 0.38482, 0.40349, 0.42215
+   - Invalidation: Close below 0.3226 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: ZRXUSDT | Side: LONG | Score: 6.77
+   - Entry : 0.09971
+   - SL    : 0.09370
+   - TP    : 0.10871, 0.11322, 0.11772
+   - Invalidation: Close below 0.0937 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: MUBARAKUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.02170
+   - SL    : 0.02122
+   - TP    : 0.02241, 0.02277, 0.02312
+   - Invalidation: Close below 0.02122 / loss of recent 15m swing low
+----------------------------------------
