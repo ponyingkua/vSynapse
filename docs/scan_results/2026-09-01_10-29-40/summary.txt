@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T10:29:35.533392+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: API3USDT | Side: LONG | Score: 5.48
+   - Entry : 0.22687
+   - SL    : 0.21950
+   - TP    : 0.23791, 0.24344, 0.24896
+   - Invalidation: Close below 0.2195 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: AVNTUSDT | Side: LONG | Score: 4.36
+   - Entry : 0.10117
+   - SL    : 0.09923
+   - TP    : 0.10407, 0.10552, 0.10698
+   - Invalidation: Close below 0.09923 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: STRKUSDT | Side: LONG | Score: 4.11
+   - Entry : 0.02648
+   - SL    : 0.02511
+   - TP    : 0.02853, 0.02956, 0.03059
+   - Invalidation: Close below 0.02511 / loss of recent 4h swing low
+----------------------------------------
+4. Symbol: 1MBABYDOGEUSDT | Side: LONG | Score: 5.6
+   - Entry : 0.0003664
+   - SL    : 0.0003515
+   - TP    : 0.0003888, 0.0004000, 0.0004112
+   - Invalidation: Close below 0.0003515 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: TAKEUSDT | Side: LONG | Score: 5.55
+   - Entry : 0.05960
+   - SL    : 0.05783
+   - TP    : 0.06226, 0.06359, 0.06492
+   - Invalidation: Close below 0.05783 / loss of recent 1h swing low
+----------------------------------------
