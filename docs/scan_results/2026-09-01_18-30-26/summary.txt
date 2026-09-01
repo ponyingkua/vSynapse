@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T18:30:22.321081+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: WIFUSDT | Side: SHORT | Score: 5.16
+   - Entry : 0.19700
+   - SL    : 0.20080
+   - TP    : 0.19130, 0.18845, 0.18560
+   - Invalidation: Close above 0.2008 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: OPNUSDT | Side: SHORT | Score: 3.61
+   - Entry : 0.05431
+   - SL    : 0.05573
+   - TP    : 0.05219, 0.05112, 0.05006
+   - Invalidation: Close above 0.05573 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: XPINUSDT | Side: SHORT | Score: 6.4
+   - Entry : 0.001062
+   - SL    : 0.001104
+   - TP    : 0.000999, 0.000968, 0.000937
+   - Invalidation: Close above 0.001104 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: DATAIPUSDT | Side: SHORT | Score: 5.85
+   - Entry : 0.18500
+   - SL    : 0.18780
+   - TP    : 0.18080, 0.17870, 0.17660
+   - Invalidation: Close above 0.1878 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: AUSDT | Side: SHORT | Score: 5.78
+   - Entry : 0.07401
+   - SL    : 0.07487
+   - TP    : 0.07271, 0.07206, 0.07142
+   - Invalidation: Close above 0.07487 / reclaim of recent 15m swing high
+----------------------------------------
