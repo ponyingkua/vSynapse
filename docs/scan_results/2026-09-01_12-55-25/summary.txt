@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T12:55:21.659953+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ZILUSDT | Side: LONG | Score: 5.09
+   - Entry : 0.002660
+   - SL    : 0.002605
+   - TP    : 0.002742, 0.002783, 0.002824
+   - Invalidation: Close below 0.002605 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: SNXUSDT | Side: SHORT | Score: 4.19
+   - Entry : 0.21075
+   - SL    : 0.21714
+   - TP    : 0.20118, 0.19639, 0.19161
+   - Invalidation: Close above 0.21713541 / reclaim of recent 4h swing high
+----------------------------------------
+3. Symbol: AIOUSDT | Side: SHORT | Score: 4.14
+   - Entry : 0.04631
+   - SL    : 0.04757
+   - TP    : 0.04442, 0.04347, 0.04253
+   - Invalidation: Close above 0.04757 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: MEGAUSDT | Side: SHORT | Score: 4.04
+   - Entry : 0.03800
+   - SL    : 0.03852
+   - TP    : 0.03721, 0.03682, 0.03643
+   - Invalidation: Close above 0.03852 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: MIRAUSDT | Side: SHORT | Score: 3.99
+   - Entry : 0.04403
+   - SL    : 0.04482
+   - TP    : 0.04285, 0.04225, 0.04166
+   - Invalidation: Close above 0.04482 / reclaim of recent 15m swing high
+----------------------------------------
