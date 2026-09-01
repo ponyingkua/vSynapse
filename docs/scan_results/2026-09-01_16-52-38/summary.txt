@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T16:52:34.260607+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HOLOUSDT | Side: SHORT | Score: 5.88
+   - Entry : 0.06258
+   - SL    : 0.06575
+   - TP    : 0.05782, 0.05545, 0.05307
+   - Invalidation: Close above 0.06575 / reclaim of recent 4h swing high
+----------------------------------------
+2. Symbol: MANTAUSDT | Side: SHORT | Score: 5.42
+   - Entry : 0.05760
+   - SL    : 0.05821
+   - TP    : 0.05668, 0.05623, 0.05577
+   - Invalidation: Close above 0.05821 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: LPTUSDT | Side: SHORT | Score: 5.33
+   - Entry : 1.3250
+   - SL    : 1.3420
+   - TP    : 1.2995, 1.2867, 1.2740
+   - Invalidation: Close above 1.342 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: BCHUSDT | Side: SHORT | Score: 5.22
+   - Entry : 246.28
+   - SL    : 249.65
+   - TP    : 241.22, 238.70, 236.17
+   - Invalidation: Close above 249.65 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: MEUSDT | Side: SHORT | Score: 5.03
+   - Entry : 0.06093
+   - SL    : 0.06164
+   - TP    : 0.05987, 0.05933, 0.05880
+   - Invalidation: Close above 0.06164 / reclaim of recent 15m swing high
+----------------------------------------
