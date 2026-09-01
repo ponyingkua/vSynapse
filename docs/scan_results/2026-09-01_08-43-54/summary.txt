@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T08:43:49.986873+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BBUSDT | Side: SHORT | Score: 5.69
+   - Entry : 0.009124
+   - SL    : 0.009310
+   - TP    : 0.008846, 0.008706, 0.008567
+   - Invalidation: Close above 0.00931 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: METISUSDT | Side: SHORT | Score: 6.04
+   - Entry : 2.6592
+   - SL    : 2.7130
+   - TP    : 2.5784, 2.5380, 2.4976
+   - Invalidation: Close above 2.713 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: APTUSDT | Side: SHORT | Score: 5.1
+   - Entry : 0.53260
+   - SL    : 0.54220
+   - TP    : 0.51820, 0.51101, 0.50381
+   - Invalidation: Close above 0.5422 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: GALAUSDT | Side: SHORT | Score: 5.09
+   - Entry : 0.001712
+   - SL    : 0.001771
+   - TP    : 0.001623, 0.001579, 0.001535
+   - Invalidation: Close above 0.001771 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: TRBUSDT | Side: SHORT | Score: 4.71
+   - Entry : 16.795
+   - SL    : 17.102
+   - TP    : 16.334, 16.103, 15.873
+   - Invalidation: Close above 17.102 / reclaim of recent 15m swing high
+----------------------------------------

@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-01T08:34:18.518000+00:00",
-  "resolved_trades": 119,
-  "wins": 34,
+  "generated_at": "2026-09-01T08:43:58.387000+00:00",
+  "resolved_trades": 122,
+  "wins": 37,
   "losses": 85,
-  "win_rate_pct": 28.6,
-  "avg_r_multiple": -0.25,
+  "win_rate_pct": 30.3,
+  "avg_r_multiple": -0.21,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 17,
+      "wins": 19,
       "losses": 55,
-      "win_rate_pct": 23.6
+      "win_rate_pct": 25.7
     },
     "BREAKDOWN": {
-      "wins": 15,
+      "wins": 16,
       "losses": 26,
-      "win_rate_pct": 36.6
+      "win_rate_pct": 38.1
     },
     "EXTENDED": {
       "wins": 0,
@@ -34,14 +34,14 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 17,
+      "wins": 19,
       "losses": 57,
-      "win_rate_pct": 23.0
+      "win_rate_pct": 25.0
     },
     "SHORT": {
-      "wins": 17,
+      "wins": 18,
       "losses": 28,
-      "win_rate_pct": 37.8
+      "win_rate_pct": 39.1
     }
   },
   "by_config_version": {
@@ -51,26 +51,26 @@
       "win_rate_pct": 22.2
     },
     "v1": {
-      "wins": 22,
+      "wins": 23,
       "losses": 39,
-      "win_rate_pct": 36.1
+      "win_rate_pct": 37.1
     },
     "v2": {
-      "wins": 0,
+      "wins": 2,
       "losses": 4,
-      "win_rate_pct": 0.0
+      "win_rate_pct": 33.3
     }
   },
   "by_htf_alignment": {
     "UNKNOWN_OR_NEUTRAL": {
-      "wins": 16,
+      "wins": 18,
       "losses": 48,
-      "win_rate_pct": 25.0
+      "win_rate_pct": 27.3
     },
     "ALIGNED": {
-      "wins": 12,
+      "wins": 13,
       "losses": 25,
-      "win_rate_pct": 32.4
+      "win_rate_pct": 34.2
     },
     "COUNTER": {
       "wins": 6,
@@ -79,9 +79,9 @@
     }
   },
   "expired_unresolved": 12,
-  "never_triggered": 14,
-  "currently_open": 104,
-  "currently_pending": 53,
+  "never_triggered": 15,
+  "currently_open": 102,
+  "currently_pending": 56,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,
