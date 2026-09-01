@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T03:27:06.902612+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: CTRUSDT | Side: LONG | Score: 7.15
+   - Entry : 0.009788
+   - SL    : 0.009280
+   - TP    : 0.010550, 0.010932, 0.011313
+   - Invalidation: Close below 0.00928 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: NOTUSDT | Side: LONG | Score: 6.65
+   - Entry : 0.0004887
+   - SL    : 0.0004704
+   - TP    : 0.0005161, 0.0005298, 0.0005435
+   - Invalidation: Close below 0.0004704 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.22
+   - Entry : 1.0410
+   - SL    : 1.0106
+   - TP    : 1.0867, 1.1096, 1.1324
+   - Invalidation: Close below 1.0106 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: BTWUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.42622
+   - SL    : 0.40002
+   - TP    : 0.46553, 0.48518, 0.50483
+   - Invalidation: Close below 0.40002 / loss of recent 15m swing low
+----------------------------------------
