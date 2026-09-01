@@ -142,7 +142,7 @@ def render_winrate_card(stats):
     htf_rows = _render_breakdown_rows(stats.get("by_htf_alignment", {}), HTF_ALIGNMENT_LABELS)
 
     return f"""
-    <div class="card wide" style="--card-accent:{win_color}">
+    <div class="card wide card-clickable" style="--card-accent:{win_color}" onclick="scrollToRuns()">
       <h3>Win Rate (Resolved Trades)</h3>
       <div class="winrate-summary">
         <div class="winrate-main">
@@ -316,6 +316,107 @@ def build_aggregate(runs):
     }
 
 
+# LATEST SETUP PER SYMBOL (for the "Most Frequent Symbols" click-through modal)
+
+def build_symbol_latest(runs):
+    """For each symbol, keep the most recent candidate the scanner produced
+    for it. runs is already ordered most-recent-first (see load_runs), so
+    the first candidate seen per symbol while iterating is its latest one."""
+
+    latest = {}
+
+    for run in runs:
+        candidates = run["data"].get("candidates", [])
+        generated_at = run["data"].get("generated_at", run["run_id"])
+
+        for c in candidates:
+            symbol = c.get("symbol")
+
+            if not symbol or symbol in latest:
+                continue
+
+            decimals = c.get("decimals")
+            tps = c.get("tp", []) or []
+            chart_path = find_chart(run, c)
+            chart_rel = (
+                chart_path.relative_to(run["dir"].parent.parent).as_posix()
+                if chart_path is not None
+                else None
+            )
+
+            latest[symbol] = {
+                "symbol": symbol,
+                "side": c.get("side", "N/A"),
+                "setup_style": c.get("setup_style", "N/A"),
+                "entry_state": c.get("entry_state", "N/A"),
+                "score": fmt_num(c.get("score"), 1),
+                "execution_tf": c.get("execution_tf", "-"),
+                "tf_agreement": c.get("tf_agreement", "-"),
+                "entry": fmt_num(c.get("entry"), decimals),
+                "sl": fmt_num(c.get("sl"), decimals),
+                "tp": ", ".join(fmt_num(t, decimals) for t in tps) if tps else None,
+                "htf_bias": c.get("htf_bias"),
+                "chart": chart_rel,
+                "run_id": run["run_id"],
+                "generated_at": generated_at,
+            }
+
+    return latest
+
+
+# FLAT CANDIDATE LIST (for the click-through filters on the summary cards:
+# entry-ready, waiting, long, short, top-scored, all)
+
+def build_all_candidates(runs):
+
+    items = []
+
+    for run in runs:
+        candidates = run["data"].get("candidates", [])
+        generated_at = run["data"].get("generated_at", run["run_id"])
+
+        for c in candidates:
+            symbol = c.get("symbol")
+            if not symbol:
+                continue
+
+            decimals = c.get("decimals")
+            tps = c.get("tp", []) or []
+            chart_path = find_chart(run, c)
+            chart_rel = (
+                chart_path.relative_to(run["dir"].parent.parent).as_posix()
+                if chart_path is not None
+                else None
+            )
+
+            score_raw = None
+            try:
+                if c.get("score") is not None:
+                    score_raw = float(c.get("score"))
+            except (TypeError, ValueError):
+                pass
+
+            items.append({
+                "symbol": symbol,
+                "side": c.get("side", "N/A"),
+                "setup_style": c.get("setup_style", "N/A"),
+                "entry_state": c.get("entry_state", "N/A"),
+                "score": fmt_num(c.get("score"), 1),
+                "score_raw": score_raw,
+                "execution_tf": c.get("execution_tf", "-"),
+                "tf_agreement": c.get("tf_agreement", "-"),
+                "entry": fmt_num(c.get("entry"), decimals),
+                "sl": fmt_num(c.get("sl"), decimals),
+                "tp": ", ".join(fmt_num(t, decimals) for t in tps) if tps else None,
+                "htf_bias": c.get("htf_bias"),
+                "chart": chart_rel,
+                "run_id": run["run_id"],
+                "generated_at": generated_at,
+            })
+
+    return items
+
+
 # SVG SPARKLINE
 
 def render_trend_svg(trend_points, width=680, height=110):
@@ -356,9 +457,10 @@ def render_trend_svg(trend_points, width=680, height=110):
     )
 
     dots = "".join(
-        f'<circle cx="{x_at(i):.1f}" cy="{y_at(v):.1f}" '
-        f'r="3.5" fill="{LINK}" stroke="{BG}" stroke-width="1.5">'
-        f"<title>{esc(trend_points[i][0])}: {v}</title>"
+        f'<circle class="trend-dot" cx="{x_at(i):.1f}" cy="{y_at(v):.1f}" '
+        f'r="3.5" fill="{LINK}" stroke="{BG}" stroke-width="1.5" '
+        f'onclick="event.stopPropagation(); jumpToRun(\'{esc(trend_points[i][0])}\')">'
+        f"<title>{esc(trend_points[i][0])}: {v} (click to open this run)</title>"
         f"</circle>"
         for i, v in enumerate(values)
     )
@@ -488,7 +590,7 @@ def render_run_section(run, open_by_default=False):
         elapsed = f"{elapsed:.1f}s"
 
     return f"""
-    <details class="run-card"{open_attr}>
+    <details class="run-card" data-run-id="{esc(run['run_id'])}"{open_attr}>
       <summary>
         <div class="run-summary">
           <div class="run-left">
@@ -546,8 +648,13 @@ def build_html(runs, aggregate, winrate_stats=None):
                 break
         return f"${sym}"
 
+    symbol_latest = build_symbol_latest(runs)
+    symbol_latest_json = json.dumps(symbol_latest, ensure_ascii=False).replace("</", "<\\/")
+    all_candidates = build_all_candidates(runs)
+    all_candidates_json = json.dumps(all_candidates, ensure_ascii=False).replace("</", "<\\/")
+
     top_symbols_html = "".join(
-        f'<div class="symbol-chip">'
+        f'<div class="symbol-chip" onclick="openSymbolModal(\'{esc(sym)}\')">'
         f'<span class="sym-name">{esc(_short_symbol(sym))}</span>'
         f'<span class="sym-count">{count}&times;</span></div>'
         for sym, count in aggregate["top_symbols"]
@@ -725,6 +832,12 @@ def build_html(runs, aggregate, winrate_stats=None):
     color: var(--text-soft);
     margin-top: 4px;
   }}
+  .card-clickable {{
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.1s ease;
+  }}
+  .card-clickable:hover {{ border-color: var(--accent); }}
+  .card-clickable:active {{ transform: scale(0.99); }}
 
   /* Side split bar */
   .side-bar {{
@@ -762,7 +875,10 @@ def build_html(runs, aggregate, winrate_stats=None):
     border-radius: 6px;
     padding: 9px 12px;
     font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
   }}
+  .symbol-chip:hover {{ border-color: var(--accent); }}
   .sym-name {{ font-weight: 600; }}
   .sym-count {{
     font-family: var(--mono);
@@ -776,6 +892,7 @@ def build_html(runs, aggregate, winrate_stats=None):
   }}
 
   .trend-svg {{ display: block; margin-top: 2px; }}
+  .trend-dot {{ cursor: pointer; }}
 
   /* Run cards */
   .run-card {{
@@ -784,6 +901,11 @@ def build_html(runs, aggregate, winrate_stats=None):
     border-radius: var(--radius);
     margin-bottom: 10px;
     overflow: hidden;
+    transition: outline-color 0.2s ease;
+  }}
+  .run-card-highlight {{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }}
   .run-card summary {{
     cursor: pointer;
@@ -939,6 +1061,108 @@ def build_html(runs, aggregate, winrate_stats=None):
     box-shadow: 0 10px 40px rgba(0,0,0,0.6);
   }}
 
+  /* Click-through modal (symbol detail & filtered lists) */
+  .modal-overlay {{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }}
+  .modal-overlay.open {{ display: flex; }}
+  .modal-box {{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 460px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+  }}
+  .modal-box.wide {{ max-width: 640px; }}
+  .modal-close {{
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    cursor: pointer;
+    color: var(--text-soft);
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 4px 8px;
+  }}
+  .modal-close:hover {{ color: var(--text); }}
+  .modal-box h3 {{
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    padding-right: 24px;
+  }}
+  .modal-sub {{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }}
+  .modal-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }}
+  .modal-grid {{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+  }}
+  .modal-grid .label {{
+    color: var(--text-soft);
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }}
+  .modal-grid .val {{ font-family: var(--mono); font-weight: 600; }}
+  .modal-chart {{
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    display: block;
+  }}
+  .modal-view-run {{
+    margin-top: 14px;
+    background: var(--panel-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    cursor: pointer;
+  }}
+  .modal-view-run:hover {{ border-color: var(--accent); }}
+
+  .list-scroll {{ display: flex; flex-direction: column; }}
+  .list-row {{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 0.78rem;
+  }}
+  .list-row:last-child {{ border-bottom: none; }}
+  .list-row:hover {{ background: var(--panel-soft); }}
+  .list-sym {{ font-family: var(--mono); font-weight: 600; min-width: 66px; }}
+  .list-meta {{ color: var(--text-soft); font-size: 0.7rem; }}
+  .list-score {{ margin-left: auto; font-family: var(--mono); color: var(--accent); font-weight: 600; }}
+
   .warn-dot {{ color: var(--waiting); font-size: 0.95rem; }}
 
   .muted {{ color: var(--text-soft); }}
@@ -1042,52 +1266,52 @@ def build_html(runs, aggregate, winrate_stats=None):
       <div class="symbol-grid">{top_symbols_html}</div>
     </div>
 
-    <div class="card" style="--card-accent:{CYAN}">
+    <div class="card card-clickable" style="--card-accent:{CYAN}" onclick="scrollToRuns()">
       <h3>Total Scan Runs</h3>
       <div class="value" style="color:{CYAN}">{aggregate['total_runs']}</div>
       <div class="sub">recent runs processed</div>
     </div>
 
-    <div class="card" style="--card-accent:{ACCENT}">
+    <div class="card card-clickable" style="--card-accent:{ACCENT}" onclick="openFilteredList('all', 'All Candidates (Most Recent First)')">
       <h3>Total Candidates</h3>
       <div class="value" style="color:{ACCENT}">{aggregate['total_candidates']}</div>
       <div class="sub">across all runs combined</div>
     </div>
 
-    <div class="card" style="--card-accent:{REFERENCE}">
+    <div class="card card-clickable" style="--card-accent:{REFERENCE}" onclick="openFilteredList('top_score', 'Top Scored Setups')">
       <h3>Avg Score</h3>
       <div class="value" style="color:{REFERENCE}">{avg_score_html}</div>
       <div class="sub">average across all candidates</div>
     </div>
 
-    <div class="card" style="--card-accent:{READY}">
+    <div class="card card-clickable" style="--card-accent:{READY}" onclick="openFilteredList('entry_ready', 'Entry Ready Setups')">
       <h3>Entry State</h3>
       <div class="value" style="font-size:1.3rem">
         <span style="color:var(--ready)">{ready_c}</span>
         <span class="muted" style="font-weight:400;font-size:0.85rem"> ready</span>
       </div>
-      <div class="sub">{waiting_c} waiting</div>
+      <div class="sub" style="cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px" onclick="event.stopPropagation(); openFilteredList('waiting', 'Waiting Setups')">{waiting_c} waiting</div>
     </div>
 
-    <div class="card" style="--card-accent:{UP}">
+    <div class="card card-clickable" style="--card-accent:{UP}" onclick="scrollToRuns()">
       <h3>Side Distribution</h3>
       <div class="side-bar">
         <div class="long" style="width:{long_pct}%"></div>
         <div class="short" style="width:{short_pct}%"></div>
       </div>
       <div class="side-legend">
-        <span style="color:var(--up)">LONG {long_c}</span>
-        <span style="color:var(--down)">SHORT {short_c}</span>
+        <span style="color:var(--up);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px" onclick="event.stopPropagation(); openFilteredList('long', 'LONG Setups')">LONG {long_c}</span>
+        <span style="color:var(--down);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px" onclick="event.stopPropagation(); openFilteredList('short', 'SHORT Setups')">SHORT {short_c}</span>
       </div>
     </div>
 
-    <div class="card" style="--card-accent:{LINK}">
+    <div class="card card-clickable" style="--card-accent:{LINK}" onclick="scrollToRuns()">
       <h3>Final Candidates / Run Trend</h3>
       {trend_svg}
     </div>
   </div>
 
-  <h2 class="section-title">Scan Runs (most recent first)</h2>
+  <h2 class="section-title" id="scan-runs">Scan Runs (most recent first)</h2>
 
   {run_sections}
 
@@ -1100,7 +1324,26 @@ def build_html(runs, aggregate, winrate_stats=None):
     <img id="lightboxImg" src="" alt="Chart preview">
   </div>
 
+  <div class="modal-overlay" id="symbolModalOverlay" onclick="closeSymbolModal()">
+    <div class="modal-box" id="symbolModalBox" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeSymbolModal()">&times;</button>
+      <div id="symbolModalBody"></div>
+    </div>
+  </div>
+
   <script>
+    const SYMBOL_LATEST = {symbol_latest_json};
+    const ALL_CANDIDATES = {all_candidates_json};
+    const SETUP_COLORS_JS = {json.dumps(SETUP_COLORS)};
+    const ENTRY_STATE_COLORS_JS = {json.dumps(ENTRY_STATE_COLORS)};
+    const SIDE_COLORS_JS = {json.dumps(SIDE_COLORS)};
+    const MUTED_JS = "{MUTED}";
+
+    function jsBadge(text, colorMap) {{
+      var color = colorMap[text] || MUTED_JS;
+      return '<span class="badge" style="color:' + color + ';border-color:' + color + '55;background:' + color + '1f">' + text + '</span>';
+    }}
+
     function openLightbox(src) {{
       var overlay = document.getElementById('lightboxOverlay');
       var img = document.getElementById('lightboxImg');
@@ -1111,8 +1354,123 @@ def build_html(runs, aggregate, winrate_stats=None):
       document.getElementById('lightboxOverlay').classList.remove('open');
       document.getElementById('lightboxImg').src = '';
     }}
+
+    function scrollToRuns() {{
+      var el = document.getElementById('scan-runs');
+      if (el) el.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+    }}
+
+    function jumpToRun(runId) {{
+      var el = document.querySelector('details[data-run-id="' + runId + '"]');
+      if (!el) return;
+      el.open = true;
+      el.classList.add('run-card-highlight');
+      setTimeout(function() {{
+        el.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+      }}, 50);
+      setTimeout(function() {{ el.classList.remove('run-card-highlight'); }}, 2500);
+    }}
+
+    // Single-symbol detail modal (from a "Most Frequent Symbols" chip)
+    function openSymbolModal(symbol) {{
+      var data = SYMBOL_LATEST[symbol];
+      var box = document.getElementById('symbolModalBox');
+      var body = document.getElementById('symbolModalBody');
+      box.classList.remove('wide');
+
+      if (!data) {{
+        body.innerHTML = '<h3>' + symbol + '</h3><p class="muted small">No setup data found.</p>';
+        document.getElementById('symbolModalOverlay').classList.add('open');
+        return;
+      }}
+
+      var tpText = data.tp || '&mdash;';
+      var biasText = data.htf_bias || '&mdash;';
+      var chartHtml = data.chart
+        ? '<img class="modal-chart" src="' + data.chart + '" alt="' + symbol + ' chart" onclick="openLightbox(\\'' + data.chart + '\\')">'
+        : '';
+
+      body.innerHTML =
+        '<h3>' + symbol + '</h3>' +
+        '<div class="modal-sub">Latest setup &middot; ' + data.generated_at + '</div>' +
+        '<div class="modal-badges">' +
+          jsBadge(data.side, SIDE_COLORS_JS) +
+          jsBadge(data.setup_style, SETUP_COLORS_JS) +
+          jsBadge(data.entry_state, ENTRY_STATE_COLORS_JS) +
+        '</div>' +
+        '<div class="modal-grid">' +
+          '<div><div class="label">Score</div><div class="val">' + data.score + '</div></div>' +
+          '<div><div class="label">Exec TF</div><div class="val">' + data.execution_tf + ' (' + data.tf_agreement + '/3)</div></div>' +
+          '<div><div class="label">Entry</div><div class="val">' + data.entry + '</div></div>' +
+          '<div><div class="label">SL</div><div class="val">' + data.sl + '</div></div>' +
+          '<div><div class="label">TP</div><div class="val">' + tpText + '</div></div>' +
+          '<div><div class="label">HTF Bias</div><div class="val">' + biasText + '</div></div>' +
+        '</div>' +
+        chartHtml +
+        '<button class="modal-view-run" onclick="closeSymbolModal(); jumpToRun(\\'' + data.run_id + '\\')">View in scan run &rarr;</button>';
+
+      document.getElementById('symbolModalOverlay').classList.add('open');
+    }}
+
+    // Filtered candidate list modal (from the summary cards)
+    function filterCandidates(type) {{
+      if (type === 'entry_ready') {{
+        return ALL_CANDIDATES.filter(function(it) {{ return it.entry_state === 'ENTRY_READY'; }});
+      }}
+      if (type === 'waiting') {{
+        return ALL_CANDIDATES.filter(function(it) {{
+          return it.entry_state === 'WAITING_RETEST' || it.entry_state === 'WAITING_PULLBACK';
+        }});
+      }}
+      if (type === 'long') {{
+        return ALL_CANDIDATES.filter(function(it) {{ return it.side === 'LONG'; }});
+      }}
+      if (type === 'short') {{
+        return ALL_CANDIDATES.filter(function(it) {{ return it.side === 'SHORT'; }});
+      }}
+      if (type === 'top_score') {{
+        return ALL_CANDIDATES.slice().sort(function(a, b) {{
+          return (b.score_raw || 0) - (a.score_raw || 0);
+        }}).slice(0, 25);
+      }}
+      return ALL_CANDIDATES;
+    }}
+
+    function openFilteredList(type, title) {{
+      var items = filterCandidates(type);
+      var box = document.getElementById('symbolModalBox');
+      var body = document.getElementById('symbolModalBody');
+      box.classList.add('wide');
+
+      var rowsHtml = items.length
+        ? items.map(function(it) {{
+            return '<div class="list-row" onclick="closeSymbolModal(); jumpToRun(\\'' + it.run_id + '\\')">' +
+              '<span class="list-sym">' + it.symbol + '</span>' +
+              jsBadge(it.side, SIDE_COLORS_JS) +
+              jsBadge(it.setup_style, SETUP_COLORS_JS) +
+              '<span class="list-meta">' + it.execution_tf + '</span>' +
+              '<span class="list-score">' + it.score + '</span>' +
+            '</div>';
+          }}).join('')
+        : '<p class="muted small">No matching candidates.</p>';
+
+      body.innerHTML =
+        '<h3>' + title + '</h3>' +
+        '<div class="modal-sub">' + items.length + ' candidate(s) &middot; click a row to open its scan run</div>' +
+        '<div class="list-scroll">' + rowsHtml + '</div>';
+
+      document.getElementById('symbolModalOverlay').classList.add('open');
+    }}
+
+    function closeSymbolModal() {{
+      document.getElementById('symbolModalOverlay').classList.remove('open');
+    }}
+
     document.addEventListener('keydown', function(e) {{
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {{
+        closeLightbox();
+        closeSymbolModal();
+      }}
     }});
   </script>
 
