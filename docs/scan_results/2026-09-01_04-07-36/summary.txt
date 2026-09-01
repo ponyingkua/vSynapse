@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T04:07:32.676401+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BSBUSDT | Side: LONG | Score: 8.16
+   - Entry : 0.11125
+   - SL    : 0.10323
+   - TP    : 0.12328, 0.12929, 0.13531
+   - Invalidation: Close below 0.10323 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: CRVUSDT | Side: LONG | Score: 8.07
+   - Entry : 0.35630
+   - SL    : 0.33320
+   - TP    : 0.39095, 0.40828, 0.42560
+   - Invalidation: Close below 0.3332 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: AEROUSDT | Side: LONG | Score: 7.3
+   - Entry : 0.48930
+   - SL    : 0.47390
+   - TP    : 0.51240, 0.52395, 0.53550
+   - Invalidation: Close below 0.4739 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: PENDLEUSDT | Side: LONG | Score: 6.32
+   - Entry : 1.7984
+   - SL    : 1.7533
+   - TP    : 1.8660, 1.8999, 1.9337
+   - Invalidation: Close below 1.7533 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: PLUMEUSDT | Side: LONG | Score: 6.11
+   - Entry : 0.01474
+   - SL    : 0.01421
+   - TP    : 0.01553, 0.01593, 0.01633
+   - Invalidation: Close below 0.01421 / loss of recent 15m swing low
+----------------------------------------
