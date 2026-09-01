@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T22:51:09.317346+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OPGUSDT | Side: LONG | Score: 5.62
+   - Entry : 0.09747
+   - SL    : 0.09338
+   - TP    : 0.10359, 0.10666, 0.10972
+   - Invalidation: Close below 0.093381086 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: BEATUSDT | Side: LONG | Score: 5.1
+   - Entry : 0.13490
+   - SL    : 0.12500
+   - TP    : 0.14975, 0.15717, 0.16460
+   - Invalidation: Close below 0.125 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: LSKUSDT | Side: LONG | Score: 4.41
+   - Entry : 0.10049
+   - SL    : 0.09727
+   - TP    : 0.10532, 0.10773, 0.11015
+   - Invalidation: Close below 0.09727 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: METISUSDT | Side: SHORT | Score: 4.27
+   - Entry : 2.6810
+   - SL    : 2.7230
+   - TP    : 2.6179, 2.5864, 2.5549
+   - Invalidation: Close above 2.723 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: APTUSDT | Side: SHORT | Score: 4.19
+   - Entry : 0.54320
+   - SL    : 0.55150
+   - TP    : 0.53075, 0.52453, 0.51830
+   - Invalidation: Close above 0.5515 / reclaim of recent 15m swing high
+----------------------------------------
