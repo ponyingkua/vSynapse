@@ -776,48 +776,6 @@
       "added_at": "2026-09-01T08:29:18.114628+00:00"
     },
     {
-      "id": "METISUSDT_SHORT_15m_2026-09-01_08-34-15",
-      "symbol": "METISUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.6592,
-      "sl": 2.713,
-      "tp": [
-        2.5784,
-        2.538,
-        2.4976
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-01_08-34-15",
-      "first_seen": "2026-09-01T08:34:11.480578+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:34:11.480578+00:00"
-    },
-    {
-      "id": "METISUSDT_SHORT_15m_2026-09-01_08-43-54",
-      "symbol": "METISUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.6592,
-      "sl": 2.713,
-      "tp": [
-        2.5784,
-        2.538,
-        2.4976
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-01_08-43-54",
-      "first_seen": "2026-09-01T08:43:49.986873+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:43:49.986873+00:00"
-    },
-    {
       "id": "HEIUSDT_LONG_15m_2026-09-01_09-27-26",
       "symbol": "HEIUSDT",
       "side": "LONG",
@@ -3722,6 +3680,29 @@
       "partial_check_done": true
     },
     {
+      "id": "AKEUSDT_LONG_1h_2026-09-01_10-44-05",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008943,
+      "sl": 0.00828,
+      "tp": [
+        0.009938,
+        0.010435,
+        0.010932
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_10-44-05",
+      "first_seen": "2026-09-01T10:44:01.563485+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T11:00:00+00:00",
+      "partial_check_from": "2026-09-01T10:44:01.563485+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "MINAUSDT_LONG_15m_2026-09-01_06-27-12",
       "symbol": "MINAUSDT",
       "side": "LONG",
@@ -3767,6 +3748,29 @@
       "partial_check_done": true
     },
     {
+      "id": "AVNTUSDT_LONG_1h_2026-09-01_10-44-05",
+      "symbol": "AVNTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.10117,
+      "sl": 0.09923,
+      "tp": [
+        0.10407,
+        0.10552,
+        0.10697
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_10-44-05",
+      "first_seen": "2026-09-01T10:44:01.563485+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T11:00:00+00:00",
+      "partial_check_from": "2026-09-01T10:44:01.563485+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "STRKUSDT_LONG_4h_2026-09-01_10-29-40",
       "symbol": "STRKUSDT",
       "side": "LONG",
@@ -3788,6 +3792,119 @@
       "triggered_at": "2026-09-01T12:00:00+00:00",
       "partial_check_from": "2026-09-01T10:29:35.533392+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SOMIUSDT_SHORT_15m_2026-09-01_10-44-05",
+      "symbol": "SOMIUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1162,
+      "sl": 0.1196,
+      "tp": [
+        0.1111,
+        0.10855,
+        0.106
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_10-44-05",
+      "first_seen": "2026-09-01T10:44:01.563485+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T10:45:00+00:00",
+      "partial_check_from": "2026-09-01T10:44:01.563485+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "STXUSDT_LONG_1h_2026-09-01_10-44-05",
+      "symbol": "STXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.2521,
+      "sl": 0.2457,
+      "tp": [
+        0.2617,
+        0.2665,
+        0.2713
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_10-44-05",
+      "first_seen": "2026-09-01T10:44:01.563485+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T11:00:00+00:00",
+      "partial_check_from": "2026-09-01T10:44:01.563485+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "POLYXUSDT_LONG_15m_2026-09-01_10-44-05",
+      "symbol": "POLYXUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.03402,
+      "sl": 0.03325,
+      "tp": [
+        0.03517,
+        0.03575,
+        0.03633
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_10-44-05",
+      "first_seen": "2026-09-01T10:44:01.563485+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T10:45:00+00:00",
+      "partial_check_from": "2026-09-01T10:44:01.563485+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "METISUSDT_SHORT_15m_2026-09-01_08-34-15",
+      "symbol": "METISUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.6592,
+      "sl": 2.713,
+      "tp": [
+        2.5784,
+        2.538,
+        2.4976
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_08-34-15",
+      "first_seen": "2026-09-01T08:34:11.480578+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:34:11.480578+00:00",
+      "triggered_at": "2026-09-01T10:30:00+00:00"
+    },
+    {
+      "id": "METISUSDT_SHORT_15m_2026-09-01_08-43-54",
+      "symbol": "METISUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.6592,
+      "sl": 2.713,
+      "tp": [
+        2.5784,
+        2.538,
+        2.4976
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_08-43-54",
+      "first_seen": "2026-09-01T08:43:49.986873+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:43:49.986873+00:00",
+      "triggered_at": "2026-09-01T10:30:00+00:00"
     }
   ],
   "closed": [
@@ -8488,6 +8605,7 @@
     "2026-09-01_09-41-19",
     "2026-09-01_09-53-47",
     "2026-09-01_10-09-00",
-    "2026-09-01_10-29-40"
+    "2026-09-01_10-29-40",
+    "2026-09-01_10-44-05"
   ]
 }

@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T10:44:01.563485+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: AKEUSDT | Side: LONG | Score: 4.49
+   - Entry : 0.008943
+   - SL    : 0.008280
+   - TP    : 0.009938, 0.010435, 0.010932
+   - Invalidation: Close below 0.00828 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: AVNTUSDT | Side: LONG | Score: 4.28
+   - Entry : 0.10117
+   - SL    : 0.09923
+   - TP    : 0.10407, 0.10552, 0.10697
+   - Invalidation: Close below 0.09923 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: SOMIUSDT | Side: SHORT | Score: 4.06
+   - Entry : 0.11620
+   - SL    : 0.11960
+   - TP    : 0.11110, 0.10855, 0.10600
+   - Invalidation: Close above 0.1196 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: STXUSDT | Side: LONG | Score: 3.99
+   - Entry : 0.25210
+   - SL    : 0.24570
+   - TP    : 0.26170, 0.26650, 0.27130
+   - Invalidation: Close below 0.2457 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: POLYXUSDT | Side: LONG | Score: 3.96
+   - Entry : 0.03402
+   - SL    : 0.03325
+   - TP    : 0.03517, 0.03575, 0.03633
+   - Invalidation: Close below 0.03325 / loss of recent 15m swing low
+----------------------------------------
