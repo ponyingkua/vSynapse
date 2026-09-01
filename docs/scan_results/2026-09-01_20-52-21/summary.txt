@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T20:52:17.012104+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: WALUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.02535
+   - SL    : 0.02396
+   - TP    : 0.02744, 0.02848, 0.02952
+   - Invalidation: Close below 0.02396 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: CTSIUSDT | Side: SHORT | Score: 5.62
+   - Entry : 0.02461
+   - SL    : 0.02524
+   - TP    : 0.02367, 0.02319, 0.02272
+   - Invalidation: Close above 0.02524386 / reclaim of recent 4h swing high
+----------------------------------------
+3. Symbol: BEATUSDT | Side: LONG | Score: 4.75
+   - Entry : 0.13212
+   - SL    : 0.12450
+   - TP    : 0.14355, 0.14927, 0.15498
+   - Invalidation: Close below 0.1245 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ZAMAUSDT | Side: SHORT | Score: 4.42
+   - Entry : 0.05024
+   - SL    : 0.05234
+   - TP    : 0.04709, 0.04552, 0.04394
+   - Invalidation: Close above 0.052338056 / reclaim of recent 4h swing high
+----------------------------------------
+5. Symbol: MORPHOUSDT | Side: LONG | Score: 4.41
+   - Entry : 2.5636
+   - SL    : 2.5155
+   - TP    : 2.6358, 2.6718, 2.7079
+   - Invalidation: Close below 2.5155 / loss of recent 15m swing low
+----------------------------------------
