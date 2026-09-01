@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T21:38:01.675995+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BEATUSDT | Side: LONG | Score: 6.06
+   - Entry : 0.13290
+   - SL    : 0.12450
+   - TP    : 0.14551, 0.15181, 0.15811
+   - Invalidation: Close below 0.1245 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BIOUSDT | Side: SHORT | Score: 6.72
+   - Entry : 0.02628
+   - SL    : 0.02707
+   - TP    : 0.02509, 0.02450, 0.02390
+   - Invalidation: Close above 0.027067956 / reclaim of recent 4h swing high
+----------------------------------------
