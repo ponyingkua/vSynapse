@@ -14,24 +14,23 @@ from pathlib import Path
 
 # DESIGN TOKENS
 
-BG = "#080808"
-PANEL = "#131313"
-PANEL_SOFT = "#1b1b1b"
-BORDER = "#2b2b2b"
-TEXT = "#f0f0ec"
-TEXT_SOFT = "#8c8c86"
-MUTED = "#4a4a46"
+BG = "#000000"          # hitam pekat, bukan kecoklatan
+PANEL = "#101112"
+PANEL_SOFT = "#1a1b1d"
+BORDER = "#2b2e31"
+TEXT = "#eaecef"        # putih Binance
+TEXT_SOFT = "#848e9c"   # abu-abu Binance
+MUTED = "#4a4e54"
 
-ACCENT = "#e6b526"      # kuning Binance, dimutedkan - aksen utama
-ACCENT_DEEP = "#a9840f" # kuning gelap/perunggu - aksen sekunder
-UP = "#4aa88f"          # long (teal muted, tetap dipisah dari kuning
-                        # karena ini sinyal fungsional, bukan dekorasi)
-DOWN = "#bd5c53"        # short (terracotta muted)
+ACCENT = "#F0B90B"      # kuning Binance asli - aksen utama
+ACCENT_DEEP = "#FCD535" # kuning terang Binance - aksen sekunder
+UP = "#0ECB81"          # long (hijau Binance)
+DOWN = "#F6465D"        # short (merah Binance)
 LINK = ACCENT           # chart link & tren ikut kuning
 REFERENCE = ACCENT_DEEP # breakout/breakdown
 READY = UP              # entry ready = sinyal "go", pakai warna sama dgn long
 WAITING = ACCENT
-GOLD = ACCENT_DEEP      # top symbols
+GOLD = ACCENT           # top symbols
 CYAN = TEXT_SOFT        # total run - dinetralkan, bukan metrik "sinyal"
 
 
@@ -616,10 +615,7 @@ def build_html(runs, aggregate, winrate_stats=None):
   }}
 
   body {{
-    background:
-      radial-gradient(1200px 600px at 15% -10%, #101a26 0%, transparent 60%),
-      repeating-linear-gradient(180deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px),
-      var(--bg);
+    background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
     line-height: 1.5;
@@ -661,13 +657,13 @@ def build_html(runs, aggregate, winrate_stats=None):
     height: 7px;
     border-radius: 50%;
     background: var(--ready);
-    box-shadow: 0 0 0 0 rgba(57,217,138,0.6);
+    box-shadow: 0 0 0 0 rgba(14,203,129,0.6);
     animation: pulse 2s infinite;
   }}
   @keyframes pulse {{
-    0%   {{ box-shadow: 0 0 0 0 rgba(57,217,138,0.5); }}
-    70%  {{ box-shadow: 0 0 0 6px rgba(57,217,138,0); }}
-    100% {{ box-shadow: 0 0 0 0 rgba(57,217,138,0); }}
+    0%   {{ box-shadow: 0 0 0 0 rgba(14,203,129,0.5); }}
+    70%  {{ box-shadow: 0 0 0 6px rgba(14,203,129,0); }}
+    100% {{ box-shadow: 0 0 0 0 rgba(14,203,129,0); }}
   }}
 
   /* Section titles */
@@ -861,8 +857,8 @@ def build_html(runs, aggregate, winrate_stats=None):
   td {{ border-bottom: 1px solid var(--panel-soft); }}
   tr:last-child td {{ border-bottom: none; }}
   tr:hover td {{ background: var(--panel-soft); }}
-  tr.side-long:hover td {{ background: #10241f; }}
-  tr.side-short:hover td {{ background: #2a1417; }}
+  tr.side-long:hover td {{ background: #0c211b; }}
+  tr.side-short:hover td {{ background: #2b1418; }}
 
   td.sym {{ font-family: var(--mono); font-weight: 600; }}
   td.num {{ font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 0.78rem; }}
@@ -928,7 +924,7 @@ def build_html(runs, aggregate, winrate_stats=None):
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.86);
+    background: rgba(0,0,0,0.9);
     z-index: 999;
     align-items: center;
     justify-content: center;
@@ -940,7 +936,7 @@ def build_html(runs, aggregate, winrate_stats=None):
     max-width: 95vw;
     max-height: 95vh;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
   }}
 
   .warn-dot {{ color: var(--waiting); font-size: 0.95rem; }}
