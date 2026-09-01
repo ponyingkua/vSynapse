@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T19:51:27.585608+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ALICEUSDT | Side: LONG | Score: 7.0
+   - Entry : 0.13630
+   - SL    : 0.13340
+   - TP    : 0.14065, 0.14283, 0.14500
+   - Invalidation: Close below 0.1334 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: SPXUSDT | Side: LONG | Score: 5.17
+   - Entry : 0.56740
+   - SL    : 0.54670
+   - TP    : 0.59845, 0.61398, 0.62950
+   - Invalidation: Close below 0.5467 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ZILUSDT | Side: LONG | Score: 4.75
+   - Entry : 0.002674
+   - SL    : 0.002571
+   - TP    : 0.002829, 0.002906, 0.002983
+   - Invalidation: Close below 0.002571 / loss of recent 4h swing low
+----------------------------------------
+4. Symbol: METUSDT | Side: LONG | Score: 4.43
+   - Entry : 0.19418
+   - SL    : 0.18740
+   - TP    : 0.20436, 0.20944, 0.21453
+   - Invalidation: Close below 0.1874 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: TIAUSDT | Side: LONG | Score: 4.35
+   - Entry : 0.34414
+   - SL    : 0.32260
+   - TP    : 0.37644, 0.39259, 0.40875
+   - Invalidation: Close below 0.3226 / loss of recent 4h swing low
+----------------------------------------
