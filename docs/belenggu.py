@@ -1092,8 +1092,8 @@ def build_html(runs, aggregate, winrate_stats=None):
   {run_sections}
 
   <footer>
-    <span>belenggu.py &middot; not financial advice</span>
-    <span>dark terminal build</span>
+    <span>Synaptic Futures Journey &middot; not financial advice</span>
+    <span>vSynapse</span>
   </footer>
 
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
