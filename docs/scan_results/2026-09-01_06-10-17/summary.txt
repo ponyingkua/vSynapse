@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T06:10:14.664992+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SPXUSDT | Side: LONG | Score: 6.6
+   - Entry : 0.58566
+   - SL    : 0.54700
+   - TP    : 0.64365, 0.67265, 0.70164
+   - Invalidation: Close below 0.547 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ENSUSDT | Side: LONG | Score: 8.08
+   - Entry : 6.0921
+   - SL    : 5.8020
+   - TP    : 6.5273, 6.7449, 6.9625
+   - Invalidation: Close below 5.802 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: UNIUSDT | Side: LONG | Score: 7.66
+   - Entry : 5.4710
+   - SL    : 5.1840
+   - TP    : 5.9015, 6.1167, 6.3319
+   - Invalidation: Close below 5.184 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: VIRTUALUSDT | Side: LONG | Score: 7.12
+   - Entry : 0.70679
+   - SL    : 0.68980
+   - TP    : 0.73227, 0.74502, 0.75776
+   - Invalidation: Close below 0.6898 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: 1000BONKUSDT | Side: LONG | Score: 6.92
+   - Entry : 0.003131
+   - SL    : 0.002983
+   - TP    : 0.003353, 0.003464, 0.003575
+   - Invalidation: Close below 0.002983 / loss of recent 1h swing low
+----------------------------------------
