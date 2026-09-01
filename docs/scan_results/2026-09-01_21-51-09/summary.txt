@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T21:51:05.416047+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: AIAUSDT | Side: LONG | Score: 5.49
+   - Entry : 0.07844
+   - SL    : 0.07418
+   - TP    : 0.08483, 0.08802, 0.09121
+   - Invalidation: Close below 0.07418 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: 1000BONKUSDT | Side: SHORT | Score: 4.83
+   - Entry : 0.002967
+   - SL    : 0.003054
+   - TP    : 0.002837, 0.002771, 0.002706
+   - Invalidation: Close above 0.003054 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: POWERUSDT | Side: LONG | Score: 4.33
+   - Entry : 0.08452
+   - SL    : 0.08019
+   - TP    : 0.09101, 0.09426, 0.09751
+   - Invalidation: Close below 0.080192475 / loss of recent 4h swing low
+----------------------------------------
+4. Symbol: ZRXUSDT | Side: SHORT | Score: 4.19
+   - Entry : 0.09630
+   - SL    : 0.10060
+   - TP    : 0.08986, 0.08664, 0.08342
+   - Invalidation: Close above 0.1006 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: BANUSDT | Side: SHORT | Score: 4.16
+   - Entry : 0.07133
+   - SL    : 0.07247
+   - TP    : 0.06963, 0.06877, 0.06792
+   - Invalidation: Close above 0.07247 / reclaim of recent 15m swing high
+----------------------------------------
