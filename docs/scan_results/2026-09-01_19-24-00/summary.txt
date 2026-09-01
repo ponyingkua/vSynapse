@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T19:23:58.115667+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: XPINUSDT | Side: SHORT | Score: 6.36
+   - Entry : 0.001058
+   - SL    : 0.001115
+   - TP    : 0.000973, 0.000931, 0.000888
+   - Invalidation: Close above 0.001115 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: ALICEUSDT | Side: LONG | Score: 6.04
+   - Entry : 0.13675
+   - SL    : 0.13260
+   - TP    : 0.14297, 0.14608, 0.14918
+   - Invalidation: Close below 0.1326 / loss of recent 1h swing low
+----------------------------------------
