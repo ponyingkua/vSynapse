@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T04:52:09.334434+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SAFEUSDT | Side: LONG | Score: 6.26
+   - Entry : 0.09312
+   - SL    : 0.08639
+   - TP    : 0.10321, 0.10825, 0.11330
+   - Invalidation: Close below 0.08639 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: STARUSDT | Side: LONG | Score: 6.61
+   - Entry : 0.12287
+   - SL    : 0.11722
+   - TP    : 0.13135, 0.13559, 0.13983
+   - Invalidation: Close below 0.11722 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: TAGUSDT | Side: SHORT | Score: 6.21
+   - Entry : 0.0007414
+   - SL    : 0.0007670
+   - TP    : 0.0007029, 0.0006837, 0.0006645
+   - Invalidation: Close above 0.000767 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: IDOLUSDT | Side: SHORT | Score: 6.18
+   - Entry : 0.01457
+   - SL    : 0.01495
+   - TP    : 0.01400, 0.01372, 0.01343
+   - Invalidation: Close above 0.01495 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: FFUSDT | Side: SHORT | Score: 6.17
+   - Entry : 0.08331
+   - SL    : 0.08450
+   - TP    : 0.08152, 0.08063, 0.07974
+   - Invalidation: Close above 0.0845 / reclaim of recent 15m swing high
+----------------------------------------
