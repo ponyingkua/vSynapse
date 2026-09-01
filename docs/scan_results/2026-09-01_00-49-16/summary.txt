@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T00:49:14.448120+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: CVXUSDT | Side: LONG | Score: 6.02
+   - Entry : 2.2980
+   - SL    : 2.2300
+   - TP    : 2.4000, 2.4510, 2.5020
+   - Invalidation: Close below 2.23 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: CYSUSDT | Side: SHORT | Score: 6.26
+   - Entry : 0.59686
+   - SL    : 0.64080
+   - TP    : 0.53095, 0.49799, 0.46504
+   - Invalidation: Close above 0.6408 / reclaim of recent 15m swing high
+----------------------------------------
