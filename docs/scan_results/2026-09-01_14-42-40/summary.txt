@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T14:42:36.919399+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: VETUSDT | Side: LONG | Score: 5.24
+   - Entry : 0.006815
+   - SL    : 0.006553
+   - TP    : 0.007208, 0.007404, 0.007600
+   - Invalidation: Close below 0.006553 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: BANDUSDT | Side: LONG | Score: 4.56
+   - Entry : 0.18035
+   - SL    : 0.17720
+   - TP    : 0.18507, 0.18743, 0.18979
+   - Invalidation: Close below 0.1772 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ZILUSDT | Side: LONG | Score: 4.49
+   - Entry : 0.002721
+   - SL    : 0.002605
+   - TP    : 0.002895, 0.002982, 0.003069
+   - Invalidation: Close below 0.002605 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ICPUSDT | Side: LONG | Score: 4.23
+   - Entry : 2.4640
+   - SL    : 2.3770
+   - TP    : 2.5945, 2.6598, 2.7250
+   - Invalidation: Close below 2.377 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: THETAUSDT | Side: LONG | Score: 4.02
+   - Entry : 0.17080
+   - SL    : 0.16720
+   - TP    : 0.17620, 0.17890, 0.18160
+   - Invalidation: Close below 0.1672 / loss of recent 15m swing low
+----------------------------------------
