@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T08:55:06.165570+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CLANKERUSDT | Side: SHORT | Score: 5.12
+   - Entry : 12.490
+   - SL    : 13.130
+   - TP    : 11.530, 11.050, 10.570
+   - Invalidation: Close above 13.13 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: APTUSDT | Side: SHORT | Score: 4.16
+   - Entry : 0.53237
+   - SL    : 0.54220
+   - TP    : 0.51762, 0.51025, 0.50288
+   - Invalidation: Close above 0.5422 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: ARKMUSDT | Side: SHORT | Score: 4.14
+   - Entry : 0.10810
+   - SL    : 0.11160
+   - TP    : 0.10285, 0.10022, 0.09760
+   - Invalidation: Close above 0.1116 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: NIGHTUSDT | Side: SHORT | Score: 4.97
+   - Entry : 0.01853
+   - SL    : 0.01891
+   - TP    : 0.01797, 0.01769, 0.01741
+   - Invalidation: Close above 0.01891 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: POLYXUSDT | Side: SHORT | Score: 4.17
+   - Entry : 0.03337
+   - SL    : 0.03391
+   - TP    : 0.03256, 0.03215, 0.03175
+   - Invalidation: Close above 0.03391 / reclaim of recent 15m swing high
+----------------------------------------
