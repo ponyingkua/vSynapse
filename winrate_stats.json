@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T04:26:18.952000+00:00",
+  "generated_at": "2026-09-01T04:35:56.887000+00:00",
   "resolved_trades": 81,
   "wins": 18,
   "losses": 63,
@@ -79,8 +79,8 @@
   "currently_pending": 33,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
-  "entry_sl_disambiguated_via_subcandle": 0,
-  "entry_sl_ambiguous_fallback_to_sl": 0,
+  "entry_sl_disambiguated_via_subcandle": 3,
+  "entry_sl_ambiguous_fallback_to_sl": 6,
   "resolved_in_partial_entry_window": 0,
   "resolved_at_first_bar": 10,
   "resolved_at_first_bar_wins": 1,

@@ -2665,7 +2665,10 @@
       "bar_time": 1788127199999,
       "bars_held": 1,
       "closed_at": "2026-08-30T21:59:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "ARPAUSDT_LONG_1h_2026-08-30_19-47-41",
@@ -2692,7 +2695,10 @@
       "bar_time": 1788127199999,
       "bars_held": 1,
       "closed_at": "2026-08-30T21:59:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "GALAUSDT_SHORT_15m_2026-08-30_20-09-10",
@@ -3032,7 +3038,10 @@
       "bar_time": 1788134399999,
       "bars_held": 1,
       "closed_at": "2026-08-30T23:59:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "LITUSDT_LONG_1h_2026-08-30_19-09-31",
@@ -3139,7 +3148,10 @@
       "bar_time": 1788137999999,
       "bars_held": 1,
       "closed_at": "2026-08-31T00:59:59.999000+00:00",
-      "r_multiple": 1.5
+      "r_multiple": 1.5,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "reprocessed": true
     },
     {
       "id": "GRASSUSDT_LONG_15m_2026-08-30_23-09-52",
@@ -3165,7 +3177,11 @@
       "bar_time": 1788132599999,
       "bars_held": 1,
       "closed_at": "2026-08-30T23:29:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "resolved_via": "subcandle_entry",
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "reprocessed": true
     },
     {
       "id": "PORTALUSDT_LONG_15m_2026-08-30_23-09-52",
@@ -3191,7 +3207,11 @@
       "bar_time": 1788132599999,
       "bars_held": 1,
       "closed_at": "2026-08-30T23:29:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "resolved_via": "subcandle_entry",
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "reprocessed": true
     },
     {
       "id": "ZESTUSDT_SHORT_15m_2026-08-30_22-09-13",
@@ -3551,7 +3571,10 @@
       "bar_time": 1788173999999,
       "bars_held": 1,
       "closed_at": "2026-08-31T10:59:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "ENJUSDT_SHORT_1h_2026-08-30_21-09-40",
@@ -3682,7 +3705,10 @@
       "bar_time": 1788179399999,
       "bars_held": 1,
       "closed_at": "2026-08-31T12:29:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "BARDUSDT_LONG_4h_2026-08-30_18-51-55",
@@ -4034,7 +4060,10 @@
       "bar_time": 1788184799999,
       "bars_held": 1,
       "closed_at": "2026-08-31T13:59:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": true,
+      "reprocessed": true
     },
     {
       "id": "USELESSUSDT_LONG_1h_2026-08-30_22-09-13",
@@ -4681,7 +4710,11 @@
       "bar_time": 1788221699999,
       "bars_held": 1,
       "closed_at": "2026-09-01T00:14:59.999000+00:00",
-      "r_multiple": -1.0
+      "r_multiple": -1.0,
+      "resolved_via": "subcandle_entry",
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "reprocessed": true
     },
     {
       "id": "ZESTUSDT_SHORT_15m_2026-08-31_09-10-00",
