@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T11:25:33.965604+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ONTUSDT | Side: LONG | Score: 6.92
+   - Entry : 0.05484
+   - SL    : 0.05220
+   - TP    : 0.05881, 0.06079, 0.06277
+   - Invalidation: Close below 0.0522 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MUSDT | Side: SHORT | Score: 4.88
+   - Entry : 1.0745
+   - SL    : 1.0876
+   - TP    : 1.0548, 1.0450, 1.0351
+   - Invalidation: Close above 1.0876 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: TURTLEUSDT | Side: SHORT | Score: 4.88
+   - Entry : 0.04201
+   - SL    : 0.04233
+   - TP    : 0.04153, 0.04129, 0.04105
+   - Invalidation: Close above 0.04233 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: ESPORTSUSDT | Side: SHORT | Score: 4.78
+   - Entry : 0.01572
+   - SL    : 0.01627
+   - TP    : 0.01490, 0.01448, 0.01407
+   - Invalidation: Close above 0.01627 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: INUSDT | Side: LONG | Score: 4.09
+   - Entry : 0.03355
+   - SL    : 0.03284
+   - TP    : 0.03462, 0.03515, 0.03568
+   - Invalidation: Close below 0.03284 / loss of recent 15m swing low
+----------------------------------------
