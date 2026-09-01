@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T06:32:00.167512+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: UNIUSDT | Side: LONG | Score: 8.86
+   - Entry : 5.4710
+   - SL    : 5.1840
+   - TP    : 5.9015, 6.1167, 6.3319
+   - Invalidation: Close below 5.184 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: TAGUSDT | Side: SHORT | Score: 6.51
+   - Entry : 0.0007190
+   - SL    : 0.0007420
+   - TP    : 0.0006846, 0.0006673, 0.0006501
+   - Invalidation: Close above 0.000742 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: SUSHIUSDT | Side: LONG | Score: 6.18
+   - Entry : 0.19886
+   - SL    : 0.19230
+   - TP    : 0.20871, 0.21363, 0.21855
+   - Invalidation: Close below 0.1923 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: AEROUSDT | Side: LONG | Score: 6.04
+   - Entry : 0.49370
+   - SL    : 0.46930
+   - TP    : 0.53030, 0.54860, 0.56690
+   - Invalidation: Close below 0.4693 / loss of recent 1h swing low
+----------------------------------------
