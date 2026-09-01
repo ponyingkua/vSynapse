@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T01:06:19.534408+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: LABUSDT | Side: SHORT | Score: 7.96
+   - Entry : 0.07180
+   - SL    : 0.07616
+   - TP    : 0.06525, 0.06198, 0.05871
+   - Invalidation: Close above 0.07616 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: OPUSDT | Side: LONG | Score: 7.38
+   - Entry : 0.09435
+   - SL    : 0.08795
+   - TP    : 0.10394, 0.10874, 0.11353
+   - Invalidation: Close below 0.08795 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: CVXUSDT | Side: LONG | Score: 6.13
+   - Entry : 2.2896
+   - SL    : 2.1550
+   - TP    : 2.4914, 2.5923, 2.6932
+   - Invalidation: Close below 2.155 / loss of recent 1h swing low
+----------------------------------------
