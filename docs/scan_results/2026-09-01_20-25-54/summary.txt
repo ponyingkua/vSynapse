@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T20:25:51.490571+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: JSTUSDT | Side: LONG | Score: 6.93
+   - Entry : 0.10263
+   - SL    : 0.09668
+   - TP    : 0.11155, 0.11601, 0.12047
+   - Invalidation: Close below 0.09668 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: WALUSDT | Side: LONG | Score: 6.86
+   - Entry : 0.02567
+   - SL    : 0.02396
+   - TP    : 0.02823, 0.02952, 0.03080
+   - Invalidation: Close below 0.02396 / loss of recent 4h swing low
+----------------------------------------
