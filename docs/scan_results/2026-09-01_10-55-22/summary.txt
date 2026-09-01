@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T10:55:19.373403+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: RSRUSDT | Side: LONG | Score: 4.78
+   - Entry : 0.001379
+   - SL    : 0.001343
+   - TP    : 0.001433, 0.001460, 0.001487
+   - Invalidation: Close below 0.001343 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: STGUSDT | Side: LONG | Score: 4.74
+   - Entry : 0.16960
+   - SL    : 0.16610
+   - TP    : 0.17485, 0.17747, 0.18010
+   - Invalidation: Close below 0.1661 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ARKUSDT | Side: LONG | Score: 4.69
+   - Entry : 0.11090
+   - SL    : 0.10860
+   - TP    : 0.11435, 0.11607, 0.11780
+   - Invalidation: Close below 0.1086 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: TAUSDT | Side: SHORT | Score: 4.47
+   - Entry : 0.06046
+   - SL    : 0.06187
+   - TP    : 0.05834, 0.05729, 0.05623
+   - Invalidation: Close above 0.06187 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: ONTUSDT | Side: LONG | Score: 4.17
+   - Entry : 0.05412
+   - SL    : 0.05220
+   - TP    : 0.05700, 0.05844, 0.05988
+   - Invalidation: Close below 0.0522 / loss of recent 15m swing low
+----------------------------------------
