@@ -270,6 +270,48 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "added_at": "2026-08-31T23:08:54.521545+00:00"
+    },
+    {
+      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-06-50",
+      "symbol": "PLAYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03992,
+      "sl": 0.03789,
+      "tp": [
+        0.04296,
+        0.04448,
+        0.046
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_00-06-50",
+      "first_seen": "2026-09-01T00:06:47.596561+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:06:47.596561+00:00"
+    },
+    {
+      "id": "BOMEUSDT_SHORT_1h_2026-09-01_00-06-50",
+      "symbol": "BOMEUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0008916,
+      "sl": 0.000924,
+      "tp": [
+        0.0008429,
+        0.0008186,
+        0.0007942
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-01_00-06-50",
+      "first_seen": "2026-09-01T00:06:47.596561+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:06:47.596561+00:00"
     }
   ],
   "open": [
@@ -648,27 +690,6 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "triggered_at": "2026-08-31T09:47:25.339290+00:00"
-    },
-    {
-      "id": "TACUSDT_SHORT_1h_2026-08-31_10-09-25",
-      "symbol": "TACUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.002201,
-      "sl": 0.002342,
-      "tp": [
-        0.001989,
-        0.001883,
-        0.001778
-      ],
-      "decimals": 6,
-      "run_id": "2026-08-31_10-09-25",
-      "first_seen": "2026-08-31T10:09:22.921374+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "triggered_at": "2026-08-31T10:09:22.921374+00:00"
     },
     {
       "id": "QUSDT_LONG_1h_2026-08-31_08-09-54",
@@ -1370,27 +1391,6 @@
       "run_id": "2026-08-31_23-54-18",
       "first_seen": "2026-08-31T23:54:15.739863+00:00",
       "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "triggered_at": "2026-08-31T23:54:15.739863+00:00"
-    },
-    {
-      "id": "BLUAIUSDT_SHORT_15m_2026-08-31_23-54-18",
-      "symbol": "BLUAIUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01237,
-      "sl": 0.01246,
-      "tp": [
-        0.01225,
-        0.01219,
-        0.01213
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_23-54-18",
-      "first_seen": "2026-08-31T23:54:15.739863+00:00",
-      "htf_bias": "BULLISH",
       "config_version": "v1",
       "triggered_at": "2026-08-31T23:54:15.739863+00:00"
     },
@@ -3582,6 +3582,62 @@
       "bars_held": 3,
       "closed_at": "2026-08-31T22:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "TACUSDT_SHORT_1h_2026-08-31_10-09-25",
+      "symbol": "TACUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002201,
+      "sl": 0.002342,
+      "tp": [
+        0.001989,
+        0.001883,
+        0.001778
+      ],
+      "decimals": 6,
+      "run_id": "2026-08-31_10-09-25",
+      "first_seen": "2026-08-31T10:09:22.921374+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T10:09:22.921374+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.002342,
+      "tp_index": null,
+      "bar_time": 1788220799999,
+      "bars_held": 13,
+      "closed_at": "2026-08-31T23:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "BLUAIUSDT_SHORT_15m_2026-08-31_23-54-18",
+      "symbol": "BLUAIUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01237,
+      "sl": 0.01246,
+      "tp": [
+        0.01225,
+        0.01219,
+        0.01213
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_23-54-18",
+      "first_seen": "2026-08-31T23:54:15.739863+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T23:54:15.739863+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.01246,
+      "tp_index": null,
+      "bar_time": 1788221699999,
+      "bars_held": 1,
+      "closed_at": "2026-09-01T00:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -3619,6 +3675,7 @@
     "2026-08-31_21-09-09",
     "2026-08-31_22-09-56",
     "2026-08-31_23-08-56",
-    "2026-08-31_23-54-18"
+    "2026-08-31_23-54-18",
+    "2026-09-01_00-06-50"
   ]
 }

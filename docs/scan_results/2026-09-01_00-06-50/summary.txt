@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T00:06:47.596561+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PLAYUSDT | Side: LONG | Score: 7.61
+   - Entry : 0.03992
+   - SL    : 0.03789
+   - TP    : 0.04296, 0.04448, 0.04600
+   - Invalidation: Close below 0.03789 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BOMEUSDT | Side: SHORT | Score: 6.28
+   - Entry : 0.0008916
+   - SL    : 0.0009240
+   - TP    : 0.0008429, 0.0008186, 0.0007942
+   - Invalidation: Close above 0.000924 / reclaim of recent 1h swing high
+----------------------------------------
