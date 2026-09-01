@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T14:58:00.540685+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: INJUSDT | Side: SHORT | Score: 5.17
+   - Entry : 4.8970
+   - SL    : 5.0756
+   - TP    : 4.6291, 4.4952, 4.3612
+   - Invalidation: Close above 5.0755997 / reclaim of recent 4h swing high
+----------------------------------------
+2. Symbol: METUSDT | Side: LONG | Score: 4.85
+   - Entry : 0.19650
+   - SL    : 0.19150
+   - TP    : 0.20400, 0.20775, 0.21150
+   - Invalidation: Close below 0.1915 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: VETUSDT | Side: LONG | Score: 4.72
+   - Entry : 0.006801
+   - SL    : 0.006553
+   - TP    : 0.007174, 0.007360, 0.007546
+   - Invalidation: Close below 0.006553 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: AVAXUSDT | Side: LONG | Score: 4.5
+   - Entry : 7.3260
+   - SL    : 7.2080
+   - TP    : 7.5030, 7.5915, 7.6800
+   - Invalidation: Close below 7.208 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: THEUSDT | Side: LONG | Score: 4.29
+   - Entry : 0.07084
+   - SL    : 0.06941
+   - TP    : 0.07298, 0.07406, 0.07513
+   - Invalidation: Close below 0.06941 / loss of recent 15m swing low
+----------------------------------------
