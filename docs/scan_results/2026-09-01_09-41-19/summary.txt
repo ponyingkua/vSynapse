@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T09:41:14.630968+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HEIUSDT | Side: LONG | Score: 6.22
+   - Entry : 0.14092
+   - SL    : 0.13494
+   - TP    : 0.14990, 0.15438, 0.15887
+   - Invalidation: Close below 0.13494 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: STGUSDT | Side: LONG | Score: 5.21
+   - Entry : 0.16870
+   - SL    : 0.16610
+   - TP    : 0.17260, 0.17455, 0.17650
+   - Invalidation: Close below 0.1661 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: SONICUSDT | Side: SHORT | Score: 4.66
+   - Entry : 0.02173
+   - SL    : 0.02268
+   - TP    : 0.02031, 0.01959, 0.01888
+   - Invalidation: Close above 0.02268 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: ALCHUSDT | Side: SHORT | Score: 5.86
+   - Entry : 0.03008
+   - SL    : 0.03112
+   - TP    : 0.02852, 0.02774, 0.02696
+   - Invalidation: Close above 0.03112 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: 1MBABYDOGEUSDT | Side: LONG | Score: 4.8
+   - Entry : 0.0003605
+   - SL    : 0.0003515
+   - TP    : 0.0003740, 0.0003807, 0.0003874
+   - Invalidation: Close below 0.0003515 / loss of recent 1h swing low
+----------------------------------------
