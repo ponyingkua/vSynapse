@@ -919,7 +919,10 @@ def compute_stats(trade_log):
     disambiguated = len([t for t in resolved if t.get("resolved_via") == "subcandle"])
     ambiguous_fallback = len([t for t in resolved if t.get("intrabar_ambiguous")])
     resolved_in_partial_window = len([t for t in resolved if t.get("closed_in_partial_window")])
-    resolved_at_bar_1 = len([t for t in resolved if t.get("bars_held") == 1])
+    first_bar_trades = [t for t in resolved if t.get("bars_held") == 1]
+    resolved_at_bar_1 = len(first_bar_trades)
+    resolved_at_bar_1_wins = len([t for t in first_bar_trades if t["outcome"] == "WIN"])
+    resolved_at_bar_1_losses = len([t for t in first_bar_trades if t["outcome"] == "LOSS"])
 
     return {
         "generated_at": ms_to_iso(now_ms()),
@@ -945,6 +948,8 @@ def compute_stats(trade_log):
         # rusak, tapi tanda banyak setup langsung gagal begitu entry
         # tersentuh (lihat penjelasan di chat).
         "resolved_at_first_bar": resolved_at_bar_1,
+        "resolved_at_first_bar_wins": resolved_at_bar_1_wins,
+        "resolved_at_first_bar_losses": resolved_at_bar_1_losses,
     }
 
 
