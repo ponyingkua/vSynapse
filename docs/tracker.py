@@ -41,6 +41,29 @@ PATCH NOTES - dua bug bias-ke-LOSS yang ditemukan dari winrate_stats.json
      intrabar_ambiguous=True supaya kelihatan di stats, bukan diam-diam
      dianggap pasti.
 
+  3. (REVISI INI) "Entry vs SL di candle YANG SAMA juga selalu dimenangkan
+     SL" - efek samping dari fix #1: begitu candle entry ikut disimulasikan
+     (idx=0 di simulate_outcome), kalau di candle itu juga SL kesentuh,
+     kode lama langsung declare LOSS tanpa tahu urutan sebenarnya - apakah
+     harga sentuh entry dulu baru lanjut ke SL (LOSS valid), atau justru
+     level SL yang tersentuh duluan sebelum harga sempat "mengisi" entry di
+     jendela waktu itu (order semestinya belum benar-benar terisi). Data di
+     winrate_stats.json (resolved_at_first_bar: 10, wins 1 vs losses 9)
+     konsisten dengan pola ini. FIX: mirip fix #2, candle entry yang juga
+     kena SL sekarang dibedah dulu pakai sub-candle (DISAMBIGUATION_TF) -
+     dicari sub-candle pertama yang benar-benar menyentuh harga entry, lalu
+     urutan SL/TP dicek HANYA dari titik itu ke depan. Kalau tidak bisa
+     dibedah (TF sudah paling halus / fetch sub-candle gagal), fallback ke
+     perilaku lama (asumsi SL duluan) tapi ditandai
+     entry_sl_ambiguous_fallback=True supaya kelihatan di stats, sama
+     seperti pola intrabar_ambiguous di fix #2. Disambiguasi ini SENGAJA
+     tidak diterapkan untuk kandidat yang masuk sebagai ENTRY_READY (sudah
+     "di dalam" zona entry saat scan, ditangani terpisah lewat
+     _process_partial_entry_windows) - hanya untuk kandidat yang benar-benar
+     menunggu harga menyentuh level entry (PENDING -> OPEN via
+     check_entry_triggered), karena hanya di jalur itu ada momen "sentuh
+     entry" yang diskrit untuk dibedah urutannya.
+
 Usage:
     python3 tracker.py --results-dir scan_results --log trade_log.json \\
         --stats-out winrate_stats.json
@@ -120,10 +143,10 @@ TF_MS = {
 }
 
 # Dipetakan ke timeframe yang lebih halus, dipakai _resolve_ambiguous_candle()
-# untuk membedah candle di mana SL dan TP tersentuh sekaligus (bug #2). None
-# berarti sudah di TF paling halus yang didukung - tidak ada lagi TF di
-# bawahnya untuk membedah lebih jauh, jadi harus fallback ke asumsi
-# konservatif (SL duluan).
+# dan _resolve_entry_candle_order() untuk membedah candle di mana beberapa
+# level (entry/SL/TP) tersentuh sekaligus. None berarti sudah di TF paling
+# halus yang didukung - tidak ada lagi TF di bawahnya untuk membedah lebih
+# jauh, jadi harus fallback ke asumsi konservatif.
 DISAMBIGUATION_TF = {
     "1m": None,
     "3m": "1m",
@@ -447,10 +470,119 @@ def _resolve_ambiguous_candle(record, candle):
     return None
 
 
+def _resolve_entry_candle_order(record, candle):
+    """FIX bug #3: candle entry (idx=0 di simulate_outcome) yang JUGA
+    menyentuh SL di rentang high/low-nya tidak otomatis berarti "entry lalu
+    langsung SL" - bisa saja urutan sebenarnya di dalam candle itu berbeda.
+    Fungsi ini membedah candle tersebut memakai sub-candle (DISAMBIGUATION_TF)
+    untuk mencari titik pertama harga benar-benar menyentuh level entry,
+    lalu mengevaluasi SL/TP HANYA dari titik itu ke depan (bukan dari awal
+    candle, supaya tidak menghukum pergerakan yang terjadi SEBELUM entry
+    benar-benar tersentuh).
+
+    Return salah satu dari:
+      - dict {"outcome", "exit_price", "tp_index", "resolved_via"} kalau
+        entry ditemukan DAN outcome (SL/TP) juga resolve di dalam rentang
+        candle yang sama.
+      - {"no_exit": True} kalau entry ditemukan tapi tidak ada SL/TP yang
+        tersentuh SETELAH titik entry itu (artinya sinyal SL-hit di level
+        full-candle terjadi sebelum entry benar-benar tersentuh, jadi tidak
+        relevan - simulate_outcome harus lanjut ke candle berikutnya tanpa
+        mencatat outcome apa pun untuk candle ini).
+      - None kalau tidak bisa dibedah sama sekali (TF sudah paling halus,
+        fetch sub-candle gagal/kosong, atau titik entry tidak ketemu di
+        sub-candle manapun) - caller fallback ke asumsi lama (SL duluan)
+        sambil menandai entry_sl_ambiguous_fallback=True.
+    """
+    side = record["side"]
+    sl = float(record["sl"])
+    tps = [float(t) for t in (record.get("tp") or []) if t is not None]
+    entry_price = float(record["entry"])
+
+    sub_tf = DISAMBIGUATION_TF.get(record["execution_tf"])
+    if sub_tf is None:
+        return None
+
+    open_time, close_time = candle[0], candle[6]
+    sub_klines = fetch_klines(
+        record["symbol"], sub_tf, open_time, limit=1000, end_time_ms=close_time
+    )
+    if not sub_klines:
+        return None
+
+    entered = False
+
+    for i, sub_k in enumerate(sub_klines):
+        sub_high = float(sub_k[2])
+        sub_low = float(sub_k[3])
+
+        if not entered:
+            if sub_low <= entry_price <= sub_high:
+                entered = True
+            else:
+                # Belum menyentuh entry di sub-candle ini - lanjut, jangan
+                # evaluasi SL/TP dulu (itu sebelum posisi benar-benar ada).
+                continue
+
+        sub_sl_hit = (sub_low <= sl) if side == "LONG" else (sub_high >= sl)
+
+        sub_tp_hit_index = None
+        for j, tp in enumerate(tps):
+            hit = (sub_high >= tp) if side == "LONG" else (sub_low <= tp)
+            if hit:
+                sub_tp_hit_index = j
+
+        if sub_sl_hit and sub_tp_hit_index is not None:
+            # Ambigu lagi di sub-candle ini juga - coba bedah lebih dalam
+            # pakai mesin disambiguasi SL-vs-TP yang sudah ada.
+            deeper_record = {**record, "execution_tf": sub_tf}
+            deeper = _resolve_ambiguous_candle(deeper_record, sub_k)
+            if deeper is not None:
+                return {**deeper, "resolved_via": "subcandle_entry"}
+            return None
+
+        if sub_sl_hit:
+            return {
+                "outcome": "LOSS",
+                "exit_price": sl,
+                "tp_index": None,
+                "resolved_via": "subcandle_entry",
+            }
+
+        if sub_tp_hit_index is not None:
+            return {
+                "outcome": "WIN",
+                "exit_price": tps[sub_tp_hit_index],
+                "tp_index": sub_tp_hit_index,
+                "resolved_via": "subcandle_entry",
+            }
+
+    if entered:
+        # Entry ketemu, tapi tidak ada SL/TP tersentuh SETELAH titik itu
+        # sampai akhir candle - sinyal SL-hit di level full-candle terjadi
+        # sebelum entry beneran tersentuh, jadi tidak relevan untuk candle
+        # ini.
+        return {"no_exit": True}
+
+    # Titik entry tidak ketemu sama sekali di sub-candle (seharusnya jarang,
+    # karena parent candle sudah lolos check_entry_triggered) - tidak bisa
+    # dibedah dengan yakin.
+    return None
+
+
 def simulate_outcome(record, klines):
     side = record["side"]
     sl = float(record["sl"])
     tps = [float(t) for t in (record.get("tp") or []) if t is not None]
+
+    # Disambiguasi entry-vs-SL (fix bug #3) hanya berlaku untuk candle
+    # pertama dalam simulasi ini (idx==0), dan hanya untuk record yang
+    # memang menunggu harga menyentuh level entry secara diskrit (jalur
+    # PENDING -> OPEN via check_entry_triggered). Record ENTRY_READY sudah
+    # "di dalam" zona entry sejak awal (ditangani terpisah lewat
+    # _process_partial_entry_windows), jadi tidak ada momen "sentuh entry"
+    # yang perlu dibedah di sini.
+    is_entry_touch_flow = not record.get("partial_check_from")
 
     for idx, k in enumerate(klines):
         high = float(k[2])
@@ -470,6 +602,50 @@ def simulate_outcome(record, klines):
                                   # the FARTHEST one actually reached, not
                                   # just the nearest.
 
+        if idx == 0 and is_entry_touch_flow and sl_hit:
+            # FIX bug #3 - candle entry ini juga menyentuh SL. Jangan
+            # langsung asumsi "entry lalu SL" - bedah dulu urutan
+            # sebenarnya pakai sub-candle.
+            entry_resolved = _resolve_entry_candle_order(record, k)
+
+            if entry_resolved is not None:
+                if entry_resolved.get("no_exit"):
+                    # SL-hit di level candle ini terjadi SEBELUM entry
+                    # benar-benar tersentuh - tidak relevan, lanjut ke
+                    # candle berikutnya tanpa mencatat outcome di sini.
+                    continue
+
+                return {
+                    **entry_resolved,
+                    "bar_time": close_time,
+                    "bars_held": idx + 1,
+                    "intrabar_ambiguous": False,
+                    "entry_sl_ambiguous_fallback": False,
+                }
+
+            # Tidak bisa dibedah - fallback ke asumsi lama (SL duluan),
+            # tapi ditandai supaya kelihatan di stats bahwa ini masih
+            # under-determined, sama seperti pola intrabar_ambiguous.
+            if tp_hit_index is not None:
+                return {
+                    "outcome": "LOSS",
+                    "exit_price": sl,
+                    "tp_index": None,
+                    "bar_time": close_time,
+                    "bars_held": idx + 1,
+                    "intrabar_ambiguous": True,
+                    "entry_sl_ambiguous_fallback": True,
+                }
+            return {
+                "outcome": "LOSS",
+                "exit_price": sl,
+                "tp_index": None,
+                "bar_time": close_time,
+                "bars_held": idx + 1,
+                "intrabar_ambiguous": False,
+                "entry_sl_ambiguous_fallback": True,
+            }
+
         if sl_hit and tp_hit_index is not None:
             # FIX bug #2 - ambigu: SL dan TP tersentuh di candle yang sama.
             # Jangan langsung asumsi SL menang, coba bedah pakai sub-candle
@@ -481,6 +657,7 @@ def simulate_outcome(record, klines):
                     "bar_time": close_time,
                     "bars_held": idx + 1,
                     "intrabar_ambiguous": False,
+                    "entry_sl_ambiguous_fallback": False,
                 }
             # Tidak bisa dibedah - fallback ke asumsi konservatif lama
             # (SL duluan), tapi DITANDAI supaya kelihatan di stats.
@@ -491,6 +668,7 @@ def simulate_outcome(record, klines):
                 "bar_time": close_time,
                 "bars_held": idx + 1,
                 "intrabar_ambiguous": True,
+                "entry_sl_ambiguous_fallback": False,
             }
 
         if sl_hit:
@@ -501,6 +679,7 @@ def simulate_outcome(record, klines):
                 "bar_time": close_time,
                 "bars_held": idx + 1,
                 "intrabar_ambiguous": False,
+                "entry_sl_ambiguous_fallback": False,
             }
 
         if tp_hit_index is not None:
@@ -511,6 +690,7 @@ def simulate_outcome(record, klines):
                 "bar_time": close_time,
                 "bars_held": idx + 1,
                 "intrabar_ambiguous": False,
+                "entry_sl_ambiguous_fallback": False,
             }
 
     return None
@@ -918,6 +1098,12 @@ def compute_stats(trade_log):
     # win rate yang dilaporkan masih under-estimate.
     disambiguated = len([t for t in resolved if t.get("resolved_via") == "subcandle"])
     ambiguous_fallback = len([t for t in resolved if t.get("intrabar_ambiguous")])
+
+    # Transparansi utk fix bug #3: sama seperti di atas, tapi khusus untuk
+    # ambiguitas urutan entry-vs-SL di candle entry itu sendiri.
+    entry_disambiguated = len([t for t in resolved if t.get("resolved_via") == "subcandle_entry"])
+    entry_ambiguous_fallback = len([t for t in resolved if t.get("entry_sl_ambiguous_fallback")])
+
     resolved_in_partial_window = len([t for t in resolved if t.get("closed_in_partial_window")])
     first_bar_trades = [t for t in resolved if t.get("bars_held") == 1]
     resolved_at_bar_1 = len(first_bar_trades)
@@ -941,12 +1127,19 @@ def compute_stats(trade_log):
         "currently_pending": len(trade_log.get("pending", [])),
         "intrabar_disambiguated_via_subcandle": disambiguated,
         "intrabar_ambiguous_fallback_to_sl": ambiguous_fallback,
+        # Baru (fix bug #3): sama seperti di atas, tapi untuk ambiguitas
+        # urutan entry-vs-SL di dalam candle entry itu sendiri, bukan
+        # SL-vs-TP.
+        "entry_sl_disambiguated_via_subcandle": entry_disambiguated,
+        "entry_sl_ambiguous_fallback_to_sl": entry_ambiguous_fallback,
         "resolved_in_partial_entry_window": resolved_in_partial_window,
         # Trade yang resolve di CANDLE PERTAMA setelah trigger (bars_held
         # == 1). Kalau ini porsinya besar dan mayoritas LOSS, itu sinyal
         # kuat "immediate stop-out"/false-breakout - bukan tanda tracker
         # rusak, tapi tanda banyak setup langsung gagal begitu entry
-        # tersentuh (lihat penjelasan di chat).
+        # tersentuh (lihat penjelasan di chat). Sejak fix bug #3, angka
+        # LOSS di sini seharusnya lebih dipercaya karena urutan entry-vs-SL
+        # sudah dibedah, bukan diasumsikan.
         "resolved_at_first_bar": resolved_at_bar_1,
         "resolved_at_first_bar_wins": resolved_at_bar_1_wins,
         "resolved_at_first_bar_losses": resolved_at_bar_1_losses,
