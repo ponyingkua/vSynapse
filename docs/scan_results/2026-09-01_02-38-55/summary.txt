@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T02:38:51.045426+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: 0GUSDT | Side: LONG | Score: 6.77
+   - Entry : 0.24790
+   - SL    : 0.23410
+   - TP    : 0.26860, 0.27895, 0.28930
+   - Invalidation: Close below 0.2341 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: SONICUSDT | Side: LONG | Score: 6.08
+   - Entry : 0.02339
+   - SL    : 0.02250
+   - TP    : 0.02473, 0.02539, 0.02606
+   - Invalidation: Close below 0.0225 / loss of recent 15m swing low
+----------------------------------------

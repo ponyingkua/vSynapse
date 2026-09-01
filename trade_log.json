@@ -1800,6 +1800,48 @@
       "config_version": "v1",
       "added_at": "2026-09-01T01:06:19.534408+00:00",
       "triggered_at": "2026-09-01T02:59:59.999000+00:00"
+    },
+    {
+      "id": "0GUSDT_LONG_15m_2026-09-01_02-38-55",
+      "symbol": "0GUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.2479,
+      "sl": 0.2341,
+      "tp": [
+        0.2686,
+        0.27895,
+        0.2893
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_02-38-55",
+      "first_seen": "2026-09-01T02:38:51.045426+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T02:38:51.045426+00:00"
+    },
+    {
+      "id": "SONICUSDT_LONG_15m_2026-09-01_02-38-55",
+      "symbol": "SONICUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02339,
+      "sl": 0.0225,
+      "tp": [
+        0.02473,
+        0.02539,
+        0.02606
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_02-38-55",
+      "first_seen": "2026-09-01T02:38:51.045426+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T02:38:51.045426+00:00"
     }
   ],
   "closed": [
@@ -4312,6 +4354,7 @@
     "2026-09-01_01-38-00",
     "2026-09-01_01-51-25",
     "2026-09-01_02-06-51",
-    "2026-09-01_02-25-32"
+    "2026-09-01_02-25-32",
+    "2026-09-01_02-38-55"
   ]
 }
