@@ -1906,6 +1906,8 @@ def _no_setup_result():
         "entry_state": "NO_SETUP",
         "ideal_entry": None,
         "reference_level": None,
+        "retest_zone_low": None,
+        "retest_zone_high": None,
     }
 
 
@@ -1936,6 +1938,20 @@ def classify_setup(tf_score, side, live_price=None):
     #
     #   reference_level : level breakout atau EMA200 yang jadi
     #                      acuan (untuk ditampilkan di chart).
+    #
+    #   retest_zone_low /
+    #   retest_zone_high : batas bawah/atas zona retest yang
+    #                      SEBENARNYA dipakai Entry Engine untuk
+    #                      menentukan ENTRY_READY (ideal_entry
+    #                      +/- entry_ready_atr, dalam ATR harga).
+    #                      Hanya relevan untuk BREAKOUT/BREAKDOWN
+    #                      -- diisi None untuk setup style lain.
+    #                      vSch merender field ini APA ADANYA,
+    #                      bukan menebak ulang lebar zona dari
+    #                      reference_level saja -- supaya chart
+    #                      dan requirement retest yang sebenarnya
+    #                      (breakout_min_retest_atr / entry_ready_atr)
+    #                      tidak pernah berbeda.
     # --------------------------------------------------------
 
     reasons = (
@@ -2014,6 +2030,12 @@ def classify_setup(tf_score, side, live_price=None):
     # Sekarang wajib ada mundur minimal breakout_min_retest_atr
     # dari titik ekstrem candle breakout balik ke arah level,
     # baru dianggap ENTRY_READY.
+    #
+    # retest_zone_low/high dihitung persis dari band yang dipakai
+    # untuk menentukan ENTRY_READY (ideal_entry +/- entry_ready_
+    # band) -- ini zona yang SAMA yang menentukan status
+    # entry_state di bawah, bukan estimasi terpisah. vSch tinggal
+    # merender apa adanya, tidak perlu menebak ±0.15% lagi.
     # --------------------------------------------------------
 
     if is_breakout:
@@ -2035,6 +2057,8 @@ def classify_setup(tf_score, side, live_price=None):
                 "entry_state": "ENTRY_READY",
                 "ideal_entry": market_price,
                 "reference_level": None,
+                "retest_zone_low": market_price - entry_ready_band,
+                "retest_zone_high": market_price + entry_ready_band,
             }
 
         buffer_ = (
@@ -2074,6 +2098,8 @@ def classify_setup(tf_score, side, live_price=None):
             "entry_state": entry_state,
             "ideal_entry": ideal_entry,
             "reference_level": level,
+            "retest_zone_low": ideal_entry - entry_ready_band,
+            "retest_zone_high": ideal_entry + entry_ready_band,
         }
 
     # --------------------------------------------------------
@@ -2108,6 +2134,8 @@ def classify_setup(tf_score, side, live_price=None):
             "entry_state": entry_state,
             "ideal_entry": pullback_level,
             "reference_level": ema,
+            "retest_zone_low": None,
+            "retest_zone_high": None,
         }
 
     # --------------------------------------------------------
@@ -2153,6 +2181,8 @@ def classify_setup(tf_score, side, live_price=None):
             "entry_state": entry_state,
             "ideal_entry": market_price,
             "reference_level": ema,
+            "retest_zone_low": None,
+            "retest_zone_high": None,
         }
 
     # --------------------------------------------------------
@@ -2174,6 +2204,8 @@ def classify_setup(tf_score, side, live_price=None):
                 "entry_state": "ENTRY_READY",
                 "ideal_entry": market_price,
                 "reference_level": ema,
+                "retest_zone_low": None,
+                "retest_zone_high": None,
             }
 
         pullback_level = (
@@ -2187,6 +2219,8 @@ def classify_setup(tf_score, side, live_price=None):
             "entry_state": "WAITING_PULLBACK",
             "ideal_entry": pullback_level,
             "reference_level": ema,
+            "retest_zone_low": None,
+            "retest_zone_high": None,
         }
 
     return _no_setup_result()
@@ -2574,6 +2608,8 @@ def analyze_symbol(
     setup_style = setup_info["setup_style"]
     entry_state = setup_info["entry_state"]
     reference_level = setup_info["reference_level"]
+    retest_zone_low = setup_info.get("retest_zone_low")
+    retest_zone_high = setup_info.get("retest_zone_high")
 
     # --------------------------------------------------------
     # ENTRY LOGIC
@@ -2690,6 +2726,10 @@ def analyze_symbol(
     # sama persis dengan decimals_from_price() di vSch.py, dan
     # disimpan sebagai "decimals" supaya semua konsumen data
     # (chart, notifikasi, summary) pakai angka yang sama.
+    #
+    # retest_zone_low/high dibulatkan dengan presisi yang SAMA
+    # supaya kalau ditampilkan berdampingan dengan entry/sl/tp
+    # di chart atau notifikasi, tidak ada mismatch desimal.
     # --------------------------------------------------------
 
     price_decimals = decimals_from_price(entry)
@@ -2697,6 +2737,16 @@ def analyze_symbol(
     entry = round(entry, price_decimals)
     sl = round(sl, price_decimals)
     tp = [round(t, price_decimals) for t in tp]
+
+    if retest_zone_low is not None and np.isfinite(retest_zone_low):
+        retest_zone_low = round(retest_zone_low, price_decimals)
+    else:
+        retest_zone_low = None
+
+    if retest_zone_high is not None and np.isfinite(retest_zone_high):
+        retest_zone_high = round(retest_zone_high, price_decimals)
+    else:
+        retest_zone_high = None
 
     # --------------------------------------------------------
     # Funding rate -- crowded trade guard.
@@ -2803,6 +2853,10 @@ def analyze_symbol(
         "entry_state": entry_state,
 
         "reference_level": reference_level,
+
+        "retest_zone_low": retest_zone_low,
+
+        "retest_zone_high": retest_zone_high,
 
         "decimals": price_decimals,
 
