@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T18:09:44.028247+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: FORMUSDT | Side: LONG | Score: 7.38
+   - Entry : 0.26410
+   - SL    : 0.25160
+   - TP    : 0.28285, 0.29223, 0.30160
+   - Invalidation: Close below 0.2516 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: XPINUSDT | Side: SHORT | Score: 6.2
+   - Entry : 0.001073
+   - SL    : 0.001108
+   - TP    : 0.001020, 0.000994, 0.000968
+   - Invalidation: Close above 0.001108 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: TOWNSUSDT | Side: SHORT | Score: 6.03
+   - Entry : 0.002442
+   - SL    : 0.002519
+   - TP    : 0.002327, 0.002270, 0.002212
+   - Invalidation: Close above 0.002519 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: TRUSTUSDT | Side: SHORT | Score: 6.02
+   - Entry : 0.05227
+   - SL    : 0.05366
+   - TP    : 0.05019, 0.04916, 0.04812
+   - Invalidation: Close above 0.05366 / reclaim of recent 1h swing high
+----------------------------------------
