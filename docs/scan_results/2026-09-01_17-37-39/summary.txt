@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T17:37:37.064799+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: HEIUSDT | Side: LONG | Score: 6.84
+   - Entry : 0.14585
+   - SL    : 0.13753
+   - TP    : 0.15833, 0.16457, 0.17081
+   - Invalidation: Close below 0.13753 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: HUMAUSDT | Side: SHORT | Score: 6.1
+   - Entry : 0.02061
+   - SL    : 0.02090
+   - TP    : 0.02018, 0.01997, 0.01975
+   - Invalidation: Close above 0.020895 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: BIRBUSDT | Side: SHORT | Score: 6.36
+   - Entry : 0.05762
+   - SL    : 0.05940
+   - TP    : 0.05495, 0.05362, 0.05228
+   - Invalidation: Close above 0.0594 / reclaim of recent 1h swing high
+----------------------------------------
