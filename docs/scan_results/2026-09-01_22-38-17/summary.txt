@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T22:38:13.217392+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OPGUSDT | Side: LONG | Score: 5.8
+   - Entry : 0.09717
+   - SL    : 0.09308
+   - TP    : 0.10329, 0.10636, 0.10942
+   - Invalidation: Close below 0.093081086 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: MYXUSDT | Side: SHORT | Score: 5.55
+   - Entry : 0.06960
+   - SL    : 0.07157
+   - TP    : 0.06664, 0.06517, 0.06369
+   - Invalidation: Close above 0.07157 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: POWERUSDT | Side: LONG | Score: 5.2
+   - Entry : 0.08574
+   - SL    : 0.08100
+   - TP    : 0.09285, 0.09640, 0.09996
+   - Invalidation: Close below 0.081 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: AIAUSDT | Side: LONG | Score: 5.2
+   - Entry : 0.07823
+   - SL    : 0.07418
+   - TP    : 0.08430, 0.08734, 0.09038
+   - Invalidation: Close below 0.07418 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: BEATUSDT | Side: LONG | Score: 5.15
+   - Entry : 0.13492
+   - SL    : 0.12500
+   - TP    : 0.14981, 0.15725, 0.16469
+   - Invalidation: Close below 0.125 / loss of recent 1h swing low
+----------------------------------------
