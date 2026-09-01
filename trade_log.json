@@ -293,6 +293,27 @@
       "added_at": "2026-09-01T00:06:47.596561+00:00"
     },
     {
+      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-14-31",
+      "symbol": "PLAYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03992,
+      "sl": 0.03789,
+      "tp": [
+        0.04296,
+        0.04448,
+        0.046
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_00-14-31",
+      "first_seen": "2026-09-01T00:14:29.250584+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:14:29.250584+00:00"
+    },
+    {
       "id": "BOMEUSDT_SHORT_1h_2026-09-01_00-06-50",
       "symbol": "BOMEUSDT",
       "side": "SHORT",
@@ -312,6 +333,27 @@
       "htf_bias": "BULLISH",
       "config_version": "v1",
       "added_at": "2026-09-01T00:06:47.596561+00:00"
+    },
+    {
+      "id": "BOMEUSDT_SHORT_1h_2026-09-01_00-14-31",
+      "symbol": "BOMEUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0008916,
+      "sl": 0.000924,
+      "tp": [
+        0.0008429,
+        0.0008186,
+        0.0007942
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-01_00-14-31",
+      "first_seen": "2026-09-01T00:14:29.250584+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:14:29.250584+00:00"
     }
   ],
   "open": [
@@ -620,27 +662,6 @@
         0.41632,
         0.4367,
         0.45708
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_09-10-00",
-      "first_seen": "2026-08-31T09:09:56.609095+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
-    },
-    {
-      "id": "ZESTUSDT_SHORT_15m_2026-08-31_09-10-00",
-      "symbol": "ZESTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.1373,
-      "sl": 0.14153,
-      "tp": [
-        0.13096,
-        0.12778,
-        0.12461
       ],
       "decimals": 5,
       "run_id": "2026-08-31_09-10-00",
@@ -3638,6 +3659,31 @@
       "bars_held": 1,
       "closed_at": "2026-09-01T00:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "ZESTUSDT_SHORT_15m_2026-08-31_09-10-00",
+      "symbol": "ZESTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1373,
+      "sl": 0.14153,
+      "tp": [
+        0.13096,
+        0.12778,
+        0.12461
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.13865,
+      "closed_at": "2026-09-01T00:14:59.999000+00:00",
+      "r_multiple": -0.32
     }
   ],
   "ingested_runs": [
@@ -3676,6 +3722,7 @@
     "2026-08-31_22-09-56",
     "2026-08-31_23-08-56",
     "2026-08-31_23-54-18",
-    "2026-09-01_00-06-50"
+    "2026-09-01_00-06-50",
+    "2026-09-01_00-14-31"
   ]
 }
