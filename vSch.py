@@ -87,9 +87,11 @@ READY = "#1565c0"
 # Visual markers
 # ------------------------------------------------------------
 
-# Sangat tipis/transparan agar zona retest tidak mengganggu
-# candle dan struktur chart.
-RETEST_ZONE_ALPHA = 0.025
+# FIX: sebelumnya 0.025 -- nyaris tidak terlihat di semua chart
+# (efektif seperti tidak ada zona retest yang ditampilkan sama
+# sekali). Dinaikkan supaya zona retest terlihat sebagai bantuan
+# visual, tapi tetap tipis dan tidak menutupi candle/struktur.
+RETEST_ZONE_ALPHA = 0.10
 
 # Marker breakout "B"
 BREAKOUT_MARKER_SIZE = 8
@@ -798,7 +800,7 @@ def _entry_state_color(state):
 # Hanya visual.
 # Tidak mengubah reference_level dari Synaptic.
 #
-# Zona dibuat sangat tipis/transparan.
+# Zona dibuat tipis/transparan.
 #
 # PRIORITAS SUMBER DATA (paling akurat -> paling lemah):
 #   1. retest_zone_low / retest_zone_high dari Synaptic --
@@ -1714,7 +1716,7 @@ def draw_visual_chart(
     # RETEST ZONE
     #
     # WAITING RETEST:
-    #     tampilkan area transparan sangat tipis, memakai batas
+    #     tampilkan area transparan tipis, memakai batas
     #     eksplisit dari Synaptic (retest_zone_low/high) kalau
     #     tersedia -- fallback hanya untuk JSON lama.
     # ========================================================
