@@ -818,6 +818,27 @@
       "added_at": "2026-09-01T05:15:16.169195+00:00"
     },
     {
+      "id": "IDOLUSDT_SHORT_1h_2026-09-01_05-25-48",
+      "symbol": "IDOLUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0145,
+      "sl": 0.01501,
+      "tp": [
+        0.01373,
+        0.01334,
+        0.01296
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_05-25-48",
+      "first_seen": "2026-09-01T05:25:43.903528+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T05:25:43.903528+00:00"
+    },
+    {
       "id": "TAGUSDT_SHORT_1h_2026-09-01_05-07-46",
       "symbol": "TAGUSDT",
       "side": "SHORT",
@@ -860,6 +881,27 @@
       "added_at": "2026-09-01T05:15:16.169195+00:00"
     },
     {
+      "id": "TAGUSDT_SHORT_1h_2026-09-01_05-25-48",
+      "symbol": "TAGUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0007543,
+      "sl": 0.00077,
+      "tp": [
+        0.0007307,
+        0.0007189,
+        0.0007071
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-01_05-25-48",
+      "first_seen": "2026-09-01T05:25:43.903528+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T05:25:43.903528+00:00"
+    },
+    {
       "id": "OUSDT_LONG_1h_2026-09-01_05-07-46",
       "symbol": "OUSDT",
       "side": "LONG",
@@ -879,6 +921,27 @@
       "htf_bias": null,
       "config_version": "v1",
       "added_at": "2026-09-01T05:07:41.880325+00:00"
+    },
+    {
+      "id": "OUSDT_LONG_1h_2026-09-01_05-25-48",
+      "symbol": "OUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.57783,
+      "sl": 0.5513,
+      "tp": [
+        0.61763,
+        0.63753,
+        0.65743
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_05-25-48",
+      "first_seen": "2026-09-01T05:25:43.903528+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "added_at": "2026-09-01T05:25:43.903528+00:00"
     },
     {
       "id": "VELODROMEUSDT_LONG_1h_2026-09-01_05-15-21",
@@ -921,6 +984,48 @@
       "htf_bias": "BULLISH",
       "config_version": "v1",
       "added_at": "2026-09-01T05:15:16.169195+00:00"
+    },
+    {
+      "id": "STARUSDT_LONG_1h_2026-09-01_05-25-48",
+      "symbol": "STARUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.12227,
+      "sl": 0.11414,
+      "tp": [
+        0.13447,
+        0.14056,
+        0.14666
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_05-25-48",
+      "first_seen": "2026-09-01T05:25:43.903528+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "added_at": "2026-09-01T05:25:43.903528+00:00"
+    },
+    {
+      "id": "SKYUSDT_SHORT_1h_2026-09-01_05-25-48",
+      "symbol": "SKYUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06704,
+      "sl": 0.0687,
+      "tp": [
+        0.06454,
+        0.06329,
+        0.06204
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_05-25-48",
+      "first_seen": "2026-09-01T05:25:43.903528+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T05:25:43.903528+00:00"
     }
   ],
   "open": [
@@ -5684,6 +5789,7 @@
     "2026-09-01_04-39-30",
     "2026-09-01_04-52-14",
     "2026-09-01_05-07-46",
-    "2026-09-01_05-15-21"
+    "2026-09-01_05-15-21",
+    "2026-09-01_05-25-48"
   ]
 }
