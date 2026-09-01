@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T18:55:35.924231+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SUIUSDT | Side: SHORT | Score: 6.33
+   - Entry : 0.72070
+   - SL    : 0.73460
+   - TP    : 0.69985, 0.68942, 0.67900
+   - Invalidation: Close above 0.7346 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: WIFUSDT | Side: SHORT | Score: 5.44
+   - Entry : 0.19670
+   - SL    : 0.20080
+   - TP    : 0.19055, 0.18748, 0.18440
+   - Invalidation: Close above 0.2008 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: BANKUSDT | Side: SHORT | Score: 5.38
+   - Entry : 0.03531
+   - SL    : 0.03597
+   - TP    : 0.03432, 0.03383, 0.03333
+   - Invalidation: Close above 0.03597 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: IOTAUSDT | Side: SHORT | Score: 5.08
+   - Entry : 0.03973
+   - SL    : 0.04069
+   - TP    : 0.03829, 0.03757, 0.03685
+   - Invalidation: Close above 0.04069 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: FETUSDT | Side: SHORT | Score: 4.95
+   - Entry : 0.15320
+   - SL    : 0.15610
+   - TP    : 0.14885, 0.14668, 0.14450
+   - Invalidation: Close above 0.1561 / reclaim of recent 15m swing high
+----------------------------------------
