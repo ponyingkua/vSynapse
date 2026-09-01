@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T12:10:59.827040+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BELUSDT | Side: LONG | Score: 8.18
+   - Entry : 0.11781
+   - SL    : 0.11370
+   - TP    : 0.12398, 0.12706, 0.13014
+   - Invalidation: Close below 0.1137 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: AAVEUSDT | Side: LONG | Score: 7.55
+   - Entry : 127.86
+   - SL    : 124.52
+   - TP    : 132.87, 135.38, 137.88
+   - Invalidation: Close below 124.52 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PEOPLEUSDT | Side: LONG | Score: 6.53
+   - Entry : 0.007987
+   - SL    : 0.007785
+   - TP    : 0.008290, 0.008441, 0.008593
+   - Invalidation: Close below 0.007785 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: ENAUSDT | Side: LONG | Score: 7.89
+   - Entry : 0.15926
+   - SL    : 0.14869
+   - TP    : 0.17512, 0.18305, 0.19098
+   - Invalidation: Close below 0.14869 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SKYUSDT | Side: LONG | Score: 7.03
+   - Entry : 0.06922
+   - SL    : 0.06382
+   - TP    : 0.07731, 0.08136, 0.08541
+   - Invalidation: Close below 0.06382 / loss of recent 1h swing low
+----------------------------------------
