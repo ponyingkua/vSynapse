@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T07:08:22.654079+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: TAGUSDT | Side: SHORT | Score: 7.58
+   - Entry : 0.0007179
+   - SL    : 0.0007700
+   - TP    : 0.0006397, 0.0006006, 0.0005615
+   - Invalidation: Close above 0.00077 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: CHIPUSDT | Side: LONG | Score: 7.12
+   - Entry : 0.04004
+   - SL    : 0.03797
+   - TP    : 0.04313, 0.04468, 0.04623
+   - Invalidation: Close below 0.03797 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: STABLEUSDT | Side: LONG | Score: 7.05
+   - Entry : 0.02894
+   - SL    : 0.02812
+   - TP    : 0.03017, 0.03078, 0.03140
+   - Invalidation: Close below 0.02812 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: ACTUSDT | Side: SHORT | Score: 6.86
+   - Entry : 0.01036
+   - SL    : 0.01086
+   - TP    : 0.00962, 0.00925, 0.00888
+   - Invalidation: Close above 0.010859 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: DIAUSDT | Side: SHORT | Score: 6.74
+   - Entry : 0.13604
+   - SL    : 0.13950
+   - TP    : 0.13084, 0.12824, 0.12564
+   - Invalidation: Close above 0.1395 / reclaim of recent 1h swing high
+----------------------------------------
