@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T22:08:18.891219+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OPGUSDT | Side: LONG | Score: 5.63
+   - Entry : 0.09674
+   - SL    : 0.09266
+   - TP    : 0.10287, 0.10593, 0.10900
+   - Invalidation: Close below 0.092656623 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: SCRUSDT | Side: SHORT | Score: 4.61
+   - Entry : 0.02333
+   - SL    : 0.02421
+   - TP    : 0.02202, 0.02136, 0.02070
+   - Invalidation: Close above 0.02421 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: HYPERUSDT | Side: SHORT | Score: 4.39
+   - Entry : 0.06415
+   - SL    : 0.06552
+   - TP    : 0.06210, 0.06107, 0.06004
+   - Invalidation: Close above 0.06552 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: IOSTUSDT | Side: LONG | Score: 4.08
+   - Entry : 0.0006003
+   - SL    : 0.0005918
+   - TP    : 0.0006131, 0.0006194, 0.0006258
+   - Invalidation: Close below 0.0005918 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: PEOPLEUSDT | Side: LONG | Score: 3.97
+   - Entry : 0.007978
+   - SL    : 0.007879
+   - TP    : 0.008127, 0.008201, 0.008275
+   - Invalidation: Close below 0.007879 / loss of recent 15m swing low
+----------------------------------------
