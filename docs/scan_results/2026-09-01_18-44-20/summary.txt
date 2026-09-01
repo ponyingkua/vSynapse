@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T18:44:17.821933+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: XPINUSDT | Side: SHORT | Score: 6.4
+   - Entry : 0.001062
+   - SL    : 0.001104
+   - TP    : 0.000999, 0.000968, 0.000937
+   - Invalidation: Close above 0.001104 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: ATOMUSDT | Side: SHORT | Score: 6.0
+   - Entry : 1.4647
+   - SL    : 1.4890
+   - TP    : 1.4281, 1.4099, 1.3916
+   - Invalidation: Close above 1.489 / reclaim of recent 15m swing high
+----------------------------------------
