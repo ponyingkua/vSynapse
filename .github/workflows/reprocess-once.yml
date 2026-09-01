@@ -1,0 +1,24 @@
+name: Reprocess closed trades (one-off)
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reprocess:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run reprocess script
+        run: python3 reprocess_closed.py --log trade_log.json --stats-out winrate_stats.json
+      - name: Commit updated files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add trade_log.json winrate_stats.json
+          git commit -m "Reprocess closed first-bar trades with entry-vs-SL fix" || echo "nothing to commit"
+          git push
