@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T10:08:57.002233+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: API3USDT | Side: LONG | Score: 5.75
+   - Entry : 0.22687
+   - SL    : 0.21950
+   - TP    : 0.23791, 0.24344, 0.24896
+   - Invalidation: Close below 0.2195 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: POWRUSDT | Side: LONG | Score: 5.63
+   - Entry : 0.04587
+   - SL    : 0.04470
+   - TP    : 0.04762, 0.04850, 0.04937
+   - Invalidation: Close below 0.0447 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: TAIKOUSDT | Side: LONG | Score: 4.74
+   - Entry : 0.07452
+   - SL    : 0.07359
+   - TP    : 0.07591, 0.07660, 0.07730
+   - Invalidation: Close below 0.073592715 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: MASKUSDT | Side: LONG | Score: 4.73
+   - Entry : 0.42922
+   - SL    : 0.42301
+   - TP    : 0.43853, 0.44318, 0.44784
+   - Invalidation: Close below 0.4230106 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: AKEUSDT | Side: LONG | Score: 4.55
+   - Entry : 0.008905
+   - SL    : 0.008280
+   - TP    : 0.009843, 0.010311, 0.010780
+   - Invalidation: Close below 0.00828 / loss of recent 1h swing low
+----------------------------------------
