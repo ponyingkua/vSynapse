@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T02:51:21.768223+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: CVXUSDT | Side: LONG | Score: 6.86
+   - Entry : 2.3195
+   - SL    : 2.1800
+   - TP    : 2.5287, 2.6334, 2.7380
+   - Invalidation: Close below 2.18 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: CTRUSDT | Side: LONG | Score: 7.01
+   - Entry : 0.009762
+   - SL    : 0.009572
+   - TP    : 0.010047, 0.010190, 0.010332
+   - Invalidation: Close below 0.009572 / loss of recent 15m swing low
+----------------------------------------
