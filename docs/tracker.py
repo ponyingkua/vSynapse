@@ -633,21 +633,25 @@ def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
             }
 
             if entry_state == "ENTRY_READY":
-                # FIX (varian bug #1): jangan pakai generated_at mentah.
-                # generated_at jatuh di TENGAH candle yang sedang berjalan
-                # saat scan (open_time candle itu < generated_at), jadi
-                # kalau dipakai apa adanya sebagai triggered_at, fetch_klines
-                # (yang memfilter open_time >= startTime) akan MEMBUANG
-                # candle yang sedang berjalan itu dan simulasi baru mulai
-                # dari candle penuh berikutnya - gerakan yang langsung
-                # tembus TP/SL di sisa candle berjalan itu tidak pernah
-                # tercatat. Floor ke batas candle supaya candle yang sedang
-                # berjalan itu ikut disertakan, konsisten dengan fix di
-                # check_entry_triggered().
+                # FIX (varian bug #1, revisi ke-2): percobaan pertama
+                # (floor ke AWAL candle) ternyata overshoot ke arah
+                # sebaliknya - itu bisa membuat simulasi melihat MUNDUR ke
+                # harga SEBELUM setup dinyatakan ENTRY_READY, dan salah
+                # menghukum SL yang sebenarnya tersentuh sebelum sinyal
+                # muncul (padahal secara real-time kamu belum masuk posisi
+                # saat itu). Fix yang benar: jangan floor mundur, tapi catat
+                # partial_check_from = generated_at (titik sinyal muncul)
+                # dan triggered_at = batas AWAL candle penuh BERIKUTNYA.
+                # update_open() akan mengecek jendela [partial_check_from,
+                # triggered_at) itu pakai timeframe lebih halus dulu
+                # (_process_partial_entry_windows) - jadi gerakan persis
+                # setelah sinyal tetap tertangkap, tanpa melihat mundur ke
+                # sebelum sinyal.
                 tf_ms = TF_MS.get(tf, TF_MS["1h"])
                 generated_ms = iso_to_ms(generated_at)
-                floored_ms = (generated_ms // tf_ms) * tf_ms
-                record["triggered_at"] = ms_to_iso(floored_ms)
+                next_boundary_ms = ((generated_ms // tf_ms) + 1) * tf_ms
+                record["triggered_at"] = ms_to_iso(next_boundary_ms)
+                record["partial_check_from"] = generated_at
                 trade_log["open"].append(record)
             else:
                 record["added_at"] = generated_at
@@ -762,7 +766,54 @@ def update_pending(trade_log, pending_expiry_candles, klines_limit):
 
 # UPDATE OPEN -> CLOSED (WIN / LOSS / EXPIRED)
 
+def _process_partial_entry_windows(trade_log, klines_limit):
+    """Untuk record ENTRY_READY yang masih punya jendela parsial belum
+    dicek (partial_check_from -> triggered_at = sisa waktu dari saat
+    sinyal muncul sampai candle penuh berikutnya mulai), cek dulu pakai
+    timeframe yang lebih halus SEBELUM masuk ke alur grouped-fetch normal
+    di execution_tf.
+
+    Ini sengaja dipisah dari alur utama supaya dua hal tetap terjaga:
+      - tidak melihat mundur ke SEBELUM saat sinyal muncul (window mulai
+        persis di partial_check_from, bukan awal candle penuh)
+      - tidak melewatkan gerakan yang terjadi PERSIS setelah sinyal, di
+        sisa candle penuh yang sama (ini varian dari bug #1)
+
+    Record yang resolve di jendela ini langsung dipindah ke closed
+    (ditandai closed_in_partial_window=True untuk transparansi). Record
+    yang tidak resolve ditandai partial_check_done=True dan lanjut lewat
+    alur grouped normal seperti biasa, mulai dari triggered_at.
+    """
+    still_open = []
+    for record in trade_log["open"]:
+        partial_from = record.get("partial_check_from")
+        if not partial_from or record.get("partial_check_done"):
+            still_open.append(record)
+            continue
+
+        sub_tf = DISAMBIGUATION_TF.get(record["execution_tf"]) or record["execution_tf"]
+        from_ms = iso_to_ms(partial_from)
+        until_ms = iso_to_ms(record["triggered_at"])
+
+        sub_klines = fetch_klines(record["symbol"], sub_tf, from_ms, limit=klines_limit, end_time_ms=until_ms)
+        result = simulate_outcome(record, sub_klines) if sub_klines else None
+
+        if result is not None:
+            record.update(result)
+            record["closed_in_partial_window"] = True
+            record["closed_at"] = ms_to_iso(result["bar_time"])
+            record["r_multiple"] = compute_r_multiple(record)
+            trade_log["closed"].append(record)
+        else:
+            record["partial_check_done"] = True
+            still_open.append(record)
+
+    trade_log["open"] = still_open
+
+
 def update_open(trade_log, max_hold_candles, klines_limit):
+    _process_partial_entry_windows(trade_log, klines_limit)
+
     still_open = []
     current_ms = now_ms()
 
@@ -867,6 +918,8 @@ def compute_stats(trade_log):
     # win rate yang dilaporkan masih under-estimate.
     disambiguated = len([t for t in resolved if t.get("resolved_via") == "subcandle"])
     ambiguous_fallback = len([t for t in resolved if t.get("intrabar_ambiguous")])
+    resolved_in_partial_window = len([t for t in resolved if t.get("closed_in_partial_window")])
+    resolved_at_bar_1 = len([t for t in resolved if t.get("bars_held") == 1])
 
     return {
         "generated_at": ms_to_iso(now_ms()),
@@ -885,6 +938,13 @@ def compute_stats(trade_log):
         "currently_pending": len(trade_log.get("pending", [])),
         "intrabar_disambiguated_via_subcandle": disambiguated,
         "intrabar_ambiguous_fallback_to_sl": ambiguous_fallback,
+        "resolved_in_partial_entry_window": resolved_in_partial_window,
+        # Trade yang resolve di CANDLE PERTAMA setelah trigger (bars_held
+        # == 1). Kalau ini porsinya besar dan mayoritas LOSS, itu sinyal
+        # kuat "immediate stop-out"/false-breakout - bukan tanda tracker
+        # rusak, tapi tanda banyak setup langsung gagal begitu entry
+        # tersentuh (lihat penjelasan di chat).
+        "resolved_at_first_bar": resolved_at_bar_1,
     }
 
 
