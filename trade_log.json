@@ -188,27 +188,6 @@
       "added_at": "2026-08-31T22:09:51.606170+00:00"
     },
     {
-      "id": "JUPUSDT_LONG_1h_2026-08-31_22-09-56",
-      "symbol": "JUPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.22088,
-      "sl": 0.2108,
-      "tp": [
-        0.236,
-        0.24356,
-        0.25112
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_22-09-56",
-      "first_seen": "2026-08-31T22:09:51.606170+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v1",
-      "added_at": "2026-08-31T22:09:51.606170+00:00"
-    },
-    {
       "id": "PTBUSDT_SHORT_1h_2026-08-31_23-08-56",
       "symbol": "PTBUSDT",
       "side": "SHORT",
@@ -356,48 +335,6 @@
       "added_at": "2026-09-01T01:37:57.929343+00:00"
     },
     {
-      "id": "OPUSDT_LONG_1h_2026-09-01_01-06-22",
-      "symbol": "OPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.09435,
-      "sl": 0.08795,
-      "tp": [
-        0.10394,
-        0.10874,
-        0.11353
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_01-06-22",
-      "first_seen": "2026-09-01T01:06:19.534408+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "added_at": "2026-09-01T01:06:19.534408+00:00"
-    },
-    {
-      "id": "OPUSDT_LONG_1h_2026-09-01_01-23-58",
-      "symbol": "OPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.09435,
-      "sl": 0.08795,
-      "tp": [
-        0.10394,
-        0.10874,
-        0.11353
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_01-23-58",
-      "first_seen": "2026-09-01T01:23:55.589999+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "added_at": "2026-09-01T01:23:55.589999+00:00"
-    },
-    {
       "id": "CVXUSDT_LONG_1h_2026-09-01_01-06-22",
       "symbol": "CVXUSDT",
       "side": "LONG",
@@ -459,6 +396,48 @@
       "htf_bias": null,
       "config_version": "v1",
       "added_at": "2026-09-01T01:37:57.929343+00:00"
+    },
+    {
+      "id": "DEXEUSDT_SHORT_15m_2026-09-01_02-06-51",
+      "symbol": "DEXEUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.0437,
+      "sl": 2.083,
+      "tp": [
+        1.9849,
+        1.9554,
+        1.926
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_02-06-51",
+      "first_seen": "2026-09-01T02:06:46.568089+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T02:06:46.568089+00:00"
+    },
+    {
+      "id": "BSBUSDT_LONG_15m_2026-09-01_02-06-51",
+      "symbol": "BSBUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10789,
+      "sl": 0.10433,
+      "tp": [
+        0.11324,
+        0.11591,
+        0.11859
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_02-06-51",
+      "first_seen": "2026-09-01T02:06:46.568089+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T02:06:46.568089+00:00"
     }
   ],
   "open": [
@@ -1628,6 +1607,93 @@
       "config_version": "v1",
       "added_at": "2026-09-01T01:23:55.589999+00:00",
       "triggered_at": "2026-09-01T01:44:59.999000+00:00"
+    },
+    {
+      "id": "SSVUSDT_LONG_15m_2026-09-01_02-06-51",
+      "symbol": "SSVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.754,
+      "sl": 2.709,
+      "tp": [
+        2.8215,
+        2.8552,
+        2.889
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_02-06-51",
+      "first_seen": "2026-09-01T02:06:46.568089+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T02:06:46.568089+00:00"
+    },
+    {
+      "id": "JUPUSDT_LONG_1h_2026-08-31_22-09-56",
+      "symbol": "JUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.22088,
+      "sl": 0.2108,
+      "tp": [
+        0.236,
+        0.24356,
+        0.25112
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_22-09-56",
+      "first_seen": "2026-08-31T22:09:51.606170+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-08-31T22:09:51.606170+00:00",
+      "triggered_at": "2026-09-01T02:59:59.999000+00:00"
+    },
+    {
+      "id": "OPUSDT_LONG_1h_2026-09-01_01-06-22",
+      "symbol": "OPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09435,
+      "sl": 0.08795,
+      "tp": [
+        0.10394,
+        0.10874,
+        0.11353
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_01-06-22",
+      "first_seen": "2026-09-01T01:06:19.534408+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T01:06:19.534408+00:00",
+      "triggered_at": "2026-09-01T02:59:59.999000+00:00"
+    },
+    {
+      "id": "OPUSDT_LONG_1h_2026-09-01_01-23-58",
+      "symbol": "OPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09435,
+      "sl": 0.08795,
+      "tp": [
+        0.10394,
+        0.10874,
+        0.11353
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_01-23-58",
+      "first_seen": "2026-09-01T01:23:55.589999+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T01:23:55.589999+00:00",
+      "triggered_at": "2026-09-01T02:59:59.999000+00:00"
     }
   ],
   "closed": [
@@ -4138,6 +4204,7 @@
     "2026-09-01_01-06-22",
     "2026-09-01_01-23-58",
     "2026-09-01_01-38-00",
-    "2026-09-01_01-51-25"
+    "2026-09-01_01-51-25",
+    "2026-09-01_02-06-51"
   ]
 }

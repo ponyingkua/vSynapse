@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T02:06:46.568089+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: SSVUSDT | Side: LONG | Score: 6.14
+   - Entry : 2.7540
+   - SL    : 2.7090
+   - TP    : 2.8215, 2.8552, 2.8890
+   - Invalidation: Close below 2.709 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: DEXEUSDT | Side: SHORT | Score: 6.35
+   - Entry : 2.0437
+   - SL    : 2.0830
+   - TP    : 1.9849, 1.9554, 1.9260
+   - Invalidation: Close above 2.083 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: BSBUSDT | Side: LONG | Score: 6.26
+   - Entry : 0.10789
+   - SL    : 0.10433
+   - TP    : 0.11324, 0.11591, 0.11859
+   - Invalidation: Close below 0.10433 / loss of recent 15m swing low
+----------------------------------------
