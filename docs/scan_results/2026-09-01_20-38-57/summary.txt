@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T20:38:53.388013+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: WALUSDT | Side: LONG | Score: 6.86
+   - Entry : 0.02556
+   - SL    : 0.02396
+   - TP    : 0.02796, 0.02916, 0.03036
+   - Invalidation: Close below 0.02396 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: 2ZUSDT | Side: SHORT | Score: 5.1
+   - Entry : 0.05297
+   - SL    : 0.05511
+   - TP    : 0.04976, 0.04816, 0.04655
+   - Invalidation: Close above 0.05511 / reclaim of recent 4h swing high
+----------------------------------------
+3. Symbol: ZAMAUSDT | Side: SHORT | Score: 4.5
+   - Entry : 0.05031
+   - SL    : 0.05241
+   - TP    : 0.04716, 0.04559, 0.04401
+   - Invalidation: Close above 0.052408056 / reclaim of recent 4h swing high
+----------------------------------------
+4. Symbol: METUSDT | Side: LONG | Score: 4.05
+   - Entry : 0.19490
+   - SL    : 0.18820
+   - TP    : 0.20495, 0.20997, 0.21500
+   - Invalidation: Close below 0.1882 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: PROMUSDT | Side: SHORT | Score: 3.76
+   - Entry : 5.1263
+   - SL    : 5.5340
+   - TP    : 4.5146, 4.2088, 3.9030
+   - Invalidation: Close above 5.534 / reclaim of recent 1h swing high
+----------------------------------------
