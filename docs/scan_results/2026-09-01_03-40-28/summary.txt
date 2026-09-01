@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T03:40:23.906453+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: NOTUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.0004903
+   - SL    : 0.0004712
+   - TP    : 0.0005190, 0.0005333, 0.0005476
+   - Invalidation: Close below 0.0004712 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: USELESSUSDT | Side: LONG | Score: 6.14
+   - Entry : 0.09452
+   - SL    : 0.09056
+   - TP    : 0.10046, 0.10343, 0.10640
+   - Invalidation: Close below 0.09056 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: CTRUSDT | Side: LONG | Score: 7.72
+   - Entry : 0.009788
+   - SL    : 0.009280
+   - TP    : 0.010550, 0.010932, 0.011313
+   - Invalidation: Close below 0.00928 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: JASMYUSDT | Side: LONG | Score: 7.12
+   - Entry : 0.004923
+   - SL    : 0.004755
+   - TP    : 0.005174, 0.005300, 0.005425
+   - Invalidation: Close below 0.004755 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: RAYSOLUSDT | Side: LONG | Score: 6.09
+   - Entry : 0.80610
+   - SL    : 0.79530
+   - TP    : 0.82231, 0.83041, 0.83852
+   - Invalidation: Close below 0.7953 / loss of recent 15m swing low
+----------------------------------------
