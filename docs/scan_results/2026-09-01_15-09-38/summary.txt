@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T15:09:35.249831+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CAPUSDT | Side: LONG | Score: 6.86
+   - Entry : 0.06988
+   - SL    : 0.06889
+   - TP    : 0.07136, 0.07210, 0.07284
+   - Invalidation: Close below 0.068893235 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: COWUSDT | Side: LONG | Score: 6.26
+   - Entry : 0.12388
+   - SL    : 0.11930
+   - TP    : 0.13075, 0.13419, 0.13763
+   - Invalidation: Close below 0.1193 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: RPLUSDT | Side: LONG | Score: 6.06
+   - Entry : 1.6272
+   - SL    : 1.5850
+   - TP    : 1.6904, 1.7220, 1.7537
+   - Invalidation: Close below 1.585 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: JUPUSDT | Side: LONG | Score: 6.94
+   - Entry : 0.21865
+   - SL    : 0.21390
+   - TP    : 0.22578, 0.22934, 0.23290
+   - Invalidation: Close below 0.2139 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: STXUSDT | Side: LONG | Score: 6.9
+   - Entry : 0.25134
+   - SL    : 0.24539
+   - TP    : 0.26027, 0.26473, 0.26920
+   - Invalidation: Close below 0.24539393 / loss of recent 1h swing low
+----------------------------------------
