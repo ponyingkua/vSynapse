@@ -3,7 +3,7 @@ name: vSynapse
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 * * * *'
+    - cron: '*/15 * * * *'
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ concurrency:
 jobs:
   ngokeh:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
