@@ -902,10 +902,10 @@ def _calculate_retest_zone(
 
 def _draw_retest_zone(
     ax,
+    df,
     setup,
     reference_level,
     y_span,
-    x_start,
     x_end,
 ):
 
@@ -934,6 +934,23 @@ def _draw_retest_zone(
 
     if reference_level is None:
         return
+
+    # Box hanya digambar dari candle breakout ke kanan (sampai
+    # ujung chart) -- bukan lagi memenuhi seluruh lebar chart --
+    # karena zona retest baru relevan SETELAH breakout terjadi.
+    # Kalau candle breakout-nya tidak ketemu di rentang candle
+    # yang tampil, tidak ada titik awal yang valid, jadi box
+    # tidak digambar.
+    breakout_idx = _find_breakout_candle(
+        df,
+        reference_level,
+        setup_style,
+    )
+
+    if breakout_idx is None:
+        return
+
+    x_start = float(breakout_idx)
 
     zone_low, zone_high, _from_synaptic = (
         _calculate_retest_zone(
@@ -1248,58 +1265,37 @@ def _draw_entry_ready_marker(
 
 # ============================================================
 # DRAW REFERENCE LEVEL
+#
+# NOTE: Sebelumnya fungsi ini menggambar garis putus-putus ungu
+# (axhline) di reference_level yang memanjang di SELURUH lebar
+# chart. Sesuai permintaan user, sekarang garis tetap ada tapi
+# hanya berupa segmen pendek di sekitar candle breakout/
+# breakdown-nya (bukan lagi axhline penuh).
+#
+# Kalau candle breakout tidak ketemu (mis. reference_level tidak
+# pernah benar-benar ditembus di rentang candle yang tampil),
+# garis tidak digambar -- tidak ada segmen untuk "sekitar"-nya.
 # ============================================================
+
+REFERENCE_LINE_HALF_WIDTH = 4
+
 
 def _draw_reference_level(
     ax,
+    df,
     setup,
     dec,
     label_x,
 ):
 
-    setup_style = str(
-        setup.get(
-            "setup_style",
-            "",
-        )
-    ).upper()
-
-    reference_level = _first_numeric(
-        setup,
-        [
-            "reference_level",
-        ],
-        None,
-    )
-
-    if (
-        reference_level is None
-        or not np.isfinite(
-            reference_level
-        )
-    ):
-        return
-
-    # --------------------------------------------------------
-    # BREAKOUT / BREAKDOWN
-    #
-    # reference_level = level yang ditembus.
-    # Label "RETEST LEVEL" dihapus sesuai permintaan.
-    # --------------------------------------------------------
-
-    if setup_style in (
-        "BREAKOUT",
-        "BREAKDOWN",
-    ):
-
-        ax.axhline(
-            y=reference_level,
-            color=REFERENCE,
-            linestyle=":",
-            linewidth=1.1,
-            alpha=0.80,
-            zorder=2,
-        )
+    # NOTE: Sesuai permintaan user, garis reference_level
+    # (dulu axhline ungu penuh, sempat jadi segmen pendek)
+    # sekarang dihapus sama sekali. reference_level tetap
+    # dipakai di tempat lain (mencari candle breakout untuk
+    # huruf "B", menentukan awal retest zone, menghitung range
+    # harga chart) -- hanya elemen garis visual ini yang
+    # dihilangkan.
+    return
 
 
 # ============================================================
@@ -1723,10 +1719,10 @@ def draw_visual_chart(
 
     _draw_retest_zone(
         ax1,
+        df,
         setup,
         reference_level,
         y_span,
-        -0.6,
         last_x + extra_margin,
     )
 
@@ -1799,6 +1795,7 @@ def draw_visual_chart(
 
     _draw_reference_level(
         ax1,
+        df,
         setup,
         dec,
         label_x,
