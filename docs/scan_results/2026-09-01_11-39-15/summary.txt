@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T11:39:10.449965+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ONTUSDT | Side: LONG | Score: 5.91
+   - Entry : 0.05440
+   - SL    : 0.05220
+   - TP    : 0.05770, 0.05935, 0.06100
+   - Invalidation: Close below 0.0522 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BELUSDT | Side: LONG | Score: 4.65
+   - Entry : 0.12063
+   - SL    : 0.11370
+   - TP    : 0.13103, 0.13622, 0.14142
+   - Invalidation: Close below 0.1137 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: POWERUSDT | Side: SHORT | Score: 4.1
+   - Entry : 0.08273
+   - SL    : 0.08447
+   - TP    : 0.08012, 0.07881, 0.07750
+   - Invalidation: Close above 0.08447 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: AIOUSDT | Side: SHORT | Score: 4.08
+   - Entry : 0.04663
+   - SL    : 0.04818
+   - TP    : 0.04431, 0.04314, 0.04198
+   - Invalidation: Close above 0.04818 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: JCTUSDT | Side: SHORT | Score: 3.78
+   - Entry : 0.001839
+   - SL    : 0.001873
+   - TP    : 0.001788, 0.001763, 0.001738
+   - Invalidation: Close above 0.001873 / reclaim of recent 15m swing high
+----------------------------------------
