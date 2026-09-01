@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T04:00:02.077387+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: JASMYUSDT | Side: LONG | Score: 7.16
+   - Entry : 0.004923
+   - SL    : 0.004755
+   - TP    : 0.005174, 0.005300, 0.005425
+   - Invalidation: Close below 0.004755 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: RAYSOLUSDT | Side: LONG | Score: 6.49
+   - Entry : 0.80699
+   - SL    : 0.79530
+   - TP    : 0.82452, 0.83329, 0.84206
+   - Invalidation: Close below 0.7953 / loss of recent 15m swing low
+----------------------------------------
