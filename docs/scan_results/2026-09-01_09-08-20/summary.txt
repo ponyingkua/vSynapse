@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T09:08:15.489716+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: FIGHTUSDT | Side: SHORT | Score: 5.18
+   - Entry : 0.003391
+   - SL    : 0.003471
+   - TP    : 0.003271, 0.003211, 0.003152
+   - Invalidation: Close above 0.003471 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: BRETTUSDT | Side: SHORT | Score: 5.03
+   - Entry : 0.005057
+   - SL    : 0.005224
+   - TP    : 0.004808, 0.004683, 0.004558
+   - Invalidation: Close above 0.005224 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: HANAUSDT | Side: SHORT | Score: 4.83
+   - Entry : 0.02044
+   - SL    : 0.02071
+   - TP    : 0.02004, 0.01983, 0.01963
+   - Invalidation: Close above 0.02071 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: SYRUPUSDT | Side: SHORT | Score: 4.8
+   - Entry : 0.18463
+   - SL    : 0.18999
+   - TP    : 0.17660, 0.17258, 0.16856
+   - Invalidation: Close above 0.18999 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: XAIUSDT | Side: SHORT | Score: 4.46
+   - Entry : 0.007412
+   - SL    : 0.007712
+   - TP    : 0.006962, 0.006737, 0.006512
+   - Invalidation: Close above 0.007712 / reclaim of recent 1h swing high
+----------------------------------------
