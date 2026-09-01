@@ -367,6 +367,22 @@ CONFIG = {
     "breakout_min_retest_atr": 0.15,
 
     # --------------------------------------------------------
+    # Entry Engine -- sanity guard
+    # --------------------------------------------------------
+    #
+    # FIX: sebelumnya tidak ada batas atas untuk seberapa jauh
+    # ideal_entry boleh berada dari harga pasar saat ini. Untuk
+    # BREAKOUT/BREAKDOWN yang levelnya sudah lama ditinggalkan
+    # harga (candle impulsif jauh + tren berlanjut), atau
+    # EXTENDED/CONTINUATION yang zona pullback-nya jauh di
+    # belakang, kandidat tetap lolos sebagai WAITING_RETEST/
+    # WAITING_PULLBACK selamanya walau entry-nya sudah tidak
+    # realistis tersentuh dalam kondisi market yang relevan.
+    # Kandidat dengan jarak entry > ambang ini (dalam ATR)
+    # dibuang sama sekali, bukan cuma ditandai WAITING_*.
+    "max_entry_distance_atr": 2.0,
+
+    # --------------------------------------------------------
     # Structure / risk
     # --------------------------------------------------------
 
@@ -2015,6 +2031,51 @@ def classify_setup(tf_score, side, live_price=None):
     )
 
     # --------------------------------------------------------
+    # EXTENDED
+    #
+    # FIX (urutan pengecekan): cabang ini SEKARANG dicek
+    # SEBELUM is_breakout. Sebelumnya is_breakout selalu menang
+    # duluan -- kalau score_tf() mendeteksi 20-bar breakout/
+    # breakdown, symbol langsung diberi label BREAKOUT/BREAKDOWN
+    # walau close-nya sudah jauh sekali (>= setup_extended_atr)
+    # dari EMA200. Padahal breakout yang muncul setelah harga
+    # sudah overextended bukan lagi "fresh setup" -- itu
+    # kelanjutan tren yang sudah lari jauh, dan entry retest ke
+    # level breakout lama (yang sudah lama ditinggalkan harga)
+    # jadi tidak realistis tersentuh (lihat kasus TRIA/RIVER:
+    # entry dijepit ke level lama, padahal harga sudah menuju
+    # TP1). Sekarang begitu directional_distance_atr sudah
+    # extended, setup diklasifikasikan EXTENDED (entry diarahkan
+    # ke zona pullback EMA200 yang jauh lebih relevan) terlepas
+    # dari ada tidaknya sinyal breakout di reasons.
+    # --------------------------------------------------------
+
+    if directional_distance_atr >= CONFIG["setup_extended_atr"]:
+
+        pullback_level = (
+            ema + CONFIG["setup_pullback_atr"] * atr_value
+            if side == "LONG"
+            else ema - CONFIG["setup_pullback_atr"] * atr_value
+        )
+
+        distance = abs(market_price - pullback_level)
+
+        entry_state = (
+            "ENTRY_READY"
+            if distance <= entry_ready_band
+            else "WAITING_PULLBACK"
+        )
+
+        return {
+            "setup_style": "EXTENDED",
+            "entry_state": entry_state,
+            "ideal_entry": pullback_level,
+            "reference_level": ema,
+            "retest_zone_low": None,
+            "retest_zone_high": None,
+        }
+
+    # --------------------------------------------------------
     # BREAKOUT / BREAKDOWN
     #
     # Entry ideal dijepit ke area RETEST level yang ditembus
@@ -2100,42 +2161,6 @@ def classify_setup(tf_score, side, live_price=None):
             "reference_level": level,
             "retest_zone_low": ideal_entry - entry_ready_band,
             "retest_zone_high": ideal_entry + entry_ready_band,
-        }
-
-    # --------------------------------------------------------
-    # EXTENDED
-    #
-    # Terlalu jauh dari EMA200 searah posisi. Entry ideal TIDAK
-    # lagi ikut harga sekarang (dulu: chase harga di puncak
-    # extension) -- diarahkan ke zona pullback (EMA200 +/-
-    # setup_pullback_atr). Hampir selalu akan jadi
-    # WAITING_PULLBACK, kecuali harga memang sudah balik ke
-    # zona itu saat ini juga.
-    # --------------------------------------------------------
-
-    if directional_distance_atr >= CONFIG["setup_extended_atr"]:
-
-        pullback_level = (
-            ema + CONFIG["setup_pullback_atr"] * atr_value
-            if side == "LONG"
-            else ema - CONFIG["setup_pullback_atr"] * atr_value
-        )
-
-        distance = abs(market_price - pullback_level)
-
-        entry_state = (
-            "ENTRY_READY"
-            if distance <= entry_ready_band
-            else "WAITING_PULLBACK"
-        )
-
-        return {
-            "setup_style": "EXTENDED",
-            "entry_state": entry_state,
-            "ideal_entry": pullback_level,
-            "reference_level": ema,
-            "retest_zone_low": None,
-            "retest_zone_high": None,
         }
 
     # --------------------------------------------------------
@@ -2627,6 +2652,34 @@ def analyze_symbol(
     )
 
     # --------------------------------------------------------
+    # Entry distance sanity guard.
+    #
+    # FIX: sebelumnya tidak ada batas atas untuk seberapa jauh
+    # ideal_entry boleh berada dari harga pasar SEKARANG. Kalau
+    # level breakout/breakdown atau zona pullback sudah lama
+    # ditinggalkan harga (candle impulsif jauh + tren berlanjut,
+    # mis. kasus TRIA/RIVER), kandidat tetap lolos terus sebagai
+    # WAITING_RETEST/WAITING_PULLBACK walau entry-nya sudah tidak
+    # realistis tersentuh tanpa reversal besar. Sekarang kandidat
+    # semacam ini dibuang sama sekali di sini, bukan cuma
+    # ditandai "waiting".
+    # --------------------------------------------------------
+
+    entry_distance_atr = abs(price - entry) / atr_value
+
+    max_entry_distance_atr = CONFIG["max_entry_distance_atr"]
+
+    if entry_distance_atr > max_entry_distance_atr:
+        REJECTIONS.note(
+            "stage2", symbol, "entry_too_far",
+            side=side, execution_tf=execution_tf,
+            setup_style=setup_style,
+            distance_atr=round(entry_distance_atr, 2),
+            max_distance_atr=max_entry_distance_atr,
+        )
+        return None
+
+    # --------------------------------------------------------
     # Risk
     # --------------------------------------------------------
 
@@ -2716,6 +2769,34 @@ def analyze_symbol(
         )
         for rr in CONFIG["risk_reward"]
     ]
+
+    # --------------------------------------------------------
+    # Price-already-beyond-TP1 guard.
+    #
+    # FIX: sebelumnya tidak ada pengecekan apakah harga PASAR
+    # SAAT INI sudah melewati TP1 sebelum entry sempat tersentuh.
+    # Untuk setup BREAKOUT/BREAKDOWN/EXTENDED yang entry-nya
+    # dijepit jauh ke belakang (level lama / zona pullback),
+    # harga bisa saja sudah menuju atau bahkan melewati TP1
+    # sebelum retracement ke entry terjadi (kasus TRIA: harga
+    # sudah dekat TP1 padahal entry masih jauh di atas). Kalau
+    # itu terjadi, risk/reward yang dihitung sudah tidak relevan
+    # dengan kondisi market saat ini -- kandidat dibuang.
+    # --------------------------------------------------------
+
+    if side == "LONG" and price >= tp[0]:
+        REJECTIONS.note(
+            "stage2", symbol, "price_beyond_tp1",
+            side=side, price=price, tp1=tp[0],
+        )
+        return None
+
+    if side == "SHORT" and price <= tp[0]:
+        REJECTIONS.note(
+            "stage2", symbol, "price_beyond_tp1",
+            side=side, price=price, tp1=tp[0],
+        )
+        return None
 
     # --------------------------------------------------------
     # Rounding harga -- supaya entry/sl/tp konsisten dengan
