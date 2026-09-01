@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T21:08:22.478489+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: IOTXUSDT | Side: LONG | Score: 5.97
+   - Entry : 0.002943
+   - SL    : 0.002859
+   - TP    : 0.003069, 0.003132, 0.003195
+   - Invalidation: Close below 0.002859 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: PORTALUSDT | Side: LONG | Score: 4.54
+   - Entry : 0.01475
+   - SL    : 0.01429
+   - TP    : 0.01544, 0.01578, 0.01613
+   - Invalidation: Close below 0.01429 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: BLUAIUSDT | Side: LONG | Score: 4.39
+   - Entry : 0.01258
+   - SL    : 0.01243
+   - TP    : 0.01280, 0.01292, 0.01303
+   - Invalidation: Close below 0.012425 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: MORPHOUSDT | Side: LONG | Score: 4.39
+   - Entry : 2.5592
+   - SL    : 2.5163
+   - TP    : 2.6235, 2.6557, 2.6879
+   - Invalidation: Close below 2.5163 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: MUBARAKUSDT | Side: LONG | Score: 4.32
+   - Entry : 0.02124
+   - SL    : 0.02057
+   - TP    : 0.02225, 0.02275, 0.02325
+   - Invalidation: Close below 0.02057 / loss of recent 15m swing low
+----------------------------------------
