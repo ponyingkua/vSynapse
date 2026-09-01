@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T13:08:50.552392+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: SKYUSDT | Side: LONG | Score: 7.7
+   - Entry : 0.06961
+   - SL    : 0.06563
+   - TP    : 0.07559, 0.07858, 0.08157
+   - Invalidation: Close below 0.06563 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: FFUSDT | Side: LONG | Score: 7.4
+   - Entry : 0.08763
+   - SL    : 0.08169
+   - TP    : 0.09655, 0.10100, 0.10546
+   - Invalidation: Close below 0.08169 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: QNTUSDT | Side: LONG | Score: 6.36
+   - Entry : 62.107
+   - SL    : 60.700
+   - TP    : 64.217, 65.272, 66.327
+   - Invalidation: Close below 60.7 / loss of recent 1h swing low
+----------------------------------------
