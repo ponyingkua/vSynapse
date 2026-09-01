@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T13:40:11.139554+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: SKYUSDT | Side: LONG | Score: 6.72
+   - Entry : 0.06961
+   - SL    : 0.06563
+   - TP    : 0.07559, 0.07858, 0.08157
+   - Invalidation: Close below 0.06563 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MUSDT | Side: SHORT | Score: 6.36
+   - Entry : 1.0679
+   - SL    : 1.0937
+   - TP    : 1.0293, 1.0100, 0.9907
+   - Invalidation: Close above 1.0937 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: CHIPUSDT | Side: LONG | Score: 7.25
+   - Entry : 0.03999
+   - SL    : 0.03891
+   - TP    : 0.04160, 0.04241, 0.04321
+   - Invalidation: Close below 0.03891 / loss of recent 15m swing low
+----------------------------------------
