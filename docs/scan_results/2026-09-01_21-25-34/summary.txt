@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T21:25:30.877183+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MANTRAUSDT | Side: SHORT | Score: 5.45
+   - Entry : 0.004303
+   - SL    : 0.004356
+   - TP    : 0.004224, 0.004184, 0.004144
+   - Invalidation: Close above 0.004356 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: REUSDT | Side: SHORT | Score: 5.35
+   - Entry : 0.47390
+   - SL    : 0.48210
+   - TP    : 0.46160, 0.45545, 0.44930
+   - Invalidation: Close above 0.4821 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: 1000BONKUSDT | Side: SHORT | Score: 5.24
+   - Entry : 0.002986
+   - SL    : 0.003067
+   - TP    : 0.002864, 0.002804, 0.002743
+   - Invalidation: Close above 0.003067 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: ZRXUSDT | Side: SHORT | Score: 5.12
+   - Entry : 0.09580
+   - SL    : 0.09750
+   - TP    : 0.09325, 0.09197, 0.09070
+   - Invalidation: Close above 0.0975 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: WLDUSDT | Side: SHORT | Score: 5.08
+   - Entry : 0.36455
+   - SL    : 0.37873
+   - TP    : 0.34329, 0.33265, 0.32202
+   - Invalidation: Close above 0.3787327 / reclaim of recent 4h swing high
+----------------------------------------
