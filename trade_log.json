@@ -566,6 +566,27 @@
       "added_at": "2026-09-01T03:40:23.906453+00:00"
     },
     {
+      "id": "JASMYUSDT_LONG_1h_2026-09-01_03-52-40",
+      "symbol": "JASMYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.004923,
+      "sl": 0.004755,
+      "tp": [
+        0.005174,
+        0.0053,
+        0.005425
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-52-40",
+      "first_seen": "2026-09-01T03:52:37.568658+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:52:37.568658+00:00"
+    },
+    {
       "id": "RAYSOLUSDT_LONG_15m_2026-09-01_03-40-28",
       "symbol": "RAYSOLUSDT",
       "side": "LONG",
@@ -585,6 +606,27 @@
       "htf_bias": "BULLISH",
       "config_version": "v1",
       "added_at": "2026-09-01T03:40:23.906453+00:00"
+    },
+    {
+      "id": "RAYSOLUSDT_LONG_15m_2026-09-01_03-52-40",
+      "symbol": "RAYSOLUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.80699,
+      "sl": 0.7953,
+      "tp": [
+        0.82452,
+        0.83329,
+        0.84206
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_03-52-40",
+      "first_seen": "2026-09-01T03:52:37.568658+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:52:37.568658+00:00"
     }
   ],
   "open": [
@@ -4716,6 +4758,7 @@
     "2026-09-01_02-51-24",
     "2026-09-01_03-07-56",
     "2026-09-01_03-27-11",
-    "2026-09-01_03-40-28"
+    "2026-09-01_03-40-28",
+    "2026-09-01_03-52-40"
   ]
 }
