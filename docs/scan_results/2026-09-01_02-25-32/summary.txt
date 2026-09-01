@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T02:25:28.624878+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OPNUSDT | Side: SHORT | Score: 5.19
+   - Entry : 0.05353
+   - SL    : 0.05501
+   - TP    : 0.05131, 0.05020, 0.04909
+   - Invalidation: Close above 0.05501 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: PROVEUSDT | Side: LONG | Score: 5.18
+   - Entry : 0.18400
+   - SL    : 0.17770
+   - TP    : 0.19345, 0.19817, 0.20290
+   - Invalidation: Close below 0.1777 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: XAIUSDT | Side: LONG | Score: 5.12
+   - Entry : 0.007676
+   - SL    : 0.007380
+   - TP    : 0.008119, 0.008341, 0.008563
+   - Invalidation: Close below 0.00738 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: WIFUSDT | Side: SHORT | Score: 5.06
+   - Entry : 0.19610
+   - SL    : 0.19940
+   - TP    : 0.19115, 0.18868, 0.18620
+   - Invalidation: Close above 0.1994 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: THETAUSDT | Side: SHORT | Score: 4.57
+   - Entry : 0.16790
+   - SL    : 0.17160
+   - TP    : 0.16235, 0.15957, 0.15680
+   - Invalidation: Close above 0.1716 / reclaim of recent 15m swing high
+----------------------------------------
