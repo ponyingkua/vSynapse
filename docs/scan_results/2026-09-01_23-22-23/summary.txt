@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T23:22:20.287174+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PUMPBTCUSDT | Side: SHORT | Score: 5.84
+   - Entry : 0.01168
+   - SL    : 0.01219
+   - TP    : 0.01091, 0.01053, 0.01014
+   - Invalidation: Close above 0.01219 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: 1000000MOGUSDT | Side: SHORT | Score: 5.75
+   - Entry : 0.10556
+   - SL    : 0.11020
+   - TP    : 0.09861, 0.09513, 0.09165
+   - Invalidation: Close above 0.1102 / reclaim of recent 4h swing high
+----------------------------------------
+3. Symbol: ROBOUSDT | Side: LONG | Score: 5.11
+   - Entry : 0.01341
+   - SL    : 0.01286
+   - TP    : 0.01424, 0.01466, 0.01508
+   - Invalidation: Close below 0.01286 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: SPACEUSDT | Side: SHORT | Score: 4.89
+   - Entry : 0.004907
+   - SL    : 0.004947
+   - TP    : 0.004848, 0.004819, 0.004789
+   - Invalidation: Close above 0.004947 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: MUBARAKUSDT | Side: LONG | Score: 4.62
+   - Entry : 0.02157
+   - SL    : 0.02099
+   - TP    : 0.02244, 0.02287, 0.02331
+   - Invalidation: Close below 0.02099 / loss of recent 15m swing low
+----------------------------------------
