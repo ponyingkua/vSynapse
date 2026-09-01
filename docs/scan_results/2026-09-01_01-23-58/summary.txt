@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T01:23:55.589999+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SYNUSDT | Side: SHORT | Score: 6.46
+   - Entry : 0.09320
+   - SL    : 0.09610
+   - TP    : 0.08885, 0.08668, 0.08450
+   - Invalidation: Close above 0.0961 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: LABUSDT | Side: SHORT | Score: 7.54
+   - Entry : 0.07180
+   - SL    : 0.07616
+   - TP    : 0.06525, 0.06198, 0.05871
+   - Invalidation: Close above 0.07616 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: OPUSDT | Side: LONG | Score: 6.88
+   - Entry : 0.09435
+   - SL    : 0.08795
+   - TP    : 0.10394, 0.10874, 0.11353
+   - Invalidation: Close below 0.08795 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: PRLUSDT | Side: SHORT | Score: 6.65
+   - Entry : 0.15458
+   - SL    : 0.16040
+   - TP    : 0.14584, 0.14147, 0.13711
+   - Invalidation: Close above 0.1604 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: STRKUSDT | Side: LONG | Score: 6.54
+   - Entry : 0.02623
+   - SL    : 0.02536
+   - TP    : 0.02754, 0.02820, 0.02885
+   - Invalidation: Close below 0.02536 / loss of recent 1h swing low
+----------------------------------------
