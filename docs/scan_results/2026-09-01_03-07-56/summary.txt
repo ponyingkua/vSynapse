@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T03:07:52.593230+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: FUSDT | Side: LONG | Score: 6.58
+   - Entry : 0.003301
+   - SL    : 0.003193
+   - TP    : 0.003463, 0.003544, 0.003625
+   - Invalidation: Close below 0.003193 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MANTRAUSDT | Side: LONG | Score: 6.32
+   - Entry : 0.004536
+   - SL    : 0.004223
+   - TP    : 0.005006, 0.005241, 0.005476
+   - Invalidation: Close below 0.004223 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: CTRUSDT | Side: LONG | Score: 7.32
+   - Entry : 0.009788
+   - SL    : 0.009280
+   - TP    : 0.010550, 0.010932, 0.011313
+   - Invalidation: Close below 0.00928 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: COTIUSDT | Side: LONG | Score: 6.12
+   - Entry : 0.01331
+   - SL    : 0.01311
+   - TP    : 0.01361, 0.01376, 0.01392
+   - Invalidation: Close below 0.013108 / loss of recent 15m swing low
+----------------------------------------

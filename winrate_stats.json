@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-01T02:51:26.492000+00:00",
-  "resolved_trades": 77,
+  "generated_at": "2026-09-01T03:07:58.038000+00:00",
+  "resolved_trades": 80,
   "wins": 18,
-  "losses": 59,
-  "win_rate_pct": 23.4,
-  "avg_r_multiple": -0.38,
+  "losses": 62,
+  "win_rate_pct": 22.5,
+  "avg_r_multiple": -0.4,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 8,
-      "losses": 34,
-      "win_rate_pct": 19.0
+      "losses": 36,
+      "win_rate_pct": 18.2
     },
     "BREAKDOWN": {
       "wins": 10,
-      "losses": 21,
-      "win_rate_pct": 32.3
+      "losses": 22,
+      "win_rate_pct": 31.2
     },
     "EXTENDED": {
       "wins": 0,
@@ -35,13 +35,13 @@
   "by_side": {
     "LONG": {
       "wins": 8,
-      "losses": 36,
-      "win_rate_pct": 18.2
+      "losses": 38,
+      "win_rate_pct": 17.4
     },
     "SHORT": {
       "wins": 10,
-      "losses": 23,
-      "win_rate_pct": 30.3
+      "losses": 24,
+      "win_rate_pct": 29.4
     }
   },
   "by_config_version": {
@@ -52,15 +52,15 @@
     },
     "v1": {
       "wins": 6,
-      "losses": 19,
-      "win_rate_pct": 24.0
+      "losses": 22,
+      "win_rate_pct": 21.4
     }
   },
   "by_htf_alignment": {
     "UNKNOWN_OR_NEUTRAL": {
       "wins": 12,
-      "losses": 42,
-      "win_rate_pct": 22.2
+      "losses": 43,
+      "win_rate_pct": 21.8
     },
     "ALIGNED": {
       "wins": 3,
@@ -69,12 +69,14 @@
     },
     "COUNTER": {
       "wins": 3,
-      "losses": 4,
-      "win_rate_pct": 42.9
+      "losses": 6,
+      "win_rate_pct": 33.3
     }
   },
   "expired_unresolved": 10,
   "never_triggered": 7,
-  "currently_open": 69,
-  "currently_pending": 21
+  "currently_open": 68,
+  "currently_pending": 23,
+  "intrabar_disambiguated_via_subcandle": 0,
+  "intrabar_ambiguous_fallback_to_sl": 0
 }

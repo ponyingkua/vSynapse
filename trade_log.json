@@ -438,6 +438,48 @@
       "htf_bias": null,
       "config_version": "v1",
       "added_at": "2026-09-01T02:51:21.768223+00:00"
+    },
+    {
+      "id": "CTRUSDT_LONG_1h_2026-09-01_03-07-56",
+      "symbol": "CTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.009788,
+      "sl": 0.00928,
+      "tp": [
+        0.01055,
+        0.010932,
+        0.011313
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-07-56",
+      "first_seen": "2026-09-01T03:07:52.593230+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:07:52.593230+00:00"
+    },
+    {
+      "id": "COTIUSDT_LONG_15m_2026-09-01_03-07-56",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01331,
+      "sl": 0.01311,
+      "tp": [
+        0.01361,
+        0.01376,
+        0.01392
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_03-07-56",
+      "first_seen": "2026-09-01T03:07:52.593230+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:07:52.593230+00:00"
     }
   ],
   "open": [
@@ -1438,50 +1480,6 @@
       "triggered_at": "2026-09-01T01:23:55.589999+00:00"
     },
     {
-      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-06-50",
-      "symbol": "PLAYUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.03992,
-      "sl": 0.03789,
-      "tp": [
-        0.04296,
-        0.04448,
-        0.046
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_00-06-50",
-      "first_seen": "2026-09-01T00:06:47.596561+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "added_at": "2026-09-01T00:06:47.596561+00:00",
-      "triggered_at": "2026-09-01T01:59:59.999000+00:00"
-    },
-    {
-      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-14-31",
-      "symbol": "PLAYUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.03992,
-      "sl": 0.03789,
-      "tp": [
-        0.04296,
-        0.04448,
-        0.046
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_00-14-31",
-      "first_seen": "2026-09-01T00:14:29.250584+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "added_at": "2026-09-01T00:14:29.250584+00:00",
-      "triggered_at": "2026-09-01T01:59:59.999000+00:00"
-    },
-    {
       "id": "DOTUSDT_LONG_15m_2026-09-01_01-51-25",
       "symbol": "DOTUSDT",
       "side": "LONG",
@@ -1585,28 +1583,6 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "triggered_at": "2026-09-01T01:51:21.785310+00:00"
-    },
-    {
-      "id": "PRLUSDT_SHORT_15m_2026-09-01_01-23-58",
-      "symbol": "PRLUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.15458,
-      "sl": 0.1604,
-      "tp": [
-        0.14584,
-        0.14147,
-        0.13711
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_01-23-58",
-      "first_seen": "2026-09-01T01:23:55.589999+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "added_at": "2026-09-01T01:23:55.589999+00:00",
-      "triggered_at": "2026-09-01T01:44:59.999000+00:00"
     },
     {
       "id": "SSVUSDT_LONG_15m_2026-09-01_02-06-51",
@@ -1884,6 +1860,48 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "triggered_at": "2026-09-01T02:38:51.045426+00:00"
+    },
+    {
+      "id": "FUSDT_LONG_1h_2026-09-01_03-07-56",
+      "symbol": "FUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.003301,
+      "sl": 0.003193,
+      "tp": [
+        0.003463,
+        0.003544,
+        0.003625
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-07-56",
+      "first_seen": "2026-09-01T03:07:52.593230+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T03:00:00+00:00"
+    },
+    {
+      "id": "MANTRAUSDT_LONG_1h_2026-09-01_03-07-56",
+      "symbol": "MANTRAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.004536,
+      "sl": 0.004223,
+      "tp": [
+        0.005006,
+        0.005241,
+        0.005476
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-07-56",
+      "first_seen": "2026-09-01T03:07:52.593230+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T03:00:00+00:00"
     }
   ],
   "closed": [
@@ -4350,6 +4368,96 @@
       "exit_price": 5.523,
       "closed_at": "2026-09-01T01:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-06-50",
+      "symbol": "PLAYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03992,
+      "sl": 0.03789,
+      "tp": [
+        0.04296,
+        0.04448,
+        0.046
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_00-06-50",
+      "first_seen": "2026-09-01T00:06:47.596561+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:06:47.596561+00:00",
+      "triggered_at": "2026-09-01T01:59:59.999000+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.03789,
+      "tp_index": null,
+      "bar_time": 1788235199999,
+      "bars_held": 2,
+      "intrabar_ambiguous": false,
+      "closed_at": "2026-09-01T03:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "PLAYUSDT_LONG_1h_2026-09-01_00-14-31",
+      "symbol": "PLAYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03992,
+      "sl": 0.03789,
+      "tp": [
+        0.04296,
+        0.04448,
+        0.046
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_00-14-31",
+      "first_seen": "2026-09-01T00:14:29.250584+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T00:14:29.250584+00:00",
+      "triggered_at": "2026-09-01T01:59:59.999000+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.03789,
+      "tp_index": null,
+      "bar_time": 1788235199999,
+      "bars_held": 2,
+      "intrabar_ambiguous": false,
+      "closed_at": "2026-09-01T03:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "PRLUSDT_SHORT_15m_2026-09-01_01-23-58",
+      "symbol": "PRLUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.15458,
+      "sl": 0.1604,
+      "tp": [
+        0.14584,
+        0.14147,
+        0.13711
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_01-23-58",
+      "first_seen": "2026-09-01T01:23:55.589999+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T01:23:55.589999+00:00",
+      "triggered_at": "2026-09-01T01:44:59.999000+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.1604,
+      "tp_index": null,
+      "bar_time": 1788231599999,
+      "bars_held": 5,
+      "intrabar_ambiguous": false,
+      "closed_at": "2026-09-01T02:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -4398,6 +4506,7 @@
     "2026-09-01_02-06-51",
     "2026-09-01_02-25-32",
     "2026-09-01_02-38-55",
-    "2026-09-01_02-51-24"
+    "2026-09-01_02-51-24",
+    "2026-09-01_03-07-56"
   ]
 }
