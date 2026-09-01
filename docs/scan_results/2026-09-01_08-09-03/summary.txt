@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T08:08:59.088349+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CAKEUSDT | Side: LONG | Score: 7.74
+   - Entry : 1.8852
+   - SL    : 1.8402
+   - TP    : 1.9527, 1.9864, 2.0202
+   - Invalidation: Close below 1.8402 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: NMRUSDT | Side: LONG | Score: 7.74
+   - Entry : 9.0860
+   - SL    : 8.9790
+   - TP    : 9.2465, 9.3268, 9.4070
+   - Invalidation: Close below 8.979 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.54
+   - Entry : 1.0696
+   - SL    : 1.0521
+   - TP    : 1.0959, 1.1090, 1.1221
+   - Invalidation: Close below 1.0521 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: INXUSDT | Side: SHORT | Score: 8.26
+   - Entry : 0.006505
+   - SL    : 0.006748
+   - TP    : 0.006140, 0.005958, 0.005776
+   - Invalidation: Close above 0.006748 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: ARUSDT | Side: LONG | Score: 7.92
+   - Entry : 2.1681
+   - SL    : 2.0530
+   - TP    : 2.3408, 2.4271, 2.5135
+   - Invalidation: Close below 2.053 / loss of recent 4h swing low
+----------------------------------------
