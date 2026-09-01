@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T01:51:21.785310+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: DOTUSDT | Side: LONG | Score: 5.31
+   - Entry : 0.85055
+   - SL    : 0.83830
+   - TP    : 0.86893, 0.87812, 0.88731
+   - Invalidation: Close below 0.8383 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ICNTUSDT | Side: SHORT | Score: 5.17
+   - Entry : 0.10483
+   - SL    : 0.10700
+   - TP    : 0.10156, 0.09993, 0.09830
+   - Invalidation: Close above 0.107 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: FORMUSDT | Side: LONG | Score: 4.82
+   - Entry : 0.25960
+   - SL    : 0.25540
+   - TP    : 0.26590, 0.26905, 0.27220
+   - Invalidation: Close below 0.2554 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: TIAUSDT | Side: LONG | Score: 4.67
+   - Entry : 0.34098
+   - SL    : 0.33480
+   - TP    : 0.35024, 0.35487, 0.35951
+   - Invalidation: Close below 0.3348 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: PHAUSDT | Side: LONG | Score: 4.58
+   - Entry : 0.02519
+   - SL    : 0.02482
+   - TP    : 0.02575, 0.02602, 0.02630
+   - Invalidation: Close below 0.02482 / loss of recent 15m swing low
+----------------------------------------
