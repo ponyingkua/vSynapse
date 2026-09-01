@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T08:29:18.114628+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: INXUSDT | Side: SHORT | Score: 8.48
+   - Entry : 0.006505
+   - SL    : 0.006748
+   - TP    : 0.006140, 0.005958, 0.005776
+   - Invalidation: Close above 0.006748 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: REDUSDT | Side: LONG | Score: 6.54
+   - Entry : 0.10965
+   - SL    : 0.10550
+   - TP    : 0.11588, 0.11899, 0.12210
+   - Invalidation: Close below 0.1055 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: SKYAIUSDT | Side: SHORT | Score: 6.13
+   - Entry : 0.05285
+   - SL    : 0.05480
+   - TP    : 0.04993, 0.04847, 0.04701
+   - Invalidation: Close above 0.0548 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: CLANKERUSDT | Side: SHORT | Score: 6.07
+   - Entry : 12.657
+   - SL    : 12.950
+   - TP    : 12.218, 11.998, 11.779
+   - Invalidation: Close above 12.95 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: ALTUSDT | Side: SHORT | Score: 6.05
+   - Entry : 0.006130
+   - SL    : 0.006199
+   - TP    : 0.006026, 0.005974, 0.005922
+   - Invalidation: Close above 0.006199 / reclaim of recent 15m swing high
+----------------------------------------
