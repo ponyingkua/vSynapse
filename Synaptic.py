@@ -351,6 +351,21 @@ CONFIG = {
     # harga yang sudah lari jauh.
     "breakout_chase_buffer_atr": 0.25,
 
+    # BREAKOUT / BREAKDOWN -- retest requirement.
+    #
+    # Sebelumnya ideal_entry = min(market_price, level+buffer),
+    # yang berarti kalau harga baru SEDIKIT menembus level,
+    # ideal_entry = market_price -> ENTRY_READY seketika, tanpa
+    # retest sungguhan. Ini pola klasik "beli di fakeout".
+    #
+    # Sekarang breakout WAJIB menunjukkan retest minimal
+    # sejauh ini (dalam ATR) balik ke arah level sebelum
+    # dianggap ENTRY_READY -- entry tetap dijepit ke area
+    # retest (level +/- buffer), tapi entry_state tidak akan
+    # ENTRY_READY kalau harga belum benar-benar mendekat lagi
+    # ke level yang ditembus.
+    "breakout_min_retest_atr": 0.15,
+
     # --------------------------------------------------------
     # Structure / risk
     # --------------------------------------------------------
@@ -1992,6 +2007,13 @@ def classify_setup(tf_score, side, live_price=None):
     # ideal_entry akan jauh dari harga sekarang -> entry_state
     # jadi WAITING_RETEST, bukan dipaksa ENTRY_READY di harga
     # yang sudah "telat"/chase.
+    #
+    # FIX (retest sungguhan): sebelumnya kalau harga baru
+    # SEDIKIT menembus level, ideal_entry = market_price ->
+    # ENTRY_READY seketika tanpa retest apapun (rawan fakeout).
+    # Sekarang wajib ada mundur minimal breakout_min_retest_atr
+    # dari titik ekstrem candle breakout balik ke arah level,
+    # baru dianggap ENTRY_READY.
     # --------------------------------------------------------
 
     if is_breakout:
@@ -2019,6 +2041,10 @@ def classify_setup(tf_score, side, live_price=None):
             CONFIG["breakout_chase_buffer_atr"] * atr_value
         )
 
+        min_retest = (
+            CONFIG["breakout_min_retest_atr"] * atr_value
+        )
+
         if side == "LONG":
             ideal_entry = min(market_price, level + buffer_)
         else:
@@ -2026,9 +2052,20 @@ def classify_setup(tf_score, side, live_price=None):
 
         distance = abs(market_price - ideal_entry)
 
+        # Retest sungguhan: harga sekarang harus sudah mundur
+        # setidaknya min_retest dari close breakout (bukan cuma
+        # "kebetulan" market_price == ideal_entry karena baru
+        # sedikit menembus level).
+        if side == "LONG":
+            retest_progress = close - market_price
+        else:
+            retest_progress = market_price - close
+
+        has_retested = retest_progress >= min_retest
+
         entry_state = (
             "ENTRY_READY"
-            if distance <= entry_ready_band
+            if (distance <= entry_ready_band and has_retested)
             else "WAITING_RETEST"
         )
 
@@ -2076,10 +2113,18 @@ def classify_setup(tf_score, side, live_price=None):
     # --------------------------------------------------------
     # PULLBACK
     #
-    # Harga sudah berada di zona retracement yang valid ->
-    # selalu ENTRY_READY. Level presisi tetap dihitung ulang
-    # di build_entry() (dengan max_drift) supaya identik
-    # dengan perilaku versi sebelumnya.
+    # Harga sudah berada di zona retracement yang valid.
+    #
+    # FIX: sebelumnya entry_state di-hardcode "ENTRY_READY"
+    # begitu closed-bar berada di zona pullback, TANPA mengecek
+    # apakah harga LIVE (market_price) masih di zona yang sama.
+    # Beda dengan cabang BREAKOUT/EXTENDED yang eksplisit
+    # membandingkan distance ke entry_ready_band. Sekarang
+    # PULLBACK ikut memakai pengecekan yang sama supaya
+    # konsisten: kalau harga live sudah kabur jauh dari EMA200
+    # (closed-bar tadinya di zona pullback, tapi live price
+    # sudah melesat), status jadi WAITING_PULLBACK, bukan
+    # dipaksa ENTRY_READY di harga yang sudah basi.
     # --------------------------------------------------------
 
     if (
@@ -2087,9 +2132,25 @@ def classify_setup(tf_score, side, live_price=None):
         and directional_distance_atr <= CONFIG["setup_pullback_atr"]
     ):
 
+        live_distance_atr = (
+            (market_price - ema) / atr_value
+            if side == "LONG"
+            else (ema - market_price) / atr_value
+        )
+
+        live_in_zone = (
+            live_distance_atr
+            <= CONFIG["setup_pullback_atr"]
+            + CONFIG["entry_ready_atr"]
+        )
+
+        entry_state = (
+            "ENTRY_READY" if live_in_zone else "WAITING_PULLBACK"
+        )
+
         return {
             "setup_style": "PULLBACK",
-            "entry_state": "ENTRY_READY",
+            "entry_state": entry_state,
             "ideal_entry": market_price,
             "reference_level": ema,
         }
@@ -2412,11 +2473,16 @@ def analyze_symbol(
     #
     # Strongest directional timeframe.
     # Tie -> prefer 4H, then 1H, then 15m.
+    #
+    # FIX: rank sebelumnya (1h=3, 4h=2, 15m=1) BERLAWANAN
+    # dengan komentar di atas -- pada skor seri, 1h akan
+    # menang duluan padahal seharusnya 4h. Rank sekarang
+    # disamakan dengan urutan yang dimaksud: 4h > 1h > 15m.
     # --------------------------------------------------------
 
     tf_rank = {
-        "1h": 3,
-        "4h": 2,
+        "4h": 3,
+        "1h": 2,
         "15m": 1,
     }
 
@@ -2450,9 +2516,23 @@ def analyze_symbol(
         exec_df.iloc[-1]["close"]
     )
 
-    atr_value = float(
-        exec_df.iloc[-1]["atr"]
-    )
+    # --------------------------------------------------------
+    # ATR untuk entry/SL/TP.
+    #
+    # FIX: sebelumnya diambil dari baris TERAKHIR (candle yang
+    # masih berjalan / live), padahal classify_setup() di bawah
+    # memakai ATR dari CLOSED bar (tf_score["atr"], via
+    # score_tf() yang menghormati repaint guard). Kalau candle
+    # yang sedang berjalan punya wick besar, dua ATR ini bisa
+    # beda -> SL/TP jadi tidak konsisten dengan setup yang
+    # baru saja diklasifikasikan. Sekarang exec_score["atr"]
+    # (closed-bar, sudah dihitung score_tf) dipakai untuk risk,
+    # sama seperti yang dipakai Setup Engine.
+    # --------------------------------------------------------
+
+    exec_score = data[execution_tf]["score"]
+
+    atr_value = float(exec_score["atr"])
 
     if (
         not np.isfinite(price)
@@ -2477,8 +2557,6 @@ def analyze_symbol(
     # Tidak mengarang sinyal: NO_SETUP berarti tidak ada
     # struktur entry yang jelas, kandidat ditolak di sini.
     # --------------------------------------------------------
-
-    exec_score = data[execution_tf]["score"]
 
     setup_info = classify_setup(
         exec_score,
@@ -3413,6 +3491,18 @@ def main():
 
         selection_mode = (
             "mtf_fallback"
+        )
+
+    # FIX: tandai per-kandidat kalau berasal dari fallback,
+    # bukan cuma di level payload (selection_mode). Sebelumnya
+    # kalau consumer (bot/tracker) tidak membaca selection_mode
+    # di level atas, kandidat fallback (belum tentu capai
+    # min_score) tercampur begitu saja dengan kandidat min_score
+    # biasa -- berpotensi mencemari statistik win rate tanpa
+    # ketahuan dari mana asalnya.
+    for item in final_results:
+        item["from_fallback"] = (
+            selection_mode == "mtf_fallback"
         )
 
     # ========================================================
