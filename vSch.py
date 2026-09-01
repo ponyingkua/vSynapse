@@ -12,6 +12,10 @@ IMPORTANT:
 - entry_state berasal dari Synaptic.
 - reference_level berasal dari Synaptic.
 - entry/sl/tp berasal dari Synaptic.
+- retest_zone_low / retest_zone_high (kalau ada) berasal dari
+  Synaptic -- dihitung dari band yang SAMA yang menentukan
+  entry_state ENTRY_READY (ideal_entry +/- entry_ready_atr),
+  bukan lebar generik yang ditebak vSch.
 - vSch hanya merender data JSON menjadi chart.
 
 Supported setup styles:
@@ -795,6 +799,21 @@ def _entry_state_color(state):
 # Tidak mengubah reference_level dari Synaptic.
 #
 # Zona dibuat sangat tipis/transparan.
+#
+# PRIORITAS SUMBER DATA (paling akurat -> paling lemah):
+#   1. retest_zone_low / retest_zone_high dari Synaptic --
+#      ini bukan estimasi, melainkan band ideal_entry +/-
+#      entry_ready_atr yang SAMA PERSIS dipakai Synaptic untuk
+#      menentukan entry_state ENTRY_READY vs WAITING_RETEST.
+#      Kalau field ini ada, vSch WAJIB memakainya apa adanya --
+#      tidak boleh dihitung ulang / ditimpa oleh fallback.
+#   2. retest_low / retest_high (alias lama, kompatibilitas
+#      mundur untuk JSON dari versi Synaptic sebelumnya).
+#   3. Fallback visual generik (±0.15% dari reference_level) --
+#      HANYA dipakai kalau Synaptic benar-benar tidak mengirim
+#      batas zona eksplisit (mis. JSON lama). Ini murni estetika
+#      dan TIDAK merepresentasikan requirement retest yang
+#      sesungguhnya.
 # ============================================================
 
 def _calculate_retest_zone(
@@ -803,8 +822,7 @@ def _calculate_retest_zone(
     y_span,
 ):
 
-    # Jika Synaptic menyediakan batas zona secara eksplisit,
-    # renderer akan menggunakannya.
+    # Prioritas 1 & 2: field eksplisit dari Synaptic.
     zone_low = _first_numeric(
         setup,
         [
@@ -833,13 +851,17 @@ def _calculate_retest_zone(
         return (
             float(zone_low),
             float(zone_high),
+            True,
         )
 
     # --------------------------------------------------------
-    # Fallback visual.
+    # Fallback visual (JSON lama tanpa field eksplisit).
     #
     # Sangat tipis: sekitar 0.15% dari reference level.
     # Dibatasi supaya tidak terlalu lebar atau terlalu kecil.
+    #
+    # CATATAN: ini cuma dekorasi -- tidak mencerminkan
+    # breakout_min_retest_atr / entry_ready_atr milik Synaptic.
     # --------------------------------------------------------
 
     reference_abs = abs(
@@ -872,6 +894,7 @@ def _calculate_retest_zone(
     return (
         float(reference_level - zone_half_width),
         float(reference_level + zone_half_width),
+        False,
     )
 
 
@@ -910,7 +933,7 @@ def _draw_retest_zone(
     if reference_level is None:
         return
 
-    zone_low, zone_high = (
+    zone_low, zone_high, _from_synaptic = (
         _calculate_retest_zone(
             reference_level,
             setup,
@@ -1455,6 +1478,34 @@ def draw_visual_chart(
             reference_level
         )
 
+    # Zona retest eksplisit (kalau ada) juga wajib masuk hitungan
+    # range harga -- kalau tidak, sisi zona bisa terpotong di luar
+    # batas atas/bawah chart saat ideal_entry Synaptic jauh dari
+    # candle yang sedang tampil (mis. baru saja breakout impulsif).
+    retest_zone_low = _first_numeric(
+        setup,
+        [
+            "retest_zone_low",
+            "retest_low",
+        ],
+        None,
+    )
+
+    retest_zone_high = _first_numeric(
+        setup,
+        [
+            "retest_zone_high",
+            "retest_high",
+        ],
+        None,
+    )
+
+    if retest_zone_low is not None:
+        level_values.append(retest_zone_low)
+
+    if retest_zone_high is not None:
+        level_values.append(retest_zone_high)
+
     y_low = min(
         float(df["low"].min()),
         *level_values,
@@ -1663,7 +1714,9 @@ def draw_visual_chart(
     # RETEST ZONE
     #
     # WAITING RETEST:
-    #     hanya tampilkan area transparan sangat tipis.
+    #     tampilkan area transparan sangat tipis, memakai batas
+    #     eksplisit dari Synaptic (retest_zone_low/high) kalau
+    #     tersedia -- fallback hanya untuk JSON lama.
     # ========================================================
 
     _draw_retest_zone(
