@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T04:39:26.738975+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ENSUSDT | Side: LONG | Score: 6.73
+   - Entry : 5.9947
+   - SL    : 5.8230
+   - TP    : 6.2523, 6.3811, 6.5099
+   - Invalidation: Close below 5.823 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: BLESSUSDT | Side: SHORT | Score: 6.29
+   - Entry : 0.009511
+   - SL    : 0.009931
+   - TP    : 0.008880, 0.008565, 0.008250
+   - Invalidation: Close above 0.009931 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: CVXUSDT | Side: LONG | Score: 8.32
+   - Entry : 2.3475
+   - SL    : 2.2140
+   - TP    : 2.5477, 2.6478, 2.7478
+   - Invalidation: Close below 2.214 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: VELODROMEUSDT | Side: LONG | Score: 7.3
+   - Entry : 0.02291
+   - SL    : 0.02205
+   - TP    : 0.02419, 0.02483, 0.02548
+   - Invalidation: Close below 0.02205 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: STARUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.12192
+   - SL    : 0.11706
+   - TP    : 0.12920, 0.13284, 0.13649
+   - Invalidation: Close below 0.11706 / loss of recent 15m swing low
+----------------------------------------
