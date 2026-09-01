@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T11:51:36.992387+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: IDUSDT | Side: LONG | Score: 5.09
+   - Entry : 0.03252
+   - SL    : 0.03185
+   - TP    : 0.03352, 0.03403, 0.03453
+   - Invalidation: Close below 0.03185 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: KAVAUSDT | Side: LONG | Score: 4.38
+   - Entry : 0.04690
+   - SL    : 0.04638
+   - TP    : 0.04768, 0.04807, 0.04846
+   - Invalidation: Close below 0.04638 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ALPINEUSDT | Side: LONG | Score: 3.74
+   - Entry : 0.35322
+   - SL    : 0.34890
+   - TP    : 0.35970, 0.36294, 0.36618
+   - Invalidation: Close below 0.3489 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: COWUSDT | Side: LONG | Score: 3.72
+   - Entry : 0.12258
+   - SL    : 0.12040
+   - TP    : 0.12585, 0.12749, 0.12913
+   - Invalidation: Close below 0.1204 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: POLUSDT | Side: LONG | Score: 3.43
+   - Entry : 0.09291
+   - SL    : 0.09108
+   - TP    : 0.09566, 0.09703, 0.09840
+   - Invalidation: Close below 0.09108 / loss of recent 15m swing low
+----------------------------------------

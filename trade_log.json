@@ -4077,6 +4077,121 @@
       "triggered_at": "2026-09-01T11:45:00+00:00",
       "partial_check_from": "2026-09-01T11:39:10.449965+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "IDUSDT_LONG_15m_2026-09-01_11-51-39",
+      "symbol": "IDUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.03252,
+      "sl": 0.03185,
+      "tp": [
+        0.03352,
+        0.03403,
+        0.03453
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_11-51-39",
+      "first_seen": "2026-09-01T11:51:36.992387+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T11:51:36.992387+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "KAVAUSDT_LONG_15m_2026-09-01_11-51-39",
+      "symbol": "KAVAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0469,
+      "sl": 0.04638,
+      "tp": [
+        0.04768,
+        0.04807,
+        0.04846
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_11-51-39",
+      "first_seen": "2026-09-01T11:51:36.992387+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T11:51:36.992387+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ALPINEUSDT_LONG_15m_2026-09-01_11-51-39",
+      "symbol": "ALPINEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.35322,
+      "sl": 0.3489,
+      "tp": [
+        0.3597,
+        0.36294,
+        0.36618
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_11-51-39",
+      "first_seen": "2026-09-01T11:51:36.992387+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T11:51:36.992387+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "COWUSDT_LONG_15m_2026-09-01_11-51-39",
+      "symbol": "COWUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.12258,
+      "sl": 0.1204,
+      "tp": [
+        0.12585,
+        0.12749,
+        0.12913
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_11-51-39",
+      "first_seen": "2026-09-01T11:51:36.992387+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T11:51:36.992387+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "POLUSDT_LONG_15m_2026-09-01_11-51-39",
+      "symbol": "POLUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.09291,
+      "sl": 0.09108,
+      "tp": [
+        0.09566,
+        0.09703,
+        0.0984
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_11-51-39",
+      "first_seen": "2026-09-01T11:51:36.992387+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T11:51:36.992387+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -9078,6 +9193,7 @@
     "2026-09-01_10-55-22",
     "2026-09-01_11-08-21",
     "2026-09-01_11-25-37",
-    "2026-09-01_11-39-15"
+    "2026-09-01_11-39-15",
+    "2026-09-01_11-51-39"
   ]
 }
