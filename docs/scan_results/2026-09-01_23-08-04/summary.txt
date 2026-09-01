@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T23:07:59.371310+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MUBARAKUSDT | Side: LONG | Score: 5.77
+   - Entry : 0.02154
+   - SL    : 0.02099
+   - TP    : 0.02236, 0.02278, 0.02319
+   - Invalidation: Close below 0.02099 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: LUMIAUSDT | Side: SHORT | Score: 5.54
+   - Entry : 0.08641
+   - SL    : 0.08872
+   - TP    : 0.08295, 0.08121, 0.07948
+   - Invalidation: Close above 0.08872 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: ROBOUSDT | Side: LONG | Score: 5.19
+   - Entry : 0.01328
+   - SL    : 0.01286
+   - TP    : 0.01392, 0.01424, 0.01456
+   - Invalidation: Close below 0.01286 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: PIEVERSEUSDT | Side: LONG | Score: 4.49
+   - Entry : 1.0471
+   - SL    : 1.0258
+   - TP    : 1.0790, 1.0949, 1.1109
+   - Invalidation: Close below 1.0258 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: METISUSDT | Side: SHORT | Score: 4.39
+   - Entry : 2.6700
+   - SL    : 2.7120
+   - TP    : 2.6070, 2.5755, 2.5440
+   - Invalidation: Close above 2.712 / reclaim of recent 15m swing high
+----------------------------------------
