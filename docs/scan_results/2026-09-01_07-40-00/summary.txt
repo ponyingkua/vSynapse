@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T07:39:56.001144+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OUSDT | Side: LONG | Score: 6.69
+   - Entry : 0.58070
+   - SL    : 0.56210
+   - TP    : 0.60860, 0.62255, 0.63650
+   - Invalidation: Close below 0.5621 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: 1000BONKUSDT | Side: LONG | Score: 6.27
+   - Entry : 0.003238
+   - SL    : 0.002983
+   - TP    : 0.003621, 0.003812, 0.004003
+   - Invalidation: Close below 0.002983 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: TRIAUSDT | Side: SHORT | Score: 7.85
+   - Entry : 0.004666
+   - SL    : 0.004950
+   - TP    : 0.004239, 0.004026, 0.003813
+   - Invalidation: Close above 0.00495 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: ACTUSDT | Side: SHORT | Score: 6.11
+   - Entry : 0.01036
+   - SL    : 0.01086
+   - TP    : 0.00962, 0.00925, 0.00888
+   - Invalidation: Close above 0.010859 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: XPINUSDT | Side: SHORT | Score: 6.11
+   - Entry : 0.001089
+   - SL    : 0.001096
+   - TP    : 0.001078, 0.001073, 0.001068
+   - Invalidation: Close above 0.0010956955 / reclaim of recent 15m swing high
+----------------------------------------
