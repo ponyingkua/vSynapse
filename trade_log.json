@@ -860,27 +860,6 @@
       "added_at": "2026-09-01T08:43:49.986873+00:00"
     },
     {
-      "id": "NIGHTUSDT_SHORT_15m_2026-09-01_08-55-10",
-      "symbol": "NIGHTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01853,
-      "sl": 0.01891,
-      "tp": [
-        0.01797,
-        0.01769,
-        0.01741
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_08-55-10",
-      "first_seen": "2026-09-01T08:55:06.165570+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:55:06.165570+00:00"
-    },
-    {
       "id": "HEIUSDT_LONG_15m_2026-09-01_09-27-26",
       "symbol": "HEIUSDT",
       "side": "LONG",
@@ -942,6 +921,90 @@
       "htf_bias": "BEARISH",
       "config_version": "v2",
       "added_at": "2026-09-01T09:41:14.630968+00:00"
+    },
+    {
+      "id": "SHELLUSDT_SHORT_1h_2026-09-01_09-53-47",
+      "symbol": "SHELLUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02242,
+      "sl": 0.02332,
+      "tp": [
+        0.02108,
+        0.0204,
+        0.01973
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-53-47",
+      "first_seen": "2026-09-01T09:53:43.822481+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T09:53:43.822481+00:00"
+    },
+    {
+      "id": "BASUSDT_LONG_15m_2026-09-01_09-53-47",
+      "symbol": "BASUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02507,
+      "sl": 0.02477,
+      "tp": [
+        0.02552,
+        0.02574,
+        0.02597
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-53-47",
+      "first_seen": "2026-09-01T09:53:43.822481+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T09:53:43.822481+00:00"
+    },
+    {
+      "id": "1MBABYDOGEUSDT_LONG_15m_2026-09-01_09-53-47",
+      "symbol": "1MBABYDOGEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0003603,
+      "sl": 0.0003515,
+      "tp": [
+        0.0003734,
+        0.00038,
+        0.0003866
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-01_09-53-47",
+      "first_seen": "2026-09-01T09:53:43.822481+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T09:53:43.822481+00:00"
+    },
+    {
+      "id": "FIGHTUSDT_SHORT_15m_2026-09-01_09-53-47",
+      "symbol": "FIGHTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.003352,
+      "sl": 0.003462,
+      "tp": [
+        0.003187,
+        0.003105,
+        0.003023
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_09-53-47",
+      "first_seen": "2026-09-01T09:53:43.822481+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T09:53:43.822481+00:00"
     }
   ],
   "open": [
@@ -3496,6 +3559,51 @@
       "triggered_at": "2026-09-01T09:45:00+00:00",
       "partial_check_from": "2026-09-01T09:41:14.630968+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "FETUSDT_SHORT_15m_2026-09-01_09-53-47",
+      "symbol": "FETUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1514,
+      "sl": 0.1566,
+      "tp": [
+        0.1436,
+        0.1397,
+        0.1358
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-53-47",
+      "first_seen": "2026-09-01T09:53:43.822481+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T10:00:00+00:00",
+      "partial_check_from": "2026-09-01T09:53:43.822481+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "NIGHTUSDT_SHORT_15m_2026-09-01_08-55-10",
+      "symbol": "NIGHTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01853,
+      "sl": 0.01891,
+      "tp": [
+        0.01797,
+        0.01769,
+        0.01741
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_08-55-10",
+      "first_seen": "2026-09-01T08:55:06.165570+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:55:06.165570+00:00",
+      "triggered_at": "2026-09-01T09:30:00+00:00"
     }
   ],
   "closed": [
@@ -8139,6 +8247,7 @@
     "2026-09-01_08-55-10",
     "2026-09-01_09-08-20",
     "2026-09-01_09-27-26",
-    "2026-09-01_09-41-19"
+    "2026-09-01_09-41-19",
+    "2026-09-01_09-53-47"
   ]
 }

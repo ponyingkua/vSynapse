@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T09:53:43.822481+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: FETUSDT | Side: SHORT | Score: 3.64
+   - Entry : 0.15140
+   - SL    : 0.15660
+   - TP    : 0.14360, 0.13970, 0.13580
+   - Invalidation: Close above 0.1566 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: SHELLUSDT | Side: SHORT | Score: 5.28
+   - Entry : 0.02242
+   - SL    : 0.02332
+   - TP    : 0.02108, 0.02040, 0.01973
+   - Invalidation: Close above 0.02332 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: BASUSDT | Side: LONG | Score: 4.99
+   - Entry : 0.02507
+   - SL    : 0.02477
+   - TP    : 0.02552, 0.02574, 0.02597
+   - Invalidation: Close below 0.024768 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: 1MBABYDOGEUSDT | Side: LONG | Score: 5.53
+   - Entry : 0.0003603
+   - SL    : 0.0003515
+   - TP    : 0.0003734, 0.0003800, 0.0003866
+   - Invalidation: Close below 0.0003515 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: FIGHTUSDT | Side: SHORT | Score: 5.03
+   - Entry : 0.003352
+   - SL    : 0.003462
+   - TP    : 0.003187, 0.003105, 0.003023
+   - Invalidation: Close above 0.003462 / reclaim of recent 15m swing high
+----------------------------------------
