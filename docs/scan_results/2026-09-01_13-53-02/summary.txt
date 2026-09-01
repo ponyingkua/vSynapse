@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T13:52:55.034179+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: MUSDT | Side: SHORT | Score: 6.24
+   - Entry : 1.0679
+   - SL    : 1.0937
+   - TP    : 1.0293, 1.0100, 0.9907
+   - Invalidation: Close above 1.0937 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: BULLAUSDT | Side: LONG | Score: 6.0
+   - Entry : 0.01700
+   - SL    : 0.01592
+   - TP    : 0.01863, 0.01944, 0.02025
+   - Invalidation: Close below 0.015922 / loss of recent 1h swing low
+----------------------------------------
