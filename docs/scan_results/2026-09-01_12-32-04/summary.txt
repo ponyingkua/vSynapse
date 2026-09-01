@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T12:32:01.554234+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: SKYUSDT | Side: LONG | Score: 7.41
+   - Entry : 0.06922
+   - SL    : 0.06382
+   - TP    : 0.07731, 0.08136, 0.08541
+   - Invalidation: Close below 0.06382 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ENAUSDT | Side: LONG | Score: 7.39
+   - Entry : 0.15926
+   - SL    : 0.14869
+   - TP    : 0.17512, 0.18305, 0.19098
+   - Invalidation: Close below 0.14869 / loss of recent 1h swing low
+----------------------------------------
