@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T06:55:07.318424+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: UNIUSDT | Side: LONG | Score: 7.69
+   - Entry : 5.4710
+   - SL    : 5.1840
+   - TP    : 5.9015, 6.1167, 6.3319
+   - Invalidation: Close below 5.184 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ENSOUSDT | Side: LONG | Score: 7.05
+   - Entry : 0.92034
+   - SL    : 0.88860
+   - TP    : 0.96795, 0.99175, 1.01555
+   - Invalidation: Close below 0.8886 / loss of recent 15m swing low
+----------------------------------------
