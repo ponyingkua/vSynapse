@@ -20,27 +20,6 @@
       "added_at": "2026-08-31T07:10:05.491431+00:00"
     },
     {
-      "id": "ARBUSDT_LONG_1h_2026-08-31_18-10-11",
-      "symbol": "ARBUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.09032,
-      "sl": 0.08471,
-      "tp": [
-        0.09874,
-        0.10295,
-        0.10715
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_18-10-11",
-      "first_seen": "2026-08-31T18:10:09.045622+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "added_at": "2026-08-31T18:10:09.045622+00:00"
-    },
-    {
       "id": "ZECUSDT_LONG_1h_2026-08-31_19-09-35",
       "symbol": "ZECUSDT",
       "side": "LONG",
@@ -734,27 +713,6 @@
       "added_at": "2026-09-01T07:52:09.716182+00:00"
     },
     {
-      "id": "XPINUSDT_SHORT_15m_2026-09-01_07-40-00",
-      "symbol": "XPINUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.001089,
-      "sl": 0.001096,
-      "tp": [
-        0.001078,
-        0.001073,
-        0.001068
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_07-40-00",
-      "first_seen": "2026-09-01T07:39:56.001144+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T07:39:56.001144+00:00"
-    },
-    {
       "id": "RIVERUSDT_SHORT_15m_2026-09-01_07-52-13",
       "symbol": "RIVERUSDT",
       "side": "SHORT",
@@ -837,27 +795,6 @@
       "htf_bias": "BEARISH",
       "config_version": "v2",
       "added_at": "2026-09-01T08:08:59.088349+00:00"
-    },
-    {
-      "id": "SKYAIUSDT_SHORT_15m_2026-09-01_08-29-23",
-      "symbol": "SKYAIUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05285,
-      "sl": 0.0548,
-      "tp": [
-        0.04993,
-        0.04847,
-        0.04701
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_08-29-23",
-      "first_seen": "2026-09-01T08:29:18.114628+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:29:18.114628+00:00"
     },
     {
       "id": "CLANKERUSDT_SHORT_15m_2026-09-01_08-29-23",
@@ -944,48 +881,6 @@
       "added_at": "2026-09-01T08:43:49.986873+00:00"
     },
     {
-      "id": "APTUSDT_SHORT_15m_2026-09-01_08-34-15",
-      "symbol": "APTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.5326,
-      "sl": 0.5422,
-      "tp": [
-        0.5182,
-        0.51101,
-        0.50381
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_08-34-15",
-      "first_seen": "2026-09-01T08:34:11.480578+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:34:11.480578+00:00"
-    },
-    {
-      "id": "APTUSDT_SHORT_15m_2026-09-01_08-43-54",
-      "symbol": "APTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.5326,
-      "sl": 0.5422,
-      "tp": [
-        0.5182,
-        0.51101,
-        0.50381
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_08-43-54",
-      "first_seen": "2026-09-01T08:43:49.986873+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T08:43:49.986873+00:00"
-    },
-    {
       "id": "NIGHTUSDT_SHORT_15m_2026-09-01_08-55-10",
       "symbol": "NIGHTUSDT",
       "side": "SHORT",
@@ -1005,6 +900,27 @@
       "htf_bias": "BEARISH",
       "config_version": "v2",
       "added_at": "2026-09-01T08:55:06.165570+00:00"
+    },
+    {
+      "id": "HEIUSDT_LONG_15m_2026-09-01_09-27-26",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14299,
+      "sl": 0.13825,
+      "tp": [
+        0.1501,
+        0.15365,
+        0.15721
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-27-26",
+      "first_seen": "2026-09-01T09:27:22.774431+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T09:27:22.774431+00:00"
     }
   ],
   "open": [
@@ -1470,27 +1386,6 @@
       "run_id": "2026-08-31_18-10-11",
       "first_seen": "2026-08-31T18:10:09.045622+00:00",
       "htf_bias": "BEARISH",
-      "config_version": "v1",
-      "triggered_at": "2026-08-31T18:10:09.045622+00:00"
-    },
-    {
-      "id": "ZECUSDT_LONG_15m_2026-08-31_18-10-11",
-      "symbol": "ZECUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 847.41,
-      "sl": 829.66,
-      "tp": [
-        874.03,
-        887.35,
-        900.66
-      ],
-      "decimals": 2,
-      "run_id": "2026-08-31_18-10-11",
-      "first_seen": "2026-08-31T18:10:09.045622+00:00",
-      "htf_bias": "BULLISH",
       "config_version": "v1",
       "triggered_at": "2026-08-31T18:10:09.045622+00:00"
     },
@@ -2686,52 +2581,6 @@
       "triggered_at": "2026-09-01T07:15:00+00:00"
     },
     {
-      "id": "XPINUSDT_SHORT_15m_2026-09-01_07-52-13",
-      "symbol": "XPINUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.00107,
-      "sl": 0.00109,
-      "tp": [
-        0.001039,
-        0.001023,
-        0.001008
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_07-52-13",
-      "first_seen": "2026-09-01T07:52:09.716182+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T08:00:00+00:00",
-      "partial_check_from": "2026-09-01T07:52:09.716182+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "CAKEUSDT_LONG_1h_2026-09-01_08-09-03",
-      "symbol": "CAKEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 1.8852,
-      "sl": 1.8402,
-      "tp": [
-        1.9527,
-        1.9864,
-        2.0202
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-01_08-09-03",
-      "first_seen": "2026-09-01T08:08:59.088349+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T09:00:00+00:00",
-      "partial_check_from": "2026-09-01T08:08:59.088349+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "NMRUSDT_LONG_1h_2026-09-01_08-09-03",
       "symbol": "NMRUSDT",
       "side": "LONG",
@@ -3223,6 +3072,50 @@
       "partial_check_done": true
     },
     {
+      "id": "APTUSDT_SHORT_15m_2026-09-01_08-34-15",
+      "symbol": "APTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.5326,
+      "sl": 0.5422,
+      "tp": [
+        0.5182,
+        0.51101,
+        0.50381
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_08-34-15",
+      "first_seen": "2026-09-01T08:34:11.480578+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:34:11.480578+00:00",
+      "triggered_at": "2026-09-01T09:15:00+00:00"
+    },
+    {
+      "id": "APTUSDT_SHORT_15m_2026-09-01_08-43-54",
+      "symbol": "APTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.5326,
+      "sl": 0.5422,
+      "tp": [
+        0.5182,
+        0.51101,
+        0.50381
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_08-43-54",
+      "first_seen": "2026-09-01T08:43:49.986873+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:43:49.986873+00:00",
+      "triggered_at": "2026-09-01T09:15:00+00:00"
+    },
+    {
       "id": "ARKMUSDT_SHORT_15m_2026-09-01_08-55-10",
       "symbol": "ARKMUSDT",
       "side": "SHORT",
@@ -3556,6 +3449,97 @@
       "htf_bias": "BEARISH",
       "config_version": "v2",
       "added_at": "2026-09-01T08:55:06.165570+00:00",
+      "triggered_at": "2026-09-01T09:00:00+00:00"
+    },
+    {
+      "id": "HYPERUSDT_SHORT_1h_2026-09-01_09-27-26",
+      "symbol": "HYPERUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.06451,
+      "sl": 0.0673,
+      "tp": [
+        0.06032,
+        0.05823,
+        0.05614
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-27-26",
+      "first_seen": "2026-09-01T09:27:22.774431+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T10:00:00+00:00",
+      "partial_check_from": "2026-09-01T09:27:22.774431+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "REUSDT_SHORT_15m_2026-09-01_09-27-26",
+      "symbol": "REUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.4756,
+      "sl": 0.488,
+      "tp": [
+        0.457,
+        0.4477,
+        0.4384
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-27-26",
+      "first_seen": "2026-09-01T09:27:22.774431+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T09:30:00+00:00",
+      "partial_check_from": "2026-09-01T09:27:22.774431+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ARXUSDT_SHORT_15m_2026-09-01_09-27-26",
+      "symbol": "ARXUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1221,
+      "sl": 0.1256,
+      "tp": [
+        0.11685,
+        0.11423,
+        0.1116
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_09-27-26",
+      "first_seen": "2026-09-01T09:27:22.774431+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T09:30:00+00:00",
+      "partial_check_from": "2026-09-01T09:27:22.774431+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "SKYAIUSDT_SHORT_15m_2026-09-01_08-29-23",
+      "symbol": "SKYAIUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05285,
+      "sl": 0.0548,
+      "tp": [
+        0.04993,
+        0.04847,
+        0.04701
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_08-29-23",
+      "first_seen": "2026-09-01T08:29:18.114628+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T08:29:18.114628+00:00",
       "triggered_at": "2026-09-01T09:00:00+00:00"
     }
   ],
@@ -7766,6 +7750,149 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-01T08:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "ARBUSDT_LONG_1h_2026-08-31_18-10-11",
+      "symbol": "ARBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09032,
+      "sl": 0.08471,
+      "tp": [
+        0.09874,
+        0.10295,
+        0.10715
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_18-10-11",
+      "first_seen": "2026-08-31T18:10:09.045622+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-08-31T18:10:09.045622+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-01T09:27:26.928000+00:00"
+    },
+    {
+      "id": "ZECUSDT_LONG_15m_2026-08-31_18-10-11",
+      "symbol": "ZECUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 847.41,
+      "sl": 829.66,
+      "tp": [
+        874.03,
+        887.35,
+        900.66
+      ],
+      "decimals": 2,
+      "run_id": "2026-08-31_18-10-11",
+      "first_seen": "2026-08-31T18:10:09.045622+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T18:10:09.045622+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 842.65,
+      "closed_at": "2026-09-01T09:29:59.999000+00:00",
+      "r_multiple": -0.27
+    },
+    {
+      "id": "XPINUSDT_SHORT_15m_2026-09-01_07-52-13",
+      "symbol": "XPINUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.00107,
+      "sl": 0.00109,
+      "tp": [
+        0.001039,
+        0.001023,
+        0.001008
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_07-52-13",
+      "first_seen": "2026-09-01T07:52:09.716182+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T08:00:00+00:00",
+      "partial_check_from": "2026-09-01T07:52:09.716182+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.00109,
+      "tp_index": null,
+      "bar_time": 1788254999999,
+      "bars_held": 6,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-01T09:29:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "XPINUSDT_SHORT_15m_2026-09-01_07-40-00",
+      "symbol": "XPINUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.001089,
+      "sl": 0.001096,
+      "tp": [
+        0.001078,
+        0.001073,
+        0.001068
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_07-40-00",
+      "first_seen": "2026-09-01T07:39:56.001144+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T07:39:56.001144+00:00",
+      "triggered_at": "2026-09-01T09:15:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.001073,
+      "tp_index": 1,
+      "bar_time": 1788254999999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-01T09:29:59.999000+00:00",
+      "r_multiple": 2.29
+    },
+    {
+      "id": "CAKEUSDT_LONG_1h_2026-09-01_08-09-03",
+      "symbol": "CAKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 1.8852,
+      "sl": 1.8402,
+      "tp": [
+        1.9527,
+        1.9864,
+        2.0202
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_08-09-03",
+      "first_seen": "2026-09-01T08:08:59.088349+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T09:00:00+00:00",
+      "partial_check_from": "2026-09-01T08:08:59.088349+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 1.8402,
+      "tp_index": null,
+      "bar_time": 1788256799999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-01T09:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -7843,6 +7970,7 @@
     "2026-09-01_08-34-15",
     "2026-09-01_08-43-54",
     "2026-09-01_08-55-10",
-    "2026-09-01_09-08-20"
+    "2026-09-01_09-08-20",
+    "2026-09-01_09-27-26"
   ]
 }

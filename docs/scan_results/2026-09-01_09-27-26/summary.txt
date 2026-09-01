@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T09:27:22.774431+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: HYPERUSDT | Side: SHORT | Score: 6.63
+   - Entry : 0.06451
+   - SL    : 0.06730
+   - TP    : 0.06032, 0.05823, 0.05614
+   - Invalidation: Close above 0.0673 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: REUSDT | Side: SHORT | Score: 6.22
+   - Entry : 0.47560
+   - SL    : 0.48800
+   - TP    : 0.45700, 0.44770, 0.43840
+   - Invalidation: Close above 0.488 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: ARXUSDT | Side: SHORT | Score: 6.21
+   - Entry : 0.12210
+   - SL    : 0.12560
+   - TP    : 0.11685, 0.11423, 0.11160
+   - Invalidation: Close above 0.1256 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: HEIUSDT | Side: LONG | Score: 6.85
+   - Entry : 0.14299
+   - SL    : 0.13825
+   - TP    : 0.15010, 0.15365, 0.15721
+   - Invalidation: Close below 0.13825 / loss of recent 15m swing low
+----------------------------------------
