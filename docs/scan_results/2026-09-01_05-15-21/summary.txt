@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T05:15:16.169195+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OUSDT | Side: LONG | Score: 6.51
+   - Entry : 0.57670
+   - SL    : 0.55130
+   - TP    : 0.61480, 0.63385, 0.65290
+   - Invalidation: Close below 0.5513 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: IDOLUSDT | Side: SHORT | Score: 7.87
+   - Entry : 0.01450
+   - SL    : 0.01501
+   - TP    : 0.01373, 0.01334, 0.01296
+   - Invalidation: Close above 0.01501 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: TAGUSDT | Side: SHORT | Score: 7.4
+   - Entry : 0.0007543
+   - SL    : 0.0007700
+   - TP    : 0.0007307, 0.0007189, 0.0007071
+   - Invalidation: Close above 0.00077 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: VELODROMEUSDT | Side: LONG | Score: 6.74
+   - Entry : 0.02287
+   - SL    : 0.02156
+   - TP    : 0.02484, 0.02583, 0.02682
+   - Invalidation: Close below 0.02156 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SPXUSDT | Side: LONG | Score: 6.52
+   - Entry : 0.56942
+   - SL    : 0.54700
+   - TP    : 0.60304, 0.61986, 0.63667
+   - Invalidation: Close below 0.547 / loss of recent 1h swing low
+----------------------------------------
