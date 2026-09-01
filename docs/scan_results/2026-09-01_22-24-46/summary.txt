@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T22:24:40.550644+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HEIUSDT | Side: LONG | Score: 6.0
+   - Entry : 0.14498
+   - SL    : 0.13494
+   - TP    : 0.16004, 0.16757, 0.17510
+   - Invalidation: Close below 0.13494 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: AIAUSDT | Side: LONG | Score: 5.35
+   - Entry : 0.07896
+   - SL    : 0.07418
+   - TP    : 0.08613, 0.08971, 0.09330
+   - Invalidation: Close below 0.07418 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: MELANIAUSDT | Side: LONG | Score: 5.3
+   - Entry : 0.10863
+   - SL    : 0.10728
+   - TP    : 0.11066, 0.11167, 0.11268
+   - Invalidation: Close below 0.10728 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BANUSDT | Side: SHORT | Score: 4.87
+   - Entry : 0.07147
+   - SL    : 0.07676
+   - TP    : 0.06353, 0.05956, 0.05559
+   - Invalidation: Close above 0.07676 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: PUMPBTCUSDT | Side: LONG | Score: 4.29
+   - Entry : 0.01208
+   - SL    : 0.01184
+   - TP    : 0.01244, 0.01262, 0.01280
+   - Invalidation: Close below 0.01184 / loss of recent 15m swing low
+----------------------------------------
