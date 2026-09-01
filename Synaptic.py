@@ -394,6 +394,11 @@ CONFIG = {
         3.0,
     ],
 
+    # Batas atas risk_pct (risk/entry * 100) yang masih dianggap
+    # layak ditradingkan. Kandidat dengan SL yang berarti risiko
+    # lebih besar dari ini dibuang (lihat "risk_too_high").
+    "max_risk_pct": 8.0,
+
     # --------------------------------------------------------
     # Higher-timeframe (1D) bias
     # --------------------------------------------------------
@@ -2050,7 +2055,18 @@ def classify_setup(tf_score, side, live_price=None):
     # dari ada tidaknya sinyal breakout di reasons.
     # --------------------------------------------------------
 
-    if directional_distance_atr >= CONFIG["setup_extended_atr"]:
+    # FIX: EXTENDED wajib trend_aligned juga (EMA200 + arah
+    # Supertrend), bukan cuma directional_distance_atr. Sebelumnya
+    # cabang ini hanya mengecek jarak bertanda ke EMA200 --
+    # directional_distance_atr tidak melibatkan Supertrend sama
+    # sekali, jadi symbol yang close-nya kebetulan jauh di sisi
+    # yang "menguntungkan" versus EMA200 tapi Supertrend belum/
+    # tidak searah tetap lolos sebagai EXTENDED, padahal trend-nya
+    # sendiri belum align.
+    if (
+        trend_aligned
+        and directional_distance_atr >= CONFIG["setup_extended_atr"]
+    ):
 
         pullback_level = (
             ema + CONFIG["setup_pullback_atr"] * atr_value
@@ -2470,17 +2486,37 @@ def analyze_symbol(
 
     df15 = data["15m"]["df"]
 
-    current_close = float(
-        df15.iloc[-1]["close"]
+    # Repaint guard: harus ikut confirm_on_closed_bar seperti
+    # semua deteksi sinyal lain (lihat daily_bias / score_tf).
+    # Sebelumnya bagian ini selalu memakai df15.iloc[-1] (candle
+    # 15m yang masih berjalan) walau confirm_on_closed_bar aktif
+    # -- jadi move_15 bisa naik-turun sendiri dan sinyal
+    # weak_momentum_15m bisa berubah beberapa kali sebelum candle
+    # 15m selesai (repaint bocor lewat filter ini).
+    signal_offset_15m = (
+        1 if CONFIG["confirm_on_closed_bar"] else 0
     )
+
+    signal_pos_15m = len(df15) - 1 - signal_offset_15m
 
     fast_n = CONFIG[
         "momentum_fast_bars"
     ]
 
+    if signal_pos_15m - fast_n < 0:
+        REJECTIONS.note(
+            "stage2", symbol, "insufficient_15m_bars",
+            signal_pos_15m=signal_pos_15m, fast_n=fast_n,
+        )
+        return None
+
+    current_close = float(
+        df15.iloc[signal_pos_15m]["close"]
+    )
+
     reference_close = float(
         df15.iloc[
-            -1 - fast_n
+            signal_pos_15m - fast_n
         ]["close"]
     )
 
@@ -2748,11 +2784,11 @@ def analyze_symbol(
         risk / entry
     ) * 100
 
-    if risk_pct > 8.0:
+    if risk_pct > CONFIG["max_risk_pct"]:
         REJECTIONS.note(
             "stage2", symbol, "risk_too_high",
             side=side, risk_pct=round(risk_pct, 3),
-            max_risk_pct=8.0,
+            max_risk_pct=CONFIG["max_risk_pct"],
         )
         return None
 
