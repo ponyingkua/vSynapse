@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T05:51:07.739031+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: RAYSOLUSDT | Side: LONG | Score: 7.16
+   - Entry : 0.82620
+   - SL    : 0.80920
+   - TP    : 0.85170, 0.86445, 0.87720
+   - Invalidation: Close below 0.8092 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ENSUSDT | Side: LONG | Score: 7.94
+   - Entry : 5.9641
+   - SL    : 5.8020
+   - TP    : 6.2072, 6.3287, 6.4502
+   - Invalidation: Close below 5.802 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: UNIUSDT | Side: LONG | Score: 7.5
+   - Entry : 5.4582
+   - SL    : 5.3420
+   - TP    : 5.6325, 5.7197, 5.8068
+   - Invalidation: Close below 5.342 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: SPXUSDT | Side: LONG | Score: 6.99
+   - Entry : 0.56942
+   - SL    : 0.54700
+   - TP    : 0.60304, 0.61986, 0.63667
+   - Invalidation: Close below 0.547 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: IDOLUSDT | Side: SHORT | Score: 6.89
+   - Entry : 0.01450
+   - SL    : 0.01501
+   - TP    : 0.01373, 0.01334, 0.01296
+   - Invalidation: Close above 0.01501 / reclaim of recent 1h swing high
+----------------------------------------
