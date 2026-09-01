@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T17:51:11.109870+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: OUSDT | Side: SHORT | Score: 4.71
+   - Entry : 0.54180
+   - SL    : 0.56170
+   - TP    : 0.51195, 0.49702, 0.48210
+   - Invalidation: Close above 0.5617 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: 2ZUSDT | Side: SHORT | Score: 4.51
+   - Entry : 0.05390
+   - SL    : 0.05510
+   - TP    : 0.05210, 0.05121, 0.05031
+   - Invalidation: Close above 0.0551 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: ENAUSDT | Side: LONG | Score: 4.47
+   - Entry : 0.16188
+   - SL    : 0.15160
+   - TP    : 0.17730, 0.18501, 0.19272
+   - Invalidation: Close below 0.1516 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: XPLUSDT | Side: LONG | Score: 3.84
+   - Entry : 0.08623
+   - SL    : 0.08414
+   - TP    : 0.08936, 0.09093, 0.09250
+   - Invalidation: Close below 0.08414 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: SCRUSDT | Side: LONG | Score: 3.4
+   - Entry : 0.02391
+   - SL    : 0.02301
+   - TP    : 0.02527, 0.02594, 0.02662
+   - Invalidation: Close below 0.02301 / loss of recent 15m swing low
+----------------------------------------
