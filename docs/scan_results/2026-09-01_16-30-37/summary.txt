@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T16:30:34.902025+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: APRUSDT | Side: LONG | Score: 5.88
+   - Entry : 0.20150
+   - SL    : 0.19120
+   - TP    : 0.21695, 0.22468, 0.23240
+   - Invalidation: Close below 0.1912 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MELANIAUSDT | Side: LONG | Score: 5.52
+   - Entry : 0.10785
+   - SL    : 0.10629
+   - TP    : 0.11020, 0.11137, 0.11254
+   - Invalidation: Close below 0.10629197 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: BMTUSDT | Side: LONG | Score: 5.06
+   - Entry : 0.02075
+   - SL    : 0.01995
+   - TP    : 0.02195, 0.02255, 0.02315
+   - Invalidation: Close below 0.01995 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: VIRTUALUSDT | Side: SHORT | Score: 4.06
+   - Entry : 0.68580
+   - SL    : 0.70270
+   - TP    : 0.66045, 0.64777, 0.63510
+   - Invalidation: Close above 0.7027 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: OUSDT | Side: SHORT | Score: 3.52
+   - Entry : 0.55575
+   - SL    : 0.57020
+   - TP    : 0.53409, 0.52325, 0.51242
+   - Invalidation: Close above 0.5702 / reclaim of recent 15m swing high
+----------------------------------------
