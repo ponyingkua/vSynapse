@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T20:09:08.686361+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: WALUSDT | Side: LONG | Score: 7.74
+   - Entry : 0.02565
+   - SL    : 0.02396
+   - TP    : 0.02819, 0.02945, 0.03072
+   - Invalidation: Close below 0.02396 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: OGUSDT | Side: LONG | Score: 5.67
+   - Entry : 2.8970
+   - SL    : 2.8450
+   - TP    : 2.9750, 3.0140, 3.0530
+   - Invalidation: Close below 2.845 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: LUMIAUSDT | Side: LONG | Score: 4.77
+   - Entry : 0.08718
+   - SL    : 0.08600
+   - TP    : 0.08896, 0.08985, 0.09074
+   - Invalidation: Close below 0.085999624 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: PORTALUSDT | Side: LONG | Score: 4.69
+   - Entry : 0.01447
+   - SL    : 0.01400
+   - TP    : 0.01516, 0.01551, 0.01586
+   - Invalidation: Close below 0.014 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: BEATUSDT | Side: LONG | Score: 4.67
+   - Entry : 0.13032
+   - SL    : 0.12450
+   - TP    : 0.13905, 0.14342, 0.14778
+   - Invalidation: Close below 0.1245 / loss of recent 1h swing low
+----------------------------------------
