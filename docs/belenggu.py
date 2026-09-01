@@ -14,16 +14,16 @@ from pathlib import Path
 
 # DESIGN TOKENS
 
-BG = "#000000"          # hitam pekat, bukan kecoklatan
-PANEL = "#101112"
-PANEL_SOFT = "#1a1b1d"
+BG = "#000000"          # hitam pekat
+PANEL = "#000000"       # card/panel juga hitam pekat, dibedakan lewat border
+PANEL_SOFT = "#0a0a0a"
 BORDER = "#2b2e31"
 TEXT = "#eaecef"        # putih Binance
 TEXT_SOFT = "#848e9c"   # abu-abu Binance
 MUTED = "#4a4e54"
 
-ACCENT = "#F0B90B"      # kuning Binance asli - aksen utama
-ACCENT_DEEP = "#FCD535" # kuning terang Binance - aksen sekunder
+ACCENT = "#FFC107"      # kuning amber - aksen utama
+ACCENT_DEEP = "#FFA000" # amber lebih gelap - aksen sekunder
 UP = "#0ECB81"          # long (hijau Binance)
 DOWN = "#F6465D"        # short (merah Binance)
 LINK = ACCENT           # chart link & tren ikut kuning
@@ -1092,8 +1092,8 @@ def build_html(runs, aggregate, winrate_stats=None):
   {run_sections}
 
   <footer>
-    <span>Synaptic Futures Journey &middot; not financial advice</span>
-    <span>vSynapse</span>
+    <span>belenggu.py &middot; not financial advice</span>
+    <span>dark terminal build</span>
   </footer>
 
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
