@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T23:50:53.019941+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PUMPBTCUSDT | Side: SHORT | Score: 4.81
+   - Entry : 0.01179
+   - SL    : 0.01219
+   - TP    : 0.01119, 0.01088, 0.01058
+   - Invalidation: Close above 0.01219 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: LSKUSDT | Side: LONG | Score: 4.78
+   - Entry : 0.10174
+   - SL    : 0.09939
+   - TP    : 0.10526, 0.10703, 0.10879
+   - Invalidation: Close below 0.09939 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: AIAUSDT | Side: LONG | Score: 4.69
+   - Entry : 0.08061
+   - SL    : 0.07418
+   - TP    : 0.09026, 0.09508, 0.09990
+   - Invalidation: Close below 0.07418 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: AAVEUSDT | Side: LONG | Score: 5.16
+   - Entry : 127.64
+   - SL    : 125.73
+   - TP    : 130.49, 131.92, 133.35
+   - Invalidation: Close below 125.73 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: EDGEUSDT | Side: LONG | Score: 4.71
+   - Entry : 0.38050
+   - SL    : 0.37570
+   - TP    : 0.38770, 0.39130, 0.39490
+   - Invalidation: Close below 0.3757 / loss of recent 15m swing low
+----------------------------------------
