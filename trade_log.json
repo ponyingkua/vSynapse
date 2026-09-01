@@ -335,6 +335,27 @@
       "added_at": "2026-09-01T01:23:55.589999+00:00"
     },
     {
+      "id": "LABUSDT_SHORT_1h_2026-09-01_01-38-00",
+      "symbol": "LABUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0718,
+      "sl": 0.07616,
+      "tp": [
+        0.06525,
+        0.06198,
+        0.05871
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_01-38-00",
+      "first_seen": "2026-09-01T01:37:57.929343+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T01:37:57.929343+00:00"
+    },
+    {
       "id": "OPUSDT_LONG_1h_2026-09-01_01-06-22",
       "symbol": "OPUSDT",
       "side": "LONG",
@@ -438,6 +459,27 @@
       "htf_bias": "BEARISH",
       "config_version": "v1",
       "added_at": "2026-09-01T01:23:55.589999+00:00"
+    },
+    {
+      "id": "MANTRAUSDT_LONG_1h_2026-09-01_01-38-00",
+      "symbol": "MANTRAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.004418,
+      "sl": 0.004223,
+      "tp": [
+        0.004711,
+        0.004857,
+        0.005004
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_01-38-00",
+      "first_seen": "2026-09-01T01:37:57.929343+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T01:37:57.929343+00:00"
     }
   ],
   "open": [
@@ -3984,6 +4026,7 @@
     "2026-09-01_00-14-31",
     "2026-09-01_00-49-16",
     "2026-09-01_01-06-22",
-    "2026-09-01_01-23-58"
+    "2026-09-01_01-23-58",
+    "2026-09-01_01-38-00"
   ]
 }

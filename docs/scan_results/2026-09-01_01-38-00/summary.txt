@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-01T01:37:57.929343+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: LABUSDT | Side: SHORT | Score: 7.52
+   - Entry : 0.07180
+   - SL    : 0.07616
+   - TP    : 0.06525, 0.06198, 0.05871
+   - Invalidation: Close above 0.07616 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: MANTRAUSDT | Side: LONG | Score: 6.1
+   - Entry : 0.004418
+   - SL    : 0.004223
+   - TP    : 0.004711, 0.004857, 0.005004
+   - Invalidation: Close below 0.004223 / loss of recent 1h swing low
+----------------------------------------
