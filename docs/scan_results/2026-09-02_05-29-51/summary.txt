@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T05:29:47.138163+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ORDERUSDT | Side: LONG | Score: 5.35
+   - Entry : 0.03376
+   - SL    : 0.03331
+   - TP    : 0.03444, 0.03478, 0.03512
+   - Invalidation: Close below 0.03331 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: USUSDT | Side: SHORT | Score: 5.24
+   - Entry : 0.01642
+   - SL    : 0.01719
+   - TP    : 0.01527, 0.01470, 0.01412
+   - Invalidation: Close above 0.017191 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: AUCTIONUSDT | Side: SHORT | Score: 4.72
+   - Entry : 3.2992
+   - SL    : 3.3706
+   - TP    : 3.1921, 3.1386, 3.0850
+   - Invalidation: Close above 3.3705679 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: HANAUSDT | Side: LONG | Score: 4.21
+   - Entry : 0.02030
+   - SL    : 0.01990
+   - TP    : 0.02091, 0.02121, 0.02152
+   - Invalidation: Close below 0.0199 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: ONEUSDT | Side: LONG | Score: 4.03
+   - Entry : 0.0007537
+   - SL    : 0.0007450
+   - TP    : 0.0007668, 0.0007733, 0.0007798
+   - Invalidation: Close below 0.000745 / loss of recent 15m swing low
+----------------------------------------
