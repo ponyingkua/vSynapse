@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T02:03:03.244373+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ZKUSDT | Side: SHORT | Score: 6.97
+   - Entry : 0.008657
+   - SL    : 0.009084
+   - TP    : 0.008016, 0.007695, 0.007375
+   - Invalidation: Close above 0.009084 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: SPACEUSDT | Side: SHORT | Score: 6.75
+   - Entry : 0.004851
+   - SL    : 0.004933
+   - TP    : 0.004728, 0.004667, 0.004605
+   - Invalidation: Close above 0.004933 / reclaim of recent 15m swing high
+----------------------------------------
