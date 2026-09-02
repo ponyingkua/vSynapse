@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T17:50:57.164360+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MMTUSDT | Side: SHORT | Score: 6.03
+   - Entry : 0.15670
+   - SL    : 0.15910
+   - TP    : 0.15310, 0.15130, 0.14950
+   - Invalidation: Close above 0.1591 / reclaim of recent 15m swing high
+----------------------------------------
