@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T07:40:04.331923+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BEATUSDT | Side: SHORT | Score: 5.09
+   - Entry : 0.12892
+   - SL    : 0.13910
+   - TP    : 0.11366, 0.10603, 0.09840
+   - Invalidation: Close above 0.1391 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: PIXELUSDT | Side: SHORT | Score: 4.09
+   - Entry : 0.004889
+   - SL    : 0.004972
+   - TP    : 0.004765, 0.004702, 0.004640
+   - Invalidation: Close above 0.004972 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: XANUSDT | Side: SHORT | Score: 3.6
+   - Entry : 0.01283
+   - SL    : 0.01331
+   - TP    : 0.01210, 0.01173, 0.01137
+   - Invalidation: Close above 0.013311 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: ETHFIUSDT | Side: LONG | Score: 7.68
+   - Entry : 0.59325
+   - SL    : 0.55030
+   - TP    : 0.65768, 0.68989, 0.72211
+   - Invalidation: Close below 0.5503 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SLPUSDT | Side: LONG | Score: 5.97
+   - Entry : 0.0006194
+   - SL    : 0.0006014
+   - TP    : 0.0006463, 0.0006598, 0.0006732
+   - Invalidation: Close below 0.0006014 / loss of recent 1h swing low
+----------------------------------------
