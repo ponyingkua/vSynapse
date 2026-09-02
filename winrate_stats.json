@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-02T08:42:59.959000+00:00",
-  "resolved_trades": 356,
-  "wins": 106,
-  "losses": 250,
-  "win_rate_pct": 29.8,
-  "avg_r_multiple": -0.23,
+  "generated_at": "2026-09-02T08:54:23.373000+00:00",
+  "resolved_trades": 363,
+  "wins": 107,
+  "losses": 256,
+  "win_rate_pct": 29.5,
+  "avg_r_multiple": -0.24,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 44,
-      "losses": 148,
-      "win_rate_pct": 22.9
+      "wins": 45,
+      "losses": 151,
+      "win_rate_pct": 23.0
     },
     "BREAKDOWN": {
       "wins": 36,
@@ -28,15 +28,15 @@
     },
     "CONTINUATION": {
       "wins": 4,
-      "losses": 19,
-      "win_rate_pct": 17.4
+      "losses": 22,
+      "win_rate_pct": 15.4
     }
   },
   "by_side": {
     "LONG": {
-      "wins": 60,
-      "losses": 178,
-      "win_rate_pct": 25.2
+      "wins": 61,
+      "losses": 184,
+      "win_rate_pct": 24.9
     },
     "SHORT": {
       "wins": 46,
@@ -56,9 +56,9 @@
       "win_rate_pct": 29.4
     },
     "v2": {
-      "wins": 63,
-      "losses": 130,
-      "win_rate_pct": 32.6
+      "wins": 64,
+      "losses": 136,
+      "win_rate_pct": 32.0
     }
   },
   "by_htf_alignment": {
@@ -69,25 +69,25 @@
     },
     "ALIGNED": {
       "wins": 58,
-      "losses": 105,
-      "win_rate_pct": 35.6
+      "losses": 109,
+      "win_rate_pct": 34.7
     },
     "COUNTER": {
-      "wins": 27,
-      "losses": 78,
-      "win_rate_pct": 25.7
+      "wins": 28,
+      "losses": 80,
+      "win_rate_pct": 25.9
     }
   },
   "expired_unresolved": 33,
   "never_triggered": 68,
-  "currently_open": 202,
-  "currently_pending": 13,
+  "currently_open": 199,
+  "currently_pending": 14,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,
   "entry_sl_ambiguous_fallback_to_sl": 6,
   "resolved_in_partial_entry_window": 0,
-  "resolved_at_first_bar": 21,
-  "resolved_at_first_bar_wins": 7,
+  "resolved_at_first_bar": 22,
+  "resolved_at_first_bar_wins": 8,
   "resolved_at_first_bar_losses": 14
 }

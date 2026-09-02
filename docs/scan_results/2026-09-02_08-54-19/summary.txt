@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T08:54:14.980386+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SUIUSDT | Side: SHORT | Score: 5.04
+   - Entry : 0.71840
+   - SL    : 0.72960
+   - TP    : 0.70160, 0.69320, 0.68480
+   - Invalidation: Close above 0.7296 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: ZESTUSDT | Side: SHORT | Score: 6.59
+   - Entry : 0.13398
+   - SL    : 0.13625
+   - TP    : 0.13058, 0.12888, 0.12719
+   - Invalidation: Close above 0.13625 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: VANAUSDT | Side: SHORT | Score: 5.65
+   - Entry : 0.88507
+   - SL    : 0.89390
+   - TP    : 0.87183, 0.86521, 0.85859
+   - Invalidation: Close above 0.8939 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: MOODENGUSDT | Side: SHORT | Score: 5.54
+   - Entry : 0.03934
+   - SL    : 0.03979
+   - TP    : 0.03866, 0.03832, 0.03798
+   - Invalidation: Close above 0.03979 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: GASUSDT | Side: SHORT | Score: 5.17
+   - Entry : 1.2066
+   - SL    : 1.2210
+   - TP    : 1.1851, 1.1743, 1.1636
+   - Invalidation: Close above 1.221 / reclaim of recent 15m swing high
+----------------------------------------
