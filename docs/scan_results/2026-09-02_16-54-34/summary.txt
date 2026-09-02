@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T16:54:32.885102+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TSTUSDT | Side: LONG | Score: 6.85
+   - Entry : 0.01626
+   - SL    : 0.01525
+   - TP    : 0.01778, 0.01854, 0.01930
+   - Invalidation: Close below 0.01525 / loss of recent 1h swing low
+----------------------------------------

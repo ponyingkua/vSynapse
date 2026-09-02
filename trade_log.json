@@ -270,6 +270,27 @@
       "htf_bias": "BULLISH",
       "config_version": "v3",
       "added_at": "2026-09-02T16:09:20.257266+00:00"
+    },
+    {
+      "id": "TSTUSDT_LONG_1h_2026-09-02_16-54-34",
+      "symbol": "TSTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01626,
+      "sl": 0.01525,
+      "tp": [
+        0.01778,
+        0.01854,
+        0.0193
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_16-54-34",
+      "first_seen": "2026-09-02T16:54:32.885102+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T16:54:32.885102+00:00"
     }
   ],
   "open": [
@@ -3231,28 +3252,6 @@
       "triggered_at": "2026-09-02T14:00:00+00:00",
       "partial_check_from": "2026-09-02T13:28:32.308849+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "BOMEUSDT_LONG_15m_2026-09-02_12-33-24",
-      "symbol": "BOMEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.0009001,
-      "sl": 0.0008706,
-      "tp": [
-        0.0009443,
-        0.0009664,
-        0.0009885
-      ],
-      "decimals": 7,
-      "run_id": "2026-09-02_12-33-24",
-      "first_seen": "2026-09-02T12:33:20.676305+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T12:33:20.676305+00:00",
-      "triggered_at": "2026-09-02T13:45:00+00:00"
     },
     {
       "id": "EDENUSDT_LONG_1h_2026-09-02_14-09-00",
@@ -20098,6 +20097,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T16:44:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BOMEUSDT_LONG_15m_2026-09-02_12-33-24",
+      "symbol": "BOMEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0009001,
+      "sl": 0.0008706,
+      "tp": [
+        0.0009443,
+        0.0009664,
+        0.0009885
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-02_12-33-24",
+      "first_seen": "2026-09-02T12:33:20.676305+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T12:33:20.676305+00:00",
+      "triggered_at": "2026-09-02T13:45:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.0008706,
+      "tp_index": null,
+      "bar_time": 1788368399999,
+      "bars_held": 13,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T16:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -20290,6 +20320,7 @@
     "2026-09-02_15-55-16",
     "2026-09-02_16-09-23",
     "2026-09-02_16-28-31",
-    "2026-09-02_16-42-20"
+    "2026-09-02_16-42-20",
+    "2026-09-02_16-54-34"
   ]
 }
