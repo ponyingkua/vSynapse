@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T12:33:20.676305+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BOMEUSDT | Side: LONG | Score: 6.58
+   - Entry : 0.0009001
+   - SL    : 0.0008706
+   - TP    : 0.0009443, 0.0009664, 0.0009885
+   - Invalidation: Close below 0.0008706 / loss of recent 15m swing low
+----------------------------------------
