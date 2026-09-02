@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T01:07:48.166203+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: MMTUSDT | Side: SHORT | Score: 6.03
+   - Entry : 0.15680
+   - SL    : 0.15860
+   - TP    : 0.15410, 0.15275, 0.15140
+   - Invalidation: Close above 0.1586 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: HEMIUSDT | Side: LONG | Score: 5.87
+   - Entry : 0.01478
+   - SL    : 0.01379
+   - TP    : 0.01626, 0.01700, 0.01775
+   - Invalidation: Close below 0.01379 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: DOGSUSDT | Side: LONG | Score: 5.4
+   - Entry : 0.00004203
+   - SL    : 0.00004149
+   - TP    : 0.00004284, 0.00004325, 0.00004365
+   - Invalidation: Close below 4.149e-05 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: TUSDT | Side: LONG | Score: 5.33
+   - Entry : 0.003684
+   - SL    : 0.003554
+   - TP    : 0.003879, 0.003977, 0.004074
+   - Invalidation: Close below 0.003554 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: SOPHUSDT | Side: SHORT | Score: 5.08
+   - Entry : 0.003956
+   - SL    : 0.004190
+   - TP    : 0.003605, 0.003430, 0.003254
+   - Invalidation: Close above 0.00419 / reclaim of recent 15m swing high
+----------------------------------------
