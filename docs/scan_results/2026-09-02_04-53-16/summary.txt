@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T04:53:13.246139+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: RONINUSDT | Side: SHORT | Score: 6.66
+   - Entry : 0.05084
+   - SL    : 0.05294
+   - TP    : 0.04769, 0.04612, 0.04454
+   - Invalidation: Close above 0.05294 / reclaim of recent 4h swing high
+----------------------------------------
+2. Symbol: AAVEUSDT | Side: LONG | Score: 7.49
+   - Entry : 129.42
+   - SL    : 124.91
+   - TP    : 136.19, 139.58, 142.97
+   - Invalidation: Close below 124.91 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: FORMUSDT | Side: LONG | Score: 6.24
+   - Entry : 0.26236
+   - SL    : 0.25938
+   - TP    : 0.26683, 0.26906, 0.27130
+   - Invalidation: Close below 0.25937723 / loss of recent 15m swing low
+----------------------------------------
