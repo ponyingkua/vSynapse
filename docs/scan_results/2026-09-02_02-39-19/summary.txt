@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T02:39:16.794903+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BTWUSDT | Side: LONG | Score: 6.23
+   - Entry : 0.43213
+   - SL    : 0.41478
+   - TP    : 0.45815, 0.47116, 0.48417
+   - Invalidation: Close below 0.41478 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BIGTIMEUSDT | Side: LONG | Score: 6.09
+   - Entry : 0.006661
+   - SL    : 0.006472
+   - TP    : 0.006945, 0.007086, 0.007228
+   - Invalidation: Close below 0.006472 / loss of recent 15m swing low
+----------------------------------------
