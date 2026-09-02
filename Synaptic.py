@@ -319,6 +319,12 @@ CONFIG = {
     "momentum_fast_bars": 4,
     "momentum_slow_bars": 16,
 
+    # Stage 1 harus mempertimbangkan ARAH, bukan hanya besar gerak.
+    # Trend lokal yang searah EMA200 + Supertrend mendapat bonus.
+    # Kandidat yang bergerak melawan regime mendapat penalti.
+    "stage1_trend_bonus": 1.50,
+    "stage1_countertrend_penalty_factor": 0.55,
+
     # Filter minimum kekuatan momentum 15m searah sisi trade
     # (dalam persen). Dulu cuma cek tanda (>0 / <0) tanpa
     # ambang -> pergerakan 0.01% pun lolos sebagai konfirmasi.
@@ -375,6 +381,10 @@ CONFIG = {
     # ke level yang ditembus.
     "breakout_min_retest_atr": 0.15,
 
+    # BREAKOUT/BREAKDOWN baru valid setelah minimal N closed bars
+    # bertahan di luar level yang ditembus.
+    "breakout_follow_through_bars": 2,
+
     # --------------------------------------------------------
     # Entry Engine -- sanity guard
     # --------------------------------------------------------
@@ -397,11 +407,14 @@ CONFIG = {
 
     "swing_window": 8,
 
+    # TP2 diturunkan karena 2.25R/3R terlalu jarang tercapai.
+    # Setelah TP1 tercapai, SL dipindahkan ke breakeven.
     "risk_reward": [
         1.5,
+        1.9,
         2.25,
-        3.0,
     ],
+    "move_sl_to_breakeven_after_tp1": True,
 
     # Batas atas risk_pct (risk/entry * 100) yang masih dianggap
     # layak ditradingkan. Kandidat dengan SL yang berarti risiko
@@ -419,6 +432,15 @@ CONFIG = {
     # penalty), supaya scan tetap jalan.
     "htf_bias_tf": "1d",
 
+    # Ambil sedikit lebih banyak history khusus 1D agar EMA200
+    # tidak gagal hanya karena data terlalu pendek.
+    "daily_bias_klines": 260,
+    "daily_bias_retries": 2,
+
+    # Kandidat tanpa data 1D yang valid tidak boleh dianggap
+    # netral secara diam-diam; gate harus benar-benar bekerja.
+    "require_daily_bias": True,
+
     # POIN 1: soft-penalty lama 0.85 diganti jadi jauh lebih
     # berat (0.5). Selain itu, saat konflik dengan daily bias
     # sekarang WAJIB TF agreement 3/3 (gate tegas), bukan cuma
@@ -435,7 +457,8 @@ CONFIG = {
     # Tidak mempengaruhi SHORT.
     "btc_regime_symbol": "BTCUSDT",
     "btc_regime_tfs": ["4h", "1d"],
-    "btc_regime_penalty_factor": 0.55,
+    # Penalti diperkuat; hard gate tetap OFF sampai sample lebih panjang.
+    "btc_regime_penalty_factor": 0.35,
     # True = hard reject LONG saat BTC bearish (lebih tegas).
     # False = cuma soft penalty.
     "btc_regime_hard_gate": False,
@@ -451,6 +474,10 @@ CONFIG = {
     # (mis. GitHub Actions cron).
     "cooldown_scans": 3,
     "cooldown_file": "synaptic_cooldown.json",
+
+    # Persistent feedback loop. Satu record JSON per kandidat final
+    # agar komponen score/regime/funding/MTF bisa dianalisis ulang.
+    "trade_log_file": "synaptic_trade_log.jsonl",
 
     # --------------------------------------------------------
     # Diversity / correlation filter
@@ -1013,14 +1040,17 @@ def universe():
 # KLINES
 # ============================================================
 
-def klines(symbol, interval):
+def klines(symbol, interval, limit=None):
+
+    if limit is None:
+        limit = CONFIG["klines"]
 
     raw = api(
         "/fapi/v1/klines",
         {
             "symbol": symbol,
             "interval": interval,
-            "limit": CONFIG["klines"],
+            "limit": limit,
         },
         timeout=CONFIG["api_timeout"],
     )
@@ -1091,16 +1121,41 @@ def klines(symbol, interval):
 
 def daily_bias(symbol):
 
-    try:
+    retries = CONFIG.get("daily_bias_retries", 0)
+    candles = None
 
-        candles = klines(
-            symbol,
-            CONFIG["htf_bias_tf"],
+    for attempt in range(retries + 1):
+        try:
+            candles = klines(
+                symbol,
+                CONFIG["htf_bias_tf"],
+                limit=CONFIG.get(
+                    "daily_bias_klines",
+                    CONFIG["klines"],
+                ),
+            )
+            break
+        except Exception as exc:
+            if attempt >= retries:
+                logger.debug(
+                    "Daily bias %s failed after %d retries: %s",
+                    symbol, retries, exc,
+                )
+                return None
+
+            time.sleep(_retry_delay(attempt))
+
+    if candles is None:
+        return None
+
+    if len(candles) < CONFIG["ema_period"] + 5:
+        logger.debug(
+            "Daily bias %s insufficient history: %d",
+            symbol, len(candles),
         )
+        return None
 
-        if len(candles) < CONFIG["ema_period"] + 5:
-            return None
-
+    try:
         closes = candles["close"]
 
         ema = closes.ewm(
@@ -1112,20 +1167,13 @@ def daily_bias(symbol):
             1 if CONFIG["confirm_on_closed_bar"] else 0
         )
 
-        pos = (
-            len(closes) - 1 - signal_offset
-        )
+        pos = len(closes) - 1 - signal_offset
 
         if pos < 1:
             return None
 
-        close_value = float(
-            closes.iloc[pos]
-        )
-
-        ema_value = float(
-            ema.iloc[pos]
-        )
+        close_value = float(closes.iloc[pos])
+        ema_value = float(ema.iloc[pos])
 
         if (
             not np.isfinite(close_value)
@@ -1142,13 +1190,10 @@ def daily_bias(symbol):
         return "NEUTRAL"
 
     except Exception as exc:
-
         logger.debug(
-            "Daily bias %s error: %s",
-            symbol,
-            exc,
+            "Daily bias %s calculation error: %s",
+            symbol, exc,
         )
-
         return None
 
 
@@ -1740,15 +1785,26 @@ def movement_score(df, symbol=None):
         )
         return -1.0, None
 
-    fast_return = (
-        abs(close / fast_ref - 1.0)
-        * 100
-    )
+    # --------------------------------------------------------
+    # Directional momentum.
+    #
+    # Sebelumnya fast/slow return memakai abs(), sehingga gerak
+    # +5% dan -5% punya nilai sama. Akibatnya Stage 1 bisa penuh
+    # kandidat LONG walau regime pasar sedang melemah.
+    # Sekarang kekuatan dihitung per arah dan Stage 1 memilih
+    # sisi yang benar-benar lebih kuat.
+    # --------------------------------------------------------
 
-    slow_return = (
-        abs(close / slow_ref - 1.0)
-        * 100
-    )
+    fast_return_signed = (
+        close / fast_ref - 1.0
+    ) * 100
+
+    slow_return_signed = (
+        close / slow_ref - 1.0
+    ) * 100
+
+    fast_return = abs(fast_return_signed)
+    slow_return = abs(slow_return_signed)
 
     atr_move = (
         abs(close - fast_ref)
@@ -1834,19 +1890,75 @@ def movement_score(df, symbol=None):
                 "extended_momentum_penalty_factor"
             ]
 
-    score = (
-        fast_return * 2.0
-        + slow_return
-        + min(atr_move, 5.0) * 1.5
+    # Directional base scores.
+    long_score = (
+        max(fast_return_signed, 0.0) * 2.0
+        + max(slow_return_signed, 0.0)
+        + min(atr_move, 5.0) * (
+            1.5 if fast_return_signed > 0 else 0.0
+        )
         + volume_bonus * 1.25
-        + breakout_bonus
-    ) * penalty
+    )
+
+    short_score = (
+        max(-fast_return_signed, 0.0) * 2.0
+        + max(-slow_return_signed, 0.0)
+        + min(atr_move, 5.0) * (
+            1.5 if fast_return_signed < 0 else 0.0
+        )
+        + volume_bonus * 1.25
+    )
+
+    # Breakout bonus belongs only to its actual direction.
+    if close > prev_high:
+        long_score += breakout_bonus
+    elif close < prev_low:
+        short_score += breakout_bonus
+
+    # Local regime/arah is now part of Stage 1, before momentum_pool.
+    trend_long = (
+        close > ema_value
+        and int(last["st_dir"]) > 0
+    )
+    trend_short = (
+        close < ema_value
+        and int(last["st_dir"]) < 0
+    )
+
+    trend_bonus = CONFIG["stage1_trend_bonus"]
+    if trend_long:
+        long_score += trend_bonus
+    elif not trend_short:
+        long_score *= CONFIG["stage1_countertrend_penalty_factor"]
+
+    if trend_short:
+        short_score += trend_bonus
+    elif not trend_long:
+        short_score *= CONFIG["stage1_countertrend_penalty_factor"]
+
+    # Apply the existing extension penalty after directional scoring.
+    long_score *= penalty
+    short_score *= penalty
+
+    preferred_side = (
+        "LONG" if long_score > short_score
+        else "SHORT"
+        if short_score > long_score
+        else None
+    )
+
+    score = max(long_score, short_score)
 
     return float(score), {
         "df": x,
         "direction": direction,
+        "preferred_side": preferred_side,
+        "long_score": float(long_score),
+        "short_score": float(short_score),
         "fast_return": fast_return,
         "slow_return": slow_return,
+        "fast_return_signed": fast_return_signed,
+        "slow_return_signed": slow_return_signed,
         "volume_ratio": volume_ratio,
         "atr_move": atr_move,
     }
@@ -2053,52 +2165,75 @@ def score_tf(df, symbol=None, tf=None):
             )
 
     # --------------------------------------------------------
-    # Breakout
+    # Breakout / breakdown with follow-through confirmation.
+    #
+    # Satu closed bar di luar level tidak lagi cukup. Untuk N=2,
+    # bar breakout dan satu bar sesudahnya harus sama-sama close
+    # di luar level yang dihitung sebelum bar-bar konfirmasi.
     # --------------------------------------------------------
 
     window = CONFIG[
         "breakout_window"
     ]
 
-    # breakout_level_up / breakout_level_down disimpan (bukan cuma
-    # dipakai sesaat) karena Setup/Entry Engine butuh level aktual
-    # yang ditembus, bukan cuma boolean "breakout ya/tidak".
-    #
-    # Window-nya diambil relatif ke signal_pos (bar closed acuan),
-    # bukan ke baris paling akhir -- konsisten dengan repaint
-    # guard di atas.
+    required_follow_through = max(
+        1,
+        int(CONFIG["breakout_follow_through_bars"]),
+    )
+
     breakout_level_up = None
     breakout_level_down = None
+    breakout_confirmed_long = False
+    breakout_confirmed_short = False
+    breakout_follow_through_bars = 0
 
-    if signal_pos > window:
+    # Exclude the confirmation bars from the reference range.
+    level_end = signal_pos - required_follow_through + 1
+
+    if level_end >= window:
+
+        level_start = level_end - window
 
         previous_high = float(
             x["high"]
-            .iloc[signal_pos - window:signal_pos]
+            .iloc[level_start:level_end]
             .max()
         )
 
         previous_low = float(
             x["low"]
-            .iloc[signal_pos - window:signal_pos]
+            .iloc[level_start:level_end]
             .min()
         )
 
         breakout_level_up = previous_high
         breakout_level_down = previous_low
 
-        if close > previous_high:
+        confirm_closes = x["close"].iloc[
+            signal_pos - required_follow_through + 1:
+            signal_pos + 1
+        ]
 
+        if (
+            len(confirm_closes) >= required_follow_through
+            and bool((confirm_closes > previous_high).all())
+        ):
+            breakout_confirmed_long = True
+            breakout_follow_through_bars = required_follow_through
             long_score += 1.5
             long_reasons.append(
-                "20-bar breakout"
+                f"20-bar breakout ({required_follow_through}-bar follow-through)"
             )
 
-        elif close < previous_low:
-
+        if (
+            len(confirm_closes) >= required_follow_through
+            and bool((confirm_closes < previous_low).all())
+        ):
+            breakout_confirmed_short = True
+            breakout_follow_through_bars = required_follow_through
             short_score += 1.5
             short_reasons.append(
-                "20-bar breakdown"
+                f"20-bar breakdown ({required_follow_through}-bar follow-through)"
             )
 
     return {
@@ -2137,6 +2272,12 @@ def score_tf(df, symbol=None, tf=None):
         "breakout_level_up": breakout_level_up,
 
         "breakout_level_down": breakout_level_down,
+
+        "breakout_confirmed_long": breakout_confirmed_long,
+
+        "breakout_confirmed_short": breakout_confirmed_short,
+
+        "breakout_follow_through_bars": breakout_follow_through_bars,
     }
 
 
@@ -2159,6 +2300,7 @@ def _no_setup_result():
         "reference_level": None,
         "retest_zone_low": None,
         "retest_zone_high": None,
+        "setup_invalidation_level": None,
     }
 
 
@@ -2168,7 +2310,7 @@ def classify_setup(tf_score, side, live_price=None):
     # Return value sekarang berupa dict, bukan string tunggal:
     #
     #   setup_style     : BREAKOUT / BREAKDOWN / PULLBACK /
-    #                      CONTINUATION / EXTENDED / NO_SETUP
+    #                      CONTINUATION (disabled) / EXTENDED / NO_SETUP
     #                      -> regime / konteks price action.
     #                      Dihitung dari "close" di tf_score,
     #                      yaitu candle yang SUDAH CLOSED kalau
@@ -2211,9 +2353,13 @@ def classify_setup(tf_score, side, live_price=None):
         else tf_score["short_reasons"]
     )
 
-    is_breakout = any(
-        "breakout" in reason or "breakdown" in reason
-        for reason in reasons
+    is_breakout = (
+        tf_score.get(
+            "breakout_confirmed_long"
+            if side == "LONG"
+            else "breakout_confirmed_short"
+        )
+        is True
     )
 
     close = float(tf_score["close"])
@@ -2358,15 +2504,29 @@ def classify_setup(tf_score, side, live_price=None):
         )
 
         if level is None or not np.isfinite(level):
+            return _no_setup_result()
 
-            return {
-                "setup_style": setup_style,
-                "entry_state": "ENTRY_READY",
-                "ideal_entry": market_price,
-                "reference_level": None,
-                "retest_zone_low": market_price - entry_ready_band,
-                "retest_zone_high": market_price + entry_ready_band,
-            }
+        follow_through = int(
+            tf_score.get("breakout_follow_through_bars", 0)
+        )
+        required_follow_through = int(
+            CONFIG["breakout_follow_through_bars"]
+        )
+
+        if follow_through < required_follow_through:
+            return _no_setup_result()
+
+        # Breakout is invalid once live price crosses back through
+        # the broken level. A retest that stays on the original side
+        # remains valid; a full reclaim of the old range does not.
+        breakout_invalidated = (
+            side == "LONG" and market_price < level
+        ) or (
+            side == "SHORT" and market_price > level
+        )
+
+        if breakout_invalidated:
+            return _no_setup_result()
 
         buffer_ = (
             CONFIG["breakout_chase_buffer_atr"] * atr_value
@@ -2392,7 +2552,14 @@ def classify_setup(tf_score, side, live_price=None):
         else:
             retest_progress = market_price - close
 
-        has_retested = retest_progress >= min_retest
+        has_retested = (
+            retest_progress >= min_retest
+            and (
+                (side == "LONG" and market_price >= level)
+                or
+                (side == "SHORT" and market_price <= level)
+            )
+        )
 
         entry_state = (
             "ENTRY_READY"
@@ -2405,6 +2572,7 @@ def classify_setup(tf_score, side, live_price=None):
             "entry_state": entry_state,
             "ideal_entry": ideal_entry,
             "reference_level": level,
+            "setup_invalidation_level": level,
             "retest_zone_low": ideal_entry - entry_ready_band,
             "retest_zone_high": ideal_entry + entry_ready_band,
         }
@@ -2457,42 +2625,14 @@ def classify_setup(tf_score, side, live_price=None):
         }
 
     # --------------------------------------------------------
-    # CONTINUATION -- POIN 2
+    # CONTINUATION -- DISABLED SEMENTARA
     #
-    # Trend masih valid tapi sudah di luar zona pullback murni.
-    #
-    # PERUBAHAN PENTING: jangan izinkan ENTRY_READY di harga
-    # pasar. Selalu redirect ke pullback zone seperti EXTENDED.
-    # Sebelumnya kalau directional_distance_atr <= continuation_
-    # near_atr, entry_state = ENTRY_READY + ideal_entry =
-    # market_price (chase). Sekarang SEMUA CONTINUATION
-    # diarahkan ke zona pullback EMA200.
+    # Data feedback menunjukkan continuation memiliki win rate
+    # terendah dan avg R negatif pada kedua arah. Jangan membuat
+    # continuation menjadi trade hanya karena trend masih align.
+    # Kandidat di luar zona PULLBACK dan belum cukup extended
+    # sekarang ditolak sampai data baru membuktikan sebaliknya.
     # --------------------------------------------------------
-
-    if trend_aligned:
-
-        pullback_level = (
-            ema + CONFIG["setup_pullback_atr"] * atr_value
-            if side == "LONG"
-            else ema - CONFIG["setup_pullback_atr"] * atr_value
-        )
-
-        distance = abs(market_price - pullback_level)
-
-        entry_state = (
-            "ENTRY_READY"
-            if distance <= entry_ready_band
-            else "WAITING_PULLBACK"
-        )
-
-        return {
-            "setup_style": "CONTINUATION",
-            "entry_state": entry_state,
-            "ideal_entry": pullback_level,
-            "reference_level": ema,
-            "retest_zone_low": None,
-            "retest_zone_high": None,
-        }
 
     return _no_setup_result()
 
@@ -2710,6 +2850,15 @@ def analyze_symbol(
     # --------------------------------------------------------
 
     htf_bias = daily_bias(symbol)
+
+    if (
+        CONFIG.get("require_daily_bias", False)
+        and htf_bias is None
+    ):
+        REJECTIONS.note(
+            "stage2", symbol, "daily_bias_unavailable",
+        )
+        return None
 
     htf_conflict = (
         (htf_bias == "BEARISH" and side == "LONG")
@@ -2947,6 +3096,9 @@ def analyze_symbol(
     reference_level = setup_info["reference_level"]
     retest_zone_low = setup_info.get("retest_zone_low")
     retest_zone_high = setup_info.get("retest_zone_high")
+    setup_invalidation_level = setup_info.get(
+        "setup_invalidation_level"
+    )
 
     # --------------------------------------------------------
     # ENTRY LOGIC
@@ -3049,6 +3201,21 @@ def analyze_symbol(
             f"{execution_tf} swing high"
         )
 
+    if (
+        setup_invalidation_level is not None
+        and np.isfinite(setup_invalidation_level)
+    ):
+        if side == "LONG":
+            invalidation += (
+                f" / breakout invalid if price falls below "
+                f"{setup_invalidation_level:.8g}"
+            )
+        else:
+            invalidation += (
+                f" / breakdown invalid if price rises above "
+                f"{setup_invalidation_level:.8g}"
+            )
+
     if risk <= 0:
         REJECTIONS.note(
             "stage2", symbol, "non_positive_risk",
@@ -3072,6 +3239,8 @@ def analyze_symbol(
     # TP
     # --------------------------------------------------------
 
+    tp_rr = list(CONFIG["risk_reward"])
+
     tp = [
         (
             entry + risk * rr
@@ -3079,8 +3248,14 @@ def analyze_symbol(
             else
             entry - risk * rr
         )
-        for rr in CONFIG["risk_reward"]
+        for rr in tp_rr
     ]
+
+    # TP1 remains the initial risk objective. Once TP1 is reached,
+    # management moves SL to entry/breakeven to protect the trade.
+    breakeven_after_tp1 = bool(
+        CONFIG.get("move_sl_to_breakeven_after_tp1", False)
+    )
 
     # --------------------------------------------------------
     # Price-already-beyond-TP1 guard.
@@ -3284,8 +3459,12 @@ def analyze_symbol(
         "entry": entry,
 
         "tp": tp,
+        "tp_rr": tp_rr,
 
         "sl": sl,
+        "sl_initial": sl,
+        "sl_after_tp1": entry if breakeven_after_tp1 else sl,
+        "breakeven_after_tp1": breakeven_after_tp1,
 
         "risk_pct": round(
             risk_pct,
@@ -3294,9 +3473,12 @@ def analyze_symbol(
 
         "invalidation": invalidation,
 
+        "setup_invalidation_level": setup_invalidation_level,
+
         "key_points": reasons[:6],
 
         "tf_agreement": agreement,
+        "stage1_score": round(stage1_score, 3),
 
         "chart": {
             "execution_tf": execution_tf,
@@ -3341,7 +3523,7 @@ def analyze_symbol(
 # STAGE 1 WORKER
 # ============================================================
 
-def stage1_worker(row):
+def stage1_worker(row, btc_regime=None):
 
     symbol, change_24h, quote_volume, funding_rate = row
 
@@ -3367,6 +3549,24 @@ def stage1_worker(row):
             enriched,
             symbol=symbol,
         )
+
+        # Regime is enforced BEFORE momentum_pool so the pool itself
+        # is less likely to be dominated by counter-regime LONGs.
+        if meta is not None and btc_regime in ("BULLISH", "BEARISH"):
+            preferred_side = meta.get("preferred_side")
+            if (
+                (btc_regime == "BEARISH" and preferred_side == "LONG")
+                or
+                (btc_regime == "BULLISH" and preferred_side == "SHORT")
+            ):
+                score *= CONFIG["btc_regime_penalty_factor"]
+                meta["btc_regime_penalty"] = CONFIG[
+                    "btc_regime_penalty_factor"
+                ]
+            else:
+                meta["btc_regime_penalty"] = 1.0
+
+            meta["btc_regime"] = btc_regime
 
         if (
             score <= 0
@@ -3459,11 +3659,30 @@ _ENTRY_STATE_RANK = {
     "WAITING_PULLBACK": 2,
 }
 
+# Feedback menunjukkan PULLBACK dan BREAKDOWN memiliki kombinasi
+# hasil yang paling sehat. Keduanya diprioritaskan saat memilih
+# kandidat final, lalu entry_state dan score menjadi tie-breaker.
+_SETUP_STYLE_RANK = {
+    "PULLBACK": 0,
+    "BREAKDOWN": 0,
+    "BREAKOUT": 1,
+    "EXTENDED": 2,
+    "CONTINUATION": 3,
+}
+
 
 def _entry_state_rank(entry_state):
 
     return _ENTRY_STATE_RANK.get(
         entry_state,
+        99,
+    )
+
+
+def _setup_style_rank(setup_style):
+
+    return _SETUP_STYLE_RANK.get(
+        setup_style,
         99,
     )
 
@@ -3611,6 +3830,66 @@ def select_diverse_candidates(candidates, max_results):
         selected.append(candidate)
 
     return selected
+
+
+def append_trade_log(candidates, generated_at=None):
+    """Append final candidates to a compact JSONL feedback log."""
+    if not candidates:
+        return
+
+    path = Path(CONFIG["trade_log_file"])
+    timestamp = (
+        generated_at
+        or pd.Timestamp.now(tz="UTC").isoformat()
+    )
+
+    fields = (
+        "symbol",
+        "side",
+        "setup_style",
+        "entry_state",
+        "score",
+        "stage1_score",
+        "btc_regime",
+        "htf_bias",
+        "funding_rate_pct",
+        "funding_alert",
+        "tf_agreement",
+        "momentum_15m",
+        "execution_tf",
+        "entry",
+        "sl_initial",
+        "sl_after_tp1",
+        "tp",
+        "tp_rr",
+        "risk_pct",
+        "invalidation",
+        "setup_invalidation_level",
+    )
+
+    try:
+        with path.open("a", encoding="utf-8") as handle:
+            for candidate in candidates:
+                record = {"logged_at": timestamp}
+                record.update({
+                    key: candidate.get(key)
+                    for key in fields
+                })
+                record["outcome"] = None
+                record["realized_r"] = None
+                handle.write(
+                    json.dumps(
+                        record,
+                        ensure_ascii=False,
+                        allow_nan=False,
+                    )
+                    + "\n"
+                )
+    except Exception as exc:
+        logger.warning(
+            "Failed to append trade log: %s",
+            exc,
+        )
 
 
 # ============================================================
@@ -3770,6 +4049,7 @@ def main():
             pool.submit(
                 stage1_worker,
                 row,
+                btc_regime,
             )
             for row in universe_rows
         ]
@@ -3867,6 +4147,8 @@ def main():
                         - started,
                         2,
                     ),
+                "trade_log_file":
+                    CONFIG["trade_log_file"],
             },
 
             "rejection_stats": REJECTIONS.summary(),
@@ -3956,6 +4238,9 @@ def main():
 
     results.sort(
         key=lambda item: (
+            _setup_style_rank(
+                item["setup_style"]
+            ),
             _entry_state_rank(
                 item["entry_state"]
             ),
@@ -3965,6 +4250,9 @@ def main():
 
     mtf_valid.sort(
         key=lambda item: (
+            _setup_style_rank(
+                item["setup_style"]
+            ),
             _entry_state_rank(
                 item["entry_state"]
             ),
@@ -4022,6 +4310,14 @@ def main():
 
     save_cooldown(cooldown_state)
 
+    # Persistent feedback loop: log every final trade with the
+    # variables needed to measure which score components predict outcome.
+    generated_at = pd.Timestamp.now(tz="UTC").isoformat()
+    append_trade_log(
+        final_results,
+        generated_at=generated_at,
+    )
+
     # ========================================================
     # FINAL TIMING
     # ========================================================
@@ -4061,9 +4357,7 @@ def main():
     payload = {
 
         "generated_at":
-            pd.Timestamp.now(
-                tz="UTC"
-            ).isoformat(),
+            generated_at,
 
         "scanner":
             "Synaptic",
@@ -4120,6 +4414,8 @@ def main():
 
             "cooldown_active":
                 len(on_cooldown),
+            "trade_log_file":
+                CONFIG["trade_log_file"],
         },
 
         # Funnel lengkap: berapa banyak symbol gugur di tiap
