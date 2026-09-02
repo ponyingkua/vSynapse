@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T13:08:32.748455+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: GALAUSDT | Side: SHORT | Score: 6.78
+   - Entry : 0.001726
+   - SL    : 0.001800
+   - TP    : 0.001615, 0.001560, 0.001504
+   - Invalidation: Close above 0.0018 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: MUBARAKUSDT | Side: LONG | Score: 6.5
+   - Entry : 0.02217
+   - SL    : 0.02143
+   - TP    : 0.02328, 0.02384, 0.02439
+   - Invalidation: Close below 0.02143 / loss of recent 1h swing low
+----------------------------------------
