@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-02T10:53:46.105000+00:00",
-  "resolved_trades": 404,
+  "generated_at": "2026-09-02T11:09:11.964000+00:00",
+  "resolved_trades": 407,
   "wins": 117,
-  "losses": 287,
-  "win_rate_pct": 29.0,
-  "avg_r_multiple": -0.25,
+  "losses": 290,
+  "win_rate_pct": 28.7,
+  "avg_r_multiple": -0.26,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 47,
-      "losses": 170,
-      "win_rate_pct": 21.7
+      "losses": 172,
+      "win_rate_pct": 21.5
     },
     "BREAKDOWN": {
       "wins": 40,
-      "losses": 55,
-      "win_rate_pct": 42.1
+      "losses": 56,
+      "win_rate_pct": 41.7
     },
     "EXTENDED": {
       "wins": 3,
@@ -35,13 +35,13 @@
   "by_side": {
     "LONG": {
       "wins": 65,
-      "losses": 212,
-      "win_rate_pct": 23.5
+      "losses": 214,
+      "win_rate_pct": 23.3
     },
     "SHORT": {
       "wins": 52,
-      "losses": 75,
-      "win_rate_pct": 40.9
+      "losses": 76,
+      "win_rate_pct": 40.6
     }
   },
   "by_config_version": {
@@ -52,25 +52,25 @@
     },
     "v1": {
       "wins": 31,
-      "losses": 75,
-      "win_rate_pct": 29.2
+      "losses": 76,
+      "win_rate_pct": 29.0
     },
     "v2": {
       "wins": 73,
-      "losses": 164,
-      "win_rate_pct": 30.8
+      "losses": 166,
+      "win_rate_pct": 30.5
     }
   },
   "by_htf_alignment": {
     "UNKNOWN_OR_NEUTRAL": {
       "wins": 23,
-      "losses": 70,
-      "win_rate_pct": 24.7
+      "losses": 71,
+      "win_rate_pct": 24.5
     },
     "ALIGNED": {
       "wins": 63,
-      "losses": 125,
-      "win_rate_pct": 33.5
+      "losses": 127,
+      "win_rate_pct": 33.2
     },
     "COUNTER": {
       "wins": 31,
@@ -78,10 +78,10 @@
       "win_rate_pct": 25.2
     }
   },
-  "expired_unresolved": 37,
+  "expired_unresolved": 38,
   "never_triggered": 70,
-  "currently_open": 179,
-  "currently_pending": 10,
+  "currently_open": 176,
+  "currently_pending": 11,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,

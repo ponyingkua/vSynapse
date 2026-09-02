@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T11:09:04.448254+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: GALAUSDT | Side: SHORT | Score: 6.87
+   - Entry : 0.001731
+   - SL    : 0.001775
+   - TP    : 0.001666, 0.001633, 0.001600
+   - Invalidation: Close above 0.001775 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: 1000XECUSDT | Side: SHORT | Score: 6.62
+   - Entry : 0.006757
+   - SL    : 0.006852
+   - TP    : 0.006615, 0.006544, 0.006474
+   - Invalidation: Close above 0.006852 / reclaim of recent 15m swing high
+----------------------------------------
