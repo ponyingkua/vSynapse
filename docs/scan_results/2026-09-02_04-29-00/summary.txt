@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T04:28:52.276591+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: WAXPUSDT | Side: LONG | Score: 7.06
+   - Entry : 0.004263
+   - SL    : 0.004110
+   - TP    : 0.004493, 0.004607, 0.004722
+   - Invalidation: Close below 0.00411 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: FORMUSDT | Side: LONG | Score: 6.89
+   - Entry : 0.26191
+   - SL    : 0.25935
+   - TP    : 0.26575, 0.26767, 0.26959
+   - Invalidation: Close below 0.25934532 / loss of recent 15m swing low
+----------------------------------------
