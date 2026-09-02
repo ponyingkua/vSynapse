@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T06:12:16.235034+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HYPEUSDT | Side: LONG | Score: 5.65
+   - Entry : 83.253
+   - SL    : 82.673
+   - TP    : 84.123, 84.558, 84.993
+   - Invalidation: Close below 82.673 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ICNTUSDT | Side: LONG | Score: 4.49
+   - Entry : 0.11084
+   - SL    : 0.10550
+   - TP    : 0.11885, 0.12285, 0.12686
+   - Invalidation: Close below 0.1055 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: XVGUSDT | Side: LONG | Score: 4.34
+   - Entry : 0.002497
+   - SL    : 0.002397
+   - TP    : 0.002646, 0.002721, 0.002796
+   - Invalidation: Close below 0.002397 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: JUPUSDT | Side: LONG | Score: 4.04
+   - Entry : 0.21561
+   - SL    : 0.21250
+   - TP    : 0.22027, 0.22260, 0.22494
+   - Invalidation: Close below 0.2125 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: INUSDT | Side: LONG | Score: 3.96
+   - Entry : 0.03344
+   - SL    : 0.03284
+   - TP    : 0.03434, 0.03479, 0.03524
+   - Invalidation: Close below 0.03284 / loss of recent 15m swing low
+----------------------------------------
