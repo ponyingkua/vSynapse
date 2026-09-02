@@ -272,27 +272,6 @@
       "added_at": "2026-09-02T09:09:28.021934+00:00"
     },
     {
-      "id": "NOMUSDT_SHORT_15m_2026-09-02_09-09-32",
-      "symbol": "NOMUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.001579,
-      "sl": 0.001607,
-      "tp": [
-        0.001537,
-        0.001516,
-        0.001495
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_09-09-32",
-      "first_seen": "2026-09-02T09:09:28.021934+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-02T09:09:28.021934+00:00"
-    },
-    {
       "id": "AVAXUSDT_SHORT_15m_2026-09-02_09-09-32",
       "symbol": "AVAXUSDT",
       "side": "SHORT",
@@ -846,28 +825,6 @@
       "config_version": "v1",
       "added_at": "2026-09-01T03:40:23.906453+00:00",
       "triggered_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
-      "id": "VELODROMEUSDT_LONG_1h_2026-09-01_05-15-21",
-      "symbol": "VELODROMEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02287,
-      "sl": 0.02156,
-      "tp": [
-        0.02484,
-        0.02583,
-        0.02682
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_05-15-21",
-      "first_seen": "2026-09-01T05:15:16.169195+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v1",
-      "added_at": "2026-09-01T05:15:16.169195+00:00",
-      "triggered_at": "2026-09-01T06:00:00+00:00"
     },
     {
       "id": "HYPEUSDT_LONG_1h_2026-08-31_17-10-12",
@@ -3782,29 +3739,6 @@
       "partial_check_done": true
     },
     {
-      "id": "METISUSDT_LONG_15m_2026-09-02_05-43-27",
-      "symbol": "METISUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 2.732,
-      "sl": 2.689,
-      "tp": [
-        2.7965,
-        2.8288,
-        2.861
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-02_05-43-27",
-      "first_seen": "2026-09-02T05:43:23.841091+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T05:45:00+00:00",
-      "partial_check_from": "2026-09-02T05:43:23.841091+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "STARUSDT_SHORT_15m_2026-09-02_05-43-27",
       "symbol": "STARUSDT",
       "side": "SHORT",
@@ -3985,28 +3919,6 @@
       "triggered_at": "2026-09-02T08:00:00+00:00",
       "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "ZRXUSDT_LONG_15m_2026-09-02_06-37-20",
-      "symbol": "ZRXUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.0983,
-      "sl": 0.0969,
-      "tp": [
-        0.1004,
-        0.10145,
-        0.1025
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_06-37-20",
-      "first_seen": "2026-09-02T06:37:16.488989+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-02T06:37:16.488989+00:00",
-      "triggered_at": "2026-09-02T06:45:00+00:00"
     },
     {
       "id": "ASTRUSDT_LONG_1h_2026-09-02_07-09-27",
@@ -4303,29 +4215,6 @@
       "config_version": "v2",
       "added_at": "2026-09-02T06:37:16.488989+00:00",
       "triggered_at": "2026-09-02T07:30:00+00:00"
-    },
-    {
-      "id": "SOPHUSDT_LONG_15m_2026-09-02_07-53-42",
-      "symbol": "SOPHUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.004106,
-      "sl": 0.003937,
-      "tp": [
-        0.00436,
-        0.004486,
-        0.004613
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_07-53-42",
-      "first_seen": "2026-09-02T07:53:38.480012+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T08:00:00+00:00",
-      "partial_check_from": "2026-09-02T07:53:38.480012+00:00",
-      "partial_check_done": true
     },
     {
       "id": "MUBARAKUSDT_LONG_1h_2026-09-02_08-10-02",
@@ -4795,6 +4684,143 @@
       "config_version": "v2",
       "added_at": "2026-09-02T08:54:14.980386+00:00",
       "triggered_at": "2026-09-02T09:00:00+00:00"
+    },
+    {
+      "id": "ZETAUSDT_SHORT_15m_2026-09-02_09-27-33",
+      "symbol": "ZETAUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0323,
+      "sl": 0.03308,
+      "tp": [
+        0.03114,
+        0.03055,
+        0.02997
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T09:30:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "AKEUSDT_SHORT_1h_2026-09-02_09-27-33",
+      "symbol": "AKEUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008718,
+      "sl": 0.00905,
+      "tp": [
+        0.00822,
+        0.00797,
+        0.007721
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "CVCUSDT_SHORT_1h_2026-09-02_09-27-33",
+      "symbol": "CVCUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01992,
+      "sl": 0.02147,
+      "tp": [
+        0.01759,
+        0.01643,
+        0.01527
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "PHAROSUSDT_LONG_1h_2026-09-02_09-27-33",
+      "symbol": "PHAROSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.41873,
+      "sl": 0.409,
+      "tp": [
+        0.43332,
+        0.44062,
+        0.44792
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "DOGSUSDT_SHORT_15m_2026-09-02_09-27-33",
+      "symbol": "DOGSUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 4.06e-05,
+      "sl": 4.101e-05,
+      "tp": [
+        3.998e-05,
+        3.968e-05,
+        3.937e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T09:30:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "NOMUSDT_SHORT_15m_2026-09-02_09-09-32",
+      "symbol": "NOMUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.001579,
+      "sl": 0.001607,
+      "tp": [
+        0.001537,
+        0.001516,
+        0.001495
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_09-09-32",
+      "first_seen": "2026-09-02T09:09:28.021934+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-02T09:09:28.021934+00:00",
+      "triggered_at": "2026-09-02T09:15:00+00:00"
     }
   ],
   "closed": [
@@ -18407,6 +18433,132 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T08:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "VELODROMEUSDT_LONG_1h_2026-09-01_05-15-21",
+      "symbol": "VELODROMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02287,
+      "sl": 0.02156,
+      "tp": [
+        0.02484,
+        0.02583,
+        0.02682
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_05-15-21",
+      "first_seen": "2026-09-01T05:15:16.169195+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-09-01T05:15:16.169195+00:00",
+      "triggered_at": "2026-09-01T06:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.02156,
+      "tp_index": null,
+      "bar_time": 1788343199999,
+      "bars_held": 28,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T09:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "METISUSDT_LONG_15m_2026-09-02_05-43-27",
+      "symbol": "METISUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.732,
+      "sl": 2.689,
+      "tp": [
+        2.7965,
+        2.8288,
+        2.861
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-02_05-43-27",
+      "first_seen": "2026-09-02T05:43:23.841091+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T05:45:00+00:00",
+      "partial_check_from": "2026-09-02T05:43:23.841091+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 2.689,
+      "tp_index": null,
+      "bar_time": 1788340499999,
+      "bars_held": 14,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T09:14:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "ZRXUSDT_LONG_15m_2026-09-02_06-37-20",
+      "symbol": "ZRXUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0983,
+      "sl": 0.0969,
+      "tp": [
+        0.1004,
+        0.10145,
+        0.1025
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_06-37-20",
+      "first_seen": "2026-09-02T06:37:16.488989+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-02T06:37:16.488989+00:00",
+      "triggered_at": "2026-09-02T06:45:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.0969,
+      "tp_index": null,
+      "bar_time": 1788340499999,
+      "bars_held": 10,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T09:14:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "SOPHUSDT_LONG_15m_2026-09-02_07-53-42",
+      "symbol": "SOPHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.004106,
+      "sl": 0.003937,
+      "tp": [
+        0.00436,
+        0.004486,
+        0.004613
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_07-53-42",
+      "first_seen": "2026-09-02T07:53:38.480012+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:53:38.480012+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.00436,
+      "tp_index": 0,
+      "bar_time": 1788341399999,
+      "bars_held": 6,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T09:29:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -18571,6 +18723,7 @@
     "2026-09-02_08-29-31",
     "2026-09-02_08-42-55",
     "2026-09-02_08-54-19",
-    "2026-09-02_09-09-32"
+    "2026-09-02_09-09-32",
+    "2026-09-02_09-27-33"
   ]
 }

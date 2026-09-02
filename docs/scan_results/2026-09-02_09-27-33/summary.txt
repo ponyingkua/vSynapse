@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T09:27:30.123755+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ZETAUSDT | Side: SHORT | Score: 5.26
+   - Entry : 0.03230
+   - SL    : 0.03308
+   - TP    : 0.03114, 0.03055, 0.02997
+   - Invalidation: Close above 0.03308 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: AKEUSDT | Side: SHORT | Score: 5.15
+   - Entry : 0.008718
+   - SL    : 0.009050
+   - TP    : 0.008220, 0.007970, 0.007721
+   - Invalidation: Close above 0.0090502248 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: CVCUSDT | Side: SHORT | Score: 5.01
+   - Entry : 0.01992
+   - SL    : 0.02147
+   - TP    : 0.01759, 0.01643, 0.01527
+   - Invalidation: Close above 0.02147 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: PHAROSUSDT | Side: LONG | Score: 3.78
+   - Entry : 0.41873
+   - SL    : 0.40900
+   - TP    : 0.43332, 0.44062, 0.44792
+   - Invalidation: Close below 0.409 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: DOGSUSDT | Side: SHORT | Score: 3.71
+   - Entry : 0.00004060
+   - SL    : 0.00004101
+   - TP    : 0.00003998, 0.00003968, 0.00003937
+   - Invalidation: Close above 4.101e-05 / reclaim of recent 15m swing high
+----------------------------------------
