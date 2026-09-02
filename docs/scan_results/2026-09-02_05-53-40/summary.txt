@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T05:53:36.358438+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: USUSDT | Side: SHORT | Score: 5.15
+   - Entry : 0.01641
+   - SL    : 0.01706
+   - TP    : 0.01544, 0.01495, 0.01446
+   - Invalidation: Close above 0.01706 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: PLUMEUSDT | Side: LONG | Score: 4.63
+   - Entry : 0.01451
+   - SL    : 0.01422
+   - TP    : 0.01494, 0.01516, 0.01538
+   - Invalidation: Close below 0.01422 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: PHAUSDT | Side: LONG | Score: 3.19
+   - Entry : 0.02491
+   - SL    : 0.02451
+   - TP    : 0.02551, 0.02581, 0.02611
+   - Invalidation: Close below 0.02451 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: SUSHIUSDT | Side: LONG | Score: 5.87
+   - Entry : 0.20551
+   - SL    : 0.19330
+   - TP    : 0.22382, 0.23297, 0.24212
+   - Invalidation: Close below 0.1933 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: LSKUSDT | Side: LONG | Score: 5.34
+   - Entry : 0.10170
+   - SL    : 0.09991
+   - TP    : 0.10439, 0.10573, 0.10707
+   - Invalidation: Close below 0.09991 / loss of recent 15m swing low
+----------------------------------------
