@@ -13,7 +13,7 @@ env:
   # secara berarti. Dipakai tracker.py buat tag config_version di
   # trade_log.json, supaya winrate_stats.json bisa dibandingkan
   # "sebelum vs sesudah" tanpa filter tanggal manual.
-  SYNAPTIC_CONFIG_VERSION: "v2"
+  SYNAPTIC_CONFIG_VERSION: "v3"
 
 concurrency:
   group: vsynapse
