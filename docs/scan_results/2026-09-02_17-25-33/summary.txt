@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T17:25:31.369181+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: EDGEUSDT | Side: LONG | Score: 6.02
+   - Entry : 0.38950
+   - SL    : 0.37330
+   - TP    : 0.41380, 0.42595, 0.43810
+   - Invalidation: Close below 0.3733 / loss of recent 1h swing low
+----------------------------------------
