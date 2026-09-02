@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T09:40:46.327208+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CVCUSDT | Side: SHORT | Score: 4.95
+   - Entry : 0.01992
+   - SL    : 0.02147
+   - TP    : 0.01759, 0.01643, 0.01526
+   - Invalidation: Close above 0.02147 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: STEEMUSDT | Side: SHORT | Score: 4.75
+   - Entry : 0.04314
+   - SL    : 0.04382
+   - TP    : 0.04212, 0.04161, 0.04109
+   - Invalidation: Close above 0.04382 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: SKYAIUSDT | Side: LONG | Score: 4.0
+   - Entry : 0.05438
+   - SL    : 0.05235
+   - TP    : 0.05742, 0.05895, 0.06047
+   - Invalidation: Close below 0.05235 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: HEMIUSDT | Side: SHORT | Score: 3.41
+   - Entry : 0.01480
+   - SL    : 0.01587
+   - TP    : 0.01320, 0.01240, 0.01160
+   - Invalidation: Close above 0.015867008 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: NXPCUSDT | Side: SHORT | Score: 5.7
+   - Entry : 0.20072
+   - SL    : 0.20370
+   - TP    : 0.19626, 0.19402, 0.19179
+   - Invalidation: Close above 0.2037 / reclaim of recent 15m swing high
+----------------------------------------
