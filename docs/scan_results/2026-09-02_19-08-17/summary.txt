@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T19:08:15.151288+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CETUSUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.02310
+   - SL    : 0.02272
+   - TP    : 0.02367, 0.02395, 0.02424
+   - Invalidation: Close below 0.02272 / loss of recent 15m swing low
+----------------------------------------

@@ -167,27 +167,6 @@
       "added_at": "2026-09-02T15:14:14.565137+00:00"
     },
     {
-      "id": "BRUSDT_LONG_15m_2026-09-02_15-14-18",
-      "symbol": "BRUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.21084,
-      "sl": 0.20809,
-      "tp": [
-        0.21497,
-        0.21704,
-        0.21911
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_15-14-18",
-      "first_seen": "2026-09-02T15:14:14.565137+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T15:14:14.565137+00:00"
-    },
-    {
       "id": "TSTUSDT_LONG_1h_2026-09-02_16-54-34",
       "symbol": "TSTUSDT",
       "side": "LONG",
@@ -3072,6 +3051,29 @@
       "config_version": "v3",
       "triggered_at": "2026-09-02T18:00:00+00:00",
       "partial_check_from": "2026-09-02T17:50:57.164360+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "CETUSUSDT_LONG_15m_2026-09-02_19-08-17",
+      "symbol": "CETUSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0231,
+      "sl": 0.02272,
+      "tp": [
+        0.02367,
+        0.02395,
+        0.02424
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_19-08-17",
+      "first_seen": "2026-09-02T19:08:15.151288+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T19:15:00+00:00",
+      "partial_check_from": "2026-09-02T19:08:15.151288+00:00",
       "partial_check_done": true
     }
   ],
@@ -20326,6 +20328,29 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T18:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "BRUSDT_LONG_15m_2026-09-02_15-14-18",
+      "symbol": "BRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.21084,
+      "sl": 0.20809,
+      "tp": [
+        0.21497,
+        0.21704,
+        0.21911
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_15-14-18",
+      "first_seen": "2026-09-02T15:14:14.565137+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T15:14:14.565137+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-02T19:08:17.811000+00:00"
     }
   ],
   "ingested_runs": [
@@ -20527,6 +20552,7 @@
     "2026-09-02_18-10-52",
     "2026-09-02_18-30-09",
     "2026-09-02_18-44-16",
-    "2026-09-02_18-55-12"
+    "2026-09-02_18-55-12",
+    "2026-09-02_19-08-17"
   ]
 }
