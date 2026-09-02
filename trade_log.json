@@ -2406,28 +2406,6 @@
       "triggered_at": "2026-09-02T08:00:00+00:00"
     },
     {
-      "id": "AUCTIONUSDT_LONG_1h_2026-09-02_07-53-42",
-      "symbol": "AUCTIONUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.3729,
-      "sl": 3.236,
-      "tp": [
-        3.5784,
-        3.6811,
-        3.7838
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-02_07-53-42",
-      "first_seen": "2026-09-02T07:53:38.480012+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-02T07:53:38.480012+00:00",
-      "triggered_at": "2026-09-02T08:00:00+00:00"
-    },
-    {
       "id": "AAVEUSDT_LONG_1h_2026-09-02_04-09-01",
       "symbol": "AAVEUSDT",
       "side": "LONG",
@@ -2958,28 +2936,6 @@
         0.01718,
         0.01787,
         0.01855
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_16-09-23",
-      "first_seen": "2026-09-02T16:09:20.257266+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T16:09:20.257266+00:00",
-      "triggered_at": "2026-09-02T17:00:00+00:00"
-    },
-    {
-      "id": "COTIUSDT_LONG_1h_2026-09-02_16-09-23",
-      "symbol": "COTIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01299,
-      "sl": 0.01274,
-      "tp": [
-        0.01338,
-        0.01357,
-        0.01376
       ],
       "decimals": 5,
       "run_id": "2026-09-02_16-09-23",
@@ -20357,6 +20313,68 @@
       "exit_price": 0.0475,
       "closed_at": "2026-09-02T19:29:59.999000+00:00",
       "r_multiple": -0.73
+    },
+    {
+      "id": "AUCTIONUSDT_LONG_1h_2026-09-02_07-53-42",
+      "symbol": "AUCTIONUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.3729,
+      "sl": 3.236,
+      "tp": [
+        3.5784,
+        3.6811,
+        3.7838
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-02_07-53-42",
+      "first_seen": "2026-09-02T07:53:38.480012+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-02T07:53:38.480012+00:00",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 3.236,
+      "tp_index": null,
+      "bar_time": 1788379199999,
+      "bars_held": 12,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T19:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "COTIUSDT_LONG_1h_2026-09-02_16-09-23",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01299,
+      "sl": 0.01274,
+      "tp": [
+        0.01338,
+        0.01357,
+        0.01376
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_16-09-23",
+      "first_seen": "2026-09-02T16:09:20.257266+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T16:09:20.257266+00:00",
+      "triggered_at": "2026-09-02T17:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.01274,
+      "tp_index": null,
+      "bar_time": 1788379199999,
+      "bars_held": 3,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T19:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -20560,6 +20578,7 @@
     "2026-09-02_18-44-16",
     "2026-09-02_18-55-12",
     "2026-09-02_19-08-17",
-    "2026-09-02_19-24-17"
+    "2026-09-02_19-24-17",
+    "2026-09-02_19-36-05"
   ]
 }
