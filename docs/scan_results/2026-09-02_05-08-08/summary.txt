@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T05:08:06.255555+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: SUSHIUSDT | Side: LONG | Score: 6.02
+   - Entry : 0.20551
+   - SL    : 0.19330
+   - TP    : 0.22382, 0.23297, 0.24212
+   - Invalidation: Close below 0.1933 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BLUAIUSDT | Side: LONG | Score: 6.17
+   - Entry : 0.01295
+   - SL    : 0.01237
+   - TP    : 0.01381, 0.01424, 0.01467
+   - Invalidation: Close below 0.012371 / loss of recent 1h swing low
+----------------------------------------
