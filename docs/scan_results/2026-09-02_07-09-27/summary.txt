@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T07:09:24.006171+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ASTRUSDT | Side: LONG | Score: 5.74
+   - Entry : 0.005504
+   - SL    : 0.005340
+   - TP    : 0.005750, 0.005873, 0.005996
+   - Invalidation: Close below 0.00534 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ANKRUSDT | Side: LONG | Score: 5.08
+   - Entry : 0.004069
+   - SL    : 0.003865
+   - TP    : 0.004375, 0.004528, 0.004681
+   - Invalidation: Close below 0.003865 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: TLMUSDT | Side: LONG | Score: 4.87
+   - Entry : 0.001433
+   - SL    : 0.001405
+   - TP    : 0.001475, 0.001496, 0.001517
+   - Invalidation: Close below 0.001405 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: BEATUSDT | Side: SHORT | Score: 4.18
+   - Entry : 0.13052
+   - SL    : 0.13910
+   - TP    : 0.11766, 0.11123, 0.10480
+   - Invalidation: Close above 0.1391 / reclaim of recent 1h swing high
+----------------------------------------
+5. Symbol: ETHFIUSDT | Side: LONG | Score: 7.59
+   - Entry : 0.59325
+   - SL    : 0.55030
+   - TP    : 0.65768, 0.68989, 0.72211
+   - Invalidation: Close below 0.5503 / loss of recent 1h swing low
+----------------------------------------

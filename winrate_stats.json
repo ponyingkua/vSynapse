@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-02T06:57:45.294000+00:00",
-  "resolved_trades": 337,
+  "generated_at": "2026-09-02T07:09:33.053000+00:00",
+  "resolved_trades": 339,
   "wins": 99,
-  "losses": 238,
-  "win_rate_pct": 29.4,
-  "avg_r_multiple": -0.24,
+  "losses": 240,
+  "win_rate_pct": 29.2,
+  "avg_r_multiple": -0.25,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 42,
-      "losses": 143,
-      "win_rate_pct": 22.7
+      "losses": 144,
+      "win_rate_pct": 22.6
     },
     "BREAKDOWN": {
       "wins": 36,
@@ -23,8 +23,8 @@
     },
     "PULLBACK": {
       "wins": 16,
-      "losses": 21,
-      "win_rate_pct": 43.2
+      "losses": 22,
+      "win_rate_pct": 42.1
     },
     "CONTINUATION": {
       "wins": 3,
@@ -35,13 +35,13 @@
   "by_side": {
     "LONG": {
       "wins": 55,
-      "losses": 171,
-      "win_rate_pct": 24.3
+      "losses": 172,
+      "win_rate_pct": 24.2
     },
     "SHORT": {
       "wins": 44,
-      "losses": 67,
-      "win_rate_pct": 39.6
+      "losses": 68,
+      "win_rate_pct": 39.3
     }
   },
   "by_config_version": {
@@ -52,13 +52,13 @@
     },
     "v1": {
       "wins": 30,
-      "losses": 71,
-      "win_rate_pct": 29.7
+      "losses": 72,
+      "win_rate_pct": 29.4
     },
     "v2": {
       "wins": 56,
-      "losses": 119,
-      "win_rate_pct": 32.0
+      "losses": 120,
+      "win_rate_pct": 31.8
     }
   },
   "by_htf_alignment": {
@@ -69,8 +69,8 @@
     },
     "ALIGNED": {
       "wins": 52,
-      "losses": 98,
-      "win_rate_pct": 34.7
+      "losses": 100,
+      "win_rate_pct": 34.2
     },
     "COUNTER": {
       "wins": 26,
@@ -80,14 +80,14 @@
   },
   "expired_unresolved": 31,
   "never_triggered": 65,
-  "currently_open": 190,
+  "currently_open": 193,
   "currently_pending": 19,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,
   "entry_sl_ambiguous_fallback_to_sl": 6,
   "resolved_in_partial_entry_window": 0,
-  "resolved_at_first_bar": 19,
+  "resolved_at_first_bar": 20,
   "resolved_at_first_bar_wins": 6,
-  "resolved_at_first_bar_losses": 13
+  "resolved_at_first_bar_losses": 14
 }
