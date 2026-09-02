@@ -3349,29 +3349,6 @@
       "partial_check_done": true
     },
     {
-      "id": "POWRUSDT_SHORT_15m_2026-09-02_09-53-44",
-      "symbol": "POWRUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.04517,
-      "sl": 0.04558,
-      "tp": [
-        0.04455,
-        0.04425,
-        0.04394
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_09-53-44",
-      "first_seen": "2026-09-02T09:53:40.836021+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T10:00:00+00:00",
-      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "DOTUSDT_SHORT_15m_2026-09-02_09-53-44",
       "symbol": "DOTUSDT",
       "side": "SHORT",
@@ -19777,6 +19754,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T14:59:59.999000+00:00",
       "r_multiple": 3.0
+    },
+    {
+      "id": "POWRUSDT_SHORT_15m_2026-09-02_09-53-44",
+      "symbol": "POWRUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.04517,
+      "sl": 0.04558,
+      "tp": [
+        0.04455,
+        0.04425,
+        0.04394
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_09-53-44",
+      "first_seen": "2026-09-02T09:53:40.836021+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.04558,
+      "tp_index": null,
+      "bar_time": 1788360299999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T14:44:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -19961,6 +19970,7 @@
     "2026-09-02_13-42-08",
     "2026-09-02_13-54-01",
     "2026-09-02_14-09-00",
-    "2026-09-02_14-27-14"
+    "2026-09-02_14-27-14",
+    "2026-09-02_14-41-03"
   ]
 }
