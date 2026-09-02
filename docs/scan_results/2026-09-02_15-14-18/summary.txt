@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T15:14:14.565137+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: ONEUSDT | Side: SHORT | Score: 6.09
+   - Entry : 0.0007369
+   - SL    : 0.0007484
+   - TP    : 0.0007196, 0.0007110, 0.0007024
+   - Invalidation: Close above 0.0007484 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: ASTERUSDT | Side: LONG | Score: 6.8
+   - Entry : 0.70504
+   - SL    : 0.69424
+   - TP    : 0.72123, 0.72933, 0.73742
+   - Invalidation: Close below 0.69424057 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: BOMEUSDT | Side: LONG | Score: 6.53
+   - Entry : 0.0008927
+   - SL    : 0.0008803
+   - TP    : 0.0009113, 0.0009206, 0.0009298
+   - Invalidation: Close below 0.0008803399 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BRUSDT | Side: LONG | Score: 6.5
+   - Entry : 0.21084
+   - SL    : 0.20809
+   - TP    : 0.21497, 0.21704, 0.21911
+   - Invalidation: Close below 0.20809 / loss of recent 15m swing low
+----------------------------------------
