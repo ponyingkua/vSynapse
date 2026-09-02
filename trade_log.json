@@ -83,27 +83,6 @@
       "added_at": "2026-09-02T03:26:35.421445+00:00"
     },
     {
-      "id": "1000XECUSDT_SHORT_15m_2026-09-02_11-09-07",
-      "symbol": "1000XECUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.006757,
-      "sl": 0.006852,
-      "tp": [
-        0.006615,
-        0.006544,
-        0.006474
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_11-09-07",
-      "first_seen": "2026-09-02T11:09:04.448254+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T11:09:04.448254+00:00"
-    },
-    {
       "id": "JSTUSDT_LONG_4h_2026-09-02_12-11-17",
       "symbol": "JSTUSDT",
       "side": "LONG",
@@ -2576,29 +2555,6 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T08:00:00+00:00",
       "partial_check_from": "2026-09-02T04:53:13.246139+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "XVGUSDT_LONG_1h_2026-09-02_06-12-19",
-      "symbol": "XVGUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.002497,
-      "sl": 0.002397,
-      "tp": [
-        0.002646,
-        0.002721,
-        0.002796
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_06-12-19",
-      "first_seen": "2026-09-02T06:12:16.235034+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T07:00:00+00:00",
-      "partial_check_from": "2026-09-02T06:12:16.235034+00:00",
       "partial_check_done": true
     },
     {
@@ -19786,6 +19742,61 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T14:44:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "1000XECUSDT_SHORT_15m_2026-09-02_11-09-07",
+      "symbol": "1000XECUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.006757,
+      "sl": 0.006852,
+      "tp": [
+        0.006615,
+        0.006544,
+        0.006474
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_11-09-07",
+      "first_seen": "2026-09-02T11:09:04.448254+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T11:09:04.448254+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-02T14:55:11.759000+00:00"
+    },
+    {
+      "id": "XVGUSDT_LONG_1h_2026-09-02_06-12-19",
+      "symbol": "XVGUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002497,
+      "sl": 0.002397,
+      "tp": [
+        0.002646,
+        0.002721,
+        0.002796
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_06-12-19",
+      "first_seen": "2026-09-02T06:12:16.235034+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T07:00:00+00:00",
+      "partial_check_from": "2026-09-02T06:12:16.235034+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.002646,
+      "tp_index": 0,
+      "bar_time": 1788361199999,
+      "bars_held": 8,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T14:59:59.999000+00:00",
+      "r_multiple": 1.49
     }
   ],
   "ingested_runs": [
@@ -19971,6 +19982,7 @@
     "2026-09-02_13-54-01",
     "2026-09-02_14-09-00",
     "2026-09-02_14-27-14",
-    "2026-09-02_14-41-03"
+    "2026-09-02_14-41-03",
+    "2026-09-02_14-55-11"
   ]
 }
