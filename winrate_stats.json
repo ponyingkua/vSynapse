@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-02T08:54:23.373000+00:00",
-  "resolved_trades": 363,
-  "wins": 107,
-  "losses": 256,
-  "win_rate_pct": 29.5,
+  "generated_at": "2026-09-02T09:09:37.607000+00:00",
+  "resolved_trades": 367,
+  "wins": 108,
+  "losses": 259,
+  "win_rate_pct": 29.4,
   "avg_r_multiple": -0.24,
   "by_setup_style": {
     "BREAKOUT": {
@@ -12,9 +12,9 @@
       "win_rate_pct": 23.0
     },
     "BREAKDOWN": {
-      "wins": 36,
-      "losses": 53,
-      "win_rate_pct": 40.4
+      "wins": 37,
+      "losses": 54,
+      "win_rate_pct": 40.7
     },
     "EXTENDED": {
       "wins": 3,
@@ -23,8 +23,8 @@
     },
     "PULLBACK": {
       "wins": 19,
-      "losses": 25,
-      "win_rate_pct": 43.2
+      "losses": 27,
+      "win_rate_pct": 41.3
     },
     "CONTINUATION": {
       "wins": 4,
@@ -35,13 +35,13 @@
   "by_side": {
     "LONG": {
       "wins": 61,
-      "losses": 184,
-      "win_rate_pct": 24.9
+      "losses": 185,
+      "win_rate_pct": 24.8
     },
     "SHORT": {
-      "wins": 46,
-      "losses": 72,
-      "win_rate_pct": 39.0
+      "wins": 47,
+      "losses": 74,
+      "win_rate_pct": 38.8
     }
   },
   "by_config_version": {
@@ -56,21 +56,21 @@
       "win_rate_pct": 29.4
     },
     "v2": {
-      "wins": 64,
-      "losses": 136,
-      "win_rate_pct": 32.0
+      "wins": 65,
+      "losses": 139,
+      "win_rate_pct": 31.9
     }
   },
   "by_htf_alignment": {
     "UNKNOWN_OR_NEUTRAL": {
-      "wins": 21,
+      "wins": 22,
       "losses": 67,
-      "win_rate_pct": 23.9
+      "win_rate_pct": 24.7
     },
     "ALIGNED": {
       "wins": 58,
-      "losses": 109,
-      "win_rate_pct": 34.7
+      "losses": 112,
+      "win_rate_pct": 34.1
     },
     "COUNTER": {
       "wins": 28,
@@ -81,7 +81,7 @@
   "expired_unresolved": 33,
   "never_triggered": 68,
   "currently_open": 199,
-  "currently_pending": 14,
+  "currently_pending": 15,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,

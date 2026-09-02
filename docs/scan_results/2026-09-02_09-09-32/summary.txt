@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T09:09:28.021934+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: COTIUSDT | Side: LONG | Score: 6.84
+   - Entry : 0.01302
+   - SL    : 0.01277
+   - TP    : 0.01338, 0.01357, 0.01375
+   - Invalidation: Close below 0.012774 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: DUSKUSDT | Side: SHORT | Score: 6.65
+   - Entry : 0.06697
+   - SL    : 0.06773
+   - TP    : 0.06583, 0.06526, 0.06469
+   - Invalidation: Close above 0.06773 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: AKEUSDT | Side: SHORT | Score: 6.11
+   - Entry : 0.008439
+   - SL    : 0.008906
+   - TP    : 0.007737, 0.007387, 0.007036
+   - Invalidation: Close above 0.008906 / reclaim of recent 1h swing high
+----------------------------------------
+4. Symbol: NOMUSDT | Side: SHORT | Score: 6.11
+   - Entry : 0.001579
+   - SL    : 0.001607
+   - TP    : 0.001537, 0.001516, 0.001495
+   - Invalidation: Close above 0.001607 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: AVAXUSDT | Side: SHORT | Score: 6.49
+   - Entry : 7.2068
+   - SL    : 7.2411
+   - TP    : 7.1552, 7.1294, 7.1036
+   - Invalidation: Close above 7.2411368 / reclaim of recent 15m swing high
+----------------------------------------
