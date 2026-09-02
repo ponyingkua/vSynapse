@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T06:57:35.380466+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: IDUSDT | Side: LONG | Score: 5.11
+   - Entry : 0.03260
+   - SL    : 0.03213
+   - TP    : 0.03330, 0.03366, 0.03401
+   - Invalidation: Close below 0.03213 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: KSMUSDT | Side: LONG | Score: 4.46
+   - Entry : 3.6590
+   - SL    : 3.6190
+   - TP    : 3.7190, 3.7490, 3.7790
+   - Invalidation: Close below 3.619 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ONEUSDT | Side: LONG | Score: 3.61
+   - Entry : 0.0007543
+   - SL    : 0.0007274
+   - TP    : 0.0007946, 0.0008147, 0.0008349
+   - Invalidation: Close below 0.0007274 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: MOCAUSDT | Side: LONG | Score: 5.24
+   - Entry : 0.008600
+   - SL    : 0.008373
+   - TP    : 0.008940, 0.009111, 0.009281
+   - Invalidation: Close below 0.008373 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: NOTUSDT | Side: LONG | Score: 4.41
+   - Entry : 0.0004489
+   - SL    : 0.0004341
+   - TP    : 0.0004711, 0.0004822, 0.0004933
+   - Invalidation: Close below 0.0004341 / loss of recent 15m swing low
+----------------------------------------
