@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T04:42:27.399982+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: XMRUSDT | Side: LONG | Score: 5.38
+   - Entry : 517.76
+   - SL    : 508.74
+   - TP    : 531.29, 538.05, 544.82
+   - Invalidation: Close below 508.74 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: TOWNSUSDT | Side: LONG | Score: 4.5
+   - Entry : 0.002488
+   - SL    : 0.002389
+   - TP    : 0.002636, 0.002710, 0.002785
+   - Invalidation: Close below 0.002389 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: INJUSDT | Side: SHORT | Score: 3.59
+   - Entry : 4.9431
+   - SL    : 5.1157
+   - TP    : 4.6841, 4.5546, 4.4251
+   - Invalidation: Close above 5.1156953 / reclaim of recent 4h swing high
+----------------------------------------
+4. Symbol: BICOUSDT | Side: SHORT | Score: 3.37
+   - Entry : 0.02182
+   - SL    : 0.02306
+   - TP    : 0.01996, 0.01903, 0.01810
+   - Invalidation: Close above 0.02306 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: ONGUSDT | Side: SHORT | Score: 2.25
+   - Entry : 0.10107
+   - SL    : 0.10622
+   - TP    : 0.09334, 0.08948, 0.08562
+   - Invalidation: Close above 0.10622 / reclaim of recent 15m swing high
+----------------------------------------
