@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T04:08:57.853565+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: APRUSDT | Side: LONG | Score: 8.04
+   - Entry : 0.20960
+   - SL    : 0.20020
+   - TP    : 0.22370, 0.23075, 0.23780
+   - Invalidation: Close below 0.2002 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ARKUSDT | Side: LONG | Score: 6.45
+   - Entry : 0.11210
+   - SL    : 0.10800
+   - TP    : 0.11825, 0.12133, 0.12440
+   - Invalidation: Close below 0.108 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: WAXPUSDT | Side: LONG | Score: 6.9
+   - Entry : 0.004292
+   - SL    : 0.004110
+   - TP    : 0.004565, 0.004701, 0.004838
+   - Invalidation: Close below 0.00411 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: AAVEUSDT | Side: LONG | Score: 6.65
+   - Entry : 129.42
+   - SL    : 124.91
+   - TP    : 136.19, 139.58, 142.97
+   - Invalidation: Close below 124.91 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: AIOUSDT | Side: SHORT | Score: 6.29
+   - Entry : 0.04639
+   - SL    : 0.04791
+   - TP    : 0.04411, 0.04296, 0.04182
+   - Invalidation: Close above 0.04791 / reclaim of recent 15m swing high
+----------------------------------------
