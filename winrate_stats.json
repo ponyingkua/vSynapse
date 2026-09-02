@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-02T03:26:43.575000+00:00",
-  "resolved_trades": 313,
-  "wins": 89,
-  "losses": 224,
-  "win_rate_pct": 28.4,
-  "avg_r_multiple": -0.26,
+  "generated_at": "2026-09-02T03:39:35.998000+00:00",
+  "resolved_trades": 316,
+  "wins": 91,
+  "losses": 225,
+  "win_rate_pct": 28.8,
+  "avg_r_multiple": -0.25,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 32,
+      "wins": 34,
       "losses": 140,
-      "win_rate_pct": 18.6
+      "win_rate_pct": 19.5
     },
     "BREAKDOWN": {
       "wins": 36,
@@ -23,8 +23,8 @@
     },
     "PULLBACK": {
       "wins": 16,
-      "losses": 17,
-      "win_rate_pct": 48.5
+      "losses": 18,
+      "win_rate_pct": 47.1
     },
     "CONTINUATION": {
       "wins": 3,
@@ -34,9 +34,9 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 45,
-      "losses": 164,
-      "win_rate_pct": 21.5
+      "wins": 47,
+      "losses": 165,
+      "win_rate_pct": 22.2
     },
     "SHORT": {
       "wins": 44,
@@ -51,14 +51,14 @@
       "win_rate_pct": 21.3
     },
     "v1": {
-      "wins": 27,
+      "wins": 28,
       "losses": 71,
-      "win_rate_pct": 27.6
+      "win_rate_pct": 28.3
     },
     "v2": {
-      "wins": 49,
-      "losses": 105,
-      "win_rate_pct": 31.8
+      "wins": 50,
+      "losses": 106,
+      "win_rate_pct": 32.1
     }
   },
   "by_htf_alignment": {
@@ -68,20 +68,20 @@
       "win_rate_pct": 24.4
     },
     "ALIGNED": {
-      "wins": 48,
+      "wins": 49,
       "losses": 91,
-      "win_rate_pct": 34.5
+      "win_rate_pct": 35.0
     },
     "COUNTER": {
-      "wins": 20,
-      "losses": 68,
-      "win_rate_pct": 22.7
+      "wins": 21,
+      "losses": 69,
+      "win_rate_pct": 23.3
     }
   },
   "expired_unresolved": 31,
-  "never_triggered": 56,
-  "currently_open": 171,
-  "currently_pending": 17,
+  "never_triggered": 58,
+  "currently_open": 169,
+  "currently_pending": 16,
   "intrabar_disambiguated_via_subcandle": 0,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 3,

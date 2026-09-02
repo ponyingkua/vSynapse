@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T03:39:29.876366+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ETHFIUSDT | Side: LONG | Score: 6.06
+   - Entry : 0.56890
+   - SL    : 0.55030
+   - TP    : 0.59680, 0.61075, 0.62470
+   - Invalidation: Close below 0.5503 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: MELANIAUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.10987
+   - SL    : 0.10611
+   - TP    : 0.11551, 0.11833, 0.12115
+   - Invalidation: Close below 0.10611 / loss of recent 15m swing low
+----------------------------------------
