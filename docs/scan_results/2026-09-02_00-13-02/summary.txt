@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T00:12:59.807962+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: PUMPBTCUSDT | Side: SHORT | Score: 6.81
+   - Entry : 0.01148
+   - SL    : 0.01219
+   - TP    : 0.01042, 0.00988, 0.00935
+   - Invalidation: Close above 0.01219 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: MORPHOUSDT | Side: LONG | Score: 6.78
+   - Entry : 2.5991
+   - SL    : 2.4786
+   - TP    : 2.7798, 2.8702, 2.9606
+   - Invalidation: Close below 2.4786 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ESPUSDT | Side: LONG | Score: 6.87
+   - Entry : 0.08257
+   - SL    : 0.07965
+   - TP    : 0.08695, 0.08914, 0.09133
+   - Invalidation: Close below 0.07965 / loss of recent 1h swing low
+----------------------------------------
