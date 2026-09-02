@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T08:42:50.200463+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: MANTRAUSDT | Side: SHORT | Score: 7.25
+   - Entry : 0.004270
+   - SL    : 0.004360
+   - TP    : 0.004136, 0.004069, 0.004002
+   - Invalidation: Close above 0.00436 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: FLOCKUSDT | Side: LONG | Score: 6.74
+   - Entry : 0.03640
+   - SL    : 0.03383
+   - TP    : 0.04025, 0.04218, 0.04410
+   - Invalidation: Close below 0.03383 / loss of recent 1h swing low
+----------------------------------------
