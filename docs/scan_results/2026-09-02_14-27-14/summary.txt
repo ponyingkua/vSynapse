@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T14:27:12.706353+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ASTERUSDT | Side: LONG | Score: 7.64
+   - Entry : 0.71454
+   - SL    : 0.69430
+   - TP    : 0.74491, 0.76009, 0.77528
+   - Invalidation: Close below 0.6943 / loss of recent 1h swing low
+----------------------------------------
