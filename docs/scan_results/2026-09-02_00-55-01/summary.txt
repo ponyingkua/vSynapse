@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T00:54:58.446700+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BELUSDT | Side: LONG | Score: 5.64
+   - Entry : 0.11832
+   - SL    : 0.11672
+   - TP    : 0.12072, 0.12192, 0.12312
+   - Invalidation: Close below 0.11672 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: SOPHUSDT | Side: LONG | Score: 4.23
+   - Entry : 0.003985
+   - SL    : 0.003924
+   - TP    : 0.004076, 0.004122, 0.004168
+   - Invalidation: Close below 0.0039240488 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ANIMEUSDT | Side: LONG | Score: 3.86
+   - Entry : 0.002746
+   - SL    : 0.002674
+   - TP    : 0.002854, 0.002908, 0.002962
+   - Invalidation: Close below 0.002674 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: FUSDT | Side: LONG | Score: 3.27
+   - Entry : 0.003203
+   - SL    : 0.003152
+   - TP    : 0.003280, 0.003319, 0.003357
+   - Invalidation: Close below 0.003152 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: IDOLUSDT | Side: LONG | Score: 3.11
+   - Entry : 0.01445
+   - SL    : 0.01432
+   - TP    : 0.01464, 0.01474, 0.01484
+   - Invalidation: Close below 0.01432 / loss of recent 15m swing low
+----------------------------------------
