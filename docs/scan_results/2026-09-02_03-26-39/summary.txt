@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T03:26:35.421445+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: NOTUSDT | Side: LONG | Score: 4.51
+   - Entry : 0.0004439
+   - SL    : 0.0004307
+   - TP    : 0.0004637, 0.0004736, 0.0004835
+   - Invalidation: Close below 0.0004307 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: JELLYJELLYUSDT | Side: LONG | Score: 4.36
+   - Entry : 0.05493
+   - SL    : 0.05228
+   - TP    : 0.05892, 0.06091, 0.06290
+   - Invalidation: Close below 0.05228 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: 我踏马来了USDT | Side: LONG | Score: 4.18
+   - Entry : 0.01159
+   - SL    : 0.01115
+   - TP    : 0.01225, 0.01257, 0.01290
+   - Invalidation: Close below 0.011154 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: PARTIUSDT | Side: LONG | Score: 3.09
+   - Entry : 0.02385
+   - SL    : 0.02322
+   - TP    : 0.02480, 0.02528, 0.02575
+   - Invalidation: Close below 0.02322 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: BIGTIMEUSDT | Side: LONG | Score: 6.43
+   - Entry : 0.006722
+   - SL    : 0.006363
+   - TP    : 0.007260, 0.007530, 0.007799
+   - Invalidation: Close below 0.006363 / loss of recent 1h swing low
+----------------------------------------
