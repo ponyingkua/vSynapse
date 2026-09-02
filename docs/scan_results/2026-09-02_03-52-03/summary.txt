@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T03:52:00.977717+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ORDERUSDT | Side: LONG | Score: 5.13
+   - Entry : 0.03329
+   - SL    : 0.03193
+   - TP    : 0.03532, 0.03634, 0.03736
+   - Invalidation: Close below 0.03193 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ZKPUSDT | Side: SHORT | Score: 4.24
+   - Entry : 0.04428
+   - SL    : 0.04770
+   - TP    : 0.03914, 0.03657, 0.03400
+   - Invalidation: Close above 0.04770351 / reclaim of recent 4h swing high
+----------------------------------------
+3. Symbol: AUCTIONUSDT | Side: LONG | Score: 3.41
+   - Entry : 3.3280
+   - SL    : 3.2600
+   - TP    : 3.4300, 3.4810, 3.5320
+   - Invalidation: Close below 3.26 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: IDOLUSDT | Side: LONG | Score: 3.19
+   - Entry : 0.01458
+   - SL    : 0.01435
+   - TP    : 0.01492, 0.01510, 0.01527
+   - Invalidation: Close below 0.01435 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: SKYAIUSDT | Side: LONG | Score: 3.01
+   - Entry : 0.05285
+   - SL    : 0.05041
+   - TP    : 0.05651, 0.05834, 0.06017
+   - Invalidation: Close below 0.05041 / loss of recent 15m swing low
+----------------------------------------
