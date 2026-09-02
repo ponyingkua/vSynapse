@@ -188,27 +188,6 @@
       "added_at": "2026-09-02T09:40:46.327208+00:00"
     },
     {
-      "id": "GALAUSDT_SHORT_15m_2026-09-02_11-09-07",
-      "symbol": "GALAUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.001731,
-      "sl": 0.001775,
-      "tp": [
-        0.001666,
-        0.001633,
-        0.0016
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_11-09-07",
-      "first_seen": "2026-09-02T11:09:04.448254+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T11:09:04.448254+00:00"
-    },
-    {
       "id": "1000XECUSDT_SHORT_15m_2026-09-02_11-09-07",
       "symbol": "1000XECUSDT",
       "side": "SHORT",
@@ -231,25 +210,6 @@
     }
   ],
   "open": [
-    {
-      "id": "AIGENSYNUSDT_SHORT_1h_2026-08-30_23-09-52",
-      "symbol": "AIGENSYNUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01966,
-      "sl": 0.02019,
-      "tp": [
-        0.01886,
-        0.01846,
-        0.01806
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-30_23-09-52",
-      "first_seen": "2026-08-30T23:09:48.676229+00:00",
-      "triggered_at": "2026-08-30T23:09:48.676229+00:00"
-    },
     {
       "id": "THETAUSDT_SHORT_1h_2026-08-31_00-11-01",
       "symbol": "THETAUSDT",
@@ -675,28 +635,6 @@
       "config_version": "v1",
       "added_at": "2026-09-01T03:40:23.906453+00:00",
       "triggered_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
-      "id": "HYPEUSDT_LONG_1h_2026-08-31_17-10-12",
-      "symbol": "HYPEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 83.106,
-      "sl": 80.508,
-      "tp": [
-        87.004,
-        88.952,
-        90.901
-      ],
-      "decimals": 3,
-      "run_id": "2026-08-31_17-10-12",
-      "first_seen": "2026-08-31T17:10:08.528833+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v1",
-      "added_at": "2026-08-31T17:10:08.528833+00:00",
-      "triggered_at": "2026-09-01T08:00:00+00:00"
     },
     {
       "id": "CVXUSDT_LONG_1h_2026-09-01_04-26-15",
@@ -1622,29 +1560,6 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T00:00:00+00:00",
       "partial_check_from": "2026-09-01T20:52:17.012104+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "OGUSDT_LONG_15m_2026-09-01_20-09-12",
-      "symbol": "OGUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 2.897,
-      "sl": 2.845,
-      "tp": [
-        2.975,
-        3.014,
-        3.053
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-01_20-09-12",
-      "first_seen": "2026-09-01T20:09:08.686361+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T20:15:00+00:00",
-      "partial_check_from": "2026-09-01T20:09:08.686361+00:00",
       "partial_check_done": true
     },
     {
@@ -3857,29 +3772,6 @@
       "partial_check_done": true
     },
     {
-      "id": "DOGSUSDT_SHORT_15m_2026-09-02_09-27-33",
-      "symbol": "DOGSUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 4.06e-05,
-      "sl": 4.101e-05,
-      "tp": [
-        3.998e-05,
-        3.968e-05,
-        3.937e-05
-      ],
-      "decimals": 8,
-      "run_id": "2026-09-02_09-27-33",
-      "first_seen": "2026-09-02T09:27:30.123755+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T09:30:00+00:00",
-      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "NOMUSDT_SHORT_15m_2026-09-02_09-09-32",
       "symbol": "NOMUSDT",
       "side": "SHORT",
@@ -4194,6 +4086,28 @@
       "config_version": "v3",
       "added_at": "2026-09-02T10:10:05.442297+00:00",
       "triggered_at": "2026-09-02T11:00:00+00:00"
+    },
+    {
+      "id": "GALAUSDT_SHORT_15m_2026-09-02_11-09-07",
+      "symbol": "GALAUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.001731,
+      "sl": 0.001775,
+      "tp": [
+        0.001666,
+        0.001633,
+        0.0016
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_11-09-07",
+      "first_seen": "2026-09-02T11:09:04.448254+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T11:09:04.448254+00:00",
+      "triggered_at": "2026-09-02T11:15:00+00:00"
     }
   ],
   "closed": [
@@ -19247,6 +19161,119 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T11:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "AIGENSYNUSDT_SHORT_1h_2026-08-30_23-09-52",
+      "symbol": "AIGENSYNUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01966,
+      "sl": 0.02019,
+      "tp": [
+        0.01886,
+        0.01846,
+        0.01806
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-30_23-09-52",
+      "first_seen": "2026-08-30T23:09:48.676229+00:00",
+      "triggered_at": "2026-08-30T23:09:48.676229+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.01899,
+      "closed_at": "2026-09-02T11:59:59.999000+00:00",
+      "r_multiple": 1.26
+    },
+    {
+      "id": "HYPEUSDT_LONG_1h_2026-08-31_17-10-12",
+      "symbol": "HYPEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 83.106,
+      "sl": 80.508,
+      "tp": [
+        87.004,
+        88.952,
+        90.901
+      ],
+      "decimals": 3,
+      "run_id": "2026-08-31_17-10-12",
+      "first_seen": "2026-08-31T17:10:08.528833+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-08-31T17:10:08.528833+00:00",
+      "triggered_at": "2026-09-01T08:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 80.508,
+      "tp_index": null,
+      "bar_time": 1788350399999,
+      "bars_held": 28,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T11:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "OGUSDT_LONG_15m_2026-09-01_20-09-12",
+      "symbol": "OGUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.897,
+      "sl": 2.845,
+      "tp": [
+        2.975,
+        3.014,
+        3.053
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-01_20-09-12",
+      "first_seen": "2026-09-01T20:09:08.686361+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T20:15:00+00:00",
+      "partial_check_from": "2026-09-01T20:09:08.686361+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 2.873,
+      "closed_at": "2026-09-02T11:29:59.999000+00:00",
+      "r_multiple": -0.46
+    },
+    {
+      "id": "DOGSUSDT_SHORT_15m_2026-09-02_09-27-33",
+      "symbol": "DOGSUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 4.06e-05,
+      "sl": 4.101e-05,
+      "tp": [
+        3.998e-05,
+        3.968e-05,
+        3.937e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-02_09-27-33",
+      "first_seen": "2026-09-02T09:27:30.123755+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T09:30:00+00:00",
+      "partial_check_from": "2026-09-02T09:27:30.123755+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 3.998e-05,
+      "tp_index": 0,
+      "bar_time": 1788348599999,
+      "bars_held": 8,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T11:29:59.999000+00:00",
+      "r_multiple": 1.51
     }
   ],
   "ingested_runs": [
@@ -19419,6 +19446,7 @@
     "2026-09-02_10-29-06",
     "2026-09-02_10-41-51",
     "2026-09-02_10-53-42",
-    "2026-09-02_11-09-07"
+    "2026-09-02_11-09-07",
+    "2026-09-02_11-27-17"
   ]
 }
