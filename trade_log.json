@@ -1748,29 +1748,6 @@
       "triggered_at": "2026-09-02T01:00:00+00:00"
     },
     {
-      "id": "BIGTIMEUSDT_LONG_1h_2026-09-02_02-55-38",
-      "symbol": "BIGTIMEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.006795,
-      "sl": 0.006363,
-      "tp": [
-        0.007443,
-        0.007767,
-        0.008091
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_02-55-38",
-      "first_seen": "2026-09-02T02:55:34.189721+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T03:00:00+00:00",
-      "partial_check_from": "2026-09-02T02:55:34.189721+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "YGGUSDT_LONG_1h_2026-09-02_03-08-33",
       "symbol": "YGGUSDT",
       "side": "LONG",
@@ -20448,6 +20425,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T20:29:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "BIGTIMEUSDT_LONG_1h_2026-09-02_02-55-38",
+      "symbol": "BIGTIMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.006795,
+      "sl": 0.006363,
+      "tp": [
+        0.007443,
+        0.007767,
+        0.008091
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_02-55-38",
+      "first_seen": "2026-09-02T02:55:34.189721+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T03:00:00+00:00",
+      "partial_check_from": "2026-09-02T02:55:34.189721+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.006363,
+      "tp_index": null,
+      "bar_time": 1788386399999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T21:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -20657,6 +20666,7 @@
     "2026-09-02_20-08-45",
     "2026-09-02_20-27-34",
     "2026-09-02_20-40-44",
-    "2026-09-02_20-53-03"
+    "2026-09-02_20-53-03",
+    "2026-09-02_21-09-05"
   ]
 }
