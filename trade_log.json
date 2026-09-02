@@ -1995,29 +1995,6 @@
       "partial_check_done": true
     },
     {
-      "id": "ONEUSDT_LONG_1h_2026-09-02_07-27-31",
-      "symbol": "ONEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.0007565,
-      "sl": 0.0007309,
-      "tp": [
-        0.0007949,
-        0.0008141,
-        0.0008333
-      ],
-      "decimals": 7,
-      "run_id": "2026-09-02_07-27-31",
-      "first_seen": "2026-09-02T07:27:27.518992+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T08:00:00+00:00",
-      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "ASTRUSDT_LONG_1h_2026-09-02_07-09-27",
       "symbol": "ASTRUSDT",
       "side": "LONG",
@@ -20615,6 +20592,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T22:14:59.999000+00:00",
       "r_multiple": 1.49
+    },
+    {
+      "id": "ONEUSDT_LONG_1h_2026-09-02_07-27-31",
+      "symbol": "ONEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0007565,
+      "sl": 0.0007309,
+      "tp": [
+        0.0007949,
+        0.0008141,
+        0.0008333
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.0007309,
+      "tp_index": null,
+      "bar_time": 1788389999999,
+      "bars_held": 15,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T22:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -20831,6 +20840,7 @@
     "2026-09-02_21-51-17",
     "2026-09-02_22-08-48",
     "2026-09-02_22-26-24",
-    "2026-09-02_22-39-42"
+    "2026-09-02_22-39-42",
+    "2026-09-02_22-51-45"
   ]
 }
