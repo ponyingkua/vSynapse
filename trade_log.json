@@ -230,27 +230,6 @@
       "added_at": "2026-09-02T15:14:14.565137+00:00"
     },
     {
-      "id": "KOMAUSDT_LONG_15m_2026-09-02_16-09-23",
-      "symbol": "KOMAUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01316,
-      "sl": 0.01283,
-      "tp": [
-        0.01365,
-        0.01389,
-        0.01414
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_16-09-23",
-      "first_seen": "2026-09-02T16:09:20.257266+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T16:09:20.257266+00:00"
-    },
-    {
       "id": "AGTUSDT_LONG_1h_2026-09-02_16-09-23",
       "symbol": "AGTUSDT",
       "side": "LONG",
@@ -1984,29 +1963,6 @@
       "partial_check_done": true
     },
     {
-      "id": "MIRAUSDT_LONG_15m_2026-09-02_01-24-20",
-      "symbol": "MIRAUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.0448,
-      "sl": 0.04245,
-      "tp": [
-        0.04832,
-        0.05009,
-        0.05185
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_01-24-20",
-      "first_seen": "2026-09-02T01:24:17.158712+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T01:30:00+00:00",
-      "partial_check_from": "2026-09-02T01:24:17.158712+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "ESPUSDT_LONG_1h_2026-09-02_00-13-02",
       "symbol": "ESPUSDT",
       "side": "LONG",
@@ -2825,29 +2781,6 @@
       "triggered_at": "2026-09-02T08:00:00+00:00"
     },
     {
-      "id": "SUIUSDT_SHORT_15m_2026-09-02_08-54-19",
-      "symbol": "SUIUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.7184,
-      "sl": 0.7296,
-      "tp": [
-        0.7016,
-        0.6932,
-        0.6848
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_08-54-19",
-      "first_seen": "2026-09-02T08:54:14.980386+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T09:00:00+00:00",
-      "partial_check_from": "2026-09-02T08:54:14.980386+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "MANTRAUSDT_SHORT_15m_2026-09-02_08-42-55",
       "symbol": "MANTRAUSDT",
       "side": "SHORT",
@@ -3322,28 +3255,6 @@
       "triggered_at": "2026-09-02T13:45:00+00:00"
     },
     {
-      "id": "BOMEUSDT_LONG_15m_2026-09-02_15-14-18",
-      "symbol": "BOMEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0008927,
-      "sl": 0.0008803,
-      "tp": [
-        0.0009113,
-        0.0009206,
-        0.0009298
-      ],
-      "decimals": 7,
-      "run_id": "2026-09-02_15-14-18",
-      "first_seen": "2026-09-02T15:14:14.565137+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T15:14:14.565137+00:00",
-      "triggered_at": "2026-09-02T16:00:00+00:00"
-    },
-    {
       "id": "EDENUSDT_LONG_1h_2026-09-02_14-09-00",
       "symbol": "EDENUSDT",
       "side": "LONG",
@@ -3387,6 +3298,28 @@
       "config_version": "v3",
       "added_at": "2026-09-02T15:14:14.565137+00:00",
       "triggered_at": "2026-09-02T15:15:00+00:00"
+    },
+    {
+      "id": "KOMAUSDT_LONG_15m_2026-09-02_16-09-23",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01316,
+      "sl": 0.01283,
+      "tp": [
+        0.01365,
+        0.01389,
+        0.01414
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_16-09-23",
+      "first_seen": "2026-09-02T16:09:20.257266+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T16:09:20.257266+00:00",
+      "triggered_at": "2026-09-02T16:30:00+00:00"
     }
   ],
   "closed": [
@@ -20075,6 +20008,96 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T16:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "MIRAUSDT_LONG_15m_2026-09-02_01-24-20",
+      "symbol": "MIRAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0448,
+      "sl": 0.04245,
+      "tp": [
+        0.04832,
+        0.05009,
+        0.05185
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_01-24-20",
+      "first_seen": "2026-09-02T01:24:17.158712+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T01:30:00+00:00",
+      "partial_check_from": "2026-09-02T01:24:17.158712+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.0462,
+      "closed_at": "2026-09-02T16:44:59.999000+00:00",
+      "r_multiple": 0.6
+    },
+    {
+      "id": "SUIUSDT_SHORT_15m_2026-09-02_08-54-19",
+      "symbol": "SUIUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.7184,
+      "sl": 0.7296,
+      "tp": [
+        0.7016,
+        0.6932,
+        0.6848
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_08-54-19",
+      "first_seen": "2026-09-02T08:54:14.980386+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T09:00:00+00:00",
+      "partial_check_from": "2026-09-02T08:54:14.980386+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.7296,
+      "tp_index": null,
+      "bar_time": 1788367499999,
+      "bars_held": 31,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T16:44:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "BOMEUSDT_LONG_15m_2026-09-02_15-14-18",
+      "symbol": "BOMEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0008927,
+      "sl": 0.0008803,
+      "tp": [
+        0.0009113,
+        0.0009206,
+        0.0009298
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-02_15-14-18",
+      "first_seen": "2026-09-02T15:14:14.565137+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T15:14:14.565137+00:00",
+      "triggered_at": "2026-09-02T16:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.0008803,
+      "tp_index": null,
+      "bar_time": 1788367499999,
+      "bars_held": 3,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T16:44:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -20266,6 +20289,7 @@
     "2026-09-02_15-32-47",
     "2026-09-02_15-55-16",
     "2026-09-02_16-09-23",
-    "2026-09-02_16-28-31"
+    "2026-09-02_16-28-31",
+    "2026-09-02_16-42-20"
   ]
 }
