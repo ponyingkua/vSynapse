@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T16:09:20.257266+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: KOMAUSDT | Side: LONG | Score: 6.74
+   - Entry : 0.01316
+   - SL    : 0.01283
+   - TP    : 0.01365, 0.01389, 0.01414
+   - Invalidation: Close below 0.012827 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: AGTUSDT | Side: LONG | Score: 6.2
+   - Entry : 0.01581
+   - SL    : 0.01490
+   - TP    : 0.01718, 0.01787, 0.01855
+   - Invalidation: Close below 0.014901 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: COTIUSDT | Side: LONG | Score: 7.39
+   - Entry : 0.01299
+   - SL    : 0.01274
+   - TP    : 0.01338, 0.01357, 0.01376
+   - Invalidation: Close below 0.012735846 / loss of recent 1h swing low
+----------------------------------------
