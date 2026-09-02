@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T10:10:05.442297+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: SQDUSDT | Side: SHORT | Score: 7.66
+   - Entry : 0.03280
+   - SL    : 0.03391
+   - TP    : 0.03113, 0.03030, 0.02946
+   - Invalidation: Close above 0.03391 / reclaim of recent 1h swing high
+----------------------------------------
+2. Symbol: COAIUSDT | Side: SHORT | Score: 6.41
+   - Entry : 0.28640
+   - SL    : 0.28950
+   - TP    : 0.28174, 0.27941, 0.27709
+   - Invalidation: Close above 0.2895 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: SANDUSDT | Side: SHORT | Score: 6.16
+   - Entry : 0.03705
+   - SL    : 0.03784
+   - TP    : 0.03587, 0.03529, 0.03470
+   - Invalidation: Close above 0.03784 / reclaim of recent 15m swing high
+----------------------------------------
