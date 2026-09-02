@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T00:35:59.218679+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: HBARUSDT | Side: SHORT | Score: 5.18
+   - Entry : 0.07368
+   - SL    : 0.07416
+   - TP    : 0.07296, 0.07260, 0.07224
+   - Invalidation: Close above 0.07416 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: SUSHIUSDT | Side: LONG | Score: 4.81
+   - Entry : 0.19840
+   - SL    : 0.19560
+   - TP    : 0.20260, 0.20470, 0.20680
+   - Invalidation: Close below 0.1956 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: PIXELUSDT | Side: LONG | Score: 3.92
+   - Entry : 0.004948
+   - SL    : 0.004867
+   - TP    : 0.005070, 0.005131, 0.005192
+   - Invalidation: Close below 0.004867 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: IDUSDT | Side: LONG | Score: 5.2
+   - Entry : 0.03270
+   - SL    : 0.03212
+   - TP    : 0.03358, 0.03401, 0.03445
+   - Invalidation: Close below 0.03212 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: ASTERUSDT | Side: LONG | Score: 4.37
+   - Entry : 0.69710
+   - SL    : 0.68790
+   - TP    : 0.71089, 0.71779, 0.72468
+   - Invalidation: Close below 0.6879 / loss of recent 15m swing low
+----------------------------------------
