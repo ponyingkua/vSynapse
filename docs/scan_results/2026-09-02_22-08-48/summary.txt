@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T22:08:46.384509+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: FHEUSDT | Side: SHORT | Score: 6.45
+   - Entry : 0.02115
+   - SL    : 0.02153
+   - TP    : 0.02059, 0.02044, 0.02031
+   - Invalidation: Close above 0.02153 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.02119
+----------------------------------------
+2. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.88
+   - Entry : 1.0919
+   - SL    : 1.0678
+   - TP    : 1.1279, 1.1375, 1.1459
+   - Invalidation: Close below 1.0678395 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: TAUSDT | Side: LONG | Score: 6.53
+   - Entry : 0.06359
+   - SL    : 0.06274
+   - TP    : 0.06487, 0.06522, 0.06552
+   - Invalidation: Close below 0.062737374 / loss of recent 15m swing low
+----------------------------------------
