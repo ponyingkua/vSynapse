@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T01:24:17.158712+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: XPLUSDT | Side: SHORT | Score: 5.83
+   - Entry : 0.08302
+   - SL    : 0.08749
+   - TP    : 0.07631, 0.07295, 0.06960
+   - Invalidation: Close above 0.08749 / reclaim of recent 4h swing high
+----------------------------------------
+2. Symbol: MIRAUSDT | Side: LONG | Score: 5.67
+   - Entry : 0.04480
+   - SL    : 0.04245
+   - TP    : 0.04832, 0.05009, 0.05185
+   - Invalidation: Close below 0.04245 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: BLUAIUSDT | Side: SHORT | Score: 4.6
+   - Entry : 0.01256
+   - SL    : 0.01267
+   - TP    : 0.01239, 0.01231, 0.01223
+   - Invalidation: Close above 0.012665379 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: BASUSDT | Side: SHORT | Score: 4.45
+   - Entry : 0.02506
+   - SL    : 0.02539
+   - TP    : 0.02457, 0.02433, 0.02408
+   - Invalidation: Close above 0.025385 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: SOPHUSDT | Side: SHORT | Score: 4.15
+   - Entry : 0.004019
+   - SL    : 0.004190
+   - TP    : 0.003762, 0.003634, 0.003506
+   - Invalidation: Close above 0.00419 / reclaim of recent 15m swing high
+----------------------------------------
