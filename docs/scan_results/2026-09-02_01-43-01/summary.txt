@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T01:42:57.985025+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: CARVUSDT | Side: LONG | Score: 4.27
+   - Entry : 0.03518
+   - SL    : 0.03464
+   - TP    : 0.03599, 0.03640, 0.03680
+   - Invalidation: Close below 0.03464 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: MANAUSDT | Side: SHORT | Score: 4.2
+   - Entry : 0.07213
+   - SL    : 0.07355
+   - TP    : 0.07000, 0.06893, 0.06787
+   - Invalidation: Close above 0.07355 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: AIOUSDT | Side: LONG | Score: 2.88
+   - Entry : 0.04723
+   - SL    : 0.04658
+   - TP    : 0.04821, 0.04870, 0.04919
+   - Invalidation: Close below 0.046577015 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BASEDUSDT | Side: SHORT | Score: 5.36
+   - Entry : 0.06703
+   - SL    : 0.06807
+   - TP    : 0.06547, 0.06469, 0.06392
+   - Invalidation: Close above 0.06807 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: BIGTIMEUSDT | Side: LONG | Score: 5.33
+   - Entry : 0.006568
+   - SL    : 0.006399
+   - TP    : 0.006822, 0.006949, 0.007076
+   - Invalidation: Close below 0.006399 / loss of recent 15m swing low
+----------------------------------------
