@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T06:37:16.488989+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ICNTUSDT | Side: LONG | Score: 4.13
+   - Entry : 0.11084
+   - SL    : 0.10550
+   - TP    : 0.11885, 0.12285, 0.12686
+   - Invalidation: Close below 0.1055 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: MOCAUSDT | Side: LONG | Score: 5.82
+   - Entry : 0.008600
+   - SL    : 0.008373
+   - TP    : 0.008940, 0.009111, 0.009281
+   - Invalidation: Close below 0.008373 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ZRXUSDT | Side: LONG | Score: 5.03
+   - Entry : 0.09830
+   - SL    : 0.09690
+   - TP    : 0.10040, 0.10145, 0.10250
+   - Invalidation: Close below 0.0969 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: SONICUSDT | Side: LONG | Score: 4.29
+   - Entry : 0.02203
+   - SL    : 0.02160
+   - TP    : 0.02267, 0.02300, 0.02332
+   - Invalidation: Close below 0.0216 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: INUSDT | Side: LONG | Score: 4.01
+   - Entry : 0.03376
+   - SL    : 0.03291
+   - TP    : 0.03503, 0.03567, 0.03631
+   - Invalidation: Close below 0.03291 / loss of recent 15m swing low
+----------------------------------------
