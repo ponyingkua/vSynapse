@@ -148,27 +148,6 @@
       "added_at": "2026-09-02T16:54:32.885102+00:00"
     },
     {
-      "id": "FHEUSDT_SHORT_15m_2026-09-02_22-08-48",
-      "symbol": "FHEUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02115,
-      "sl": 0.02153,
-      "tp": [
-        0.02059,
-        0.02044,
-        0.02031
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_22-08-48",
-      "first_seen": "2026-09-02T22:08:46.384509+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T22:08:46.384509+00:00"
-    },
-    {
       "id": "PIEVERSEUSDT_LONG_15m_2026-09-02_22-08-48",
       "symbol": "PIEVERSEUSDT",
       "side": "LONG",
@@ -2715,6 +2694,28 @@
       "triggered_at": "2026-09-02T23:00:00+00:00",
       "partial_check_from": "2026-09-02T22:39:40.641564+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "FHEUSDT_SHORT_15m_2026-09-02_22-08-48",
+      "symbol": "FHEUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02115,
+      "sl": 0.02153,
+      "tp": [
+        0.02059,
+        0.02044,
+        0.02031
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_22-08-48",
+      "first_seen": "2026-09-02T22:08:46.384509+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T22:08:46.384509+00:00",
+      "triggered_at": "2026-09-02T23:00:00+00:00"
     }
   ],
   "closed": [
@@ -20841,6 +20842,7 @@
     "2026-09-02_22-08-48",
     "2026-09-02_22-26-24",
     "2026-09-02_22-39-42",
-    "2026-09-02_22-51-45"
+    "2026-09-02_22-51-45",
+    "2026-09-02_23-08-13"
   ]
 }
