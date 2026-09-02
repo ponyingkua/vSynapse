@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T08:09:58.459257+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: MUBARAKUSDT | Side: LONG | Score: 7.76
+   - Entry : 0.02199
+   - SL    : 0.02126
+   - TP    : 0.02309, 0.02363, 0.02418
+   - Invalidation: Close below 0.02126 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: CATIUSDT | Side: LONG | Score: 6.39
+   - Entry : 0.05390
+   - SL    : 0.05354
+   - TP    : 0.05445, 0.05472, 0.05499
+   - Invalidation: Close below 0.053536494 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: GWEIUSDT | Side: SHORT | Score: 6.0
+   - Entry : 0.02413
+   - SL    : 0.02464
+   - TP    : 0.02336, 0.02298, 0.02260
+   - Invalidation: Close above 0.02464 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: MANTRAUSDT | Side: SHORT | Score: 7.27
+   - Entry : 0.004299
+   - SL    : 0.004361
+   - TP    : 0.004205, 0.004158, 0.004111
+   - Invalidation: Close above 0.004361 / reclaim of recent 15m swing high
+----------------------------------------
