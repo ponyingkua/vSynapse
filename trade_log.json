@@ -4624,6 +4624,29 @@
       "partial_check_done": true
     },
     {
+      "id": "ONEUSDT_LONG_1h_2026-09-02_07-27-31",
+      "symbol": "ONEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0007565,
+      "sl": 0.0007309,
+      "tp": [
+        0.0007949,
+        0.0008141,
+        0.0008333
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "ZRXUSDT_LONG_15m_2026-09-02_06-37-20",
       "symbol": "ZRXUSDT",
       "side": "LONG",
@@ -4689,6 +4712,29 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T08:00:00+00:00",
       "partial_check_from": "2026-09-02T07:09:24.006171+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ANKRUSDT_LONG_1h_2026-09-02_07-27-31",
+      "symbol": "ANKRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.004068,
+      "sl": 0.003865,
+      "tp": [
+        0.004372,
+        0.004525,
+        0.004677
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
       "partial_check_done": true
     },
     {
@@ -4758,6 +4804,75 @@
       "config_version": "v2",
       "added_at": "2026-09-02T06:57:35.380466+00:00",
       "triggered_at": "2026-09-02T07:00:00+00:00"
+    },
+    {
+      "id": "PUNDIXUSDT_LONG_1h_2026-09-02_07-27-31",
+      "symbol": "PUNDIXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.08996,
+      "sl": 0.08672,
+      "tp": [
+        0.09482,
+        0.09725,
+        0.09968
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ZILUSDT_LONG_15m_2026-09-02_07-27-31",
+      "symbol": "ZILUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002675,
+      "sl": 0.002641,
+      "tp": [
+        0.002726,
+        0.002751,
+        0.002777
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T07:30:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "METUSDT_LONG_15m_2026-09-02_07-27-31",
+      "symbol": "METUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1936,
+      "sl": 0.1911,
+      "tp": [
+        0.19735,
+        0.19922,
+        0.2011
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_07-27-31",
+      "first_seen": "2026-09-02T07:27:27.518992+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T07:30:00+00:00",
+      "partial_check_from": "2026-09-02T07:27:27.518992+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -17508,6 +17623,7 @@
     "2026-09-02_06-12-19",
     "2026-09-02_06-37-20",
     "2026-09-02_06-57-41",
-    "2026-09-02_07-09-27"
+    "2026-09-02_07-09-27",
+    "2026-09-02_07-27-31"
   ]
 }

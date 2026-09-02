@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T07:27:27.518992+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ANKRUSDT | Side: LONG | Score: 5.46
+   - Entry : 0.004068
+   - SL    : 0.003865
+   - TP    : 0.004372, 0.004525, 0.004677
+   - Invalidation: Close below 0.003865 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: PUNDIXUSDT | Side: LONG | Score: 4.77
+   - Entry : 0.08996
+   - SL    : 0.08672
+   - TP    : 0.09482, 0.09725, 0.09968
+   - Invalidation: Close below 0.08672 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ZILUSDT | Side: LONG | Score: 4.46
+   - Entry : 0.002675
+   - SL    : 0.002641
+   - TP    : 0.002726, 0.002751, 0.002777
+   - Invalidation: Close below 0.002641 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: ONEUSDT | Side: LONG | Score: 4.39
+   - Entry : 0.0007565
+   - SL    : 0.0007309
+   - TP    : 0.0007949, 0.0008141, 0.0008333
+   - Invalidation: Close below 0.0007309 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: METUSDT | Side: LONG | Score: 4.25
+   - Entry : 0.19360
+   - SL    : 0.19110
+   - TP    : 0.19735, 0.19922, 0.20110
+   - Invalidation: Close below 0.1911 / loss of recent 15m swing low
+----------------------------------------
