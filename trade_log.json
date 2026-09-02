@@ -2917,29 +2917,6 @@
       "partial_check_done": true
     },
     {
-      "id": "COTIUSDT_LONG_15m_2026-09-02_09-09-32",
-      "symbol": "COTIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01302,
-      "sl": 0.01277,
-      "tp": [
-        0.01338,
-        0.01357,
-        0.01375
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_09-09-32",
-      "first_seen": "2026-09-02T09:09:28.021934+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T09:15:00+00:00",
-      "partial_check_from": "2026-09-02T09:09:28.021934+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "MANTRAUSDT_SHORT_15m_2026-09-02_08-42-55",
       "symbol": "MANTRAUSDT",
       "side": "SHORT",
@@ -19958,6 +19935,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T15:29:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "COTIUSDT_LONG_15m_2026-09-02_09-09-32",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01302,
+      "sl": 0.01277,
+      "tp": [
+        0.01338,
+        0.01357,
+        0.01375
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_09-09-32",
+      "first_seen": "2026-09-02T09:09:28.021934+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T09:15:00+00:00",
+      "partial_check_from": "2026-09-02T09:09:28.021934+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.01338,
+      "tp_index": 0,
+      "bar_time": 1788364799999,
+      "bars_held": 27,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T15:59:59.999000+00:00",
+      "r_multiple": 1.44
     }
   ],
   "ingested_runs": [
@@ -20146,6 +20155,7 @@
     "2026-09-02_14-41-03",
     "2026-09-02_14-55-11",
     "2026-09-02_15-14-18",
-    "2026-09-02_15-32-47"
+    "2026-09-02_15-32-47",
+    "2026-09-02_15-55-16"
   ]
 }
