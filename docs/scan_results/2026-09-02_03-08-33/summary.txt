@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T03:08:29.516584+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: NEIROUSDT | Side: LONG | Score: 5.46
+   - Entry : 0.00008678
+   - SL    : 0.00008433
+   - TP    : 0.00009046, 0.00009229, 0.00009413
+   - Invalidation: Close below 8.433e-05 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: BOMEUSDT | Side: LONG | Score: 5.33
+   - Entry : 0.0008858
+   - SL    : 0.0008562
+   - TP    : 0.0009302, 0.0009524, 0.0009746
+   - Invalidation: Close below 0.0008562 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ORDERUSDT | Side: LONG | Score: 5.08
+   - Entry : 0.03330
+   - SL    : 0.03193
+   - TP    : 0.03535, 0.03637, 0.03740
+   - Invalidation: Close below 0.03193 / loss of recent 1h swing low
+----------------------------------------
+4. Symbol: SFPUSDT | Side: LONG | Score: 4.81
+   - Entry : 0.26182
+   - SL    : 0.25610
+   - TP    : 0.27040, 0.27469, 0.27898
+   - Invalidation: Close below 0.2561 / loss of recent 1h swing low
+----------------------------------------
+5. Symbol: YGGUSDT | Side: LONG | Score: 4.69
+   - Entry : 0.02277
+   - SL    : 0.02207
+   - TP    : 0.02382, 0.02434, 0.02487
+   - Invalidation: Close below 0.02207 / loss of recent 1h swing low
+----------------------------------------
