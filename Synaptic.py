@@ -243,8 +243,13 @@ CONFIG = {
     # Candidate selection
     # --------------------------------------------------------
 
+    # POIN 3: longgarkan min_candidates jadi 0.
+    # Jangan backfill dari mtf_valid demi angka "Top 5".
+    # Kalau tidak ada setup yang mencapai min_score, biarkan
+    # final_candidates = 0 (atau sebanyak yang benar-benar
+    # lolos min_score, tanpa memaksa isi dari fallback).
     "min_score": 6.0,
-    "min_candidates": 2,
+    "min_candidates": 0,
     "max_results": 5,
 
     # --------------------------------------------------------
@@ -335,6 +340,10 @@ CONFIG = {
     # yang masih dianggap wajar untuk entry di harga pasar
     # (market/chase ringan). Lebih dari ini -> tunggu pullback,
     # jangan chase.
+    # CATATAN (POIN 2): CONTINUATION sekarang SELALU diarahkan
+    # ke pullback zone (sama seperti EXTENDED). Parameter ini
+    # masih disimpan untuk kompatibilitas, tapi tidak lagi
+    # dipakai untuk mengizinkan ENTRY_READY di market price.
     "continuation_near_atr": 1.5,
 
     # Entry Engine -----------------------------------------------
@@ -410,7 +419,38 @@ CONFIG = {
     # penalty), supaya scan tetap jalan.
     "htf_bias_tf": "1d",
 
-    "htf_bias_penalty_factor": 0.85,
+    # POIN 1: soft-penalty lama 0.85 diganti jadi jauh lebih
+    # berat (0.5). Selain itu, saat konflik dengan daily bias
+    # sekarang WAJIB TF agreement 3/3 (gate tegas), bukan cuma
+    # diskon skor.
+    "htf_bias_penalty_factor": 0.50,
+
+    # --------------------------------------------------------
+    # Market regime (BTC) -- POIN 4
+    # --------------------------------------------------------
+    #
+    # EMA200 pada BTCUSDT (4h + 1D) dipakai sebagai regime
+    # check tambahan. Kalau BTC bearish, semua kandidat LONG
+    # mendapat penalty ekstra (dan opsional hard gate).
+    # Tidak mempengaruhi SHORT.
+    "btc_regime_symbol": "BTCUSDT",
+    "btc_regime_tfs": ["4h", "1d"],
+    "btc_regime_penalty_factor": 0.55,
+    # True = hard reject LONG saat BTC bearish (lebih tegas).
+    # False = cuma soft penalty.
+    "btc_regime_hard_gate": False,
+
+    # --------------------------------------------------------
+    # Cooldown per-symbol -- POIN 5
+    # --------------------------------------------------------
+    #
+    # Setelah sebuah symbol muncul sebagai kandidat final
+    # (entah win/loss), skip N scan berikutnya supaya tidak
+    # spam entry di simbol yang sama saat market choppy.
+    # State disimpan di file JSON agar persisten antar-run
+    # (mis. GitHub Actions cron).
+    "cooldown_scans": 3,
+    "cooldown_file": "synaptic_cooldown.json",
 
     # --------------------------------------------------------
     # Diversity / correlation filter
@@ -1110,6 +1150,196 @@ def daily_bias(symbol):
         )
 
         return None
+
+
+# ============================================================
+# BTC MARKET REGIME -- POIN 4
+#
+# Cek EMA200 BTCUSDT pada 4h dan 1D.
+# Return "BEARISH" kalau mayoritas TF bearish, "BULLISH"
+# kalau mayoritas bullish, None kalau data gagal.
+# ============================================================
+
+def btc_market_regime():
+
+    symbol = CONFIG["btc_regime_symbol"]
+    tfs = CONFIG["btc_regime_tfs"]
+
+    votes = []
+
+    for tf in tfs:
+
+        try:
+
+            candles = klines(symbol, tf)
+
+            if len(candles) < CONFIG["ema_period"] + 5:
+                continue
+
+            closes = candles["close"]
+
+            ema = closes.ewm(
+                span=CONFIG["ema_period"],
+                adjust=False,
+            ).mean()
+
+            signal_offset = (
+                1 if CONFIG["confirm_on_closed_bar"] else 0
+            )
+
+            pos = len(closes) - 1 - signal_offset
+
+            if pos < 1:
+                continue
+
+            close_value = float(closes.iloc[pos])
+            ema_value = float(ema.iloc[pos])
+
+            if (
+                not np.isfinite(close_value)
+                or not np.isfinite(ema_value)
+            ):
+                continue
+
+            if close_value > ema_value:
+                votes.append("BULLISH")
+            elif close_value < ema_value:
+                votes.append("BEARISH")
+            else:
+                votes.append("NEUTRAL")
+
+        except Exception as exc:
+
+            logger.debug(
+                "BTC regime %s/%s error: %s",
+                symbol, tf, exc,
+            )
+
+    if not votes:
+        return None
+
+    bearish = sum(1 for v in votes if v == "BEARISH")
+    bullish = sum(1 for v in votes if v == "BULLISH")
+
+    if bearish > bullish:
+        return "BEARISH"
+
+    if bullish > bearish:
+        return "BULLISH"
+
+    return "NEUTRAL"
+
+
+# ============================================================
+# COOLDOWN PER-SYMBOL -- POIN 5
+#
+# Setelah symbol muncul di final candidates, skip N scan
+# berikutnya. State disimpan ke file JSON.
+# ============================================================
+
+def load_cooldown():
+    """Load cooldown state dari file. Format:
+    {
+      "SYMBOL": {"remaining": N, "last_seen": "..."},
+      ...
+    }
+    """
+
+    path = Path(CONFIG["cooldown_file"])
+
+    if not path.exists():
+        return {}
+
+    try:
+
+        data = json.loads(path.read_text(encoding="utf-8"))
+
+        if isinstance(data, dict):
+            return data
+
+    except Exception as exc:
+
+        logger.warning(
+            "Failed to load cooldown file: %s",
+            exc,
+        )
+
+    return {}
+
+
+def save_cooldown(state):
+    """Simpan cooldown state ke file."""
+
+    path = Path(CONFIG["cooldown_file"])
+
+    try:
+
+        path.write_text(
+            json.dumps(
+                state,
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+    except Exception as exc:
+
+        logger.warning(
+            "Failed to save cooldown file: %s",
+            exc,
+        )
+
+
+def apply_cooldown_decay(state):
+    """Kurangi remaining tiap symbol, hapus yang sudah 0."""
+
+    new_state = {}
+
+    for symbol, info in state.items():
+
+        remaining = int(info.get("remaining", 0))
+
+        if remaining > 1:
+            new_state[symbol] = {
+                "remaining": remaining - 1,
+                "last_seen": info.get("last_seen"),
+            }
+        # remaining == 1 -> setelah decay jadi 0, dihapus
+        # remaining <= 0 -> sudah expired, dihapus
+
+    return new_state
+
+
+def is_on_cooldown(symbol, state):
+    """True kalau symbol masih dalam masa cooldown."""
+
+    info = state.get(symbol)
+
+    if not info:
+        return False
+
+    return int(info.get("remaining", 0)) > 0
+
+
+def register_cooldown(state, symbols):
+    """Daftarkan symbol yang baru muncul sebagai kandidat."""
+
+    n = CONFIG["cooldown_scans"]
+
+    if n <= 0:
+        return state
+
+    now = pd.Timestamp.now(tz="UTC").isoformat()
+
+    for symbol in symbols:
+
+        state[symbol] = {
+            "remaining": n,
+            "last_seen": now,
+        }
+
+    return state
 
 
 # ============================================================
@@ -2227,27 +2457,19 @@ def classify_setup(tf_score, side, live_price=None):
         }
 
     # --------------------------------------------------------
-    # CONTINUATION
+    # CONTINUATION -- POIN 2
     #
     # Trend masih valid tapi sudah di luar zona pullback murni.
-    # Kalau masih dalam batas wajar (continuation_near_atr) ->
-    # entry market masih layak (ENTRY_READY). Kalau sudah lebih
-    # jauh dari itu (tapi belum EXTENDED) -> jangan chase,
-    # arahkan ke zona pullback dan tandai WAITING_PULLBACK.
+    #
+    # PERUBAHAN PENTING: jangan izinkan ENTRY_READY di harga
+    # pasar. Selalu redirect ke pullback zone seperti EXTENDED.
+    # Sebelumnya kalau directional_distance_atr <= continuation_
+    # near_atr, entry_state = ENTRY_READY + ideal_entry =
+    # market_price (chase). Sekarang SEMUA CONTINUATION
+    # diarahkan ke zona pullback EMA200.
     # --------------------------------------------------------
 
     if trend_aligned:
-
-        if directional_distance_atr <= CONFIG["continuation_near_atr"]:
-
-            return {
-                "setup_style": "CONTINUATION",
-                "entry_state": "ENTRY_READY",
-                "ideal_entry": market_price,
-                "reference_level": ema,
-                "retest_zone_low": None,
-                "retest_zone_high": None,
-            }
 
         pullback_level = (
             ema + CONFIG["setup_pullback_atr"] * atr_value
@@ -2255,9 +2477,17 @@ def classify_setup(tf_score, side, live_price=None):
             else ema - CONFIG["setup_pullback_atr"] * atr_value
         )
 
+        distance = abs(market_price - pullback_level)
+
+        entry_state = (
+            "ENTRY_READY"
+            if distance <= entry_ready_band
+            else "WAITING_PULLBACK"
+        )
+
         return {
             "setup_style": "CONTINUATION",
-            "entry_state": "WAITING_PULLBACK",
+            "entry_state": entry_state,
             "ideal_entry": pullback_level,
             "reference_level": ema,
             "retest_zone_low": None,
@@ -2282,10 +2512,10 @@ def build_entry(setup_info, side, price, exec_df, atr_value):
     # - BREAKOUT/BREAKDOWN : dijepit ke area retest level yang
     #                        ditembus (tidak chase candle
     #                        impulsif).
-    # - EXTENDED / CONTINUATION (jauh) : diarahkan ke zona
+    # - EXTENDED / CONTINUATION : diarahkan ke zona
     #                        pullback EMA200, bukan harga
     #                        puncak/dasar extension.
-    # - PULLBACK / CONTINUATION (dekat) : boleh entry di harga
+    # - PULLBACK : boleh entry di harga
     #                        pasar saat ini.
     #
     # PULLBACK di-refine lagi di sini memakai EMA200 execution_tf
@@ -2323,6 +2553,7 @@ def analyze_symbol(
     stage1_score,
     stage1_meta,
     funding_rate=0.0,
+    btc_regime=None,
 ):
 
     data = {}
@@ -2473,12 +2704,57 @@ def analyze_symbol(
         for vote in votes
     )
 
-    if agreement < 2:
+    # --------------------------------------------------------
+    # Higher-timeframe (1D) bias -- ambil dulu supaya bisa
+    # dipakai sebagai gate agreement (POIN 1).
+    # --------------------------------------------------------
+
+    htf_bias = daily_bias(symbol)
+
+    htf_conflict = (
+        (htf_bias == "BEARISH" and side == "LONG")
+        or
+        (htf_bias == "BULLISH" and side == "SHORT")
+    )
+
+    # POIN 1: kalau bertentangan dengan daily bias, WAJIB
+    # TF agreement 3/3 (bukan 2/3). Soft-penalty lama diganti
+    # menjadi gate tegas + penalty jauh lebih berat (0.5).
+    min_agreement_required = 3 if htf_conflict else 2
+
+    if agreement < min_agreement_required:
         REJECTIONS.note(
             "stage2", symbol, "insufficient_tf_agreement",
             side=side, agreement=agreement,
+            required=min_agreement_required,
+            htf_bias=htf_bias,
+            htf_conflict=htf_conflict,
         )
         return None
+
+    # --------------------------------------------------------
+    # BTC market regime -- POIN 4
+    #
+    # Kalau BTC bearish, LONG mendapat penalty ekstra
+    # (atau hard reject kalau btc_regime_hard_gate = True).
+    # SHORT tidak terpengaruh.
+    # --------------------------------------------------------
+
+    btc_penalty = 1.0
+
+    if (
+        btc_regime == "BEARISH"
+        and side == "LONG"
+    ):
+
+        if CONFIG["btc_regime_hard_gate"]:
+            REJECTIONS.note(
+                "stage2", symbol, "btc_regime_bearish_long",
+                side=side, btc_regime=btc_regime,
+            )
+            return None
+
+        btc_penalty = CONFIG["btc_regime_penalty_factor"]
 
     # --------------------------------------------------------
     # 15m momentum direction
@@ -2898,23 +3174,13 @@ def analyze_symbol(
     # --------------------------------------------------------
     # Higher-timeframe (1D) bias -- macro trend guard.
     #
-    # Kalau tren EMA200 harian melawan sisi trade, skor akhirnya
-    # didiskon. Gagal fetch / data kurang -> dianggap netral,
-    # tidak ada penalty (tidak mengarang bias dari data yang
-    # tidak ada).
+    # POIN 1: penalty diperberat jauh (0.5, bukan 0.85).
+    # Gate agreement 3/3 sudah diterapkan di atas.
     # --------------------------------------------------------
-
-    htf_bias = daily_bias(symbol)
 
     htf_penalty = 1.0
 
-    if (
-        htf_bias == "BEARISH"
-        and side == "LONG"
-    ) or (
-        htf_bias == "BULLISH"
-        and side == "SHORT"
-    ):
+    if htf_conflict:
 
         htf_penalty = CONFIG[
             "htf_bias_penalty_factor"
@@ -2932,7 +3198,7 @@ def analyze_symbol(
     score = (
         raw_score
         + momentum_bonus
-    ) * funding_penalty * htf_penalty
+    ) * funding_penalty * htf_penalty * btc_penalty
 
     reasons = (
         data["15m"]["score"][
@@ -3000,6 +3266,8 @@ def analyze_symbol(
         "funding_alert": funding_alert,
 
         "htf_bias": htf_bias,
+
+        "btc_regime": btc_regime,
 
         "execution_tf": execution_tf,
 
@@ -3141,7 +3409,7 @@ def stage1_worker(row):
 # STAGE 2 WORKER
 # ============================================================
 
-def stage2_worker(item):
+def stage2_worker(item, btc_regime=None):
 
     (
         stage1_score,
@@ -3161,6 +3429,7 @@ def stage2_worker(item):
             stage1_score,
             stage1_meta,
             funding_rate=funding_rate,
+            btc_regime=btc_regime,
         )
 
     except Exception as exc:
@@ -3372,6 +3641,52 @@ def main():
     REJECTIONS.reset()
 
     # ========================================================
+    # COOLDOWN -- POIN 5
+    #
+    # Load state, decay remaining, filter symbol yang masih
+    # cooldown dari universe.
+    # ========================================================
+
+    cooldown_state = load_cooldown()
+    cooldown_state = apply_cooldown_decay(cooldown_state)
+
+    on_cooldown = {
+        sym
+        for sym, info in cooldown_state.items()
+        if int(info.get("remaining", 0)) > 0
+    }
+
+    if on_cooldown:
+        logger.info(
+            "Cooldown active for %d symbols: %s",
+            len(on_cooldown),
+            ", ".join(sorted(on_cooldown)[:15])
+            + ("..." if len(on_cooldown) > 15 else ""),
+        )
+
+    # ========================================================
+    # BTC MARKET REGIME -- POIN 4
+    # ========================================================
+
+    btc_regime = None
+
+    try:
+
+        btc_regime = btc_market_regime()
+
+        logger.info(
+            "BTC market regime: %s",
+            btc_regime or "UNKNOWN",
+        )
+
+    except Exception as exc:
+
+        logger.warning(
+            "BTC regime check failed, continuing without it: %s",
+            exc,
+        )
+
+    # ========================================================
     # UNIVERSE
     # ========================================================
 
@@ -3404,6 +3719,31 @@ def main():
         raise RuntimeError(
             "Universe is empty."
         )
+
+    # Filter symbol yang masih cooldown (POIN 5)
+    if on_cooldown:
+
+        before = len(universe_rows)
+
+        universe_rows = [
+            row
+            for row in universe_rows
+            if row[0] not in on_cooldown
+        ]
+
+        skipped = before - len(universe_rows)
+
+        if skipped:
+            logger.info(
+                "Skipped %d symbols still on cooldown.",
+                skipped,
+            )
+
+            for sym in sorted(on_cooldown):
+                REJECTIONS.note(
+                    "universe", sym, "on_cooldown",
+                    remaining=cooldown_state.get(sym, {}).get("remaining"),
+                )
 
     # ========================================================
     # STAGE 1
@@ -3483,6 +3823,9 @@ def main():
 
         _log_rejection_funnel()
 
+        # Save cooldown state even on empty run
+        save_cooldown(cooldown_state)
+
         payload = {
             "generated_at":
                 pd.Timestamp.now(
@@ -3493,6 +3836,8 @@ def main():
 
             "selection_mode":
                 "no_stage1_candidates",
+
+            "btc_regime": btc_regime,
 
             "scan_stats": {
                 "universe":
@@ -3568,6 +3913,7 @@ def main():
             pool.submit(
                 stage2_worker,
                 item,
+                btc_regime,
             )
             for item in selected
         ]
@@ -3627,14 +3973,12 @@ def main():
     )
 
     # ========================================================
-    # FINAL SELECTION
+    # FINAL SELECTION -- POIN 3
+    #
+    # min_candidates = 0. JANGAN backfill dari mtf_valid
+    # demi angka "Top 5". Kalau tidak ada setup yang mencapai
+    # min_score, biarkan final_candidates = 0.
     # ========================================================
-
-    # Diversity filter diterapkan di sini, BUKAN dengan slicing
-    # langsung -- daftar sudah terurut (entry_state lalu score),
-    # jadi kandidat terkuat tetap diprioritaskan; yang dilewati
-    # cuma yang terlalu berkorelasi dengan kandidat searah yang
-    # sudah lolos duluan.
 
     final_results = select_diverse_candidates(
         results,
@@ -3643,38 +3987,40 @@ def main():
 
     selection_mode = "min_score"
 
-    # Transparent fallback.
-    #
-    # Jika kandidat >=2 tidak mencapai min_score,
-    # gunakan kandidat MTF-valid terkuat.
-    #
-    # Tidak mengarang signal.
-    #
-    if (
-        len(final_results)
-        < CONFIG["min_candidates"]
-    ):
+    # POIN 3: hapus fallback ke mtf_valid.
+    # Sebelumnya kalau len(final_results) < min_candidates,
+    # diisi dari mtf_valid. Sekarang min_candidates = 0 dan
+    # fallback dimatikan -- hanya kandidat yang benar-benar
+    # lolos min_score yang masuk.
 
-        final_results = select_diverse_candidates(
-            mtf_valid,
-            CONFIG["max_results"],
-        )
-
-        selection_mode = (
-            "mtf_fallback"
-        )
-
-    # FIX: tandai per-kandidat kalau berasal dari fallback,
-    # bukan cuma di level payload (selection_mode). Sebelumnya
-    # kalau consumer (bot/tracker) tidak membaca selection_mode
-    # di level atas, kandidat fallback (belum tentu capai
-    # min_score) tercampur begitu saja dengan kandidat min_score
-    # biasa -- berpotensi mencemari statistik win rate tanpa
-    # ketahuan dari mana asalnya.
     for item in final_results:
-        item["from_fallback"] = (
-            selection_mode == "mtf_fallback"
+        item["from_fallback"] = False
+
+    # ========================================================
+    # REGISTER COOLDOWN -- POIN 5
+    #
+    # Symbol yang muncul di final candidates didaftarkan
+    # supaya di-skip N scan berikutnya.
+    # ========================================================
+
+    if final_results:
+
+        symbols_to_cool = [
+            item["symbol"] for item in final_results
+        ]
+
+        cooldown_state = register_cooldown(
+            cooldown_state,
+            symbols_to_cool,
         )
+
+        logger.info(
+            "Registered cooldown (%d scans) for: %s",
+            CONFIG["cooldown_scans"],
+            ", ".join(symbols_to_cool),
+        )
+
+    save_cooldown(cooldown_state)
 
     # ========================================================
     # FINAL TIMING
@@ -3725,6 +4071,9 @@ def main():
         "selection_mode":
             selection_mode,
 
+        "btc_regime":
+            btc_regime,
+
         "scan_stats": {
 
             "universe":
@@ -3768,6 +4117,9 @@ def main():
 
             "workers_stage2":
                 CONFIG["workers_stage2"],
+
+            "cooldown_active":
+                len(on_cooldown),
         },
 
         # Funnel lengkap: berapa banyak symbol gugur di tiap
@@ -3845,6 +4197,11 @@ def main():
     )
 
     print(
+        f"BTC regime     : "
+        f"{btc_regime or 'UNKNOWN'}"
+    )
+
+    print(
         f"Stage 1        : "
         f"{stage1_elapsed:.2f}s"
     )
@@ -3867,6 +4224,11 @@ def main():
     print(
         f"Selection       : "
         f"{selection_mode}"
+    )
+
+    print(
+        f"Cooldown active : "
+        f"{len(on_cooldown)}"
     )
 
     print(
