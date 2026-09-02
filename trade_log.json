@@ -2538,29 +2538,6 @@
       "triggered_at": "2026-09-02T11:15:00+00:00"
     },
     {
-      "id": "WLFIUSDT_SHORT_15m_2026-09-02_12-11-17",
-      "symbol": "WLFIUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.05672,
-      "sl": 0.05727,
-      "tp": [
-        0.0559,
-        0.05548,
-        0.05507
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_12-11-17",
-      "first_seen": "2026-09-02T12:11:14.441919+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "triggered_at": "2026-09-02T12:15:00+00:00",
-      "partial_check_from": "2026-09-02T12:11:14.441919+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "GALAUSDT_SHORT_1h_2026-09-02_13-08-34",
       "symbol": "GALAUSDT",
       "side": "SHORT",
@@ -20562,6 +20539,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T23:59:59.999000+00:00",
       "r_multiple": 1.51
+    },
+    {
+      "id": "WLFIUSDT_SHORT_15m_2026-09-02_12-11-17",
+      "symbol": "WLFIUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05672,
+      "sl": 0.05727,
+      "tp": [
+        0.0559,
+        0.05548,
+        0.05507
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_12-11-17",
+      "first_seen": "2026-09-02T12:11:14.441919+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T12:15:00+00:00",
+      "partial_check_from": "2026-09-02T12:11:14.441919+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.0559,
+      "tp_index": 0,
+      "bar_time": 1788387299999,
+      "bars_held": 40,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T22:14:59.999000+00:00",
+      "r_multiple": 1.49
     }
   ],
   "ingested_runs": [
@@ -20776,6 +20785,7 @@
     "2026-09-02_21-24-59",
     "2026-09-02_21-38-25",
     "2026-09-02_21-51-17",
-    "2026-09-02_22-08-48"
+    "2026-09-02_22-08-48",
+    "2026-09-02_22-26-24"
   ]
 }
