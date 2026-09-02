@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T07:53:38.480012+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: SOPHUSDT | Side: LONG | Score: 4.04
+   - Entry : 0.004106
+   - SL    : 0.003937
+   - TP    : 0.004360, 0.004486, 0.004613
+   - Invalidation: Close below 0.003937 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: XANUSDT | Side: SHORT | Score: 3.59
+   - Entry : 0.01285
+   - SL    : 0.01331
+   - TP    : 0.01217, 0.01183, 0.01149
+   - Invalidation: Close above 0.013311 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: METUSDT | Side: LONG | Score: 4.37
+   - Entry : 0.19494
+   - SL    : 0.19110
+   - TP    : 0.20071, 0.20359, 0.20647
+   - Invalidation: Close below 0.1911 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: TURBOUSDT | Side: SHORT | Score: 4.33
+   - Entry : 0.0009453
+   - SL    : 0.0009580
+   - TP    : 0.0009262, 0.0009167, 0.0009072
+   - Invalidation: Close above 0.000958 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: AUCTIONUSDT | Side: LONG | Score: 4.13
+   - Entry : 3.3729
+   - SL    : 3.2360
+   - TP    : 3.5784, 3.6811, 3.7838
+   - Invalidation: Close below 3.236 / loss of recent 1h swing low
+----------------------------------------
