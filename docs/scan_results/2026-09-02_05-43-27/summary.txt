@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T05:43:23.841091+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PLUMEUSDT | Side: LONG | Score: 5.07
+   - Entry : 0.01446
+   - SL    : 0.01422
+   - TP    : 0.01482, 0.01500, 0.01518
+   - Invalidation: Close below 0.01422 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: IMXUSDT | Side: LONG | Score: 4.63
+   - Entry : 0.12520
+   - SL    : 0.12360
+   - TP    : 0.12760, 0.12880, 0.13000
+   - Invalidation: Close below 0.1236 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: METISUSDT | Side: LONG | Score: 4.46
+   - Entry : 2.7320
+   - SL    : 2.6890
+   - TP    : 2.7965, 2.8288, 2.8610
+   - Invalidation: Close below 2.689 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: BSBUSDT | Side: LONG | Score: 4.22
+   - Entry : 0.10772
+   - SL    : 0.10599
+   - TP    : 0.11031, 0.11161, 0.11291
+   - Invalidation: Close below 0.10599 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: STARUSDT | Side: SHORT | Score: 3.98
+   - Entry : 0.13156
+   - SL    : 0.13613
+   - TP    : 0.12471, 0.12128, 0.11785
+   - Invalidation: Close above 0.13613 / reclaim of recent 15m swing high
+----------------------------------------
