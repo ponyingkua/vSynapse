@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T09:53:40.836021+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: RENDERUSDT | Side: SHORT | Score: 5.3
+   - Entry : 1.4070
+   - SL    : 1.4310
+   - TP    : 1.3710, 1.3530, 1.3350
+   - Invalidation: Close above 1.431 / reclaim of recent 15m swing high
+----------------------------------------
+2. Symbol: BRETTUSDT | Side: SHORT | Score: 4.93
+   - Entry : 0.004965
+   - SL    : 0.005087
+   - TP    : 0.004782, 0.004690, 0.004598
+   - Invalidation: Close above 0.005087 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: KGENUSDT | Side: SHORT | Score: 4.67
+   - Entry : 0.17450
+   - SL    : 0.17687
+   - TP    : 0.17094, 0.16917, 0.16739
+   - Invalidation: Close above 0.17687 / reclaim of recent 15m swing high
+----------------------------------------
+4. Symbol: POWRUSDT | Side: SHORT | Score: 4.37
+   - Entry : 0.04517
+   - SL    : 0.04558
+   - TP    : 0.04455, 0.04425, 0.04394
+   - Invalidation: Close above 0.04558 / reclaim of recent 15m swing high
+----------------------------------------
+5. Symbol: DOTUSDT | Side: SHORT | Score: 3.83
+   - Entry : 0.85040
+   - SL    : 0.86620
+   - TP    : 0.82670, 0.81485, 0.80300
+   - Invalidation: Close above 0.8662 / reclaim of recent 15m swing high
+----------------------------------------
