@@ -2841,29 +2841,6 @@
       "triggered_at": "2026-09-02T04:15:00+00:00"
     },
     {
-      "id": "XMRUSDT_LONG_15m_2026-09-02_04-42-31",
-      "symbol": "XMRUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 517.76,
-      "sl": 508.74,
-      "tp": [
-        531.29,
-        538.05,
-        544.82
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-02_04-42-31",
-      "first_seen": "2026-09-02T04:42:27.399982+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T04:45:00+00:00",
-      "partial_check_from": "2026-09-02T04:42:27.399982+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "TOWNSUSDT_LONG_1h_2026-09-02_04-42-31",
       "symbol": "TOWNSUSDT",
       "side": "LONG",
@@ -19283,6 +19260,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T11:44:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "XMRUSDT_LONG_15m_2026-09-02_04-42-31",
+      "symbol": "XMRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 517.76,
+      "sl": 508.74,
+      "tp": [
+        531.29,
+        538.05,
+        544.82
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-02_04-42-31",
+      "first_seen": "2026-09-02T04:42:27.399982+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T04:45:00+00:00",
+      "partial_check_from": "2026-09-02T04:42:27.399982+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 508.74,
+      "tp_index": null,
+      "bar_time": 1788350399999,
+      "bars_held": 29,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T11:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -19457,6 +19466,7 @@
     "2026-09-02_10-53-42",
     "2026-09-02_11-09-07",
     "2026-09-02_11-27-17",
-    "2026-09-02_11-39-59"
+    "2026-09-02_11-39-59",
+    "2026-09-02_11-52-13"
   ]
 }
