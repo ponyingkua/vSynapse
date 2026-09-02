@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T02:55:34.189721+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: BIGTIMEUSDT | Side: LONG | Score: 5.32
+   - Entry : 0.006795
+   - SL    : 0.006363
+   - TP    : 0.007443, 0.007767, 0.008091
+   - Invalidation: Close below 0.006363 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BREVUSDT | Side: LONG | Score: 5.22
+   - Entry : 0.07518
+   - SL    : 0.07346
+   - TP    : 0.07776, 0.07905, 0.08034
+   - Invalidation: Close below 0.07346 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: ACHUSDT | Side: LONG | Score: 4.09
+   - Entry : 0.004910
+   - SL    : 0.004819
+   - TP    : 0.005047, 0.005115, 0.005183
+   - Invalidation: Close below 0.004819 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: AXSUSDT | Side: LONG | Score: 4.04
+   - Entry : 0.91941
+   - SL    : 0.90030
+   - TP    : 0.94806, 0.96239, 0.97672
+   - Invalidation: Close below 0.9003 / loss of recent 15m swing low
+----------------------------------------
+5. Symbol: BEAMXUSDT | Side: LONG | Score: 3.93
+   - Entry : 0.001529
+   - SL    : 0.001495
+   - TP    : 0.001580, 0.001605, 0.001631
+   - Invalidation: Close below 0.001495 / loss of recent 15m swing low
+----------------------------------------
