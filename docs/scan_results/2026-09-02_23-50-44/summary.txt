@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T23:50:41.977815+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BRUSDT | Side: LONG | Score: 6.19
+   - Entry : 0.22049
+   - SL    : 0.21000
+   - TP    : 0.23622, 0.24042, 0.24409
+   - Invalidation: Close below 0.21 / loss of recent 1h swing low / breakout invalid if price falls below 0.2189
+----------------------------------------
