@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-02T12:11:14.441919+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: EDGEUSDT | Side: LONG | Score: 7.71
+   - Entry : 0.38260
+   - SL    : 0.37330
+   - TP    : 0.39655, 0.40352, 0.41050
+   - Invalidation: Close below 0.3733 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: WLFIUSDT | Side: SHORT | Score: 7.23
+   - Entry : 0.05672
+   - SL    : 0.05727
+   - TP    : 0.05590, 0.05548, 0.05507
+   - Invalidation: Close above 0.05727 / reclaim of recent 15m swing high
+----------------------------------------
+3. Symbol: JSTUSDT | Side: LONG | Score: 8.96
+   - Entry : 0.10374
+   - SL    : 0.09870
+   - TP    : 0.11129, 0.11507, 0.11885
+   - Invalidation: Close below 0.0987 / loss of recent 4h swing low
+----------------------------------------
