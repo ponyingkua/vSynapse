@@ -192,27 +192,6 @@
   ],
   "open": [
     {
-      "id": "EDGEUSDT_LONG_1h_2026-08-31_09-10-00",
-      "symbol": "EDGEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.37557,
-      "sl": 0.3484,
-      "tp": [
-        0.41632,
-        0.4367,
-        0.45708
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_09-10-00",
-      "first_seen": "2026-08-31T09:09:56.609095+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "triggered_at": "2026-08-31T09:09:56.609095+00:00"
-    },
-    {
       "id": "BERAUSDT_LONG_1h_2026-08-31_16-10-00",
       "symbol": "BERAUSDT",
       "side": "LONG",
@@ -2765,52 +2744,6 @@
       "triggered_at": "2026-09-02T16:30:00+00:00"
     },
     {
-      "id": "EDGEUSDT_LONG_1h_2026-09-02_17-08-24",
-      "symbol": "EDGEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.3894,
-      "sl": 0.3733,
-      "tp": [
-        0.41355,
-        0.42563,
-        0.4377
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_17-08-24",
-      "first_seen": "2026-09-02T17:08:22.516888+00:00",
-      "htf_bias": null,
-      "config_version": "v3",
-      "triggered_at": "2026-09-02T18:00:00+00:00",
-      "partial_check_from": "2026-09-02T17:08:22.516888+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "EDGEUSDT_LONG_1h_2026-09-02_17-25-33",
-      "symbol": "EDGEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.3895,
-      "sl": 0.3733,
-      "tp": [
-        0.4138,
-        0.42595,
-        0.4381
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_17-25-33",
-      "first_seen": "2026-09-02T17:25:31.369181+00:00",
-      "htf_bias": null,
-      "config_version": "v3",
-      "triggered_at": "2026-09-02T18:00:00+00:00",
-      "partial_check_from": "2026-09-02T17:25:31.369181+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "AGTUSDT_LONG_1h_2026-09-02_16-09-23",
       "symbol": "AGTUSDT",
       "side": "LONG",
@@ -2853,29 +2786,6 @@
       "config_version": "v3",
       "triggered_at": "2026-09-02T18:00:00+00:00",
       "partial_check_from": "2026-09-02T17:50:57.164360+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "CETUSUSDT_LONG_15m_2026-09-02_19-08-17",
-      "symbol": "CETUSUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.0231,
-      "sl": 0.02272,
-      "tp": [
-        0.02367,
-        0.02395,
-        0.02424
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_19-08-17",
-      "first_seen": "2026-09-02T19:08:15.151288+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "triggered_at": "2026-09-02T19:15:00+00:00",
-      "partial_check_from": "2026-09-02T19:08:15.151288+00:00",
       "partial_check_done": true
     }
   ],
@@ -20412,6 +20322,132 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T20:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "EDGEUSDT_LONG_1h_2026-08-31_09-10-00",
+      "symbol": "EDGEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.37557,
+      "sl": 0.3484,
+      "tp": [
+        0.41632,
+        0.4367,
+        0.45708
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_09-10-00",
+      "first_seen": "2026-08-31T09:09:56.609095+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "triggered_at": "2026-08-31T09:09:56.609095+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.41632,
+      "tp_index": 0,
+      "bar_time": 1788382799999,
+      "bars_held": 59,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T20:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "EDGEUSDT_LONG_1h_2026-09-02_17-08-24",
+      "symbol": "EDGEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.3894,
+      "sl": 0.3733,
+      "tp": [
+        0.41355,
+        0.42563,
+        0.4377
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_17-08-24",
+      "first_seen": "2026-09-02T17:08:22.516888+00:00",
+      "htf_bias": null,
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T18:00:00+00:00",
+      "partial_check_from": "2026-09-02T17:08:22.516888+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.41355,
+      "tp_index": 0,
+      "bar_time": 1788382799999,
+      "bars_held": 3,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T20:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "EDGEUSDT_LONG_1h_2026-09-02_17-25-33",
+      "symbol": "EDGEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.3895,
+      "sl": 0.3733,
+      "tp": [
+        0.4138,
+        0.42595,
+        0.4381
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_17-25-33",
+      "first_seen": "2026-09-02T17:25:31.369181+00:00",
+      "htf_bias": null,
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T18:00:00+00:00",
+      "partial_check_from": "2026-09-02T17:25:31.369181+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.4138,
+      "tp_index": 0,
+      "bar_time": 1788382799999,
+      "bars_held": 3,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T20:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "CETUSUSDT_LONG_15m_2026-09-02_19-08-17",
+      "symbol": "CETUSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0231,
+      "sl": 0.02272,
+      "tp": [
+        0.02367,
+        0.02395,
+        0.02424
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_19-08-17",
+      "first_seen": "2026-09-02T19:08:15.151288+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T19:15:00+00:00",
+      "partial_check_from": "2026-09-02T19:08:15.151288+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.02367,
+      "tp_index": 0,
+      "bar_time": 1788380999999,
+      "bars_held": 5,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-02T20:29:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -20618,6 +20654,7 @@
     "2026-09-02_19-24-17",
     "2026-09-02_19-36-05",
     "2026-09-02_19-50-37",
-    "2026-09-02_20-08-45"
+    "2026-09-02_20-08-45",
+    "2026-09-02_20-27-34"
   ]
 }
