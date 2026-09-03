@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T11:51:47.514644+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MELANIAUSDT | Side: LONG | Score: 6.17
+   - Entry : 0.11268
+   - SL    : 0.11043
+   - TP    : 0.11607, 0.11697, 0.11776
+   - Invalidation: Close below 0.11043 / loss of recent 15m swing low / breakout invalid if price falls below 0.11237
+----------------------------------------
