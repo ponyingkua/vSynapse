@@ -453,28 +453,6 @@
       "triggered_at": "2026-08-31T23:54:15.739863+00:00"
     },
     {
-      "id": "POLUSDT_SHORT_1h_2026-08-31_12-10-35",
-      "symbol": "POLUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.09218,
-      "sl": 0.09617,
-      "tp": [
-        0.0862,
-        0.08321,
-        0.08022
-      ],
-      "decimals": 5,
-      "run_id": "2026-08-31_12-10-35",
-      "first_seen": "2026-08-31T12:10:31.572656+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v1",
-      "added_at": "2026-08-31T12:10:31.572656+00:00",
-      "triggered_at": "2026-09-01T01:59:59.999000+00:00"
-    },
-    {
       "id": "OPUSDT_LONG_1h_2026-09-01_01-06-22",
       "symbol": "OPUSDT",
       "side": "LONG",
@@ -21764,6 +21742,32 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T13:59:59.999000+00:00",
       "r_multiple": 1.51
+    },
+    {
+      "id": "POLUSDT_SHORT_1h_2026-08-31_12-10-35",
+      "symbol": "POLUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09218,
+      "sl": 0.09617,
+      "tp": [
+        0.0862,
+        0.08321,
+        0.08022
+      ],
+      "decimals": 5,
+      "run_id": "2026-08-31_12-10-35",
+      "first_seen": "2026-08-31T12:10:31.572656+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "added_at": "2026-08-31T12:10:31.572656+00:00",
+      "triggered_at": "2026-09-01T01:59:59.999000+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.09325,
+      "closed_at": "2026-09-03T14:59:59.999000+00:00",
+      "r_multiple": -0.27
     }
   ],
   "ingested_runs": [
@@ -22026,6 +22030,7 @@
     "2026-09-03_13-08-44",
     "2026-09-03_13-28-09",
     "2026-09-03_13-40-58",
-    "2026-09-03_13-53-58"
+    "2026-09-03_13-53-58",
+    "2026-09-03_14-09-20"
   ]
 }
