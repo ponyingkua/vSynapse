@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T11:25:08.683114+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: APRUSDT | Side: LONG | Score: 6.68
+   - Entry : 0.21236
+   - SL    : 0.19860
+   - TP    : 0.23299, 0.23850, 0.24331
+   - Invalidation: Close below 0.1986 / loss of recent 1h swing low / breakout invalid if price falls below 0.2108
+----------------------------------------
+2. Symbol: UBUSDT | Side: LONG | Score: 6.34
+   - Entry : 0.12283
+   - SL    : 0.11689
+   - TP    : 0.13174, 0.13411, 0.13619
+   - Invalidation: Close below 0.11689 / loss of recent 1h swing low / breakout invalid if price falls below 0.12235
+----------------------------------------

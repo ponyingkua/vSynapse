@@ -188,6 +188,64 @@
       "htf_bias": "BULLISH",
       "config_version": "v3",
       "added_at": "2026-09-03T08:44:10.916702+00:00"
+    },
+    {
+      "id": "APRUSDT_LONG_1h_2026-09-03_11-25-10",
+      "symbol": "APRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.21236,
+      "sl": 0.1986,
+      "tp": [
+        0.23299,
+        0.2385,
+        0.24331
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_11-25-10",
+      "first_seen": "2026-09-03T11:25:08.683114+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.68,
+      "stage1_score": 18.86,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.961,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.21236,
+      "added_at": "2026-09-03T11:25:08.683114+00:00"
+    },
+    {
+      "id": "UBUSDT_LONG_1h_2026-09-03_11-25-10",
+      "symbol": "UBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.12283,
+      "sl": 0.11689,
+      "tp": [
+        0.13174,
+        0.13411,
+        0.13619
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_11-25-10",
+      "first_seen": "2026-09-03T11:25:08.683114+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.34,
+      "stage1_score": 10.361,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.945,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12283,
+      "added_at": "2026-09-03T11:25:08.683114+00:00"
     }
   ],
   "open": [
@@ -21577,6 +21635,7 @@
     "2026-09-03_10-28-10",
     "2026-09-03_10-40-08",
     "2026-09-03_10-50-58",
-    "2026-09-03_11-08-45"
+    "2026-09-03_11-08-45",
+    "2026-09-03_11-25-10"
   ]
 }
