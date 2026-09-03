@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T13:28:05.634134+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: LINKUSDT | Side: LONG | Score: 6.0
+   - Entry : 11.368
+   - SL    : 11.118
+   - TP    : 11.742, 11.842, 11.929
+   - Invalidation: Close below 11.118 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ONTUSDT | Side: LONG | Score: 6.44
+   - Entry : 0.05364
+   - SL    : 0.05219
+   - TP    : 0.05583, 0.05641, 0.05692
+   - Invalidation: Close below 0.05219 / loss of recent 1h swing low / breakout invalid if price falls below 0.05351
+----------------------------------------
+3. Symbol: ONGUSDT | Side: LONG | Score: 6.97
+   - Entry : 0.09934
+   - SL    : 0.09407
+   - TP    : 0.10725, 0.10935, 0.11120
+   - Invalidation: Close below 0.09407 / loss of recent 15m swing low
+----------------------------------------
+4. Symbol: XVSUSDT | Side: LONG | Score: 6.5
+   - Entry : 3.1309
+   - SL    : 3.0670
+   - TP    : 3.2268, 3.2524, 3.2748
+   - Invalidation: Close below 3.067 / loss of recent 1h swing low
+----------------------------------------

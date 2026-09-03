@@ -256,6 +256,35 @@
       "added_at": "2026-09-03T12:11:22.228208+00:00"
     },
     {
+      "id": "ONTUSDT_LONG_1h_2026-09-03_13-28-09",
+      "symbol": "ONTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05364,
+      "sl": 0.05219,
+      "tp": [
+        0.05583,
+        0.05641,
+        0.05692
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-28-09",
+      "first_seen": "2026-09-03T13:28:05.634134+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.44,
+      "stage1_score": 7.852,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.759,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05364,
+      "added_at": "2026-09-03T13:28:05.634134+00:00"
+    },
+    {
       "id": "UBUSDT_LONG_1h_2026-09-03_12-11-25",
       "symbol": "UBUSDT",
       "side": "LONG",
@@ -312,6 +341,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10744,
       "added_at": "2026-09-03T12:33:11.800592+00:00"
+    },
+    {
+      "id": "XVSUSDT_LONG_1h_2026-09-03_13-28-09",
+      "symbol": "XVSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 3.1309,
+      "sl": 3.067,
+      "tp": [
+        3.2268,
+        3.2524,
+        3.2748
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-03_13-28-09",
+      "first_seen": "2026-09-03T13:28:05.634134+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.5,
+      "stage1_score": 7.416,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.521,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 3.1309,
+      "added_at": "2026-09-03T13:28:05.634134+00:00"
     }
   ],
   "open": [
@@ -2370,6 +2428,68 @@
       "sl_after_tp1": 0.04849,
       "triggered_at": "2026-09-03T13:15:00+00:00",
       "partial_check_from": "2026-09-03T13:08:42.340046+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "LINKUSDT_LONG_1h_2026-09-03_13-28-09",
+      "symbol": "LINKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 11.368,
+      "sl": 11.118,
+      "tp": [
+        11.742,
+        11.842,
+        11.929
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-03_13-28-09",
+      "first_seen": "2026-09-03T13:28:05.634134+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 9.962,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.965,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 11.368,
+      "triggered_at": "2026-09-03T14:00:00+00:00",
+      "partial_check_from": "2026-09-03T13:28:05.634134+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ONGUSDT_LONG_15m_2026-09-03_13-28-09",
+      "symbol": "ONGUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.09934,
+      "sl": 0.09407,
+      "tp": [
+        0.10725,
+        0.10935,
+        0.1112
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-28-09",
+      "first_seen": "2026-09-03T13:28:05.634134+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.97,
+      "stage1_score": 42.5,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 8.061,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09934,
+      "triggered_at": "2026-09-03T13:30:00+00:00",
+      "partial_check_from": "2026-09-03T13:28:05.634134+00:00",
       "partial_check_done": true
     }
   ],
@@ -21818,6 +21938,7 @@
     "2026-09-03_12-11-25",
     "2026-09-03_12-33-13",
     "2026-09-03_12-55-56",
-    "2026-09-03_13-08-44"
+    "2026-09-03_13-08-44",
+    "2026-09-03_13-28-09"
   ]
 }
