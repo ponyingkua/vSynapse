@@ -1968,28 +1968,6 @@
       "triggered_at": "2026-09-03T03:00:00+00:00"
     },
     {
-      "id": "MELANIAUSDT_LONG_15m_2026-09-03_08-09-39",
-      "symbol": "MELANIAUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.11145,
-      "sl": 0.10902,
-      "tp": [
-        0.11509,
-        0.11607,
-        0.11692
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_08-09-39",
-      "first_seen": "2026-09-03T08:09:35.961632+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-03T08:09:35.961632+00:00",
-      "triggered_at": "2026-09-03T08:15:00+00:00"
-    },
-    {
       "id": "LDOUSDT_LONG_1h_2026-09-03_08-29-23",
       "symbol": "LDOUSDT",
       "side": "LONG",
@@ -22341,6 +22319,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T16:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "MELANIAUSDT_LONG_15m_2026-09-03_08-09-39",
+      "symbol": "MELANIAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.11145,
+      "sl": 0.10902,
+      "tp": [
+        0.11509,
+        0.11607,
+        0.11692
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_08-09-39",
+      "first_seen": "2026-09-03T08:09:35.961632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:09:35.961632+00:00",
+      "triggered_at": "2026-09-03T08:15:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.11509,
+      "tp_index": 0,
+      "bar_time": 1788454799999,
+      "bars_held": 35,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T16:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -22614,6 +22623,7 @@
     "2026-09-03_15-53-05",
     "2026-09-03_16-10-09",
     "2026-09-03_16-27-28",
-    "2026-09-03_16-41-47"
+    "2026-09-03_16-41-47",
+    "2026-09-03_16-54-00"
   ]
 }
