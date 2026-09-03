@@ -502,35 +502,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.003682,
       "added_at": "2026-09-03T16:27:24.855716+00:00"
-    },
-    {
-      "id": "CVXUSDT_LONG_1h_2026-09-03_19-07-59",
-      "symbol": "CVXUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.3472,
-      "sl": 2.24,
-      "tp": [
-        2.5081,
-        2.5509,
-        2.5885
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-03_19-07-59",
-      "first_seen": "2026-09-03T19:07:58.095778+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.01,
-      "stage1_score": 12.034,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 1.025,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.3472,
-      "added_at": "2026-09-03T19:07:58.095778+00:00"
     }
   ],
   "open": [
@@ -2111,6 +2082,36 @@
       "sl_after_tp1": 0.12283,
       "added_at": "2026-09-03T11:25:08.683114+00:00",
       "triggered_at": "2026-09-03T18:00:00+00:00"
+    },
+    {
+      "id": "CVXUSDT_LONG_1h_2026-09-03_19-07-59",
+      "symbol": "CVXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.3472,
+      "sl": 2.24,
+      "tp": [
+        2.5081,
+        2.5509,
+        2.5885
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-03_19-07-59",
+      "first_seen": "2026-09-03T19:07:58.095778+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 12.034,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.025,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.3472,
+      "added_at": "2026-09-03T19:07:58.095778+00:00",
+      "triggered_at": "2026-09-03T20:00:00+00:00"
     }
   ],
   "closed": [
@@ -22727,6 +22728,7 @@
     "2026-09-03_19-23-07",
     "2026-09-03_19-36-15",
     "2026-09-03_19-50-49",
-    "2026-09-03_20-08-20"
+    "2026-09-03_20-08-20",
+    "2026-09-03_20-25-41"
   ]
 }
