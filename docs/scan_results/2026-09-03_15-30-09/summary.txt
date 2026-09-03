@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T15:30:07.941986+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: VIRTUALUSDT | Side: LONG | Score: 6.08
+   - Entry : 0.70594
+   - SL    : 0.67480
+   - TP    : 0.75266, 0.76512, 0.77602
+   - Invalidation: Close below 0.6748 / loss of recent 1h swing low
+----------------------------------------

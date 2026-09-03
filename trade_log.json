@@ -22,27 +22,6 @@
       "added_at": "2026-09-02T12:11:14.441919+00:00"
     },
     {
-      "id": "ZAMAUSDT_LONG_1h_2026-09-03_00-12-58",
-      "symbol": "ZAMAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05262,
-      "sl": 0.05006,
-      "tp": [
-        0.05647,
-        0.05749,
-        0.05839
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_00-12-58",
-      "first_seen": "2026-09-03T00:12:54.241723+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-03T00:12:54.241723+00:00"
-    },
-    {
       "id": "BRUSDT_LONG_4h_2026-09-03_00-12-58",
       "symbol": "BRUSDT",
       "side": "LONG",
@@ -349,35 +328,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10118,
       "added_at": "2026-09-03T13:40:56.477194+00:00"
-    },
-    {
-      "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
-      "symbol": "AEROUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.49607,
-      "sl": 0.4796,
-      "tp": [
-        0.52078,
-        0.52737,
-        0.53314
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_14-28-30",
-      "first_seen": "2026-09-03T14:28:27.550123+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.11,
-      "stage1_score": 7.096,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.221,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.49607,
-      "added_at": "2026-09-03T14:28:27.550123+00:00"
     },
     {
       "id": "RAYSOLUSDT_LONG_1h_2026-09-03_14-41-46",
@@ -1861,28 +1811,6 @@
       "partial_check_done": true
     },
     {
-      "id": "LITUSDT_LONG_1h_2026-09-02_18-10-52",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 3.7601,
-      "sl": 3.5419,
-      "tp": [
-        4.0875,
-        4.2511,
-        4.4148
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-02_18-10-52",
-      "first_seen": "2026-09-02T18:10:49.412314+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T18:10:49.412314+00:00",
-      "triggered_at": "2026-09-02T21:00:00+00:00"
-    },
-    {
       "id": "CETUSUSDT_LONG_1h_2026-09-03_00-12-58",
       "symbol": "CETUSUSDT",
       "side": "LONG",
@@ -2126,28 +2054,6 @@
       "triggered_at": "2026-09-03T10:00:00+00:00"
     },
     {
-      "id": "COLLECTUSDT_LONG_1h_2026-09-02_22-39-42",
-      "symbol": "COLLECTUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.07685,
-      "sl": 0.07214,
-      "tp": [
-        0.08391,
-        0.08579,
-        0.08744
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_22-39-42",
-      "first_seen": "2026-09-02T22:39:40.641564+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T22:39:40.641564+00:00",
-      "triggered_at": "2026-09-03T12:00:00+00:00"
-    },
-    {
       "id": "NILUSDT_LONG_15m_2026-09-03_13-08-44",
       "symbol": "NILUSDT",
       "side": "LONG",
@@ -2238,6 +2144,67 @@
       "sl_after_tp1": 0.12495,
       "added_at": "2026-09-03T12:11:22.228208+00:00",
       "triggered_at": "2026-09-03T14:00:00+00:00"
+    },
+    {
+      "id": "VIRTUALUSDT_LONG_1h_2026-09-03_15-30-09",
+      "symbol": "VIRTUALUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.70594,
+      "sl": 0.6748,
+      "tp": [
+        0.75266,
+        0.76512,
+        0.77602
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_15-30-09",
+      "first_seen": "2026-09-03T15:30:07.941986+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.08,
+      "stage1_score": 15.127,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.878,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.70594,
+      "triggered_at": "2026-09-03T16:00:00+00:00",
+      "partial_check_from": "2026-09-03T15:30:07.941986+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
+      "symbol": "AEROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.49607,
+      "sl": 0.4796,
+      "tp": [
+        0.52078,
+        0.52737,
+        0.53314
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_14-28-30",
+      "first_seen": "2026-09-03T14:28:27.550123+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 7.096,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.221,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.49607,
+      "added_at": "2026-09-03T14:28:27.550123+00:00",
+      "triggered_at": "2026-09-03T15:00:00+00:00"
     }
   ],
   "closed": [
@@ -21914,6 +21881,91 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T15:59:59.999000+00:00",
       "r_multiple": 1.9
+    },
+    {
+      "id": "ZAMAUSDT_LONG_1h_2026-09-03_00-12-58",
+      "symbol": "ZAMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05262,
+      "sl": 0.05006,
+      "tp": [
+        0.05647,
+        0.05749,
+        0.05839
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_00-12-58",
+      "first_seen": "2026-09-03T00:12:54.241723+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T00:12:54.241723+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-03T15:30:09.914000+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_1h_2026-09-02_18-10-52",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 3.7601,
+      "sl": 3.5419,
+      "tp": [
+        4.0875,
+        4.2511,
+        4.4148
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-02_18-10-52",
+      "first_seen": "2026-09-02T18:10:49.412314+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T18:10:49.412314+00:00",
+      "triggered_at": "2026-09-02T21:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 4.0875,
+      "tp_index": 0,
+      "bar_time": 1788451199999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T15:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "COLLECTUSDT_LONG_1h_2026-09-02_22-39-42",
+      "symbol": "COLLECTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07685,
+      "sl": 0.07214,
+      "tp": [
+        0.08391,
+        0.08579,
+        0.08744
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_22-39-42",
+      "first_seen": "2026-09-02T22:39:40.641564+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T22:39:40.641564+00:00",
+      "triggered_at": "2026-09-03T12:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.08391,
+      "tp_index": 0,
+      "bar_time": 1788451199999,
+      "bars_held": 4,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T15:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -22181,6 +22233,7 @@
     "2026-09-03_14-28-30",
     "2026-09-03_14-41-46",
     "2026-09-03_14-54-46",
-    "2026-09-03_15-08-53"
+    "2026-09-03_15-08-53",
+    "2026-09-03_15-30-09"
   ]
 }
