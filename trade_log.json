@@ -1519,29 +1519,6 @@
       "partial_check_done": true
     },
     {
-      "id": "PUMPBTCUSDT_SHORT_1h_2026-09-02_00-13-02",
-      "symbol": "PUMPBTCUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01148,
-      "sl": 0.01219,
-      "tp": [
-        0.01042,
-        0.00988,
-        0.00935
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_00-13-02",
-      "first_seen": "2026-09-02T00:12:59.807962+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T01:00:00+00:00",
-      "partial_check_from": "2026-09-02T00:12:59.807962+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "1000000MOGUSDT_SHORT_4h_2026-09-01_23-22-23",
       "symbol": "1000000MOGUSDT",
       "side": "SHORT",
@@ -1720,29 +1697,6 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T04:00:00+00:00",
       "partial_check_from": "2026-09-02T03:26:35.421445+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "ARKUSDT_LONG_1h_2026-09-02_04-09-01",
-      "symbol": "ARKUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.1121,
-      "sl": 0.108,
-      "tp": [
-        0.11825,
-        0.12133,
-        0.1244
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_04-09-01",
-      "first_seen": "2026-09-02T04:08:57.853565+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T05:00:00+00:00",
-      "partial_check_from": "2026-09-02T04:08:57.853565+00:00",
       "partial_check_done": true
     },
     {
@@ -20955,6 +20909,70 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T03:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "PUMPBTCUSDT_SHORT_1h_2026-09-02_00-13-02",
+      "symbol": "PUMPBTCUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01148,
+      "sl": 0.01219,
+      "tp": [
+        0.01042,
+        0.00988,
+        0.00935
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_00-13-02",
+      "first_seen": "2026-09-02T00:12:59.807962+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T01:00:00+00:00",
+      "partial_check_from": "2026-09-02T00:12:59.807962+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.01219,
+      "tp_index": null,
+      "bar_time": 1788415199999,
+      "bars_held": 29,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T05:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "ARKUSDT_LONG_1h_2026-09-02_04-09-01",
+      "symbol": "ARKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.1121,
+      "sl": 0.108,
+      "tp": [
+        0.11825,
+        0.12133,
+        0.1244
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_04-09-01",
+      "first_seen": "2026-09-02T04:08:57.853565+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T05:00:00+00:00",
+      "partial_check_from": "2026-09-02T04:08:57.853565+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.11825,
+      "tp_index": 0,
+      "bar_time": 1788415199999,
+      "bars_held": 25,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T05:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -21185,6 +21203,7 @@
     "2026-09-03_01-43-24",
     "2026-09-03_01-54-51",
     "2026-09-03_02-12-33",
-    "2026-09-03_05-09-35"
+    "2026-09-03_05-09-35",
+    "2026-09-03_05-45-02"
   ]
 }
