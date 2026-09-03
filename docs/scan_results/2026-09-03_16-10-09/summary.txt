@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T16:10:03.819453+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: ETHFIUSDT | Side: LONG | Score: 8.39
+   - Entry : 0.57956
+   - SL    : 0.55530
+   - TP    : 0.61596, 0.62566, 0.63415
+   - Invalidation: Close below 0.5553 / loss of recent 1h swing low / breakout invalid if price falls below 0.5766
+----------------------------------------
+2. Symbol: MONUSDT | Side: LONG | Score: 7.7
+   - Entry : 0.02626
+   - SL    : 0.02491
+   - TP    : 0.02827, 0.02881, 0.02928
+   - Invalidation: Close below 0.02491 / loss of recent 1h swing low / breakout invalid if price falls below 0.02613
+----------------------------------------
+3. Symbol: XMRUSDT | Side: LONG | Score: 6.96
+   - Entry : 518.10
+   - SL    : 510.61
+   - TP    : 529.35, 532.34, 534.97
+   - Invalidation: Close below 510.61 / loss of recent 15m swing low
+----------------------------------------
