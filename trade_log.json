@@ -585,29 +585,6 @@
       "triggered_at": "2026-08-31T23:54:15.739863+00:00"
     },
     {
-      "id": "CRVUSDT_LONG_1h_2026-09-01_04-11-42",
-      "symbol": "CRVUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.35793,
-      "sl": 0.3332,
-      "tp": [
-        0.39504,
-        0.41359,
-        0.43214
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_04-11-42",
-      "first_seen": "2026-09-01T04:11:39.165067+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v1",
-      "triggered_at": "2026-09-01T05:00:00+00:00",
-      "partial_check_from": "2026-09-01T04:11:39.165067+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "SAFEUSDT_LONG_4h_2026-09-01_04-52-14",
       "symbol": "SAFEUSDT",
       "side": "LONG",
@@ -22350,6 +22327,33 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T16:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "CRVUSDT_LONG_1h_2026-09-01_04-11-42",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.35793,
+      "sl": 0.3332,
+      "tp": [
+        0.39504,
+        0.41359,
+        0.43214
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_04-11-42",
+      "first_seen": "2026-09-01T04:11:39.165067+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v1",
+      "triggered_at": "2026-09-01T05:00:00+00:00",
+      "partial_check_from": "2026-09-01T04:11:39.165067+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.3657,
+      "closed_at": "2026-09-03T17:59:59.999000+00:00",
+      "r_multiple": 0.31
     }
   ],
   "ingested_runs": [
@@ -22624,6 +22628,7 @@
     "2026-09-03_16-10-09",
     "2026-09-03_16-27-28",
     "2026-09-03_16-41-47",
-    "2026-09-03_16-54-00"
+    "2026-09-03_16-54-00",
+    "2026-09-03_17-08-14"
   ]
 }
