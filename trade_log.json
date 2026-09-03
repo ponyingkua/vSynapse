@@ -190,27 +190,6 @@
       "added_at": "2026-09-03T07:09:51.071083+00:00"
     },
     {
-      "id": "PORTALUSDT_LONG_1h_2026-09-03_08-09-39",
-      "symbol": "PORTALUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01449,
-      "sl": 0.01358,
-      "tp": [
-        0.01586,
-        0.01623,
-        0.01655
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_08-09-39",
-      "first_seen": "2026-09-03T08:09:35.961632+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-03T08:09:35.961632+00:00"
-    },
-    {
       "id": "BNBUSDT_LONG_1h_2026-09-03_08-29-23",
       "symbol": "BNBUSDT",
       "side": "LONG",
@@ -2345,6 +2324,28 @@
       "htf_bias": "BULLISH",
       "config_version": "v3",
       "added_at": "2026-09-03T08:56:05.661625+00:00",
+      "triggered_at": "2026-09-03T09:00:00+00:00"
+    },
+    {
+      "id": "PORTALUSDT_LONG_1h_2026-09-03_08-09-39",
+      "symbol": "PORTALUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01449,
+      "sl": 0.01358,
+      "tp": [
+        0.01586,
+        0.01623,
+        0.01655
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_08-09-39",
+      "first_seen": "2026-09-03T08:09:35.961632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:09:35.961632+00:00",
       "triggered_at": "2026-09-03T09:00:00+00:00"
     }
   ],
@@ -21525,6 +21526,7 @@
     "2026-09-03_08-29-23",
     "2026-09-03_08-44-13",
     "2026-09-03_08-56-08",
-    "2026-09-03_09-08-37"
+    "2026-09-03_09-08-37",
+    "2026-09-03_09-28-08"
   ]
 }
