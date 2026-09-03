@@ -272,35 +272,6 @@
       "added_at": "2026-09-03T13:28:05.634134+00:00"
     },
     {
-      "id": "ONGUSDT_LONG_15m_2026-09-03_13-40-58",
-      "symbol": "ONGUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.10118,
-      "sl": 0.09445,
-      "tp": [
-        0.11127,
-        0.11396,
-        0.11631
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_13-40-58",
-      "first_seen": "2026-09-03T13:40:56.477194+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 31.993,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 6.364,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10118,
-      "added_at": "2026-09-03T13:40:56.477194+00:00"
-    },
-    {
       "id": "ETHFIUSDT_LONG_1h_2026-09-03_16-10-09",
       "symbol": "ETHFIUSDT",
       "side": "LONG",
@@ -22354,6 +22325,37 @@
       "exit_price": 0.3657,
       "closed_at": "2026-09-03T17:59:59.999000+00:00",
       "r_multiple": 0.31
+    },
+    {
+      "id": "ONGUSDT_LONG_15m_2026-09-03_13-40-58",
+      "symbol": "ONGUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10118,
+      "sl": 0.09445,
+      "tp": [
+        0.11127,
+        0.11396,
+        0.11631
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-40-58",
+      "first_seen": "2026-09-03T13:40:56.477194+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 31.993,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.364,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10118,
+      "added_at": "2026-09-03T13:40:56.477194+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-03T17:26:30.647000+00:00"
     }
   ],
   "ingested_runs": [
@@ -22629,6 +22631,7 @@
     "2026-09-03_16-27-28",
     "2026-09-03_16-41-47",
     "2026-09-03_16-54-00",
-    "2026-09-03_17-08-14"
+    "2026-09-03_17-08-14",
+    "2026-09-03_17-26-30"
   ]
 }
