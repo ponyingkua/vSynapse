@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T14:28:27.550123+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AEROUSDT | Side: LONG | Score: 6.11
+   - Entry : 0.49607
+   - SL    : 0.47960
+   - TP    : 0.52078, 0.52737, 0.53314
+   - Invalidation: Close below 0.4796 / loss of recent 1h swing low
+----------------------------------------

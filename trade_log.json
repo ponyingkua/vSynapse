@@ -285,35 +285,6 @@
       "added_at": "2026-09-03T13:28:05.634134+00:00"
     },
     {
-      "id": "UBUSDT_LONG_1h_2026-09-03_12-11-25",
-      "symbol": "UBUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.12495,
-      "sl": 0.11729,
-      "tp": [
-        0.13644,
-        0.13951,
-        0.14219
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_12-11-25",
-      "first_seen": "2026-09-03T12:11:22.228208+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 8.46,
-      "stage1_score": 13.924,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.072,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.12495,
-      "added_at": "2026-09-03T12:11:22.228208+00:00"
-    },
-    {
       "id": "CROSSUSDT_LONG_1h_2026-09-03_12-33-13",
       "symbol": "CROSSUSDT",
       "side": "LONG",
@@ -428,6 +399,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.17081,
       "added_at": "2026-09-03T13:53:56.614020+00:00"
+    },
+    {
+      "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
+      "symbol": "AEROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.49607,
+      "sl": 0.4796,
+      "tp": [
+        0.52078,
+        0.52737,
+        0.53314
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_14-28-30",
+      "first_seen": "2026-09-03T14:28:27.550123+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 7.096,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.221,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.49607,
+      "added_at": "2026-09-03T14:28:27.550123+00:00"
     }
   ],
   "open": [
@@ -2194,28 +2194,6 @@
       "triggered_at": "2026-09-03T03:00:00+00:00"
     },
     {
-      "id": "RIFUSDT_LONG_1h_2026-09-03_02-12-33",
-      "symbol": "RIFUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.07508,
-      "sl": 0.07273,
-      "tp": [
-        0.0786,
-        0.07954,
-        0.08036
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_02-12-33",
-      "first_seen": "2026-09-03T02:12:30.463989+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-03T02:12:30.463989+00:00",
-      "triggered_at": "2026-09-03T05:00:00+00:00"
-    },
-    {
       "id": "MELANIAUSDT_LONG_15m_2026-09-03_08-09-39",
       "symbol": "MELANIAUSDT",
       "side": "LONG",
@@ -2461,6 +2439,36 @@
       "triggered_at": "2026-09-03T13:30:00+00:00",
       "partial_check_from": "2026-09-03T13:28:05.634134+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "UBUSDT_LONG_1h_2026-09-03_12-11-25",
+      "symbol": "UBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.12495,
+      "sl": 0.11729,
+      "tp": [
+        0.13644,
+        0.13951,
+        0.14219
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_12-11-25",
+      "first_seen": "2026-09-03T12:11:22.228208+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.46,
+      "stage1_score": 13.924,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.072,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12495,
+      "added_at": "2026-09-03T12:11:22.228208+00:00",
+      "triggered_at": "2026-09-03T14:00:00+00:00"
     }
   ],
   "closed": [
@@ -21768,6 +21776,37 @@
       "exit_price": 0.09325,
       "closed_at": "2026-09-03T14:59:59.999000+00:00",
       "r_multiple": -0.27
+    },
+    {
+      "id": "RIFUSDT_LONG_1h_2026-09-03_02-12-33",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.07508,
+      "sl": 0.07273,
+      "tp": [
+        0.0786,
+        0.07954,
+        0.08036
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_02-12-33",
+      "first_seen": "2026-09-03T02:12:30.463989+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T02:12:30.463989+00:00",
+      "triggered_at": "2026-09-03T05:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.0786,
+      "tp_index": 0,
+      "bar_time": 1788447599999,
+      "bars_held": 10,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T14:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -22031,6 +22070,7 @@
     "2026-09-03_13-28-09",
     "2026-09-03_13-40-58",
     "2026-09-03_13-53-58",
-    "2026-09-03_14-09-20"
+    "2026-09-03_14-09-20",
+    "2026-09-03_14-28-30"
   ]
 }

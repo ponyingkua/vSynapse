@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-03T14:09:22.446000+00:00",
-  "resolved_trades": 510,
-  "wins": 169,
+  "generated_at": "2026-09-03T14:28:33.297000+00:00",
+  "resolved_trades": 511,
+  "wins": 170,
   "losses": 341,
   "breakeven": 0,
-  "win_rate_pct": 33.1,
+  "win_rate_pct": 33.3,
   "avg_r_multiple": -0.14,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 72,
+      "wins": 73,
       "losses": 194,
       "breakeven": 0,
-      "win_rate_pct": 27.1
+      "win_rate_pct": 27.3
     },
     "BREAKDOWN": {
       "wins": 50,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 102,
+      "wins": 103,
       "losses": 242,
       "breakeven": 0,
-      "win_rate_pct": 29.7
+      "win_rate_pct": 29.9
     },
     "SHORT": {
       "wins": 67,
@@ -72,10 +72,10 @@
       "win_rate_pct": 35.5
     },
     "v3": {
-      "wins": 12,
+      "wins": 13,
       "losses": 10,
       "breakeven": 0,
-      "win_rate_pct": 54.5
+      "win_rate_pct": 56.5
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 32.4
     },
     "ALIGNED": {
-      "wins": 86,
+      "wins": 87,
       "losses": 164,
       "breakeven": 0,
-      "win_rate_pct": 34.4
+      "win_rate_pct": 34.7
     },
     "COUNTER": {
       "wins": 48,
@@ -100,10 +100,10 @@
   },
   "by_score_bucket": {
     "UNKNOWN": {
-      "wins": 169,
+      "wins": 170,
       "losses": 340,
       "breakeven": 0,
-      "win_rate_pct": 33.2
+      "win_rate_pct": 33.3
     },
     "6.0-6.9": {
       "wins": 0,
@@ -114,10 +114,10 @@
   },
   "by_btc_regime": {
     "UNKNOWN": {
-      "wins": 169,
+      "wins": 170,
       "losses": 340,
       "breakeven": 0,
-      "win_rate_pct": 33.2
+      "win_rate_pct": 33.3
     },
     "BULLISH": {
       "wins": 0,
@@ -128,10 +128,10 @@
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 169,
+      "wins": 170,
       "losses": 341,
       "breakeven": 0,
-      "win_rate_pct": 33.1
+      "win_rate_pct": 33.3
     }
   },
   "expired_unresolved": 63,
