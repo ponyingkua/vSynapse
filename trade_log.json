@@ -251,6 +251,27 @@
       "htf_bias": "BULLISH",
       "config_version": "v3",
       "added_at": "2026-09-03T00:12:54.241723+00:00"
+    },
+    {
+      "id": "BRUSDT_LONG_4h_2026-09-03_00-37-58",
+      "symbol": "BRUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.215,
+      "sl": 0.20287,
+      "tp": [
+        0.23319,
+        0.23804,
+        0.24228
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_00-37-58",
+      "first_seen": "2026-09-03T00:37:55.912741+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T00:37:55.912741+00:00"
     }
   ],
   "open": [
@@ -2240,28 +2261,6 @@
       "triggered_at": "2026-09-02T10:00:00+00:00",
       "partial_check_from": "2026-09-02T09:40:46.327208+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "NOMUSDT_SHORT_15m_2026-09-02_09-09-32",
-      "symbol": "NOMUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.001579,
-      "sl": 0.001607,
-      "tp": [
-        0.001537,
-        0.001516,
-        0.001495
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_09-09-32",
-      "first_seen": "2026-09-02T09:09:28.021934+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-02T09:09:28.021934+00:00",
-      "triggered_at": "2026-09-02T09:15:00+00:00"
     },
     {
       "id": "RENDERUSDT_SHORT_15m_2026-09-02_09-53-44",
@@ -20818,6 +20817,32 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-02T23:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "NOMUSDT_SHORT_15m_2026-09-02_09-09-32",
+      "symbol": "NOMUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.001579,
+      "sl": 0.001607,
+      "tp": [
+        0.001537,
+        0.001516,
+        0.001495
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_09-09-32",
+      "first_seen": "2026-09-02T09:09:28.021934+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-02T09:09:28.021934+00:00",
+      "triggered_at": "2026-09-02T09:15:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.001569,
+      "closed_at": "2026-09-03T00:44:59.999000+00:00",
+      "r_multiple": 0.36
     }
   ],
   "ingested_runs": [
@@ -21040,6 +21065,7 @@
     "2026-09-02_23-23-46",
     "2026-09-02_23-37-32",
     "2026-09-02_23-50-44",
-    "2026-09-03_00-12-58"
+    "2026-09-03_00-12-58",
+    "2026-09-03_00-37-58"
   ]
 }
