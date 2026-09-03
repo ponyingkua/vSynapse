@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T16:27:24.855716+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: VVVUSDT | Side: LONG | Score: 7.54
+   - Entry : 16.850
+   - SL    : 16.097
+   - TP    : 17.979, 18.280, 18.544
+   - Invalidation: Close below 16.097 / loss of recent 1h swing low / breakout invalid if price falls below 16.784
+----------------------------------------
+2. Symbol: ETHFIUSDT | Side: LONG | Score: 7.42
+   - Entry : 0.57956
+   - SL    : 0.55530
+   - TP    : 0.61596, 0.62566, 0.63415
+   - Invalidation: Close below 0.5553 / loss of recent 1h swing low / breakout invalid if price falls below 0.5766
+----------------------------------------
+3. Symbol: MONUSDT | Side: LONG | Score: 6.82
+   - Entry : 0.02626
+   - SL    : 0.02491
+   - TP    : 0.02827, 0.02881, 0.02928
+   - Invalidation: Close below 0.02491 / loss of recent 1h swing low / breakout invalid if price falls below 0.02613
+----------------------------------------
+4. Symbol: 1000PEPEUSDT | Side: LONG | Score: 7.5
+   - Entry : 0.003682
+   - SL    : 0.003439
+   - TP    : 0.004046, 0.004143, 0.004229
+   - Invalidation: Close below 0.0034385 / loss of recent 1h swing low
+----------------------------------------
