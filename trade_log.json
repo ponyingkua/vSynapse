@@ -211,6 +211,27 @@
       "added_at": "2026-09-03T08:29:21.397492+00:00"
     },
     {
+      "id": "LDOUSDT_LONG_1h_2026-09-03_08-44-13",
+      "symbol": "LDOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.3735,
+      "sl": 0.3611,
+      "tp": [
+        0.39211,
+        0.39707,
+        0.40141
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_08-44-13",
+      "first_seen": "2026-09-03T08:44:10.916702+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:44:10.916702+00:00"
+    },
+    {
       "id": "PORTALUSDT_LONG_1h_2026-09-03_08-09-39",
       "symbol": "PORTALUSDT",
       "side": "LONG",
@@ -251,6 +272,48 @@
       "htf_bias": "BULLISH",
       "config_version": "v3",
       "added_at": "2026-09-03T08:29:21.397492+00:00"
+    },
+    {
+      "id": "BNBUSDT_LONG_1h_2026-09-03_08-44-13",
+      "symbol": "BNBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 696.86,
+      "sl": 686.6,
+      "tp": [
+        712.24,
+        716.35,
+        719.94
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-03_08-44-13",
+      "first_seen": "2026-09-03T08:44:10.916702+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:44:10.916702+00:00"
+    },
+    {
+      "id": "AAVEUSDT_LONG_15m_2026-09-03_08-44-13",
+      "symbol": "AAVEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 128.37,
+      "sl": 127.06,
+      "tp": [
+        130.33,
+        130.86,
+        131.32
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-03_08-44-13",
+      "first_seen": "2026-09-03T08:44:10.916702+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:44:10.916702+00:00"
     }
   ],
   "open": [
@@ -2127,28 +2190,6 @@
       "config_version": "v3",
       "added_at": "2026-09-02T18:10:49.412314+00:00",
       "triggered_at": "2026-09-02T21:00:00+00:00"
-    },
-    {
-      "id": "TAUSDT_LONG_15m_2026-09-02_22-08-48",
-      "symbol": "TAUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.06359,
-      "sl": 0.06274,
-      "tp": [
-        0.06487,
-        0.06522,
-        0.06552
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_22-08-48",
-      "first_seen": "2026-09-02T22:08:46.384509+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T22:08:46.384509+00:00",
-      "triggered_at": "2026-09-02T23:00:00+00:00"
     },
     {
       "id": "CETUSUSDT_LONG_1h_2026-09-03_00-12-58",
@@ -21181,6 +21222,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T11:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "TAUSDT_LONG_15m_2026-09-02_22-08-48",
+      "symbol": "TAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.06359,
+      "sl": 0.06274,
+      "tp": [
+        0.06487,
+        0.06522,
+        0.06552
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_22-08-48",
+      "first_seen": "2026-09-02T22:08:46.384509+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T22:08:46.384509+00:00",
+      "triggered_at": "2026-09-02T23:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.06274,
+      "tp_index": null,
+      "bar_time": 1788425099999,
+      "bars_held": 39,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T08:44:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -21422,6 +21494,7 @@
     "2026-09-03_07-40-20",
     "2026-09-03_07-52-56",
     "2026-09-03_08-09-39",
-    "2026-09-03_08-29-23"
+    "2026-09-03_08-29-23",
+    "2026-09-03_08-44-13"
   ]
 }
