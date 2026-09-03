@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T00:12:54.241723+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: CETUSUSDT | Side: LONG | Score: 6.35
+   - Entry : 0.02372
+   - SL    : 0.02272
+   - TP    : 0.02522, 0.02562, 0.02597
+   - Invalidation: Close below 0.02272 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ZAMAUSDT | Side: LONG | Score: 8.33
+   - Entry : 0.05262
+   - SL    : 0.05006
+   - TP    : 0.05647, 0.05749, 0.05839
+   - Invalidation: Close below 0.05006 / loss of recent 1h swing low / breakout invalid if price falls below 0.05243
+----------------------------------------
+3. Symbol: BRUSDT | Side: LONG | Score: 7.22
+   - Entry : 0.21500
+   - SL    : 0.20287
+   - TP    : 0.23319, 0.23804, 0.24228
+   - Invalidation: Close below 0.20287059 / loss of recent 4h swing low
+----------------------------------------

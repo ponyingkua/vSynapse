@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-02T23:50:47.502000+00:00",
-  "resolved_trades": 477,
-  "wins": 147,
-  "losses": 330,
-  "win_rate_pct": 30.8,
-  "avg_r_multiple": -0.21,
+  "generated_at": "2026-09-03T00:13:01.991000+00:00",
+  "resolved_trades": 483,
+  "wins": 151,
+  "losses": 332,
+  "win_rate_pct": 31.3,
+  "avg_r_multiple": -0.19,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 58,
+      "wins": 60,
       "losses": 193,
-      "win_rate_pct": 23.1
+      "win_rate_pct": 23.7
     },
     "BREAKDOWN": {
       "wins": 48,
-      "losses": 66,
-      "win_rate_pct": 42.1
+      "losses": 67,
+      "win_rate_pct": 41.7
     },
     "EXTENDED": {
       "wins": 3,
@@ -23,25 +23,25 @@
     },
     "PULLBACK": {
       "wins": 31,
-      "losses": 34,
-      "win_rate_pct": 47.7
+      "losses": 35,
+      "win_rate_pct": 47.0
     },
     "CONTINUATION": {
-      "wins": 7,
+      "wins": 9,
       "losses": 29,
-      "win_rate_pct": 19.4
+      "win_rate_pct": 23.7
     }
   },
   "by_side": {
     "LONG": {
-      "wins": 83,
+      "wins": 87,
       "losses": 239,
-      "win_rate_pct": 25.8
+      "win_rate_pct": 26.7
     },
     "SHORT": {
       "wins": 64,
-      "losses": 91,
-      "win_rate_pct": 41.3
+      "losses": 93,
+      "win_rate_pct": 40.8
     }
   },
   "by_config_version": {
@@ -56,14 +56,14 @@
       "win_rate_pct": 28.3
     },
     "v2": {
-      "wins": 95,
-      "losses": 196,
-      "win_rate_pct": 32.6
+      "wins": 99,
+      "losses": 197,
+      "win_rate_pct": 33.4
     },
     "v3": {
       "wins": 7,
-      "losses": 5,
-      "win_rate_pct": 58.3
+      "losses": 6,
+      "win_rate_pct": 53.8
     }
   },
   "by_htf_alignment": {
@@ -74,18 +74,18 @@
     },
     "ALIGNED": {
       "wins": 76,
-      "losses": 153,
-      "win_rate_pct": 33.2
+      "losses": 155,
+      "win_rate_pct": 32.9
     },
     "COUNTER": {
-      "wins": 37,
+      "wins": 41,
       "losses": 104,
-      "win_rate_pct": 26.2
+      "win_rate_pct": 28.3
     }
   },
-  "expired_unresolved": 55,
+  "expired_unresolved": 56,
   "never_triggered": 80,
-  "currently_open": 111,
+  "currently_open": 107,
   "currently_pending": 12,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
