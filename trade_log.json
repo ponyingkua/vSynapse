@@ -22,27 +22,6 @@
       "added_at": "2026-09-02T12:11:14.441919+00:00"
     },
     {
-      "id": "ASTERUSDT_LONG_1h_2026-09-02_15-14-18",
-      "symbol": "ASTERUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.70504,
-      "sl": 0.69424,
-      "tp": [
-        0.72123,
-        0.72933,
-        0.73742
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_15-14-18",
-      "first_seen": "2026-09-02T15:14:14.565137+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T15:14:14.565137+00:00"
-    },
-    {
       "id": "TSTUSDT_LONG_1h_2026-09-02_16-54-34",
       "symbol": "TSTUSDT",
       "side": "LONG",
@@ -21008,6 +20987,29 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T05:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "ASTERUSDT_LONG_1h_2026-09-02_15-14-18",
+      "symbol": "ASTERUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.70504,
+      "sl": 0.69424,
+      "tp": [
+        0.72123,
+        0.72933,
+        0.73742
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_15-14-18",
+      "first_seen": "2026-09-02T15:14:14.565137+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T15:14:14.565137+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-03T06:22:51.145000+00:00"
     }
   ],
   "ingested_runs": [
@@ -21240,6 +21242,7 @@
     "2026-09-03_02-12-33",
     "2026-09-03_05-09-35",
     "2026-09-03_05-45-02",
-    "2026-09-03_06-01-02"
+    "2026-09-03_06-01-02",
+    "2026-09-03_06-22-51"
   ]
 }
