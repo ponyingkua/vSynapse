@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T13:53:56.614020+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: KGENUSDT | Side: SHORT | Score: 6.02
+   - Entry : 0.17081
+   - SL    : 0.17300
+   - TP    : 0.16752, 0.16664, 0.16587
+   - Invalidation: Close above 0.173 / reclaim of recent 15m swing high
+----------------------------------------
