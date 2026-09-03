@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T19:07:58.095778+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CVXUSDT | Side: LONG | Score: 6.01
+   - Entry : 2.3472
+   - SL    : 2.2400
+   - TP    : 2.5081, 2.5509, 2.5885
+   - Invalidation: Close below 2.24 / loss of recent 1h swing low / breakout invalid if price falls below 2.336
+----------------------------------------
