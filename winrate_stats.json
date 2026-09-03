@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T00:56:19.953000+00:00",
+  "generated_at": "2026-09-03T01:08:14.164000+00:00",
   "resolved_trades": 483,
   "wins": 151,
   "losses": 332,
@@ -83,9 +83,9 @@
       "win_rate_pct": 28.3
     }
   },
-  "expired_unresolved": 57,
+  "expired_unresolved": 59,
   "never_triggered": 80,
-  "currently_open": 106,
+  "currently_open": 104,
   "currently_pending": 13,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,

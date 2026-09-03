@@ -2263,52 +2263,6 @@
       "partial_check_done": true
     },
     {
-      "id": "RENDERUSDT_SHORT_15m_2026-09-02_09-53-44",
-      "symbol": "RENDERUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 1.407,
-      "sl": 1.431,
-      "tp": [
-        1.371,
-        1.353,
-        1.335
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-02_09-53-44",
-      "first_seen": "2026-09-02T09:53:40.836021+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T10:00:00+00:00",
-      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "BRETTUSDT_SHORT_15m_2026-09-02_09-53-44",
-      "symbol": "BRETTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.004965,
-      "sl": 0.005087,
-      "tp": [
-        0.004782,
-        0.00469,
-        0.004598
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-02_09-53-44",
-      "first_seen": "2026-09-02T09:53:40.836021+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T10:00:00+00:00",
-      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "FLOCKUSDT_LONG_1h_2026-09-02_08-29-31",
       "symbol": "FLOCKUSDT",
       "side": "LONG",
@@ -20843,6 +20797,60 @@
       "exit_price": 0.001569,
       "closed_at": "2026-09-03T00:44:59.999000+00:00",
       "r_multiple": 0.36
+    },
+    {
+      "id": "RENDERUSDT_SHORT_15m_2026-09-02_09-53-44",
+      "symbol": "RENDERUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 1.407,
+      "sl": 1.431,
+      "tp": [
+        1.371,
+        1.353,
+        1.335
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-02_09-53-44",
+      "first_seen": "2026-09-02T09:53:40.836021+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 1.409,
+      "closed_at": "2026-09-03T01:14:59.999000+00:00",
+      "r_multiple": -0.08
+    },
+    {
+      "id": "BRETTUSDT_SHORT_15m_2026-09-02_09-53-44",
+      "symbol": "BRETTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.004965,
+      "sl": 0.005087,
+      "tp": [
+        0.004782,
+        0.00469,
+        0.004598
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-02_09-53-44",
+      "first_seen": "2026-09-02T09:53:40.836021+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T10:00:00+00:00",
+      "partial_check_from": "2026-09-02T09:53:40.836021+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.004922,
+      "closed_at": "2026-09-03T01:14:59.999000+00:00",
+      "r_multiple": 0.35
     }
   ],
   "ingested_runs": [
@@ -21067,6 +21075,7 @@
     "2026-09-02_23-50-44",
     "2026-09-03_00-12-58",
     "2026-09-03_00-37-58",
-    "2026-09-03_00-56-17"
+    "2026-09-03_00-56-17",
+    "2026-09-03_01-08-11"
   ]
 }
