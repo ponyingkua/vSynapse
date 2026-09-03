@@ -428,72 +428,6 @@
       "partial_check_done": true
     },
     {
-      "id": "CTRUSDT_LONG_1h_2026-09-01_03-07-56",
-      "symbol": "CTRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.009788,
-      "sl": 0.00928,
-      "tp": [
-        0.01055,
-        0.010932,
-        0.011313
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_03-07-56",
-      "first_seen": "2026-09-01T03:07:52.593230+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "added_at": "2026-09-01T03:07:52.593230+00:00",
-      "triggered_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
-      "id": "CTRUSDT_LONG_1h_2026-09-01_03-27-11",
-      "symbol": "CTRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.009788,
-      "sl": 0.00928,
-      "tp": [
-        0.01055,
-        0.010932,
-        0.011313
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_03-27-11",
-      "first_seen": "2026-09-01T03:27:06.902612+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "added_at": "2026-09-01T03:27:06.902612+00:00",
-      "triggered_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
-      "id": "CTRUSDT_LONG_1h_2026-09-01_03-40-28",
-      "symbol": "CTRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.009788,
-      "sl": 0.00928,
-      "tp": [
-        0.01055,
-        0.010932,
-        0.011313
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_03-40-28",
-      "first_seen": "2026-09-01T03:40:23.906453+00:00",
-      "htf_bias": null,
-      "config_version": "v1",
-      "added_at": "2026-09-01T03:40:23.906453+00:00",
-      "triggered_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
       "id": "STRKUSDT_LONG_1h_2026-09-01_01-23-58",
       "symbol": "STRKUSDT",
       "side": "LONG",
@@ -21966,6 +21900,99 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T15:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "CTRUSDT_LONG_1h_2026-09-01_03-07-56",
+      "symbol": "CTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.009788,
+      "sl": 0.00928,
+      "tp": [
+        0.01055,
+        0.010932,
+        0.011313
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-07-56",
+      "first_seen": "2026-09-01T03:07:52.593230+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:07:52.593230+00:00",
+      "triggered_at": "2026-09-01T05:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.01055,
+      "tp_index": 0,
+      "bar_time": 1788451199999,
+      "bars_held": 59,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T15:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "CTRUSDT_LONG_1h_2026-09-01_03-27-11",
+      "symbol": "CTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.009788,
+      "sl": 0.00928,
+      "tp": [
+        0.01055,
+        0.010932,
+        0.011313
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-27-11",
+      "first_seen": "2026-09-01T03:27:06.902612+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:27:06.902612+00:00",
+      "triggered_at": "2026-09-01T05:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.01055,
+      "tp_index": 0,
+      "bar_time": 1788451199999,
+      "bars_held": 59,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T15:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "CTRUSDT_LONG_1h_2026-09-01_03-40-28",
+      "symbol": "CTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.009788,
+      "sl": 0.00928,
+      "tp": [
+        0.01055,
+        0.010932,
+        0.011313
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_03-40-28",
+      "first_seen": "2026-09-01T03:40:23.906453+00:00",
+      "htf_bias": null,
+      "config_version": "v1",
+      "added_at": "2026-09-01T03:40:23.906453+00:00",
+      "triggered_at": "2026-09-01T05:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.01055,
+      "tp_index": 0,
+      "bar_time": 1788451199999,
+      "bars_held": 59,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T15:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -22234,6 +22261,7 @@
     "2026-09-03_14-41-46",
     "2026-09-03_14-54-46",
     "2026-09-03_15-08-53",
-    "2026-09-03_15-30-09"
+    "2026-09-03_15-30-09",
+    "2026-09-03_15-43-18"
   ]
 }
