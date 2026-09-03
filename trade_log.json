@@ -148,27 +148,6 @@
       "added_at": "2026-09-02T16:54:32.885102+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-02_22-08-48",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 1.0919,
-      "sl": 1.0678,
-      "tp": [
-        1.1279,
-        1.1375,
-        1.1459
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-02_22-08-48",
-      "first_seen": "2026-09-02T22:08:46.384509+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T22:08:46.384509+00:00"
-    },
-    {
       "id": "COLLECTUSDT_LONG_1h_2026-09-02_22-39-42",
       "symbol": "COLLECTUSDT",
       "side": "LONG",
@@ -20872,6 +20851,29 @@
       "exit_price": 0.004922,
       "closed_at": "2026-09-03T01:14:59.999000+00:00",
       "r_multiple": 0.35
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-02_22-08-48",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1.0919,
+      "sl": 1.0678,
+      "tp": [
+        1.1279,
+        1.1375,
+        1.1459
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-02_22-08-48",
+      "first_seen": "2026-09-02T22:08:46.384509+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T22:08:46.384509+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-03T01:54:51.482000+00:00"
     }
   ],
   "ingested_runs": [
@@ -21099,6 +21101,7 @@
     "2026-09-03_00-56-17",
     "2026-09-03_01-08-11",
     "2026-09-03_01-29-38",
-    "2026-09-03_01-43-24"
+    "2026-09-03_01-43-24",
+    "2026-09-03_01-54-51"
   ]
 }
