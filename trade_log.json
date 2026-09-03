@@ -1841,29 +1841,6 @@
       "partial_check_done": true
     },
     {
-      "id": "XANUSDT_SHORT_1h_2026-09-02_07-40-12",
-      "symbol": "XANUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01283,
-      "sl": 0.01331,
-      "tp": [
-        0.0121,
-        0.01173,
-        0.01137
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_07-40-12",
-      "first_seen": "2026-09-02T07:40:04.331923+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T08:00:00+00:00",
-      "partial_check_from": "2026-09-02T07:40:04.331923+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "MOCAUSDT_LONG_1h_2026-09-02_06-37-20",
       "symbol": "MOCAUSDT",
       "side": "LONG",
@@ -21010,6 +20987,38 @@
       "added_at": "2026-09-02T15:14:14.565137+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-03T06:22:51.145000+00:00"
+    },
+    {
+      "id": "XANUSDT_SHORT_1h_2026-09-02_07-40-12",
+      "symbol": "XANUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01283,
+      "sl": 0.01331,
+      "tp": [
+        0.0121,
+        0.01173,
+        0.01137
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_07-40-12",
+      "first_seen": "2026-09-02T07:40:04.331923+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T07:40:04.331923+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.0121,
+      "tp_index": 0,
+      "bar_time": 1788418799999,
+      "bars_held": 23,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T06:59:59.999000+00:00",
+      "r_multiple": 1.52
     }
   ],
   "ingested_runs": [
@@ -21244,6 +21253,7 @@
     "2026-09-03_05-45-02",
     "2026-09-03_06-01-02",
     "2026-09-03_06-22-51",
-    "2026-09-03_06-43-16"
+    "2026-09-03_06-43-16",
+    "2026-09-03_06-56-33"
   ]
 }
