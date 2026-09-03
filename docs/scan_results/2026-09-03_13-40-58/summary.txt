@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T13:40:56.477194+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ONGUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.10118
+   - SL    : 0.09445
+   - TP    : 0.11127, 0.11396, 0.11631
+   - Invalidation: Close below 0.09445 / loss of recent 15m swing low / breakout invalid if price falls below 0.10069
+----------------------------------------

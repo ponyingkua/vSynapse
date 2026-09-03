@@ -370,6 +370,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 3.1309,
       "added_at": "2026-09-03T13:28:05.634134+00:00"
+    },
+    {
+      "id": "ONGUSDT_LONG_15m_2026-09-03_13-40-58",
+      "symbol": "ONGUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10118,
+      "sl": 0.09445,
+      "tp": [
+        0.11127,
+        0.11396,
+        0.11631
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-40-58",
+      "first_seen": "2026-09-03T13:40:56.477194+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 31.993,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.364,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10118,
+      "added_at": "2026-09-03T13:40:56.477194+00:00"
     }
   ],
   "open": [
@@ -21939,6 +21968,7 @@
     "2026-09-03_12-33-13",
     "2026-09-03_12-55-56",
     "2026-09-03_13-08-44",
-    "2026-09-03_13-28-09"
+    "2026-09-03_13-28-09",
+    "2026-09-03_13-40-58"
   ]
 }
