@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T08:09:35.961632+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PORTALUSDT | Side: LONG | Score: 6.86
+   - Entry : 0.01449
+   - SL    : 0.01358
+   - TP    : 0.01586, 0.01623, 0.01655
+   - Invalidation: Close below 0.01358 / loss of recent 1h swing low / breakout invalid if price falls below 0.01441
+----------------------------------------
+2. Symbol: MELANIAUSDT | Side: LONG | Score: 6.36
+   - Entry : 0.11145
+   - SL    : 0.10902
+   - TP    : 0.11509, 0.11607, 0.11692
+   - Invalidation: Close below 0.10902 / loss of recent 15m swing low / breakout invalid if price falls below 0.11119
+----------------------------------------
