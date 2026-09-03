@@ -190,6 +190,27 @@
       "added_at": "2026-09-03T07:09:51.071083+00:00"
     },
     {
+      "id": "LDOUSDT_LONG_1h_2026-09-03_08-29-23",
+      "symbol": "LDOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.3735,
+      "sl": 0.3611,
+      "tp": [
+        0.39211,
+        0.39707,
+        0.40141
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_08-29-23",
+      "first_seen": "2026-09-03T08:29:21.397492+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:29:21.397492+00:00"
+    },
+    {
       "id": "PORTALUSDT_LONG_1h_2026-09-03_08-09-39",
       "symbol": "PORTALUSDT",
       "side": "LONG",
@@ -211,25 +232,25 @@
       "added_at": "2026-09-03T08:09:35.961632+00:00"
     },
     {
-      "id": "MELANIAUSDT_LONG_15m_2026-09-03_08-09-39",
-      "symbol": "MELANIAUSDT",
+      "id": "BNBUSDT_LONG_1h_2026-09-03_08-29-23",
+      "symbol": "BNBUSDT",
       "side": "LONG",
-      "execution_tf": "15m",
+      "execution_tf": "1h",
       "setup_style": "BREAKOUT",
       "entry_state": "WAITING_RETEST",
-      "entry": 0.11145,
-      "sl": 0.10902,
+      "entry": 696.86,
+      "sl": 686.6,
       "tp": [
-        0.11509,
-        0.11607,
-        0.11692
+        712.24,
+        716.35,
+        719.94
       ],
-      "decimals": 5,
-      "run_id": "2026-09-03_08-09-39",
-      "first_seen": "2026-09-03T08:09:35.961632+00:00",
+      "decimals": 2,
+      "run_id": "2026-09-03_08-29-23",
+      "first_seen": "2026-09-03T08:29:21.397492+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "added_at": "2026-09-03T08:09:35.961632+00:00"
+      "added_at": "2026-09-03T08:29:21.397492+00:00"
     }
   ],
   "open": [
@@ -2261,6 +2282,28 @@
       "config_version": "v3",
       "added_at": "2026-09-03T02:12:30.463989+00:00",
       "triggered_at": "2026-09-03T05:00:00+00:00"
+    },
+    {
+      "id": "MELANIAUSDT_LONG_15m_2026-09-03_08-09-39",
+      "symbol": "MELANIAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.11145,
+      "sl": 0.10902,
+      "tp": [
+        0.11509,
+        0.11607,
+        0.11692
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_08-09-39",
+      "first_seen": "2026-09-03T08:09:35.961632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T08:09:35.961632+00:00",
+      "triggered_at": "2026-09-03T08:15:00+00:00"
     }
   ],
   "closed": [
@@ -21378,6 +21421,7 @@
     "2026-09-03_07-27-41",
     "2026-09-03_07-40-20",
     "2026-09-03_07-52-56",
-    "2026-09-03_08-09-39"
+    "2026-09-03_08-09-39",
+    "2026-09-03_08-29-23"
   ]
 }

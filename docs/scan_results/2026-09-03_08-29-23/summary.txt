@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T08:29:21.397492+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BNBUSDT | Side: LONG | Score: 7.0
+   - Entry : 696.86
+   - SL    : 686.60
+   - TP    : 712.24, 716.35, 719.94
+   - Invalidation: Close below 686.6 / loss of recent 1h swing low / breakout invalid if price falls below 695.98
+----------------------------------------
+2. Symbol: LDOUSDT | Side: LONG | Score: 6.47
+   - Entry : 0.37350
+   - SL    : 0.36110
+   - TP    : 0.39211, 0.39707, 0.40141
+   - Invalidation: Close below 0.3611 / loss of recent 1h swing low / breakout invalid if price falls below 0.372
+----------------------------------------
