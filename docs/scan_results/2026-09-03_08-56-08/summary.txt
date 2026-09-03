@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T08:56:05.661625+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: LDOUSDT | Side: LONG | Score: 6.0
+   - Entry : 0.37350
+   - SL    : 0.36110
+   - TP    : 0.39211, 0.39707, 0.40141
+   - Invalidation: Close below 0.3611 / loss of recent 1h swing low / breakout invalid if price falls below 0.372
+----------------------------------------
