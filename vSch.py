@@ -22,9 +22,19 @@ Supported setup styles:
     BREAKOUT
     BREAKDOWN
     PULLBACK
-    CONTINUATION
     EXTENDED
     NO_SETUP
+
+    NOTE: CONTINUATION dihapus dari daftar ini karena
+    Synaptic_fixed.py sudah menonaktifkannya secara permanen di
+    classify_setup() (win rate historis-nya paling buruk di antara
+    semua setup style -- lihat trade_log). Style ini tidak akan
+    pernah lagi muncul di JSON output Synaptic, jadi tidak ada
+    kode render khusus untuk itu di vSch. Kalau suatu saat
+    CONTINUATION diaktifkan kembali di scanner, vSch akan tetap
+    merender candidate-nya secara generik (candle/EMA/Supertrend/
+    level entry-sl-tp) -- ia hanya tidak dapat marker breakout
+    atau retest zone, sama seperti PULLBACK/EXTENDED sekarang.
 
 Supported entry states:
     ENTRY_READY
@@ -87,16 +97,10 @@ READY = "#1565c0"
 # Visual markers
 # ------------------------------------------------------------
 
-# FIX: sebelumnya 0.025 -- nyaris tidak terlihat di semua chart
-# (efektif seperti tidak ada zona retest yang ditampilkan sama
-# sekali). Dinaikkan supaya zona retest terlihat sebagai bantuan
-# visual, tapi tetap tipis dan tidak menutupi candle/struktur.
 RETEST_ZONE_ALPHA = 0.10
 
-# Marker breakout "B"
 BREAKOUT_MARKER_SIZE = 8
 
-# Arrow ENTRY READY
 ENTRY_ARROW_SIZE = 8
 
 VISIBLE_DEFAULTS = {
@@ -796,26 +800,6 @@ def _entry_state_color(state):
 
 # ============================================================
 # RETEST ZONE
-#
-# Hanya visual.
-# Tidak mengubah reference_level dari Synaptic.
-#
-# Zona dibuat tipis/transparan.
-#
-# PRIORITAS SUMBER DATA (paling akurat -> paling lemah):
-#   1. retest_zone_low / retest_zone_high dari Synaptic --
-#      ini bukan estimasi, melainkan band ideal_entry +/-
-#      entry_ready_atr yang SAMA PERSIS dipakai Synaptic untuk
-#      menentukan entry_state ENTRY_READY vs WAITING_RETEST.
-#      Kalau field ini ada, vSch WAJIB memakainya apa adanya --
-#      tidak boleh dihitung ulang / ditimpa oleh fallback.
-#   2. retest_low / retest_high (alias lama, kompatibilitas
-#      mundur untuk JSON dari versi Synaptic sebelumnya).
-#   3. Fallback visual generik (±0.15% dari reference_level) --
-#      HANYA dipakai kalau Synaptic benar-benar tidak mengirim
-#      batas zona eksplisit (mis. JSON lama). Ini murni estetika
-#      dan TIDAK merepresentasikan requirement retest yang
-#      sesungguhnya.
 # ============================================================
 
 def _calculate_retest_zone(
@@ -824,7 +808,6 @@ def _calculate_retest_zone(
     y_span,
 ):
 
-    # Prioritas 1 & 2: field eksplisit dari Synaptic.
     zone_low = _first_numeric(
         setup,
         [
@@ -856,16 +839,6 @@ def _calculate_retest_zone(
             True,
         )
 
-    # --------------------------------------------------------
-    # Fallback visual (JSON lama tanpa field eksplisit).
-    #
-    # Sangat tipis: sekitar 0.15% dari reference level.
-    # Dibatasi supaya tidak terlalu lebar atau terlalu kecil.
-    #
-    # CATATAN: ini cuma dekorasi -- tidak mencerminkan
-    # breakout_min_retest_atr / entry_ready_atr milik Synaptic.
-    # --------------------------------------------------------
-
     reference_abs = abs(
         float(reference_level)
     )
@@ -883,7 +856,6 @@ def _calculate_retest_zone(
         minimum_width,
     )
 
-    # Jangan biarkan zona menjadi terlalu tebal.
     maximum_half_width = (
         y_span * 0.025
     )
@@ -935,12 +907,6 @@ def _draw_retest_zone(
     if reference_level is None:
         return
 
-    # Box hanya digambar dari candle breakout ke kanan (sampai
-    # ujung chart) -- bukan lagi memenuhi seluruh lebar chart --
-    # karena zona retest baru relevan SETELAH breakout terjadi.
-    # Kalau candle breakout-nya tidak ketemu di rentang candle
-    # yang tampil, tidak ada titik awal yang valid, jadi box
-    # tidak digambar.
     breakout_idx = _find_breakout_candle(
         df,
         reference_level,
@@ -987,12 +953,6 @@ def _draw_retest_zone(
 
 # ============================================================
 # BREAKOUT MARKER
-#
-# BREAKOUT:
-#     marker "B" kecil tepat di candle breakout.
-#
-# Hanya visual.
-# Tidak menentukan setup baru.
 # ============================================================
 
 def _find_breakout_candle(
@@ -1162,9 +1122,6 @@ def _draw_breakout_marker(
 
 # ============================================================
 # ENTRY READY MARKER
-#
-# ENTRY_READY:
-#     panah kecil pada candle terakhir.
 # ============================================================
 
 def _draw_entry_ready_marker(
@@ -1265,16 +1222,6 @@ def _draw_entry_ready_marker(
 
 # ============================================================
 # DRAW REFERENCE LEVEL
-#
-# NOTE: Sebelumnya fungsi ini menggambar garis putus-putus ungu
-# (axhline) di reference_level yang memanjang di SELURUH lebar
-# chart. Sesuai permintaan user, sekarang garis tetap ada tapi
-# hanya berupa segmen pendek di sekitar candle breakout/
-# breakdown-nya (bukan lagi axhline penuh).
-#
-# Kalau candle breakout tidak ketemu (mis. reference_level tidak
-# pernah benar-benar ditembus di rentang candle yang tampil),
-# garis tidak digambar -- tidak ada segmen untuk "sekitar"-nya.
 # ============================================================
 
 REFERENCE_LINE_HALF_WIDTH = 4
@@ -1287,14 +1234,6 @@ def _draw_reference_level(
     dec,
     label_x,
 ):
-
-    # NOTE: Sesuai permintaan user, garis reference_level
-    # (dulu axhline ungu penuh, sempat jadi segmen pendek)
-    # sekarang dihapus sama sekali. reference_level tetap
-    # dipakai di tempat lain (mencari candle breakout untuk
-    # huruf "B", menentukan awal retest zone, menghitung range
-    # harga chart) -- hanya elemen garis visual ini yang
-    # dihilangkan.
     return
 
 
@@ -1415,10 +1354,6 @@ def draw_visual_chart(
         x[-1]
     )
 
-    # ========================================================
-    # FIGURE
-    # ========================================================
-
     fig, (
         ax1,
         ax2,
@@ -1448,10 +1383,6 @@ def draw_visual_chart(
         PANEL
     )
 
-    # ========================================================
-    # PRICE RANGE
-    # ========================================================
-
     level_values = [
         entry,
         sl,
@@ -1476,10 +1407,6 @@ def draw_visual_chart(
             reference_level
         )
 
-    # Zona retest eksplisit (kalau ada) juga wajib masuk hitungan
-    # range harga -- kalau tidak, sisi zona bisa terpotong di luar
-    # batas atas/bawah chart saat ideal_entry Synaptic jauh dari
-    # candle yang sedang tampil (mis. baru saja breakout impulsif).
     retest_zone_low = _first_numeric(
         setup,
         [
@@ -1532,10 +1459,6 @@ def draw_visual_chart(
         y_high + y_padding,
     )
 
-    # ========================================================
-    # CANDLES
-    # ========================================================
-
     candle_width = 0.72
 
     for i in range(
@@ -1564,8 +1487,6 @@ def draw_visual_chart(
             else DOWN
         )
 
-        # Wick
-
         ax1.plot(
             [i, i],
             [low_p, high_p],
@@ -1574,8 +1495,6 @@ def draw_visual_chart(
             solid_capstyle="round",
             zorder=5,
         )
-
-        # Body
 
         body_bottom = min(
             open_p,
@@ -1608,8 +1527,6 @@ def draw_visual_chart(
             )
         )
 
-        # Volume
-
         ax2.bar(
             i,
             float(
@@ -1622,10 +1539,6 @@ def draw_visual_chart(
             zorder=2,
         )
 
-    # ========================================================
-    # EMA200
-    # ========================================================
-
     ax1.plot(
         x,
         df["EMA200"],
@@ -1634,10 +1547,6 @@ def draw_visual_chart(
         label="EMA 200",
         zorder=3,
     )
-
-    # ========================================================
-    # SUPERTREND
-    # ========================================================
 
     st_up = df["ST"].where(
         df["ST_DIR"] > 0
@@ -1664,22 +1573,11 @@ def draw_visual_chart(
         zorder=3,
     )
 
-    # ========================================================
-    # STRUCTURE
-    #
-    # Visual only.
-    # Tidak menggantikan structure logic Synaptic.
-    # ========================================================
-
     _draw_structure(
         ax1,
         df,
         y_span,
     )
-
-    # ========================================================
-    # LABEL AREA
-    # ========================================================
 
     gap_from_candle = 4.0
 
@@ -1708,15 +1606,6 @@ def draw_visual_chart(
         last_x + extra_margin,
     )
 
-    # ========================================================
-    # RETEST ZONE
-    #
-    # WAITING RETEST:
-    #     tampilkan area transparan tipis, memakai batas
-    #     eksplisit dari Synaptic (retest_zone_low/high) kalau
-    #     tersedia -- fallback hanya untuk JSON lama.
-    # ========================================================
-
     _draw_retest_zone(
         ax1,
         df,
@@ -1725,10 +1614,6 @@ def draw_visual_chart(
         y_span,
         last_x + extra_margin,
     )
-
-    # ========================================================
-    # PRICE LEVELS
-    # ========================================================
 
     levels = [
         {
@@ -1789,10 +1674,6 @@ def draw_visual_chart(
         label_x,
     )
 
-    # ========================================================
-    # REFERENCE LEVEL
-    # ========================================================
-
     _draw_reference_level(
         ax1,
         df,
@@ -1801,13 +1682,6 @@ def draw_visual_chart(
         label_x,
     )
 
-    # ========================================================
-    # BREAKOUT MARKER
-    #
-    # BREAKOUT:
-    #     B kecil tepat di candle breakout.
-    # ========================================================
-
     _draw_breakout_marker(
         ax1,
         df,
@@ -1815,23 +1689,12 @@ def draw_visual_chart(
         y_span,
     )
 
-    # ========================================================
-    # ENTRY READY MARKER
-    #
-    # ENTRY_READY:
-    #     panah kecil pada candle terakhir.
-    # ========================================================
-
     _draw_entry_ready_marker(
         ax1,
         df,
         setup,
         y_span,
     )
-
-    # ========================================================
-    # TARGET ARROW
-    # ========================================================
 
     if tps:
 
@@ -1877,10 +1740,6 @@ def draw_visual_chart(
             ),
         )
 
-    # ========================================================
-    # VOLUME MA
-    # ========================================================
-
     ax2.plot(
         x,
         df["VOL_MA"],
@@ -1888,10 +1747,6 @@ def draw_visual_chart(
         linewidth=1.2,
         alpha=0.70,
     )
-
-    # ========================================================
-    # GRID
-    # ========================================================
 
     ax1.grid(
         True,
@@ -1915,10 +1770,6 @@ def draw_visual_chart(
         True
     )
 
-    # ========================================================
-    # LEGEND
-    # ========================================================
-
     legend = ax1.legend(
         loc="upper left",
         fontsize=7.5,
@@ -1932,10 +1783,6 @@ def draw_visual_chart(
     legend.get_frame().set_linewidth(
         0.7
     )
-
-    # ========================================================
-    # AXES
-    # ========================================================
 
     ax1.set_ylabel(
         "Price (USDT)",
@@ -1996,10 +1843,6 @@ def draw_visual_chart(
             "bottom"
         ].set_linewidth(0.8)
 
-    # ========================================================
-    # X TICKS
-    # ========================================================
-
     tick_count = min(
         6,
         len(df),
@@ -2043,10 +1886,6 @@ def draw_visual_chart(
         fontsize=7.5,
         color=AXIS,
     )
-
-    # ========================================================
-    # HEADER
-    # ========================================================
 
     state_text = _entry_state_text(
         entry_state
@@ -2097,10 +1936,6 @@ def draw_visual_chart(
         else "medium",
     )
 
-    # ========================================================
-    # FOOTER
-    # ========================================================
-
     fig.text(
         0.08,
         0.012,
@@ -2124,10 +1959,6 @@ def draw_visual_chart(
         ha="right",
         va="bottom",
     )
-
-    # ========================================================
-    # SAVE
-    # ========================================================
 
     plt.subplots_adjust(
         left=0.08,
@@ -2252,10 +2083,6 @@ def main():
 
         try:
 
-            # ------------------------------------------------
-            # Required Synaptic fields
-            # ------------------------------------------------
-
             for field in (
                 "entry",
                 "sl",
@@ -2268,10 +2095,6 @@ def main():
                         "missing top-level "
                         f"field '{field}'"
                     )
-
-            # ------------------------------------------------
-            # New Synaptic-1 fields
-            # ------------------------------------------------
 
             setup_style = str(
                 candidate.get(
@@ -2305,10 +2128,6 @@ def main():
                 ):
 
                     reference_level = None
-
-            # ------------------------------------------------
-            # Data
-            # ------------------------------------------------
 
             df, actual_tf = (
                 _build_dataframe(
