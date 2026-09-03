@@ -14,7 +14,8 @@ State machine per candidate:
               forward candle by candle: whichever of SL / any TP is touched
               first decides the outcome. If neither is touched within
               --max-hold-candles candles, it EXPIRES (no result either way).
-  CLOSED   -> terminal state, one of WIN / LOSS / EXPIRED / NEVER_TRIGGERED.
+  CLOSED   -> terminal state, one of WIN / LOSS / BREAKEVEN / EXPIRED /
+              NEVER_TRIGGERED.
 
 Run this once per scan cycle (same cron as the scanner), ideally right after
 a new scan_results/<timestamp>/ folder is written and before belenggu.py
@@ -41,32 +42,49 @@ PATCH NOTES - dua bug bias-ke-LOSS yang ditemukan dari winrate_stats.json
      intrabar_ambiguous=True supaya kelihatan di stats, bukan diam-diam
      dianggap pasti.
 
-  3. (REVISI INI) "Entry vs SL di candle YANG SAMA juga selalu dimenangkan
-     SL" - efek samping dari fix #1: begitu candle entry ikut disimulasikan
-     (idx=0 di simulate_outcome), kalau di candle itu juga SL kesentuh,
-     kode lama langsung declare LOSS tanpa tahu urutan sebenarnya - apakah
-     harga sentuh entry dulu baru lanjut ke SL (LOSS valid), atau justru
-     level SL yang tersentuh duluan sebelum harga sempat "mengisi" entry di
-     jendela waktu itu (order semestinya belum benar-benar terisi). Data di
-     winrate_stats.json (resolved_at_first_bar: 10, wins 1 vs losses 9)
-     konsisten dengan pola ini. FIX: mirip fix #2, candle entry yang juga
-     kena SL sekarang dibedah dulu pakai sub-candle (DISAMBIGUATION_TF) -
-     dicari sub-candle pertama yang benar-benar menyentuh harga entry, lalu
-     urutan SL/TP dicek HANYA dari titik itu ke depan. Kalau tidak bisa
-     dibedah (TF sudah paling halus / fetch sub-candle gagal), fallback ke
+  3. "Entry vs SL di candle YANG SAMA juga selalu dimenangkan SL" - efek
+     samping dari fix #1: begitu candle entry ikut disimulasikan (idx=0
+     di simulate_outcome), kalau di candle itu juga SL kesentuh, kode
+     lama langsung declare LOSS tanpa tahu urutan sebenarnya. FIX: mirip
+     fix #2, candle entry yang juga kena SL sekarang dibedah dulu pakai
+     sub-candle (DISAMBIGUATION_TF) - dicari sub-candle pertama yang
+     benar-benar menyentuh harga entry, lalu urutan SL/TP dicek HANYA
+     dari titik itu ke depan. Kalau tidak bisa dibedah, fallback ke
      perilaku lama (asumsi SL duluan) tapi ditandai
-     entry_sl_ambiguous_fallback=True supaya kelihatan di stats, sama
-     seperti pola intrabar_ambiguous di fix #2. Disambiguasi ini SENGAJA
-     tidak diterapkan untuk kandidat yang masuk sebagai ENTRY_READY (sudah
-     "di dalam" zona entry saat scan, ditangani terpisah lewat
-     _process_partial_entry_windows) - hanya untuk kandidat yang benar-benar
-     menunggu harga menyentuh level entry (PENDING -> OPEN via
-     check_entry_triggered), karena hanya di jalur itu ada momen "sentuh
-     entry" yang diskrit untuk dibedah urutannya.
+     entry_sl_ambiguous_fallback=True.
+
+  4. (REVISI INI) "Breakeven-after-TP1 dari Synaptic_fixed.py tidak
+     pernah disimulasikan" - begitu TP mana pun tersentuh, simulate_outcome
+     dulu langsung `return` menutup trade saat itu juga. Akibatnya field
+     `breakeven_after_tp1` / `sl_after_tp1` yang dikirim scanner
+     (CONFIG["move_sl_to_breakeven_after_tp1"]) murni metadata pasif -
+     tidak pernah benar-benar disimulasikan, jadi salah satu perbaikan
+     risk-management scanner efektif TIDAK berpengaruh ke hasil backtest
+     sama sekali. FIX: kalau breakeven_after_tp1=True dan candle HANYA
+     menyentuh TP1 (bukan TP yang lebih jauh sekaligus, dan masih ada TP
+     lain di atasnya), simulasi TIDAK berhenti - level stop efektif
+     dipindah dari sl awal ke sl_after_tp1 (breakeven), lalu simulasi
+     lanjut ke candle berikutnya. Outcome baru "BREAKEVEN" dipakai kalau
+     posisi akhirnya keluar di level breakeven itu (bukan LOSS - risikonya
+     sudah dikunci ke ~0 sejak TP1 tersentuh). Kalau breakeven_after_tp1
+     tidak ada di record lama (trade sebelum fix ini), perilaku persis
+     sama seperti sebelumnya (tidak ada regresi).
+
+  5. (REVISI INI) "Field skor/regime tidak ikut dicatat" - ingest_new_runs()
+     dulu cuma menyalin field yang dipakai untuk menentukan entry/exit
+     (entry/sl/tp/setup_style/entry_state/htf_bias). score, btc_regime,
+     stage1_score, funding_alert, tf_agreement, momentum_15m dari
+     Synaptic_fixed.py tidak pernah ikut ke trade_log.json, padahal semua
+     itu sudah tersedia di synaptic_candidates.json yang sama yang dibaca
+     ingest_new_runs(). FIX: field-field itu sekarang ikut disalin,
+     supaya compute_stats() (dan analisis manual di luar tracker) bisa
+     mengecek apakah skor/regime tinggi benar-benar berkorelasi dengan
+     win rate - sebelumnya mustahil dibuktikan karena datanya tidak
+     pernah disimpan.
 
 Usage:
     python3 tracker.py --results-dir scan_results --log trade_log.json \\
-        --stats-out winrate_stats.json
+        --stats-out winrate_stats.json --config-version v4
 """
 
 import argparse
@@ -402,11 +420,18 @@ def check_entry_triggered(entry_price, klines):
     return None
 
 
-def _resolve_ambiguous_candle(record, candle):
+def _resolve_ambiguous_candle(record, candle, sl_override=None):
     """FIX bug #2: kalau dalam satu candle SL dan TP sama-sama tersentuh,
     coba bedah candle itu pakai candle di timeframe lebih halus
     (DISAMBIGUATION_TF) untuk melihat urutan sebenarnya, alih-alih
     langsung asumsi SL duluan.
+
+    sl_override (fix #4/breakeven): kalau posisi sudah "diarmed" ke
+    breakeven setelah TP1 tersentuh di candle sebelumnya, level stop yang
+    relevan BUKAN lagi record["sl"] asli melainkan level breakeven itu.
+    Caller mengoper level efektif yang sedang aktif lewat parameter ini;
+    kalau None, fungsi ini memakai record["sl"] seperti sebelumnya (tidak
+    ada regresi untuk trade yang belum/tidak memakai breakeven).
 
     Return dict {"outcome", "exit_price", "tp_index", "resolved_via"} kalau
     berhasil dibedah. Return None kalau tidak bisa dibedah (TF sudah paling
@@ -419,7 +444,7 @@ def _resolve_ambiguous_candle(record, candle):
     None) atau berhasil dibedah.
     """
     side = record["side"]
-    sl = float(record["sl"])
+    sl = float(sl_override) if sl_override is not None else float(record["sl"])
     tps = [float(t) for t in (record.get("tp") or []) if t is not None]
 
     sub_tf = DISAMBIGUATION_TF.get(record["execution_tf"])
@@ -448,7 +473,7 @@ def _resolve_ambiguous_candle(record, candle):
         if sub_sl_hit and sub_tp_hit_index is not None:
             # Masih ambigu di TF ini juga - coba turun satu tingkat lagi.
             deeper_record = {**record, "execution_tf": sub_tf}
-            deeper = _resolve_ambiguous_candle(deeper_record, sub_k)
+            deeper = _resolve_ambiguous_candle(deeper_record, sub_k, sl_override=sl_override)
             return deeper  # None kalau tetap tidak bisa dibedah
 
         if sub_sl_hit:
@@ -493,6 +518,10 @@ def _resolve_entry_candle_order(record, candle):
         fetch sub-candle gagal/kosong, atau titik entry tidak ketemu di
         sub-candle manapun) - caller fallback ke asumsi lama (SL duluan)
         sambil menandai entry_sl_ambiguous_fallback=True.
+
+    Catatan (fix #4/breakeven): di idx==0 posisi belum pernah "diarmed" ke
+    breakeven (baru saja triggered), jadi level stop yang relevan di sini
+    selalu record["sl"] asli - tidak perlu sl_override.
     """
     side = record["side"]
     sl = float(record["sl"])
@@ -571,9 +600,31 @@ def _resolve_entry_candle_order(record, candle):
 
 
 def simulate_outcome(record, klines):
+    """Jalan maju candle demi candle sampai SL / TP / breakeven resolve,
+    atau klines habis (caller menangani EXPIRED kalau max-hold terlampaui).
+
+    FIX #4 (breakeven-after-TP1): sebelumnya, begitu TP mana pun tersentuh,
+    fungsi ini langsung `return` menutup trade. Kalau
+    record["breakeven_after_tp1"] True, sekarang HANYA-TP1-tersentuh
+    (bukan TP yang lebih jauh sekaligus di candle yang sama) tidak menutup
+    trade - level stop efektif dipindah ke record["sl_after_tp1"]
+    (breakeven) dan simulasi berlanjut ke candle selanjutnya. Kalau posisi
+    akhirnya keluar di level breakeven itu, outcome-nya "BREAKEVEN" (bukan
+    "LOSS" - risiko sudah dikunci ke ~0 R sejak TP1 tersentuh) dengan
+    tp_index=0 supaya tetap terlihat bahwa TP1 sempat kena.
+
+    Kalau record TIDAK punya breakeven_after_tp1 (trade lama, sebelum fix
+    ini ada di scanner) atau nilainya False/kosong, perilaku persis sama
+    seperti sebelumnya - tidak ada regresi untuk data historis.
+    """
     side = record["side"]
-    sl = float(record["sl"])
+    original_sl = float(record["sl"])
     tps = [float(t) for t in (record.get("tp") or []) if t is not None]
+
+    breakeven_enabled = bool(record.get("breakeven_after_tp1")) and len(tps) > 1
+    breakeven_level = None
+    if breakeven_enabled:
+        breakeven_level = float(record.get("sl_after_tp1", record.get("entry", original_sl)))
 
     # Disambiguasi entry-vs-SL (fix bug #3) hanya berlaku untuk candle
     # pertama dalam simulasi ini (idx==0), dan hanya untuk record yang
@@ -584,12 +635,23 @@ def simulate_outcome(record, klines):
     # yang perlu dibedah di sini.
     is_entry_touch_flow = not record.get("partial_check_from")
 
+    tp1_reached = False
+    active_sl = original_sl
+
+    def _stop_outcome(exit_price):
+        """Label yang benar untuk 'posisi berhenti di stop level' -
+        BREAKEVEN kalau TP1 sudah kena & breakeven sudah diarmed
+        (risiko sudah dikunci ke ~0 R), LOSS kalau belum."""
+        if tp1_reached and breakeven_enabled:
+            return "BREAKEVEN"
+        return "LOSS"
+
     for idx, k in enumerate(klines):
         high = float(k[2])
         low = float(k[3])
         close_time = k[6]
 
-        sl_hit = (low <= sl) if side == "LONG" else (high >= sl)
+        sl_hit = (low <= active_sl) if side == "LONG" else (high >= active_sl)
 
         tp_hit_index = None
         for i, tp in enumerate(tps):
@@ -605,7 +667,9 @@ def simulate_outcome(record, klines):
         if idx == 0 and is_entry_touch_flow and sl_hit:
             # FIX bug #3 - candle entry ini juga menyentuh SL. Jangan
             # langsung asumsi "entry lalu SL" - bedah dulu urutan
-            # sebenarnya pakai sub-candle.
+            # sebenarnya pakai sub-candle. (tp1_reached selalu False di
+            # sini - ini candle pertama - jadi active_sl == original_sl,
+            # tidak ada interaksi dengan breakeven di titik ini.)
             entry_resolved = _resolve_entry_candle_order(record, k)
 
             if entry_resolved is not None:
@@ -613,6 +677,19 @@ def simulate_outcome(record, klines):
                     # SL-hit di level candle ini terjadi SEBELUM entry
                     # benar-benar tersentuh - tidak relevan, lanjut ke
                     # candle berikutnya tanpa mencatat outcome di sini.
+                    continue
+
+                # FIX #4: kalau disambiguasi menemukan TP1 (index 0) yang
+                # tersentuh duluan, dan masih ada TP lebih jauh, dan
+                # breakeven aktif - arm breakeven & lanjut simulasi,
+                # jangan langsung tutup trade di TP1.
+                if (
+                    entry_resolved.get("outcome") == "WIN"
+                    and entry_resolved.get("tp_index") == 0
+                    and breakeven_enabled
+                ):
+                    tp1_reached = True
+                    active_sl = breakeven_level
                     continue
 
                 return {
@@ -629,7 +706,7 @@ def simulate_outcome(record, klines):
             if tp_hit_index is not None:
                 return {
                     "outcome": "LOSS",
-                    "exit_price": sl,
+                    "exit_price": original_sl,
                     "tp_index": None,
                     "bar_time": close_time,
                     "bars_held": idx + 1,
@@ -638,7 +715,7 @@ def simulate_outcome(record, klines):
                 }
             return {
                 "outcome": "LOSS",
-                "exit_price": sl,
+                "exit_price": original_sl,
                 "tp_index": None,
                 "bar_time": close_time,
                 "bars_held": idx + 1,
@@ -647,11 +724,30 @@ def simulate_outcome(record, klines):
             }
 
         if sl_hit and tp_hit_index is not None:
-            # FIX bug #2 - ambigu: SL dan TP tersentuh di candle yang sama.
-            # Jangan langsung asumsi SL menang, coba bedah pakai sub-candle
-            # dulu.
-            resolved = _resolve_ambiguous_candle(record, k)
+            # FIX bug #2 - ambigu: SL/stop-aktif dan TP tersentuh di candle
+            # yang sama. Jangan langsung asumsi stop menang, coba bedah
+            # pakai sub-candle dulu. sl_override diteruskan supaya kalau
+            # posisi sudah diarmed ke breakeven, disambiguasi memakai
+            # level yang benar-benar aktif sekarang (bukan sl asli).
+            resolved = _resolve_ambiguous_candle(
+                record, k, sl_override=(active_sl if tp1_reached else None)
+            )
             if resolved is not None:
+                # FIX #4: kalau disambiguasi menemukan TP1 duluan dan masih
+                # ada TP lebih jauh, arm breakeven & lanjut - jangan tutup.
+                if (
+                    resolved.get("outcome") == "WIN"
+                    and resolved.get("tp_index") == 0
+                    and breakeven_enabled
+                    and not tp1_reached
+                ):
+                    tp1_reached = True
+                    active_sl = breakeven_level
+                    continue
+
+                if resolved.get("outcome") == "LOSS":
+                    resolved = {**resolved, "outcome": _stop_outcome(resolved["exit_price"])}
+
                 return {
                     **resolved,
                     "bar_time": close_time,
@@ -660,11 +756,11 @@ def simulate_outcome(record, klines):
                     "entry_sl_ambiguous_fallback": False,
                 }
             # Tidak bisa dibedah - fallback ke asumsi konservatif lama
-            # (SL duluan), tapi DITANDAI supaya kelihatan di stats.
+            # (stop duluan), tapi DITANDAI supaya kelihatan di stats.
             return {
-                "outcome": "LOSS",
-                "exit_price": sl,
-                "tp_index": None,
+                "outcome": _stop_outcome(active_sl),
+                "exit_price": active_sl,
+                "tp_index": 0 if (tp1_reached and breakeven_enabled) else None,
                 "bar_time": close_time,
                 "bars_held": idx + 1,
                 "intrabar_ambiguous": True,
@@ -673,9 +769,9 @@ def simulate_outcome(record, klines):
 
         if sl_hit:
             return {
-                "outcome": "LOSS",
-                "exit_price": sl,
-                "tp_index": None,
+                "outcome": _stop_outcome(active_sl),
+                "exit_price": active_sl,
+                "tp_index": 0 if (tp1_reached and breakeven_enabled) else None,
                 "bar_time": close_time,
                 "bars_held": idx + 1,
                 "intrabar_ambiguous": False,
@@ -683,6 +779,14 @@ def simulate_outcome(record, klines):
             }
 
         if tp_hit_index is not None:
+            # FIX #4: candle ini HANYA menyentuh TP1 (farthest == 0), masih
+            # ada TP lebih jauh, dan breakeven aktif -> jangan tutup trade,
+            # arm breakeven dan lanjut mensimulasikan candle berikutnya.
+            if tp_hit_index == 0 and breakeven_enabled and not tp1_reached:
+                tp1_reached = True
+                active_sl = breakeven_level
+                continue
+
             return {
                 "outcome": "WIN",
                 "exit_price": tps[tp_hit_index],
@@ -757,6 +861,50 @@ def save_trade_log(path, trade_log):
     path.write_text(json.dumps(trade_log, indent=2), encoding="utf-8")
 
 
+# CONFIG VERSION SAFETY CHECK (FIX #3)
+
+def _known_config_versions(trade_log):
+    """Kumpulkan semua config_version yang pernah tercatat di pending/open/
+    closed, supaya operator bisa langsung lihat kalau --config-version yang
+    dipakai run ini kebetulan sama dengan versi lama (lupa dinaikkan) atau
+    beda dari yang paling baru dipakai run sebelumnya."""
+    versions = set()
+    for bucket in ("pending", "open", "closed"):
+        for record in trade_log.get(bucket, []):
+            v = record.get("config_version")
+            if v:
+                versions.add(v)
+    return versions
+
+
+def _warn_if_config_version_stale(trade_log, config_version):
+    """Cetak peringatan yang jelas (bukan diam-diam) kalau config_version
+    run ini kemungkinan lupa dinaikkan. Tidak menghentikan run - cuma
+    supaya kesalahan ini tidak lolos tanpa disadari, karena tag ini tidak
+    dibaca otomatis dari Synaptic_fixed.py (murni argumen CLI)."""
+    existing = _known_config_versions(trade_log)
+
+    if not existing:
+        print(f"config_version untuk run ini: '{config_version}' (belum ada versi lain tercatat).")
+        return
+
+    print(f"config_version untuk run ini: '{config_version}'. Versi yang sudah pernah tercatat: {sorted(existing)}")
+
+    if config_version == "unversioned":
+        print(
+            "  PERINGATAN: --config-version tidak di-set (memakai default "
+            "'unversioned'). Kalau baru saja mengubah CONFIG di "
+            "Synaptic_fixed.py, trade baru ini tidak akan bisa dibedakan "
+            "dari versi sebelumnya di winrate_stats.json."
+        )
+    elif config_version in existing:
+        print(
+            f"  PERINGATAN: '{config_version}' sudah pernah dipakai sebelumnya. "
+            "Kalau Synaptic_fixed.py baru saja diubah secara berarti, "
+            "pastikan ini memang disengaja - bukan lupa menaikkan versi."
+        )
+
+
 # INGEST NEW CANDIDATES
 
 def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
@@ -808,8 +956,31 @@ def ingest_new_runs(trade_log, results_dir, config_version="unversioned"):
                 # Synaptic.py) - naikkan versinya di workflow tiap kali
                 # CONFIG di Synaptic.py diubah secara berarti, supaya
                 # evaluasi win-rate bisa dipecah "sebelum vs sesudah"
-                # tanpa perlu filter manual by tanggal.
+                # tanpa perlu filter manual by tanggal. Lihat
+                # _warn_if_config_version_stale() di main() untuk
+                # pengingat kalau ini lupa dinaikkan.
                 "config_version": config_version,
+                # --- FIX #5: field skor/regime dari Synaptic_fixed.py,
+                # sebelumnya tidak pernah ikut tercatat sama sekali,
+                # sehingga tidak mungkin membuktikan komponen skor mana
+                # yang benar-benar berkorelasi dengan win rate. Semuanya
+                # sudah tersedia di synaptic_candidates.json yang sama,
+                # jadi ini bukan API call tambahan - cuma field yang
+                # sebelumnya dibuang begitu saja. ---
+                "score": c.get("score"),
+                "stage1_score": c.get("stage1_score"),
+                "btc_regime": c.get("btc_regime"),
+                "funding_alert": c.get("funding_alert"),
+                "tf_agreement": c.get("tf_agreement"),
+                "momentum_15m": c.get("momentum_15m"),
+                # --- FIX #4: field breakeven-after-TP1 dari
+                # Synaptic_fixed.py. sl_after_tp1 default ke sl asli kalau
+                # tidak ada (mis. trade dari versi scanner sebelum fitur
+                # ini ada) - simulate_outcome() sudah menjaga supaya
+                # breakeven_after_tp1 falsy berarti perilaku lama persis
+                # sama, tidak ada regresi. ---
+                "breakeven_after_tp1": c.get("breakeven_after_tp1", False),
+                "sl_after_tp1": c.get("sl_after_tp1", c.get("sl")),
             }
 
             if entry_state == "ENTRY_READY":
@@ -944,7 +1115,7 @@ def update_pending(trade_log, pending_expiry_candles, klines_limit):
     trade_log["pending"] = still_pending
 
 
-# UPDATE OPEN -> CLOSED (WIN / LOSS / EXPIRED)
+# UPDATE OPEN -> CLOSED (WIN / LOSS / BREAKEVEN / EXPIRED)
 
 def _process_partial_entry_windows(trade_log, klines_limit):
     """Untuk record ENTRY_READY yang masih punya jendela parsial belum
@@ -1069,14 +1240,25 @@ def _htf_alignment(record):
 
 
 def _group_win_rate(records, key_fn):
+    """FIX #4: sekarang menangani 3 outcome (WIN/LOSS/BREAKEVEN), bukan cuma
+    2. win_rate_pct dihitung sebagai wins / (wins+losses+breakeven) - trade
+    breakeven tetap masuk penyebut (itu tetap "hasil", bukan dibuang begitu
+    saja) tapi tidak dihitung sebagai win. Jumlah breakeven per grup tetap
+    dilaporkan terpisah supaya tidak tersembunyi."""
     groups = {}
     for r in records:
         key = key_fn(r) or "UNKNOWN"
-        g = groups.setdefault(key, {"wins": 0, "losses": 0})
-        g["wins" if r["outcome"] == "WIN" else "losses"] += 1
+        g = groups.setdefault(key, {"wins": 0, "losses": 0, "breakeven": 0})
+        outcome = r.get("outcome")
+        if outcome == "WIN":
+            g["wins"] += 1
+        elif outcome == "BREAKEVEN":
+            g["breakeven"] += 1
+        else:
+            g["losses"] += 1
 
     for g in groups.values():
-        total = g["wins"] + g["losses"]
+        total = g["wins"] + g["losses"] + g["breakeven"]
         g["win_rate_pct"] = round(g["wins"] / total * 100, 1) if total else None
 
     return groups
@@ -1084,9 +1266,14 @@ def _group_win_rate(records, key_fn):
 
 def compute_stats(trade_log):
     closed = trade_log.get("closed", [])
-    resolved = [t for t in closed if t.get("outcome") in ("WIN", "LOSS")]
+    # FIX #4: BREAKEVEN sekarang termasuk "resolved" (itu hasil nyata dari
+    # simulasi, r_multiple-nya ~0) - sebelumnya cuma WIN/LOSS yang dianggap
+    # resolved, jadi outcome baru ini tidak akan pernah muncul di stats
+    # kalau tidak ditambahkan di sini.
+    resolved = [t for t in closed if t.get("outcome") in ("WIN", "LOSS", "BREAKEVEN")]
     wins = [t for t in resolved if t["outcome"] == "WIN"]
     losses = [t for t in resolved if t["outcome"] == "LOSS"]
+    breakeven = [t for t in resolved if t["outcome"] == "BREAKEVEN"]
 
     r_values = [t["r_multiple"] for t in resolved if t.get("r_multiple") is not None]
     avg_r = round(sum(r_values) / len(r_values), 2) if r_values else None
@@ -1110,17 +1297,43 @@ def compute_stats(trade_log):
     resolved_at_bar_1_wins = len([t for t in first_bar_trades if t["outcome"] == "WIN"])
     resolved_at_bar_1_losses = len([t for t in first_bar_trades if t["outcome"] == "LOSS"])
 
+    # FIX #5: breakdown baru berbasis field skor/regime yang sekarang ikut
+    # tercatat (lihat ingest_new_runs). Kalau field-nya kosong di record
+    # lama (sebelum fix ini), key_fn mengembalikan None -> masuk ke bucket
+    # "UNKNOWN" oleh _group_win_rate, tidak error dan tidak tercampur salah.
+    def _score_bucket(t):
+        score = t.get("score")
+        if score is None:
+            return None
+        try:
+            score = float(score)
+        except (TypeError, ValueError):
+            return None
+        if score < 7:
+            return "6.0-6.9"
+        if score < 8:
+            return "7.0-7.9"
+        if score < 9:
+            return "8.0-8.9"
+        return "9.0+"
+
     return {
         "generated_at": ms_to_iso(now_ms()),
         "resolved_trades": len(resolved),
         "wins": len(wins),
         "losses": len(losses),
+        "breakeven": len(breakeven),
         "win_rate_pct": round(len(wins) / len(resolved) * 100, 1) if resolved else None,
         "avg_r_multiple": avg_r,
         "by_setup_style": _group_win_rate(resolved, lambda t: t.get("setup_style")),
         "by_side": _group_win_rate(resolved, lambda t: t.get("side")),
         "by_config_version": _group_win_rate(resolved, lambda t: t.get("config_version")),
         "by_htf_alignment": _group_win_rate(resolved, _htf_alignment),
+        # --- FIX #5: breakdown baru, tidak mungkin dihitung sebelumnya
+        # karena field-nya belum pernah tersimpan di trade_log.json. ---
+        "by_score_bucket": _group_win_rate(resolved, _score_bucket),
+        "by_btc_regime": _group_win_rate(resolved, lambda t: t.get("btc_regime")),
+        "by_funding_alert": _group_win_rate(resolved, lambda t: "ALERT" if t.get("funding_alert") else "NORMAL"),
         "expired_unresolved": len([t for t in closed if t.get("outcome") == "EXPIRED"]),
         "never_triggered": len([t for t in closed if t.get("outcome") == "NEVER_TRIGGERED"]),
         "currently_open": len(trade_log.get("open", [])),
@@ -1165,7 +1378,9 @@ def main():
             "Free-form label stamped on every new trade ingested this run. "
             "Bump it (e.g. v1 -> v2) whenever CONFIG in Synaptic.py changes "
             "meaningfully, so winrate_stats.json's by_config_version can "
-            "compare before/after without manual date filtering."
+            "compare before/after without manual date filtering. main() "
+            "prints a warning if this looks stale (default value, or a "
+            "version already used before) - see _warn_if_config_version_stale."
         ),
     )
 
@@ -1173,6 +1388,11 @@ def main():
 
     log_path = Path(args.log)
     trade_log = load_trade_log(log_path)
+
+    # FIX #3: peringatan eksplisit kalau config_version kemungkinan lupa
+    # dinaikkan - tag ini murni argumen CLI, tidak pernah dibaca otomatis
+    # dari Synaptic_fixed.py, jadi ini satu-satunya safety net di sini.
+    _warn_if_config_version_stale(trade_log, args.config_version)
 
     new_runs = ingest_new_runs(trade_log, Path(args.results_dir), config_version=args.config_version)
     if new_runs:
@@ -1193,7 +1413,7 @@ def main():
 
     print(
         f"Resolved: {stats['resolved_trades']} "
-        f"(W{stats['wins']}/L{stats['losses']}, "
+        f"(W{stats['wins']}/L{stats['losses']}/BE{stats['breakeven']}, "
         f"win rate {stats['win_rate_pct']}%), "
         f"open={stats['currently_open']}, pending={stats['currently_pending']}"
     )
