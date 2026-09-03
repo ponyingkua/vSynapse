@@ -372,35 +372,6 @@
       "added_at": "2026-09-03T13:40:56.477194+00:00"
     },
     {
-      "id": "KGENUSDT_SHORT_15m_2026-09-03_13-53-58",
-      "symbol": "KGENUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.17081,
-      "sl": 0.173,
-      "tp": [
-        0.16752,
-        0.16664,
-        0.16587
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_13-53-58",
-      "first_seen": "2026-09-03T13:53:56.614020+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.02,
-      "stage1_score": 8.638,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -3.544,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.17081,
-      "added_at": "2026-09-03T13:53:56.614020+00:00"
-    },
-    {
       "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
       "symbol": "AEROUSDT",
       "side": "LONG",
@@ -428,6 +399,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.49607,
       "added_at": "2026-09-03T14:28:27.550123+00:00"
+    },
+    {
+      "id": "RAYSOLUSDT_LONG_1h_2026-09-03_14-41-46",
+      "symbol": "RAYSOLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.82614,
+      "sl": 0.8036,
+      "tp": [
+        0.85995,
+        0.86897,
+        0.87686
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_14-41-46",
+      "first_seen": "2026-09-03T14:41:44.415215+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 13.357,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.5,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.82614,
+      "added_at": "2026-09-03T14:41:44.415215+00:00"
     }
   ],
   "open": [
@@ -2469,6 +2469,36 @@
       "sl_after_tp1": 0.12495,
       "added_at": "2026-09-03T12:11:22.228208+00:00",
       "triggered_at": "2026-09-03T14:00:00+00:00"
+    },
+    {
+      "id": "KGENUSDT_SHORT_15m_2026-09-03_13-53-58",
+      "symbol": "KGENUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.17081,
+      "sl": 0.173,
+      "tp": [
+        0.16752,
+        0.16664,
+        0.16587
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-53-58",
+      "first_seen": "2026-09-03T13:53:56.614020+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 8.638,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.544,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.17081,
+      "added_at": "2026-09-03T13:53:56.614020+00:00",
+      "triggered_at": "2026-09-03T14:30:00+00:00"
     }
   ],
   "closed": [
@@ -22071,6 +22101,7 @@
     "2026-09-03_13-40-58",
     "2026-09-03_13-53-58",
     "2026-09-03_14-09-20",
-    "2026-09-03_14-28-30"
+    "2026-09-03_14-28-30",
+    "2026-09-03_14-41-46"
   ]
 }

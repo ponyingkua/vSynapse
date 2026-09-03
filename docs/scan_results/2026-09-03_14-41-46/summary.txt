@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T14:41:44.415215+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: RAYSOLUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.82614
+   - SL    : 0.80360
+   - TP    : 0.85995, 0.86897, 0.87686
+   - Invalidation: Close below 0.8036 / loss of recent 1h swing low / breakout invalid if price falls below 0.8235
+----------------------------------------
