@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-03T12:11:22.228208+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ONTUSDT | Side: LONG | Score: 6.43
+   - Entry : 0.05321
+   - SL    : 0.05193
+   - TP    : 0.05513, 0.05564, 0.05609
+   - Invalidation: Close below 0.05193 / loss of recent 1h swing low / breakout invalid if price falls below 0.05307
+----------------------------------------
+2. Symbol: UBUSDT | Side: LONG | Score: 8.46
+   - Entry : 0.12495
+   - SL    : 0.11729
+   - TP    : 0.13644, 0.13951, 0.14219
+   - Invalidation: Close below 0.11729 / loss of recent 1h swing low
+----------------------------------------
