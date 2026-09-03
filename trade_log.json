@@ -301,35 +301,6 @@
       "added_at": "2026-09-03T13:40:56.477194+00:00"
     },
     {
-      "id": "RAYSOLUSDT_LONG_1h_2026-09-03_14-41-46",
-      "symbol": "RAYSOLUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.82614,
-      "sl": 0.8036,
-      "tp": [
-        0.85995,
-        0.86897,
-        0.87686
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_14-41-46",
-      "first_seen": "2026-09-03T14:41:44.415215+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.33,
-      "stage1_score": 13.357,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.5,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.82614,
-      "added_at": "2026-09-03T14:41:44.415215+00:00"
-    },
-    {
       "id": "ETHFIUSDT_LONG_1h_2026-09-03_16-10-09",
       "symbol": "ETHFIUSDT",
       "side": "LONG",
@@ -386,6 +357,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.57956,
       "added_at": "2026-09-03T16:27:24.855716+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_1h_2026-09-03_16-41-47",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.57956,
+      "sl": 0.5553,
+      "tp": [
+        0.61596,
+        0.62566,
+        0.63415
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_16-41-47",
+      "first_seen": "2026-09-03T16:41:42.204295+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.56,
+      "stage1_score": 13.417,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.54,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.57956,
+      "added_at": "2026-09-03T16:41:42.204295+00:00"
     },
     {
       "id": "MONUSDT_LONG_1h_2026-09-03_16-10-09",
@@ -446,6 +446,35 @@
       "added_at": "2026-09-03T16:27:24.855716+00:00"
     },
     {
+      "id": "MONUSDT_LONG_1h_2026-09-03_16-41-47",
+      "symbol": "MONUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02626,
+      "sl": 0.02491,
+      "tp": [
+        0.02827,
+        0.02881,
+        0.02928
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_16-41-47",
+      "first_seen": "2026-09-03T16:41:42.204295+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.72,
+      "stage1_score": 12.367,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.975,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02626,
+      "added_at": "2026-09-03T16:41:42.204295+00:00"
+    },
+    {
       "id": "VVVUSDT_LONG_1h_2026-09-03_16-27-28",
       "symbol": "VVVUSDT",
       "side": "LONG",
@@ -473,6 +502,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 16.85,
       "added_at": "2026-09-03T16:27:24.855716+00:00"
+    },
+    {
+      "id": "VVVUSDT_LONG_1h_2026-09-03_16-41-47",
+      "symbol": "VVVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 16.85,
+      "sl": 16.097,
+      "tp": [
+        17.979,
+        18.28,
+        18.544
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-03_16-41-47",
+      "first_seen": "2026-09-03T16:41:42.204295+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.02,
+      "stage1_score": 10.493,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 16.85,
+      "added_at": "2026-09-03T16:41:42.204295+00:00"
     },
     {
       "id": "1000PEPEUSDT_LONG_1h_2026-09-03_16-27-28",
@@ -22243,6 +22301,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T15:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "RAYSOLUSDT_LONG_1h_2026-09-03_14-41-46",
+      "symbol": "RAYSOLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.82614,
+      "sl": 0.8036,
+      "tp": [
+        0.85995,
+        0.86897,
+        0.87686
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_14-41-46",
+      "first_seen": "2026-09-03T14:41:44.415215+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 13.357,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.5,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.82614,
+      "added_at": "2026-09-03T14:41:44.415215+00:00",
+      "triggered_at": "2026-09-03T16:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.8036,
+      "tp_index": null,
+      "resolved_via": "subcandle_entry",
+      "bar_time": 1788454799999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T16:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -22515,6 +22613,7 @@
     "2026-09-03_15-43-18",
     "2026-09-03_15-53-05",
     "2026-09-03_16-10-09",
-    "2026-09-03_16-27-28"
+    "2026-09-03_16-27-28",
+    "2026-09-03_16-41-47"
   ]
 }
