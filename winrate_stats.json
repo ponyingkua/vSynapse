@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-03T12:11:27.273000+00:00",
-  "resolved_trades": 505,
+  "generated_at": "2026-09-03T12:33:16.423000+00:00",
+  "resolved_trades": 506,
   "wins": 166,
-  "losses": 339,
+  "losses": 340,
   "breakeven": 0,
-  "win_rate_pct": 32.9,
+  "win_rate_pct": 32.8,
   "avg_r_multiple": -0.15,
   "by_setup_style": {
     "BREAKOUT": {
@@ -15,9 +15,9 @@
     },
     "BREAKDOWN": {
       "wins": 50,
-      "losses": 69,
+      "losses": 70,
       "breakeven": 0,
-      "win_rate_pct": 42.0
+      "win_rate_pct": 41.7
     },
     "EXTENDED": {
       "wins": 3,
@@ -47,9 +47,9 @@
     },
     "SHORT": {
       "wins": 67,
-      "losses": 98,
+      "losses": 99,
       "breakeven": 0,
-      "win_rate_pct": 40.6
+      "win_rate_pct": 40.4
     }
   },
   "by_config_version": {
@@ -67,9 +67,9 @@
     },
     "v2": {
       "wins": 109,
-      "losses": 201,
+      "losses": 202,
       "breakeven": 0,
-      "win_rate_pct": 35.2
+      "win_rate_pct": 35.0
     },
     "v3": {
       "wins": 11,
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 85,
-      "losses": 162,
+      "losses": 163,
       "breakeven": 0,
-      "win_rate_pct": 34.4
+      "win_rate_pct": 34.3
     },
     "COUNTER": {
       "wins": 46,
@@ -101,25 +101,25 @@
   "by_score_bucket": {
     "UNKNOWN": {
       "wins": 166,
-      "losses": 339,
+      "losses": 340,
       "breakeven": 0,
-      "win_rate_pct": 32.9
+      "win_rate_pct": 32.8
     }
   },
   "by_btc_regime": {
     "UNKNOWN": {
       "wins": 166,
-      "losses": 339,
+      "losses": 340,
       "breakeven": 0,
-      "win_rate_pct": 32.9
+      "win_rate_pct": 32.8
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 166,
-      "losses": 339,
+      "losses": 340,
       "breakeven": 0,
-      "win_rate_pct": 32.9
+      "win_rate_pct": 32.8
     }
   },
   "expired_unresolved": 62,

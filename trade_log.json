@@ -227,35 +227,6 @@
       "added_at": "2026-09-03T11:25:08.683114+00:00"
     },
     {
-      "id": "MELANIAUSDT_LONG_15m_2026-09-03_11-51-49",
-      "symbol": "MELANIAUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.11268,
-      "sl": 0.11043,
-      "tp": [
-        0.11607,
-        0.11697,
-        0.11776
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_11-51-49",
-      "first_seen": "2026-09-03T11:51:47.514644+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.17,
-      "stage1_score": 11.801,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.683,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.11268,
-      "added_at": "2026-09-03T11:51:47.514644+00:00"
-    },
-    {
       "id": "ONTUSDT_LONG_1h_2026-09-03_12-11-25",
       "symbol": "ONTUSDT",
       "side": "LONG",
@@ -312,6 +283,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.12495,
       "added_at": "2026-09-03T12:11:22.228208+00:00"
+    },
+    {
+      "id": "CROSSUSDT_LONG_1h_2026-09-03_12-33-13",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10744,
+      "sl": 0.10515,
+      "tp": [
+        0.11087,
+        0.11178,
+        0.11258
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_12-33-13",
+      "first_seen": "2026-09-03T12:33:11.800592+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.7,
+      "stage1_score": 7.514,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.832,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10744,
+      "added_at": "2026-09-03T12:33:11.800592+00:00"
     }
   ],
   "open": [
@@ -1122,28 +1122,6 @@
       "triggered_at": "2026-09-02T00:00:00+00:00",
       "partial_check_from": "2026-09-01T20:52:17.012104+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "TRUSTUSDT_SHORT_1h_2026-09-01_18-09-46",
-      "symbol": "TRUSTUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05227,
-      "sl": 0.05366,
-      "tp": [
-        0.05019,
-        0.04916,
-        0.04812
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_18-09-46",
-      "first_seen": "2026-09-01T18:09:44.028247+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T18:09:44.028247+00:00",
-      "triggered_at": "2026-09-01T20:00:00+00:00"
     },
     {
       "id": "JSTUSDT_LONG_4h_2026-09-01_20-25-54",
@@ -2362,6 +2340,36 @@
       "config_version": "v3",
       "added_at": "2026-09-02T22:39:40.641564+00:00",
       "triggered_at": "2026-09-03T12:00:00+00:00"
+    },
+    {
+      "id": "MELANIAUSDT_LONG_15m_2026-09-03_11-51-49",
+      "symbol": "MELANIAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.11268,
+      "sl": 0.11043,
+      "tp": [
+        0.11607,
+        0.11697,
+        0.11776
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_11-51-49",
+      "first_seen": "2026-09-03T11:51:47.514644+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.17,
+      "stage1_score": 11.801,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.683,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.11268,
+      "added_at": "2026-09-03T11:51:47.514644+00:00",
+      "triggered_at": "2026-09-03T12:15:00+00:00"
     }
   ],
   "closed": [
@@ -21480,6 +21488,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-03T11:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "TRUSTUSDT_SHORT_1h_2026-09-01_18-09-46",
+      "symbol": "TRUSTUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05227,
+      "sl": 0.05366,
+      "tp": [
+        0.05019,
+        0.04916,
+        0.04812
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_18-09-46",
+      "first_seen": "2026-09-01T18:09:44.028247+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T18:09:44.028247+00:00",
+      "triggered_at": "2026-09-01T20:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.05366,
+      "tp_index": null,
+      "bar_time": 1788440399999,
+      "bars_held": 41,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-03T12:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -21736,6 +21775,7 @@
     "2026-09-03_11-25-10",
     "2026-09-03_11-38-21",
     "2026-09-03_11-51-49",
-    "2026-09-03_12-11-25"
+    "2026-09-03_12-11-25",
+    "2026-09-03_12-33-13"
   ]
 }
