@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T00:11:48.841505+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SWARMSUSDT | Side: SHORT | Score: 6.78
+   - Entry : 0.007890
+   - SL    : 0.008115
+   - TP    : 0.007551, 0.007461, 0.007382
+   - Invalidation: Close above 0.008115 / reclaim of recent 1h swing high
+----------------------------------------

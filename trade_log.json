@@ -344,6 +344,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 16.85,
       "added_at": "2026-09-03T16:41:42.204295+00:00"
+    },
+    {
+      "id": "SWARMSUSDT_SHORT_1h_2026-09-04_00-11-51",
+      "symbol": "SWARMSUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.00789,
+      "sl": 0.008115,
+      "tp": [
+        0.007551,
+        0.007461,
+        0.007382
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-04_00-11-51",
+      "first_seen": "2026-09-04T00:11:48.841505+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.78,
+      "stage1_score": 9.513,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -4.395,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.00789,
+      "added_at": "2026-09-04T00:11:48.841505+00:00"
     }
   ],
   "open": [
@@ -591,29 +620,6 @@
       "config_version": "v2",
       "added_at": "2026-09-01T14:28:19.282353+00:00",
       "triggered_at": "2026-09-01T16:00:00+00:00"
-    },
-    {
-      "id": "HOLOUSDT_SHORT_4h_2026-09-01_16-52-38",
-      "symbol": "HOLOUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.06258,
-      "sl": 0.06575,
-      "tp": [
-        0.05782,
-        0.05545,
-        0.05307
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_16-52-38",
-      "first_seen": "2026-09-01T16:52:34.260607+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T20:00:00+00:00",
-      "partial_check_from": "2026-09-01T16:52:34.260607+00:00",
-      "partial_check_done": true
     },
     {
       "id": "HEIUSDT_LONG_1h_2026-09-01_17-37-39",
@@ -1745,36 +1751,6 @@
       "sl_after_tp1": 0.49607,
       "added_at": "2026-09-03T14:28:27.550123+00:00",
       "triggered_at": "2026-09-03T15:00:00+00:00"
-    },
-    {
-      "id": "CROSSUSDT_LONG_1h_2026-09-03_12-33-13",
-      "symbol": "CROSSUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.10744,
-      "sl": 0.10515,
-      "tp": [
-        0.11087,
-        0.11178,
-        0.11258
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_12-33-13",
-      "first_seen": "2026-09-03T12:33:11.800592+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.7,
-      "stage1_score": 7.514,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.832,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10744,
-      "added_at": "2026-09-03T12:33:11.800592+00:00",
-      "triggered_at": "2026-09-03T16:00:00+00:00"
     },
     {
       "id": "XMRUSDT_LONG_15m_2026-09-03_16-10-09",
@@ -22480,6 +22456,77 @@
       "added_at": "2026-09-03T08:44:10.916702+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-03T23:50:36.712000+00:00"
+    },
+    {
+      "id": "HOLOUSDT_SHORT_4h_2026-09-01_16-52-38",
+      "symbol": "HOLOUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.06258,
+      "sl": 0.06575,
+      "tp": [
+        0.05782,
+        0.05545,
+        0.05307
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_16-52-38",
+      "first_seen": "2026-09-01T16:52:34.260607+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T20:00:00+00:00",
+      "partial_check_from": "2026-09-01T16:52:34.260607+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.06575,
+      "tp_index": null,
+      "bar_time": 1788494399999,
+      "bars_held": 14,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T03:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "CROSSUSDT_LONG_1h_2026-09-03_12-33-13",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10744,
+      "sl": 0.10515,
+      "tp": [
+        0.11087,
+        0.11178,
+        0.11258
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_12-33-13",
+      "first_seen": "2026-09-03T12:33:11.800592+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.7,
+      "stage1_score": 7.514,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.832,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10744,
+      "added_at": "2026-09-03T12:33:11.800592+00:00",
+      "triggered_at": "2026-09-03T16:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.10515,
+      "tp_index": null,
+      "bar_time": 1788483599999,
+      "bars_held": 9,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T00:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -22782,6 +22829,7 @@
     "2026-09-03_23-07-50",
     "2026-09-03_23-23-01",
     "2026-09-03_23-36-53",
-    "2026-09-03_23-50-36"
+    "2026-09-03_23-50-36",
+    "2026-09-04_00-11-51"
   ]
 }
