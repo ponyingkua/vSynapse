@@ -85,35 +85,6 @@
       "added_at": "2026-09-03T01:43:20.580741+00:00"
     },
     {
-      "id": "SWARMSUSDT_SHORT_1h_2026-09-04_00-11-51",
-      "symbol": "SWARMSUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.00789,
-      "sl": 0.008115,
-      "tp": [
-        0.007551,
-        0.007461,
-        0.007382
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-04_00-11-51",
-      "first_seen": "2026-09-04T00:11:48.841505+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.78,
-      "stage1_score": 9.513,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -4.395,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.00789,
-      "added_at": "2026-09-04T00:11:48.841505+00:00"
-    },
-    {
       "id": "SWARMSUSDT_SHORT_1h_2026-09-04_00-34-13",
       "symbol": "SWARMSUSDT",
       "side": "SHORT",
@@ -141,35 +112,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.00789,
       "added_at": "2026-09-04T00:34:10.368471+00:00"
-    },
-    {
-      "id": "FFUSDT_LONG_15m_2026-09-04_11-39-13",
-      "symbol": "FFUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.10342,
-      "sl": 0.09905,
-      "tp": [
-        0.10996,
-        0.11171,
-        0.11324
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_11-39-13",
-      "first_seen": "2026-09-04T11:39:09.955329+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.19,
-      "stage1_score": 35.895,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 6.576,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10342,
-      "added_at": "2026-09-04T11:39:09.955329+00:00"
     },
     {
       "id": "PENGUUSDT_LONG_4h_2026-09-04_12-32-20",
@@ -23307,6 +23249,68 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T14:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "SWARMSUSDT_SHORT_1h_2026-09-04_00-11-51",
+      "symbol": "SWARMSUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.00789,
+      "sl": 0.008115,
+      "tp": [
+        0.007551,
+        0.007461,
+        0.007382
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-04_00-11-51",
+      "first_seen": "2026-09-04T00:11:48.841505+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.78,
+      "stage1_score": 9.513,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -4.395,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.00789,
+      "added_at": "2026-09-04T00:11:48.841505+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-04T15:27:35.919000+00:00"
+    },
+    {
+      "id": "FFUSDT_LONG_15m_2026-09-04_11-39-13",
+      "symbol": "FFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.10342,
+      "sl": 0.09905,
+      "tp": [
+        0.10996,
+        0.11171,
+        0.11324
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_11-39-13",
+      "first_seen": "2026-09-04T11:39:09.955329+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 35.895,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.576,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10342,
+      "added_at": "2026-09-04T11:39:09.955329+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-04T15:27:35.919000+00:00"
     }
   ],
   "ingested_runs": [
@@ -23667,6 +23671,7 @@
     "2026-09-04_14-26-16",
     "2026-09-04_14-39-45",
     "2026-09-04_14-53-25",
-    "2026-09-04_15-08-31"
+    "2026-09-04_15-08-31",
+    "2026-09-04_15-27-35"
   ]
 }
