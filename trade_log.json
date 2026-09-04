@@ -199,6 +199,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.00789,
       "added_at": "2026-09-04T00:34:10.368471+00:00"
+    },
+    {
+      "id": "CYBERUSDT_SHORT_15m_2026-09-04_06-10-37",
+      "symbol": "CYBERUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.3039,
+      "sl": 0.3073,
+      "tp": [
+        0.29879,
+        0.29743,
+        0.29624
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_06-10-37",
+      "first_seen": "2026-09-04T06:10:34.963942+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 5.119,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.082,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.3039,
+      "added_at": "2026-09-04T06:10:34.963942+00:00"
     }
   ],
   "open": [
@@ -312,73 +341,6 @@
       "config_version": "v2",
       "added_at": "2026-09-01T14:28:19.282353+00:00",
       "triggered_at": "2026-09-01T16:00:00+00:00"
-    },
-    {
-      "id": "HEIUSDT_LONG_1h_2026-09-01_17-37-39",
-      "symbol": "HEIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.14585,
-      "sl": 0.13753,
-      "tp": [
-        0.15833,
-        0.16457,
-        0.17081
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_17-37-39",
-      "first_seen": "2026-09-01T17:37:37.064799+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T18:00:00+00:00",
-      "partial_check_from": "2026-09-01T17:37:37.064799+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "HEIUSDT_LONG_1h_2026-09-01_17-08-38",
-      "symbol": "HEIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.14606,
-      "sl": 0.13753,
-      "tp": [
-        0.15886,
-        0.16526,
-        0.17166
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_17-08-38",
-      "first_seen": "2026-09-01T17:08:34.270799+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T17:08:34.270799+00:00",
-      "triggered_at": "2026-09-01T18:00:00+00:00"
-    },
-    {
-      "id": "HEIUSDT_LONG_1h_2026-09-01_17-25-15",
-      "symbol": "HEIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.14606,
-      "sl": 0.13753,
-      "tp": [
-        0.15886,
-        0.16526,
-        0.17166
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_17-25-15",
-      "first_seen": "2026-09-01T17:25:13.096767+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T17:25:13.096767+00:00",
-      "triggered_at": "2026-09-01T18:00:00+00:00"
     },
     {
       "id": "FORMUSDT_LONG_1h_2026-09-01_18-09-46",
@@ -22749,6 +22711,85 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T05:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "HEIUSDT_LONG_1h_2026-09-01_17-37-39",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.14585,
+      "sl": 0.13753,
+      "tp": [
+        0.15833,
+        0.16457,
+        0.17081
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_17-37-39",
+      "first_seen": "2026-09-01T17:37:37.064799+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T18:00:00+00:00",
+      "partial_check_from": "2026-09-01T17:37:37.064799+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.14477,
+      "closed_at": "2026-09-04T06:59:59.999000+00:00",
+      "r_multiple": -0.13
+    },
+    {
+      "id": "HEIUSDT_LONG_1h_2026-09-01_17-08-38",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14606,
+      "sl": 0.13753,
+      "tp": [
+        0.15886,
+        0.16526,
+        0.17166
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_17-08-38",
+      "first_seen": "2026-09-01T17:08:34.270799+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T17:08:34.270799+00:00",
+      "triggered_at": "2026-09-01T18:00:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.14477,
+      "closed_at": "2026-09-04T06:59:59.999000+00:00",
+      "r_multiple": -0.15
+    },
+    {
+      "id": "HEIUSDT_LONG_1h_2026-09-01_17-25-15",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14606,
+      "sl": 0.13753,
+      "tp": [
+        0.15886,
+        0.16526,
+        0.17166
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_17-25-15",
+      "first_seen": "2026-09-01T17:25:13.096767+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T17:25:13.096767+00:00",
+      "triggered_at": "2026-09-01T18:00:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.14477,
+      "closed_at": "2026-09-04T06:59:59.999000+00:00",
+      "r_multiple": -0.15
     }
   ],
   "ingested_runs": [
@@ -23074,6 +23115,7 @@
     "2026-09-04_05-07-53",
     "2026-09-04_05-25-26",
     "2026-09-04_05-38-39",
-    "2026-09-04_05-52-57"
+    "2026-09-04_05-52-57",
+    "2026-09-04_06-10-37"
   ]
 }

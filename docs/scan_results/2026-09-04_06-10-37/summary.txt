@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T06:10:34.963942+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CYBERUSDT | Side: SHORT | Score: 6.38
+   - Entry : 0.30390
+   - SL    : 0.30730
+   - TP    : 0.29879, 0.29743, 0.29624
+   - Invalidation: Close above 0.3073 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.3042
+----------------------------------------
