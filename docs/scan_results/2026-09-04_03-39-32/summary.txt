@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T03:39:29.946413+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ENSOUSDT | Side: LONG | Score: 6.07
+   - Entry : 0.87640
+   - SL    : 0.86530
+   - TP    : 0.89305, 0.89749, 0.90137
+   - Invalidation: Close below 0.8653 / loss of recent 15m swing low / breakout invalid if price falls below 0.8764
+----------------------------------------
