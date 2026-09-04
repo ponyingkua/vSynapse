@@ -143,35 +143,6 @@
       "added_at": "2026-09-04T00:34:10.368471+00:00"
     },
     {
-      "id": "ESPUSDT_LONG_15m_2026-09-04_08-09-28",
-      "symbol": "ESPUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.08426,
-      "sl": 0.08345,
-      "tp": [
-        0.08546,
-        0.08579,
-        0.08607
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_08-09-28",
-      "first_seen": "2026-09-04T08:09:24.521922+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.34,
-      "stage1_score": 11.639,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.52,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.08426,
-      "added_at": "2026-09-04T08:09:24.521922+00:00"
-    },
-    {
       "id": "FFUSDT_LONG_15m_2026-09-04_11-39-13",
       "symbol": "FFUSDT",
       "side": "LONG",
@@ -541,29 +512,6 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T00:00:00+00:00",
       "partial_check_from": "2026-09-01T22:24:40.550644+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "AIAUSDT_LONG_1h_2026-09-01_23-50-57",
-      "symbol": "AIAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.08061,
-      "sl": 0.07418,
-      "tp": [
-        0.09026,
-        0.09508,
-        0.0999
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_23-50-57",
-      "first_seen": "2026-09-01T23:50:53.019941+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T23:50:53.019941+00:00",
       "partial_check_done": true
     },
     {
@@ -23031,6 +22979,64 @@
       "added_at": "2026-09-04T07:26:24.208744+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-04T11:26:10.144000+00:00"
+    },
+    {
+      "id": "ESPUSDT_LONG_15m_2026-09-04_08-09-28",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.08426,
+      "sl": 0.08345,
+      "tp": [
+        0.08546,
+        0.08579,
+        0.08607
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_08-09-28",
+      "first_seen": "2026-09-04T08:09:24.521922+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.34,
+      "stage1_score": 11.639,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.52,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08426,
+      "added_at": "2026-09-04T08:09:24.521922+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-04T12:11:06.055000+00:00"
+    },
+    {
+      "id": "AIAUSDT_LONG_1h_2026-09-01_23-50-57",
+      "symbol": "AIAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.08061,
+      "sl": 0.07418,
+      "tp": [
+        0.09026,
+        0.09508,
+        0.0999
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_23-50-57",
+      "first_seen": "2026-09-01T23:50:53.019941+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T23:50:53.019941+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.07954,
+      "closed_at": "2026-09-04T12:59:59.999000+00:00",
+      "r_multiple": -0.17
     }
   ],
   "ingested_runs": [
@@ -23379,6 +23385,7 @@
     "2026-09-04_11-08-44",
     "2026-09-04_11-26-10",
     "2026-09-04_11-39-13",
-    "2026-09-04_11-52-03"
+    "2026-09-04_11-52-03",
+    "2026-09-04_12-11-05"
   ]
 }
