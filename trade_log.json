@@ -170,6 +170,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.14655,
       "added_at": "2026-09-04T15:08:29.595892+00:00"
+    },
+    {
+      "id": "UAIUSDT_LONG_15m_2026-09-04_16-09-21",
+      "symbol": "UAIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.43022,
+      "sl": 0.3962,
+      "tp": [
+        0.48126,
+        0.49486,
+        0.50677
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_16-09-21",
+      "first_seen": "2026-09-04T16:09:19.731096+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 45.995,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 9.645,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.43022,
+      "added_at": "2026-09-04T16:09:19.731096+00:00"
     }
   ],
   "open": [
@@ -512,29 +541,6 @@
       "config_version": "v2",
       "triggered_at": "2026-09-02T00:00:00+00:00",
       "partial_check_from": "2026-09-01T22:24:40.550644+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "JELLYJELLYUSDT_LONG_1h_2026-09-02_03-26-39",
-      "symbol": "JELLYJELLYUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.05493,
-      "sl": 0.05228,
-      "tp": [
-        0.05892,
-        0.06091,
-        0.0629
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_03-26-39",
-      "first_seen": "2026-09-02T03:26:35.421445+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T04:00:00+00:00",
-      "partial_check_from": "2026-09-02T03:26:35.421445+00:00",
       "partial_check_done": true
     },
     {
@@ -23313,6 +23319,33 @@
       "added_at": "2026-09-04T00:34:10.368471+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-04T15:40:17.196000+00:00"
+    },
+    {
+      "id": "JELLYJELLYUSDT_LONG_1h_2026-09-02_03-26-39",
+      "symbol": "JELLYJELLYUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05493,
+      "sl": 0.05228,
+      "tp": [
+        0.05892,
+        0.06091,
+        0.0629
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_03-26-39",
+      "first_seen": "2026-09-02T03:26:35.421445+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T04:00:00+00:00",
+      "partial_check_from": "2026-09-02T03:26:35.421445+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.05561,
+      "closed_at": "2026-09-04T16:59:59.999000+00:00",
+      "r_multiple": 0.26
     }
   ],
   "ingested_runs": [
@@ -23676,6 +23709,7 @@
     "2026-09-04_15-08-31",
     "2026-09-04_15-27-35",
     "2026-09-04_15-40-17",
-    "2026-09-04_15-52-20"
+    "2026-09-04_15-52-20",
+    "2026-09-04_16-09-21"
   ]
 }

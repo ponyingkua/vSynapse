@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T16:09:19.731096+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: UAIUSDT | Side: LONG | Score: 6.88
+   - Entry : 0.43022
+   - SL    : 0.39620
+   - TP    : 0.48126, 0.49486, 0.50677
+   - Invalidation: Close below 0.3962 / loss of recent 15m swing low / breakout invalid if price falls below 0.4269
+----------------------------------------
