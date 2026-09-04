@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T04:09:04.842129+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ICPUSDT | Side: LONG | Score: 6.22
+   - Entry : 2.5451
+   - SL    : 2.5070
+   - TP    : 2.6022, 2.6174, 2.6308
+   - Invalidation: Close below 2.507 / loss of recent 15m swing low / breakout invalid if price falls below 2.541
+----------------------------------------
