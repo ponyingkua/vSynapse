@@ -286,35 +286,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.00789,
       "added_at": "2026-09-04T00:34:10.368471+00:00"
-    },
-    {
-      "id": "ICPUSDT_LONG_15m_2026-09-04_04-09-07",
-      "symbol": "ICPUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.5451,
-      "sl": 2.507,
-      "tp": [
-        2.6022,
-        2.6174,
-        2.6308
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-04_04-09-07",
-      "first_seen": "2026-09-04T04:09:04.842129+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.22,
-      "stage1_score": 8.552,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.83,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.5451,
-      "added_at": "2026-09-04T04:09:04.842129+00:00"
     }
   ],
   "open": [
@@ -1671,6 +1642,36 @@
       "triggered_at": "2026-09-04T03:45:00+00:00",
       "partial_check_from": "2026-09-04T03:39:29.946413+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "ICPUSDT_LONG_15m_2026-09-04_04-09-07",
+      "symbol": "ICPUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.5451,
+      "sl": 2.507,
+      "tp": [
+        2.6022,
+        2.6174,
+        2.6308
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-04_04-09-07",
+      "first_seen": "2026-09-04T04:09:04.842129+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.22,
+      "stage1_score": 8.552,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.83,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.5451,
+      "added_at": "2026-09-04T04:09:04.842129+00:00",
+      "triggered_at": "2026-09-04T05:00:00+00:00"
     }
   ],
   "closed": [
@@ -23048,6 +23049,7 @@
     "2026-09-04_04-09-07",
     "2026-09-04_04-26-59",
     "2026-09-04_04-39-45",
-    "2026-09-04_04-52-34"
+    "2026-09-04_04-52-34",
+    "2026-09-04_05-07-53"
   ]
 }
