@@ -170,6 +170,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.08426,
       "added_at": "2026-09-04T08:09:24.521922+00:00"
+    },
+    {
+      "id": "FFUSDT_LONG_15m_2026-09-04_11-39-13",
+      "symbol": "FFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.10342,
+      "sl": 0.09905,
+      "tp": [
+        0.10996,
+        0.11171,
+        0.11324
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_11-39-13",
+      "first_seen": "2026-09-04T11:39:09.955329+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 35.895,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.576,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10342,
+      "added_at": "2026-09-04T11:39:09.955329+00:00"
     }
   ],
   "open": [
@@ -23348,6 +23377,7 @@
     "2026-09-04_10-40-07",
     "2026-09-04_10-53-00",
     "2026-09-04_11-08-44",
-    "2026-09-04_11-26-10"
+    "2026-09-04_11-26-10",
+    "2026-09-04_11-39-13"
   ]
 }

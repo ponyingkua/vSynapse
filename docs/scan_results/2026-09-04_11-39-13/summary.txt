@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T11:39:09.955329+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: FFUSDT | Side: LONG | Score: 6.19
+   - Entry : 0.10342
+   - SL    : 0.09905
+   - TP    : 0.10996, 0.11171, 0.11324
+   - Invalidation: Close below 0.09905 / loss of recent 15m swing low
+----------------------------------------
