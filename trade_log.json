@@ -199,35 +199,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.08426,
       "added_at": "2026-09-04T08:09:24.521922+00:00"
-    },
-    {
-      "id": "HEIUSDT_LONG_15m_2026-09-04_08-42-43",
-      "symbol": "HEIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.14567,
-      "sl": 0.14346,
-      "tp": [
-        0.14898,
-        0.14986,
-        0.15064
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_08-42-43",
-      "first_seen": "2026-09-04T08:42:40.689940+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.01,
-      "stage1_score": 12.078,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.415,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.14567,
-      "added_at": "2026-09-04T08:42:40.689940+00:00"
     }
   ],
   "open": [
@@ -1448,6 +1419,36 @@
       "sl_after_tp1": 0.06075,
       "added_at": "2026-09-04T07:08:12.763524+00:00",
       "triggered_at": "2026-09-04T08:00:00+00:00"
+    },
+    {
+      "id": "HEIUSDT_LONG_15m_2026-09-04_08-42-43",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.14567,
+      "sl": 0.14346,
+      "tp": [
+        0.14898,
+        0.14986,
+        0.15064
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_08-42-43",
+      "first_seen": "2026-09-04T08:42:40.689940+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 12.078,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.415,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14567,
+      "added_at": "2026-09-04T08:42:40.689940+00:00",
+      "triggered_at": "2026-09-04T09:15:00+00:00"
     }
   ],
   "closed": [
@@ -23316,6 +23317,7 @@
     "2026-09-04_08-28-52",
     "2026-09-04_08-42-43",
     "2026-09-04_08-54-45",
-    "2026-09-04_09-08-43"
+    "2026-09-04_09-08-43",
+    "2026-09-04_09-27-29"
   ]
 }
