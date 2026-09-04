@@ -257,6 +257,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 38.064,
       "added_at": "2026-09-04T17:09:04.250770+00:00"
+    },
+    {
+      "id": "KOMAUSDT_LONG_1h_2026-09-04_18-52-45",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01384,
+      "sl": 0.01304,
+      "tp": [
+        0.01504,
+        0.01536,
+        0.01564
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_18-52-45",
+      "first_seen": "2026-09-04T18:52:42.683732+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 12.672,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.886,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01384,
+      "added_at": "2026-09-04T18:52:42.683732+00:00"
     }
   ],
   "open": [
@@ -23796,6 +23825,7 @@
     "2026-09-04_17-51-39",
     "2026-09-04_18-09-50",
     "2026-09-04_18-27-07",
-    "2026-09-04_18-39-39"
+    "2026-09-04_18-39-39",
+    "2026-09-04_18-52-45"
   ]
 }
