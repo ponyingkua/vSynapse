@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T12:32:17.704248+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PENGUUSDT | Side: LONG | Score: 6.75
+   - Entry : 0.008045
+   - SL    : 0.007727
+   - TP    : 0.008523, 0.008650, 0.008761
+   - Invalidation: Close below 0.0077266157 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: EGLDUSDT | Side: LONG | Score: 6.06
+   - Entry : 4.7099
+   - SL    : 4.6218
+   - TP    : 4.8420, 4.8772, 4.9080
+   - Invalidation: Close below 4.6218117 / loss of recent 15m swing low
+----------------------------------------
