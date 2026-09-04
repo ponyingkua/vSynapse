@@ -85,35 +85,6 @@
       "added_at": "2026-09-03T01:43:20.580741+00:00"
     },
     {
-      "id": "VVVUSDT_LONG_1h_2026-09-03_16-27-28",
-      "symbol": "VVVUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 16.85,
-      "sl": 16.097,
-      "tp": [
-        17.979,
-        18.28,
-        18.544
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-03_16-27-28",
-      "first_seen": "2026-09-03T16:27:24.855716+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.54,
-      "stage1_score": 11.106,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.508,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 16.85,
-      "added_at": "2026-09-03T16:27:24.855716+00:00"
-    },
-    {
       "id": "VVVUSDT_LONG_1h_2026-09-03_16-41-47",
       "symbol": "VVVUSDT",
       "side": "LONG",
@@ -22862,6 +22833,37 @@
       "exit_price": 0.2737,
       "closed_at": "2026-09-04T07:59:59.999000+00:00",
       "r_multiple": 0.77
+    },
+    {
+      "id": "VVVUSDT_LONG_1h_2026-09-03_16-27-28",
+      "symbol": "VVVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 16.85,
+      "sl": 16.097,
+      "tp": [
+        17.979,
+        18.28,
+        18.544
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-03_16-27-28",
+      "first_seen": "2026-09-03T16:27:24.855716+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.54,
+      "stage1_score": 11.106,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.508,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 16.85,
+      "added_at": "2026-09-03T16:27:24.855716+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-04T07:39:46.073000+00:00"
     }
   ],
   "ingested_runs": [
@@ -23192,6 +23194,7 @@
     "2026-09-04_06-31-21",
     "2026-09-04_06-49-07",
     "2026-09-04_07-08-14",
-    "2026-09-04_07-26-26"
+    "2026-09-04_07-26-26",
+    "2026-09-04_07-39-45"
   ]
 }
