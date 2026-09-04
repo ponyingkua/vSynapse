@@ -1017,36 +1017,6 @@
       "sl_after_tp1": 0.06075,
       "added_at": "2026-09-04T07:08:12.763524+00:00",
       "triggered_at": "2026-09-04T08:00:00+00:00"
-    },
-    {
-      "id": "EGLDUSDT_LONG_15m_2026-09-04_12-32-20",
-      "symbol": "EGLDUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 4.7099,
-      "sl": 4.6218,
-      "tp": [
-        4.842,
-        4.8772,
-        4.908
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-04_12-32-20",
-      "first_seen": "2026-09-04T12:32:17.704248+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.06,
-      "stage1_score": 30.21,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.551,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 4.7099,
-      "added_at": "2026-09-04T12:32:17.704248+00:00",
-      "triggered_at": "2026-09-04T12:45:00+00:00"
     }
   ],
   "closed": [
@@ -23233,6 +23203,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T12:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "EGLDUSDT_LONG_15m_2026-09-04_12-32-20",
+      "symbol": "EGLDUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 4.7099,
+      "sl": 4.6218,
+      "tp": [
+        4.842,
+        4.8772,
+        4.908
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-04_12-32-20",
+      "first_seen": "2026-09-04T12:32:17.704248+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.06,
+      "stage1_score": 30.21,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.551,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.7099,
+      "added_at": "2026-09-04T12:32:17.704248+00:00",
+      "triggered_at": "2026-09-04T12:45:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 4.8772,
+      "tp_index": 1,
+      "bar_time": 1788530399999,
+      "bars_held": 5,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T13:59:59.999000+00:00",
+      "r_multiple": 1.9
     }
   ],
   "ingested_runs": [
@@ -23587,6 +23596,7 @@
     "2026-09-04_12-56-02",
     "2026-09-04_13-08-17",
     "2026-09-04_13-27-09",
-    "2026-09-04_13-40-26"
+    "2026-09-04_13-40-26",
+    "2026-09-04_13-53-51"
   ]
 }
