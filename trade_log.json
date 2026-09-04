@@ -199,35 +199,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01384,
       "added_at": "2026-09-04T18:52:42.683732+00:00"
-    },
-    {
-      "id": "COLLECTUSDT_LONG_15m_2026-09-04_21-25-15",
-      "symbol": "COLLECTUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.07999,
-      "sl": 0.07898,
-      "tp": [
-        0.08149,
-        0.08189,
-        0.08224
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_21-25-15",
-      "first_seen": "2026-09-04T21:25:12.721960+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.33,
-      "stage1_score": 16.928,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.965,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.07999,
-      "added_at": "2026-09-04T21:25:12.721960+00:00"
     }
   ],
   "open": [
@@ -737,6 +708,36 @@
       "sl_after_tp1": 0.003682,
       "added_at": "2026-09-03T16:27:24.855716+00:00",
       "triggered_at": "2026-09-03T22:00:00+00:00"
+    },
+    {
+      "id": "COLLECTUSDT_LONG_15m_2026-09-04_21-25-15",
+      "symbol": "COLLECTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07999,
+      "sl": 0.07898,
+      "tp": [
+        0.08149,
+        0.08189,
+        0.08224
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_21-25-15",
+      "first_seen": "2026-09-04T21:25:12.721960+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 16.928,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.965,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07999,
+      "added_at": "2026-09-04T21:25:12.721960+00:00",
+      "triggered_at": "2026-09-04T23:30:00+00:00"
     }
   ],
   "closed": [
@@ -23894,6 +23895,7 @@
     "2026-09-04_22-37-00",
     "2026-09-04_22-51-03",
     "2026-09-04_23-07-59",
-    "2026-09-04_23-23-12"
+    "2026-09-04_23-23-12",
+    "2026-09-04_23-35-56"
   ]
 }
