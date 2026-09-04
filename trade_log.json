@@ -172,35 +172,6 @@
       "added_at": "2026-09-04T15:08:29.595892+00:00"
     },
     {
-      "id": "GIGGLEUSDT_LONG_15m_2026-09-04_17-09-06",
-      "symbol": "GIGGLEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 38.064,
-      "sl": 37.13,
-      "tp": [
-        39.464,
-        39.838,
-        40.165
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-04_17-09-06",
-      "first_seen": "2026-09-04T17:09:04.250770+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.24,
-      "stage1_score": 24.873,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.895,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 38.064,
-      "added_at": "2026-09-04T17:09:04.250770+00:00"
-    },
-    {
       "id": "KOMAUSDT_LONG_1h_2026-09-04_18-52-45",
       "symbol": "KOMAUSDT",
       "side": "LONG",
@@ -228,6 +199,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01384,
       "added_at": "2026-09-04T18:52:42.683732+00:00"
+    },
+    {
+      "id": "COLLECTUSDT_LONG_15m_2026-09-04_21-25-15",
+      "symbol": "COLLECTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07999,
+      "sl": 0.07898,
+      "tp": [
+        0.08149,
+        0.08189,
+        0.08224
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_21-25-15",
+      "first_seen": "2026-09-04T21:25:12.721960+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 16.928,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.965,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07999,
+      "added_at": "2026-09-04T21:25:12.721960+00:00"
     }
   ],
   "open": [
@@ -23471,6 +23471,37 @@
       "added_at": "2026-09-04T16:39:17.627381+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-04T20:25:48.919000+00:00"
+    },
+    {
+      "id": "GIGGLEUSDT_LONG_15m_2026-09-04_17-09-06",
+      "symbol": "GIGGLEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 38.064,
+      "sl": 37.13,
+      "tp": [
+        39.464,
+        39.838,
+        40.165
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-04_17-09-06",
+      "first_seen": "2026-09-04T17:09:04.250770+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.24,
+      "stage1_score": 24.873,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.895,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 38.064,
+      "added_at": "2026-09-04T17:09:04.250770+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-04T21:25:15.360000+00:00"
     }
   ],
   "ingested_runs": [
@@ -23854,6 +23885,7 @@
     "2026-09-04_20-08-38",
     "2026-09-04_20-25-48",
     "2026-09-04_20-39-02",
-    "2026-09-04_20-50-22"
+    "2026-09-04_20-50-22",
+    "2026-09-04_21-25-15"
   ]
 }

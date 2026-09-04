@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T21:25:12.721960+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: COLLECTUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.07999
+   - SL    : 0.07898
+   - TP    : 0.08149, 0.08189, 0.08224
+   - Invalidation: Close below 0.078981156 / loss of recent 15m swing low
+----------------------------------------
