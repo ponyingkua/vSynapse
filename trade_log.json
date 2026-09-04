@@ -1496,37 +1496,6 @@
       "triggered_at": "2026-09-03T03:00:00+00:00"
     },
     {
-      "id": "NILUSDT_LONG_15m_2026-09-03_13-08-44",
-      "symbol": "NILUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.04849,
-      "sl": 0.04748,
-      "tp": [
-        0.05,
-        0.05041,
-        0.05076
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_13-08-44",
-      "first_seen": "2026-09-03T13:08:42.340046+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.07,
-      "stage1_score": 17.257,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 1.957,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.04849,
-      "triggered_at": "2026-09-03T13:15:00+00:00",
-      "partial_check_from": "2026-09-03T13:08:42.340046+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "ONGUSDT_LONG_15m_2026-09-03_13-28-09",
       "symbol": "ONGUSDT",
       "side": "LONG",
@@ -22599,6 +22568,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T00:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "NILUSDT_LONG_15m_2026-09-03_13-08-44",
+      "symbol": "NILUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.04849,
+      "sl": 0.04748,
+      "tp": [
+        0.05,
+        0.05041,
+        0.05076
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_13-08-44",
+      "first_seen": "2026-09-03T13:08:42.340046+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 17.257,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.957,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.04849,
+      "triggered_at": "2026-09-03T13:15:00+00:00",
+      "partial_check_from": "2026-09-03T13:08:42.340046+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.04748,
+      "tp_index": null,
+      "bar_time": 1788484499999,
+      "bars_held": 48,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T01:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -22905,6 +22914,7 @@
     "2026-09-04_00-11-51",
     "2026-09-04_00-34-13",
     "2026-09-04_00-54-40",
-    "2026-09-04_01-07-21"
+    "2026-09-04_01-07-21",
+    "2026-09-04_01-22-09"
   ]
 }
