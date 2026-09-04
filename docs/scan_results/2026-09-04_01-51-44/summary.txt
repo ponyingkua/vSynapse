@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T01:51:43.176423+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ENSUSDT | Side: LONG | Score: 6.02
+   - Entry : 5.8161
+   - SL    : 5.6800
+   - TP    : 6.0202, 6.0747, 6.1223
+   - Invalidation: Close below 5.68 / loss of recent 1h swing low
+----------------------------------------

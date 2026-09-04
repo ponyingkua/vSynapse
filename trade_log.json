@@ -402,6 +402,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.00789,
       "added_at": "2026-09-04T00:34:10.368471+00:00"
+    },
+    {
+      "id": "ENSUSDT_LONG_1h_2026-09-04_01-51-44",
+      "symbol": "ENSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 5.8161,
+      "sl": 5.68,
+      "tp": [
+        6.0202,
+        6.0747,
+        6.1223
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-04_01-51-44",
+      "first_seen": "2026-09-04T01:51:43.176423+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 4.345,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.975,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.8161,
+      "added_at": "2026-09-04T01:51:43.176423+00:00"
     }
   ],
   "open": [
@@ -22916,6 +22945,7 @@
     "2026-09-04_00-54-40",
     "2026-09-04_01-07-21",
     "2026-09-04_01-22-09",
-    "2026-09-04_01-37-29"
+    "2026-09-04_01-37-29",
+    "2026-09-04_01-51-44"
   ]
 }
