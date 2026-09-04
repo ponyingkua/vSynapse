@@ -654,29 +654,6 @@
       "partial_check_done": true
     },
     {
-      "id": "ONEUSDT_LONG_1h_2026-09-02_06-57-41",
-      "symbol": "ONEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.0007543,
-      "sl": 0.0007274,
-      "tp": [
-        0.0007946,
-        0.0008147,
-        0.0008349
-      ],
-      "decimals": 7,
-      "run_id": "2026-09-02_06-57-41",
-      "first_seen": "2026-09-02T06:57:35.380466+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T07:00:00+00:00",
-      "partial_check_from": "2026-09-02T06:57:35.380466+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "ASTRUSDT_LONG_1h_2026-09-02_07-09-27",
       "symbol": "ASTRUSDT",
       "side": "LONG",
@@ -23451,6 +23428,33 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T18:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "ONEUSDT_LONG_1h_2026-09-02_06-57-41",
+      "symbol": "ONEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0007543,
+      "sl": 0.0007274,
+      "tp": [
+        0.0007946,
+        0.0008147,
+        0.0008349
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-02_06-57-41",
+      "first_seen": "2026-09-02T06:57:35.380466+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T07:00:00+00:00",
+      "partial_check_from": "2026-09-02T06:57:35.380466+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.0007599,
+      "closed_at": "2026-09-04T19:59:59.999000+00:00",
+      "r_multiple": 0.21
     }
   ],
   "ingested_runs": [
@@ -23826,6 +23830,7 @@
     "2026-09-04_18-09-50",
     "2026-09-04_18-27-07",
     "2026-09-04_18-39-39",
-    "2026-09-04_18-52-45"
+    "2026-09-04_18-52-45",
+    "2026-09-04_19-07-48"
   ]
 }
