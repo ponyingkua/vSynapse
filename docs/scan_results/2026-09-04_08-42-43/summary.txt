@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T08:42:40.689940+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: HEIUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.14567
+   - SL    : 0.14346
+   - TP    : 0.14898, 0.14986, 0.15064
+   - Invalidation: Close below 0.14345896 / loss of recent 15m swing low
+----------------------------------------
