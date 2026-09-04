@@ -1255,37 +1255,6 @@
       "triggered_at": "2026-09-03T14:00:00+00:00"
     },
     {
-      "id": "VIRTUALUSDT_LONG_1h_2026-09-03_15-30-09",
-      "symbol": "VIRTUALUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.70594,
-      "sl": 0.6748,
-      "tp": [
-        0.75266,
-        0.76512,
-        0.77602
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_15-30-09",
-      "first_seen": "2026-09-03T15:30:07.941986+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.08,
-      "stage1_score": 15.127,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.878,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.70594,
-      "triggered_at": "2026-09-03T16:00:00+00:00",
-      "partial_check_from": "2026-09-03T15:30:07.941986+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
       "symbol": "AEROUSDT",
       "side": "LONG",
@@ -22740,6 +22709,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T05:29:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "VIRTUALUSDT_LONG_1h_2026-09-03_15-30-09",
+      "symbol": "VIRTUALUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.70594,
+      "sl": 0.6748,
+      "tp": [
+        0.75266,
+        0.76512,
+        0.77602
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_15-30-09",
+      "first_seen": "2026-09-03T15:30:07.941986+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.08,
+      "stage1_score": 15.127,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.878,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.70594,
+      "triggered_at": "2026-09-03T16:00:00+00:00",
+      "partial_check_from": "2026-09-03T15:30:07.941986+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.6748,
+      "tp_index": null,
+      "bar_time": 1788501599999,
+      "bars_held": 14,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T05:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -23064,6 +23073,7 @@
     "2026-09-04_04-52-34",
     "2026-09-04_05-07-53",
     "2026-09-04_05-25-26",
-    "2026-09-04_05-38-39"
+    "2026-09-04_05-38-39",
+    "2026-09-04_05-52-57"
   ]
 }
