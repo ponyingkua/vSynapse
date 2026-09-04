@@ -373,6 +373,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.00789,
       "added_at": "2026-09-04T00:11:48.841505+00:00"
+    },
+    {
+      "id": "SWARMSUSDT_SHORT_1h_2026-09-04_00-34-13",
+      "symbol": "SWARMSUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.00789,
+      "sl": 0.008115,
+      "tp": [
+        0.007551,
+        0.007461,
+        0.007382
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-04_00-34-13",
+      "first_seen": "2026-09-04T00:34:10.368471+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.17,
+      "stage1_score": 6.797,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.593,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.00789,
+      "added_at": "2026-09-04T00:34:10.368471+00:00"
     }
   ],
   "open": [
@@ -1124,50 +1153,6 @@
       "triggered_at": "2026-09-02T00:00:00+00:00",
       "partial_check_from": "2026-09-01T23:50:53.019941+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "BIRBUSDT_SHORT_1h_2026-09-01_17-08-38",
-      "symbol": "BIRBUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05762,
-      "sl": 0.0594,
-      "tp": [
-        0.05495,
-        0.05362,
-        0.05228
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_17-08-38",
-      "first_seen": "2026-09-01T17:08:34.270799+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T17:08:34.270799+00:00",
-      "triggered_at": "2026-09-02T00:00:00+00:00"
-    },
-    {
-      "id": "BIRBUSDT_SHORT_1h_2026-09-01_17-37-39",
-      "symbol": "BIRBUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05762,
-      "sl": 0.0594,
-      "tp": [
-        0.05495,
-        0.05362,
-        0.05228
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_17-37-39",
-      "first_seen": "2026-09-01T17:37:37.064799+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "added_at": "2026-09-01T17:37:37.064799+00:00",
-      "triggered_at": "2026-09-02T00:00:00+00:00"
     },
     {
       "id": "YGGUSDT_LONG_1h_2026-09-02_03-08-33",
@@ -22527,6 +22512,68 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T00:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BIRBUSDT_SHORT_1h_2026-09-01_17-08-38",
+      "symbol": "BIRBUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05762,
+      "sl": 0.0594,
+      "tp": [
+        0.05495,
+        0.05362,
+        0.05228
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_17-08-38",
+      "first_seen": "2026-09-01T17:08:34.270799+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T17:08:34.270799+00:00",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.0594,
+      "tp_index": null,
+      "bar_time": 1788483599999,
+      "bars_held": 49,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T00:59:59.999000+00:00",
+      "r_multiple": -1.0
+    },
+    {
+      "id": "BIRBUSDT_SHORT_1h_2026-09-01_17-37-39",
+      "symbol": "BIRBUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05762,
+      "sl": 0.0594,
+      "tp": [
+        0.05495,
+        0.05362,
+        0.05228
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_17-37-39",
+      "first_seen": "2026-09-01T17:37:37.064799+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "added_at": "2026-09-01T17:37:37.064799+00:00",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.0594,
+      "tp_index": null,
+      "bar_time": 1788483599999,
+      "bars_held": 49,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-04T00:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -22830,6 +22877,7 @@
     "2026-09-03_23-23-01",
     "2026-09-03_23-36-53",
     "2026-09-03_23-50-36",
-    "2026-09-04_00-11-51"
+    "2026-09-04_00-11-51",
+    "2026-09-04_00-34-13"
   ]
 }
