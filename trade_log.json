@@ -201,33 +201,33 @@
       "added_at": "2026-09-04T00:34:10.368471+00:00"
     },
     {
-      "id": "CYBERUSDT_SHORT_15m_2026-09-04_06-10-37",
-      "symbol": "CYBERUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.3039,
-      "sl": 0.3073,
+      "id": "EDENUSDT_LONG_1h_2026-09-04_07-08-14",
+      "symbol": "EDENUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.06075,
+      "sl": 0.05922,
       "tp": [
-        0.29879,
-        0.29743,
-        0.29624
+        0.06305,
+        0.06366,
+        0.06419
       ],
       "decimals": 5,
-      "run_id": "2026-09-04_06-10-37",
-      "first_seen": "2026-09-04T06:10:34.963942+00:00",
-      "htf_bias": "BEARISH",
+      "run_id": "2026-09-04_07-08-14",
+      "first_seen": "2026-09-04T07:08:12.763524+00:00",
+      "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 5.119,
+      "score": 6.21,
+      "stage1_score": 15.217,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 3,
-      "momentum_15m": -1.082,
+      "momentum_15m": 1.818,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.3039,
-      "added_at": "2026-09-04T06:10:34.963942+00:00"
+      "sl_after_tp1": 0.06075,
+      "added_at": "2026-09-04T07:08:12.763524+00:00"
     }
   ],
   "open": [
@@ -341,29 +341,6 @@
       "config_version": "v2",
       "added_at": "2026-09-01T14:28:19.282353+00:00",
       "triggered_at": "2026-09-01T16:00:00+00:00"
-    },
-    {
-      "id": "FORMUSDT_LONG_1h_2026-09-01_18-09-46",
-      "symbol": "FORMUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.2641,
-      "sl": 0.2516,
-      "tp": [
-        0.28285,
-        0.29223,
-        0.3016
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_18-09-46",
-      "first_seen": "2026-09-01T18:09:44.028247+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T19:00:00+00:00",
-      "partial_check_from": "2026-09-01T18:09:44.028247+00:00",
-      "partial_check_done": true
     },
     {
       "id": "ZILUSDT_LONG_4h_2026-09-01_19-51-32",
@@ -1545,6 +1522,36 @@
       "sl_after_tp1": 0.02626,
       "added_at": "2026-09-03T16:41:42.204295+00:00",
       "triggered_at": "2026-09-04T05:00:00+00:00"
+    },
+    {
+      "id": "CYBERUSDT_SHORT_15m_2026-09-04_06-10-37",
+      "symbol": "CYBERUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.3039,
+      "sl": 0.3073,
+      "tp": [
+        0.29879,
+        0.29743,
+        0.29624
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_06-10-37",
+      "first_seen": "2026-09-04T06:10:34.963942+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 5.119,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.082,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.3039,
+      "added_at": "2026-09-04T06:10:34.963942+00:00",
+      "triggered_at": "2026-09-04T07:00:00+00:00"
     }
   ],
   "closed": [
@@ -22799,6 +22806,33 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-04T06:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "FORMUSDT_LONG_1h_2026-09-01_18-09-46",
+      "symbol": "FORMUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.2641,
+      "sl": 0.2516,
+      "tp": [
+        0.28285,
+        0.29223,
+        0.3016
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_18-09-46",
+      "first_seen": "2026-09-01T18:09:44.028247+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T19:00:00+00:00",
+      "partial_check_from": "2026-09-01T18:09:44.028247+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.2737,
+      "closed_at": "2026-09-04T07:59:59.999000+00:00",
+      "r_multiple": 0.77
     }
   ],
   "ingested_runs": [
@@ -23127,6 +23161,7 @@
     "2026-09-04_05-52-57",
     "2026-09-04_06-10-37",
     "2026-09-04_06-31-21",
-    "2026-09-04_06-49-07"
+    "2026-09-04_06-49-07",
+    "2026-09-04_07-08-14"
   ]
 }

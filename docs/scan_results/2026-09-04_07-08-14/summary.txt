@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T07:08:12.763524+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: EDENUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.06075
+   - SL    : 0.05922
+   - TP    : 0.06305, 0.06366, 0.06419
+   - Invalidation: Close below 0.059223 / loss of recent 1h swing low
+----------------------------------------
