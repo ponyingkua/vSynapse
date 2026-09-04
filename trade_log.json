@@ -228,6 +228,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10094,
       "added_at": "2026-09-04T13:08:14.648437+00:00"
+    },
+    {
+      "id": "ATUSDT_LONG_4h_2026-09-04_15-08-31",
+      "symbol": "ATUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14655,
+      "sl": 0.1387,
+      "tp": [
+        0.15833,
+        0.16147,
+        0.16422
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_15-08-31",
+      "first_seen": "2026-09-04T15:08:29.595892+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.52,
+      "stage1_score": 9.826,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14655,
+      "added_at": "2026-09-04T15:08:29.595892+00:00"
     }
   ],
   "open": [
@@ -23637,6 +23666,7 @@
     "2026-09-04_14-07-59",
     "2026-09-04_14-26-16",
     "2026-09-04_14-39-45",
-    "2026-09-04_14-53-25"
+    "2026-09-04_14-53-25",
+    "2026-09-04_15-08-31"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-04T15:08:29.595892+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ATUSDT | Side: LONG | Score: 8.52
+   - Entry : 0.14655
+   - SL    : 0.13870
+   - TP    : 0.15833, 0.16147, 0.16422
+   - Invalidation: Close below 0.1387 / loss of recent 4h swing low / breakout invalid if price falls below 0.1458
+----------------------------------------
