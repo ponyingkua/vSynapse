@@ -199,6 +199,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.43022,
       "added_at": "2026-09-04T16:09:19.731096+00:00"
+    },
+    {
+      "id": "UAIUSDT_LONG_15m_2026-09-04_16-39-19",
+      "symbol": "UAIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.42139,
+      "sl": 0.3962,
+      "tp": [
+        0.45917,
+        0.46924,
+        0.47806
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_16-39-19",
+      "first_seen": "2026-09-04T16:39:17.627381+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 49.801,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 8.214,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.42139,
+      "added_at": "2026-09-04T16:39:17.627381+00:00"
     }
   ],
   "open": [
@@ -23711,6 +23740,7 @@
     "2026-09-04_15-40-17",
     "2026-09-04_15-52-20",
     "2026-09-04_16-09-21",
-    "2026-09-04_16-27-05"
+    "2026-09-04_16-27-05",
+    "2026-09-04_16-39-19"
   ]
 }
