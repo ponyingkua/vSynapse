@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-04T18:09:51.185000+00:00",
-  "resolved_trades": 572,
+  "generated_at": "2026-09-04T18:27:08.513000+00:00",
+  "resolved_trades": 574,
   "wins": 198,
-  "losses": 373,
+  "losses": 375,
   "breakeven": 1,
-  "win_rate_pct": 34.6,
-  "avg_r_multiple": -0.1,
+  "win_rate_pct": 34.5,
+  "avg_r_multiple": -0.11,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 93,
@@ -27,9 +27,9 @@
     },
     "PULLBACK": {
       "wins": 38,
-      "losses": 44,
+      "losses": 46,
       "breakeven": 0,
-      "win_rate_pct": 46.3
+      "win_rate_pct": 45.2
     },
     "CONTINUATION": {
       "wins": 9,
@@ -47,9 +47,9 @@
     },
     "SHORT": {
       "wins": 71,
-      "losses": 110,
+      "losses": 112,
       "breakeven": 0,
-      "win_rate_pct": 39.2
+      "win_rate_pct": 38.8
     }
   },
   "by_config_version": {
@@ -67,9 +67,9 @@
     },
     "v2": {
       "wins": 122,
-      "losses": 212,
+      "losses": 214,
       "breakeven": 0,
-      "win_rate_pct": 36.5
+      "win_rate_pct": 36.3
     },
     "v3": {
       "wins": 26,
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 105,
-      "losses": 193,
+      "losses": 195,
       "breakeven": 1,
-      "win_rate_pct": 35.1
+      "win_rate_pct": 34.9
     },
     "COUNTER": {
       "wins": 54,
@@ -101,9 +101,9 @@
   "by_score_bucket": {
     "UNKNOWN": {
       "wins": 195,
-      "losses": 355,
+      "losses": 357,
       "breakeven": 0,
-      "win_rate_pct": 35.5
+      "win_rate_pct": 35.3
     },
     "6.0-6.9": {
       "wins": 3,
@@ -127,9 +127,9 @@
   "by_btc_regime": {
     "UNKNOWN": {
       "wins": 195,
-      "losses": 355,
+      "losses": 357,
       "breakeven": 0,
-      "win_rate_pct": 35.5
+      "win_rate_pct": 35.3
     },
     "BULLISH": {
       "wins": 3,
@@ -141,14 +141,14 @@
   "by_funding_alert": {
     "NORMAL": {
       "wins": 198,
-      "losses": 373,
+      "losses": 375,
       "breakeven": 1,
-      "win_rate_pct": 34.6
+      "win_rate_pct": 34.5
     }
   },
   "expired_unresolved": 86,
   "never_triggered": 101,
-  "currently_open": 27,
+  "currently_open": 25,
   "currently_pending": 10,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
