@@ -1,0 +1,6 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T21:35:57.538884+00:00
+Total Candidates: 0
+========================================
+
+No qualifying candidates found for this scan run.
