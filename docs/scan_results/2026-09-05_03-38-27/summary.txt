@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T03:38:24.778321+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: KOMAUSDT | Side: LONG | Score: 6.88
+   - Entry : 0.01395
+   - SL    : 0.01303
+   - TP    : 0.01534, 0.01570, 0.01603
+   - Invalidation: Close below 0.01303 / loss of recent 4h swing low / breakout invalid if price falls below 0.013827
+----------------------------------------
+2. Symbol: FORMUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.27950
+   - SL    : 0.27470
+   - TP    : 0.28670, 0.28862, 0.29030
+   - Invalidation: Close below 0.2747 / loss of recent 15m swing low / breakout invalid if price falls below 0.2792
+----------------------------------------

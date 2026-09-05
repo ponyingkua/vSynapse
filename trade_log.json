@@ -265,6 +265,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01395,
       "added_at": "2026-09-05T02:51:46.442957+00:00"
+    },
+    {
+      "id": "KOMAUSDT_LONG_4h_2026-09-05_03-38-27",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01395,
+      "sl": 0.01303,
+      "tp": [
+        0.01534,
+        0.0157,
+        0.01603
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_03-38-27",
+      "first_seen": "2026-09-05T03:38:24.778321+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 9.568,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.519,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01395,
+      "added_at": "2026-09-05T03:38:24.778321+00:00"
+    },
+    {
+      "id": "FORMUSDT_LONG_15m_2026-09-05_03-38-27",
+      "symbol": "FORMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.2795,
+      "sl": 0.2747,
+      "tp": [
+        0.2867,
+        0.28862,
+        0.2903
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_03-38-27",
+      "first_seen": "2026-09-05T03:38:24.778321+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 14.02,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.377,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.2795,
+      "added_at": "2026-09-05T03:38:24.778321+00:00"
     }
   ],
   "open": [
@@ -24044,6 +24102,7 @@
     "2026-09-05_02-38-20",
     "2026-09-05_02-51-48",
     "2026-09-05_03-08-43",
-    "2026-09-05_03-25-09"
+    "2026-09-05_03-25-09",
+    "2026-09-05_03-38-27"
   ]
 }
