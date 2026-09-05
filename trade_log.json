@@ -1,27 +1,6 @@
 {
   "pending": [
     {
-      "id": "JSTUSDT_LONG_4h_2026-09-02_12-11-17",
-      "symbol": "JSTUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.10374,
-      "sl": 0.0987,
-      "tp": [
-        0.11129,
-        0.11507,
-        0.11885
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_12-11-17",
-      "first_seen": "2026-09-02T12:11:14.441919+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-02T12:11:14.441919+00:00"
-    },
-    {
       "id": "BRUSDT_LONG_4h_2026-09-03_00-12-58",
       "symbol": "BRUSDT",
       "side": "LONG",
@@ -23503,6 +23482,29 @@
       "added_at": "2026-09-04T17:09:04.250770+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-04T21:25:15.360000+00:00"
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-02_12-11-17",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10374,
+      "sl": 0.0987,
+      "tp": [
+        0.11129,
+        0.11507,
+        0.11885
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_12-11-17",
+      "first_seen": "2026-09-02T12:11:14.441919+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-02T12:11:14.441919+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-05T00:12:23.536000+00:00"
     }
   ],
   "ingested_runs": [
@@ -23897,6 +23899,7 @@
     "2026-09-04_23-07-59",
     "2026-09-04_23-23-12",
     "2026-09-04_23-35-56",
-    "2026-09-04_23-50-31"
+    "2026-09-04_23-50-31",
+    "2026-09-05_00-12-23"
   ]
 }

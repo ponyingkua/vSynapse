@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-09-05T00:12:23.258729+00:00",
+  "scanner": "Synaptic",
+  "selection_mode": "min_score",
+  "btc_regime": "BULLISH",
+  "scan_stats": {
+    "universe": 517,
+    "stage1_momentum": 513,
+    "stage1_selected": 60,
+    "mtf_valid": 9,
+    "min_score_valid": 0,
+    "final_candidates": 0,
+    "stage1_seconds": 36.94,
+    "stage2_seconds": 9.91,
+    "elapsed_seconds": 48.89,
+    "workers_stage1": 16,
+    "workers_stage2": 12,
+    "cooldown_active": 0,
+    "trade_log_file": "synaptic_trade_log.jsonl"
+  },
+  "rejection_stats": {
+    "universe": {
+      "not_perpetual": 195,
+      "not_trading": 130,
+      "quote_not_usdt": 44,
+      "quote_volume_below_min": 6,
+      "in_ignored_list": 3
+    },
+    "stage1": {
+      "atr_below_min": 4,
+      "non_positive_score": 4
+    },
+    "stage2": {
+      "insufficient_tf_agreement": 18,
+      "no_setup": 13,
+      "entry_too_far": 12,
+      "weak_momentum_15m": 4,
+      "daily_bias_unavailable": 3,
+      "tf_insufficient_klines_raw": 1,
+      "missing_timeframe_data": 1
+    }
+  },
+  "candidates": []
+}
