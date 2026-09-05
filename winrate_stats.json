@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-05T20:08:29.033000+00:00",
-  "resolved_trades": 587,
-  "wins": 207,
+  "generated_at": "2026-09-05T20:24:54.524000+00:00",
+  "resolved_trades": 588,
+  "wins": 208,
   "losses": 379,
   "breakeven": 1,
-  "win_rate_pct": 35.3,
-  "avg_r_multiple": -0.09,
+  "win_rate_pct": 35.4,
+  "avg_r_multiple": -0.08,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 96,
+      "wins": 97,
       "losses": 210,
       "breakeven": 0,
-      "win_rate_pct": 31.4
+      "win_rate_pct": 31.6
     },
     "BREAKDOWN": {
       "wins": 51,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 136,
+      "wins": 137,
       "losses": 266,
       "breakeven": 1,
-      "win_rate_pct": 33.7
+      "win_rate_pct": 33.9
     },
     "SHORT": {
       "wins": 71,
@@ -72,10 +72,10 @@
       "win_rate_pct": 37.0
     },
     "v3": {
-      "wins": 31,
+      "wins": 32,
       "losses": 35,
       "breakeven": 1,
-      "win_rate_pct": 46.3
+      "win_rate_pct": 47.1
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 36.0
     },
     "ALIGNED": {
-      "wins": 110,
+      "wins": 111,
       "losses": 199,
       "breakeven": 1,
-      "win_rate_pct": 35.5
+      "win_rate_pct": 35.7
     },
     "COUNTER": {
       "wins": 56,
@@ -106,10 +106,10 @@
       "win_rate_pct": 35.7
     },
     "6.0-6.9": {
-      "wins": 7,
+      "wins": 8,
       "losses": 16,
       "breakeven": 1,
-      "win_rate_pct": 29.2
+      "win_rate_pct": 32.0
     },
     "8.0-8.9": {
       "wins": 1,
@@ -132,23 +132,23 @@
       "win_rate_pct": 35.7
     },
     "BULLISH": {
-      "wins": 8,
+      "wins": 9,
       "losses": 20,
       "breakeven": 1,
-      "win_rate_pct": 27.6
+      "win_rate_pct": 30.0
     }
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 207,
+      "wins": 208,
       "losses": 379,
       "breakeven": 1,
-      "win_rate_pct": 35.3
+      "win_rate_pct": 35.4
     }
   },
   "expired_unresolved": 91,
   "never_triggered": 111,
-  "currently_open": 17,
+  "currently_open": 16,
   "currently_pending": 16,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
