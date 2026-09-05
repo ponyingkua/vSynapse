@@ -439,6 +439,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.51166,
       "added_at": "2026-09-05T09:37:21.142179+00:00"
+    },
+    {
+      "id": "XVSUSDT_LONG_1h_2026-09-05_10-24-03",
+      "symbol": "XVSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 3.151,
+      "sl": 3.078,
+      "tp": [
+        3.2605,
+        3.2897,
+        3.3153
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-05_10-24-03",
+      "first_seen": "2026-09-05T10:24:02.232503+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.12,
+      "stage1_score": 7.282,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.5,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 3.151,
+      "added_at": "2026-09-05T10:24:02.232503+00:00"
     }
   ],
   "open": [
@@ -24585,6 +24614,7 @@
     "2026-09-05_09-24-27",
     "2026-09-05_09-37-23",
     "2026-09-05_09-51-27",
-    "2026-09-05_10-07-59"
+    "2026-09-05_10-07-59",
+    "2026-09-05_10-24-03"
   ]
 }
