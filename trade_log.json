@@ -122,35 +122,6 @@
       "added_at": "2026-09-04T15:08:29.595892+00:00"
     },
     {
-      "id": "KOMAUSDT_LONG_1h_2026-09-04_18-52-45",
-      "symbol": "KOMAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01384,
-      "sl": 0.01304,
-      "tp": [
-        0.01504,
-        0.01536,
-        0.01564
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_18-52-45",
-      "first_seen": "2026-09-04T18:52:42.683732+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.11,
-      "stage1_score": 12.672,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.886,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01384,
-      "added_at": "2026-09-04T18:52:42.683732+00:00"
-    },
-    {
       "id": "KOMAUSDT_LONG_4h_2026-09-05_00-35-45",
       "symbol": "KOMAUSDT",
       "side": "LONG",
@@ -294,35 +265,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01395,
       "added_at": "2026-09-05T03:51:24.307724+00:00"
-    },
-    {
-      "id": "MUBARAKUSDT_LONG_15m_2026-09-05_06-09-43",
-      "symbol": "MUBARAKUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0299,
-      "sl": 0.0293,
-      "tp": [
-        0.03082,
-        0.03106,
-        0.03127
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-05_06-09-43",
-      "first_seen": "2026-09-05T06:09:40.997966+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.14,
-      "stage1_score": 11.633,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.659,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0299,
-      "added_at": "2026-09-05T06:09:40.997966+00:00"
     },
     {
       "id": "\u5e01\u5b89\u4eba\u751fUSDT_LONG_4h_2026-09-05_08-09-00",
@@ -24147,6 +24089,68 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T11:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "KOMAUSDT_LONG_1h_2026-09-04_18-52-45",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01384,
+      "sl": 0.01304,
+      "tp": [
+        0.01504,
+        0.01536,
+        0.01564
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_18-52-45",
+      "first_seen": "2026-09-04T18:52:42.683732+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 12.672,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.886,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01384,
+      "added_at": "2026-09-04T18:52:42.683732+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-05T10:08:00.052000+00:00"
+    },
+    {
+      "id": "MUBARAKUSDT_LONG_15m_2026-09-05_06-09-43",
+      "symbol": "MUBARAKUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0299,
+      "sl": 0.0293,
+      "tp": [
+        0.03082,
+        0.03106,
+        0.03127
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_06-09-43",
+      "first_seen": "2026-09-05T06:09:40.997966+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 11.633,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.659,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0299,
+      "added_at": "2026-09-05T06:09:40.997966+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-05T10:08:00.052000+00:00"
     }
   ],
   "ingested_runs": [
@@ -24580,6 +24584,7 @@
     "2026-09-05_09-08-05",
     "2026-09-05_09-24-27",
     "2026-09-05_09-37-23",
-    "2026-09-05_09-51-27"
+    "2026-09-05_09-51-27",
+    "2026-09-05_10-07-59"
   ]
 }
