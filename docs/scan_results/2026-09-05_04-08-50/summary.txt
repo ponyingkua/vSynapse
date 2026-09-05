@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T04:08:46.660872+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: HEIUSDT | Side: LONG | Score: 6.59
+   - Entry : 0.14712
+   - SL    : 0.14599
+   - TP    : 0.14882, 0.14927, 0.14966
+   - Invalidation: Close below 0.145989 / loss of recent 15m swing low / breakout invalid if price falls below 0.14707
+----------------------------------------
+2. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.6
+   - Entry : 1.0501
+   - SL    : 1.0156
+   - TP    : 1.1019, 1.1157, 1.1278
+   - Invalidation: Close below 1.0156 / loss of recent 15m swing low / breakout invalid if price falls below 1.0474
+----------------------------------------
