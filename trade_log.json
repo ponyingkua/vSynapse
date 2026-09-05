@@ -381,6 +381,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.51166,
       "added_at": "2026-09-05T08:25:56.991564+00:00"
+    },
+    {
+      "id": "\u5e01\u5b89\u4eba\u751fUSDT_LONG_4h_2026-09-05_08-38-34",
+      "symbol": "\u5e01\u5b89\u4eba\u751fUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.51166,
+      "sl": 0.4727,
+      "tp": [
+        0.57009,
+        0.58567,
+        0.59931
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_08-38-34",
+      "first_seen": "2026-09-05T08:38:32.791925+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.75,
+      "stage1_score": 13.168,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.551,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.51166,
+      "added_at": "2026-09-05T08:38:32.791925+00:00"
     }
   ],
   "open": [
@@ -24418,6 +24447,7 @@
     "2026-09-05_07-36-54",
     "2026-09-05_07-51-46",
     "2026-09-05_08-09-00",
-    "2026-09-05_08-26-00"
+    "2026-09-05_08-26-00",
+    "2026-09-05_08-38-34"
   ]
 }
