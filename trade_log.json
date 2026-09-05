@@ -484,6 +484,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 3.151,
       "added_at": "2026-09-05T10:24:02.232503+00:00"
+    },
+    {
+      "id": "PYTHUSDT_LONG_15m_2026-09-05_13-07-51",
+      "symbol": "PYTHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05463,
+      "sl": 0.05379,
+      "tp": [
+        0.05589,
+        0.05623,
+        0.05652
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_13-07-51",
+      "first_seen": "2026-09-05T13:07:49.315854+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.16,
+      "stage1_score": 17.041,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.419,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05463,
+      "added_at": "2026-09-05T13:07:49.315854+00:00"
     }
   ],
   "open": [
@@ -24687,6 +24716,7 @@
     "2026-09-05_12-09-29",
     "2026-09-05_12-29-33",
     "2026-09-05_12-44-07",
-    "2026-09-05_12-55-46"
+    "2026-09-05_12-55-46",
+    "2026-09-05_13-07-51"
   ]
 }
