@@ -463,6 +463,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 3.151,
       "added_at": "2026-09-05T10:24:02.232503+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-05_18-26-06",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.36678,
+      "sl": 0.3589,
+      "tp": [
+        0.3786,
+        0.38175,
+        0.38451
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_18-26-06",
+      "first_seen": "2026-09-05T18:26:05.386422+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.57,
+      "stage1_score": 9.883,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.184,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.36678,
+      "added_at": "2026-09-05T18:26:05.386422+00:00"
     }
   ],
   "open": [
@@ -24780,6 +24809,7 @@
     "2026-09-05_17-23-05",
     "2026-09-05_17-36-10",
     "2026-09-05_17-51-08",
-    "2026-09-05_18-09-02"
+    "2026-09-05_18-09-02",
+    "2026-09-05_18-26-06"
   ]
 }
