@@ -352,6 +352,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.51166,
       "added_at": "2026-09-05T08:08:58.099676+00:00"
+    },
+    {
+      "id": "\u5e01\u5b89\u4eba\u751fUSDT_LONG_4h_2026-09-05_08-26-00",
+      "symbol": "\u5e01\u5b89\u4eba\u751fUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.51166,
+      "sl": 0.4727,
+      "tp": [
+        0.57009,
+        0.58567,
+        0.59931
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_08-26-00",
+      "first_seen": "2026-09-05T08:25:56.991564+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.14,
+      "stage1_score": 13.492,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.012,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.51166,
+      "added_at": "2026-09-05T08:25:56.991564+00:00"
     }
   ],
   "open": [
@@ -716,6 +745,37 @@
       "sl_after_tp1": 0.02353,
       "triggered_at": "2026-09-05T09:00:00+00:00",
       "partial_check_from": "2026-09-05T08:08:58.099676+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "CETUSUSDT_LONG_1h_2026-09-05_08-26-00",
+      "symbol": "CETUSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02353,
+      "sl": 0.02231,
+      "tp": [
+        0.02536,
+        0.02585,
+        0.02628
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_08-26-00",
+      "first_seen": "2026-09-05T08:25:56.991564+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.16,
+      "stage1_score": 14.002,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.982,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02353,
+      "triggered_at": "2026-09-05T09:00:00+00:00",
+      "partial_check_from": "2026-09-05T08:25:56.991564+00:00",
       "partial_check_done": true
     }
   ],
@@ -24357,6 +24417,7 @@
     "2026-09-05_07-24-00",
     "2026-09-05_07-36-54",
     "2026-09-05_07-51-46",
-    "2026-09-05_08-09-00"
+    "2026-09-05_08-09-00",
+    "2026-09-05_08-26-00"
   ]
 }
