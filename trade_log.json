@@ -470,6 +470,35 @@
       "added_at": "2026-09-05T10:50:35.366887+00:00"
     },
     {
+      "id": "\u5e01\u5b89\u4eba\u751fUSDT_LONG_4h_2026-09-05_11-08-08",
+      "symbol": "\u5e01\u5b89\u4eba\u751fUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.51166,
+      "sl": 0.4727,
+      "tp": [
+        0.57009,
+        0.58567,
+        0.59931
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_11-08-08",
+      "first_seen": "2026-09-05T11:08:06.815268+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 7.873,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.482,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.51166,
+      "added_at": "2026-09-05T11:08:06.815268+00:00"
+    },
+    {
       "id": "XVSUSDT_LONG_1h_2026-09-05_10-24-03",
       "symbol": "XVSUSDT",
       "side": "LONG",
@@ -24646,6 +24675,7 @@
     "2026-09-05_10-07-59",
     "2026-09-05_10-24-03",
     "2026-09-05_10-36-39",
-    "2026-09-05_10-50-36"
+    "2026-09-05_10-50-36",
+    "2026-09-05_11-08-08"
   ]
 }

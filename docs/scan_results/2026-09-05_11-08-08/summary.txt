@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T11:08:06.815268+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 币安人生USDT | Side: LONG | Score: 6.89
+   - Entry : 0.51166
+   - SL    : 0.47270
+   - TP    : 0.57009, 0.58567, 0.59931
+   - Invalidation: Close below 0.4727 / loss of recent 4h swing low / breakout invalid if price falls below 0.5075
+----------------------------------------
