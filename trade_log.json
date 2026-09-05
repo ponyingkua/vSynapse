@@ -512,52 +512,6 @@
       "partial_check_done": true
     },
     {
-      "id": "OPGUSDT_LONG_4h_2026-09-01_22-38-17",
-      "symbol": "OPGUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.09717,
-      "sl": 0.09308,
-      "tp": [
-        0.10329,
-        0.10636,
-        0.10942
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_22-38-17",
-      "first_seen": "2026-09-01T22:38:13.217392+00:00",
-      "htf_bias": null,
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T22:38:13.217392+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "OPGUSDT_LONG_4h_2026-09-01_22-51-13",
-      "symbol": "OPGUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.09747,
-      "sl": 0.09338,
-      "tp": [
-        0.10359,
-        0.10666,
-        0.10972
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_22-51-13",
-      "first_seen": "2026-09-01T22:51:09.317346+00:00",
-      "htf_bias": null,
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T22:51:09.317346+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "HEIUSDT_LONG_4h_2026-09-01_22-24-46",
       "symbol": "HEIUSDT",
       "side": "LONG",
@@ -23572,6 +23526,70 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T00:29:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "OPGUSDT_LONG_4h_2026-09-01_22-38-17",
+      "symbol": "OPGUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.09717,
+      "sl": 0.09308,
+      "tp": [
+        0.10329,
+        0.10636,
+        0.10942
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_22-38-17",
+      "first_seen": "2026-09-01T22:38:13.217392+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T22:38:13.217392+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.10329,
+      "tp_index": 0,
+      "bar_time": 1788580799999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T03:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "OPGUSDT_LONG_4h_2026-09-01_22-51-13",
+      "symbol": "OPGUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.09747,
+      "sl": 0.09338,
+      "tp": [
+        0.10359,
+        0.10666,
+        0.10972
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_22-51-13",
+      "first_seen": "2026-09-01T22:51:09.317346+00:00",
+      "htf_bias": null,
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T22:51:09.317346+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.10359,
+      "tp_index": 0,
+      "bar_time": 1788580799999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T03:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -23971,6 +23989,7 @@
     "2026-09-05_00-35-45",
     "2026-09-05_00-54-45",
     "2026-09-05_01-07-55",
-    "2026-09-05_01-23-42"
+    "2026-09-05_01-23-42",
+    "2026-09-05_01-37-35"
   ]
 }
