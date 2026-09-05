@@ -294,35 +294,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01395,
       "added_at": "2026-09-05T03:51:24.307724+00:00"
-    },
-    {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-05_04-08-50",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 1.0501,
-      "sl": 1.0156,
-      "tp": [
-        1.1019,
-        1.1157,
-        1.1278
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-05_04-08-50",
-      "first_seen": "2026-09-05T04:08:46.660872+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.6,
-      "stage1_score": 30.671,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.898,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.0501,
-      "added_at": "2026-09-05T04:08:46.660872+00:00"
     }
   ],
   "open": [
@@ -368,29 +339,6 @@
       "config_version": "v1",
       "triggered_at": "2026-09-01T08:00:00+00:00",
       "partial_check_from": "2026-09-01T04:52:09.334434+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "STRKUSDT_LONG_4h_2026-09-01_10-29-40",
-      "symbol": "STRKUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.02648,
-      "sl": 0.02511,
-      "tp": [
-        0.02853,
-        0.02956,
-        0.03059
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_10-29-40",
-      "first_seen": "2026-09-01T10:29:35.533392+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T12:00:00+00:00",
-      "partial_check_from": "2026-09-01T10:29:35.533392+00:00",
       "partial_check_done": true
     },
     {
@@ -645,36 +593,6 @@
       "partial_check_done": true
     },
     {
-      "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
-      "symbol": "AEROUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.49607,
-      "sl": 0.4796,
-      "tp": [
-        0.52078,
-        0.52737,
-        0.53314
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_14-28-30",
-      "first_seen": "2026-09-03T14:28:27.550123+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.11,
-      "stage1_score": 7.096,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.221,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.49607,
-      "added_at": "2026-09-03T14:28:27.550123+00:00",
-      "triggered_at": "2026-09-03T15:00:00+00:00"
-    },
-    {
       "id": "1000PEPEUSDT_LONG_1h_2026-09-03_16-27-28",
       "symbol": "1000PEPEUSDT",
       "side": "LONG",
@@ -764,6 +682,36 @@
       "sl_after_tp1": 0.2795,
       "added_at": "2026-09-05T03:38:24.778321+00:00",
       "triggered_at": "2026-09-05T04:00:00+00:00"
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-05_04-08-50",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.0501,
+      "sl": 1.0156,
+      "tp": [
+        1.1019,
+        1.1157,
+        1.1278
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-05_04-08-50",
+      "first_seen": "2026-09-05T04:08:46.660872+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 30.671,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.898,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.0501,
+      "added_at": "2026-09-05T04:08:46.660872+00:00",
+      "triggered_at": "2026-09-05T05:00:00+00:00"
     }
   ],
   "closed": [
@@ -23796,6 +23744,77 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T04:59:59.999000+00:00",
       "r_multiple": 1.9
+    },
+    {
+      "id": "STRKUSDT_LONG_4h_2026-09-01_10-29-40",
+      "symbol": "STRKUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02648,
+      "sl": 0.02511,
+      "tp": [
+        0.02853,
+        0.02956,
+        0.03059
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_10-29-40",
+      "first_seen": "2026-09-01T10:29:35.533392+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T12:00:00+00:00",
+      "partial_check_from": "2026-09-01T10:29:35.533392+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.02853,
+      "tp_index": 0,
+      "bar_time": 1788595199999,
+      "bars_held": 23,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T07:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "AEROUSDT_LONG_1h_2026-09-03_14-28-30",
+      "symbol": "AEROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.49607,
+      "sl": 0.4796,
+      "tp": [
+        0.52078,
+        0.52737,
+        0.53314
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_14-28-30",
+      "first_seen": "2026-09-03T14:28:27.550123+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 7.096,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.221,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.49607,
+      "added_at": "2026-09-03T14:28:27.550123+00:00",
+      "triggered_at": "2026-09-03T15:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.52078,
+      "tp_index": 0,
+      "bar_time": 1788587999999,
+      "bars_held": 39,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T05:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -24209,6 +24228,7 @@
     "2026-09-05_04-08-50",
     "2026-09-05_04-25-38",
     "2026-09-05_04-37-57",
-    "2026-09-05_04-50-38"
+    "2026-09-05_04-50-38",
+    "2026-09-05_05-07-37"
   ]
 }
