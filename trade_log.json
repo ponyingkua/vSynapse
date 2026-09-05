@@ -386,29 +386,6 @@
       "triggered_at": "2026-09-01T16:00:00+00:00"
     },
     {
-      "id": "ZILUSDT_LONG_4h_2026-09-01_19-51-32",
-      "symbol": "ZILUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.002674,
-      "sl": 0.002571,
-      "tp": [
-        0.002829,
-        0.002906,
-        0.002983
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-01_19-51-32",
-      "first_seen": "2026-09-01T19:51:27.585608+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-01T20:00:00+00:00",
-      "partial_check_from": "2026-09-01T19:51:27.585608+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "TIAUSDT_LONG_4h_2026-09-01_19-51-32",
       "symbol": "TIAUSDT",
       "side": "LONG",
@@ -23815,6 +23792,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T05:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "ZILUSDT_LONG_4h_2026-09-01_19-51-32",
+      "symbol": "ZILUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.002674,
+      "sl": 0.002571,
+      "tp": [
+        0.002829,
+        0.002906,
+        0.002983
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-01_19-51-32",
+      "first_seen": "2026-09-01T19:51:27.585608+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-01T20:00:00+00:00",
+      "partial_check_from": "2026-09-01T19:51:27.585608+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.002829,
+      "tp_index": 0,
+      "bar_time": 1788595199999,
+      "bars_held": 21,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T07:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -24229,6 +24238,7 @@
     "2026-09-05_04-25-38",
     "2026-09-05_04-37-57",
     "2026-09-05_04-50-38",
-    "2026-09-05_05-07-37"
+    "2026-09-05_05-07-37",
+    "2026-09-05_05-24-24"
   ]
 }
