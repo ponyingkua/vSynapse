@@ -294,6 +294,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01395,
       "added_at": "2026-09-05T03:51:24.307724+00:00"
+    },
+    {
+      "id": "MUBARAKUSDT_LONG_15m_2026-09-05_06-09-43",
+      "symbol": "MUBARAKUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0299,
+      "sl": 0.0293,
+      "tp": [
+        0.03082,
+        0.03106,
+        0.03127
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_06-09-43",
+      "first_seen": "2026-09-05T06:09:40.997966+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 11.633,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.659,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0299,
+      "added_at": "2026-09-05T06:09:40.997966+00:00"
     }
   ],
   "open": [
@@ -24241,6 +24270,7 @@
     "2026-09-05_05-07-37",
     "2026-09-05_05-24-24",
     "2026-09-05_05-37-46",
-    "2026-09-05_05-50-40"
+    "2026-09-05_05-50-40",
+    "2026-09-05_06-09-43"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T06:09:40.997966+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MUBARAKUSDT | Side: LONG | Score: 6.14
+   - Entry : 0.02990
+   - SL    : 0.02930
+   - TP    : 0.03082, 0.03106, 0.03127
+   - Invalidation: Close below 0.029295719 / loss of recent 15m swing low
+----------------------------------------
