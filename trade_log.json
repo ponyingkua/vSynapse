@@ -1,27 +1,6 @@
 {
   "pending": [
     {
-      "id": "BRUSDT_LONG_4h_2026-09-03_00-12-58",
-      "symbol": "BRUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.215,
-      "sl": 0.20287,
-      "tp": [
-        0.23319,
-        0.23804,
-        0.24228
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-03_00-12-58",
-      "first_seen": "2026-09-03T00:12:54.241723+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "added_at": "2026-09-03T00:12:54.241723+00:00"
-    },
-    {
       "id": "BRUSDT_LONG_4h_2026-09-03_00-37-58",
       "symbol": "BRUSDT",
       "side": "LONG",
@@ -24238,6 +24217,29 @@
       "added_at": "2026-09-05T06:09:40.997966+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-05T10:08:00.052000+00:00"
+    },
+    {
+      "id": "BRUSDT_LONG_4h_2026-09-03_00-12-58",
+      "symbol": "BRUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.215,
+      "sl": 0.20287,
+      "tp": [
+        0.23319,
+        0.23804,
+        0.24228
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-03_00-12-58",
+      "first_seen": "2026-09-03T00:12:54.241723+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "added_at": "2026-09-03T00:12:54.241723+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-05T12:29:33.631000+00:00"
     }
   ],
   "ingested_runs": [
@@ -24680,6 +24682,7 @@
     "2026-09-05_11-23-42",
     "2026-09-05_11-35-43",
     "2026-09-05_11-50-53",
-    "2026-09-05_12-09-29"
+    "2026-09-05_12-09-29",
+    "2026-09-05_12-29-33"
   ]
 }
