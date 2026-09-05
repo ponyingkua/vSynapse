@@ -178,6 +178,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01384,
       "added_at": "2026-09-04T18:52:42.683732+00:00"
+    },
+    {
+      "id": "KOMAUSDT_LONG_4h_2026-09-05_00-35-45",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01395,
+      "sl": 0.01303,
+      "tp": [
+        0.01534,
+        0.0157,
+        0.01603
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_00-35-45",
+      "first_seen": "2026-09-05T00:35:43.537337+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.3,
+      "stage1_score": 9.302,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.527,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01395,
+      "added_at": "2026-09-05T00:35:43.537337+00:00"
     }
   ],
   "open": [
@@ -687,36 +716,6 @@
       "sl_after_tp1": 0.003682,
       "added_at": "2026-09-03T16:27:24.855716+00:00",
       "triggered_at": "2026-09-03T22:00:00+00:00"
-    },
-    {
-      "id": "COLLECTUSDT_LONG_15m_2026-09-04_21-25-15",
-      "symbol": "COLLECTUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.07999,
-      "sl": 0.07898,
-      "tp": [
-        0.08149,
-        0.08189,
-        0.08224
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-04_21-25-15",
-      "first_seen": "2026-09-04T21:25:12.721960+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.33,
-      "stage1_score": 16.928,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.965,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.07999,
-      "added_at": "2026-09-04T21:25:12.721960+00:00",
-      "triggered_at": "2026-09-04T23:30:00+00:00"
     }
   ],
   "closed": [
@@ -23505,6 +23504,45 @@
       "added_at": "2026-09-02T12:11:14.441919+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-05T00:12:23.536000+00:00"
+    },
+    {
+      "id": "COLLECTUSDT_LONG_15m_2026-09-04_21-25-15",
+      "symbol": "COLLECTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07999,
+      "sl": 0.07898,
+      "tp": [
+        0.08149,
+        0.08189,
+        0.08224
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-04_21-25-15",
+      "first_seen": "2026-09-04T21:25:12.721960+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 16.928,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.965,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07999,
+      "added_at": "2026-09-04T21:25:12.721960+00:00",
+      "triggered_at": "2026-09-04T23:30:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.07898,
+      "tp_index": null,
+      "bar_time": 1788568199999,
+      "bars_held": 4,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T00:29:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -23900,6 +23938,7 @@
     "2026-09-04_23-23-12",
     "2026-09-04_23-35-56",
     "2026-09-04_23-50-31",
-    "2026-09-05_00-12-23"
+    "2026-09-05_00-12-23",
+    "2026-09-05_00-35-45"
   ]
 }
