@@ -558,29 +558,6 @@
       "partial_check_done": true
     },
     {
-      "id": "EDENUSDT_LONG_1h_2026-09-02_14-09-00",
-      "symbol": "EDENUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.06055,
-      "sl": 0.05689,
-      "tp": [
-        0.06605,
-        0.0688,
-        0.07155
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_14-09-00",
-      "first_seen": "2026-09-02T14:08:58.573442+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "triggered_at": "2026-09-02T15:00:00+00:00",
-      "partial_check_from": "2026-09-02T14:08:58.573442+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "UBUSDT_LONG_1h_2026-09-03_12-11-25",
       "symbol": "UBUSDT",
       "side": "LONG",
@@ -23599,6 +23576,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T01:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "EDENUSDT_LONG_1h_2026-09-02_14-09-00",
+      "symbol": "EDENUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.06055,
+      "sl": 0.05689,
+      "tp": [
+        0.06605,
+        0.0688,
+        0.07155
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_14-09-00",
+      "first_seen": "2026-09-02T14:08:58.573442+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "triggered_at": "2026-09-02T15:00:00+00:00",
+      "partial_check_from": "2026-09-02T14:08:58.573442+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.05689,
+      "tp_index": null,
+      "bar_time": 1788577199999,
+      "bars_held": 60,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T02:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -24001,6 +24010,7 @@
     "2026-09-05_01-23-42",
     "2026-09-05_01-37-35",
     "2026-09-05_01-51-15",
-    "2026-09-05_02-08-20"
+    "2026-09-05_02-08-20",
+    "2026-09-05_02-25-39"
   ]
 }
