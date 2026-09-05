@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T09:08:02.699168+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ZEREBROUSDT | Side: LONG | Score: 6.05
+   - Entry : 0.03828
+   - SL    : 0.03764
+   - TP    : 0.03926, 0.03952, 0.03974
+   - Invalidation: Close below 0.037635336 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: 币安人生USDT | Side: LONG | Score: 7.98
+   - Entry : 0.51166
+   - SL    : 0.47270
+   - TP    : 0.57009, 0.58567, 0.59931
+   - Invalidation: Close below 0.4727 / loss of recent 4h swing low / breakout invalid if price falls below 0.5075
+----------------------------------------

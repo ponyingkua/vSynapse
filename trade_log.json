@@ -410,6 +410,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.51166,
       "added_at": "2026-09-05T08:38:32.791925+00:00"
+    },
+    {
+      "id": "\u5e01\u5b89\u4eba\u751fUSDT_LONG_4h_2026-09-05_09-08-05",
+      "symbol": "\u5e01\u5b89\u4eba\u751fUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.51166,
+      "sl": 0.4727,
+      "tp": [
+        0.57009,
+        0.58567,
+        0.59931
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_09-08-05",
+      "first_seen": "2026-09-05T09:08:02.699168+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.98,
+      "stage1_score": 9.484,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.542,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.51166,
+      "added_at": "2026-09-05T09:08:02.699168+00:00"
     }
   ],
   "open": [
@@ -663,29 +692,6 @@
       "partial_check_done": true
     },
     {
-      "id": "RONINUSDT_SHORT_4h_2026-09-02_04-53-16",
-      "symbol": "RONINUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "CONTINUATION",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.05084,
-      "sl": 0.05294,
-      "tp": [
-        0.04769,
-        0.04612,
-        0.04454
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-02_04-53-16",
-      "first_seen": "2026-09-02T04:53:13.246139+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T08:00:00+00:00",
-      "partial_check_from": "2026-09-02T04:53:13.246139+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "1000PEPEUSDT_LONG_1h_2026-09-03_16-27-28",
       "symbol": "1000PEPEUSDT",
       "side": "LONG",
@@ -805,6 +811,37 @@
       "sl_after_tp1": 0.02353,
       "triggered_at": "2026-09-05T09:00:00+00:00",
       "partial_check_from": "2026-09-05T08:25:56.991564+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ZEREBROUSDT_LONG_1h_2026-09-05_09-08-05",
+      "symbol": "ZEREBROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.03828,
+      "sl": 0.03764,
+      "tp": [
+        0.03926,
+        0.03952,
+        0.03974
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_09-08-05",
+      "first_seen": "2026-09-05T09:08:02.699168+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 11.266,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.707,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03828,
+      "triggered_at": "2026-09-05T10:00:00+00:00",
+      "partial_check_from": "2026-09-05T09:08:02.699168+00:00",
       "partial_check_done": true
     }
   ],
@@ -24020,6 +24057,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-05T07:29:59.999000+00:00",
       "r_multiple": 2.25
+    },
+    {
+      "id": "RONINUSDT_SHORT_4h_2026-09-02_04-53-16",
+      "symbol": "RONINUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "CONTINUATION",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05084,
+      "sl": 0.05294,
+      "tp": [
+        0.04769,
+        0.04612,
+        0.04454
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-02_04-53-16",
+      "first_seen": "2026-09-02T04:53:13.246139+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T08:00:00+00:00",
+      "partial_check_from": "2026-09-02T04:53:13.246139+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.05294,
+      "tp_index": null,
+      "bar_time": 1788609599999,
+      "bars_held": 19,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T11:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -24449,6 +24518,7 @@
     "2026-09-05_08-09-00",
     "2026-09-05_08-26-00",
     "2026-09-05_08-38-34",
-    "2026-09-05_08-50-50"
+    "2026-09-05_08-50-50",
+    "2026-09-05_09-08-05"
   ]
 }
