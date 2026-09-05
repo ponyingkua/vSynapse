@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-05T18:09:00.859869+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PENGUUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.008678
+   - SL    : 0.008485
+   - TP    : 0.008968, 0.009046, 0.009113
+   - Invalidation: Close below 0.008485 / loss of recent 1h swing low
+----------------------------------------

@@ -838,37 +838,6 @@
       "partial_check_done": true
     },
     {
-      "id": "ZEREBROUSDT_LONG_1h_2026-09-05_09-08-05",
-      "symbol": "ZEREBROUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.03828,
-      "sl": 0.03764,
-      "tp": [
-        0.03926,
-        0.03952,
-        0.03974
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-05_09-08-05",
-      "first_seen": "2026-09-05T09:08:02.699168+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 11.266,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.707,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.03828,
-      "triggered_at": "2026-09-05T10:00:00+00:00",
-      "partial_check_from": "2026-09-05T09:08:02.699168+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "PYTHUSDT_LONG_15m_2026-09-05_13-07-51",
       "symbol": "PYTHUSDT",
       "side": "LONG",
@@ -897,6 +866,37 @@
       "sl_after_tp1": 0.05463,
       "added_at": "2026-09-05T13:07:49.315854+00:00",
       "triggered_at": "2026-09-05T14:15:00+00:00"
+    },
+    {
+      "id": "PENGUUSDT_LONG_1h_2026-09-05_18-09-02",
+      "symbol": "PENGUUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008678,
+      "sl": 0.008485,
+      "tp": [
+        0.008968,
+        0.009046,
+        0.009113
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-05_18-09-02",
+      "first_seen": "2026-09-05T18:09:00.859869+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 10.27,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.166,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008678,
+      "triggered_at": "2026-09-05T19:00:00+00:00",
+      "partial_check_from": "2026-09-05T18:09:00.859869+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -24274,6 +24274,46 @@
       "added_at": "2026-09-03T01:43:20.580741+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-05T13:50:55.947000+00:00"
+    },
+    {
+      "id": "ZEREBROUSDT_LONG_1h_2026-09-05_09-08-05",
+      "symbol": "ZEREBROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.03828,
+      "sl": 0.03764,
+      "tp": [
+        0.03926,
+        0.03952,
+        0.03974
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-05_09-08-05",
+      "first_seen": "2026-09-05T09:08:02.699168+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 11.266,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.707,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03828,
+      "triggered_at": "2026-09-05T10:00:00+00:00",
+      "partial_check_from": "2026-09-05T09:08:02.699168+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.03926,
+      "tp_index": 0,
+      "bar_time": 1788631199999,
+      "bars_held": 8,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-05T17:59:59.999000+00:00",
+      "r_multiple": 1.53
     }
   ],
   "ingested_runs": [
@@ -24739,6 +24779,7 @@
     "2026-09-05_17-08-00",
     "2026-09-05_17-23-05",
     "2026-09-05_17-36-10",
-    "2026-09-05_17-51-08"
+    "2026-09-05_17-51-08",
+    "2026-09-05_18-09-02"
   ]
 }
