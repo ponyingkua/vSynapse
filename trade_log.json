@@ -609,29 +609,6 @@
       "partial_check_done": true
     },
     {
-      "id": "JSTUSDT_LONG_4h_2026-09-01_20-25-54",
-      "symbol": "JSTUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.10263,
-      "sl": 0.09668,
-      "tp": [
-        0.11155,
-        0.11601,
-        0.12047
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_20-25-54",
-      "first_seen": "2026-09-01T20:25:51.490571+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T20:25:51.490571+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "HEIUSDT_LONG_4h_2026-09-01_22-24-46",
       "symbol": "HEIUSDT",
       "side": "LONG",
@@ -24772,6 +24749,38 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-06T07:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-01_20-25-54",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.10263,
+      "sl": 0.09668,
+      "tp": [
+        0.11155,
+        0.11601,
+        0.12047
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_20-25-54",
+      "first_seen": "2026-09-01T20:25:51.490571+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T20:25:51.490571+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.11155,
+      "tp_index": 0,
+      "bar_time": 1788695999999,
+      "bars_held": 27,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-06T11:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -25295,6 +25304,7 @@
     "2026-09-06_07-50-51",
     "2026-09-06_08-08-49",
     "2026-09-06_08-26-49",
-    "2026-09-06_08-40-16"
+    "2026-09-06_08-40-16",
+    "2026-09-06_08-52-21"
   ]
 }
