@@ -405,64 +405,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.19951,
       "added_at": "2026-09-06T16:26:22.709598+00:00"
-    },
-    {
-      "id": "XLMUSDT_LONG_15m_2026-09-06_21-23-59",
-      "symbol": "XLMUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.18535,
-      "sl": 0.18309,
-      "tp": [
-        0.18873,
-        0.18963,
-        0.19042
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_21-23-59",
-      "first_seen": "2026-09-06T21:23:57.455896+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.61,
-      "stage1_score": 13.9,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.198,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.18535,
-      "added_at": "2026-09-06T21:23:57.455896+00:00"
-    },
-    {
-      "id": "XLMUSDT_LONG_15m_2026-09-06_21-36-45",
-      "symbol": "XLMUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.18574,
-      "sl": 0.18309,
-      "tp": [
-        0.18971,
-        0.19077,
-        0.19169
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_21-36-45",
-      "first_seen": "2026-09-06T21:36:42.364874+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.03,
-      "stage1_score": 8.978,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.77,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.18574,
-      "added_at": "2026-09-06T21:36:42.364874+00:00"
     }
   ],
   "open": [
@@ -955,6 +897,66 @@
       "sl_after_tp1": 0.01395,
       "added_at": "2026-09-05T03:51:24.307724+00:00",
       "triggered_at": "2026-09-06T20:00:00+00:00"
+    },
+    {
+      "id": "XLMUSDT_LONG_15m_2026-09-06_21-23-59",
+      "symbol": "XLMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.18535,
+      "sl": 0.18309,
+      "tp": [
+        0.18873,
+        0.18963,
+        0.19042
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_21-23-59",
+      "first_seen": "2026-09-06T21:23:57.455896+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 13.9,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.198,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.18535,
+      "added_at": "2026-09-06T21:23:57.455896+00:00",
+      "triggered_at": "2026-09-06T22:00:00+00:00"
+    },
+    {
+      "id": "XLMUSDT_LONG_15m_2026-09-06_21-36-45",
+      "symbol": "XLMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.18574,
+      "sl": 0.18309,
+      "tp": [
+        0.18971,
+        0.19077,
+        0.19169
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_21-36-45",
+      "first_seen": "2026-09-06T21:36:42.364874+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 8.978,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.77,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.18574,
+      "added_at": "2026-09-06T21:36:42.364874+00:00",
+      "triggered_at": "2026-09-06T22:00:00+00:00"
     }
   ],
   "closed": [
@@ -25696,6 +25698,7 @@
     "2026-09-06_21-08-19",
     "2026-09-06_21-23-59",
     "2026-09-06_21-36-45",
-    "2026-09-06_21-51-25"
+    "2026-09-06_21-51-25",
+    "2026-09-06_22-08-04"
   ]
 }
