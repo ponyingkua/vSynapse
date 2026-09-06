@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T08:40:13.961487+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ZAMAUSDT | Side: LONG | Score: 6.7
+   - Entry : 0.05279
+   - SL    : 0.04995
+   - TP    : 0.05706, 0.05820, 0.05919
+   - Invalidation: Close below 0.04995 / loss of recent 1h swing low
+----------------------------------------
