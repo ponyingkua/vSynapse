@@ -521,6 +521,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02646,
       "added_at": "2026-09-06T02:25:42.504624+00:00"
+    },
+    {
+      "id": "MORPHOUSDT_LONG_15m_2026-09-06_04-39-43",
+      "symbol": "MORPHOUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 2.5363,
+      "sl": 2.5056,
+      "tp": [
+        2.5823,
+        2.5946,
+        2.6053
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-06_04-39-43",
+      "first_seen": "2026-09-06T04:39:41.281417+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.55,
+      "stage1_score": 14.3,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.82,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.5363,
+      "added_at": "2026-09-06T04:39:41.281417+00:00"
     }
   ],
   "open": [
@@ -25199,6 +25228,7 @@
     "2026-09-06_03-39-06",
     "2026-09-06_03-52-07",
     "2026-09-06_04-08-53",
-    "2026-09-06_04-26-06"
+    "2026-09-06_04-26-06",
+    "2026-09-06_04-39-43"
   ]
 }

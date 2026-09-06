@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T04:39:41.281417+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MORPHOUSDT | Side: LONG | Score: 6.55
+   - Entry : 2.5363
+   - SL    : 2.5056
+   - TP    : 2.5823, 2.5946, 2.6053
+   - Invalidation: Close below 2.5056359 / loss of recent 15m swing low
+----------------------------------------
