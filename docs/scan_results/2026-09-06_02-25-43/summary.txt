@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T02:25:42.504624+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: QUSDT | Side: LONG | Score: 6.95
+   - Entry : 0.02646
+   - SL    : 0.02567
+   - TP    : 0.02765, 0.02797, 0.02825
+   - Invalidation: Close below 0.025665 / loss of recent 15m swing low
+----------------------------------------
