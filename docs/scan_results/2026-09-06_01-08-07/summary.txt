@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T01:08:05.036528+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PENGUUSDT | Side: LONG | Score: 6.09
+   - Entry : 0.008704
+   - SL    : 0.008565
+   - TP    : 0.008913, 0.008969, 0.009018
+   - Invalidation: Close below 0.0085645566 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: POLUSDT | Side: LONG | Score: 7.26
+   - Entry : 0.09782
+   - SL    : 0.09450
+   - TP    : 0.10280, 0.10413, 0.10529
+   - Invalidation: Close below 0.0945 / loss of recent 1h swing low / breakout invalid if price falls below 0.09756
+----------------------------------------
