@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-06T16:38:48.711000+00:00",
-  "resolved_trades": 602,
-  "wins": 215,
+  "generated_at": "2026-09-06T16:50:46.468000+00:00",
+  "resolved_trades": 603,
+  "wins": 216,
   "losses": 385,
   "breakeven": 2,
-  "win_rate_pct": 35.7,
+  "win_rate_pct": 35.8,
   "avg_r_multiple": -0.07,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 102,
+      "wins": 103,
       "losses": 212,
       "breakeven": 0,
-      "win_rate_pct": 32.5
+      "win_rate_pct": 32.7
     },
     "BREAKDOWN": {
       "wins": 51,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 144,
+      "wins": 145,
       "losses": 272,
       "breakeven": 2,
-      "win_rate_pct": 34.4
+      "win_rate_pct": 34.6
     },
     "SHORT": {
       "wins": 71,
@@ -66,10 +66,10 @@
       "win_rate_pct": 31.4
     },
     "v2": {
-      "wins": 131,
+      "wins": 132,
       "losses": 215,
       "breakeven": 0,
-      "win_rate_pct": 37.9
+      "win_rate_pct": 38.0
     },
     "v3": {
       "wins": 34,
@@ -92,18 +92,18 @@
       "win_rate_pct": 35.5
     },
     "COUNTER": {
-      "wins": 60,
+      "wins": 61,
       "losses": 107,
       "breakeven": 0,
-      "win_rate_pct": 35.9
+      "win_rate_pct": 36.3
     }
   },
   "by_score_bucket": {
     "UNKNOWN": {
-      "wins": 204,
+      "wins": 205,
       "losses": 359,
       "breakeven": 0,
-      "win_rate_pct": 36.2
+      "win_rate_pct": 36.3
     },
     "6.0-6.9": {
       "wins": 10,
@@ -126,10 +126,10 @@
   },
   "by_btc_regime": {
     "UNKNOWN": {
-      "wins": 204,
+      "wins": 205,
       "losses": 359,
       "breakeven": 0,
-      "win_rate_pct": 36.2
+      "win_rate_pct": 36.3
     },
     "BULLISH": {
       "wins": 11,
@@ -140,15 +140,15 @@
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 215,
+      "wins": 216,
       "losses": 385,
       "breakeven": 2,
-      "win_rate_pct": 35.7
+      "win_rate_pct": 35.8
     }
   },
   "expired_unresolved": 92,
   "never_triggered": 112,
-  "currently_open": 14,
+  "currently_open": 13,
   "currently_pending": 20,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
