@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-06T03:39:07.360000+00:00",
-  "resolved_trades": 594,
-  "wins": 213,
+  "generated_at": "2026-09-06T03:52:08.263000+00:00",
+  "resolved_trades": 595,
+  "wins": 214,
   "losses": 380,
   "breakeven": 1,
-  "win_rate_pct": 35.9,
+  "win_rate_pct": 36.0,
   "avg_r_multiple": -0.07,
   "by_setup_style": {
     "BREAKOUT": {
@@ -26,10 +26,10 @@
       "win_rate_pct": 34.8
     },
     "PULLBACK": {
-      "wins": 43,
+      "wins": 44,
       "losses": 46,
       "breakeven": 0,
-      "win_rate_pct": 48.3
+      "win_rate_pct": 48.9
     },
     "CONTINUATION": {
       "wins": 10,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 142,
+      "wins": 143,
       "losses": 267,
       "breakeven": 1,
-      "win_rate_pct": 34.6
+      "win_rate_pct": 34.8
     },
     "SHORT": {
       "wins": 71,
@@ -72,10 +72,10 @@
       "win_rate_pct": 37.7
     },
     "v3": {
-      "wins": 33,
+      "wins": 34,
       "losses": 36,
       "breakeven": 1,
-      "win_rate_pct": 47.1
+      "win_rate_pct": 47.9
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 36.0
     },
     "ALIGNED": {
-      "wins": 112,
+      "wins": 113,
       "losses": 200,
       "breakeven": 1,
-      "win_rate_pct": 35.8
+      "win_rate_pct": 36.0
     },
     "COUNTER": {
       "wins": 60,
@@ -106,10 +106,10 @@
       "win_rate_pct": 36.1
     },
     "6.0-6.9": {
-      "wins": 9,
+      "wins": 10,
       "losses": 17,
       "breakeven": 1,
-      "win_rate_pct": 33.3
+      "win_rate_pct": 35.7
     },
     "8.0-8.9": {
       "wins": 1,
@@ -132,23 +132,23 @@
       "win_rate_pct": 36.1
     },
     "BULLISH": {
-      "wins": 10,
+      "wins": 11,
       "losses": 21,
       "breakeven": 1,
-      "win_rate_pct": 31.2
+      "win_rate_pct": 33.3
     }
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 213,
+      "wins": 214,
       "losses": 380,
       "breakeven": 1,
-      "win_rate_pct": 35.9
+      "win_rate_pct": 36.0
     }
   },
   "expired_unresolved": 91,
   "never_triggered": 112,
-  "currently_open": 14,
+  "currently_open": 13,
   "currently_pending": 19,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
