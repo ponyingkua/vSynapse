@@ -895,6 +895,37 @@
       "sl_after_tp1": 0.90221,
       "added_at": "2026-09-05T21:23:39.097408+00:00",
       "triggered_at": "2026-09-06T00:00:00+00:00"
+    },
+    {
+      "id": "PLUMEUSDT_LONG_1h_2026-09-06_04-08-53",
+      "symbol": "PLUMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01409,
+      "sl": 0.01369,
+      "tp": [
+        0.01468,
+        0.01484,
+        0.01498
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_04-08-53",
+      "first_seen": "2026-09-06T04:08:50.170736+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 11.862,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.579,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01409,
+      "triggered_at": "2026-09-06T05:00:00+00:00",
+      "partial_check_from": "2026-09-06T04:08:50.170736+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -25165,6 +25196,7 @@
     "2026-09-06_03-08-49",
     "2026-09-06_03-26-17",
     "2026-09-06_03-39-06",
-    "2026-09-06_03-52-07"
+    "2026-09-06_03-52-07",
+    "2026-09-06_04-08-53"
   ]
 }

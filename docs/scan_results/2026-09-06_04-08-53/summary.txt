@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T04:08:50.170736+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PLUMEUSDT | Side: LONG | Score: 6.07
+   - Entry : 0.01409
+   - SL    : 0.01369
+   - TP    : 0.01468, 0.01484, 0.01498
+   - Invalidation: Close below 0.01369 / loss of recent 1h swing low
+----------------------------------------
