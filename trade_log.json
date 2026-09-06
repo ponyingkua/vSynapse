@@ -405,6 +405,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.19951,
       "added_at": "2026-09-06T16:26:22.709598+00:00"
+    },
+    {
+      "id": "BTCUSDT_LONG_15m_2026-09-06_23-24-00",
+      "symbol": "BTCUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 80033.42,
+      "sl": 79600.0,
+      "tp": [
+        80683.54,
+        80856.9,
+        81008.6
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-06_23-24-00",
+      "first_seen": "2026-09-06T23:23:59.527297+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 14.42,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.542,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 80033.42,
+      "added_at": "2026-09-06T23:23:59.527297+00:00"
     }
   ],
   "open": [
@@ -25703,6 +25732,7 @@
     "2026-09-06_22-25-05",
     "2026-09-06_22-36-58",
     "2026-09-06_22-50-50",
-    "2026-09-06_23-07-18"
+    "2026-09-06_23-07-18",
+    "2026-09-06_23-24-00"
   ]
 }

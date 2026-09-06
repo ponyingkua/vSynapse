@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T23:23:59.527297+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BTCUSDT | Side: LONG | Score: 6.05
+   - Entry : 80033.42
+   - SL    : 79600.00
+   - TP    : 80683.54, 80856.90, 81008.60
+   - Invalidation: Close below 79600 / loss of recent 15m swing low / breakout invalid if price falls below 79997
+----------------------------------------
