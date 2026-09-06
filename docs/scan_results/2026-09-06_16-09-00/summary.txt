@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T16:08:58.803287+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: NILUSDT | Side: LONG | Score: 6.92
+   - Entry : 0.05152
+   - SL    : 0.05022
+   - TP    : 0.05347, 0.05399, 0.05445
+   - Invalidation: Close below 0.05022 / loss of recent 15m swing low
+----------------------------------------

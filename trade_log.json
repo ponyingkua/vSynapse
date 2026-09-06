@@ -521,6 +521,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 3.2186,
       "added_at": "2026-09-06T14:38:39.549752+00:00"
+    },
+    {
+      "id": "NILUSDT_LONG_15m_2026-09-06_16-09-00",
+      "symbol": "NILUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05152,
+      "sl": 0.05022,
+      "tp": [
+        0.05347,
+        0.05399,
+        0.05445
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_16-09-00",
+      "first_seen": "2026-09-06T16:08:58.803287+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.92,
+      "stage1_score": 16.77,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.82,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05152,
+      "added_at": "2026-09-06T16:08:58.803287+00:00"
     }
   ],
   "open": [
@@ -25523,6 +25552,7 @@
     "2026-09-06_15-08-16",
     "2026-09-06_15-25-00",
     "2026-09-06_15-38-00",
-    "2026-09-06_15-51-08"
+    "2026-09-06_15-51-08",
+    "2026-09-06_16-09-00"
   ]
 }
