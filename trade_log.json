@@ -291,35 +291,6 @@
       "added_at": "2026-09-05T11:08:06.815268+00:00"
     },
     {
-      "id": "ZAMAUSDT_LONG_1h_2026-09-06_08-40-16",
-      "symbol": "ZAMAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.05279,
-      "sl": 0.04995,
-      "tp": [
-        0.05706,
-        0.0582,
-        0.05919
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_08-40-16",
-      "first_seen": "2026-09-06T08:40:13.961487+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.7,
-      "stage1_score": 6.994,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.82,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.05279,
-      "added_at": "2026-09-06T08:40:13.961487+00:00"
-    },
-    {
       "id": "XVSUSDT_LONG_1h_2026-09-06_13-24-43",
       "symbol": "XVSUSDT",
       "side": "LONG",
@@ -25151,6 +25122,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-06T23:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "ZAMAUSDT_LONG_1h_2026-09-06_08-40-16",
+      "symbol": "ZAMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05279,
+      "sl": 0.04995,
+      "tp": [
+        0.05706,
+        0.0582,
+        0.05919
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_08-40-16",
+      "first_seen": "2026-09-06T08:40:13.961487+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.7,
+      "stage1_score": 6.994,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.82,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05279,
+      "added_at": "2026-09-06T08:40:13.961487+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-06T23:50:17.335000+00:00"
     }
   ],
   "ingested_runs": [
@@ -25734,6 +25736,7 @@
     "2026-09-06_22-50-50",
     "2026-09-06_23-07-18",
     "2026-09-06_23-24-00",
-    "2026-09-06_23-36-42"
+    "2026-09-06_23-36-42",
+    "2026-09-06_23-50-17"
   ]
 }
