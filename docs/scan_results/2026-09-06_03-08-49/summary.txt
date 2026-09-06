@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T03:08:48.103297+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: HOLOUSDT | Side: LONG | Score: 7.24
+   - Entry : 0.06635
+   - SL    : 0.06292
+   - TP    : 0.07150, 0.07288, 0.07408
+   - Invalidation: Close below 0.06292 / loss of recent 4h swing low / breakout invalid if price falls below 0.06598
+----------------------------------------
