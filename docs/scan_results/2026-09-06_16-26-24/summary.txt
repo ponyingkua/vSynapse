@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T16:26:22.709598+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: METUSDT | Side: LONG | Score: 6.43
+   - Entry : 0.19951
+   - SL    : 0.18670
+   - TP    : 0.21873, 0.22385, 0.22833
+   - Invalidation: Close below 0.1867 / loss of recent 4h swing low
+----------------------------------------

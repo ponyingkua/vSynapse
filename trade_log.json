@@ -550,6 +550,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05152,
       "added_at": "2026-09-06T16:08:58.803287+00:00"
+    },
+    {
+      "id": "METUSDT_LONG_4h_2026-09-06_16-26-24",
+      "symbol": "METUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.19951,
+      "sl": 0.1867,
+      "tp": [
+        0.21873,
+        0.22385,
+        0.22833
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_16-26-24",
+      "first_seen": "2026-09-06T16:26:22.709598+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.43,
+      "stage1_score": 8.867,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.432,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.19951,
+      "added_at": "2026-09-06T16:26:22.709598+00:00"
     }
   ],
   "open": [
@@ -25553,6 +25582,7 @@
     "2026-09-06_15-25-00",
     "2026-09-06_15-38-00",
     "2026-09-06_15-51-08",
-    "2026-09-06_16-09-00"
+    "2026-09-06_16-09-00",
+    "2026-09-06_16-26-24"
   ]
 }
