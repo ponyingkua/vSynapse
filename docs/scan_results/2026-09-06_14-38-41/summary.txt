@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T14:38:39.549752+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: XVSUSDT | Side: LONG | Score: 6.5
+   - Entry : 3.2186
+   - SL    : 3.1270
+   - TP    : 3.3560, 3.3926, 3.4247
+   - Invalidation: Close below 3.127 / loss of recent 1h swing low
+----------------------------------------
