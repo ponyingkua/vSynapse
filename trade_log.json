@@ -434,6 +434,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.18535,
       "added_at": "2026-09-06T21:23:57.455896+00:00"
+    },
+    {
+      "id": "XLMUSDT_LONG_15m_2026-09-06_21-36-45",
+      "symbol": "XLMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.18574,
+      "sl": 0.18309,
+      "tp": [
+        0.18971,
+        0.19077,
+        0.19169
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_21-36-45",
+      "first_seen": "2026-09-06T21:36:42.364874+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 8.978,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.77,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.18574,
+      "added_at": "2026-09-06T21:36:42.364874+00:00"
     }
   ],
   "open": [
@@ -479,52 +508,6 @@
       "config_version": "v1",
       "triggered_at": "2026-09-01T08:00:00+00:00",
       "partial_check_from": "2026-09-01T04:52:09.334434+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "WALUSDT_LONG_4h_2026-09-01_20-09-12",
-      "symbol": "WALUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.02565,
-      "sl": 0.02396,
-      "tp": [
-        0.02819,
-        0.02945,
-        0.03072
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_20-09-12",
-      "first_seen": "2026-09-01T20:09:08.686361+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T20:09:08.686361+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "WALUSDT_LONG_4h_2026-09-01_20-25-54",
-      "symbol": "WALUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.02567,
-      "sl": 0.02396,
-      "tp": [
-        0.02823,
-        0.02952,
-        0.0308
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-01_20-25-54",
-      "first_seen": "2026-09-01T20:25:51.490571+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v2",
-      "triggered_at": "2026-09-02T00:00:00+00:00",
-      "partial_check_from": "2026-09-01T20:25:51.490571+00:00",
       "partial_check_done": true
     },
     {
@@ -25073,6 +25056,70 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-06T19:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "WALUSDT_LONG_4h_2026-09-01_20-09-12",
+      "symbol": "WALUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02565,
+      "sl": 0.02396,
+      "tp": [
+        0.02819,
+        0.02945,
+        0.03072
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_20-09-12",
+      "first_seen": "2026-09-01T20:09:08.686361+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T20:09:08.686361+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.02819,
+      "tp_index": 0,
+      "bar_time": 1788739199999,
+      "bars_held": 30,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-06T23:59:59.999000+00:00",
+      "r_multiple": 1.5
+    },
+    {
+      "id": "WALUSDT_LONG_4h_2026-09-01_20-25-54",
+      "symbol": "WALUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02567,
+      "sl": 0.02396,
+      "tp": [
+        0.02823,
+        0.02952,
+        0.0308
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-01_20-25-54",
+      "first_seen": "2026-09-01T20:25:51.490571+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v2",
+      "triggered_at": "2026-09-02T00:00:00+00:00",
+      "partial_check_from": "2026-09-01T20:25:51.490571+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.02823,
+      "tp_index": 0,
+      "bar_time": 1788739199999,
+      "bars_held": 30,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-06T23:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -25647,6 +25694,7 @@
     "2026-09-06_20-38-29",
     "2026-09-06_20-51-57",
     "2026-09-06_21-08-19",
-    "2026-09-06_21-23-59"
+    "2026-09-06_21-23-59",
+    "2026-09-06_21-36-45"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-06T21:36:42.364874+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: XLMUSDT | Side: LONG | Score: 6.03
+   - Entry : 0.18574
+   - SL    : 0.18309
+   - TP    : 0.18971, 0.19077, 0.19169
+   - Invalidation: Close below 0.18309 / loss of recent 15m swing low / breakout invalid if price falls below 0.18557
+----------------------------------------
