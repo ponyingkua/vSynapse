@@ -494,35 +494,6 @@
       "added_at": "2026-09-06T01:08:05.036528+00:00"
     },
     {
-      "id": "QUSDT_LONG_15m_2026-09-06_02-25-43",
-      "symbol": "QUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.02646,
-      "sl": 0.02567,
-      "tp": [
-        0.02765,
-        0.02797,
-        0.02825
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_02-25-43",
-      "first_seen": "2026-09-06T02:25:42.504624+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.95,
-      "stage1_score": 31.917,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 6.956,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02646,
-      "added_at": "2026-09-06T02:25:42.504624+00:00"
-    },
-    {
       "id": "MORPHOUSDT_LONG_15m_2026-09-06_04-39-43",
       "symbol": "MORPHOUSDT",
       "side": "LONG",
@@ -956,6 +927,36 @@
       "sl_after_tp1": 0.06635,
       "added_at": "2026-09-06T03:08:48.103297+00:00",
       "triggered_at": "2026-09-06T04:00:00+00:00"
+    },
+    {
+      "id": "QUSDT_LONG_15m_2026-09-06_02-25-43",
+      "symbol": "QUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02646,
+      "sl": 0.02567,
+      "tp": [
+        0.02765,
+        0.02797,
+        0.02825
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_02-25-43",
+      "first_seen": "2026-09-06T02:25:42.504624+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.95,
+      "stage1_score": 31.917,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.956,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02646,
+      "added_at": "2026-09-06T02:25:42.504624+00:00",
+      "triggered_at": "2026-09-06T04:45:00+00:00"
     }
   ],
   "closed": [
@@ -25230,6 +25231,7 @@
     "2026-09-06_04-08-53",
     "2026-09-06_04-26-06",
     "2026-09-06_04-39-43",
-    "2026-09-06_04-51-38"
+    "2026-09-06_04-51-38",
+    "2026-09-06_05-07-46"
   ]
 }
