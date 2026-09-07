@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T10:09:54.530477+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: AKEUSDT | Side: LONG | Score: 6.0
+   - Entry : 0.01551
+   - SL    : 0.01468
+   - TP    : 0.01675, 0.01708, 0.01737
+   - Invalidation: Close below 0.014684548 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: CCUSDT | Side: SHORT | Score: 6.41
+   - Entry : 0.10829
+   - SL    : 0.11000
+   - TP    : 0.10572, 0.10504, 0.10444
+   - Invalidation: Close above 0.11 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.10847
+----------------------------------------
