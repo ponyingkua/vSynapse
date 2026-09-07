@@ -461,36 +461,6 @@
       "partial_check_done": true
     },
     {
-      "id": "ONTUSDT_LONG_15m_2026-09-07_09-11-20",
-      "symbol": "ONTUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.05661,
-      "sl": 0.05591,
-      "tp": [
-        0.05766,
-        0.05794,
-        0.05819
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-07_09-11-20",
-      "first_seen": "2026-09-07T09:11:18.337611+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.16,
-      "stage1_score": 12.661,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.926,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.05661,
-      "added_at": "2026-09-07T09:11:18.337611+00:00",
-      "triggered_at": "2026-09-07T09:15:00+00:00"
-    },
-    {
       "id": "SKRUSDT_LONG_15m_2026-09-07_14-09-12",
       "symbol": "SKRUSDT",
       "side": "LONG",
@@ -909,6 +879,37 @@
       "sl_after_tp1": 17.28,
       "added_at": "2026-09-07T14:09:09.425975+00:00",
       "triggered_at": "2026-09-07T15:00:00+00:00"
+    },
+    {
+      "id": "ACEUSDT_LONG_1h_2026-09-07_16-09-01",
+      "symbol": "ACEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.17404,
+      "sl": 0.16331,
+      "tp": [
+        0.19013,
+        0.19442,
+        0.19818
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_16-09-01",
+      "first_seen": "2026-09-07T16:08:58.977832+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.98,
+      "stage1_score": 26.918,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.612,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.17404,
+      "triggered_at": "2026-09-07T17:00:00+00:00",
+      "partial_check_from": "2026-09-07T16:08:58.977832+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -26315,6 +26316,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-07T15:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "ONTUSDT_LONG_15m_2026-09-07_09-11-20",
+      "symbol": "ONTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05661,
+      "sl": 0.05591,
+      "tp": [
+        0.05766,
+        0.05794,
+        0.05819
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_09-11-20",
+      "first_seen": "2026-09-07T09:11:18.337611+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.16,
+      "stage1_score": 12.661,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.926,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05661,
+      "added_at": "2026-09-07T09:11:18.337611+00:00",
+      "triggered_at": "2026-09-07T09:15:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.05591,
+      "tp_index": null,
+      "bar_time": 1788796799999,
+      "bars_held": 27,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T15:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -26960,6 +27000,7 @@
     "2026-09-07_15-08-55",
     "2026-09-07_15-27-34",
     "2026-09-07_15-41-13",
-    "2026-09-07_15-53-42"
+    "2026-09-07_15-53-42",
+    "2026-09-07_16-09-01"
   ]
 }
