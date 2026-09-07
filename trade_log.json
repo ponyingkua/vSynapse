@@ -376,35 +376,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01401,
       "added_at": "2026-09-07T05:54:23.298625+00:00"
-    },
-    {
-      "id": "VVVUSDT_LONG_1h_2026-09-07_06-11-23",
-      "symbol": "VVVUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 17.253,
-      "sl": 16.933,
-      "tp": [
-        17.734,
-        17.862,
-        17.974
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-07_06-11-23",
-      "first_seen": "2026-09-07T06:11:21.445235+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.32,
-      "stage1_score": 22.252,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.974,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 17.253,
-      "added_at": "2026-09-07T06:11:21.445235+00:00"
     }
   ],
   "open": [
@@ -965,6 +936,36 @@
       "triggered_at": "2026-09-07T06:00:00+00:00",
       "partial_check_from": "2026-09-07T05:26:31.937362+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "VVVUSDT_LONG_1h_2026-09-07_06-11-23",
+      "symbol": "VVVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 17.253,
+      "sl": 16.933,
+      "tp": [
+        17.734,
+        17.862,
+        17.974
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-07_06-11-23",
+      "first_seen": "2026-09-07T06:11:21.445235+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.32,
+      "stage1_score": 22.252,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.974,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 17.253,
+      "added_at": "2026-09-07T06:11:21.445235+00:00",
+      "triggered_at": "2026-09-07T07:00:00+00:00"
     }
   ],
   "closed": [
@@ -26163,6 +26164,7 @@
     "2026-09-07_05-54-25",
     "2026-09-07_06-11-23",
     "2026-09-07_06-35-21",
-    "2026-09-07_06-58-10"
+    "2026-09-07_06-58-10",
+    "2026-09-07_07-13-07"
   ]
 }
