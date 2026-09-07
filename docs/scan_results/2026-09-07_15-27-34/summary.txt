@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T15:27:32.844140+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SKRUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.02144
+   - SL    : 0.01978
+   - TP    : 0.02394, 0.02461, 0.02519
+   - Invalidation: Close below 0.01978 / loss of recent 1h swing low / breakout invalid if price falls below 0.021292
+----------------------------------------
