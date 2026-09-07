@@ -233,35 +233,6 @@
       "added_at": "2026-09-05T11:08:06.815268+00:00"
     },
     {
-      "id": "METUSDT_LONG_4h_2026-09-06_16-26-24",
-      "symbol": "METUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.19951,
-      "sl": 0.1867,
-      "tp": [
-        0.21873,
-        0.22385,
-        0.22833
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_16-26-24",
-      "first_seen": "2026-09-06T16:26:22.709598+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.43,
-      "stage1_score": 8.867,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.432,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.19951,
-      "added_at": "2026-09-06T16:26:22.709598+00:00"
-    },
-    {
       "id": "XLMUSDT_LONG_1h_2026-09-07_03-08-49",
       "symbol": "XLMUSDT",
       "side": "LONG",
@@ -492,35 +463,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 17.403,
       "added_at": "2026-09-07T13:44:33.647642+00:00"
-    },
-    {
-      "id": "SKRUSDT_LONG_15m_2026-09-07_14-09-12",
-      "symbol": "SKRUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02155,
-      "sl": 0.02045,
-      "tp": [
-        0.0232,
-        0.02364,
-        0.02403
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-07_14-09-12",
-      "first_seen": "2026-09-07T14:09:09.425975+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.04,
-      "stage1_score": 16.748,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 1.883,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02155,
-      "added_at": "2026-09-07T14:09:09.425975+00:00"
     },
     {
       "id": "VVVUSDT_LONG_1h_2026-09-07_14-09-12",
@@ -1019,6 +961,36 @@
       "sl_after_tp1": 6.1003,
       "added_at": "2026-09-07T13:29:42.306577+00:00",
       "triggered_at": "2026-09-07T14:00:00+00:00"
+    },
+    {
+      "id": "SKRUSDT_LONG_15m_2026-09-07_14-09-12",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02155,
+      "sl": 0.02045,
+      "tp": [
+        0.0232,
+        0.02364,
+        0.02403
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_14-09-12",
+      "first_seen": "2026-09-07T14:09:09.425975+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.04,
+      "stage1_score": 16.748,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.883,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02155,
+      "added_at": "2026-09-07T14:09:09.425975+00:00",
+      "triggered_at": "2026-09-07T14:15:00+00:00"
     }
   ],
   "closed": [
@@ -26111,6 +26083,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-07T14:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "METUSDT_LONG_4h_2026-09-06_16-26-24",
+      "symbol": "METUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.19951,
+      "sl": 0.1867,
+      "tp": [
+        0.21873,
+        0.22385,
+        0.22833
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_16-26-24",
+      "first_seen": "2026-09-06T16:26:22.709598+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.43,
+      "stage1_score": 8.867,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.432,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.19951,
+      "added_at": "2026-09-06T16:26:22.709598+00:00",
+      "triggered_at": "2026-09-07T12:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.22833,
+      "tp_index": 2,
+      "bar_time": 1788796799999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T15:59:59.999000+00:00",
+      "r_multiple": 2.25
     }
   ],
   "ingested_runs": [
@@ -26749,6 +26760,7 @@
     "2026-09-07_13-29-44",
     "2026-09-07_13-44-36",
     "2026-09-07_13-56-33",
-    "2026-09-07_14-09-12"
+    "2026-09-07_14-09-12",
+    "2026-09-07_14-27-50"
   ]
 }
