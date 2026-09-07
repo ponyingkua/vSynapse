@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.11935,
       "added_at": "2026-09-07T19:25:14.136946+00:00"
+    },
+    {
+      "id": "BRUSDT_LONG_1h_2026-09-07_20-09-05",
+      "symbol": "BRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.26302,
+      "sl": 0.25003,
+      "tp": [
+        0.28249,
+        0.28769,
+        0.29223
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_20-09-05",
+      "first_seen": "2026-09-07T20:09:04.174826+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.6,
+      "stage1_score": 16.868,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.574,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.26302,
+      "added_at": "2026-09-07T20:09:04.174826+00:00"
     }
   ],
   "open": [
@@ -27074,6 +27103,7 @@
     "2026-09-07_19-08-35",
     "2026-09-07_19-25-16",
     "2026-09-07_19-38-03",
-    "2026-09-07_19-51-34"
+    "2026-09-07_19-51-34",
+    "2026-09-07_20-09-05"
   ]
 }
