@@ -434,6 +434,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01478,
       "added_at": "2026-09-07T12:33:48.759615+00:00"
+    },
+    {
+      "id": "CETUSUSDT_LONG_15m_2026-09-07_13-10-30",
+      "symbol": "CETUSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02351,
+      "sl": 0.02318,
+      "tp": [
+        0.02402,
+        0.02415,
+        0.02427
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_13-10-30",
+      "first_seen": "2026-09-07T13:10:28.779771+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 16.834,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.452,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02351,
+      "added_at": "2026-09-07T13:10:28.779771+00:00"
     }
   ],
   "open": [
@@ -26500,6 +26529,7 @@
     "2026-09-07_11-53-37",
     "2026-09-07_12-11-19",
     "2026-09-07_12-33-50",
-    "2026-09-07_12-56-28"
+    "2026-09-07_12-56-28",
+    "2026-09-07_13-10-30"
   ]
 }
