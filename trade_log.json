@@ -233,35 +233,6 @@
       "added_at": "2026-09-05T11:08:06.815268+00:00"
     },
     {
-      "id": "XVSUSDT_LONG_1h_2026-09-06_13-24-43",
-      "symbol": "XVSUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 3.2123,
-      "sl": 3.127,
-      "tp": [
-        3.3403,
-        3.3744,
-        3.4043
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-06_13-24-43",
-      "first_seen": "2026-09-06T13:24:40.327790+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.27,
-      "stage1_score": 14.363,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.704,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 3.2123,
-      "added_at": "2026-09-06T13:24:40.327790+00:00"
-    },
-    {
       "id": "XVSUSDT_LONG_1h_2026-09-06_14-38-41",
       "symbol": "XVSUSDT",
       "side": "LONG",
@@ -318,35 +289,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.19951,
       "added_at": "2026-09-06T16:26:22.709598+00:00"
-    },
-    {
-      "id": "ALICEUSDT_LONG_1h_2026-09-07_02-26-57",
-      "symbol": "ALICEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.14028,
-      "sl": 0.1379,
-      "tp": [
-        0.14386,
-        0.14481,
-        0.14565
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-07_02-26-57",
-      "first_seen": "2026-09-07T02:26:55.438625+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.51,
-      "stage1_score": 7.069,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.214,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.14028,
-      "added_at": "2026-09-07T02:26:55.438625+00:00"
     },
     {
       "id": "XLMUSDT_LONG_1h_2026-09-07_03-08-49",
@@ -935,6 +877,36 @@
       "triggered_at": "2026-09-07T05:00:00+00:00",
       "partial_check_from": "2026-09-07T04:08:26.205282+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "ALICEUSDT_LONG_1h_2026-09-07_02-26-57",
+      "symbol": "ALICEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14028,
+      "sl": 0.1379,
+      "tp": [
+        0.14386,
+        0.14481,
+        0.14565
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_02-26-57",
+      "first_seen": "2026-09-07T02:26:55.438625+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 7.069,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.214,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14028,
+      "added_at": "2026-09-07T02:26:55.438625+00:00",
+      "triggered_at": "2026-09-07T04:00:00+00:00"
     }
   ],
   "closed": [
@@ -25381,6 +25353,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-07T03:44:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "XVSUSDT_LONG_1h_2026-09-06_13-24-43",
+      "symbol": "XVSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 3.2123,
+      "sl": 3.127,
+      "tp": [
+        3.3403,
+        3.3744,
+        3.4043
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-06_13-24-43",
+      "first_seen": "2026-09-06T13:24:40.327790+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 14.363,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.704,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 3.2123,
+      "added_at": "2026-09-06T13:24:40.327790+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-07T04:27:22.157000+00:00"
     }
   ],
   "ingested_runs": [
@@ -25981,6 +25984,7 @@
     "2026-09-07_03-27-48",
     "2026-09-07_03-42-37",
     "2026-09-07_03-54-56",
-    "2026-09-07_04-08-27"
+    "2026-09-07_04-08-27",
+    "2026-09-07_04-27-22"
   ]
 }
