@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T14:09:09.425975+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: SKRUSDT | Side: LONG | Score: 6.04
+   - Entry : 0.02155
+   - SL    : 0.02045
+   - TP    : 0.02320, 0.02364, 0.02403
+   - Invalidation: Close below 0.020446 / loss of recent 15m swing low / breakout invalid if price falls below 0.021458
+----------------------------------------
+2. Symbol: VVVUSDT | Side: LONG | Score: 6.43
+   - Entry : 17.280
+   - SL    : 16.921
+   - TP    : 17.819, 17.963, 18.088
+   - Invalidation: Close below 16.921 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: ENSOUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.88843
+   - SL    : 0.87000
+   - TP    : 0.91608, 0.92346, 0.92991
+   - Invalidation: Close below 0.87 / loss of recent 1h swing low
+----------------------------------------
