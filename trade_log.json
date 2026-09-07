@@ -260,35 +260,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.26302,
       "added_at": "2026-09-07T20:52:06.737301+00:00"
-    },
-    {
-      "id": "AKEUSDT_LONG_15m_2026-09-07_20-52-08",
-      "symbol": "AKEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0168,
-      "sl": 0.01583,
-      "tp": [
-        0.01824,
-        0.01863,
-        0.01897
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-07_20-52-08",
-      "first_seen": "2026-09-07T20:52:06.737301+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.6,
-      "stage1_score": 44.453,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 20.133,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0168,
-      "added_at": "2026-09-07T20:52:06.737301+00:00"
     }
   ],
   "open": [
@@ -907,6 +878,36 @@
       "sl_after_tp1": 0.11935,
       "added_at": "2026-09-07T19:25:14.136946+00:00",
       "triggered_at": "2026-09-07T20:15:00+00:00"
+    },
+    {
+      "id": "AKEUSDT_LONG_15m_2026-09-07_20-52-08",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0168,
+      "sl": 0.01583,
+      "tp": [
+        0.01824,
+        0.01863,
+        0.01897
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_20-52-08",
+      "first_seen": "2026-09-07T20:52:06.737301+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 44.453,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 20.133,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0168,
+      "added_at": "2026-09-07T20:52:06.737301+00:00",
+      "triggered_at": "2026-09-07T21:15:00+00:00"
     }
   ],
   "closed": [
@@ -27230,6 +27231,7 @@
     "2026-09-07_20-40-23",
     "2026-09-07_20-52-08",
     "2026-09-07_21-08-25",
-    "2026-09-07_21-26-23"
+    "2026-09-07_21-26-23",
+    "2026-09-07_21-39-21"
   ]
 }
