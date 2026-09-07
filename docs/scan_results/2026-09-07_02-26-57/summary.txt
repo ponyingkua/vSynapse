@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T02:26:55.438625+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ALICEUSDT | Side: LONG | Score: 6.51
+   - Entry : 0.14028
+   - SL    : 0.13790
+   - TP    : 0.14386, 0.14481, 0.14565
+   - Invalidation: Close below 0.1379 / loss of recent 1h swing low / breakout invalid if price falls below 0.14
+----------------------------------------
+2. Symbol: QUSDT | Side: LONG | Score: 7.35
+   - Entry : 0.02721
+   - SL    : 0.02658
+   - TP    : 0.02816, 0.02842, 0.02864
+   - Invalidation: Close below 0.026575 / loss of recent 15m swing low
+----------------------------------------
