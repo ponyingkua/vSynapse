@@ -876,36 +876,6 @@
       "triggered_at": "2026-09-06T20:00:00+00:00"
     },
     {
-      "id": "BTCUSDT_LONG_15m_2026-09-06_23-24-00",
-      "symbol": "BTCUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 80033.42,
-      "sl": 79600.0,
-      "tp": [
-        80683.54,
-        80856.9,
-        81008.6
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-06_23-24-00",
-      "first_seen": "2026-09-06T23:23:59.527297+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 14.42,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.542,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 80033.42,
-      "added_at": "2026-09-06T23:23:59.527297+00:00",
-      "triggered_at": "2026-09-07T00:15:00+00:00"
-    },
-    {
       "id": "QUSDT_LONG_15m_2026-09-07_02-26-57",
       "symbol": "QUSDT",
       "side": "LONG",
@@ -25341,6 +25311,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-07T03:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BTCUSDT_LONG_15m_2026-09-06_23-24-00",
+      "symbol": "BTCUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 80033.42,
+      "sl": 79600.0,
+      "tp": [
+        80683.54,
+        80856.9,
+        81008.6
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-06_23-24-00",
+      "first_seen": "2026-09-06T23:23:59.527297+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 14.42,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.542,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 80033.42,
+      "added_at": "2026-09-06T23:23:59.527297+00:00",
+      "triggered_at": "2026-09-07T00:15:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 79600.0,
+      "tp_index": null,
+      "bar_time": 1788752699999,
+      "bars_held": 14,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T03:44:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -25938,6 +25947,7 @@
     "2026-09-07_02-40-19",
     "2026-09-07_02-53-09",
     "2026-09-07_03-08-49",
-    "2026-09-07_03-27-48"
+    "2026-09-07_03-27-48",
+    "2026-09-07_03-42-37"
   ]
 }

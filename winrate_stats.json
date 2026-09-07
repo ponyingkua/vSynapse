@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-07T03:27:49.658000+00:00",
-  "resolved_trades": 609,
+  "generated_at": "2026-09-07T03:42:38.278000+00:00",
+  "resolved_trades": 610,
   "wins": 220,
-  "losses": 387,
+  "losses": 388,
   "breakeven": 2,
   "win_rate_pct": 36.1,
   "avg_r_multiple": -0.06,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 107,
-      "losses": 212,
+      "losses": 213,
       "breakeven": 0,
-      "win_rate_pct": 33.5
+      "win_rate_pct": 33.4
     },
     "BREAKDOWN": {
       "wins": 51,
@@ -41,9 +41,9 @@
   "by_side": {
     "LONG": {
       "wins": 149,
-      "losses": 274,
+      "losses": 275,
       "breakeven": 2,
-      "win_rate_pct": 35.1
+      "win_rate_pct": 35.0
     },
     "SHORT": {
       "wins": 71,
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 36,
-      "losses": 42,
+      "losses": 43,
       "breakeven": 2,
-      "win_rate_pct": 45.0
+      "win_rate_pct": 44.4
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 116,
-      "losses": 207,
+      "losses": 208,
       "breakeven": 2,
-      "win_rate_pct": 35.7
+      "win_rate_pct": 35.6
     },
     "COUNTER": {
       "wins": 63,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 12,
-      "losses": 23,
+      "losses": 24,
       "breakeven": 2,
-      "win_rate_pct": 32.4
+      "win_rate_pct": 31.6
     },
     "8.0-8.9": {
       "wins": 1,
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 13,
-      "losses": 27,
+      "losses": 28,
       "breakeven": 2,
-      "win_rate_pct": 31.0
+      "win_rate_pct": 30.2
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 220,
-      "losses": 387,
+      "losses": 388,
       "breakeven": 2,
       "win_rate_pct": 36.1
     }
   },
   "expired_unresolved": 92,
   "never_triggered": 115,
-  "currently_open": 18,
+  "currently_open": 17,
   "currently_pending": 14,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
