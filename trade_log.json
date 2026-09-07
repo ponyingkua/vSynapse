@@ -378,33 +378,62 @@
       "added_at": "2026-09-07T10:09:54.530477+00:00"
     },
     {
-      "id": "4USDT_LONG_15m_2026-09-07_11-09-08",
-      "symbol": "4USDT",
+      "id": "PUMPUSDT_LONG_1h_2026-09-07_12-11-19",
+      "symbol": "PUMPUSDT",
       "side": "LONG",
-      "execution_tf": "15m",
+      "execution_tf": "1h",
       "setup_style": "BREAKOUT",
       "entry_state": "WAITING_RETEST",
-      "entry": 0.02548,
-      "sl": 0.02401,
+      "entry": 0.004272,
+      "sl": 0.003992,
       "tp": [
-        0.02769,
-        0.02828,
-        0.0288
+        0.004692,
+        0.004803,
+        0.004901
       ],
-      "decimals": 5,
-      "run_id": "2026-09-07_11-09-08",
-      "first_seen": "2026-09-07T11:09:06.654690+00:00",
+      "decimals": 6,
+      "run_id": "2026-09-07_12-11-19",
+      "first_seen": "2026-09-07T12:11:17.401809+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.88,
-      "stage1_score": 39.011,
+      "score": 7.56,
+      "stage1_score": 13.462,
       "btc_regime": "BULLISH",
       "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 7.696,
+      "tf_agreement": 3,
+      "momentum_15m": 2.516,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02548,
-      "added_at": "2026-09-07T11:09:06.654690+00:00"
+      "sl_after_tp1": 0.004272,
+      "added_at": "2026-09-07T12:11:17.401809+00:00"
+    },
+    {
+      "id": "KOMAUSDT_LONG_1h_2026-09-07_12-11-19",
+      "symbol": "KOMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01478,
+      "sl": 0.01393,
+      "tp": [
+        0.01606,
+        0.0164,
+        0.0167
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_12-11-19",
+      "first_seen": "2026-09-07T12:11:17.401809+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.31,
+      "stage1_score": 22.099,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.215,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01478,
+      "added_at": "2026-09-07T12:11:17.401809+00:00"
     }
   ],
   "open": [
@@ -755,6 +784,36 @@
       "sl_after_tp1": 0.05661,
       "added_at": "2026-09-07T09:11:18.337611+00:00",
       "triggered_at": "2026-09-07T09:15:00+00:00"
+    },
+    {
+      "id": "4USDT_LONG_15m_2026-09-07_11-09-08",
+      "symbol": "4USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02548,
+      "sl": 0.02401,
+      "tp": [
+        0.02769,
+        0.02828,
+        0.0288
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_11-09-08",
+      "first_seen": "2026-09-07T11:09:06.654690+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 39.011,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 7.696,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02548,
+      "added_at": "2026-09-07T11:09:06.654690+00:00",
+      "triggered_at": "2026-09-07T11:45:00+00:00"
     }
   ],
   "closed": [
@@ -26399,6 +26458,7 @@
     "2026-09-07_11-09-08",
     "2026-09-07_11-27-43",
     "2026-09-07_11-42-00",
-    "2026-09-07_11-53-37"
+    "2026-09-07_11-53-37",
+    "2026-09-07_12-11-19"
   ]
 }
