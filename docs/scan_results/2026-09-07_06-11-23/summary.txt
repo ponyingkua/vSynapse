@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T06:11:21.445235+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: VVVUSDT | Side: LONG | Score: 6.32
+   - Entry : 17.253
+   - SL    : 16.933
+   - TP    : 17.734, 17.862, 17.974
+   - Invalidation: Close below 16.933 / loss of recent 1h swing low
+----------------------------------------
