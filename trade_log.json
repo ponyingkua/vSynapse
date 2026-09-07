@@ -904,6 +904,37 @@
       "sl_after_tp1": 0.02721,
       "added_at": "2026-09-07T02:26:55.438625+00:00",
       "triggered_at": "2026-09-07T03:00:00+00:00"
+    },
+    {
+      "id": "AGTUSDT_LONG_1h_2026-09-07_04-08-27",
+      "symbol": "AGTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01626,
+      "sl": 0.01579,
+      "tp": [
+        0.01697,
+        0.01715,
+        0.01732
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_04-08-27",
+      "first_seen": "2026-09-07T04:08:26.205282+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.68,
+      "stage1_score": 32.03,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.003,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01626,
+      "triggered_at": "2026-09-07T05:00:00+00:00",
+      "partial_check_from": "2026-09-07T04:08:26.205282+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -25949,6 +25980,7 @@
     "2026-09-07_03-08-49",
     "2026-09-07_03-27-48",
     "2026-09-07_03-42-37",
-    "2026-09-07_03-54-56"
+    "2026-09-07_03-54-56",
+    "2026-09-07_04-08-27"
   ]
 }
