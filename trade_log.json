@@ -878,36 +878,6 @@
       "sl_after_tp1": 0.14028,
       "added_at": "2026-09-07T02:26:55.438625+00:00",
       "triggered_at": "2026-09-07T04:00:00+00:00"
-    },
-    {
-      "id": "CVXUSDT_LONG_1h_2026-09-07_03-08-49",
-      "symbol": "CVXUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 2.3378,
-      "sl": 2.2941,
-      "tp": [
-        2.4035,
-        2.421,
-        2.4364
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-07_03-08-49",
-      "first_seen": "2026-09-07T03:08:44.486682+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.04,
-      "stage1_score": 11.042,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.077,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.3378,
-      "added_at": "2026-09-07T03:08:44.486682+00:00",
-      "triggered_at": "2026-09-07T04:00:00+00:00"
     }
   ],
   "closed": [
@@ -25385,6 +25355,46 @@
       "added_at": "2026-09-06T13:24:40.327790+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-07T04:27:22.157000+00:00"
+    },
+    {
+      "id": "CVXUSDT_LONG_1h_2026-09-07_03-08-49",
+      "symbol": "CVXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 2.3378,
+      "sl": 2.2941,
+      "tp": [
+        2.4035,
+        2.421,
+        2.4364
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-07_03-08-49",
+      "first_seen": "2026-09-07T03:08:44.486682+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.04,
+      "stage1_score": 11.042,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.077,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.3378,
+      "added_at": "2026-09-07T03:08:44.486682+00:00",
+      "triggered_at": "2026-09-07T04:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 2.2941,
+      "tp_index": null,
+      "resolved_via": "subcandle_entry",
+      "bar_time": 1788757199999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T04:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -25988,6 +25998,7 @@
     "2026-09-07_04-08-27",
     "2026-09-07_04-27-22",
     "2026-09-07_04-42-42",
-    "2026-09-07_04-54-32"
+    "2026-09-07_04-54-32",
+    "2026-09-07_05-08-12"
   ]
 }
