@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "PENGUUSDT_LONG_4h_2026-09-04_12-32-20",
-      "symbol": "PENGUUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.008045,
-      "sl": 0.007727,
-      "tp": [
-        0.008523,
-        0.00865,
-        0.008761
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-04_12-32-20",
-      "first_seen": "2026-09-04T12:32:17.704248+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.75,
-      "stage1_score": 6.372,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.21,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.008045,
-      "added_at": "2026-09-04T12:32:17.704248+00:00"
-    },
-    {
       "id": "ATUSDT_LONG_4h_2026-09-04_15-08-31",
       "symbol": "ATUSDT",
       "side": "LONG",
@@ -378,33 +349,33 @@
       "added_at": "2026-09-06T16:26:22.709598+00:00"
     },
     {
-      "id": "BTCUSDT_LONG_15m_2026-09-06_23-24-00",
-      "symbol": "BTCUSDT",
+      "id": "APEUSDT_LONG_15m_2026-09-07_00-39-13",
+      "symbol": "APEUSDT",
       "side": "LONG",
       "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 80033.42,
-      "sl": 79600.0,
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.14255,
+      "sl": 0.1417,
       "tp": [
-        80683.54,
-        80856.9,
-        81008.6
+        0.14382,
+        0.14416,
+        0.14446
       ],
-      "decimals": 2,
-      "run_id": "2026-09-06_23-24-00",
-      "first_seen": "2026-09-06T23:23:59.527297+00:00",
+      "decimals": 5,
+      "run_id": "2026-09-07_00-39-13",
+      "first_seen": "2026-09-07T00:39:11.207763+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 14.42,
+      "score": 6.09,
+      "stage1_score": 14.066,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 3,
-      "momentum_15m": 0.542,
+      "momentum_15m": 1.054,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 80033.42,
-      "added_at": "2026-09-06T23:23:59.527297+00:00"
+      "sl_after_tp1": 0.14255,
+      "added_at": "2026-09-07T00:39:11.207763+00:00"
     }
   ],
   "open": [
@@ -899,36 +870,6 @@
       "triggered_at": "2026-09-06T20:00:00+00:00"
     },
     {
-      "id": "XLMUSDT_LONG_15m_2026-09-06_21-23-59",
-      "symbol": "XLMUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.18535,
-      "sl": 0.18309,
-      "tp": [
-        0.18873,
-        0.18963,
-        0.19042
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-06_21-23-59",
-      "first_seen": "2026-09-06T21:23:57.455896+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.61,
-      "stage1_score": 13.9,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.198,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.18535,
-      "added_at": "2026-09-06T21:23:57.455896+00:00",
-      "triggered_at": "2026-09-06T22:00:00+00:00"
-    },
-    {
       "id": "XLMUSDT_LONG_15m_2026-09-06_21-36-45",
       "symbol": "XLMUSDT",
       "side": "LONG",
@@ -957,6 +898,36 @@
       "sl_after_tp1": 0.18574,
       "added_at": "2026-09-06T21:36:42.364874+00:00",
       "triggered_at": "2026-09-06T22:00:00+00:00"
+    },
+    {
+      "id": "BTCUSDT_LONG_15m_2026-09-06_23-24-00",
+      "symbol": "BTCUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 80033.42,
+      "sl": 79600.0,
+      "tp": [
+        80683.54,
+        80856.9,
+        81008.6
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-06_23-24-00",
+      "first_seen": "2026-09-06T23:23:59.527297+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 14.42,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.542,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 80033.42,
+      "added_at": "2026-09-06T23:23:59.527297+00:00",
+      "triggered_at": "2026-09-07T00:15:00+00:00"
     }
   ],
   "closed": [
@@ -25153,6 +25124,76 @@
       "added_at": "2026-09-06T08:40:13.961487+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-06T23:50:17.335000+00:00"
+    },
+    {
+      "id": "PENGUUSDT_LONG_4h_2026-09-04_12-32-20",
+      "symbol": "PENGUUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.008045,
+      "sl": 0.007727,
+      "tp": [
+        0.008523,
+        0.00865,
+        0.008761
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-04_12-32-20",
+      "first_seen": "2026-09-04T12:32:17.704248+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.75,
+      "stage1_score": 6.372,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.21,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008045,
+      "added_at": "2026-09-04T12:32:17.704248+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-07T00:39:13.162000+00:00"
+    },
+    {
+      "id": "XLMUSDT_LONG_15m_2026-09-06_21-23-59",
+      "symbol": "XLMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.18535,
+      "sl": 0.18309,
+      "tp": [
+        0.18873,
+        0.18963,
+        0.19042
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-06_21-23-59",
+      "first_seen": "2026-09-06T21:23:57.455896+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 13.9,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.198,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.18535,
+      "added_at": "2026-09-06T21:23:57.455896+00:00",
+      "triggered_at": "2026-09-06T22:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.18873,
+      "tp_index": 0,
+      "bar_time": 1788740999999,
+      "bars_held": 10,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T00:29:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -25738,6 +25779,7 @@
     "2026-09-06_23-24-00",
     "2026-09-06_23-36-42",
     "2026-09-06_23-50-17",
-    "2026-09-07_00-12-57"
+    "2026-09-07_00-12-57",
+    "2026-09-07_00-39-13"
   ]
 }
