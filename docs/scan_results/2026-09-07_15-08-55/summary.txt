@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T15:08:52.821489+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: SKRUSDT | Side: LONG | Score: 6.13
+   - Entry : 0.02144
+   - SL    : 0.01978
+   - TP    : 0.02394, 0.02461, 0.02519
+   - Invalidation: Close below 0.01978 / loss of recent 1h swing low / breakout invalid if price falls below 0.021292
+----------------------------------------
+2. Symbol: ONTUSDT | Side: LONG | Score: 6.26
+   - Entry : 0.05579
+   - SL    : 0.05521
+   - TP    : 0.05666, 0.05689, 0.05709
+   - Invalidation: Close below 0.055209815 / loss of recent 1h swing low
+----------------------------------------
