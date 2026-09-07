@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-07T02:53:09.894000+00:00",
-  "resolved_trades": 608,
+  "generated_at": "2026-09-07T03:08:50.397000+00:00",
+  "resolved_trades": 609,
   "wins": 220,
-  "losses": 386,
+  "losses": 387,
   "breakeven": 2,
-  "win_rate_pct": 36.2,
+  "win_rate_pct": 36.1,
   "avg_r_multiple": -0.06,
   "by_setup_style": {
     "BREAKOUT": {
@@ -33,15 +33,15 @@
     },
     "CONTINUATION": {
       "wins": 10,
-      "losses": 33,
+      "losses": 34,
       "breakeven": 0,
-      "win_rate_pct": 23.3
+      "win_rate_pct": 22.7
     }
   },
   "by_side": {
     "LONG": {
       "wins": 149,
-      "losses": 273,
+      "losses": 274,
       "breakeven": 2,
       "win_rate_pct": 35.1
     },
@@ -67,9 +67,9 @@
     },
     "v2": {
       "wins": 134,
-      "losses": 215,
+      "losses": 216,
       "breakeven": 0,
-      "win_rate_pct": 38.4
+      "win_rate_pct": 38.3
     },
     "v3": {
       "wins": 36,
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 116,
-      "losses": 206,
+      "losses": 207,
       "breakeven": 2,
-      "win_rate_pct": 35.8
+      "win_rate_pct": 35.7
     },
     "COUNTER": {
       "wins": 63,
@@ -101,9 +101,9 @@
   "by_score_bucket": {
     "UNKNOWN": {
       "wins": 207,
-      "losses": 359,
+      "losses": 360,
       "breakeven": 0,
-      "win_rate_pct": 36.6
+      "win_rate_pct": 36.5
     },
     "6.0-6.9": {
       "wins": 12,
@@ -127,9 +127,9 @@
   "by_btc_regime": {
     "UNKNOWN": {
       "wins": 207,
-      "losses": 359,
+      "losses": 360,
       "breakeven": 0,
-      "win_rate_pct": 36.6
+      "win_rate_pct": 36.5
     },
     "BULLISH": {
       "wins": 13,
@@ -141,13 +141,13 @@
   "by_funding_alert": {
     "NORMAL": {
       "wins": 220,
-      "losses": 386,
+      "losses": 387,
       "breakeven": 2,
-      "win_rate_pct": 36.2
+      "win_rate_pct": 36.1
     }
   },
   "expired_unresolved": 92,
-  "never_triggered": 114,
+  "never_triggered": 115,
   "currently_open": 18,
   "currently_pending": 14,
   "intrabar_disambiguated_via_subcandle": 2,
