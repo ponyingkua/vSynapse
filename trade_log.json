@@ -465,35 +465,6 @@
       "added_at": "2026-09-07T13:10:28.779771+00:00"
     },
     {
-      "id": "ETHUSDT_LONG_15m_2026-09-07_13-29-44",
-      "symbol": "ETHUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 2494.77,
-      "sl": 2485.95,
-      "tp": [
-        2508.0,
-        2511.53,
-        2514.62
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-07_13-29-44",
-      "first_seen": "2026-09-07T13:29:42.306577+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.07,
-      "stage1_score": 13.655,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.875,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2494.77,
-      "added_at": "2026-09-07T13:29:42.306577+00:00"
-    },
-    {
       "id": "ENSUSDT_LONG_15m_2026-09-07_13-29-44",
       "symbol": "ENSUSDT",
       "side": "LONG",
@@ -521,6 +492,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 6.1003,
       "added_at": "2026-09-07T13:29:42.306577+00:00"
+    },
+    {
+      "id": "1000SATSUSDT_LONG_15m_2026-09-07_13-44-36",
+      "symbol": "1000SATSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1.148e-05,
+      "sl": 1.139e-05,
+      "tp": [
+        1.16e-05,
+        1.164e-05,
+        1.166e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-07_13-44-36",
+      "first_seen": "2026-09-07T13:44:33.647642+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.36,
+      "stage1_score": 12.119,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.214,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.148e-05,
+      "added_at": "2026-09-07T13:44:33.647642+00:00"
+    },
+    {
+      "id": "VVVUSDT_LONG_15m_2026-09-07_13-44-36",
+      "symbol": "VVVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 17.403,
+      "sl": 17.082,
+      "tp": [
+        17.886,
+        18.014,
+        18.127
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-07_13-44-36",
+      "first_seen": "2026-09-07T13:44:33.647642+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 19.759,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.12,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 17.403,
+      "added_at": "2026-09-07T13:44:33.647642+00:00"
     }
   ],
   "open": [
@@ -901,6 +930,36 @@
       "sl_after_tp1": 0.10829,
       "added_at": "2026-09-07T10:09:54.530477+00:00",
       "triggered_at": "2026-09-07T12:45:00+00:00"
+    },
+    {
+      "id": "ETHUSDT_LONG_15m_2026-09-07_13-29-44",
+      "symbol": "ETHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 2494.77,
+      "sl": 2485.95,
+      "tp": [
+        2508.0,
+        2511.53,
+        2514.62
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-07_13-29-44",
+      "first_seen": "2026-09-07T13:29:42.306577+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 13.655,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.875,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2494.77,
+      "added_at": "2026-09-07T13:29:42.306577+00:00",
+      "triggered_at": "2026-09-07T13:30:00+00:00"
     }
   ],
   "closed": [
@@ -26589,6 +26648,7 @@
     "2026-09-07_12-33-50",
     "2026-09-07_12-56-28",
     "2026-09-07_13-10-30",
-    "2026-09-07_13-29-44"
+    "2026-09-07_13-29-44",
+    "2026-09-07_13-44-36"
   ]
 }

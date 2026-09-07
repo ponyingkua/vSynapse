@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T13:44:33.647642+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: 1000SATSUSDT | Side: LONG | Score: 6.36
+   - Entry : 0.00001148
+   - SL    : 0.00001139
+   - TP    : 0.00001160, 0.00001164, 0.00001166
+   - Invalidation: Close below 1.1391013e-05 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: VVVUSDT | Side: LONG | Score: 6.07
+   - Entry : 17.403
+   - SL    : 17.082
+   - TP    : 17.886, 18.014, 18.127
+   - Invalidation: Close below 17.082 / loss of recent 15m swing low
+----------------------------------------
