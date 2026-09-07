@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T05:54:23.298625+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: AGTUSDT | Side: LONG | Score: 6.4
+   - Entry : 0.01636
+   - SL    : 0.01579
+   - TP    : 0.01722, 0.01745, 0.01765
+   - Invalidation: Close below 0.01579 / loss of recent 1h swing low / breakout invalid if price falls below 0.016282
+----------------------------------------
+2. Symbol: PLUMEUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.01401
+   - SL    : 0.01388
+   - TP    : 0.01421, 0.01426, 0.01431
+   - Invalidation: Close below 0.013878813 / loss of recent 15m swing low
+----------------------------------------
