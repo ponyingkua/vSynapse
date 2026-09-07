@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T20:52:06.737301+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BRUSDT | Side: LONG | Score: 7.04
+   - Entry : 0.26302
+   - SL    : 0.25003
+   - TP    : 0.28249, 0.28769, 0.29223
+   - Invalidation: Close below 0.25003 / loss of recent 1h swing low / breakout invalid if price falls below 0.26071
+----------------------------------------
+2. Symbol: AKEUSDT | Side: LONG | Score: 6.6
+   - Entry : 0.01680
+   - SL    : 0.01583
+   - TP    : 0.01824, 0.01863, 0.01897
+   - Invalidation: Close below 0.015834 / loss of recent 15m swing low
+----------------------------------------
