@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T12:33:48.759615+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: KOMAUSDT | Side: LONG | Score: 7.19
+   - Entry : 0.01478
+   - SL    : 0.01393
+   - TP    : 0.01606, 0.01640, 0.01670
+   - Invalidation: Close below 0.013932521 / loss of recent 1h swing low
+----------------------------------------
