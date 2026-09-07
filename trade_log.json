@@ -878,6 +878,37 @@
       "sl_after_tp1": 0.14028,
       "added_at": "2026-09-07T02:26:55.438625+00:00",
       "triggered_at": "2026-09-07T04:00:00+00:00"
+    },
+    {
+      "id": "AVAAIUSDT_LONG_1h_2026-09-07_05-26-33",
+      "symbol": "AVAAIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008617,
+      "sl": 0.008161,
+      "tp": [
+        0.009302,
+        0.009484,
+        0.009644
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-07_05-26-33",
+      "first_seen": "2026-09-07T05:26:31.937362+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 31.449,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.804,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008617,
+      "triggered_at": "2026-09-07T06:00:00+00:00",
+      "partial_check_from": "2026-09-07T05:26:31.937362+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -25999,6 +26030,7 @@
     "2026-09-07_04-27-22",
     "2026-09-07_04-42-42",
     "2026-09-07_04-54-32",
-    "2026-09-07_05-08-12"
+    "2026-09-07_05-08-12",
+    "2026-09-07_05-26-33"
   ]
 }

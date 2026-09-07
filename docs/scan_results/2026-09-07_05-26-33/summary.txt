@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T05:26:31.937362+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AVAAIUSDT | Side: LONG | Score: 6.88
+   - Entry : 0.008617
+   - SL    : 0.008161
+   - TP    : 0.009302, 0.009484, 0.009644
+   - Invalidation: Close below 0.008161 / loss of recent 1h swing low
+----------------------------------------
