@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-07T01:09:36.028000+00:00",
-  "resolved_trades": 607,
+  "generated_at": "2026-09-07T01:25:19.236000+00:00",
+  "resolved_trades": 608,
   "wins": 220,
-  "losses": 385,
+  "losses": 386,
   "breakeven": 2,
   "win_rate_pct": 36.2,
   "avg_r_multiple": -0.06,
@@ -21,9 +21,9 @@
     },
     "EXTENDED": {
       "wins": 8,
-      "losses": 15,
+      "losses": 16,
       "breakeven": 2,
-      "win_rate_pct": 32.0
+      "win_rate_pct": 30.8
     },
     "PULLBACK": {
       "wins": 44,
@@ -41,9 +41,9 @@
   "by_side": {
     "LONG": {
       "wins": 149,
-      "losses": 272,
+      "losses": 273,
       "breakeven": 2,
-      "win_rate_pct": 35.2
+      "win_rate_pct": 35.1
     },
     "SHORT": {
       "wins": 71,
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 36,
-      "losses": 41,
+      "losses": 42,
       "breakeven": 2,
-      "win_rate_pct": 45.6
+      "win_rate_pct": 45.0
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 116,
-      "losses": 205,
+      "losses": 206,
       "breakeven": 2,
-      "win_rate_pct": 35.9
+      "win_rate_pct": 35.8
     },
     "COUNTER": {
       "wins": 63,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 12,
-      "losses": 22,
+      "losses": 23,
       "breakeven": 2,
-      "win_rate_pct": 33.3
+      "win_rate_pct": 32.4
     },
     "8.0-8.9": {
       "wins": 1,
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 13,
-      "losses": 26,
+      "losses": 27,
       "breakeven": 2,
-      "win_rate_pct": 31.7
+      "win_rate_pct": 31.0
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 220,
-      "losses": 385,
+      "losses": 386,
       "breakeven": 2,
       "win_rate_pct": 36.2
     }
   },
   "expired_unresolved": 92,
   "never_triggered": 114,
-  "currently_open": 19,
+  "currently_open": 18,
   "currently_pending": 12,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
