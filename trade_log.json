@@ -463,6 +463,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02351,
       "added_at": "2026-09-07T13:10:28.779771+00:00"
+    },
+    {
+      "id": "ETHUSDT_LONG_15m_2026-09-07_13-29-44",
+      "symbol": "ETHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 2494.77,
+      "sl": 2485.95,
+      "tp": [
+        2508.0,
+        2511.53,
+        2514.62
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-07_13-29-44",
+      "first_seen": "2026-09-07T13:29:42.306577+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 13.655,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.875,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2494.77,
+      "added_at": "2026-09-07T13:29:42.306577+00:00"
+    },
+    {
+      "id": "ENSUSDT_LONG_15m_2026-09-07_13-29-44",
+      "symbol": "ENSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 6.1003,
+      "sl": 6.04,
+      "tp": [
+        6.1908,
+        6.2149,
+        6.2361
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-07_13-29-44",
+      "first_seen": "2026-09-07T13:29:42.306577+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 11.864,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.309,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 6.1003,
+      "added_at": "2026-09-07T13:29:42.306577+00:00"
     }
   ],
   "open": [
@@ -26530,6 +26588,7 @@
     "2026-09-07_12-11-19",
     "2026-09-07_12-33-50",
     "2026-09-07_12-56-28",
-    "2026-09-07_13-10-30"
+    "2026-09-07_13-10-30",
+    "2026-09-07_13-29-44"
   ]
 }

@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-07T13:29:42.306577+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ETHUSDT | Side: LONG | Score: 6.07
+   - Entry : 2494.77
+   - SL    : 2485.95
+   - TP    : 2508.00, 2511.53, 2514.62
+   - Invalidation: Close below 2485.95 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ENSUSDT | Side: LONG | Score: 6.0
+   - Entry : 6.1003
+   - SL    : 6.0400
+   - TP    : 6.1908, 6.2149, 6.2361
+   - Invalidation: Close below 6.04 / loss of recent 15m swing low
+----------------------------------------
