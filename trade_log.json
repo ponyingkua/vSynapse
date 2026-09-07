@@ -349,35 +349,6 @@
       "added_at": "2026-09-07T05:54:23.298625+00:00"
     },
     {
-      "id": "CCUSDT_SHORT_15m_2026-09-07_10-09-56",
-      "symbol": "CCUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.10829,
-      "sl": 0.11,
-      "tp": [
-        0.10572,
-        0.10504,
-        0.10444
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-07_10-09-56",
-      "first_seen": "2026-09-07T10:09:54.530477+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.41,
-      "stage1_score": 5.871,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.498,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10829,
-      "added_at": "2026-09-07T10:09:54.530477+00:00"
-    },
-    {
       "id": "PUMPUSDT_LONG_1h_2026-09-07_12-11-19",
       "symbol": "PUMPUSDT",
       "side": "LONG",
@@ -815,34 +786,34 @@
       "triggered_at": "2026-09-07T09:15:00+00:00"
     },
     {
-      "id": "4USDT_LONG_15m_2026-09-07_11-09-08",
-      "symbol": "4USDT",
-      "side": "LONG",
+      "id": "CCUSDT_SHORT_15m_2026-09-07_10-09-56",
+      "symbol": "CCUSDT",
+      "side": "SHORT",
       "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
+      "setup_style": "BREAKDOWN",
       "entry_state": "WAITING_RETEST",
-      "entry": 0.02548,
-      "sl": 0.02401,
+      "entry": 0.10829,
+      "sl": 0.11,
       "tp": [
-        0.02769,
-        0.02828,
-        0.0288
+        0.10572,
+        0.10504,
+        0.10444
       ],
       "decimals": 5,
-      "run_id": "2026-09-07_11-09-08",
-      "first_seen": "2026-09-07T11:09:06.654690+00:00",
-      "htf_bias": "BULLISH",
+      "run_id": "2026-09-07_10-09-56",
+      "first_seen": "2026-09-07T10:09:54.530477+00:00",
+      "htf_bias": "BEARISH",
       "config_version": "v3",
-      "score": 6.88,
-      "stage1_score": 39.011,
+      "score": 6.41,
+      "stage1_score": 5.871,
       "btc_regime": "BULLISH",
       "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 7.696,
+      "tf_agreement": 3,
+      "momentum_15m": -1.498,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02548,
-      "added_at": "2026-09-07T11:09:06.654690+00:00",
-      "triggered_at": "2026-09-07T11:45:00+00:00"
+      "sl_after_tp1": 0.10829,
+      "added_at": "2026-09-07T10:09:54.530477+00:00",
+      "triggered_at": "2026-09-07T12:45:00+00:00"
     }
   ],
   "closed": [
@@ -25857,6 +25828,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-07T10:44:59.999000+00:00",
       "r_multiple": 2.24
+    },
+    {
+      "id": "4USDT_LONG_15m_2026-09-07_11-09-08",
+      "symbol": "4USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02548,
+      "sl": 0.02401,
+      "tp": [
+        0.02769,
+        0.02828,
+        0.0288
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-07_11-09-08",
+      "first_seen": "2026-09-07T11:09:06.654690+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 39.011,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 7.696,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02548,
+      "added_at": "2026-09-07T11:09:06.654690+00:00",
+      "triggered_at": "2026-09-07T11:45:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.02769,
+      "tp_index": 0,
+      "bar_time": 1788785999999,
+      "bars_held": 5,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-07T12:59:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -26489,6 +26499,7 @@
     "2026-09-07_11-42-00",
     "2026-09-07_11-53-37",
     "2026-09-07_12-11-19",
-    "2026-09-07_12-33-50"
+    "2026-09-07_12-33-50",
+    "2026-09-07_12-56-28"
   ]
 }
