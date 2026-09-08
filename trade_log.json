@@ -88,35 +88,6 @@
       "added_at": "2026-09-08T16:56:25.935642+00:00"
     },
     {
-      "id": "LITUSDT_LONG_15m_2026-09-08_16-56-28",
-      "symbol": "LITUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 4.7259,
-      "sl": 4.6351,
-      "tp": [
-        4.8621,
-        4.8984,
-        4.9302
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-08_16-56-28",
-      "first_seen": "2026-09-08T16:56:25.935642+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.29,
-      "stage1_score": 20.309,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.393,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 4.7259,
-      "added_at": "2026-09-08T16:56:25.935642+00:00"
-    },
-    {
       "id": "ZBTUSDT_SHORT_15m_2026-09-08_20-09-15",
       "symbol": "ZBTUSDT",
       "side": "SHORT",
@@ -1142,6 +1113,37 @@
       "sl_after_tp1": 0.07732,
       "triggered_at": "2026-09-09T00:00:00+00:00",
       "partial_check_from": "2026-09-08T20:40:49.069195+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "RIFUSDT_LONG_4h_2026-09-08_20-53-31",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0769,
+      "sl": 0.07382,
+      "tp": [
+        0.08153,
+        0.08276,
+        0.08384
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_20-53-31",
+      "first_seen": "2026-09-08T20:53:29.540148+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 4.169,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.631,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0769,
+      "triggered_at": "2026-09-09T00:00:00+00:00",
+      "partial_check_from": "2026-09-08T20:53:29.540148+00:00",
       "partial_check_done": true
     },
     {
@@ -27994,6 +27996,37 @@
       "added_at": "2026-09-08T16:30:28.579680+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-08T20:26:48.663000+00:00"
+    },
+    {
+      "id": "LITUSDT_LONG_15m_2026-09-08_16-56-28",
+      "symbol": "LITUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 4.7259,
+      "sl": 4.6351,
+      "tp": [
+        4.8621,
+        4.8984,
+        4.9302
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-08_16-56-28",
+      "first_seen": "2026-09-08T16:56:25.935642+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.29,
+      "stage1_score": 20.309,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.393,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.7259,
+      "added_at": "2026-09-08T16:56:25.935642+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-08T20:53:31.593000+00:00"
     }
   ],
   "ingested_runs": [
@@ -28749,6 +28782,7 @@
     "2026-09-08_19-52-07",
     "2026-09-08_20-09-15",
     "2026-09-08_20-26-48",
-    "2026-09-08_20-40-50"
+    "2026-09-08_20-40-50",
+    "2026-09-08_20-53-31"
   ]
 }
