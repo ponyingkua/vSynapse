@@ -1114,6 +1114,37 @@
       "partial_check_done": true
     },
     {
+      "id": "RIFUSDT_LONG_4h_2026-09-08_20-40-50",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.07732,
+      "sl": 0.07382,
+      "tp": [
+        0.08258,
+        0.08398,
+        0.0852
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_20-40-50",
+      "first_seen": "2026-09-08T20:40:49.069195+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.13,
+      "stage1_score": 3.913,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.478,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07732,
+      "triggered_at": "2026-09-09T00:00:00+00:00",
+      "partial_check_from": "2026-09-08T20:40:49.069195+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "PEOPLEUSDT_LONG_4h_2026-09-08_20-26-48",
       "symbol": "PEOPLEUSDT",
       "side": "LONG",
@@ -28717,6 +28748,7 @@
     "2026-09-08_19-38-31",
     "2026-09-08_19-52-07",
     "2026-09-08_20-09-15",
-    "2026-09-08_20-26-48"
+    "2026-09-08_20-26-48",
+    "2026-09-08_20-40-50"
   ]
 }
