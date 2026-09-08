@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T16:30:28.579680+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: XRPUSDT | Side: LONG | Score: 8.04
+   - Entry : 1.4115
+   - SL    : 1.3828
+   - TP    : 1.4546, 1.4661, 1.4761
+   - Invalidation: Close below 1.3828 / loss of recent 1h swing low / breakout invalid if price falls below 1.4083
+----------------------------------------
+2. Symbol: PEOPLEUSDT | Side: LONG | Score: 6.87
+   - Entry : 0.008150
+   - SL    : 0.007967
+   - TP    : 0.008424, 0.008497, 0.008561
+   - Invalidation: Close below 0.007967 / loss of recent 15m swing low / breakout invalid if price falls below 0.008133
+----------------------------------------
+3. Symbol: KMNOUSDT | Side: LONG | Score: 7.43
+   - Entry : 0.02510
+   - SL    : 0.02479
+   - TP    : 0.02557, 0.02570, 0.02581
+   - Invalidation: Close below 0.02479 / loss of recent 15m swing low
+----------------------------------------
