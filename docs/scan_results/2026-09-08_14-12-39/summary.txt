@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T14:12:37.415117+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BEATUSDT | Side: SHORT | Score: 6.38
+   - Entry : 0.12752
+   - SL    : 0.12900
+   - TP    : 0.12531, 0.12472, 0.12420
+   - Invalidation: Close above 0.129 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.1278
+----------------------------------------
