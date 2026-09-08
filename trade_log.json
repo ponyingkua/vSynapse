@@ -1,5 +1,35 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "id": "1000SHIBUSDT_LONG_15m_2026-09-08_10-09-30",
+      "symbol": "1000SHIBUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.005474,
+      "sl": 0.005377,
+      "tp": [
+        0.005619,
+        0.005657,
+        0.005691
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-08_10-09-30",
+      "first_seen": "2026-09-08T10:09:28.936019+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 13.363,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.142,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.005474,
+      "added_at": "2026-09-08T10:09:28.936019+00:00"
+    }
+  ],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -27709,6 +27739,7 @@
     "2026-09-08_09-10-58",
     "2026-09-08_09-28-18",
     "2026-09-08_09-43-13",
-    "2026-09-08_09-55-48"
+    "2026-09-08_09-55-48",
+    "2026-09-08_10-09-30"
   ]
 }

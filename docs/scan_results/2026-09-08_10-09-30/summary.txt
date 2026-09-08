@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T10:09:28.936019+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 1000SHIBUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.005474
+   - SL    : 0.005377
+   - TP    : 0.005619, 0.005657, 0.005691
+   - Invalidation: Close below 0.005377 / loss of recent 15m swing low / breakout invalid if price falls below 0.005466
+----------------------------------------
