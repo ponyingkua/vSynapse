@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-08T13:29:13.499000+00:00",
-  "resolved_trades": 658,
+  "generated_at": "2026-09-08T13:44:52.867000+00:00",
+  "resolved_trades": 659,
   "wins": 244,
-  "losses": 410,
+  "losses": 411,
   "breakeven": 4,
-  "win_rate_pct": 37.1,
-  "avg_r_multiple": -0.02,
+  "win_rate_pct": 37.0,
+  "avg_r_multiple": -0.03,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 116,
-      "losses": 226,
+      "losses": 227,
       "breakeven": 1,
-      "win_rate_pct": 33.8
+      "win_rate_pct": 33.7
     },
     "BREAKDOWN": {
       "wins": 53,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 171,
-      "losses": 297,
+      "losses": 298,
       "breakeven": 4,
       "win_rate_pct": 36.2
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 58,
-      "losses": 65,
+      "losses": 66,
       "breakeven": 4,
-      "win_rate_pct": 45.7
+      "win_rate_pct": 45.3
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 139,
-      "losses": 230,
+      "losses": 231,
       "breakeven": 4,
-      "win_rate_pct": 37.3
+      "win_rate_pct": 37.2
     },
     "COUNTER": {
       "wins": 64,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 27,
-      "losses": 42,
+      "losses": 43,
       "breakeven": 4,
-      "win_rate_pct": 37.0
+      "win_rate_pct": 36.5
     },
     "8.0-8.9": {
       "wins": 2,
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 35,
-      "losses": 50,
+      "losses": 51,
       "breakeven": 4,
-      "win_rate_pct": 39.3
+      "win_rate_pct": 38.9
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 244,
-      "losses": 410,
+      "losses": 411,
       "breakeven": 4,
-      "win_rate_pct": 37.1
+      "win_rate_pct": 37.0
     }
   },
   "expired_unresolved": 94,
   "never_triggered": 121,
-  "currently_open": 16,
+  "currently_open": 15,
   "currently_pending": 2,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
