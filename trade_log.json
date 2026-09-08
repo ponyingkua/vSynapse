@@ -115,6 +115,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.26302,
       "added_at": "2026-09-07T20:52:06.737301+00:00"
+    },
+    {
+      "id": "SKRUSDT_LONG_15m_2026-09-08_01-10-30",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02181,
+      "sl": 0.02095,
+      "tp": [
+        0.02311,
+        0.02345,
+        0.02375
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_01-10-30",
+      "first_seen": "2026-09-08T01:10:27.918770+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.12,
+      "stage1_score": 18.568,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 3.028,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02181,
+      "added_at": "2026-09-08T01:10:27.918770+00:00"
+    },
+    {
+      "id": "1000RATSUSDT_LONG_15m_2026-09-08_01-10-30",
+      "symbol": "1000RATSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.04127,
+      "sl": 0.04061,
+      "tp": [
+        0.04225,
+        0.04251,
+        0.04274
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_01-10-30",
+      "first_seen": "2026-09-08T01:10:27.918770+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.02,
+      "stage1_score": 21.14,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.04,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.04127,
+      "added_at": "2026-09-08T01:10:27.918770+00:00"
     }
   ],
   "open": [
@@ -27267,6 +27325,7 @@
     "2026-09-07_23-50-31",
     "2026-09-08_00-12-31",
     "2026-09-08_00-38-29",
-    "2026-09-08_00-57-43"
+    "2026-09-08_00-57-43",
+    "2026-09-08_01-10-30"
   ]
 }
