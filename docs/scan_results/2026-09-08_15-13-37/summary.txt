@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T15:13:34.767782+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: XRPUSDT | Side: LONG | Score: 6.66
+   - Entry : 1.4114
+   - SL    : 1.3828
+   - TP    : 1.4544, 1.4658, 1.4758
+   - Invalidation: Close below 1.3828 / loss of recent 15m swing low / breakout invalid if price falls below 1.4096
+----------------------------------------
+2. Symbol: ZENUSDT | Side: LONG | Score: 6.09
+   - Entry : 7.1570
+   - SL    : 6.8890
+   - TP    : 7.5590, 7.6662, 7.7600
+   - Invalidation: Close below 6.889 / loss of recent 15m swing low / breakout invalid if price falls below 7.137
+----------------------------------------
+3. Symbol: JSTUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.10826
+   - SL    : 0.10612
+   - TP    : 0.11147, 0.11232, 0.11307
+   - Invalidation: Close below 0.10612 / loss of recent 15m swing low
+----------------------------------------
