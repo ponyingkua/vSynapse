@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T20:09:11.668495+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: RIFUSDT | Side: LONG | Score: 6.28
+   - Entry : 0.07695
+   - SL    : 0.07382
+   - TP    : 0.08165, 0.08291, 0.08400
+   - Invalidation: Close below 0.07382 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: ZBTUSDT | Side: SHORT | Score: 6.77
+   - Entry : 0.08518
+   - SL    : 0.08582
+   - TP    : 0.08421, 0.08395, 0.08372
+   - Invalidation: Close above 0.085820908 / reclaim of recent 15m swing high
+----------------------------------------
