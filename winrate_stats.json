@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-08T01:26:28.180000+00:00",
-  "resolved_trades": 638,
+  "generated_at": "2026-09-08T01:40:01.813000+00:00",
+  "resolved_trades": 639,
   "wins": 236,
   "losses": 399,
-  "breakeven": 3,
-  "win_rate_pct": 37.0,
+  "breakeven": 4,
+  "win_rate_pct": 36.9,
   "avg_r_multiple": -0.03,
   "by_setup_style": {
     "BREAKOUT": {
@@ -22,8 +22,8 @@
     "EXTENDED": {
       "wins": 15,
       "losses": 21,
-      "breakeven": 2,
-      "win_rate_pct": 39.5
+      "breakeven": 3,
+      "win_rate_pct": 38.5
     },
     "PULLBACK": {
       "wins": 45,
@@ -42,8 +42,8 @@
     "LONG": {
       "wins": 164,
       "losses": 286,
-      "breakeven": 3,
-      "win_rate_pct": 36.2
+      "breakeven": 4,
+      "win_rate_pct": 36.1
     },
     "SHORT": {
       "wins": 72,
@@ -74,8 +74,8 @@
     "v3": {
       "wins": 52,
       "losses": 54,
-      "breakeven": 3,
-      "win_rate_pct": 47.7
+      "breakeven": 4,
+      "win_rate_pct": 47.3
     }
   },
   "by_htf_alignment": {
@@ -88,8 +88,8 @@
     "ALIGNED": {
       "wins": 132,
       "losses": 219,
-      "breakeven": 3,
-      "win_rate_pct": 37.3
+      "breakeven": 4,
+      "win_rate_pct": 37.2
     },
     "COUNTER": {
       "wins": 63,
@@ -108,8 +108,8 @@
     "6.0-6.9": {
       "wins": 23,
       "losses": 34,
-      "breakeven": 3,
-      "win_rate_pct": 38.3
+      "breakeven": 4,
+      "win_rate_pct": 37.7
     },
     "8.0-8.9": {
       "wins": 2,
@@ -134,16 +134,16 @@
     "BULLISH": {
       "wins": 29,
       "losses": 39,
-      "breakeven": 3,
-      "win_rate_pct": 40.8
+      "breakeven": 4,
+      "win_rate_pct": 40.3
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 236,
       "losses": 399,
-      "breakeven": 3,
-      "win_rate_pct": 37.0
+      "breakeven": 4,
+      "win_rate_pct": 36.9
     }
   },
   "expired_unresolved": 93,
