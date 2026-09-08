@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T12:11:15.595307+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SOONUSDT | Side: SHORT | Score: 6.21
+   - Entry : 0.19028
+   - SL    : 0.19630
+   - TP    : 0.18126, 0.17886, 0.17675
+   - Invalidation: Close above 0.1963 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.1907
+----------------------------------------

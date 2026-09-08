@@ -1,5 +1,35 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "id": "SOONUSDT_SHORT_15m_2026-09-08_12-11-18",
+      "symbol": "SOONUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.19028,
+      "sl": 0.1963,
+      "tp": [
+        0.18126,
+        0.17886,
+        0.17675
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_12-11-18",
+      "first_seen": "2026-09-08T12:11:15.595307+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 5.963,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.925,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.19028,
+      "added_at": "2026-09-08T12:11:15.595307+00:00"
+    }
+  ],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -27765,6 +27795,7 @@
     "2026-09-08_11-08-42",
     "2026-09-08_11-26-50",
     "2026-09-08_11-40-27",
-    "2026-09-08_11-53-10"
+    "2026-09-08_11-53-10",
+    "2026-09-08_12-11-18"
   ]
 }
