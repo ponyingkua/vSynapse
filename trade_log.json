@@ -146,35 +146,6 @@
       "added_at": "2026-09-08T01:10:27.918770+00:00"
     },
     {
-      "id": "TRBUSDT_LONG_15m_2026-09-08_01-26-26",
-      "symbol": "TRBUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 18.736,
-      "sl": 18.466,
-      "tp": [
-        19.142,
-        19.25,
-        19.344
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-08_01-26-26",
-      "first_seen": "2026-09-08T01:26:24.212566+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.2,
-      "stage1_score": 13.693,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.02,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 18.736,
-      "added_at": "2026-09-08T01:26:24.212566+00:00"
-    },
-    {
       "id": "BULLAUSDT_LONG_15m_2026-09-08_01-40-00",
       "symbol": "BULLAUSDT",
       "side": "LONG",
@@ -939,6 +910,36 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02181,
       "added_at": "2026-09-08T01:10:27.918770+00:00",
+      "triggered_at": "2026-09-08T01:30:00+00:00"
+    },
+    {
+      "id": "TRBUSDT_LONG_15m_2026-09-08_01-26-26",
+      "symbol": "TRBUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 18.736,
+      "sl": 18.466,
+      "tp": [
+        19.142,
+        19.25,
+        19.344
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-08_01-26-26",
+      "first_seen": "2026-09-08T01:26:24.212566+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.2,
+      "stage1_score": 13.693,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.02,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 18.736,
+      "added_at": "2026-09-08T01:26:24.212566+00:00",
       "triggered_at": "2026-09-08T01:30:00+00:00"
     }
   ],
@@ -27396,6 +27397,7 @@
     "2026-09-08_00-57-43",
     "2026-09-08_01-10-30",
     "2026-09-08_01-26-26",
-    "2026-09-08_01-40-00"
+    "2026-09-08_01-40-00",
+    "2026-09-08_01-54-17"
   ]
 }
