@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T17:09:34.584816+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: POLUSDT | Side: LONG | Score: 6.27
+   - Entry : 0.09737
+   - SL    : 0.09504
+   - TP    : 0.10086, 0.10179, 0.10260
+   - Invalidation: Close below 0.09504 / loss of recent 1h swing low / breakout invalid if price falls below 0.0971
+----------------------------------------
+2. Symbol: PEOPLEUSDT | Side: LONG | Score: 6.77
+   - Entry : 0.008115
+   - SL    : 0.007734
+   - TP    : 0.008686, 0.008839, 0.008972
+   - Invalidation: Close below 0.007734 / loss of recent 1h swing low / breakout invalid if price falls below 0.008084
+----------------------------------------
