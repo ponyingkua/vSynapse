@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T08:09:55.909547+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 1000CATUSDT | Side: LONG | Score: 6.83
+   - Entry : 0.002221
+   - SL    : 0.002102
+   - TP    : 0.002399, 0.002447, 0.002488
+   - Invalidation: Close below 0.002102 / loss of recent 15m swing low
+----------------------------------------

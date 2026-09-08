@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T07:54:57.825000+00:00",
+  "generated_at": "2026-09-08T08:09:58.564000+00:00",
   "resolved_trades": 655,
   "wins": 242,
   "losses": 409,
@@ -149,7 +149,7 @@
   "expired_unresolved": 94,
   "never_triggered": 120,
   "currently_open": 16,
-  "currently_pending": 1,
+  "currently_pending": 2,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 10,

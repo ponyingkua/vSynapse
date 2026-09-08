@@ -28,6 +28,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1.1754,
       "added_at": "2026-09-08T04:27:33.811911+00:00"
+    },
+    {
+      "id": "1000CATUSDT_LONG_15m_2026-09-08_08-09-57",
+      "symbol": "1000CATUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.002221,
+      "sl": 0.002102,
+      "tp": [
+        0.002399,
+        0.002447,
+        0.002488
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-08_08-09-57",
+      "first_seen": "2026-09-08T08:09:55.909547+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.83,
+      "stage1_score": 36.42,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 7.236,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.002221,
+      "added_at": "2026-09-08T08:09:55.909547+00:00"
     }
   ],
   "open": [
@@ -27639,6 +27668,7 @@
     "2026-09-08_07-10-21",
     "2026-09-08_07-28-35",
     "2026-09-08_07-43-11",
-    "2026-09-08_07-54-57"
+    "2026-09-08_07-54-57",
+    "2026-09-08_08-09-57"
   ]
 }
