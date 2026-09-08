@@ -28,6 +28,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.19028,
       "added_at": "2026-09-08T12:11:15.595307+00:00"
+    },
+    {
+      "id": "HEIUSDT_LONG_1h_2026-09-08_13-11-08",
+      "symbol": "HEIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14294,
+      "sl": 0.13784,
+      "tp": [
+        0.1506,
+        0.15264,
+        0.15443
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_13-11-08",
+      "first_seen": "2026-09-08T13:11:06.468479+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.45,
+      "stage1_score": 5.516,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.23,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14294,
+      "added_at": "2026-09-08T13:11:06.468479+00:00"
     }
   ],
   "open": [
@@ -90,37 +119,6 @@
       "sl_after_tp1": 0.06635,
       "added_at": "2026-09-06T03:08:48.103297+00:00",
       "triggered_at": "2026-09-06T04:00:00+00:00"
-    },
-    {
-      "id": "AVAAIUSDT_LONG_1h_2026-09-07_05-26-33",
-      "symbol": "AVAAIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.008617,
-      "sl": 0.008161,
-      "tp": [
-        0.009302,
-        0.009484,
-        0.009644
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-07_05-26-33",
-      "first_seen": "2026-09-07T05:26:31.937362+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.88,
-      "stage1_score": 31.449,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 5.804,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.008617,
-      "triggered_at": "2026-09-07T06:00:00+00:00",
-      "partial_check_from": "2026-09-07T05:26:31.937362+00:00",
-      "partial_check_done": true
     },
     {
       "id": "PUMPUSDT_LONG_1h_2026-09-07_12-11-19",
@@ -27072,6 +27070,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-08T11:29:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "AVAAIUSDT_LONG_1h_2026-09-07_05-26-33",
+      "symbol": "AVAAIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008617,
+      "sl": 0.008161,
+      "tp": [
+        0.009302,
+        0.009484,
+        0.009644
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-07_05-26-33",
+      "first_seen": "2026-09-07T05:26:31.937362+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.88,
+      "stage1_score": 31.449,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.804,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008617,
+      "triggered_at": "2026-09-07T06:00:00+00:00",
+      "partial_check_from": "2026-09-07T05:26:31.937362+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.009484,
+      "tp_index": 1,
+      "bar_time": 1788872399999,
+      "bars_held": 31,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-08T12:59:59.999000+00:00",
+      "r_multiple": 1.9
     }
   ],
   "ingested_runs": [
@@ -27798,6 +27836,7 @@
     "2026-09-08_11-53-10",
     "2026-09-08_12-11-18",
     "2026-09-08_12-33-58",
-    "2026-09-08_12-57-21"
+    "2026-09-08_12-57-21",
+    "2026-09-08_13-11-08"
   ]
 }
