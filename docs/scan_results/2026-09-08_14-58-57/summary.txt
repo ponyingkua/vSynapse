@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T14:58:55.727833+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ETHFIUSDT | Side: LONG | Score: 6.2
+   - Entry : 0.60097
+   - SL    : 0.57900
+   - TP    : 0.63392, 0.64270, 0.65039
+   - Invalidation: Close below 0.579 / loss of recent 15m swing low / breakout invalid if price falls below 0.5994
+----------------------------------------

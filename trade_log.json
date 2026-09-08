@@ -30,35 +30,6 @@
       "added_at": "2026-09-08T12:11:15.595307+00:00"
     },
     {
-      "id": "BEATUSDT_SHORT_15m_2026-09-08_14-12-39",
-      "symbol": "BEATUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.12752,
-      "sl": 0.129,
-      "tp": [
-        0.12531,
-        0.12472,
-        0.1242
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-08_14-12-39",
-      "first_seen": "2026-09-08T14:12:37.415117+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 5.167,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.104,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.12752,
-      "added_at": "2026-09-08T14:12:37.415117+00:00"
-    },
-    {
       "id": "ETHFIUSDT_LONG_15m_2026-09-08_14-45-59",
       "symbol": "ETHFIUSDT",
       "side": "LONG",
@@ -86,6 +57,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.60097,
       "added_at": "2026-09-08T14:45:57.452953+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_15m_2026-09-08_14-58-57",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.60097,
+      "sl": 0.579,
+      "tp": [
+        0.63392,
+        0.6427,
+        0.65039
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_14-58-57",
+      "first_seen": "2026-09-08T14:58:55.727833+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.2,
+      "stage1_score": 17.48,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.122,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.60097,
+      "added_at": "2026-09-08T14:58:55.727833+00:00"
     }
   ],
   "open": [
@@ -569,6 +569,36 @@
       "sl_after_tp1": 0.14294,
       "added_at": "2026-09-08T13:11:06.468479+00:00",
       "triggered_at": "2026-09-08T14:00:00+00:00"
+    },
+    {
+      "id": "BEATUSDT_SHORT_15m_2026-09-08_14-12-39",
+      "symbol": "BEATUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.12752,
+      "sl": 0.129,
+      "tp": [
+        0.12531,
+        0.12472,
+        0.1242
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_14-12-39",
+      "first_seen": "2026-09-08T14:12:37.415117+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 5.167,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.104,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12752,
+      "added_at": "2026-09-08T14:12:37.415117+00:00",
+      "triggered_at": "2026-09-08T14:45:00+00:00"
     }
   ],
   "closed": [
@@ -27911,6 +27941,7 @@
     "2026-09-08_13-58-06",
     "2026-09-08_14-12-39",
     "2026-09-08_14-30-23",
-    "2026-09-08_14-45-59"
+    "2026-09-08_14-45-59",
+    "2026-09-08_14-58-57"
   ]
 }
