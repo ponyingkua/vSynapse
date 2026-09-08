@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-08T16:09:31.921654+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: PLUMEUSDT | Side: LONG | Score: 7.31
+   - Entry : 0.01425
+   - SL    : 0.01372
+   - TP    : 0.01505, 0.01526, 0.01545
+   - Invalidation: Close below 0.01372 / loss of recent 15m swing low / breakout invalid if price falls below 0.01422
+----------------------------------------
+2. Symbol: SOLUSDT | Side: LONG | Score: 6.55
+   - Entry : 103.89
+   - SL    : 102.70
+   - TP    : 105.67, 106.15, 106.57
+   - Invalidation: Close below 102.7 / loss of recent 15m swing low / breakout invalid if price falls below 103.77
+----------------------------------------
+3. Symbol: RUNEUSDT | Side: LONG | Score: 7.22
+   - Entry : 0.48742
+   - SL    : 0.48080
+   - TP    : 0.49735, 0.49999, 0.50231
+   - Invalidation: Close below 0.4808 / loss of recent 15m swing low / breakout invalid if price falls below 0.4868
+----------------------------------------
+4. Symbol: PEOPLEUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.008063
+   - SL    : 0.007929
+   - TP    : 0.008263, 0.008317, 0.008364
+   - Invalidation: Close below 0.007929 / loss of recent 15m swing low / breakout invalid if price falls below 0.008048
+----------------------------------------
