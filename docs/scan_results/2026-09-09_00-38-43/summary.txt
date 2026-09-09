@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T00:38:41.337271+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CELOUSDT | Side: LONG | Score: 6.21
+   - Entry : 0.07856
+   - SL    : 0.07745
+   - TP    : 0.08023, 0.08068, 0.08107
+   - Invalidation: Close below 0.07745 / loss of recent 15m swing low / breakout invalid if price falls below 0.07846
+----------------------------------------
