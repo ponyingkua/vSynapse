@@ -874,6 +874,37 @@
       "triggered_at": "2026-09-09T17:45:00+00:00",
       "partial_check_from": "2026-09-09T17:39:53.050809+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "PEOPLEUSDT_LONG_1h_2026-09-09_17-52-14",
+      "symbol": "PEOPLEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.00813,
+      "sl": 0.007831,
+      "tp": [
+        0.008579,
+        0.008699,
+        0.008804
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-09_17-52-14",
+      "first_seen": "2026-09-09T17:52:12.837523+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 14.942,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.823,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.00813,
+      "triggered_at": "2026-09-09T18:00:00+00:00",
+      "partial_check_from": "2026-09-09T17:52:12.837523+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -29603,6 +29634,7 @@
     "2026-09-09_16-56-12",
     "2026-09-09_17-07-54",
     "2026-09-09_17-26-44",
-    "2026-09-09_17-39-54"
+    "2026-09-09_17-39-54",
+    "2026-09-09_17-52-14"
   ]
 }
