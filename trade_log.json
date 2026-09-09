@@ -260,35 +260,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.005222,
       "added_at": "2026-09-09T21:51:51.506113+00:00"
-    },
-    {
-      "id": "MAGMAUSDT_SHORT_15m_2026-09-09_22-25-54",
-      "symbol": "MAGMAUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.2443,
-      "sl": 0.25695,
-      "tp": [
-        0.22533,
-        0.22027,
-        0.21585
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-09_22-25-54",
-      "first_seen": "2026-09-09T22:25:52.430973+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.13,
-      "stage1_score": 12.113,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -6.963,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.2443,
-      "added_at": "2026-09-09T22:25:52.430973+00:00"
     }
   ],
   "open": [
@@ -561,6 +532,36 @@
       "sl_after_tp1": 0.51166,
       "added_at": "2026-09-05T11:08:06.815268+00:00",
       "triggered_at": "2026-09-07T12:00:00+00:00"
+    },
+    {
+      "id": "MAGMAUSDT_SHORT_15m_2026-09-09_22-25-54",
+      "symbol": "MAGMAUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.2443,
+      "sl": 0.25695,
+      "tp": [
+        0.22533,
+        0.22027,
+        0.21585
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_22-25-54",
+      "first_seen": "2026-09-09T22:25:52.430973+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.13,
+      "stage1_score": 12.113,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -6.963,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.2443,
+      "added_at": "2026-09-09T22:25:52.430973+00:00",
+      "triggered_at": "2026-09-09T23:30:00+00:00"
     }
   ],
   "closed": [
@@ -30378,6 +30379,7 @@
     "2026-09-09_22-51-42",
     "2026-09-09_23-07-52",
     "2026-09-09_23-24-56",
-    "2026-09-09_23-38-20"
+    "2026-09-09_23-38-20",
+    "2026-09-09_23-51-09"
   ]
 }
