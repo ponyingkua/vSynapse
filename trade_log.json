@@ -86,35 +86,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1.4115,
       "added_at": "2026-09-08T16:56:25.935642+00:00"
-    },
-    {
-      "id": "ZBTUSDT_SHORT_15m_2026-09-08_20-09-15",
-      "symbol": "ZBTUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.08518,
-      "sl": 0.08582,
-      "tp": [
-        0.08421,
-        0.08395,
-        0.08372
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-08_20-09-15",
-      "first_seen": "2026-09-08T20:09:11.668495+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.77,
-      "stage1_score": 4.839,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -0.955,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.08518,
-      "added_at": "2026-09-08T20:09:11.668495+00:00"
     }
   ],
   "open": [
@@ -28036,6 +28007,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-08T22:14:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "ZBTUSDT_SHORT_15m_2026-09-08_20-09-15",
+      "symbol": "ZBTUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.08518,
+      "sl": 0.08582,
+      "tp": [
+        0.08421,
+        0.08395,
+        0.08372
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_20-09-15",
+      "first_seen": "2026-09-08T20:09:11.668495+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.77,
+      "stage1_score": 4.839,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -0.955,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08518,
+      "added_at": "2026-09-08T20:09:11.668495+00:00",
+      "triggered_at": "2026-09-09T00:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.08582,
+      "tp_index": null,
+      "resolved_via": "subcandle_entry",
+      "bar_time": 1788912899999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-09T00:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -28804,6 +28815,7 @@
     "2026-09-08_23-08-54",
     "2026-09-08_23-25-05",
     "2026-09-08_23-37-38",
-    "2026-09-08_23-50-49"
+    "2026-09-08_23-50-49",
+    "2026-09-09_00-13-10"
   ]
 }
