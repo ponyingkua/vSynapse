@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T22:25:52.430973+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MAGMAUSDT | Side: SHORT | Score: 6.13
+   - Entry : 0.24430
+   - SL    : 0.25695
+   - TP    : 0.22533, 0.22027, 0.21585
+   - Invalidation: Close above 0.25695 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.246
+----------------------------------------
