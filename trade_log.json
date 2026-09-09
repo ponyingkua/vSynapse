@@ -57,6 +57,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.1151,
       "added_at": "2026-09-09T03:08:46.869274+00:00"
+    },
+    {
+      "id": "ZENUSDT_LONG_15m_2026-09-09_05-08-32",
+      "symbol": "ZENUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 7.1713,
+      "sl": 6.937,
+      "tp": [
+        7.5227,
+        7.6164,
+        7.6984
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-09_05-08-32",
+      "first_seen": "2026-09-09T05:08:30.475614+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.3,
+      "stage1_score": 20.681,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.693,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 7.1713,
+      "added_at": "2026-09-09T05:08:30.475614+00:00"
     }
   ],
   "open": [
@@ -29038,6 +29067,7 @@
     "2026-09-09_04-08-53",
     "2026-09-09_04-27-57",
     "2026-09-09_04-42-21",
-    "2026-09-09_04-54-43"
+    "2026-09-09_04-54-43",
+    "2026-09-09_05-08-32"
   ]
 }

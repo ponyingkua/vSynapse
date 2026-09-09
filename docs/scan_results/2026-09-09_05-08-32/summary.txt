@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T05:08:30.475614+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ZENUSDT | Side: LONG | Score: 6.3
+   - Entry : 7.1713
+   - SL    : 6.9370
+   - TP    : 7.5227, 7.6164, 7.6984
+   - Invalidation: Close below 6.937 / loss of recent 15m swing low / breakout invalid if price falls below 7.155
+----------------------------------------
