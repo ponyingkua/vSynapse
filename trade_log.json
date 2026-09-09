@@ -1,35 +1,5 @@
 {
-  "pending": [
-    {
-      "id": "NEARUSDT_LONG_15m_2026-09-09_07-10-22",
-      "symbol": "NEARUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.393,
-      "sl": 2.311,
-      "tp": [
-        2.516,
-        2.5488,
-        2.5775
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-09_07-10-22",
-      "first_seen": "2026-09-09T07:10:20.539215+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.37,
-      "stage1_score": 18.032,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.836,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.393,
-      "added_at": "2026-09-09T07:10:20.539215+00:00"
-    }
-  ],
+  "pending": [],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -423,67 +393,6 @@
       "triggered_at": "2026-09-08T14:00:00+00:00"
     },
     {
-      "id": "SOLUSDT_LONG_15m_2026-09-08_16-09-35",
-      "symbol": "SOLUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 103.89,
-      "sl": 102.7,
-      "tp": [
-        105.67,
-        106.15,
-        106.57
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-08_16-09-35",
-      "first_seen": "2026-09-08T16:09:31.921654+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.55,
-      "stage1_score": 11.893,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.939,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 103.89,
-      "triggered_at": "2026-09-08T16:15:00+00:00",
-      "partial_check_from": "2026-09-08T16:09:31.921654+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "RUNEUSDT_LONG_15m_2026-09-08_16-09-35",
-      "symbol": "RUNEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.48742,
-      "sl": 0.4808,
-      "tp": [
-        0.49735,
-        0.49999,
-        0.50231
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-08_16-09-35",
-      "first_seen": "2026-09-08T16:09:31.921654+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.22,
-      "stage1_score": 13.723,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.364,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.48742,
-      "added_at": "2026-09-08T16:09:31.921654+00:00",
-      "triggered_at": "2026-09-08T16:15:00+00:00"
-    },
-    {
       "id": "PEOPLEUSDT_LONG_1h_2026-09-08_17-09-38",
       "symbol": "PEOPLEUSDT",
       "side": "LONG",
@@ -847,6 +756,36 @@
       "sl_after_tp1": 7.1713,
       "added_at": "2026-09-09T05:08:30.475614+00:00",
       "triggered_at": "2026-09-09T05:15:00+00:00"
+    },
+    {
+      "id": "NEARUSDT_LONG_15m_2026-09-09_07-10-22",
+      "symbol": "NEARUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.393,
+      "sl": 2.311,
+      "tp": [
+        2.516,
+        2.5488,
+        2.5775
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-09_07-10-22",
+      "first_seen": "2026-09-09T07:10:20.539215+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.37,
+      "stage1_score": 18.032,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.836,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.393,
+      "added_at": "2026-09-09T07:10:20.539215+00:00",
+      "triggered_at": "2026-09-09T07:15:00+00:00"
     }
   ],
   "closed": [
@@ -28326,6 +28265,75 @@
       "added_at": "2026-09-09T03:08:46.869274+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-09T06:56:16.327000+00:00"
+    },
+    {
+      "id": "SOLUSDT_LONG_15m_2026-09-08_16-09-35",
+      "symbol": "SOLUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 103.89,
+      "sl": 102.7,
+      "tp": [
+        105.67,
+        106.15,
+        106.57
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-08_16-09-35",
+      "first_seen": "2026-09-08T16:09:31.921654+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.55,
+      "stage1_score": 11.893,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.939,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 103.89,
+      "triggered_at": "2026-09-08T16:15:00+00:00",
+      "partial_check_from": "2026-09-08T16:09:31.921654+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 104.72,
+      "closed_at": "2026-09-09T07:29:59.999000+00:00",
+      "r_multiple": 0.7
+    },
+    {
+      "id": "RUNEUSDT_LONG_15m_2026-09-08_16-09-35",
+      "symbol": "RUNEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.48742,
+      "sl": 0.4808,
+      "tp": [
+        0.49735,
+        0.49999,
+        0.50231
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_16-09-35",
+      "first_seen": "2026-09-08T16:09:31.921654+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.22,
+      "stage1_score": 13.723,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.364,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.48742,
+      "added_at": "2026-09-08T16:09:31.921654+00:00",
+      "triggered_at": "2026-09-08T16:15:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.4896,
+      "closed_at": "2026-09-09T07:29:59.999000+00:00",
+      "r_multiple": 0.33
     }
   ],
   "ingested_runs": [
@@ -29121,6 +29129,7 @@
     "2026-09-09_06-11-05",
     "2026-09-09_06-33-26",
     "2026-09-09_06-56-16",
-    "2026-09-09_07-10-22"
+    "2026-09-09_07-10-22",
+    "2026-09-09_07-29-07"
   ]
 }
