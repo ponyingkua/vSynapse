@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T08:09:29.246636+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: REDUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.13063
+   - SL    : 0.12840
+   - TP    : 0.13399, 0.13488, 0.13566
+   - Invalidation: Close below 0.1284 / loss of recent 15m swing low / breakout invalid if price falls below 0.1304
+----------------------------------------

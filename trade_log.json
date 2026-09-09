@@ -1,5 +1,35 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "id": "REDUSDT_LONG_15m_2026-09-09_08-09-31",
+      "symbol": "REDUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.13063,
+      "sl": 0.1284,
+      "tp": [
+        0.13399,
+        0.13488,
+        0.13566
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_08-09-31",
+      "first_seen": "2026-09-09T08:09:29.246636+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 16.881,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.023,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.13063,
+      "added_at": "2026-09-09T08:09:29.246636+00:00"
+    }
+  ],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -29132,6 +29162,7 @@
     "2026-09-09_07-10-22",
     "2026-09-09_07-29-07",
     "2026-09-09_07-43-18",
-    "2026-09-09_07-55-02"
+    "2026-09-09_07-55-02",
+    "2026-09-09_08-09-31"
   ]
 }
