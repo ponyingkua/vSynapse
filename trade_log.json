@@ -423,36 +423,6 @@
       "triggered_at": "2026-09-08T14:00:00+00:00"
     },
     {
-      "id": "ZENUSDT_LONG_15m_2026-09-08_15-13-37",
-      "symbol": "ZENUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 7.157,
-      "sl": 6.889,
-      "tp": [
-        7.559,
-        7.6662,
-        7.76
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-08_15-13-37",
-      "first_seen": "2026-09-08T15:13:34.767782+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.09,
-      "stage1_score": 15.379,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.554,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 7.157,
-      "added_at": "2026-09-08T15:13:34.767782+00:00",
-      "triggered_at": "2026-09-08T15:15:00+00:00"
-    },
-    {
       "id": "SOLUSDT_LONG_15m_2026-09-08_16-09-35",
       "symbol": "SOLUSDT",
       "side": "LONG",
@@ -28291,6 +28261,40 @@
       "exit_price": 0.6174,
       "closed_at": "2026-09-09T06:14:59.999000+00:00",
       "r_multiple": 0.75
+    },
+    {
+      "id": "ZENUSDT_LONG_15m_2026-09-08_15-13-37",
+      "symbol": "ZENUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 7.157,
+      "sl": 6.889,
+      "tp": [
+        7.559,
+        7.6662,
+        7.76
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-08_15-13-37",
+      "first_seen": "2026-09-08T15:13:34.767782+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.09,
+      "stage1_score": 15.379,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.554,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 7.157,
+      "added_at": "2026-09-08T15:13:34.767782+00:00",
+      "triggered_at": "2026-09-08T15:15:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 7.256,
+      "closed_at": "2026-09-09T06:44:59.999000+00:00",
+      "r_multiple": 0.37
     }
   ],
   "ingested_runs": [
@@ -29083,6 +29087,7 @@
     "2026-09-09_05-26-54",
     "2026-09-09_05-40-38",
     "2026-09-09_05-53-12",
-    "2026-09-09_06-11-05"
+    "2026-09-09_06-11-05",
+    "2026-09-09_06-33-26"
   ]
 }
