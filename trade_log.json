@@ -882,6 +882,37 @@
       "partial_check_done": true
     },
     {
+      "id": "BMTUSDT_LONG_1h_2026-09-09_18-56-39",
+      "symbol": "BMTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01869,
+      "sl": 0.0181,
+      "tp": [
+        0.01957,
+        0.0198,
+        0.02001
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_18-56-39",
+      "first_seen": "2026-09-09T18:56:37.070709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 6.814,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.556,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01869,
+      "triggered_at": "2026-09-09T19:00:00+00:00",
+      "partial_check_from": "2026-09-09T18:56:37.070709+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "UBUSDT_LONG_1h_2026-09-09_16-09-37",
       "symbol": "UBUSDT",
       "side": "LONG",
@@ -29733,6 +29764,7 @@
     "2026-09-09_17-52-14",
     "2026-09-09_18-10-29",
     "2026-09-09_18-30-52",
-    "2026-09-09_18-46-28"
+    "2026-09-09_18-46-28",
+    "2026-09-09_18-56-39"
   ]
 }
