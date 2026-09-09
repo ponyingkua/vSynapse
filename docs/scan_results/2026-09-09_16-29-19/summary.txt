@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T16:29:17.848292+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: UBUSDT | Side: LONG | Score: 6.14
+   - Entry : 0.12680
+   - SL    : 0.12321
+   - TP    : 0.13219, 0.13363, 0.13488
+   - Invalidation: Close below 0.12321 / loss of recent 1h swing low / breakout invalid if price falls below 0.12629
+----------------------------------------
