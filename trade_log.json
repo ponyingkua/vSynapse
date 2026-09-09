@@ -1,5 +1,35 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "id": "NEARUSDT_LONG_15m_2026-09-09_07-10-22",
+      "symbol": "NEARUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.393,
+      "sl": 2.311,
+      "tp": [
+        2.516,
+        2.5488,
+        2.5775
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-09_07-10-22",
+      "first_seen": "2026-09-09T07:10:20.539215+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.37,
+      "stage1_score": 18.032,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.836,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.393,
+      "added_at": "2026-09-09T07:10:20.539215+00:00"
+    }
+  ],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -29090,6 +29120,7 @@
     "2026-09-09_05-53-12",
     "2026-09-09_06-11-05",
     "2026-09-09_06-33-26",
-    "2026-09-09_06-56-16"
+    "2026-09-09_06-56-16",
+    "2026-09-09_07-10-22"
   ]
 }
