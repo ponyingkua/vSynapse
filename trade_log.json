@@ -115,6 +115,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01845,
       "added_at": "2026-09-09T20:08:47.318618+00:00"
+    },
+    {
+      "id": "BMTUSDT_LONG_4h_2026-09-09_20-27-21",
+      "symbol": "BMTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01845,
+      "sl": 0.01752,
+      "tp": [
+        0.01984,
+        0.02021,
+        0.02053
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_20-27-21",
+      "first_seen": "2026-09-09T20:27:19.705856+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.95,
+      "stage1_score": 11.271,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.366,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01845,
+      "added_at": "2026-09-09T20:27:19.705856+00:00"
+    },
+    {
+      "id": "HOLOUSDT_SHORT_15m_2026-09-09_20-27-21",
+      "symbol": "HOLOUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.06543,
+      "sl": 0.06596,
+      "tp": [
+        0.06464,
+        0.06443,
+        0.06425
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_20-27-21",
+      "first_seen": "2026-09-09T20:27:19.705856+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 4.271,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.51,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06543,
+      "added_at": "2026-09-09T20:27:19.705856+00:00"
     }
   ],
   "open": [
@@ -29950,6 +30008,7 @@
     "2026-09-09_19-25-15",
     "2026-09-09_19-37-47",
     "2026-09-09_19-51-06",
-    "2026-09-09_20-08-49"
+    "2026-09-09_20-08-49",
+    "2026-09-09_20-27-21"
   ]
 }

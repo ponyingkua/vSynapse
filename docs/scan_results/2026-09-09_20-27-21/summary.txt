@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T20:27:19.705856+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BMTUSDT | Side: LONG | Score: 6.95
+   - Entry : 0.01845
+   - SL    : 0.01752
+   - TP    : 0.01984, 0.02021, 0.02053
+   - Invalidation: Close below 0.01752 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: HOLOUSDT | Side: SHORT | Score: 6.05
+   - Entry : 0.06543
+   - SL    : 0.06596
+   - TP    : 0.06464, 0.06443, 0.06425
+   - Invalidation: Close above 0.06596 / reclaim of recent 15m swing high
+----------------------------------------
