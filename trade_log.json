@@ -86,6 +86,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.1268,
       "added_at": "2026-09-09T16:44:28.939420+00:00"
+    },
+    {
+      "id": "APEUSDT_LONG_15m_2026-09-09_17-26-44",
+      "symbol": "APEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.1452,
+      "sl": 0.1405,
+      "tp": [
+        0.15226,
+        0.15414,
+        0.15578
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_17-26-44",
+      "first_seen": "2026-09-09T17:26:42.823695+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.13,
+      "stage1_score": 16.446,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.316,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.1452,
+      "added_at": "2026-09-09T17:26:42.823695+00:00"
     }
   ],
   "open": [
@@ -29541,6 +29570,7 @@
     "2026-09-09_16-29-19",
     "2026-09-09_16-44-30",
     "2026-09-09_16-56-12",
-    "2026-09-09_17-07-54"
+    "2026-09-09_17-07-54",
+    "2026-09-09_17-26-44"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T17:26:42.823695+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: APEUSDT | Side: LONG | Score: 6.13
+   - Entry : 0.14520
+   - SL    : 0.14050
+   - TP    : 0.15226, 0.15414, 0.15578
+   - Invalidation: Close below 0.1405 / loss of recent 15m swing low / breakout invalid if price falls below 0.1449
+----------------------------------------
