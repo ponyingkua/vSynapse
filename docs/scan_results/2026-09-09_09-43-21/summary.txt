@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T09:43:20.251834+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BULLAUSDT | Side: LONG | Score: 6.44
+   - Entry : 0.08112
+   - SL    : 0.07710
+   - TP    : 0.08716, 0.08876, 0.09017
+   - Invalidation: Close below 0.077101 / loss of recent 15m swing low / breakout invalid if price falls below 0.081
+----------------------------------------
