@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-09T20:27:22.543000+00:00",
-  "resolved_trades": 688,
-  "wins": 257,
+  "generated_at": "2026-09-09T20:41:07.848000+00:00",
+  "resolved_trades": 689,
+  "wins": 258,
   "losses": 427,
   "breakeven": 4,
   "win_rate_pct": 37.4,
   "avg_r_multiple": -0.01,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 123,
+      "wins": 124,
       "losses": 238,
       "breakeven": 1,
-      "win_rate_pct": 34.0
+      "win_rate_pct": 34.2
     },
     "BREAKDOWN": {
       "wins": 54,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 183,
+      "wins": 184,
       "losses": 312,
       "breakeven": 4,
-      "win_rate_pct": 36.7
+      "win_rate_pct": 36.8
     },
     "SHORT": {
       "wins": 74,
@@ -72,10 +72,10 @@
       "win_rate_pct": 38.3
     },
     "v3": {
-      "wins": 71,
+      "wins": 72,
       "losses": 82,
       "breakeven": 4,
-      "win_rate_pct": 45.2
+      "win_rate_pct": 45.6
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 36.0
     },
     "ALIGNED": {
-      "wins": 152,
+      "wins": 153,
       "losses": 247,
       "breakeven": 4,
-      "win_rate_pct": 37.7
+      "win_rate_pct": 37.9
     },
     "COUNTER": {
       "wins": 64,
@@ -118,10 +118,10 @@
       "win_rate_pct": 66.7
     },
     "7.0-7.9": {
-      "wins": 7,
+      "wins": 8,
       "losses": 9,
       "breakeven": 0,
-      "win_rate_pct": 43.8
+      "win_rate_pct": 47.1
     }
   },
   "by_btc_regime": {
@@ -132,15 +132,15 @@
       "win_rate_pct": 36.7
     },
     "BULLISH": {
-      "wins": 48,
+      "wins": 49,
       "losses": 67,
       "breakeven": 4,
-      "win_rate_pct": 40.3
+      "win_rate_pct": 40.8
     }
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 257,
+      "wins": 258,
       "losses": 427,
       "breakeven": 4,
       "win_rate_pct": 37.4
@@ -149,13 +149,13 @@
   "expired_unresolved": 99,
   "never_triggered": 129,
   "currently_open": 27,
-  "currently_pending": 6,
+  "currently_pending": 8,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 11,
   "entry_sl_ambiguous_fallback_to_sl": 6,
   "resolved_in_partial_entry_window": 0,
-  "resolved_at_first_bar": 37,
-  "resolved_at_first_bar_wins": 15,
+  "resolved_at_first_bar": 38,
+  "resolved_at_first_bar_wins": 16,
   "resolved_at_first_bar_losses": 22
 }

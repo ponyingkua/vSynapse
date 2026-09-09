@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T20:41:04.849458+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: BMTUSDT | Side: LONG | Score: 6.83
+   - Entry : 0.01845
+   - SL    : 0.01752
+   - TP    : 0.01984, 0.02021, 0.02053
+   - Invalidation: Close below 0.01752 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: SAGAUSDT | Side: SHORT | Score: 6.59
+   - Entry : 0.01491
+   - SL    : 0.01517
+   - TP    : 0.01453, 0.01443, 0.01434
+   - Invalidation: Close above 0.015171265 / reclaim of recent 1h swing high
+----------------------------------------
+3. Symbol: HOMEUSDT | Side: SHORT | Score: 6.07
+   - Entry : 0.005950
+   - SL    : 0.005987
+   - TP    : 0.005895, 0.005880, 0.005868
+   - Invalidation: Close above 0.0059867865 / reclaim of recent 15m swing high
+----------------------------------------
