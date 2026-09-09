@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T18:30:50.930636+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BMTUSDT | Side: LONG | Score: 6.49
+   - Entry : 0.01873
+   - SL    : 0.01810
+   - TP    : 0.01967, 0.01992, 0.02014
+   - Invalidation: Close below 0.0181 / loss of recent 1h swing low
+----------------------------------------
