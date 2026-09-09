@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T04:08:48.231445+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: FHEUSDT | Side: SHORT | Score: 6.81
+   - Entry : 0.02330
+   - SL    : 0.02505
+   - TP    : 0.02068, 0.01998, 0.01937
+   - Invalidation: Close above 0.02505 / reclaim of recent 4h swing high
+----------------------------------------
