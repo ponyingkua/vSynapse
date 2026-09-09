@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T09:28:42.294364+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: RUNEUSDT | Side: LONG | Score: 6.58
+   - Entry : 0.48622
+   - SL    : 0.48091
+   - TP    : 0.49417, 0.49629, 0.49814
+   - Invalidation: Close below 0.48091337 / loss of recent 1h swing low
+----------------------------------------
