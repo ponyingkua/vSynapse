@@ -57,6 +57,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.7415,
       "added_at": "2026-09-09T01:27:11.562499+00:00"
+    },
+    {
+      "id": "CLOUSDT_SHORT_15m_2026-09-09_03-08-48",
+      "symbol": "CLOUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.1151,
+      "sl": 0.11769,
+      "tp": [
+        0.11121,
+        0.11017,
+        0.10927
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_03-08-48",
+      "first_seen": "2026-09-09T03:08:46.869274+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.36,
+      "stage1_score": 4.642,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.699,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.1151,
+      "added_at": "2026-09-09T03:08:46.869274+00:00"
     }
   ],
   "open": [
@@ -540,37 +569,6 @@
       "sl_after_tp1": 7.157,
       "added_at": "2026-09-08T15:13:34.767782+00:00",
       "triggered_at": "2026-09-08T15:15:00+00:00"
-    },
-    {
-      "id": "PLUMEUSDT_LONG_15m_2026-09-08_16-09-35",
-      "symbol": "PLUMEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01425,
-      "sl": 0.01372,
-      "tp": [
-        0.01505,
-        0.01526,
-        0.01545
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-08_16-09-35",
-      "first_seen": "2026-09-08T16:09:31.921654+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.31,
-      "stage1_score": 18.369,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.211,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01425,
-      "triggered_at": "2026-09-08T16:15:00+00:00",
-      "partial_check_from": "2026-09-08T16:09:31.921654+00:00",
-      "partial_check_done": true
     },
     {
       "id": "SOLUSDT_LONG_15m_2026-09-08_16-09-35",
@@ -28180,6 +28178,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-09T01:59:59.999000+00:00",
       "r_multiple": 1.91
+    },
+    {
+      "id": "PLUMEUSDT_LONG_15m_2026-09-08_16-09-35",
+      "symbol": "PLUMEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01425,
+      "sl": 0.01372,
+      "tp": [
+        0.01505,
+        0.01526,
+        0.01545
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-08_16-09-35",
+      "first_seen": "2026-09-08T16:09:31.921654+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.31,
+      "stage1_score": 18.369,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.211,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01425,
+      "triggered_at": "2026-09-08T16:15:00+00:00",
+      "partial_check_from": "2026-09-08T16:09:31.921654+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.01372,
+      "tp_index": null,
+      "bar_time": 1788923699999,
+      "bars_held": 44,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-09T03:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -28959,6 +28997,7 @@
     "2026-09-09_02-09-01",
     "2026-09-09_02-27-48",
     "2026-09-09_02-41-46",
-    "2026-09-09_02-53-33"
+    "2026-09-09_02-53-33",
+    "2026-09-09_03-08-48"
   ]
 }

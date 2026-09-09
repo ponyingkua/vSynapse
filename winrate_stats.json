@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-09T02:53:34.606000+00:00",
-  "resolved_trades": 672,
+  "generated_at": "2026-09-09T03:08:49.783000+00:00",
+  "resolved_trades": 673,
   "wins": 248,
-  "losses": 420,
+  "losses": 421,
   "breakeven": 4,
-  "win_rate_pct": 36.9,
+  "win_rate_pct": 36.8,
   "avg_r_multiple": -0.03,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 119,
-      "losses": 232,
+      "losses": 233,
       "breakeven": 1,
-      "win_rate_pct": 33.8
+      "win_rate_pct": 33.7
     },
     "BREAKDOWN": {
       "wins": 54,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 174,
-      "losses": 305,
+      "losses": 306,
       "breakeven": 4,
       "win_rate_pct": 36.0
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 62,
-      "losses": 75,
+      "losses": 76,
       "breakeven": 4,
-      "win_rate_pct": 44.0
+      "win_rate_pct": 43.7
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 143,
-      "losses": 240,
+      "losses": 241,
       "breakeven": 4,
-      "win_rate_pct": 37.0
+      "win_rate_pct": 36.9
     },
     "COUNTER": {
       "wins": 64,
@@ -119,9 +119,9 @@
     },
     "7.0-7.9": {
       "wins": 6,
-      "losses": 8,
+      "losses": 9,
       "breakeven": 0,
-      "win_rate_pct": 42.9
+      "win_rate_pct": 40.0
     }
   },
   "by_btc_regime": {
@@ -133,23 +133,23 @@
     },
     "BULLISH": {
       "wins": 39,
-      "losses": 60,
+      "losses": 61,
       "breakeven": 4,
-      "win_rate_pct": 37.9
+      "win_rate_pct": 37.5
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 248,
-      "losses": 420,
+      "losses": 421,
       "breakeven": 4,
-      "win_rate_pct": 36.9
+      "win_rate_pct": 36.8
     }
   },
   "expired_unresolved": 94,
   "never_triggered": 125,
-  "currently_open": 29,
-  "currently_pending": 2,
+  "currently_open": 28,
+  "currently_pending": 3,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 11,

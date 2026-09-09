@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T03:08:46.869274+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CLOUSDT | Side: SHORT | Score: 6.36
+   - Entry : 0.11510
+   - SL    : 0.11769
+   - TP    : 0.11121, 0.11017, 0.10927
+   - Invalidation: Close above 0.11769 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.11538
+----------------------------------------
