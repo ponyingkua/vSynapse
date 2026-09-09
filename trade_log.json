@@ -57,6 +57,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.1268,
       "added_at": "2026-09-09T16:29:17.848292+00:00"
+    },
+    {
+      "id": "UBUSDT_LONG_1h_2026-09-09_16-44-30",
+      "symbol": "UBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.1268,
+      "sl": 0.12321,
+      "tp": [
+        0.13219,
+        0.13363,
+        0.13488
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_16-44-30",
+      "first_seen": "2026-09-09T16:44:28.939420+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 10.671,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.064,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.1268,
+      "added_at": "2026-09-09T16:44:28.939420+00:00"
     }
   ],
   "open": [
@@ -29509,6 +29538,7 @@
     "2026-09-09_15-44-06",
     "2026-09-09_15-55-23",
     "2026-09-09_16-09-37",
-    "2026-09-09_16-29-19"
+    "2026-09-09_16-29-19",
+    "2026-09-09_16-44-30"
   ]
 }
