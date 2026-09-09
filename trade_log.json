@@ -1,5 +1,35 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "id": "BMTUSDT_LONG_1h_2026-09-09_18-46-28",
+      "symbol": "BMTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01877,
+      "sl": 0.0181,
+      "tp": [
+        0.01977,
+        0.02004,
+        0.02027
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_18-46-28",
+      "first_seen": "2026-09-09T18:46:26.504370+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 6.814,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.556,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01877,
+      "added_at": "2026-09-09T18:46:26.504370+00:00"
+    }
+  ],
   "open": [
     {
       "id": "ENSOUSDT_LONG_4h_2026-09-05_21-23-41",
@@ -29702,6 +29732,7 @@
     "2026-09-09_17-39-54",
     "2026-09-09_17-52-14",
     "2026-09-09_18-10-29",
-    "2026-09-09_18-30-52"
+    "2026-09-09_18-30-52",
+    "2026-09-09_18-46-28"
   ]
 }
