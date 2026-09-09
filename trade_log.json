@@ -785,6 +785,37 @@
       "sl_after_tp1": 0.48622,
       "added_at": "2026-09-09T09:28:42.294364+00:00",
       "triggered_at": "2026-09-09T10:00:00+00:00"
+    },
+    {
+      "id": "PUMPUSDT_LONG_1h_2026-09-09_14-56-29",
+      "symbol": "PUMPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.004613,
+      "sl": 0.004353,
+      "tp": [
+        0.005003,
+        0.005107,
+        0.005198
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-09_14-56-29",
+      "first_seen": "2026-09-09T14:56:27.694394+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 11.285,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.396,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.004613,
+      "triggered_at": "2026-09-09T15:00:00+00:00",
+      "partial_check_from": "2026-09-09T14:56:27.694394+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -29385,6 +29416,7 @@
     "2026-09-09_13-57-01",
     "2026-09-09_14-09-03",
     "2026-09-09_14-28-28",
-    "2026-09-09_14-44-15"
+    "2026-09-09_14-44-15",
+    "2026-09-09_14-56-29"
   ]
 }

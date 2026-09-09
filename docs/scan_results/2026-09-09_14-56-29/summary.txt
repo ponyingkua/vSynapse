@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-09T14:56:27.694394+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PUMPUSDT | Side: LONG | Score: 6.35
+   - Entry : 0.004613
+   - SL    : 0.004353
+   - TP    : 0.005003, 0.005107, 0.005198
+   - Invalidation: Close below 0.004353 / loss of recent 1h swing low / breakout invalid if price falls below 0.004612
+----------------------------------------
