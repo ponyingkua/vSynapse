@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T00:33:28.311004+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: FOLKSUSDT | Side: LONG | Score: 6.45
+   - Entry : 2.0857
+   - SL    : 2.0120
+   - TP    : 2.1962, 2.2257, 2.2515
+   - Invalidation: Close below 2.012 / loss of recent 1h swing low / breakout invalid if price falls below 2.077
+----------------------------------------
+2. Symbol: RIFUSDT | Side: LONG | Score: 6.28
+   - Entry : 0.07697
+   - SL    : 0.07493
+   - TP    : 0.08003, 0.08085, 0.08156
+   - Invalidation: Close below 0.07493 / loss of recent 15m swing low / breakout invalid if price falls below 0.07692
+----------------------------------------
