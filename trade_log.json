@@ -260,6 +260,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1.2935,
       "added_at": "2026-09-10T09:42:18.651489+00:00"
+    },
+    {
+      "id": "HYPERUSDT_SHORT_1h_2026-09-10_12-11-07",
+      "symbol": "HYPERUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06998,
+      "sl": 0.07406,
+      "tp": [
+        0.06385,
+        0.06221,
+        0.06078
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_12-11-07",
+      "first_seen": "2026-09-10T12:11:05.257077+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 4.158,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.275,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06998,
+      "added_at": "2026-09-10T12:11:05.257077+00:00"
     }
   ],
   "open": [
@@ -322,36 +351,6 @@
       "sl_after_tp1": 0.2443,
       "added_at": "2026-09-09T22:25:52.430973+00:00",
       "triggered_at": "2026-09-09T23:30:00+00:00"
-    },
-    {
-      "id": "JSTUSDT_LONG_15m_2026-09-10_00-11-41",
-      "symbol": "JSTUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.10473,
-      "sl": 0.10352,
-      "tp": [
-        0.10654,
-        0.10702,
-        0.10744
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_00-11-41",
-      "first_seen": "2026-09-10T00:11:40.235272+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.09,
-      "stage1_score": 17.924,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 1.258,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10473,
-      "added_at": "2026-09-10T00:11:40.235272+00:00",
-      "triggered_at": "2026-09-10T00:15:00+00:00"
     },
     {
       "id": "RIFUSDT_LONG_15m_2026-09-10_00-33-30",
@@ -29891,6 +29890,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-10T10:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "JSTUSDT_LONG_15m_2026-09-10_00-11-41",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.10473,
+      "sl": 0.10352,
+      "tp": [
+        0.10654,
+        0.10702,
+        0.10744
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_00-11-41",
+      "first_seen": "2026-09-10T00:11:40.235272+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.09,
+      "stage1_score": 17.924,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.258,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10473,
+      "added_at": "2026-09-10T00:11:40.235272+00:00",
+      "triggered_at": "2026-09-10T00:15:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.10352,
+      "tp_index": null,
+      "bar_time": 1789042499999,
+      "bars_held": 48,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-10T12:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -30798,6 +30836,7 @@
     "2026-09-10_11-08-41",
     "2026-09-10_11-26-41",
     "2026-09-10_11-40-27",
-    "2026-09-10_11-52-47"
+    "2026-09-10_11-52-47",
+    "2026-09-10_12-11-07"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T12:11:05.257077+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: HYPERUSDT | Side: SHORT | Score: 6.89
+   - Entry : 0.06998
+   - SL    : 0.07406
+   - TP    : 0.06385, 0.06221, 0.06078
+   - Invalidation: Close above 0.07406 / reclaim of recent 1h swing high / breakdown invalid if price rises above 0.07033
+----------------------------------------
