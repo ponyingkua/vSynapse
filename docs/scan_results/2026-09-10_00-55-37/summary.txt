@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T00:55:34.832576+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: SUSDT | Side: SHORT | Score: 6.38
+   - Entry : 0.02830
+   - SL    : 0.03010
+   - TP    : 0.02560, 0.02488, 0.02425
+   - Invalidation: Close above 0.0301 / reclaim of recent 1h swing high / breakdown invalid if price rises above 0.02844
+----------------------------------------
+2. Symbol: FOLKSUSDT | Side: LONG | Score: 6.44
+   - Entry : 2.0857
+   - SL    : 2.0120
+   - TP    : 2.1962, 2.2257, 2.2515
+   - Invalidation: Close below 2.012 / loss of recent 1h swing low / breakout invalid if price falls below 2.077
+----------------------------------------

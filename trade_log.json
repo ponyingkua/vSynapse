@@ -233,33 +233,62 @@
       "added_at": "2026-09-10T00:33:28.311004+00:00"
     },
     {
-      "id": "RIFUSDT_LONG_15m_2026-09-10_00-33-30",
-      "symbol": "RIFUSDT",
+      "id": "FOLKSUSDT_LONG_1h_2026-09-10_00-55-37",
+      "symbol": "FOLKSUSDT",
       "side": "LONG",
-      "execution_tf": "15m",
+      "execution_tf": "1h",
       "setup_style": "BREAKOUT",
       "entry_state": "WAITING_RETEST",
-      "entry": 0.07697,
-      "sl": 0.07493,
+      "entry": 2.0857,
+      "sl": 2.012,
       "tp": [
-        0.08003,
-        0.08085,
-        0.08156
+        2.1962,
+        2.2257,
+        2.2515
       ],
-      "decimals": 5,
-      "run_id": "2026-09-10_00-33-30",
-      "first_seen": "2026-09-10T00:33:28.311004+00:00",
+      "decimals": 4,
+      "run_id": "2026-09-10_00-55-37",
+      "first_seen": "2026-09-10T00:55:34.832576+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.28,
-      "stage1_score": 8.334,
+      "score": 6.44,
+      "stage1_score": 7.904,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 3,
-      "momentum_15m": 0.931,
+      "momentum_15m": 1.674,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.07697,
-      "added_at": "2026-09-10T00:33:28.311004+00:00"
+      "sl_after_tp1": 2.0857,
+      "added_at": "2026-09-10T00:55:34.832576+00:00"
+    },
+    {
+      "id": "SUSDT_SHORT_1h_2026-09-10_00-55-37",
+      "symbol": "SUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0283,
+      "sl": 0.0301,
+      "tp": [
+        0.0256,
+        0.02488,
+        0.02425
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_00-55-37",
+      "first_seen": "2026-09-10T00:55:34.832576+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 4.543,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.912,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0283,
+      "added_at": "2026-09-10T00:55:34.832576+00:00"
     }
   ],
   "open": [
@@ -352,6 +381,36 @@
       "sl_after_tp1": 0.10473,
       "added_at": "2026-09-10T00:11:40.235272+00:00",
       "triggered_at": "2026-09-10T00:15:00+00:00"
+    },
+    {
+      "id": "RIFUSDT_LONG_15m_2026-09-10_00-33-30",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.07697,
+      "sl": 0.07493,
+      "tp": [
+        0.08003,
+        0.08085,
+        0.08156
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_00-33-30",
+      "first_seen": "2026-09-10T00:33:28.311004+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.28,
+      "stage1_score": 8.334,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.931,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07697,
+      "added_at": "2026-09-10T00:33:28.311004+00:00",
+      "triggered_at": "2026-09-10T00:45:00+00:00"
     }
   ],
   "closed": [
@@ -30546,6 +30605,7 @@
     "2026-09-09_23-38-20",
     "2026-09-09_23-51-09",
     "2026-09-10_00-11-41",
-    "2026-09-10_00-33-30"
+    "2026-09-10_00-33-30",
+    "2026-09-10_00-55-37"
   ]
 }
