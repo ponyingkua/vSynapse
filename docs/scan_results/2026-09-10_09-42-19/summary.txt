@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T09:42:18.651489+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.67
+   - Entry : 1.2935
+   - SL    : 1.2741
+   - TP    : 1.3227, 1.3304, 1.3372
+   - Invalidation: Close below 1.2741011 / loss of recent 15m swing low
+----------------------------------------
