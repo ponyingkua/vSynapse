@@ -146,35 +146,6 @@
       "added_at": "2026-09-09T20:41:04.849458+00:00"
     },
     {
-      "id": "SUSDT_SHORT_1h_2026-09-10_00-55-37",
-      "symbol": "SUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.0283,
-      "sl": 0.0301,
-      "tp": [
-        0.0256,
-        0.02488,
-        0.02425
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_00-55-37",
-      "first_seen": "2026-09-10T00:55:34.832576+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 4.543,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.912,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0283,
-      "added_at": "2026-09-10T00:55:34.832576+00:00"
-    },
-    {
       "id": "HYPERUSDT_SHORT_1h_2026-09-10_12-11-07",
       "symbol": "HYPERUSDT",
       "side": "SHORT",
@@ -29965,6 +29936,37 @@
       "exit_price": 0.07639,
       "closed_at": "2026-09-10T15:59:59.999000+00:00",
       "r_multiple": -0.28
+    },
+    {
+      "id": "SUSDT_SHORT_1h_2026-09-10_00-55-37",
+      "symbol": "SUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0283,
+      "sl": 0.0301,
+      "tp": [
+        0.0256,
+        0.02488,
+        0.02425
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_00-55-37",
+      "first_seen": "2026-09-10T00:55:34.832576+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 4.543,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.912,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0283,
+      "added_at": "2026-09-10T00:55:34.832576+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-10T16:08:50.857000+00:00"
     }
   ],
   "ingested_runs": [
@@ -30887,6 +30889,7 @@
     "2026-09-10_15-09-37",
     "2026-09-10_15-28-13",
     "2026-09-10_15-42-20",
-    "2026-09-10_15-52-58"
+    "2026-09-10_15-52-58",
+    "2026-09-10_16-08-50"
   ]
 }
