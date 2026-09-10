@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T16:53:35.231660+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ETHWUSDT | Side: SHORT | Score: 7.43
+   - Entry : 0.25897
+   - SL    : 0.27540
+   - TP    : 0.23433, 0.22776, 0.22201
+   - Invalidation: Close above 0.2754 / reclaim of recent 4h swing high / breakdown invalid if price rises above 0.2604
+----------------------------------------
