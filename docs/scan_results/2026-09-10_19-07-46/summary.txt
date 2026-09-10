@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T19:07:43.802141+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ASRUSDT | Side: SHORT | Score: 6.24
+   - Entry : 0.85657
+   - SL    : 0.90000
+   - TP    : 0.79142, 0.77405, 0.75885
+   - Invalidation: Close above 0.9 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.859
+----------------------------------------
+2. Symbol: COMPUSDT | Side: LONG | Score: 6.75
+   - Entry : 20.350
+   - SL    : 19.970
+   - TP    : 20.920, 21.072, 21.205
+   - Invalidation: Close below 19.97 / loss of recent 15m swing low / breakout invalid if price falls below 20.35
+----------------------------------------
