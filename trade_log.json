@@ -231,35 +231,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.85657,
       "added_at": "2026-09-10T19:07:43.802141+00:00"
-    },
-    {
-      "id": "SYRUPUSDT_LONG_1h_2026-09-10_20-39-18",
-      "symbol": "SYRUPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.21749,
-      "sl": 0.20171,
-      "tp": [
-        0.24116,
-        0.24747,
-        0.25299
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_20-39-18",
-      "first_seen": "2026-09-10T20:39:17.125632+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.07,
-      "stage1_score": 14.871,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.889,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.21749,
-      "added_at": "2026-09-10T20:39:17.125632+00:00"
     }
   ],
   "open": [
@@ -323,6 +294,36 @@
       "triggered_at": "2026-09-10T19:15:00+00:00",
       "partial_check_from": "2026-09-10T19:07:43.802141+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SYRUPUSDT_LONG_1h_2026-09-10_20-39-18",
+      "symbol": "SYRUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.21749,
+      "sl": 0.20171,
+      "tp": [
+        0.24116,
+        0.24747,
+        0.25299
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_20-39-18",
+      "first_seen": "2026-09-10T20:39:17.125632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 14.871,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.889,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.21749,
+      "added_at": "2026-09-10T20:39:17.125632+00:00",
+      "triggered_at": "2026-09-10T21:00:00+00:00"
     }
   ],
   "closed": [
@@ -31028,6 +31029,7 @@
     "2026-09-10_20-25-24",
     "2026-09-10_20-39-18",
     "2026-09-10_20-52-24",
-    "2026-09-10_21-08-14"
+    "2026-09-10_21-08-14",
+    "2026-09-10_21-24-16"
   ]
 }
