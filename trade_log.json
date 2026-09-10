@@ -204,35 +204,6 @@
       "added_at": "2026-09-10T00:55:34.832576+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-10_08-45-11",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 1.2975,
-      "sl": 1.2747,
-      "tp": [
-        1.3316,
-        1.3407,
-        1.3486
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-10_08-45-11",
-      "first_seen": "2026-09-10T08:45:09.222463+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.36,
-      "stage1_score": 17.872,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.274,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.2975,
-      "added_at": "2026-09-10T08:45:09.222463+00:00"
-    },
-    {
       "id": "PIEVERSEUSDT_LONG_15m_2026-09-10_09-42-19",
       "symbol": "PIEVERSEUSDT",
       "side": "LONG",
@@ -29929,6 +29900,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-10T12:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-10_08-45-11",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.2975,
+      "sl": 1.2747,
+      "tp": [
+        1.3316,
+        1.3407,
+        1.3486
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-10_08-45-11",
+      "first_seen": "2026-09-10T08:45:09.222463+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.36,
+      "stage1_score": 17.872,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.274,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2975,
+      "added_at": "2026-09-10T08:45:09.222463+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-10T12:33:28.947000+00:00"
     }
   ],
   "ingested_runs": [
@@ -30837,6 +30839,7 @@
     "2026-09-10_11-26-41",
     "2026-09-10_11-40-27",
     "2026-09-10_11-52-47",
-    "2026-09-10_12-11-07"
+    "2026-09-10_12-11-07",
+    "2026-09-10_12-33-28"
   ]
 }
