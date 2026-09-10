@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0283,
       "added_at": "2026-09-10T00:55:34.832576+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_15m_2026-09-10_05-08-17",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.61187,
+      "sl": 0.60338,
+      "tp": [
+        0.62461,
+        0.628,
+        0.63098
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_05-08-17",
+      "first_seen": "2026-09-10T05:08:16.085940+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.31,
+      "stage1_score": 15.84,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.702,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.61187,
+      "added_at": "2026-09-10T05:08:16.085940+00:00"
     }
   ],
   "open": [
@@ -30624,6 +30653,7 @@
     "2026-09-10_04-08-33",
     "2026-09-10_04-27-49",
     "2026-09-10_04-42-34",
-    "2026-09-10_04-55-05"
+    "2026-09-10_04-55-05",
+    "2026-09-10_05-08-17"
   ]
 }
