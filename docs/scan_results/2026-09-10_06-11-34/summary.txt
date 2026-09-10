@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-10T06:11:33.058449+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 1000XECUSDT | Side: LONG | Score: 7.04
+   - Entry : 0.007314
+   - SL    : 0.007090
+   - TP    : 0.007650, 0.007740, 0.007818
+   - Invalidation: Close below 0.00709 / loss of recent 1h swing low
+----------------------------------------

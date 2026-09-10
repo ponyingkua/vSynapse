@@ -260,6 +260,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.61187,
       "added_at": "2026-09-10T05:08:16.085940+00:00"
+    },
+    {
+      "id": "1000XECUSDT_LONG_1h_2026-09-10_06-11-34",
+      "symbol": "1000XECUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.007314,
+      "sl": 0.00709,
+      "tp": [
+        0.00765,
+        0.00774,
+        0.007818
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-10_06-11-34",
+      "first_seen": "2026-09-10T06:11:33.058449+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.04,
+      "stage1_score": 12.234,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.736,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.007314,
+      "added_at": "2026-09-10T06:11:33.058449+00:00"
     }
   ],
   "open": [
@@ -30657,6 +30686,7 @@
     "2026-09-10_05-08-17",
     "2026-09-10_05-26-40",
     "2026-09-10_05-39-54",
-    "2026-09-10_05-53-32"
+    "2026-09-10_05-53-32",
+    "2026-09-10_06-11-34"
   ]
 }
