@@ -233,35 +233,6 @@
       "added_at": "2026-09-10T00:55:34.832576+00:00"
     },
     {
-      "id": "ETHFIUSDT_LONG_15m_2026-09-10_05-08-17",
-      "symbol": "ETHFIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.61187,
-      "sl": 0.60338,
-      "tp": [
-        0.62461,
-        0.628,
-        0.63098
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_05-08-17",
-      "first_seen": "2026-09-10T05:08:16.085940+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.31,
-      "stage1_score": 15.84,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.702,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.61187,
-      "added_at": "2026-09-10T05:08:16.085940+00:00"
-    },
-    {
       "id": "PIEVERSEUSDT_LONG_15m_2026-09-10_08-45-11",
       "symbol": "PIEVERSEUSDT",
       "side": "LONG",
@@ -29850,6 +29821,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-10T07:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "ETHFIUSDT_LONG_15m_2026-09-10_05-08-17",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.61187,
+      "sl": 0.60338,
+      "tp": [
+        0.62461,
+        0.628,
+        0.63098
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_05-08-17",
+      "first_seen": "2026-09-10T05:08:16.085940+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.31,
+      "stage1_score": 15.84,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.702,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.61187,
+      "added_at": "2026-09-10T05:08:16.085940+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-10T08:57:27.648000+00:00"
     }
   ],
   "ingested_runs": [
@@ -30744,6 +30746,7 @@
     "2026-09-10_07-54-57",
     "2026-09-10_08-09-04",
     "2026-09-10_08-29-53",
-    "2026-09-10_08-45-11"
+    "2026-09-10_08-45-11",
+    "2026-09-10_08-57-27"
   ]
 }
