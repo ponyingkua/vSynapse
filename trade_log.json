@@ -236,36 +236,6 @@
       "triggered_at": "2026-09-06T00:00:00+00:00"
     },
     {
-      "id": "MAGMAUSDT_SHORT_15m_2026-09-09_22-25-54",
-      "symbol": "MAGMAUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.2443,
-      "sl": 0.25695,
-      "tp": [
-        0.22533,
-        0.22027,
-        0.21585
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-09_22-25-54",
-      "first_seen": "2026-09-09T22:25:52.430973+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.13,
-      "stage1_score": 12.113,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -6.963,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.2443,
-      "added_at": "2026-09-09T22:25:52.430973+00:00",
-      "triggered_at": "2026-09-09T23:30:00+00:00"
-    },
-    {
       "id": "RIFUSDT_LONG_15m_2026-09-10_00-33-30",
       "symbol": "RIFUSDT",
       "side": "LONG",
@@ -29943,6 +29913,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-10T12:59:59.999000+00:00",
       "r_multiple": 1.85
+    },
+    {
+      "id": "MAGMAUSDT_SHORT_15m_2026-09-09_22-25-54",
+      "symbol": "MAGMAUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.2443,
+      "sl": 0.25695,
+      "tp": [
+        0.22533,
+        0.22027,
+        0.21585
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_22-25-54",
+      "first_seen": "2026-09-09T22:25:52.430973+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.13,
+      "stage1_score": 12.113,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -6.963,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.2443,
+      "added_at": "2026-09-09T22:25:52.430973+00:00",
+      "triggered_at": "2026-09-09T23:30:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.22533,
+      "tp_index": 0,
+      "bar_time": 1789046099999,
+      "bars_held": 55,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-10T13:14:59.999000+00:00",
+      "r_multiple": 1.5
     }
   ],
   "ingested_runs": [
@@ -30853,6 +30862,7 @@
     "2026-09-10_11-52-47",
     "2026-09-10_12-11-07",
     "2026-09-10_12-33-28",
-    "2026-09-10_12-56-29"
+    "2026-09-10_12-56-29",
+    "2026-09-10_13-09-16"
   ]
 }
