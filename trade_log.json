@@ -407,35 +407,6 @@
       "added_at": "2026-09-11T13:08:54.808591+00:00"
     },
     {
-      "id": "POLUSDT_LONG_15m_2026-09-11_13-28-17",
-      "symbol": "POLUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.09559,
-      "sl": 0.09213,
-      "tp": [
-        0.10077,
-        0.10215,
-        0.10336
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_13-28-17",
-      "first_seen": "2026-09-11T13:28:14.902410+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.27,
-      "stage1_score": 22.341,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.078,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.09559,
-      "added_at": "2026-09-11T13:28:14.902410+00:00"
-    },
-    {
       "id": "AEROUSDT_LONG_15m_2026-09-11_13-41-40",
       "symbol": "AEROUSDT",
       "side": "LONG",
@@ -1059,6 +1030,36 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1177.34,
       "added_at": "2026-09-11T14:27:34.126035+00:00",
+      "triggered_at": "2026-09-11T14:30:00+00:00"
+    },
+    {
+      "id": "POLUSDT_LONG_15m_2026-09-11_13-28-17",
+      "symbol": "POLUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09559,
+      "sl": 0.09213,
+      "tp": [
+        0.10077,
+        0.10215,
+        0.10336
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_13-28-17",
+      "first_seen": "2026-09-11T13:28:14.902410+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 22.341,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.078,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09559,
+      "added_at": "2026-09-11T13:28:14.902410+00:00",
       "triggered_at": "2026-09-11T14:30:00+00:00"
     }
   ],
@@ -32170,6 +32171,7 @@
     "2026-09-11_13-53-29",
     "2026-09-11_14-08-45",
     "2026-09-11_14-27-38",
-    "2026-09-11_14-42-14"
+    "2026-09-11_14-42-14",
+    "2026-09-11_14-54-47"
   ]
 }
