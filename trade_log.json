@@ -383,6 +383,37 @@
       "sl_after_tp1": 0.04202,
       "added_at": "2026-09-11T00:54:12.062127+00:00",
       "triggered_at": "2026-09-11T01:00:00+00:00"
+    },
+    {
+      "id": "TAKEUSDT_LONG_1h_2026-09-11_01-39-03",
+      "symbol": "TAKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05954,
+      "sl": 0.05816,
+      "tp": [
+        0.06161,
+        0.06216,
+        0.06264
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_01-39-03",
+      "first_seen": "2026-09-11T01:39:00.623811+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 8.274,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.94,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05954,
+      "triggered_at": "2026-09-11T02:00:00+00:00",
+      "partial_check_from": "2026-09-11T01:39:00.623811+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -31135,6 +31166,7 @@
     "2026-09-11_00-33-59",
     "2026-09-11_00-54-13",
     "2026-09-11_01-08-30",
-    "2026-09-11_01-25-49"
+    "2026-09-11_01-25-49",
+    "2026-09-11_01-39-03"
   ]
 }
