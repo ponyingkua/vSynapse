@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T13:28:14.902410+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.56
+   - Entry : 1.2526
+   - SL    : 1.1878
+   - TP    : 1.3497, 1.3756, 1.3983
+   - Invalidation: Close below 1.1878 / loss of recent 15m swing low / breakout invalid if price falls below 1.2479
+----------------------------------------
+2. Symbol: POLUSDT | Side: LONG | Score: 6.27
+   - Entry : 0.09559
+   - SL    : 0.09213
+   - TP    : 0.10077, 0.10215, 0.10336
+   - Invalidation: Close below 0.09213 / loss of recent 15m swing low / breakout invalid if price falls below 0.09536
+----------------------------------------
