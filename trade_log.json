@@ -175,64 +175,6 @@
       "added_at": "2026-09-10T16:53:35.231660+00:00"
     },
     {
-      "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-36-58",
-      "symbol": "CGPTUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01988,
-      "sl": 0.02119,
-      "tp": [
-        0.0179,
-        0.01738,
-        0.01692
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_23-36-58",
-      "first_seen": "2026-09-10T23:36:55.369965+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.6,
-      "stage1_score": 3.229,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.982,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01988,
-      "added_at": "2026-09-10T23:36:55.369965+00:00"
-    },
-    {
-      "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-50-59",
-      "symbol": "CGPTUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01988,
-      "sl": 0.02119,
-      "tp": [
-        0.0179,
-        0.01738,
-        0.01692
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_23-50-59",
-      "first_seen": "2026-09-10T23:50:58.048869+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.61,
-      "stage1_score": 3.424,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.585,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01988,
-      "added_at": "2026-09-10T23:50:58.048869+00:00"
-    },
-    {
       "id": "DOGSUSDT_LONG_1h_2026-09-11_03-09-01",
       "symbol": "DOGSUSDT",
       "side": "LONG",
@@ -735,6 +677,66 @@
       "sl_after_tp1": 1.2526,
       "added_at": "2026-09-11T13:28:14.902410+00:00",
       "triggered_at": "2026-09-11T13:30:00+00:00"
+    },
+    {
+      "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-36-58",
+      "symbol": "CGPTUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01988,
+      "sl": 0.02119,
+      "tp": [
+        0.0179,
+        0.01738,
+        0.01692
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_23-36-58",
+      "first_seen": "2026-09-10T23:36:55.369965+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 3.229,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.982,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01988,
+      "added_at": "2026-09-10T23:36:55.369965+00:00",
+      "triggered_at": "2026-09-11T12:00:00+00:00"
+    },
+    {
+      "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-50-59",
+      "symbol": "CGPTUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01988,
+      "sl": 0.02119,
+      "tp": [
+        0.0179,
+        0.01738,
+        0.01692
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_23-50-59",
+      "first_seen": "2026-09-10T23:50:58.048869+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 3.424,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.585,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01988,
+      "added_at": "2026-09-10T23:50:58.048869+00:00",
+      "triggered_at": "2026-09-11T12:00:00+00:00"
     }
   ],
   "closed": [
@@ -31841,6 +31843,7 @@
     "2026-09-11_12-55-55",
     "2026-09-11_13-08-58",
     "2026-09-11_13-28-17",
-    "2026-09-11_13-41-40"
+    "2026-09-11_13-41-40",
+    "2026-09-11_13-53-29"
   ]
 }
