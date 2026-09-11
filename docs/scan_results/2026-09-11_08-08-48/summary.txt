@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T08:08:46.916388+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BSVUSDT | Side: LONG | Score: 6.02
+   - Entry : 16.431
+   - SL    : 16.000
+   - TP    : 17.077, 17.249, 17.400
+   - Invalidation: Close below 16 / loss of recent 1h swing low / breakout invalid if price falls below 16.38
+----------------------------------------

@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-11T07:53:02.815000+00:00",
-  "resolved_trades": 726,
+  "generated_at": "2026-09-11T08:08:49.282000+00:00",
+  "resolved_trades": 727,
   "wins": 262,
-  "losses": 458,
+  "losses": 459,
   "breakeven": 6,
-  "win_rate_pct": 36.1,
+  "win_rate_pct": 36.0,
   "avg_r_multiple": -0.04,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 124,
-      "losses": 261,
+      "losses": 262,
       "breakeven": 1,
-      "win_rate_pct": 32.1
+      "win_rate_pct": 32.0
     },
     "BREAKDOWN": {
       "wins": 55,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 185,
-      "losses": 343,
+      "losses": 344,
       "breakeven": 6,
       "win_rate_pct": 34.6
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 76,
-      "losses": 113,
+      "losses": 114,
       "breakeven": 6,
-      "win_rate_pct": 39.0
+      "win_rate_pct": 38.8
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 157,
-      "losses": 278,
+      "losses": 279,
       "breakeven": 6,
-      "win_rate_pct": 35.6
+      "win_rate_pct": 35.5
     },
     "COUNTER": {
       "wins": 64,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 43,
-      "losses": 77,
+      "losses": 78,
       "breakeven": 5,
-      "win_rate_pct": 34.4
+      "win_rate_pct": 34.1
     },
     "8.0-8.9": {
       "wins": 2,
@@ -133,23 +133,23 @@
     },
     "BULLISH": {
       "wins": 53,
-      "losses": 98,
+      "losses": 99,
       "breakeven": 6,
-      "win_rate_pct": 33.8
+      "win_rate_pct": 33.5
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 262,
-      "losses": 458,
+      "losses": 459,
       "breakeven": 6,
-      "win_rate_pct": 36.1
+      "win_rate_pct": 36.0
     }
   },
   "expired_unresolved": 100,
   "never_triggered": 137,
-  "currently_open": 5,
-  "currently_pending": 12,
+  "currently_open": 4,
+  "currently_pending": 13,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 11,
