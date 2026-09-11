@@ -318,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.716e-05,
       "added_at": "2026-09-11T03:26:59.496403+00:00"
+    },
+    {
+      "id": "DOGSUSDT_LONG_1h_2026-09-11_03-40-59",
+      "symbol": "DOGSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 4.716e-05,
+      "sl": 4.522e-05,
+      "tp": [
+        5.008e-05,
+        5.086e-05,
+        5.154e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-11_03-40-59",
+      "first_seen": "2026-09-11T03:40:54.612205+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.06,
+      "stage1_score": 29.064,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.237,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.716e-05,
+      "added_at": "2026-09-11T03:40:54.612205+00:00"
     }
   ],
   "open": [
@@ -31312,6 +31341,7 @@
     "2026-09-11_02-40-54",
     "2026-09-11_02-53-19",
     "2026-09-11_03-09-01",
-    "2026-09-11_03-27-01"
+    "2026-09-11_03-27-01",
+    "2026-09-11_03-40-59"
   ]
 }
