@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T00:54:12.062127+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 1000RATSUSDT | Side: LONG | Score: 6.08
+   - Entry : 0.04202
+   - SL    : 0.03870
+   - TP    : 0.04700, 0.04833, 0.04949
+   - Invalidation: Close below 0.0387 / loss of recent 1h swing low
+----------------------------------------
