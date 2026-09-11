@@ -436,64 +436,6 @@
       "added_at": "2026-09-11T14:08:41.720021+00:00"
     },
     {
-      "id": "LDOUSDT_LONG_1h_2026-09-11_14-08-45",
-      "symbol": "LDOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.3777,
-      "sl": 0.3605,
-      "tp": [
-        0.40351,
-        0.41039,
-        0.41641
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_14-08-45",
-      "first_seen": "2026-09-11T14:08:41.720021+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.39,
-      "stage1_score": 21.703,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 2.756,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.3777,
-      "added_at": "2026-09-11T14:08:41.720021+00:00"
-    },
-    {
-      "id": "UNIUSDT_LONG_15m_2026-09-11_14-08-45",
-      "symbol": "UNIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 6.2704,
-      "sl": 5.851,
-      "tp": [
-        6.8995,
-        7.0672,
-        7.214
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-11_14-08-45",
-      "first_seen": "2026-09-11T14:08:41.720021+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.58,
-      "stage1_score": 30.014,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.736,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 6.2704,
-      "added_at": "2026-09-11T14:08:41.720021+00:00"
-    },
-    {
       "id": "ESPUSDT_LONG_1h_2026-09-11_14-27-38",
       "symbol": "ESPUSDT",
       "side": "LONG",
@@ -1093,6 +1035,66 @@
       "sl_after_tp1": 56.982,
       "added_at": "2026-09-11T14:27:34.126035+00:00",
       "triggered_at": "2026-09-11T15:00:00+00:00"
+    },
+    {
+      "id": "LDOUSDT_LONG_1h_2026-09-11_14-08-45",
+      "symbol": "LDOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.3777,
+      "sl": 0.3605,
+      "tp": [
+        0.40351,
+        0.41039,
+        0.41641
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_14-08-45",
+      "first_seen": "2026-09-11T14:08:41.720021+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.39,
+      "stage1_score": 21.703,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.756,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.3777,
+      "added_at": "2026-09-11T14:08:41.720021+00:00",
+      "triggered_at": "2026-09-11T15:00:00+00:00"
+    },
+    {
+      "id": "UNIUSDT_LONG_15m_2026-09-11_14-08-45",
+      "symbol": "UNIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 6.2704,
+      "sl": 5.851,
+      "tp": [
+        6.8995,
+        7.0672,
+        7.214
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_14-08-45",
+      "first_seen": "2026-09-11T14:08:41.720021+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.58,
+      "stage1_score": 30.014,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.736,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 6.2704,
+      "added_at": "2026-09-11T14:08:41.720021+00:00",
+      "triggered_at": "2026-09-11T15:45:00+00:00"
     }
   ],
   "closed": [
@@ -32207,6 +32209,7 @@
     "2026-09-11_14-54-47",
     "2026-09-11_15-08-36",
     "2026-09-11_15-27-15",
-    "2026-09-11_15-40-26"
+    "2026-09-11_15-40-26",
+    "2026-09-11_15-53-40"
   ]
 }
