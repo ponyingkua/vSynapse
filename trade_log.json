@@ -291,35 +291,6 @@
       "added_at": "2026-09-11T13:08:54.808591+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-08-58",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 1.2339,
-      "sl": 1.1748,
-      "tp": [
-        1.3225,
-        1.3462,
-        1.3668
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-11_13-08-58",
-      "first_seen": "2026-09-11T13:08:54.808591+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.35,
-      "stage1_score": 21.871,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.05,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.2339,
-      "added_at": "2026-09-11T13:08:54.808591+00:00"
-    },
-    {
       "id": "LITUSDT_LONG_15m_2026-09-11_13-08-58",
       "symbol": "LITUSDT",
       "side": "LONG",
@@ -407,35 +378,6 @@
       "added_at": "2026-09-11T13:41:38.968910+00:00"
     },
     {
-      "id": "WLDUSDT_LONG_1h_2026-09-11_14-08-45",
-      "symbol": "WLDUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.40948,
-      "sl": 0.387,
-      "tp": [
-        0.4432,
-        0.4522,
-        0.46006
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_14-08-45",
-      "first_seen": "2026-09-11T14:08:41.720021+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.5,
-      "stage1_score": 24.405,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 3.337,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.40948,
-      "added_at": "2026-09-11T14:08:41.720021+00:00"
-    },
-    {
       "id": "ESPUSDT_LONG_1h_2026-09-11_14-27-38",
       "symbol": "ESPUSDT",
       "side": "LONG",
@@ -492,6 +434,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.08901,
       "added_at": "2026-09-11T14:42:11.870162+00:00"
+    },
+    {
+      "id": "ESPUSDT_LONG_1h_2026-09-11_16-09-18",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.09051,
+      "sl": 0.08418,
+      "tp": [
+        0.1,
+        0.10253,
+        0.10474
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_16-09-18",
+      "first_seen": "2026-09-11T16:09:16.670593+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.31,
+      "stage1_score": 17.191,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.51,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09051,
+      "added_at": "2026-09-11T16:09:16.670593+00:00"
     },
     {
       "id": "GMXUSDT_LONG_1h_2026-09-11_14-27-38",
@@ -796,6 +767,36 @@
       "triggered_at": "2026-09-11T14:45:00+00:00"
     },
     {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-08-58",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.2339,
+      "sl": 1.1748,
+      "tp": [
+        1.3225,
+        1.3462,
+        1.3668
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_13-08-58",
+      "first_seen": "2026-09-11T13:08:54.808591+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 21.871,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.05,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2339,
+      "added_at": "2026-09-11T13:08:54.808591+00:00",
+      "triggered_at": "2026-09-11T15:45:00+00:00"
+    },
+    {
       "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-36-58",
       "symbol": "CGPTUSDT",
       "side": "SHORT",
@@ -1095,6 +1096,36 @@
       "sl_after_tp1": 6.2704,
       "added_at": "2026-09-11T14:08:41.720021+00:00",
       "triggered_at": "2026-09-11T15:45:00+00:00"
+    },
+    {
+      "id": "WLDUSDT_LONG_1h_2026-09-11_14-08-45",
+      "symbol": "WLDUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.40948,
+      "sl": 0.387,
+      "tp": [
+        0.4432,
+        0.4522,
+        0.46006
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_14-08-45",
+      "first_seen": "2026-09-11T14:08:41.720021+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.5,
+      "stage1_score": 24.405,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 3.337,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.40948,
+      "added_at": "2026-09-11T14:08:41.720021+00:00",
+      "triggered_at": "2026-09-11T15:00:00+00:00"
     }
   ],
   "closed": [
@@ -32210,6 +32241,7 @@
     "2026-09-11_15-08-36",
     "2026-09-11_15-27-15",
     "2026-09-11_15-40-26",
-    "2026-09-11_15-53-40"
+    "2026-09-11_15-53-40",
+    "2026-09-11_16-09-18"
   ]
 }
