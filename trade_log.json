@@ -639,33 +639,33 @@
       "added_at": "2026-09-11T14:27:34.126035+00:00"
     },
     {
-      "id": "ZECUSDT_LONG_15m_2026-09-11_14-27-38",
-      "symbol": "ZECUSDT",
+      "id": "ESPUSDT_LONG_1h_2026-09-11_14-42-14",
+      "symbol": "ESPUSDT",
       "side": "LONG",
-      "execution_tf": "15m",
+      "execution_tf": "1h",
       "setup_style": "BREAKOUT",
       "entry_state": "WAITING_RETEST",
-      "entry": 1177.34,
-      "sl": 1100.0,
+      "entry": 0.08901,
+      "sl": 0.08418,
       "tp": [
-        1293.35,
-        1324.29,
-        1351.36
+        0.09626,
+        0.09819,
+        0.09988
       ],
-      "decimals": 2,
-      "run_id": "2026-09-11_14-27-38",
-      "first_seen": "2026-09-11T14:27:34.126035+00:00",
+      "decimals": 5,
+      "run_id": "2026-09-11_14-42-14",
+      "first_seen": "2026-09-11T14:42:11.870162+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.47,
-      "stage1_score": 27.471,
+      "score": 6.38,
+      "stage1_score": 21.348,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 2,
-      "momentum_15m": 4.824,
+      "momentum_15m": 3.74,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 1177.34,
-      "added_at": "2026-09-11T14:27:34.126035+00:00"
+      "sl_after_tp1": 0.08901,
+      "added_at": "2026-09-11T14:42:11.870162+00:00"
     },
     {
       "id": "GMXUSDT_LONG_1h_2026-09-11_14-27-38",
@@ -999,6 +999,67 @@
       "sl_after_tp1": 0.25897,
       "added_at": "2026-09-10T16:53:35.231660+00:00",
       "triggered_at": "2026-09-11T12:00:00+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_15m_2026-09-11_14-42-14",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.6832,
+      "sl": 0.6333,
+      "tp": [
+        0.75805,
+        0.77801,
+        0.79548
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_14-42-14",
+      "first_seen": "2026-09-11T14:42:11.870162+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 30.352,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.426,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.6832,
+      "triggered_at": "2026-09-11T14:45:00+00:00",
+      "partial_check_from": "2026-09-11T14:42:11.870162+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ZECUSDT_LONG_15m_2026-09-11_14-27-38",
+      "symbol": "ZECUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1177.34,
+      "sl": 1100.0,
+      "tp": [
+        1293.35,
+        1324.29,
+        1351.36
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-11_14-27-38",
+      "first_seen": "2026-09-11T14:27:34.126035+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 27.471,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.824,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1177.34,
+      "added_at": "2026-09-11T14:27:34.126035+00:00",
+      "triggered_at": "2026-09-11T14:30:00+00:00"
     }
   ],
   "closed": [
@@ -32108,6 +32169,7 @@
     "2026-09-11_13-41-40",
     "2026-09-11_13-53-29",
     "2026-09-11_14-08-45",
-    "2026-09-11_14-27-38"
+    "2026-09-11_14-27-38",
+    "2026-09-11_14-42-14"
   ]
 }

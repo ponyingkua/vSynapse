@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T14:42:11.870162+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ETHFIUSDT | Side: LONG | Score: 6.19
+   - Entry : 0.68320
+   - SL    : 0.63330
+   - TP    : 0.75805, 0.77801, 0.79548
+   - Invalidation: Close below 0.6333 / loss of recent 15m swing low / breakout invalid if price falls below 0.6796
+----------------------------------------
+2. Symbol: ESPUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.08901
+   - SL    : 0.08418
+   - TP    : 0.09626, 0.09819, 0.09988
+   - Invalidation: Close below 0.08418 / loss of recent 1h swing low / breakout invalid if price falls below 0.08863
+----------------------------------------
