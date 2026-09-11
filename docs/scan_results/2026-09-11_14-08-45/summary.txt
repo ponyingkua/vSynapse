@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T14:08:41.720021+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: WLDUSDT | Side: LONG | Score: 6.5
+   - Entry : 0.40948
+   - SL    : 0.38700
+   - TP    : 0.44320, 0.45220, 0.46006
+   - Invalidation: Close below 0.387 / loss of recent 1h swing low / breakout invalid if price falls below 0.4074
+----------------------------------------
+2. Symbol: DASHUSDT | Side: LONG | Score: 6.43
+   - Entry : 56.982
+   - SL    : 54.180
+   - TP    : 61.185, 62.306, 63.286
+   - Invalidation: Close below 54.18 / loss of recent 1h swing low / breakout invalid if price falls below 56.68
+----------------------------------------
+3. Symbol: LDOUSDT | Side: LONG | Score: 6.39
+   - Entry : 0.37770
+   - SL    : 0.36050
+   - TP    : 0.40351, 0.41039, 0.41641
+   - Invalidation: Close below 0.3605 / loss of recent 1h swing low / breakout invalid if price falls below 0.376
+----------------------------------------
+4. Symbol: UNIUSDT | Side: LONG | Score: 6.58
+   - Entry : 6.2704
+   - SL    : 5.8510
+   - TP    : 6.8995, 7.0672, 7.2140
+   - Invalidation: Close below 5.851 / loss of recent 15m swing low
+----------------------------------------
