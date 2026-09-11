@@ -146,35 +146,6 @@
       "added_at": "2026-09-09T20:41:04.849458+00:00"
     },
     {
-      "id": "HYPERUSDT_SHORT_1h_2026-09-10_12-11-07",
-      "symbol": "HYPERUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.06998,
-      "sl": 0.07406,
-      "tp": [
-        0.06385,
-        0.06221,
-        0.06078
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_12-11-07",
-      "first_seen": "2026-09-10T12:11:05.257077+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.89,
-      "stage1_score": 4.158,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.275,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.06998,
-      "added_at": "2026-09-10T12:11:05.257077+00:00"
-    },
-    {
       "id": "ETHWUSDT_SHORT_4h_2026-09-10_16-53-36",
       "symbol": "ETHWUSDT",
       "side": "SHORT",
@@ -318,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.716e-05,
       "added_at": "2026-09-11T03:08:58.749134+00:00"
+    },
+    {
+      "id": "DOGSUSDT_LONG_1h_2026-09-11_03-27-01",
+      "symbol": "DOGSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 4.716e-05,
+      "sl": 4.522e-05,
+      "tp": [
+        5.008e-05,
+        5.086e-05,
+        5.154e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-11_03-27-01",
+      "first_seen": "2026-09-11T03:26:59.496403+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 24.81,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 3.367,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.716e-05,
+      "added_at": "2026-09-11T03:26:59.496403+00:00"
     }
   ],
   "open": [
@@ -350,37 +350,6 @@
       "sl_after_tp1": 0.90221,
       "added_at": "2026-09-05T21:23:39.097408+00:00",
       "triggered_at": "2026-09-06T00:00:00+00:00"
-    },
-    {
-      "id": "COMPUSDT_LONG_15m_2026-09-10_19-07-46",
-      "symbol": "COMPUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 20.35,
-      "sl": 19.97,
-      "tp": [
-        20.92,
-        21.072,
-        21.205
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-10_19-07-46",
-      "first_seen": "2026-09-10T19:07:43.802141+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.75,
-      "stage1_score": 19.258,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.833,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 20.35,
-      "triggered_at": "2026-09-10T19:15:00+00:00",
-      "partial_check_from": "2026-09-10T19:07:43.802141+00:00",
-      "partial_check_done": true
     },
     {
       "id": "SYRUPUSDT_LONG_1h_2026-09-10_20-39-18",
@@ -30305,6 +30274,77 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-11T03:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "HYPERUSDT_SHORT_1h_2026-09-10_12-11-07",
+      "symbol": "HYPERUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06998,
+      "sl": 0.07406,
+      "tp": [
+        0.06385,
+        0.06221,
+        0.06078
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_12-11-07",
+      "first_seen": "2026-09-10T12:11:05.257077+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 4.158,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.275,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06998,
+      "added_at": "2026-09-10T12:11:05.257077+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-11T03:27:01.470000+00:00"
+    },
+    {
+      "id": "COMPUSDT_LONG_15m_2026-09-10_19-07-46",
+      "symbol": "COMPUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 20.35,
+      "sl": 19.97,
+      "tp": [
+        20.92,
+        21.072,
+        21.205
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-10_19-07-46",
+      "first_seen": "2026-09-10T19:07:43.802141+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.75,
+      "stage1_score": 19.258,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.833,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 20.35,
+      "triggered_at": "2026-09-10T19:15:00+00:00",
+      "partial_check_from": "2026-09-10T19:07:43.802141+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 19.97,
+      "tp_index": null,
+      "bar_time": 1789097399999,
+      "bars_held": 33,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-11T03:29:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -31271,6 +31311,7 @@
     "2026-09-11_02-27-19",
     "2026-09-11_02-40-54",
     "2026-09-11_02-53-19",
-    "2026-09-11_03-09-01"
+    "2026-09-11_03-09-01",
+    "2026-09-11_03-27-01"
   ]
 }
