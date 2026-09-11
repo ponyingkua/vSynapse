@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.07579,
       "added_at": "2026-09-11T02:40:52.333971+00:00"
+    },
+    {
+      "id": "DOGSUSDT_LONG_1h_2026-09-11_03-09-01",
+      "symbol": "DOGSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 4.716e-05,
+      "sl": 4.522e-05,
+      "tp": [
+        5.008e-05,
+        5.086e-05,
+        5.154e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-11_03-09-01",
+      "first_seen": "2026-09-11T03:08:58.749134+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 15.276,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 0.719,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.716e-05,
+      "added_at": "2026-09-11T03:08:58.749134+00:00"
     }
   ],
   "open": [
@@ -412,37 +441,6 @@
       "sl_after_tp1": 0.04202,
       "added_at": "2026-09-11T00:54:12.062127+00:00",
       "triggered_at": "2026-09-11T01:00:00+00:00"
-    },
-    {
-      "id": "TAKEUSDT_LONG_1h_2026-09-11_01-39-03",
-      "symbol": "TAKEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.05954,
-      "sl": 0.05816,
-      "tp": [
-        0.06161,
-        0.06216,
-        0.06264
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_01-39-03",
-      "first_seen": "2026-09-11T01:39:00.623811+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.18,
-      "stage1_score": 8.274,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.94,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.05954,
-      "triggered_at": "2026-09-11T02:00:00+00:00",
-      "partial_check_from": "2026-09-11T01:39:00.623811+00:00",
-      "partial_check_done": true
     },
     {
       "id": "TAKEUSDT_LONG_1h_2026-09-11_01-52-38",
@@ -30267,6 +30265,46 @@
       "added_at": "2026-09-10T19:07:43.802141+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-10T23:07:40.320000+00:00"
+    },
+    {
+      "id": "TAKEUSDT_LONG_1h_2026-09-11_01-39-03",
+      "symbol": "TAKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05954,
+      "sl": 0.05816,
+      "tp": [
+        0.06161,
+        0.06216,
+        0.06264
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_01-39-03",
+      "first_seen": "2026-09-11T01:39:00.623811+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 8.274,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.94,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05954,
+      "triggered_at": "2026-09-11T02:00:00+00:00",
+      "partial_check_from": "2026-09-11T01:39:00.623811+00:00",
+      "partial_check_done": true,
+      "outcome": "BREAKEVEN",
+      "exit_price": 0.05954,
+      "tp_index": 0,
+      "bar_time": 1789099199999,
+      "bars_held": 2,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-11T03:59:59.999000+00:00",
+      "r_multiple": 0.0
     }
   ],
   "ingested_runs": [
@@ -31232,6 +31270,7 @@
     "2026-09-11_02-08-30",
     "2026-09-11_02-27-19",
     "2026-09-11_02-40-54",
-    "2026-09-11_02-53-19"
+    "2026-09-11_02-53-19",
+    "2026-09-11_03-09-01"
   ]
 }
