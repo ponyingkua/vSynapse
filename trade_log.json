@@ -492,35 +492,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 7.6034,
       "added_at": "2026-09-11T14:27:34.126035+00:00"
-    },
-    {
-      "id": "KMNOUSDT_LONG_1h_2026-09-11_15-40-26",
-      "symbol": "KMNOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02575,
-      "sl": 0.02453,
-      "tp": [
-        0.02758,
-        0.02807,
-        0.02849
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_15-40-26",
-      "first_seen": "2026-09-11T15:40:23.536420+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.11,
-      "stage1_score": 14.626,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 1.512,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02575,
-      "added_at": "2026-09-11T15:40:23.536420+00:00"
     }
   ],
   "open": [
@@ -1126,6 +1097,36 @@
       "sl_after_tp1": 0.40948,
       "added_at": "2026-09-11T14:08:41.720021+00:00",
       "triggered_at": "2026-09-11T15:00:00+00:00"
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-11_15-40-26",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02575,
+      "sl": 0.02453,
+      "tp": [
+        0.02758,
+        0.02807,
+        0.02849
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_15-40-26",
+      "first_seen": "2026-09-11T15:40:23.536420+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 14.626,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 1.512,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02575,
+      "added_at": "2026-09-11T15:40:23.536420+00:00",
+      "triggered_at": "2026-09-11T16:00:00+00:00"
     }
   ],
   "closed": [
@@ -32242,6 +32243,7 @@
     "2026-09-11_15-27-15",
     "2026-09-11_15-40-26",
     "2026-09-11_15-53-40",
-    "2026-09-11_16-09-18"
+    "2026-09-11_16-09-18",
+    "2026-09-11_16-27-45"
   ]
 }
