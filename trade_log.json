@@ -376,6 +376,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.716e-05,
       "added_at": "2026-09-11T03:54:07.344364+00:00"
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_05-08-08",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.2424,
+      "sl": 1.195,
+      "tp": [
+        1.3135,
+        1.3324,
+        1.349
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_05-08-08",
+      "first_seen": "2026-09-11T05:08:07.039904+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.26,
+      "stage1_score": 19.604,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.861,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2424,
+      "added_at": "2026-09-11T05:08:07.039904+00:00"
     }
   ],
   "open": [
@@ -31376,6 +31405,7 @@
     "2026-09-11_04-08-55",
     "2026-09-11_04-27-32",
     "2026-09-11_04-41-32",
-    "2026-09-11_04-53-22"
+    "2026-09-11_04-53-22",
+    "2026-09-11_05-08-08"
   ]
 }
