@@ -262,35 +262,6 @@
       "added_at": "2026-09-11T03:54:07.344364+00:00"
     },
     {
-      "id": "AEROUSDT_LONG_15m_2026-09-11_13-41-40",
-      "symbol": "AEROUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.56802,
-      "sl": 0.5404,
-      "tp": [
-        0.60944,
-        0.62049,
-        0.63015
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_13-41-40",
-      "first_seen": "2026-09-11T13:41:38.968910+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.65,
-      "stage1_score": 31.793,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 6.041,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.56802,
-      "added_at": "2026-09-11T13:41:38.968910+00:00"
-    },
-    {
       "id": "ESPUSDT_LONG_1h_2026-09-11_14-27-38",
       "symbol": "ESPUSDT",
       "side": "LONG",
@@ -31262,6 +31233,37 @@
       "added_at": "2026-09-11T13:08:54.808591+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-11T17:07:36.349000+00:00"
+    },
+    {
+      "id": "AEROUSDT_LONG_15m_2026-09-11_13-41-40",
+      "symbol": "AEROUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.56802,
+      "sl": 0.5404,
+      "tp": [
+        0.60944,
+        0.62049,
+        0.63015
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_13-41-40",
+      "first_seen": "2026-09-11T13:41:38.968910+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 31.793,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 6.041,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.56802,
+      "added_at": "2026-09-11T13:41:38.968910+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-11T17:39:08.501000+00:00"
     }
   ],
   "ingested_runs": [
@@ -32283,6 +32285,7 @@
     "2026-09-11_16-41-50",
     "2026-09-11_16-52-56",
     "2026-09-11_17-07-36",
-    "2026-09-11_17-26-11"
+    "2026-09-11_17-26-11",
+    "2026-09-11_17-39-08"
   ]
 }
