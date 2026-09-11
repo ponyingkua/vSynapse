@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T14:27:34.126035+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: PIEVERSEUSDT | Side: LONG | Score: 7.05
+   - Entry : 1.2747
+   - SL    : 1.1878
+   - TP    : 1.4049, 1.4397, 1.4701
+   - Invalidation: Close below 1.1878 / loss of recent 15m swing low / breakout invalid if price falls below 1.2699
+----------------------------------------
+2. Symbol: ESPUSDT | Side: LONG | Score: 6.91
+   - Entry : 0.08901
+   - SL    : 0.08418
+   - TP    : 0.09626, 0.09819, 0.09988
+   - Invalidation: Close below 0.08418 / loss of recent 1h swing low / breakout invalid if price falls below 0.08863
+----------------------------------------
+3. Symbol: ZECUSDT | Side: LONG | Score: 6.47
+   - Entry : 1177.34
+   - SL    : 1100.00
+   - TP    : 1293.35, 1324.29, 1351.36
+   - Invalidation: Close below 1100 / loss of recent 15m swing low / breakout invalid if price falls below 1172.13
+----------------------------------------
+4. Symbol: DASHUSDT | Side: LONG | Score: 6.46
+   - Entry : 56.982
+   - SL    : 54.180
+   - TP    : 61.185, 62.306, 63.286
+   - Invalidation: Close below 54.18 / loss of recent 1h swing low / breakout invalid if price falls below 56.68
+----------------------------------------
+5. Symbol: GMXUSDT | Side: LONG | Score: 6.38
+   - Entry : 7.6034
+   - SL    : 7.4170
+   - TP    : 7.8830, 7.9575, 8.0228
+   - Invalidation: Close below 7.417 / loss of recent 1h swing low / breakout invalid if price falls below 7.575
+----------------------------------------
