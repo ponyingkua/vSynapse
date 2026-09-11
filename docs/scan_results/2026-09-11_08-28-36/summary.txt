@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T08:28:35.376520+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BTRUSDT | Side: LONG | Score: 6.75
+   - Entry : 0.05350
+   - SL    : 0.05138
+   - TP    : 0.05669, 0.05754, 0.05829
+   - Invalidation: Close below 0.05138 / loss of recent 15m swing low
+----------------------------------------
