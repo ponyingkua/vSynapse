@@ -441,36 +441,6 @@
       "triggered_at": "2026-09-11T01:00:00+00:00"
     },
     {
-      "id": "BTRUSDT_LONG_15m_2026-09-11_08-28-36",
-      "symbol": "BTRUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0535,
-      "sl": 0.05138,
-      "tp": [
-        0.05669,
-        0.05754,
-        0.05829
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_08-28-36",
-      "first_seen": "2026-09-11T08:28:35.376520+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.75,
-      "stage1_score": 36.931,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 7.354,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0535,
-      "added_at": "2026-09-11T08:28:35.376520+00:00",
-      "triggered_at": "2026-09-11T08:30:00+00:00"
-    },
-    {
       "id": "BSVUSDT_LONG_1h_2026-09-11_08-08-48",
       "symbol": "BSVUSDT",
       "side": "LONG",
@@ -30551,6 +30521,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-11T09:44:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BTRUSDT_LONG_15m_2026-09-11_08-28-36",
+      "symbol": "BTRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0535,
+      "sl": 0.05138,
+      "tp": [
+        0.05669,
+        0.05754,
+        0.05829
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_08-28-36",
+      "first_seen": "2026-09-11T08:28:35.376520+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.75,
+      "stage1_score": 36.931,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.354,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0535,
+      "added_at": "2026-09-11T08:28:35.376520+00:00",
+      "triggered_at": "2026-09-11T08:30:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.05138,
+      "tp_index": null,
+      "bar_time": 1789124399999,
+      "bars_held": 10,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-11T10:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -31546,6 +31555,7 @@
     "2026-09-11_09-54-19",
     "2026-09-11_10-08-42",
     "2026-09-11_10-27-41",
-    "2026-09-11_10-41-09"
+    "2026-09-11_10-41-09",
+    "2026-09-11_10-53-11"
   ]
 }
