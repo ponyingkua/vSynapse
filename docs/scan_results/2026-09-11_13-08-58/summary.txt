@@ -1,0 +1,35 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T13:08:54.808591+00:00
+Total Candidates: 5
+========================================
+
+1. Symbol: ESPUSDT | Side: LONG | Score: 6.16
+   - Entry : 0.08804
+   - SL    : 0.08418
+   - TP    : 0.09383, 0.09537, 0.09672
+   - Invalidation: Close below 0.08418 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: JUPUSDT | Side: LONG | Score: 6.36
+   - Entry : 0.23532
+   - SL    : 0.22410
+   - TP    : 0.25215, 0.25664, 0.26057
+   - Invalidation: Close below 0.2241 / loss of recent 15m swing low / breakout invalid if price falls below 0.2344
+----------------------------------------
+3. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.35
+   - Entry : 1.2339
+   - SL    : 1.1748
+   - TP    : 1.3225, 1.3462, 1.3668
+   - Invalidation: Close below 1.1748 / loss of recent 15m swing low / breakout invalid if price falls below 1.2295
+----------------------------------------
+4. Symbol: LITUSDT | Side: LONG | Score: 6.23
+   - Entry : 4.5736
+   - SL    : 4.4078
+   - TP    : 4.8222, 4.8885, 4.9465
+   - Invalidation: Close below 4.4078 / loss of recent 15m swing low / breakout invalid if price falls below 4.5598
+----------------------------------------
+5. Symbol: CAKEUSDT | Side: LONG | Score: 6.18
+   - Entry : 2.1543
+   - SL    : 2.1030
+   - TP    : 2.2313, 2.2518, 2.2698
+   - Invalidation: Close below 2.103 / loss of recent 15m swing low / breakout invalid if price falls below 2.1507
+----------------------------------------
