@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 7.6034,
       "added_at": "2026-09-11T14:27:34.126035+00:00"
+    },
+    {
+      "id": "RIFUSDT_LONG_15m_2026-09-11_21-50-21",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07726,
+      "sl": 0.07662,
+      "tp": [
+        0.07822,
+        0.07848,
+        0.0787
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_21-50-21",
+      "first_seen": "2026-09-11T21:50:19.655672+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 6.527,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.771,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07726,
+      "added_at": "2026-09-11T21:50:19.655672+00:00"
     }
   ],
   "open": [
@@ -32370,6 +32399,7 @@
     "2026-09-11_20-53-14",
     "2026-09-11_21-08-41",
     "2026-09-11_21-24-46",
-    "2026-09-11_21-36-27"
+    "2026-09-11_21-36-27",
+    "2026-09-11_21-50-21"
   ]
 }
