@@ -376,35 +376,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 16.431,
       "added_at": "2026-09-11T08:08:46.916388+00:00"
-    },
-    {
-      "id": "BTRUSDT_LONG_15m_2026-09-11_08-28-36",
-      "symbol": "BTRUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0535,
-      "sl": 0.05138,
-      "tp": [
-        0.05669,
-        0.05754,
-        0.05829
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_08-28-36",
-      "first_seen": "2026-09-11T08:28:35.376520+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.75,
-      "stage1_score": 36.931,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 7.354,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0535,
-      "added_at": "2026-09-11T08:28:35.376520+00:00"
     }
   ],
   "open": [
@@ -527,6 +498,36 @@
       "sl_after_tp1": 1.2424,
       "added_at": "2026-09-11T05:08:07.039904+00:00",
       "triggered_at": "2026-09-11T05:15:00+00:00"
+    },
+    {
+      "id": "BTRUSDT_LONG_15m_2026-09-11_08-28-36",
+      "symbol": "BTRUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0535,
+      "sl": 0.05138,
+      "tp": [
+        0.05669,
+        0.05754,
+        0.05829
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_08-28-36",
+      "first_seen": "2026-09-11T08:28:35.376520+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.75,
+      "stage1_score": 36.931,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.354,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0535,
+      "added_at": "2026-09-11T08:28:35.376520+00:00",
+      "triggered_at": "2026-09-11T08:30:00+00:00"
     }
   ],
   "closed": [
@@ -31496,6 +31497,7 @@
     "2026-09-11_07-41-29",
     "2026-09-11_07-53-02",
     "2026-09-11_08-08-48",
-    "2026-09-11_08-28-36"
+    "2026-09-11_08-28-36",
+    "2026-09-11_08-43-50"
   ]
 }
