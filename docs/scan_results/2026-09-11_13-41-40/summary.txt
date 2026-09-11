@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-11T13:41:38.968910+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PIEVERSEUSDT | Side: LONG | Score: 6.06
+   - Entry : 1.2582
+   - SL    : 1.1878
+   - TP    : 1.3638, 1.3920, 1.4166
+   - Invalidation: Close below 1.1878 / loss of recent 15m swing low / breakout invalid if price falls below 1.2537
+----------------------------------------
+2. Symbol: AEROUSDT | Side: LONG | Score: 6.65
+   - Entry : 0.56802
+   - SL    : 0.54040
+   - TP    : 0.60944, 0.62049, 0.63015
+   - Invalidation: Close below 0.5404 / loss of recent 15m swing low
+----------------------------------------

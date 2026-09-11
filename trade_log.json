@@ -407,35 +407,6 @@
       "added_at": "2026-09-11T13:08:54.808591+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-28-17",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 1.2526,
-      "sl": 1.1878,
-      "tp": [
-        1.3497,
-        1.3756,
-        1.3983
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-11_13-28-17",
-      "first_seen": "2026-09-11T13:28:14.902410+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.56,
-      "stage1_score": 27.082,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 5.411,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.2526,
-      "added_at": "2026-09-11T13:28:14.902410+00:00"
-    },
-    {
       "id": "LITUSDT_LONG_15m_2026-09-11_13-08-58",
       "symbol": "LITUSDT",
       "side": "LONG",
@@ -521,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.09559,
       "added_at": "2026-09-11T13:28:14.902410+00:00"
+    },
+    {
+      "id": "AEROUSDT_LONG_15m_2026-09-11_13-41-40",
+      "symbol": "AEROUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.56802,
+      "sl": 0.5404,
+      "tp": [
+        0.60944,
+        0.62049,
+        0.63015
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_13-41-40",
+      "first_seen": "2026-09-11T13:41:38.968910+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 31.793,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 6.041,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.56802,
+      "added_at": "2026-09-11T13:41:38.968910+00:00"
     }
   ],
   "open": [
@@ -674,6 +674,67 @@
       "triggered_at": "2026-09-11T14:00:00+00:00",
       "partial_check_from": "2026-09-11T13:08:54.808591+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-41-40",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 1.2582,
+      "sl": 1.1878,
+      "tp": [
+        1.3638,
+        1.392,
+        1.4166
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_13-41-40",
+      "first_seen": "2026-09-11T13:41:38.968910+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.06,
+      "stage1_score": 24.105,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.279,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2582,
+      "triggered_at": "2026-09-11T13:45:00+00:00",
+      "partial_check_from": "2026-09-11T13:41:38.968910+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-28-17",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.2526,
+      "sl": 1.1878,
+      "tp": [
+        1.3497,
+        1.3756,
+        1.3983
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_13-28-17",
+      "first_seen": "2026-09-11T13:28:14.902410+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.56,
+      "stage1_score": 27.082,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.411,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2526,
+      "added_at": "2026-09-11T13:28:14.902410+00:00",
+      "triggered_at": "2026-09-11T13:30:00+00:00"
     }
   ],
   "closed": [
@@ -31779,6 +31840,7 @@
     "2026-09-11_12-32-37",
     "2026-09-11_12-55-55",
     "2026-09-11_13-08-58",
-    "2026-09-11_13-28-17"
+    "2026-09-11_13-28-17",
+    "2026-09-11_13-41-40"
   ]
 }
