@@ -835,6 +835,37 @@
       "sl_after_tp1": 0.09051,
       "added_at": "2026-09-11T16:09:16.670593+00:00",
       "triggered_at": "2026-09-11T18:00:00+00:00"
+    },
+    {
+      "id": "JSTUSDT_LONG_1h_2026-09-11_21-08-41",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.10534,
+      "sl": 0.10179,
+      "tp": [
+        0.11068,
+        0.1121,
+        0.11334
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_21-08-41",
+      "first_seen": "2026-09-11T21:08:39.207455+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 4.716,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.859,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10534,
+      "triggered_at": "2026-09-11T22:00:00+00:00",
+      "partial_check_from": "2026-09-11T21:08:39.207455+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -32336,6 +32367,7 @@
     "2026-09-11_20-08-32",
     "2026-09-11_20-26-26",
     "2026-09-11_20-39-42",
-    "2026-09-11_20-53-14"
+    "2026-09-11_20-53-14",
+    "2026-09-11_21-08-41"
   ]
 }
