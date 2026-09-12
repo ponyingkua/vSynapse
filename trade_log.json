@@ -115,6 +115,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 5.4663,
       "added_at": "2026-09-12T08:52:04.177419+00:00"
+    },
+    {
+      "id": "NEIROUSDT_LONG_1h_2026-09-12_13-07-53",
+      "symbol": "NEIROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 8.651e-05,
+      "sl": 8.42e-05,
+      "tp": [
+        8.997e-05,
+        9.09e-05,
+        9.17e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-12_13-07-53",
+      "first_seen": "2026-09-12T13:07:51.218438+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 6.675,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.397,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 8.651e-05,
+      "added_at": "2026-09-12T13:07:51.218438+00:00"
     }
   ],
   "open": [
@@ -32743,6 +32772,7 @@
     "2026-09-12_12-10-08",
     "2026-09-12_12-29-50",
     "2026-09-12_12-45-02",
-    "2026-09-12_12-55-57"
+    "2026-09-12_12-55-57",
+    "2026-09-12_13-07-53"
   ]
 }

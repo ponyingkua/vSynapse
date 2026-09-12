@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T13:07:51.218438+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: NEIROUSDT | Side: LONG | Score: 6.02
+   - Entry : 0.00008651
+   - SL    : 0.00008420
+   - TP    : 0.00008997, 0.00009090, 0.00009170
+   - Invalidation: Close below 8.42e-05 / loss of recent 1h swing low / breakout invalid if price falls below 8.621e-05
+----------------------------------------
