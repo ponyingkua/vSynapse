@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T17:24:00.507873+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: AKEUSDT | Side: LONG | Score: 6.16
+   - Entry : 0.01566
+   - SL    : 0.01465
+   - TP    : 0.01716, 0.01757, 0.01792
+   - Invalidation: Close below 0.014653 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: JSTUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.10856
+   - SL    : 0.10179
+   - TP    : 0.11871, 0.12141, 0.12378
+   - Invalidation: Close below 0.10179 / loss of recent 4h swing low / breakout invalid if price falls below 0.10814
+----------------------------------------
