@@ -231,35 +231,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 7.6034,
       "added_at": "2026-09-11T14:27:34.126035+00:00"
-    },
-    {
-      "id": "RIFUSDT_LONG_15m_2026-09-11_21-50-21",
-      "symbol": "RIFUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.07726,
-      "sl": 0.07662,
-      "tp": [
-        0.07822,
-        0.07848,
-        0.0787
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_21-50-21",
-      "first_seen": "2026-09-11T21:50:19.655672+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.14,
-      "stage1_score": 6.527,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.771,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.07726,
-      "added_at": "2026-09-11T21:50:19.655672+00:00"
     }
   ],
   "open": [
@@ -31361,6 +31332,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-11T18:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "RIFUSDT_LONG_15m_2026-09-11_21-50-21",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07726,
+      "sl": 0.07662,
+      "tp": [
+        0.07822,
+        0.07848,
+        0.0787
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_21-50-21",
+      "first_seen": "2026-09-11T21:50:19.655672+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 6.527,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.771,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07726,
+      "added_at": "2026-09-11T21:50:19.655672+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T01:37:28.625000+00:00"
     }
   ],
   "ingested_runs": [
@@ -32413,6 +32415,7 @@
     "2026-09-12_00-32-35",
     "2026-09-12_00-54-40",
     "2026-09-12_01-07-46",
-    "2026-09-12_01-24-26"
+    "2026-09-12_01-24-26",
+    "2026-09-12_01-37-28"
   ]
 }
