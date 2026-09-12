@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T07:08:42.990615+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AKEUSDT | Side: LONG | Score: 6.45
+   - Entry : 0.01471
+   - SL    : 0.01365
+   - TP    : 0.01629, 0.01671, 0.01708
+   - Invalidation: Close below 0.013653 / loss of recent 1h swing low
+----------------------------------------

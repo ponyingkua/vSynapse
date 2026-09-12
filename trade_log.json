@@ -684,6 +684,37 @@
       "triggered_at": "2026-09-11T22:00:00+00:00",
       "partial_check_from": "2026-09-11T21:08:39.207455+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_07-08-44",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01471,
+      "sl": 0.01365,
+      "tp": [
+        0.01629,
+        0.01671,
+        0.01708
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_07-08-44",
+      "first_seen": "2026-09-12T07:08:42.990615+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.45,
+      "stage1_score": 25.559,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.334,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01471,
+      "triggered_at": "2026-09-12T08:00:00+00:00",
+      "partial_check_from": "2026-09-12T07:08:42.990615+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -32559,6 +32590,7 @@
     "2026-09-12_06-10-29",
     "2026-09-12_06-30-43",
     "2026-09-12_06-46-24",
-    "2026-09-12_06-57-40"
+    "2026-09-12_06-57-40",
+    "2026-09-12_07-08-44"
   ]
 }
