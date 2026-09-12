@@ -434,35 +434,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10856,
       "added_at": "2026-09-12T18:39:49.393646+00:00"
-    },
-    {
-      "id": "SSVUSDT_LONG_1h_2026-09-12_20-26-41",
-      "symbol": "SSVUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.9084,
-      "sl": 2.791,
-      "tp": [
-        3.0844,
-        3.1314,
-        3.1725
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-12_20-26-41",
-      "first_seen": "2026-09-12T20:26:39.655781+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.64,
-      "stage1_score": 6.087,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.796,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.9084,
-      "added_at": "2026-09-12T20:26:39.655781+00:00"
     }
   ],
   "open": [
@@ -1250,6 +1221,36 @@
       "sl_after_tp1": 4.1617,
       "added_at": "2026-09-12T16:50:28.884254+00:00",
       "triggered_at": "2026-09-12T19:00:00+00:00"
+    },
+    {
+      "id": "SSVUSDT_LONG_1h_2026-09-12_20-26-41",
+      "symbol": "SSVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.9084,
+      "sl": 2.791,
+      "tp": [
+        3.0844,
+        3.1314,
+        3.1725
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_20-26-41",
+      "first_seen": "2026-09-12T20:26:39.655781+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.64,
+      "stage1_score": 6.087,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.796,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.9084,
+      "added_at": "2026-09-12T20:26:39.655781+00:00",
+      "triggered_at": "2026-09-12T21:00:00+00:00"
     }
   ],
   "closed": [
@@ -33438,6 +33439,7 @@
     "2026-09-12_20-08-49",
     "2026-09-12_20-26-41",
     "2026-09-12_20-47-02",
-    "2026-09-12_20-54-35"
+    "2026-09-12_20-54-35",
+    "2026-09-12_21-08-19"
   ]
 }
