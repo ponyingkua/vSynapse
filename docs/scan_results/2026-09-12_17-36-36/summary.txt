@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T17:36:34.451388+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: JSTUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.10856
+   - SL    : 0.10179
+   - TP    : 0.11871, 0.12141, 0.12378
+   - Invalidation: Close below 0.10179 / loss of recent 4h swing low / breakout invalid if price falls below 0.10814
+----------------------------------------

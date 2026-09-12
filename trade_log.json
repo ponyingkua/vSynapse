@@ -233,35 +233,6 @@
       "added_at": "2026-09-12T15:37:34.897427+00:00"
     },
     {
-      "id": "SSVUSDT_LONG_1h_2026-09-12_16-08-50",
-      "symbol": "SSVUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 2.875,
-      "sl": 2.764,
-      "tp": [
-        3.0416,
-        3.086,
-        3.1249
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-12_16-08-50",
-      "first_seen": "2026-09-12T16:08:48.076935+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.67,
-      "stage1_score": 6.815,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.271,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.875,
-      "added_at": "2026-09-12T16:08:48.076935+00:00"
-    },
-    {
       "id": "BMTUSDT_LONG_15m_2026-09-12_16-08-50",
       "symbol": "BMTUSDT",
       "side": "LONG",
@@ -434,6 +405,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10856,
       "added_at": "2026-09-12T17:24:00.507873+00:00"
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-12_17-36-36",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10856,
+      "sl": 0.10179,
+      "tp": [
+        0.11871,
+        0.12141,
+        0.12378
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_17-36-36",
+      "first_seen": "2026-09-12T17:36:34.451388+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.66,
+      "stage1_score": 4.721,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.588,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10856,
+      "added_at": "2026-09-12T17:36:34.451388+00:00"
     }
   ],
   "open": [
@@ -1070,6 +1070,36 @@
       "triggered_at": "2026-09-12T17:00:00+00:00",
       "partial_check_from": "2026-09-12T16:37:50.788891+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SSVUSDT_LONG_1h_2026-09-12_16-08-50",
+      "symbol": "SSVUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 2.875,
+      "sl": 2.764,
+      "tp": [
+        3.0416,
+        3.086,
+        3.1249
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_16-08-50",
+      "first_seen": "2026-09-12T16:08:48.076935+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.67,
+      "stage1_score": 6.815,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.271,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.875,
+      "added_at": "2026-09-12T16:08:48.076935+00:00",
+      "triggered_at": "2026-09-12T17:00:00+00:00"
     },
     {
       "id": "AKEUSDT_LONG_1h_2026-09-12_17-08-25",
@@ -33204,6 +33234,7 @@
     "2026-09-12_16-37-52",
     "2026-09-12_16-50-30",
     "2026-09-12_17-08-25",
-    "2026-09-12_17-24-03"
+    "2026-09-12_17-24-03",
+    "2026-09-12_17-36-36"
   ]
 }
