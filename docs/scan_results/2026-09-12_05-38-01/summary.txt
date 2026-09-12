@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T05:37:57.544914+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: XMRUSDT | Side: LONG | Score: 6.95
+   - Entry : 527.31
+   - SL    : 514.32
+   - TP    : 546.79, 551.99, 556.54
+   - Invalidation: Close below 514.32 / loss of recent 1h swing low / breakout invalid if price falls below 525.81
+----------------------------------------
