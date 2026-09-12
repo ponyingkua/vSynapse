@@ -355,36 +355,6 @@
       "triggered_at": "2026-09-11T09:00:00+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-08-58",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 1.2339,
-      "sl": 1.1748,
-      "tp": [
-        1.3225,
-        1.3462,
-        1.3668
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-11_13-08-58",
-      "first_seen": "2026-09-11T13:08:54.808591+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.35,
-      "stage1_score": 21.871,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.05,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.2339,
-      "added_at": "2026-09-11T13:08:54.808591+00:00",
-      "triggered_at": "2026-09-11T15:45:00+00:00"
-    },
-    {
       "id": "CGPTUSDT_SHORT_4h_2026-09-10_23-36-58",
       "symbol": "CGPTUSDT",
       "side": "SHORT",
@@ -563,36 +533,6 @@
       "sl_after_tp1": 0.3777,
       "added_at": "2026-09-11T14:08:41.720021+00:00",
       "triggered_at": "2026-09-11T15:00:00+00:00"
-    },
-    {
-      "id": "UNIUSDT_LONG_15m_2026-09-11_14-08-45",
-      "symbol": "UNIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 6.2704,
-      "sl": 5.851,
-      "tp": [
-        6.8995,
-        7.0672,
-        7.214
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-11_14-08-45",
-      "first_seen": "2026-09-11T14:08:41.720021+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.58,
-      "stage1_score": 30.014,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.736,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 6.2704,
-      "added_at": "2026-09-11T14:08:41.720021+00:00",
-      "triggered_at": "2026-09-11T15:45:00+00:00"
     },
     {
       "id": "WLDUSDT_LONG_1h_2026-09-11_14-08-45",
@@ -31477,6 +31417,74 @@
       "exit_price": 0.7075,
       "closed_at": "2026-09-12T05:59:59.999000+00:00",
       "r_multiple": 0.49
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-11_13-08-58",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.2339,
+      "sl": 1.1748,
+      "tp": [
+        1.3225,
+        1.3462,
+        1.3668
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_13-08-58",
+      "first_seen": "2026-09-11T13:08:54.808591+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 21.871,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.05,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.2339,
+      "added_at": "2026-09-11T13:08:54.808591+00:00",
+      "triggered_at": "2026-09-11T15:45:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 1.2487,
+      "closed_at": "2026-09-12T06:59:59.999000+00:00",
+      "r_multiple": 0.25
+    },
+    {
+      "id": "UNIUSDT_LONG_15m_2026-09-11_14-08-45",
+      "symbol": "UNIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 6.2704,
+      "sl": 5.851,
+      "tp": [
+        6.8995,
+        7.0672,
+        7.214
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-11_14-08-45",
+      "first_seen": "2026-09-11T14:08:41.720021+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.58,
+      "stage1_score": 30.014,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.736,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 6.2704,
+      "added_at": "2026-09-11T14:08:41.720021+00:00",
+      "triggered_at": "2026-09-11T15:45:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 6.282,
+      "closed_at": "2026-09-12T06:59:59.999000+00:00",
+      "r_multiple": 0.03
     }
   ],
   "ingested_runs": [
@@ -32549,6 +32557,7 @@
     "2026-09-12_05-38-01",
     "2026-09-12_05-50-46",
     "2026-09-12_06-10-29",
-    "2026-09-12_06-30-43"
+    "2026-09-12_06-30-43",
+    "2026-09-12_06-46-24"
   ]
 }
