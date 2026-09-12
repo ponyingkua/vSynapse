@@ -146,35 +146,6 @@
       "added_at": "2026-09-09T20:41:04.849458+00:00"
     },
     {
-      "id": "ESPUSDT_LONG_1h_2026-09-11_14-42-14",
-      "symbol": "ESPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.08901,
-      "sl": 0.08418,
-      "tp": [
-        0.09626,
-        0.09819,
-        0.09988
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_14-42-14",
-      "first_seen": "2026-09-11T14:42:11.870162+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 21.348,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 3.74,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.08901,
-      "added_at": "2026-09-11T14:42:11.870162+00:00"
-    },
-    {
       "id": "MASKUSDT_LONG_1h_2026-09-12_03-09-16",
       "symbol": "MASKUSDT",
       "side": "LONG",
@@ -502,37 +473,6 @@
       "sl_after_tp1": 0.25897,
       "added_at": "2026-09-10T16:53:35.231660+00:00",
       "triggered_at": "2026-09-11T12:00:00+00:00"
-    },
-    {
-      "id": "ETHFIUSDT_LONG_15m_2026-09-11_14-42-14",
-      "symbol": "ETHFIUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.6832,
-      "sl": 0.6333,
-      "tp": [
-        0.75805,
-        0.77801,
-        0.79548
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-11_14-42-14",
-      "first_seen": "2026-09-11T14:42:11.870162+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.19,
-      "stage1_score": 30.352,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 7.426,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.6832,
-      "triggered_at": "2026-09-11T14:45:00+00:00",
-      "partial_check_from": "2026-09-11T14:42:11.870162+00:00",
-      "partial_check_done": true
     },
     {
       "id": "DASHUSDT_LONG_1h_2026-09-11_14-08-45",
@@ -31471,6 +31411,72 @@
       "exit_price": 0.09591,
       "closed_at": "2026-09-12T05:44:59.999000+00:00",
       "r_multiple": 0.09
+    },
+    {
+      "id": "ESPUSDT_LONG_1h_2026-09-11_14-42-14",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.08901,
+      "sl": 0.08418,
+      "tp": [
+        0.09626,
+        0.09819,
+        0.09988
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_14-42-14",
+      "first_seen": "2026-09-11T14:42:11.870162+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 21.348,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 3.74,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08901,
+      "added_at": "2026-09-11T14:42:11.870162+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T05:50:46.413000+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_15m_2026-09-11_14-42-14",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.6832,
+      "sl": 0.6333,
+      "tp": [
+        0.75805,
+        0.77801,
+        0.79548
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-11_14-42-14",
+      "first_seen": "2026-09-11T14:42:11.870162+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 30.352,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.426,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.6832,
+      "triggered_at": "2026-09-11T14:45:00+00:00",
+      "partial_check_from": "2026-09-11T14:42:11.870162+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 0.7075,
+      "closed_at": "2026-09-12T05:59:59.999000+00:00",
+      "r_multiple": 0.49
     }
   ],
   "ingested_runs": [
@@ -32540,6 +32546,7 @@
     "2026-09-12_04-52-40",
     "2026-09-12_05-08-27",
     "2026-09-12_05-24-52",
-    "2026-09-12_05-38-01"
+    "2026-09-12_05-38-01",
+    "2026-09-12_05-50-46"
   ]
 }
