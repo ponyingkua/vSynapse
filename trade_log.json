@@ -376,6 +376,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.1617,
       "added_at": "2026-09-12T16:50:28.884254+00:00"
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-12_17-08-25",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10856,
+      "sl": 0.10179,
+      "tp": [
+        0.11871,
+        0.12141,
+        0.12378
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_17-08-25",
+      "first_seen": "2026-09-12T17:08:23.013731+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 6.292,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.662,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10856,
+      "added_at": "2026-09-12T17:08:23.013731+00:00"
     }
   ],
   "open": [
@@ -1011,6 +1040,37 @@
       "sl_after_tp1": 2.85,
       "triggered_at": "2026-09-12T17:00:00+00:00",
       "partial_check_from": "2026-09-12T16:37:50.788891+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_17-08-25",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01563,
+      "sl": 0.01465,
+      "tp": [
+        0.0171,
+        0.01749,
+        0.01783
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_17-08-25",
+      "first_seen": "2026-09-12T17:08:23.013731+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.46,
+      "stage1_score": 14.0,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01563,
+      "triggered_at": "2026-09-12T18:00:00+00:00",
+      "partial_check_from": "2026-09-12T17:08:23.013731+00:00",
       "partial_check_done": true
     }
   ],
@@ -33082,6 +33142,7 @@
     "2026-09-12_16-08-50",
     "2026-09-12_16-26-02",
     "2026-09-12_16-37-52",
-    "2026-09-12_16-50-30"
+    "2026-09-12_16-50-30",
+    "2026-09-12_17-08-25"
   ]
 }
