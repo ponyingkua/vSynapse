@@ -463,6 +463,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01585,
       "added_at": "2026-09-12T18:26:58.740520+00:00"
+    },
+    {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_18-39-51",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01585,
+      "sl": 0.01472,
+      "tp": [
+        0.01754,
+        0.01799,
+        0.01839
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_18-39-51",
+      "first_seen": "2026-09-12T18:39:49.393646+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 9.34,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.639,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01585,
+      "added_at": "2026-09-12T18:39:49.393646+00:00"
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-12_18-39-51",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10856,
+      "sl": 0.10179,
+      "tp": [
+        0.11871,
+        0.12141,
+        0.12378
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_18-39-51",
+      "first_seen": "2026-09-12T18:39:49.393646+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.23,
+      "stage1_score": 5.826,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.338,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10856,
+      "added_at": "2026-09-12T18:39:49.393646+00:00"
     }
   ],
   "open": [
@@ -33307,6 +33365,7 @@
     "2026-09-12_17-36-36",
     "2026-09-12_17-50-20",
     "2026-09-12_18-08-59",
-    "2026-09-12_18-27-00"
+    "2026-09-12_18-27-00",
+    "2026-09-12_18-39-51"
   ]
 }
