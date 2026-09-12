@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T16:08:48.076935+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: SSVUSDT | Side: LONG | Score: 6.67
+   - Entry : 2.8750
+   - SL    : 2.7640
+   - TP    : 3.0416, 3.0860, 3.1249
+   - Invalidation: Close below 2.764 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: BMTUSDT | Side: LONG | Score: 6.41
+   - Entry : 0.01750
+   - SL    : 0.01739
+   - TP    : 0.01768, 0.01772, 0.01776
+   - Invalidation: Close below 0.017386612 / loss of recent 15m swing low
+----------------------------------------
