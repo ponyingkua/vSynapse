@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "PROMUSDT_LONG_1h_2026-09-12_08-26-44",
-      "symbol": "PROMUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 5.4663,
-      "sl": 5.225,
-      "tp": [
-        5.8283,
-        5.9248,
-        6.0093
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-12_08-26-44",
-      "first_seen": "2026-09-12T08:26:41.971447+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.27,
-      "stage1_score": 13.096,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.936,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 5.4663,
-      "added_at": "2026-09-12T08:26:41.971447+00:00"
-    },
-    {
       "id": "PROMUSDT_LONG_1h_2026-09-12_08-38-55",
       "symbol": "PROMUSDT",
       "side": "LONG",
@@ -32313,6 +32284,37 @@
       "exit_price": 5.694,
       "closed_at": "2026-09-12T22:44:59.999000+00:00",
       "r_multiple": 0.26
+    },
+    {
+      "id": "PROMUSDT_LONG_1h_2026-09-12_08-26-44",
+      "symbol": "PROMUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.4663,
+      "sl": 5.225,
+      "tp": [
+        5.8283,
+        5.9248,
+        6.0093
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_08-26-44",
+      "first_seen": "2026-09-12T08:26:41.971447+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 13.096,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.936,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.4663,
+      "added_at": "2026-09-12T08:26:41.971447+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T23:36:23.202000+00:00"
     }
   ],
   "ingested_runs": [
@@ -33453,6 +33455,7 @@
     "2026-09-12_22-37-28",
     "2026-09-12_22-52-30",
     "2026-09-12_23-07-29",
-    "2026-09-12_23-24-26"
+    "2026-09-12_23-24-26",
+    "2026-09-12_23-36-23"
   ]
 }
