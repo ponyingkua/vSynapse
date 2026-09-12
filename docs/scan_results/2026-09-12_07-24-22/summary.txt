@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T07:24:19.140770+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PROMUSDT | Side: LONG | Score: 6.58
+   - Entry : 5.6014
+   - SL    : 5.2470
+   - TP    : 6.1331, 6.2749, 6.3989
+   - Invalidation: Close below 5.247 / loss of recent 15m swing low / breakout invalid if price falls below 5.577
+----------------------------------------
