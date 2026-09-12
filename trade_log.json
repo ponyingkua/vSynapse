@@ -231,35 +231,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 527.31,
       "added_at": "2026-09-12T05:37:57.544914+00:00"
-    },
-    {
-      "id": "PROMUSDT_LONG_15m_2026-09-12_07-24-22",
-      "symbol": "PROMUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 5.6014,
-      "sl": 5.247,
-      "tp": [
-        6.1331,
-        6.2749,
-        6.3989
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-12_07-24-22",
-      "first_seen": "2026-09-12T07:24:19.140770+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.58,
-      "stage1_score": 30.24,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 5.146,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 5.6014,
-      "added_at": "2026-09-12T07:24:19.140770+00:00"
     }
   ],
   "open": [
@@ -744,6 +715,36 @@
       "triggered_at": "2026-09-12T08:00:00+00:00",
       "partial_check_from": "2026-09-12T07:08:42.990615+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "PROMUSDT_LONG_15m_2026-09-12_07-24-22",
+      "symbol": "PROMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.6014,
+      "sl": 5.247,
+      "tp": [
+        6.1331,
+        6.2749,
+        6.3989
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_07-24-22",
+      "first_seen": "2026-09-12T07:24:19.140770+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.58,
+      "stage1_score": 30.24,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 5.146,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.6014,
+      "added_at": "2026-09-12T07:24:19.140770+00:00",
+      "triggered_at": "2026-09-12T07:30:00+00:00"
     }
   ],
   "closed": [
@@ -32621,6 +32622,7 @@
     "2026-09-12_06-46-24",
     "2026-09-12_06-57-40",
     "2026-09-12_07-08-44",
-    "2026-09-12_07-24-22"
+    "2026-09-12_07-24-22",
+    "2026-09-12_07-37-10"
   ]
 }
