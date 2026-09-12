@@ -1,64 +1,6 @@
 {
   "pending": [
     {
-      "id": "CROSSUSDT_LONG_4h_2026-09-09_19-51-06",
-      "symbol": "CROSSUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.10896,
-      "sl": 0.10324,
-      "tp": [
-        0.11753,
-        0.11981,
-        0.12181
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-09_19-51-06",
-      "first_seen": "2026-09-09T19:51:04.449173+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.06,
-      "stage1_score": 14.662,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 4.593,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10896,
-      "added_at": "2026-09-09T19:51:04.449173+00:00"
-    },
-    {
-      "id": "BMTUSDT_LONG_4h_2026-09-09_20-08-49",
-      "symbol": "BMTUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01845,
-      "sl": 0.01752,
-      "tp": [
-        0.01984,
-        0.02021,
-        0.02053
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-09_20-08-49",
-      "first_seen": "2026-09-09T20:08:47.318618+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.97,
-      "stage1_score": 24.2,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 7.48,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01845,
-      "added_at": "2026-09-09T20:08:47.318618+00:00"
-    },
-    {
       "id": "BMTUSDT_LONG_4h_2026-09-09_20-27-21",
       "symbol": "BMTUSDT",
       "side": "LONG",
@@ -31548,6 +31490,68 @@
       "added_at": "2026-09-09T19:37:45.888363+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-12T07:50:54.809000+00:00"
+    },
+    {
+      "id": "CROSSUSDT_LONG_4h_2026-09-09_19-51-06",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.10896,
+      "sl": 0.10324,
+      "tp": [
+        0.11753,
+        0.11981,
+        0.12181
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_19-51-06",
+      "first_seen": "2026-09-09T19:51:04.449173+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.06,
+      "stage1_score": 14.662,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 4.593,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10896,
+      "added_at": "2026-09-09T19:51:04.449173+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T08:08:48.424000+00:00"
+    },
+    {
+      "id": "BMTUSDT_LONG_4h_2026-09-09_20-08-49",
+      "symbol": "BMTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01845,
+      "sl": 0.01752,
+      "tp": [
+        0.01984,
+        0.02021,
+        0.02053
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_20-08-49",
+      "first_seen": "2026-09-09T20:08:47.318618+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.97,
+      "stage1_score": 24.2,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.48,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01845,
+      "added_at": "2026-09-09T20:08:47.318618+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T08:08:48.424000+00:00"
     }
   ],
   "ingested_runs": [
@@ -32626,6 +32630,7 @@
     "2026-09-12_07-08-44",
     "2026-09-12_07-24-22",
     "2026-09-12_07-37-10",
-    "2026-09-12_07-50-54"
+    "2026-09-12_07-50-54",
+    "2026-09-12_08-08-48"
   ]
 }
