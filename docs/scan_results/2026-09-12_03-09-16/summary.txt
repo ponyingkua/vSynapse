@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T03:09:14.216528+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MASKUSDT | Side: LONG | Score: 6.91
+   - Entry : 0.45354
+   - SL    : 0.43930
+   - TP    : 0.47489, 0.48059, 0.48557
+   - Invalidation: Close below 0.4393 / loss of recent 1h swing low / breakout invalid if price falls below 0.4521
+----------------------------------------

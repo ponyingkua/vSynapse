@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 7.6034,
       "added_at": "2026-09-11T14:27:34.126035+00:00"
+    },
+    {
+      "id": "MASKUSDT_LONG_1h_2026-09-12_03-09-16",
+      "symbol": "MASKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.45354,
+      "sl": 0.4393,
+      "tp": [
+        0.47489,
+        0.48059,
+        0.48557
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_03-09-16",
+      "first_seen": "2026-09-12T03:09:14.216528+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.91,
+      "stage1_score": 10.318,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.434,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.45354,
+      "added_at": "2026-09-12T03:09:14.216528+00:00"
     }
   ],
   "open": [
@@ -32430,6 +32459,7 @@
     "2026-09-12_02-08-55",
     "2026-09-12_02-26-36",
     "2026-09-12_02-39-42",
-    "2026-09-12_02-52-38"
+    "2026-09-12_02-52-38",
+    "2026-09-12_03-09-16"
   ]
 }
