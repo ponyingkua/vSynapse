@@ -494,6 +494,35 @@
       "added_at": "2026-09-12T18:39:49.393646+00:00"
     },
     {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_18-51-52",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01585,
+      "sl": 0.01472,
+      "tp": [
+        0.01754,
+        0.01799,
+        0.01839
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_18-51-52",
+      "first_seen": "2026-09-12T18:51:50.444042+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.37,
+      "stage1_score": 8.708,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.215,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01585,
+      "added_at": "2026-09-12T18:51:50.444042+00:00"
+    },
+    {
       "id": "JSTUSDT_LONG_4h_2026-09-12_18-39-51",
       "symbol": "JSTUSDT",
       "side": "LONG",
@@ -33366,6 +33395,7 @@
     "2026-09-12_17-50-20",
     "2026-09-12_18-08-59",
     "2026-09-12_18-27-00",
-    "2026-09-12_18-39-51"
+    "2026-09-12_18-39-51",
+    "2026-09-12_18-51-52"
   ]
 }
