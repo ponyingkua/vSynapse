@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T15:08:08.049093+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PYTHUSDT | Side: LONG | Score: 6.9
+   - Entry : 0.05383
+   - SL    : 0.05224
+   - TP    : 0.05622, 0.05686, 0.05741
+   - Invalidation: Close below 0.05224 / loss of recent 1h swing low / breakout invalid if price falls below 0.05364
+----------------------------------------
