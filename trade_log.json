@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "MASKUSDT_LONG_1h_2026-09-12_03-09-16",
-      "symbol": "MASKUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.45354,
-      "sl": 0.4393,
-      "tp": [
-        0.47489,
-        0.48059,
-        0.48557
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-12_03-09-16",
-      "first_seen": "2026-09-12T03:09:14.216528+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.91,
-      "stage1_score": 10.318,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.434,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.45354,
-      "added_at": "2026-09-12T03:09:14.216528+00:00"
-    },
-    {
       "id": "PROMUSDT_LONG_1h_2026-09-12_08-26-44",
       "symbol": "PROMUSDT",
       "side": "LONG",
@@ -463,6 +434,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01585,
       "added_at": "2026-09-12T18:08:57.537593+00:00"
+    },
+    {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_18-27-00",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01585,
+      "sl": 0.01472,
+      "tp": [
+        0.01754,
+        0.01799,
+        0.01839
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_18-27-00",
+      "first_seen": "2026-09-12T18:26:58.740520+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.82,
+      "stage1_score": 10.526,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.107,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01585,
+      "added_at": "2026-09-12T18:26:58.740520+00:00"
     }
   ],
   "open": [
@@ -915,37 +915,6 @@
       "sl_after_tp1": 0.10534,
       "triggered_at": "2026-09-11T22:00:00+00:00",
       "partial_check_from": "2026-09-11T21:08:39.207455+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "AKEUSDT_LONG_1h_2026-09-12_07-08-44",
-      "symbol": "AKEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01471,
-      "sl": 0.01365,
-      "tp": [
-        0.01629,
-        0.01671,
-        0.01708
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-12_07-08-44",
-      "first_seen": "2026-09-12T07:08:42.990615+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.45,
-      "stage1_score": 25.559,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 5.334,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01471,
-      "triggered_at": "2026-09-12T08:00:00+00:00",
-      "partial_check_from": "2026-09-12T07:08:42.990615+00:00",
       "partial_check_done": true
     },
     {
@@ -32147,6 +32116,77 @@
       "added_at": "2026-09-09T20:41:04.849458+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-12T08:52:05.897000+00:00"
+    },
+    {
+      "id": "MASKUSDT_LONG_1h_2026-09-12_03-09-16",
+      "symbol": "MASKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.45354,
+      "sl": 0.4393,
+      "tp": [
+        0.47489,
+        0.48059,
+        0.48557
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_03-09-16",
+      "first_seen": "2026-09-12T03:09:14.216528+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.91,
+      "stage1_score": 10.318,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.434,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.45354,
+      "added_at": "2026-09-12T03:09:14.216528+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T18:27:00.636000+00:00"
+    },
+    {
+      "id": "AKEUSDT_LONG_1h_2026-09-12_07-08-44",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01471,
+      "sl": 0.01365,
+      "tp": [
+        0.01629,
+        0.01671,
+        0.01708
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_07-08-44",
+      "first_seen": "2026-09-12T07:08:42.990615+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.45,
+      "stage1_score": 25.559,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.334,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01471,
+      "triggered_at": "2026-09-12T08:00:00+00:00",
+      "partial_check_from": "2026-09-12T07:08:42.990615+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.01629,
+      "tp_index": 0,
+      "bar_time": 1789239599999,
+      "bars_held": 11,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-12T18:59:59.999000+00:00",
+      "r_multiple": 1.49
     }
   ],
   "ingested_runs": [
@@ -33266,6 +33306,7 @@
     "2026-09-12_17-24-03",
     "2026-09-12_17-36-36",
     "2026-09-12_17-50-20",
-    "2026-09-12_18-08-59"
+    "2026-09-12_18-08-59",
+    "2026-09-12_18-27-00"
   ]
 }
