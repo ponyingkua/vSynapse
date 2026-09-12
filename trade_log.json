@@ -347,6 +347,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 4.1617,
       "added_at": "2026-09-12T16:37:50.788891+00:00"
+    },
+    {
+      "id": "ORDIUSDT_LONG_1h_2026-09-12_16-50-30",
+      "symbol": "ORDIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 4.1617,
+      "sl": 4.026,
+      "tp": [
+        4.3652,
+        4.4194,
+        4.4669
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_16-50-30",
+      "first_seen": "2026-09-12T16:50:28.884254+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.27,
+      "stage1_score": 6.068,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.774,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.1617,
+      "added_at": "2026-09-12T16:50:28.884254+00:00"
     }
   ],
   "open": [
@@ -33052,6 +33081,7 @@
     "2026-09-12_15-50-44",
     "2026-09-12_16-08-50",
     "2026-09-12_16-26-02",
-    "2026-09-12_16-37-52"
+    "2026-09-12_16-37-52",
+    "2026-09-12_16-50-30"
   ]
 }
