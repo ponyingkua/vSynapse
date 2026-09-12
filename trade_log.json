@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "CROSSUSDT_LONG_4h_2026-09-09_19-37-47",
-      "symbol": "CROSSUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.10896,
-      "sl": 0.10324,
-      "tp": [
-        0.11753,
-        0.11981,
-        0.12181
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-09_19-37-47",
-      "first_seen": "2026-09-09T19:37:45.888363+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.18,
-      "stage1_score": 17.574,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 5.681,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10896,
-      "added_at": "2026-09-09T19:37:45.888363+00:00"
-    },
-    {
       "id": "CROSSUSDT_LONG_4h_2026-09-09_19-51-06",
       "symbol": "CROSSUSDT",
       "side": "LONG",
@@ -31546,6 +31517,37 @@
       "exit_price": 6.282,
       "closed_at": "2026-09-12T06:59:59.999000+00:00",
       "r_multiple": 0.03
+    },
+    {
+      "id": "CROSSUSDT_LONG_4h_2026-09-09_19-37-47",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.10896,
+      "sl": 0.10324,
+      "tp": [
+        0.11753,
+        0.11981,
+        0.12181
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-09_19-37-47",
+      "first_seen": "2026-09-09T19:37:45.888363+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 17.574,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 5.681,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10896,
+      "added_at": "2026-09-09T19:37:45.888363+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-12T07:50:54.809000+00:00"
     }
   ],
   "ingested_runs": [
@@ -32623,6 +32625,7 @@
     "2026-09-12_06-57-40",
     "2026-09-12_07-08-44",
     "2026-09-12_07-24-22",
-    "2026-09-12_07-37-10"
+    "2026-09-12_07-37-10",
+    "2026-09-12_07-50-54"
   ]
 }
