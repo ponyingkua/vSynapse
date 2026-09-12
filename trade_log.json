@@ -260,6 +260,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.45354,
       "added_at": "2026-09-12T03:09:14.216528+00:00"
+    },
+    {
+      "id": "XMRUSDT_LONG_1h_2026-09-12_05-24-52",
+      "symbol": "XMRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 527.31,
+      "sl": 514.32,
+      "tp": [
+        546.79,
+        551.99,
+        556.54
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-12_05-24-52",
+      "first_seen": "2026-09-12T05:24:50.341803+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.1,
+      "stage1_score": 9.499,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.822,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 527.31,
+      "added_at": "2026-09-12T05:24:50.341803+00:00"
     }
   ],
   "open": [
@@ -32468,6 +32497,7 @@
     "2026-09-12_04-26-10",
     "2026-09-12_04-39-59",
     "2026-09-12_04-52-40",
-    "2026-09-12_05-08-27"
+    "2026-09-12_05-08-27",
+    "2026-09-12_05-24-52"
   ]
 }
