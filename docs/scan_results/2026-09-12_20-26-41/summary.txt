@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-12T20:26:39.655781+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SSVUSDT | Side: LONG | Score: 6.64
+   - Entry : 2.9084
+   - SL    : 2.7910
+   - TP    : 3.0844, 3.1314, 3.1725
+   - Invalidation: Close below 2.791 / loss of recent 1h swing low / breakout invalid if price falls below 2.9
+----------------------------------------
