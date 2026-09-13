@@ -318,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10856,
       "added_at": "2026-09-12T18:39:49.393646+00:00"
+    },
+    {
+      "id": "ONTUSDT_LONG_15m_2026-09-13_02-08-38",
+      "symbol": "ONTUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05408,
+      "sl": 0.05364,
+      "tp": [
+        0.05475,
+        0.05493,
+        0.05508
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-13_02-08-38",
+      "first_seen": "2026-09-13T02:08:36.502885+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.31,
+      "stage1_score": 13.348,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.393,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05408,
+      "added_at": "2026-09-13T02:08:36.502885+00:00"
     }
   ],
   "open": [
@@ -1073,6 +1102,37 @@
       "sl_after_tp1": 8.651e-05,
       "added_at": "2026-09-12T13:07:51.218438+00:00",
       "triggered_at": "2026-09-13T01:00:00+00:00"
+    },
+    {
+      "id": "NOTUSDT_LONG_1h_2026-09-13_02-08-38",
+      "symbol": "NOTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0004423,
+      "sl": 0.0004286,
+      "tp": [
+        0.0004628,
+        0.0004683,
+        0.0004731
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-13_02-08-38",
+      "first_seen": "2026-09-13T02:08:36.502885+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.08,
+      "stage1_score": 12.096,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.559,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0004423,
+      "triggered_at": "2026-09-13T03:00:00+00:00",
+      "partial_check_from": "2026-09-13T02:08:36.502885+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -33487,6 +33547,7 @@
     "2026-09-13_01-07-46",
     "2026-09-13_01-25-28",
     "2026-09-13_01-39-27",
-    "2026-09-13_01-53-03"
+    "2026-09-13_01-53-03",
+    "2026-09-13_02-08-38"
   ]
 }

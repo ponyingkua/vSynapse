@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-13T02:08:36.502885+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: NOTUSDT | Side: LONG | Score: 6.08
+   - Entry : 0.0004423
+   - SL    : 0.0004286
+   - TP    : 0.0004628, 0.0004683, 0.0004731
+   - Invalidation: Close below 0.0004286 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ONTUSDT | Side: LONG | Score: 6.31
+   - Entry : 0.05408
+   - SL    : 0.05364
+   - TP    : 0.05475, 0.05493, 0.05508
+   - Invalidation: Close below 0.05364 / loss of recent 15m swing low
+----------------------------------------
