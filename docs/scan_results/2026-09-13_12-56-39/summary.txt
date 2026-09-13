@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-13T12:56:37.894016+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: DOGSUSDT | Side: LONG | Score: 6.24
+   - Entry : 0.00005355
+   - SL    : 0.00005198
+   - TP    : 0.00005591, 0.00005653, 0.00005708
+   - Invalidation: Close below 5.198e-05 / loss of recent 15m swing low / breakout invalid if price falls below 5.338e-05
+----------------------------------------
