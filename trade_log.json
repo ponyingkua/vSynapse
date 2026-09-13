@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "PROMUSDT_LONG_1h_2026-09-12_08-52-05",
-      "symbol": "PROMUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 5.4663,
-      "sl": 5.225,
-      "tp": [
-        5.8283,
-        5.9248,
-        6.0093
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-12_08-52-05",
-      "first_seen": "2026-09-12T08:52:04.177419+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.38,
-      "stage1_score": 15.783,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.749,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 5.4663,
-      "added_at": "2026-09-12T08:52:04.177419+00:00"
-    },
-    {
       "id": "NEIROUSDT_LONG_1h_2026-09-12_13-07-53",
       "symbol": "NEIROUSDT",
       "side": "LONG",
@@ -32317,6 +32288,37 @@
       "added_at": "2026-09-12T08:38:54.273089+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-12T23:50:45.814000+00:00"
+    },
+    {
+      "id": "PROMUSDT_LONG_1h_2026-09-12_08-52-05",
+      "symbol": "PROMUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.4663,
+      "sl": 5.225,
+      "tp": [
+        5.8283,
+        5.9248,
+        6.0093
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-12_08-52-05",
+      "first_seen": "2026-09-12T08:52:04.177419+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 15.783,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.749,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.4663,
+      "added_at": "2026-09-12T08:52:04.177419+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-13T00:11:47.174000+00:00"
     }
   ],
   "ingested_runs": [
@@ -33459,6 +33461,7 @@
     "2026-09-12_23-07-29",
     "2026-09-12_23-24-26",
     "2026-09-12_23-36-23",
-    "2026-09-12_23-50-45"
+    "2026-09-12_23-50-45",
+    "2026-09-13_00-11-47"
   ]
 }
