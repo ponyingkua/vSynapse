@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-13T20:51:12.684882+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ESPUSDT | Side: LONG | Score: 6.33
+   - Entry : 0.08671
+   - SL    : 0.08392
+   - TP    : 0.09090, 0.09202, 0.09300
+   - Invalidation: Close below 0.08392 / loss of recent 15m swing low / breakout invalid if price falls below 0.08645
+----------------------------------------

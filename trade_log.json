@@ -173,6 +173,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.51313,
       "added_at": "2026-09-13T19:07:27.644688+00:00"
+    },
+    {
+      "id": "ESPUSDT_LONG_15m_2026-09-13_20-51-14",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.08671,
+      "sl": 0.08392,
+      "tp": [
+        0.0909,
+        0.09202,
+        0.093
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-13_20-51-14",
+      "first_seen": "2026-09-13T20:51:12.684882+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 26.369,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.504,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08671,
+      "added_at": "2026-09-13T20:51:12.684882+00:00"
     }
   ],
   "open": [
@@ -33921,6 +33950,7 @@
     "2026-09-13_19-50-18",
     "2026-09-13_20-09-05",
     "2026-09-13_20-25-46",
-    "2026-09-13_20-39-18"
+    "2026-09-13_20-39-18",
+    "2026-09-13_20-51-14"
   ]
 }
