@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "NEIROUSDT_LONG_1h_2026-09-12_13-07-53",
-      "symbol": "NEIROUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 8.651e-05,
-      "sl": 8.42e-05,
-      "tp": [
-        8.997e-05,
-        9.09e-05,
-        9.17e-05
-      ],
-      "decimals": 8,
-      "run_id": "2026-09-12_13-07-53",
-      "first_seen": "2026-09-12T13:07:51.218438+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.02,
-      "stage1_score": 6.675,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.397,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 8.651e-05,
-      "added_at": "2026-09-12T13:07:51.218438+00:00"
-    },
-    {
       "id": "PYTHUSDT_LONG_1h_2026-09-12_15-08-09",
       "symbol": "PYTHUSDT",
       "side": "LONG",
@@ -1072,6 +1043,36 @@
       "sl_after_tp1": 2.9084,
       "added_at": "2026-09-12T20:26:39.655781+00:00",
       "triggered_at": "2026-09-12T21:00:00+00:00"
+    },
+    {
+      "id": "NEIROUSDT_LONG_1h_2026-09-12_13-07-53",
+      "symbol": "NEIROUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 8.651e-05,
+      "sl": 8.42e-05,
+      "tp": [
+        8.997e-05,
+        9.09e-05,
+        9.17e-05
+      ],
+      "decimals": 8,
+      "run_id": "2026-09-12_13-07-53",
+      "first_seen": "2026-09-12T13:07:51.218438+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 6.675,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.397,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 8.651e-05,
+      "added_at": "2026-09-12T13:07:51.218438+00:00",
+      "triggered_at": "2026-09-13T01:00:00+00:00"
     }
   ],
   "closed": [
@@ -33482,6 +33483,7 @@
     "2026-09-12_23-50-45",
     "2026-09-13_00-11-47",
     "2026-09-13_00-34-07",
-    "2026-09-13_00-54-49"
+    "2026-09-13_00-54-49",
+    "2026-09-13_01-07-46"
   ]
 }
