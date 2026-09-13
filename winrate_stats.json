@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-13T22:26:38.209000+00:00",
-  "resolved_trades": 759,
+  "generated_at": "2026-09-13T22:39:29.159000+00:00",
+  "resolved_trades": 760,
   "wins": 269,
-  "losses": 483,
+  "losses": 484,
   "breakeven": 7,
   "win_rate_pct": 35.4,
   "avg_r_multiple": -0.06,
@@ -27,9 +27,9 @@
     },
     "PULLBACK": {
       "wins": 57,
-      "losses": 58,
+      "losses": 59,
       "breakeven": 2,
-      "win_rate_pct": 48.7
+      "win_rate_pct": 48.3
     },
     "CONTINUATION": {
       "wins": 10,
@@ -41,9 +41,9 @@
   "by_side": {
     "LONG": {
       "wins": 192,
-      "losses": 368,
+      "losses": 369,
       "breakeven": 7,
-      "win_rate_pct": 33.9
+      "win_rate_pct": 33.8
     },
     "SHORT": {
       "wins": 77,
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 83,
-      "losses": 138,
+      "losses": 139,
       "breakeven": 7,
-      "win_rate_pct": 36.4
+      "win_rate_pct": 36.2
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 164,
-      "losses": 303,
+      "losses": 304,
       "breakeven": 7,
-      "win_rate_pct": 34.6
+      "win_rate_pct": 34.5
     },
     "COUNTER": {
       "wins": 64,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 50,
-      "losses": 98,
+      "losses": 99,
       "breakeven": 6,
-      "win_rate_pct": 32.5
+      "win_rate_pct": 32.3
     },
     "8.0-8.9": {
       "wins": 2,
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 60,
-      "losses": 123,
+      "losses": 124,
       "breakeven": 7,
-      "win_rate_pct": 31.6
+      "win_rate_pct": 31.4
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 269,
-      "losses": 483,
+      "losses": 484,
       "breakeven": 7,
       "win_rate_pct": 35.4
     }
   },
   "expired_unresolved": 108,
   "never_triggered": 162,
-  "currently_open": 12,
+  "currently_open": 11,
   "currently_pending": 5,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
