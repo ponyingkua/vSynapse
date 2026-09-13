@@ -149,36 +149,6 @@
       "triggered_at": "2026-09-06T00:00:00+00:00"
     },
     {
-      "id": "SYRUPUSDT_LONG_1h_2026-09-10_20-39-18",
-      "symbol": "SYRUPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.21749,
-      "sl": 0.20171,
-      "tp": [
-        0.24116,
-        0.24747,
-        0.25299
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-10_20-39-18",
-      "first_seen": "2026-09-10T20:39:17.125632+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.07,
-      "stage1_score": 14.871,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.889,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.21749,
-      "added_at": "2026-09-10T20:39:17.125632+00:00",
-      "triggered_at": "2026-09-10T21:00:00+00:00"
-    },
-    {
       "id": "1000RATSUSDT_LONG_1h_2026-09-11_00-54-13",
       "symbol": "1000RATSUSDT",
       "side": "LONG",
@@ -627,6 +597,37 @@
       "sl_after_tp1": 0.0004423,
       "triggered_at": "2026-09-13T03:00:00+00:00",
       "partial_check_from": "2026-09-13T02:08:36.502885+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "CLANKERUSDT_SHORT_15m_2026-09-13_09-07-08",
+      "symbol": "CLANKERUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 11.992,
+      "sl": 12.24,
+      "tp": [
+        11.62,
+        11.521,
+        11.435
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-13_09-07-08",
+      "first_seen": "2026-09-13T09:07:06.414704+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.41,
+      "stage1_score": 5.979,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.727,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 11.992,
+      "triggered_at": "2026-09-13T09:15:00+00:00",
+      "partial_check_from": "2026-09-13T09:07:06.414704+00:00",
       "partial_check_done": true
     }
   ],
@@ -32535,6 +32536,40 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-13T08:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "SYRUPUSDT_LONG_1h_2026-09-10_20-39-18",
+      "symbol": "SYRUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.21749,
+      "sl": 0.20171,
+      "tp": [
+        0.24116,
+        0.24747,
+        0.25299
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-10_20-39-18",
+      "first_seen": "2026-09-10T20:39:17.125632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 14.871,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.889,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.21749,
+      "added_at": "2026-09-10T20:39:17.125632+00:00",
+      "triggered_at": "2026-09-10T21:00:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.21714,
+      "closed_at": "2026-09-13T09:59:59.999000+00:00",
+      "r_multiple": -0.02
     }
   ],
   "ingested_runs": [
@@ -33710,6 +33745,7 @@
     "2026-09-13_07-52-16",
     "2026-09-13_08-08-46",
     "2026-09-13_08-26-34",
-    "2026-09-13_08-40-20"
+    "2026-09-13_08-40-20",
+    "2026-09-13_09-07-08"
   ]
 }

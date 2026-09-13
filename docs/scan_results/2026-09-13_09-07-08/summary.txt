@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-13T09:07:06.414704+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CLANKERUSDT | Side: SHORT | Score: 6.41
+   - Entry : 11.992
+   - SL    : 12.240
+   - TP    : 11.620, 11.521, 11.435
+   - Invalidation: Close above 12.24 / reclaim of recent 15m swing high / breakdown invalid if price rises above 12.01
+----------------------------------------
