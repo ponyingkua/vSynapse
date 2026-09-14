@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1154.18,
       "added_at": "2026-09-14T19:27:04.500828+00:00"
+    },
+    {
+      "id": "LDOUSDT_LONG_1h_2026-09-14_21-09-06",
+      "symbol": "LDOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.37385,
+      "sl": 0.3625,
+      "tp": [
+        0.39087,
+        0.39541,
+        0.39938
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_21-09-06",
+      "first_seen": "2026-09-14T21:09:03.611757+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 10.613,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.964,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.37385,
+      "added_at": "2026-09-14T21:09:03.611757+00:00"
     }
   ],
   "open": [
@@ -810,6 +839,37 @@
       "sl_after_tp1": 0.03459,
       "triggered_at": "2026-09-14T19:15:00+00:00",
       "partial_check_from": "2026-09-14T19:08:57.877779+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "SYRUPUSDT_LONG_1h_2026-09-14_21-09-06",
+      "symbol": "SYRUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.21785,
+      "sl": 0.21175,
+      "tp": [
+        0.227,
+        0.22944,
+        0.23157
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_21-09-06",
+      "first_seen": "2026-09-14T21:09:03.611757+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.4,
+      "stage1_score": 15.1,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.14,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.21785,
+      "triggered_at": "2026-09-14T22:00:00+00:00",
+      "partial_check_from": "2026-09-14T21:09:03.611757+00:00",
       "partial_check_done": true
     }
   ],
@@ -35152,6 +35212,7 @@
     "2026-09-14_20-09-10",
     "2026-09-14_20-26-45",
     "2026-09-14_20-39-49",
-    "2026-09-14_20-53-29"
+    "2026-09-14_20-53-29",
+    "2026-09-14_21-09-06"
   ]
 }
