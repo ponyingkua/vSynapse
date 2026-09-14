@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T10:42:04.427940+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: RIFUSDT | Side: LONG | Score: 6.04
+   - Entry : 0.07988
+   - SL    : 0.07927
+   - TP    : 0.08078, 0.08102, 0.08124
+   - Invalidation: Close below 0.07927 / loss of recent 15m swing low
+----------------------------------------
