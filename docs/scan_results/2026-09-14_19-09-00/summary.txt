@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T19:08:57.877779+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: KASUSDT | Side: LONG | Score: 6.02
+   - Entry : 0.03459
+   - SL    : 0.03373
+   - TP    : 0.03589, 0.03624, 0.03654
+   - Invalidation: Close below 0.03373 / loss of recent 15m swing low / breakout invalid if price falls below 0.03452
+----------------------------------------

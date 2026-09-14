@@ -782,6 +782,37 @@
       "sl_after_tp1": 0.01571,
       "added_at": "2026-09-14T16:27:39.836631+00:00",
       "triggered_at": "2026-09-14T18:15:00+00:00"
+    },
+    {
+      "id": "KASUSDT_LONG_15m_2026-09-14_19-09-00",
+      "symbol": "KASUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.03459,
+      "sl": 0.03373,
+      "tp": [
+        0.03589,
+        0.03624,
+        0.03654
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_19-09-00",
+      "first_seen": "2026-09-14T19:08:57.877779+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 16.072,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.324,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03459,
+      "triggered_at": "2026-09-14T19:15:00+00:00",
+      "partial_check_from": "2026-09-14T19:08:57.877779+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34982,6 +35013,7 @@
     "2026-09-14_17-54-07",
     "2026-09-14_18-09-24",
     "2026-09-14_18-30-21",
-    "2026-09-14_18-48-39"
+    "2026-09-14_18-48-39",
+    "2026-09-14_19-09-00"
   ]
 }
