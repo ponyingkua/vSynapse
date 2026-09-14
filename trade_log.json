@@ -779,6 +779,37 @@
       "triggered_at": "2026-09-14T17:30:00+00:00",
       "partial_check_from": "2026-09-14T17:26:02.659982+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "JUPUSDT_LONG_1h_2026-09-14_17-40-43",
+      "symbol": "JUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.23926,
+      "sl": 0.2327,
+      "tp": [
+        0.2491,
+        0.25173,
+        0.25402
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_17-40-43",
+      "first_seen": "2026-09-14T17:40:42.214769+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.25,
+      "stage1_score": 11.271,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.664,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.23926,
+      "triggered_at": "2026-09-14T18:00:00+00:00",
+      "partial_check_from": "2026-09-14T17:40:42.214769+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34943,6 +34974,7 @@
     "2026-09-14_16-42-45",
     "2026-09-14_16-56-47",
     "2026-09-14_17-07-55",
-    "2026-09-14_17-26-04"
+    "2026-09-14_17-26-04",
+    "2026-09-14_17-40-43"
   ]
 }

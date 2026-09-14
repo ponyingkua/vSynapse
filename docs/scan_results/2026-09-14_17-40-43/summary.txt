@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T17:40:42.214769+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: JUPUSDT | Side: LONG | Score: 6.25
+   - Entry : 0.23926
+   - SL    : 0.23270
+   - TP    : 0.24910, 0.25173, 0.25402
+   - Invalidation: Close below 0.2327 / loss of recent 1h swing low
+----------------------------------------
