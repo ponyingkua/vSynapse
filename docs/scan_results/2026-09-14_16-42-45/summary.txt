@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T16:42:43.585795+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SOLUSDT | Side: LONG | Score: 6.61
+   - Entry : 101.94
+   - SL    : 100.60
+   - TP    : 103.95, 104.48, 104.95
+   - Invalidation: Close below 100.6 / loss of recent 1h swing low
+----------------------------------------

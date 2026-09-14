@@ -718,6 +718,37 @@
       "triggered_at": "2026-09-14T17:00:00+00:00",
       "partial_check_from": "2026-09-14T16:27:39.836631+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SOLUSDT_LONG_1h_2026-09-14_16-42-45",
+      "symbol": "SOLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 101.94,
+      "sl": 100.6,
+      "tp": [
+        103.95,
+        104.48,
+        104.95
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-14_16-42-45",
+      "first_seen": "2026-09-14T16:42:43.585795+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 10.164,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.649,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 101.94,
+      "triggered_at": "2026-09-14T17:00:00+00:00",
+      "partial_check_from": "2026-09-14T16:42:43.585795+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34839,6 +34870,7 @@
     "2026-09-14_15-42-19",
     "2026-09-14_15-55-27",
     "2026-09-14_16-09-02",
-    "2026-09-14_16-27-41"
+    "2026-09-14_16-27-41",
+    "2026-09-14_16-42-45"
   ]
 }
