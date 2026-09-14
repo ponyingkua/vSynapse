@@ -202,6 +202,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.07787,
       "added_at": "2026-09-14T00:12:14.151917+00:00"
+    },
+    {
+      "id": "RPLUSDT_LONG_15m_2026-09-14_02-42-06",
+      "symbol": "RPLUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.7755,
+      "sl": 1.737,
+      "tp": [
+        1.8332,
+        1.8486,
+        1.8621
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-14_02-42-06",
+      "first_seen": "2026-09-14T02:42:04.853829+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.43,
+      "stage1_score": 19.416,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.003,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.7755,
+      "added_at": "2026-09-14T02:42:04.853829+00:00"
     }
   ],
   "open": [
@@ -34149,6 +34178,7 @@
     "2026-09-14_01-39-50",
     "2026-09-14_01-53-35",
     "2026-09-14_02-09-18",
-    "2026-09-14_02-28-08"
+    "2026-09-14_02-28-08",
+    "2026-09-14_02-42-06"
   ]
 }

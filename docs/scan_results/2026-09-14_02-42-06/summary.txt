@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T02:42:04.853829+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: RPLUSDT | Side: LONG | Score: 6.43
+   - Entry : 1.7755
+   - SL    : 1.7370
+   - TP    : 1.8332, 1.8486, 1.8621
+   - Invalidation: Close below 1.737 / loss of recent 15m swing low / breakout invalid if price falls below 1.773
+----------------------------------------
