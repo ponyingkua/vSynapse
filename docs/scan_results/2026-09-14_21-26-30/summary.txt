@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T21:26:28.560396+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SYRUPUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.21872
+   - SL    : 0.21175
+   - TP    : 0.22917, 0.23196, 0.23440
+   - Invalidation: Close below 0.21175 / loss of recent 1h swing low
+----------------------------------------

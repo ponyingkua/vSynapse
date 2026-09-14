@@ -175,35 +175,6 @@
       "added_at": "2026-09-14T19:40:39.328736+00:00"
     },
     {
-      "id": "ENAUSDT_LONG_1h_2026-09-14_19-27-07",
-      "symbol": "ENAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.14401,
-      "sl": 0.13791,
-      "tp": [
-        0.15316,
-        0.1556,
-        0.15774
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_19-27-07",
-      "first_seen": "2026-09-14T19:27:04.500828+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.23,
-      "stage1_score": 14.401,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.179,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.14401,
-      "added_at": "2026-09-14T19:27:04.500828+00:00"
-    },
-    {
       "id": "ZECUSDT_LONG_1h_2026-09-14_19-27-07",
       "symbol": "ZECUSDT",
       "side": "LONG",
@@ -871,6 +842,67 @@
       "triggered_at": "2026-09-14T22:00:00+00:00",
       "partial_check_from": "2026-09-14T21:09:03.611757+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SYRUPUSDT_LONG_1h_2026-09-14_21-26-30",
+      "symbol": "SYRUPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.21872,
+      "sl": 0.21175,
+      "tp": [
+        0.22917,
+        0.23196,
+        0.2344
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_21-26-30",
+      "first_seen": "2026-09-14T21:26:28.560396+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 14.599,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.491,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.21872,
+      "triggered_at": "2026-09-14T22:00:00+00:00",
+      "partial_check_from": "2026-09-14T21:26:28.560396+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ENAUSDT_LONG_1h_2026-09-14_19-27-07",
+      "symbol": "ENAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14401,
+      "sl": 0.13791,
+      "tp": [
+        0.15316,
+        0.1556,
+        0.15774
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_19-27-07",
+      "first_seen": "2026-09-14T19:27:04.500828+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.23,
+      "stage1_score": 14.401,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.179,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14401,
+      "added_at": "2026-09-14T19:27:04.500828+00:00",
+      "triggered_at": "2026-09-14T21:00:00+00:00"
     }
   ],
   "closed": [
@@ -35213,6 +35245,7 @@
     "2026-09-14_20-26-45",
     "2026-09-14_20-39-49",
     "2026-09-14_20-53-29",
-    "2026-09-14_21-09-06"
+    "2026-09-14_21-09-06",
+    "2026-09-14_21-26-30"
   ]
 }
