@@ -719,37 +719,6 @@
       "partial_check_done": true
     },
     {
-      "id": "SOLUSDT_LONG_1h_2026-09-14_16-42-45",
-      "symbol": "SOLUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 101.94,
-      "sl": 100.6,
-      "tp": [
-        103.95,
-        104.48,
-        104.95
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-14_16-42-45",
-      "first_seen": "2026-09-14T16:42:43.585795+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.61,
-      "stage1_score": 10.164,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.649,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 101.94,
-      "triggered_at": "2026-09-14T17:00:00+00:00",
-      "partial_check_from": "2026-09-14T16:42:43.585795+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "FLOCKUSDT_LONG_15m_2026-09-14_17-26-04",
       "symbol": "FLOCKUSDT",
       "side": "LONG",
@@ -33831,6 +33800,46 @@
       "added_at": "2026-09-14T15:42:16.880075+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-14T19:40:42.283000+00:00"
+    },
+    {
+      "id": "SOLUSDT_LONG_1h_2026-09-14_16-42-45",
+      "symbol": "SOLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 101.94,
+      "sl": 100.6,
+      "tp": [
+        103.95,
+        104.48,
+        104.95
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-14_16-42-45",
+      "first_seen": "2026-09-14T16:42:43.585795+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 10.164,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.649,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 101.94,
+      "triggered_at": "2026-09-14T17:00:00+00:00",
+      "partial_check_from": "2026-09-14T16:42:43.585795+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 104.48,
+      "tp_index": 1,
+      "bar_time": 1789419599999,
+      "bars_held": 4,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-14T20:59:59.999000+00:00",
+      "r_multiple": 1.9
     }
   ],
   "ingested_runs": [
@@ -35138,6 +35147,7 @@
     "2026-09-14_19-27-07",
     "2026-09-14_19-40-42",
     "2026-09-14_19-52-17",
-    "2026-09-14_20-09-10"
+    "2026-09-14_20-09-10",
+    "2026-09-14_20-26-45"
   ]
 }
