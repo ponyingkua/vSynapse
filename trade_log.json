@@ -173,6 +173,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.07802,
       "added_at": "2026-09-13T23:50:57.042004+00:00"
+    },
+    {
+      "id": "BULLAUSDT_LONG_15m_2026-09-14_00-12-15",
+      "symbol": "BULLAUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.07787,
+      "sl": 0.07568,
+      "tp": [
+        0.08116,
+        0.08204,
+        0.08281
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_00-12-15",
+      "first_seen": "2026-09-14T00:12:14.151917+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 23.216,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.803,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07787,
+      "added_at": "2026-09-14T00:12:14.151917+00:00"
     }
   ],
   "open": [
@@ -34084,6 +34113,7 @@
     "2026-09-13_23-07-49",
     "2026-09-13_23-24-16",
     "2026-09-13_23-37-42",
-    "2026-09-13_23-50-59"
+    "2026-09-13_23-50-59",
+    "2026-09-14_00-12-15"
   ]
 }
