@@ -144,6 +144,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05968,
       "added_at": "2026-09-14T08:09:20.646417+00:00"
+    },
+    {
+      "id": "RLCUSDT_SHORT_15m_2026-09-14_08-58-13",
+      "symbol": "RLCUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.27881,
+      "sl": 0.2825,
+      "tp": [
+        0.27327,
+        0.2718,
+        0.27051
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_08-58-13",
+      "first_seen": "2026-09-14T08:58:11.926457+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.4,
+      "stage1_score": 5.682,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.754,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.27881,
+      "added_at": "2026-09-14T08:58:11.926457+00:00"
     }
   ],
   "open": [
@@ -34436,6 +34465,7 @@
     "2026-09-14_07-56-40",
     "2026-09-14_08-09-22",
     "2026-09-14_08-29-47",
-    "2026-09-14_08-45-09"
+    "2026-09-14_08-45-09",
+    "2026-09-14_08-58-13"
   ]
 }

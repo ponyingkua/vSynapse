@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T08:58:11.926457+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: RLCUSDT | Side: SHORT | Score: 6.4
+   - Entry : 0.27881
+   - SL    : 0.28250
+   - TP    : 0.27327, 0.27180, 0.27051
+   - Invalidation: Close above 0.2825 / reclaim of recent 15m swing high
+----------------------------------------
