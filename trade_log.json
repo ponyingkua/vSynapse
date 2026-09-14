@@ -202,35 +202,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 1154.18,
       "added_at": "2026-09-14T19:27:04.500828+00:00"
-    },
-    {
-      "id": "LDOUSDT_LONG_1h_2026-09-14_21-09-06",
-      "symbol": "LDOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.37385,
-      "sl": 0.3625,
-      "tp": [
-        0.39087,
-        0.39541,
-        0.39938
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_21-09-06",
-      "first_seen": "2026-09-14T21:09:03.611757+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 10.613,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.964,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.37385,
-      "added_at": "2026-09-14T21:09:03.611757+00:00"
     }
   ],
   "open": [
@@ -872,6 +843,36 @@
       "sl_after_tp1": 0.14401,
       "added_at": "2026-09-14T19:27:04.500828+00:00",
       "triggered_at": "2026-09-14T21:00:00+00:00"
+    },
+    {
+      "id": "LDOUSDT_LONG_1h_2026-09-14_21-09-06",
+      "symbol": "LDOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.37385,
+      "sl": 0.3625,
+      "tp": [
+        0.39087,
+        0.39541,
+        0.39938
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_21-09-06",
+      "first_seen": "2026-09-14T21:09:03.611757+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 10.613,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.964,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.37385,
+      "added_at": "2026-09-14T21:09:03.611757+00:00",
+      "triggered_at": "2026-09-14T22:00:00+00:00"
     }
   ],
   "closed": [
@@ -35257,6 +35258,7 @@
     "2026-09-14_21-09-06",
     "2026-09-14_21-26-30",
     "2026-09-14_21-40-26",
-    "2026-09-14_21-53-30"
+    "2026-09-14_21-53-30",
+    "2026-09-14_22-09-19"
   ]
 }
