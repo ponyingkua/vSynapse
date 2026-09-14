@@ -539,6 +539,37 @@
       "sl_after_tp1": 0.02465,
       "added_at": "2026-09-14T04:55:51.731061+00:00",
       "triggered_at": "2026-09-14T07:00:00+00:00"
+    },
+    {
+      "id": "AIAUSDT_SHORT_15m_2026-09-14_08-29-47",
+      "symbol": "AIAUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.07632,
+      "sl": 0.07714,
+      "tp": [
+        0.07509,
+        0.07476,
+        0.07447
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_08-29-47",
+      "first_seen": "2026-09-14T08:29:45.509640+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.03,
+      "stage1_score": 6.319,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.289,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07632,
+      "triggered_at": "2026-09-14T08:30:00+00:00",
+      "partial_check_from": "2026-09-14T08:29:45.509640+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34403,6 +34434,7 @@
     "2026-09-14_07-29-11",
     "2026-09-14_07-44-48",
     "2026-09-14_07-56-40",
-    "2026-09-14_08-09-22"
+    "2026-09-14_08-09-22",
+    "2026-09-14_08-29-47"
   ]
 }

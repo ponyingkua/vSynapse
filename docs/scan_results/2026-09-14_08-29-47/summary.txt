@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T08:29:45.509640+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AIAUSDT | Side: SHORT | Score: 7.03
+   - Entry : 0.07632
+   - SL    : 0.07714
+   - TP    : 0.07509, 0.07476, 0.07447
+   - Invalidation: Close above 0.07714 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.07638
+----------------------------------------
