@@ -117,35 +117,6 @@
       "added_at": "2026-09-12T18:39:49.393646+00:00"
     },
     {
-      "id": "POWERUSDT_LONG_15m_2026-09-14_14-10-00",
-      "symbol": "POWERUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.1155,
-      "sl": 0.10925,
-      "tp": [
-        0.12487,
-        0.12737,
-        0.12956
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_14-10-00",
-      "first_seen": "2026-09-14T14:09:57.127074+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.65,
-      "stage1_score": 41.477,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 10.081,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.1155,
-      "added_at": "2026-09-14T14:09:57.127074+00:00"
-    },
-    {
       "id": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT_LONG_15m_2026-09-14_15-42-19",
       "symbol": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT",
       "side": "LONG",
@@ -33677,6 +33648,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-14T16:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "POWERUSDT_LONG_15m_2026-09-14_14-10-00",
+      "symbol": "POWERUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.1155,
+      "sl": 0.10925,
+      "tp": [
+        0.12487,
+        0.12737,
+        0.12956
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_14-10-00",
+      "first_seen": "2026-09-14T14:09:57.127074+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 41.477,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 10.081,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.1155,
+      "added_at": "2026-09-14T14:09:57.127074+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-14T18:09:25.091000+00:00"
     }
   ],
   "ingested_runs": [
@@ -34976,6 +34978,7 @@
     "2026-09-14_17-07-55",
     "2026-09-14_17-26-04",
     "2026-09-14_17-40-43",
-    "2026-09-14_17-54-07"
+    "2026-09-14_17-54-07",
+    "2026-09-14_18-09-24"
   ]
 }
