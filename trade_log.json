@@ -144,35 +144,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05968,
       "added_at": "2026-09-14T08:09:20.646417+00:00"
-    },
-    {
-      "id": "CROSSUSDT_LONG_15m_2026-09-14_09-45-14",
-      "symbol": "CROSSUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.11676,
-      "sl": 0.11141,
-      "tp": [
-        0.12478,
-        0.12692,
-        0.12879
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_09-45-14",
-      "first_seen": "2026-09-14T09:45:12.525305+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.39,
-      "stage1_score": 22.764,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 5.025,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.11676,
-      "added_at": "2026-09-14T09:45:12.525305+00:00"
     }
   ],
   "open": [
@@ -629,6 +600,36 @@
       "sl_after_tp1": 0.27881,
       "added_at": "2026-09-14T08:58:11.926457+00:00",
       "triggered_at": "2026-09-14T09:45:00+00:00"
+    },
+    {
+      "id": "CROSSUSDT_LONG_15m_2026-09-14_09-45-14",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.11676,
+      "sl": 0.11141,
+      "tp": [
+        0.12478,
+        0.12692,
+        0.12879
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_09-45-14",
+      "first_seen": "2026-09-14T09:45:12.525305+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.39,
+      "stage1_score": 22.764,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.025,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.11676,
+      "added_at": "2026-09-14T09:45:12.525305+00:00",
+      "triggered_at": "2026-09-14T10:00:00+00:00"
     }
   ],
   "closed": [
@@ -34501,6 +34502,7 @@
     "2026-09-14_09-30-03",
     "2026-09-14_09-45-14",
     "2026-09-14_09-59-11",
-    "2026-09-14_10-11-31"
+    "2026-09-14_10-11-31",
+    "2026-09-14_10-27-57"
   ]
 }
