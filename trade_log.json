@@ -117,35 +117,6 @@
       "added_at": "2026-09-12T18:39:49.393646+00:00"
     },
     {
-      "id": "AKEUSDT_LONG_15m_2026-09-14_16-56-47",
-      "symbol": "AKEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01545,
-      "sl": 0.01502,
-      "tp": [
-        0.01609,
-        0.01627,
-        0.01642
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_16-56-47",
-      "first_seen": "2026-09-14T16:56:43.988657+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.65,
-      "stage1_score": 19.411,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.406,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01545,
-      "added_at": "2026-09-14T16:56:43.988657+00:00"
-    },
-    {
       "id": "AAVEUSDT_LONG_1h_2026-09-14_19-27-07",
       "symbol": "AAVEUSDT",
       "side": "LONG",
@@ -33840,6 +33811,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-14T20:59:59.999000+00:00",
       "r_multiple": 1.9
+    },
+    {
+      "id": "AKEUSDT_LONG_15m_2026-09-14_16-56-47",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01545,
+      "sl": 0.01502,
+      "tp": [
+        0.01609,
+        0.01627,
+        0.01642
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_16-56-47",
+      "first_seen": "2026-09-14T16:56:43.988657+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 19.411,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.406,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01545,
+      "added_at": "2026-09-14T16:56:43.988657+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-14T20:53:30.051000+00:00"
     }
   ],
   "ingested_runs": [
@@ -35149,6 +35151,7 @@
     "2026-09-14_19-52-17",
     "2026-09-14_20-09-10",
     "2026-09-14_20-26-45",
-    "2026-09-14_20-39-49"
+    "2026-09-14_20-39-49",
+    "2026-09-14_20-53-29"
   ]
 }
