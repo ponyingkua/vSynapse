@@ -144,6 +144,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.1155,
       "added_at": "2026-09-14T14:09:57.127074+00:00"
+    },
+    {
+      "id": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT_LONG_15m_2026-09-14_15-42-19",
+      "symbol": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01386,
+      "sl": 0.01337,
+      "tp": [
+        0.01459,
+        0.01478,
+        0.01495
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_15-42-19",
+      "first_seen": "2026-09-14T15:42:16.880075+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.24,
+      "stage1_score": 32.198,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.536,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01386,
+      "added_at": "2026-09-14T15:42:16.880075+00:00"
+    },
+    {
+      "id": "4USDT_LONG_15m_2026-09-14_15-42-19",
+      "symbol": "4USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02134,
+      "sl": 0.02072,
+      "tp": [
+        0.02227,
+        0.02251,
+        0.02273
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_15-42-19",
+      "first_seen": "2026-09-14T15:42:16.880075+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.56,
+      "stage1_score": 27.759,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 5.165,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02134,
+      "added_at": "2026-09-14T15:42:16.880075+00:00"
     }
   ],
   "open": [
@@ -34677,6 +34735,7 @@
     "2026-09-14_14-29-46",
     "2026-09-14_14-49-30",
     "2026-09-14_15-00-43",
-    "2026-09-14_15-17-45"
+    "2026-09-14_15-17-45",
+    "2026-09-14_15-42-19"
   ]
 }
