@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T14:09:57.127074+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: BROCCOLI714USDT | Side: LONG | Score: 7.43
+   - Entry : 0.01790
+   - SL    : 0.01741
+   - TP    : 0.01863, 0.01882, 0.01899
+   - Invalidation: Close below 0.01741 / loss of recent 15m swing low / breakout invalid if price falls below 0.01786
+----------------------------------------
+2. Symbol: COTIUSDT | Side: LONG | Score: 6.32
+   - Entry : 0.01680
+   - SL    : 0.01623
+   - TP    : 0.01767, 0.01790, 0.01810
+   - Invalidation: Close below 0.016226 / loss of recent 15m swing low / breakout invalid if price falls below 0.01675
+----------------------------------------
+3. Symbol: POWERUSDT | Side: LONG | Score: 6.65
+   - Entry : 0.11550
+   - SL    : 0.10925
+   - TP    : 0.12487, 0.12737, 0.12956
+   - Invalidation: Close below 0.10924649 / loss of recent 15m swing low
+----------------------------------------
