@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T19:27:04.500828+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: AAVEUSDT | Side: LONG | Score: 6.53
+   - Entry : 127.87
+   - SL    : 124.73
+   - TP    : 132.57, 133.83, 134.93
+   - Invalidation: Close below 124.73 / loss of recent 1h swing low / breakout invalid if price falls below 127.55
+----------------------------------------
+2. Symbol: ENAUSDT | Side: LONG | Score: 6.23
+   - Entry : 0.14401
+   - SL    : 0.13791
+   - TP    : 0.15316, 0.15560, 0.15774
+   - Invalidation: Close below 0.13791 / loss of recent 1h swing low / breakout invalid if price falls below 0.14342
+----------------------------------------
+3. Symbol: ZECUSDT | Side: LONG | Score: 6.08
+   - Entry : 1154.18
+   - SL    : 1113.19
+   - TP    : 1215.67, 1232.07, 1246.41
+   - Invalidation: Close below 1113.19 / loss of recent 1h swing low
+----------------------------------------
