@@ -115,6 +115,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10856,
       "added_at": "2026-09-12T18:39:49.393646+00:00"
+    },
+    {
+      "id": "VELODROMEUSDT_LONG_1h_2026-09-14_04-09-27",
+      "symbol": "VELODROMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02465,
+      "sl": 0.02382,
+      "tp": [
+        0.02588,
+        0.02621,
+        0.0265
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_04-09-27",
+      "first_seen": "2026-09-14T04:09:25.151955+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 8.694,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.446,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02465,
+      "added_at": "2026-09-14T04:09:25.151955+00:00"
     }
   ],
   "open": [
@@ -389,6 +418,37 @@
       "sl_after_tp1": 0.01041,
       "added_at": "2026-09-13T16:08:31.950556+00:00",
       "triggered_at": "2026-09-14T03:00:00+00:00"
+    },
+    {
+      "id": "ORDIUSDT_LONG_1h_2026-09-14_04-09-27",
+      "symbol": "ORDIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 4.1251,
+      "sl": 3.966,
+      "tp": [
+        4.3638,
+        4.4275,
+        4.4832
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-14_04-09-27",
+      "first_seen": "2026-09-14T04:09:25.151955+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.34,
+      "stage1_score": 11.074,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.342,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.1251,
+      "triggered_at": "2026-09-14T05:00:00+00:00",
+      "partial_check_from": "2026-09-14T04:09:25.151955+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34237,6 +34297,7 @@
     "2026-09-14_03-09-15",
     "2026-09-14_03-29-11",
     "2026-09-14_03-43-42",
-    "2026-09-14_03-56-26"
+    "2026-09-14_03-56-26",
+    "2026-09-14_04-09-27"
   ]
 }
