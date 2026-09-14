@@ -748,6 +748,37 @@
       "triggered_at": "2026-09-14T17:00:00+00:00",
       "partial_check_from": "2026-09-14T16:42:43.585795+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "FLOCKUSDT_LONG_15m_2026-09-14_17-26-04",
+      "symbol": "FLOCKUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.07374,
+      "sl": 0.06877,
+      "tp": [
+        0.0812,
+        0.08318,
+        0.08492
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_17-26-04",
+      "first_seen": "2026-09-14T17:26:02.659982+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.73,
+      "stage1_score": 31.444,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.808,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07374,
+      "triggered_at": "2026-09-14T17:30:00+00:00",
+      "partial_check_from": "2026-09-14T17:26:02.659982+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34911,6 +34942,7 @@
     "2026-09-14_16-27-41",
     "2026-09-14_16-42-45",
     "2026-09-14_16-56-47",
-    "2026-09-14_17-07-55"
+    "2026-09-14_17-07-55",
+    "2026-09-14_17-26-04"
   ]
 }
