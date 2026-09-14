@@ -202,6 +202,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02134,
       "added_at": "2026-09-14T15:42:16.880075+00:00"
+    },
+    {
+      "id": "AKEUSDT_LONG_15m_2026-09-14_16-27-41",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01571,
+      "sl": 0.01518,
+      "tp": [
+        0.01651,
+        0.01673,
+        0.01691
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_16-27-41",
+      "first_seen": "2026-09-14T16:27:39.836631+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 10.821,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.08,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01571,
+      "added_at": "2026-09-14T16:27:39.836631+00:00"
     }
   ],
   "open": [
@@ -657,6 +686,37 @@
       "sl_after_tp1": 0.02465,
       "triggered_at": "2026-09-14T17:00:00+00:00",
       "partial_check_from": "2026-09-14T16:09:00.046655+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ARCUSDT_LONG_1h_2026-09-14_16-27-41",
+      "symbol": "ARCUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.07265,
+      "sl": 0.06986,
+      "tp": [
+        0.07683,
+        0.07795,
+        0.07893
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_16-27-41",
+      "first_seen": "2026-09-14T16:27:39.836631+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.35,
+      "stage1_score": 6.834,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.399,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07265,
+      "triggered_at": "2026-09-14T17:00:00+00:00",
+      "partial_check_from": "2026-09-14T16:27:39.836631+00:00",
       "partial_check_done": true
     }
   ],
@@ -34778,6 +34838,7 @@
     "2026-09-14_15-17-45",
     "2026-09-14_15-42-19",
     "2026-09-14_15-55-27",
-    "2026-09-14_16-09-02"
+    "2026-09-14_16-09-02",
+    "2026-09-14_16-27-41"
   ]
 }
