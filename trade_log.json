@@ -175,35 +175,6 @@
       "added_at": "2026-09-14T15:42:16.880075+00:00"
     },
     {
-      "id": "AKEUSDT_LONG_15m_2026-09-14_16-27-41",
-      "symbol": "AKEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01571,
-      "sl": 0.01518,
-      "tp": [
-        0.01651,
-        0.01673,
-        0.01691
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-14_16-27-41",
-      "first_seen": "2026-09-14T16:27:39.836631+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.18,
-      "stage1_score": 10.821,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.08,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01571,
-      "added_at": "2026-09-14T16:27:39.836631+00:00"
-    },
-    {
       "id": "AKEUSDT_LONG_15m_2026-09-14_16-56-47",
       "symbol": "AKEUSDT",
       "side": "LONG",
@@ -781,6 +752,36 @@
       "triggered_at": "2026-09-14T18:00:00+00:00",
       "partial_check_from": "2026-09-14T17:40:42.214769+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "AKEUSDT_LONG_15m_2026-09-14_16-27-41",
+      "symbol": "AKEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01571,
+      "sl": 0.01518,
+      "tp": [
+        0.01651,
+        0.01673,
+        0.01691
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_16-27-41",
+      "first_seen": "2026-09-14T16:27:39.836631+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 10.821,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.08,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01571,
+      "added_at": "2026-09-14T16:27:39.836631+00:00",
+      "triggered_at": "2026-09-14T18:15:00+00:00"
     }
   ],
   "closed": [
@@ -34979,6 +34980,7 @@
     "2026-09-14_17-26-04",
     "2026-09-14_17-40-43",
     "2026-09-14_17-54-07",
-    "2026-09-14_18-09-24"
+    "2026-09-14_18-09-24",
+    "2026-09-14_18-30-21"
   ]
 }
