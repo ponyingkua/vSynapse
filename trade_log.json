@@ -115,6 +115,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.10856,
       "added_at": "2026-09-12T18:39:49.393646+00:00"
+    },
+    {
+      "id": "TAKEUSDT_SHORT_15m_2026-09-14_08-09-22",
+      "symbol": "TAKEUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05968,
+      "sl": 0.0621,
+      "tp": [
+        0.05604,
+        0.05507,
+        0.05423
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_08-09-22",
+      "first_seen": "2026-09-14T08:09:20.646417+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.15,
+      "stage1_score": 9.459,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": -5.442,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05968,
+      "added_at": "2026-09-14T08:09:20.646417+00:00"
     }
   ],
   "open": [
@@ -34373,6 +34402,7 @@
     "2026-09-14_07-11-43",
     "2026-09-14_07-29-11",
     "2026-09-14_07-44-48",
-    "2026-09-14_07-56-40"
+    "2026-09-14_07-56-40",
+    "2026-09-14_08-09-22"
   ]
 }
