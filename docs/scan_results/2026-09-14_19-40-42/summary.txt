@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T19:40:39.328736+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AAVEUSDT | Side: LONG | Score: 7.08
+   - Entry : 127.87
+   - SL    : 124.73
+   - TP    : 132.57, 133.83, 134.93
+   - Invalidation: Close below 124.73 / loss of recent 1h swing low / breakout invalid if price falls below 127.55
+----------------------------------------
