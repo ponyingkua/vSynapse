@@ -627,6 +627,37 @@
       "sl_after_tp1": 0.0179,
       "added_at": "2026-09-14T14:09:57.127074+00:00",
       "triggered_at": "2026-09-14T14:15:00+00:00"
+    },
+    {
+      "id": "VELODROMEUSDT_LONG_1h_2026-09-14_16-09-02",
+      "symbol": "VELODROMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02465,
+      "sl": 0.02421,
+      "tp": [
+        0.02529,
+        0.02547,
+        0.02562
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-14_16-09-02",
+      "first_seen": "2026-09-14T16:09:00.046655+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.16,
+      "stage1_score": 8.313,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.298,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02465,
+      "triggered_at": "2026-09-14T17:00:00+00:00",
+      "partial_check_from": "2026-09-14T16:09:00.046655+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34746,6 +34777,7 @@
     "2026-09-14_15-00-43",
     "2026-09-14_15-17-45",
     "2026-09-14_15-42-19",
-    "2026-09-14_15-55-27"
+    "2026-09-14_15-55-27",
+    "2026-09-14_16-09-02"
   ]
 }

@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-14T16:09:00.046655+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: VELODROMEUSDT | Side: LONG | Score: 6.16
+   - Entry : 0.02465
+   - SL    : 0.02421
+   - TP    : 0.02529, 0.02547, 0.02562
+   - Invalidation: Close below 0.024214012 / loss of recent 1h swing low
+----------------------------------------
