@@ -663,6 +663,37 @@
       "sl_after_tp1": 0.005876,
       "added_at": "2026-09-15T19:08:10.706043+00:00",
       "triggered_at": "2026-09-15T19:45:00+00:00"
+    },
+    {
+      "id": "IMXUSDT_SHORT_4h_2026-09-15_21-51-44",
+      "symbol": "IMXUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.12028,
+      "sl": 0.1254,
+      "tp": [
+        0.1126,
+        0.11056,
+        0.10876
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_21-51-44",
+      "first_seen": "2026-09-15T21:51:42.328856+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.23,
+      "stage1_score": 3.216,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -0.915,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12028,
+      "triggered_at": "2026-09-16T00:00:00+00:00",
+      "partial_check_from": "2026-09-15T21:51:42.328856+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -36746,6 +36777,7 @@
     "2026-09-15_20-53-02",
     "2026-09-15_21-08-29",
     "2026-09-15_21-25-19",
-    "2026-09-15_21-37-55"
+    "2026-09-15_21-37-55",
+    "2026-09-15_21-51-44"
   ]
 }
