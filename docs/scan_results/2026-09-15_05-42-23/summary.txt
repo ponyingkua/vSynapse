@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T05:42:21.962114+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SYNUSDT | Side: SHORT | Score: 6.52
+   - Entry : 0.07980
+   - SL    : 0.08150
+   - TP    : 0.07725, 0.07657, 0.07597
+   - Invalidation: Close above 0.0815 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.08
+----------------------------------------
