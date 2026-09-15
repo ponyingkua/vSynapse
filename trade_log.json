@@ -28,35 +28,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.003871,
       "added_at": "2026-09-15T15:27:11.968719+00:00"
-    },
-    {
-      "id": "ARBUSDT_LONG_1h_2026-09-15_17-24-58",
-      "symbol": "ARBUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.14501,
-      "sl": 0.13402,
-      "tp": [
-        0.16151,
-        0.1659,
-        0.16975
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_17-24-58",
-      "first_seen": "2026-09-15T17:24:56.617872+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.61,
-      "stage1_score": 14.709,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.468,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.14501,
-      "added_at": "2026-09-15T17:24:56.617872+00:00"
     }
   ],
   "open": [
@@ -482,6 +453,67 @@
       "triggered_at": "2026-09-15T19:00:00+00:00",
       "partial_check_from": "2026-09-15T18:09:29.618011+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-15_18-28-02",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02523,
+      "sl": 0.02456,
+      "tp": [
+        0.02624,
+        0.02651,
+        0.02675
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_18-28-02",
+      "first_seen": "2026-09-15T18:28:01.054208+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.5,
+      "stage1_score": 10.612,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.156,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02523,
+      "triggered_at": "2026-09-15T19:00:00+00:00",
+      "partial_check_from": "2026-09-15T18:28:01.054208+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ARBUSDT_LONG_1h_2026-09-15_17-24-58",
+      "symbol": "ARBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14501,
+      "sl": 0.13402,
+      "tp": [
+        0.16151,
+        0.1659,
+        0.16975
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_17-24-58",
+      "first_seen": "2026-09-15T17:24:56.617872+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.61,
+      "stage1_score": 14.709,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.468,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14501,
+      "added_at": "2026-09-15T17:24:56.617872+00:00",
+      "triggered_at": "2026-09-15T18:00:00+00:00"
     }
   ],
   "closed": [
@@ -36394,6 +36426,7 @@
     "2026-09-15_17-24-58",
     "2026-09-15_17-38-35",
     "2026-09-15_17-52-13",
-    "2026-09-15_18-09-31"
+    "2026-09-15_18-09-31",
+    "2026-09-15_18-28-02"
   ]
 }
