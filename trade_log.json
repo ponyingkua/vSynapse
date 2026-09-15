@@ -28,35 +28,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.15642,
       "added_at": "2026-09-15T08:15:09.848475+00:00"
-    },
-    {
-      "id": "PORTALUSDT_LONG_15m_2026-09-15_11-40-11",
-      "symbol": "PORTALUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01858,
-      "sl": 0.01838,
-      "tp": [
-        0.01889,
-        0.01897,
-        0.01904
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_11-40-11",
-      "first_seen": "2026-09-15T11:40:07.998756+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 14.416,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.768,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01858,
-      "added_at": "2026-09-15T11:40:07.998756+00:00"
     }
   ],
   "open": [
@@ -513,6 +484,37 @@
       "sl_after_tp1": 0.04148,
       "added_at": "2026-09-15T07:12:53.216305+00:00",
       "triggered_at": "2026-09-15T09:00:00+00:00"
+    },
+    {
+      "id": "EULUSDT_SHORT_1h_2026-09-15_12-10-46",
+      "symbol": "EULUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 1.271,
+      "sl": 1.3149,
+      "tp": [
+        1.2051,
+        1.1876,
+        1.1722
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-15_12-10-46",
+      "first_seen": "2026-09-15T12:10:44.346937+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.13,
+      "stage1_score": 7.655,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.758,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.271,
+      "triggered_at": "2026-09-15T13:00:00+00:00",
+      "partial_check_from": "2026-09-15T12:10:44.346937+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -34559,6 +34561,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-15T10:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "PORTALUSDT_LONG_15m_2026-09-15_11-40-11",
+      "symbol": "PORTALUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01858,
+      "sl": 0.01838,
+      "tp": [
+        0.01889,
+        0.01897,
+        0.01904
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_11-40-11",
+      "first_seen": "2026-09-15T11:40:07.998756+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 14.416,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.768,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01858,
+      "added_at": "2026-09-15T11:40:07.998756+00:00",
+      "triggered_at": "2026-09-15T12:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.01838,
+      "tp_index": null,
+      "resolved_via": "subcandle_entry",
+      "bar_time": 1789474499999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-15T12:14:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -35925,6 +35967,7 @@
     "2026-09-15_11-08-43",
     "2026-09-15_11-26-20",
     "2026-09-15_11-40-11",
-    "2026-09-15_11-51-58"
+    "2026-09-15_11-51-58",
+    "2026-09-15_12-10-46"
   ]
 }

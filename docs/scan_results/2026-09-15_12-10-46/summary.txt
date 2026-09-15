@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T12:10:44.346937+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: EULUSDT | Side: SHORT | Score: 6.13
+   - Entry : 1.2710
+   - SL    : 1.3149
+   - TP    : 1.2051, 1.1876, 1.1722
+   - Invalidation: Close above 1.3149 / reclaim of recent 1h swing high
+----------------------------------------
