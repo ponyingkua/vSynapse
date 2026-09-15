@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T13:10:00.151725+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BTRUSDT | Side: LONG | Score: 6.15
+   - Entry : 0.05049
+   - SL    : 0.04949
+   - TP    : 0.05198, 0.05238, 0.05273
+   - Invalidation: Close below 0.049490449 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: GRIFFAINUSDT | Side: LONG | Score: 6.54
+   - Entry : 0.01272
+   - SL    : 0.01195
+   - TP    : 0.01387, 0.01418, 0.01444
+   - Invalidation: Close below 0.011953 / loss of recent 15m swing low
+----------------------------------------
