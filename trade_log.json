@@ -152,37 +152,6 @@
       "triggered_at": "2026-09-11T12:00:00+00:00"
     },
     {
-      "id": "ORDIUSDT_LONG_1h_2026-09-14_04-09-27",
-      "symbol": "ORDIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 4.1251,
-      "sl": 3.966,
-      "tp": [
-        4.3638,
-        4.4275,
-        4.4832
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-14_04-09-27",
-      "first_seen": "2026-09-14T04:09:25.151955+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.34,
-      "stage1_score": 11.074,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.342,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 4.1251,
-      "triggered_at": "2026-09-14T05:00:00+00:00",
-      "partial_check_from": "2026-09-14T04:09:25.151955+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "ENAUSDT_LONG_1h_2026-09-14_19-27-07",
       "symbol": "ENAUSDT",
       "side": "LONG",
@@ -483,6 +452,37 @@
       "sl_after_tp1": 0.02523,
       "triggered_at": "2026-09-15T19:00:00+00:00",
       "partial_check_from": "2026-09-15T18:28:01.054208+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-15_18-44-01",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.02514,
+      "sl": 0.02456,
+      "tp": [
+        0.02601,
+        0.02624,
+        0.02645
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_18-44-01",
+      "first_seen": "2026-09-15T18:43:59.352605+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 9.885,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.033,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02514,
+      "triggered_at": "2026-09-15T19:00:00+00:00",
+      "partial_check_from": "2026-09-15T18:43:59.352605+00:00",
       "partial_check_done": true
     },
     {
@@ -35036,6 +35036,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-15T16:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "ORDIUSDT_LONG_1h_2026-09-14_04-09-27",
+      "symbol": "ORDIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 4.1251,
+      "sl": 3.966,
+      "tp": [
+        4.3638,
+        4.4275,
+        4.4832
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-14_04-09-27",
+      "first_seen": "2026-09-14T04:09:25.151955+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.34,
+      "stage1_score": 11.074,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.342,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.1251,
+      "triggered_at": "2026-09-14T05:00:00+00:00",
+      "partial_check_from": "2026-09-14T04:09:25.151955+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 3.966,
+      "tp_index": null,
+      "bar_time": 1789498799999,
+      "bars_held": 38,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-15T18:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -36427,6 +36467,7 @@
     "2026-09-15_17-38-35",
     "2026-09-15_17-52-13",
     "2026-09-15_18-09-31",
-    "2026-09-15_18-28-02"
+    "2026-09-15_18-28-02",
+    "2026-09-15_18-44-01"
   ]
 }
