@@ -144,6 +144,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.09627,
       "added_at": "2026-09-15T21:08:28.076911+00:00"
+    },
+    {
+      "id": "MEUSDT_SHORT_4h_2026-09-15_22-09-10",
+      "symbol": "MEUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06281,
+      "sl": 0.06783,
+      "tp": [
+        0.05529,
+        0.05328,
+        0.05152
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-09-10",
+      "first_seen": "2026-09-15T22:09:06.813774+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.77,
+      "stage1_score": 4.205,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.71,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06281,
+      "added_at": "2026-09-15T22:09:06.813774+00:00"
+    },
+    {
+      "id": "KAIAUSDT_SHORT_4h_2026-09-15_22-09-10",
+      "symbol": "KAIAUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.028,
+      "sl": 0.02975,
+      "tp": [
+        0.02537,
+        0.02467,
+        0.02406
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-09-10",
+      "first_seen": "2026-09-15T22:09:06.813774+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.86,
+      "stage1_score": 3.91,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.137,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.028,
+      "added_at": "2026-09-15T22:09:06.813774+00:00"
     }
   ],
   "open": [
@@ -693,6 +751,37 @@
       "sl_after_tp1": 0.12028,
       "triggered_at": "2026-09-16T00:00:00+00:00",
       "partial_check_from": "2026-09-15T21:51:42.328856+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "IMXUSDT_SHORT_4h_2026-09-15_22-09-10",
+      "symbol": "IMXUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.12008,
+      "sl": 0.1254,
+      "tp": [
+        0.1121,
+        0.10998,
+        0.10811
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-09-10",
+      "first_seen": "2026-09-15T22:09:06.813774+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 4.33,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.664,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12008,
+      "triggered_at": "2026-09-16T00:00:00+00:00",
+      "partial_check_from": "2026-09-15T22:09:06.813774+00:00",
       "partial_check_done": true
     }
   ],
@@ -36778,6 +36867,7 @@
     "2026-09-15_21-08-29",
     "2026-09-15_21-25-19",
     "2026-09-15_21-37-55",
-    "2026-09-15_21-51-44"
+    "2026-09-15_21-51-44",
+    "2026-09-15_22-09-10"
   ]
 }

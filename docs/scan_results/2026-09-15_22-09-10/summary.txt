@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T22:09:06.813774+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: IMXUSDT | Side: SHORT | Score: 6.27
+   - Entry : 0.12008
+   - SL    : 0.12540
+   - TP    : 0.11210, 0.10998, 0.10811
+   - Invalidation: Close above 0.1254 / reclaim of recent 4h swing high
+----------------------------------------
+2. Symbol: MEUSDT | Side: SHORT | Score: 7.77
+   - Entry : 0.06281
+   - SL    : 0.06783
+   - TP    : 0.05529, 0.05328, 0.05152
+   - Invalidation: Close above 0.06783 / reclaim of recent 4h swing high / breakdown invalid if price rises above 0.06319
+----------------------------------------
+3. Symbol: KAIAUSDT | Side: SHORT | Score: 6.86
+   - Entry : 0.02800
+   - SL    : 0.02975
+   - TP    : 0.02537, 0.02467, 0.02406
+   - Invalidation: Close above 0.02975 / reclaim of recent 4h swing high / breakdown invalid if price rises above 0.02819
+----------------------------------------
