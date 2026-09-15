@@ -117,64 +117,6 @@
       "added_at": "2026-09-12T18:39:49.393646+00:00"
     },
     {
-      "id": "AAVEUSDT_LONG_1h_2026-09-14_19-27-07",
-      "symbol": "AAVEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 127.87,
-      "sl": 124.73,
-      "tp": [
-        132.57,
-        133.83,
-        134.93
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-14_19-27-07",
-      "first_seen": "2026-09-14T19:27:04.500828+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.53,
-      "stage1_score": 7.595,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.396,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 127.87,
-      "added_at": "2026-09-14T19:27:04.500828+00:00"
-    },
-    {
-      "id": "AAVEUSDT_LONG_1h_2026-09-14_19-40-42",
-      "symbol": "AAVEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 127.87,
-      "sl": 124.73,
-      "tp": [
-        132.57,
-        133.83,
-        134.93
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-14_19-40-42",
-      "first_seen": "2026-09-14T19:40:39.328736+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.08,
-      "stage1_score": 8.887,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.166,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 127.87,
-      "added_at": "2026-09-14T19:40:39.328736+00:00"
-    },
-    {
       "id": "ZECUSDT_LONG_1h_2026-09-14_19-27-07",
       "symbol": "ZECUSDT",
       "side": "LONG",
@@ -873,6 +815,66 @@
       "sl_after_tp1": 0.37385,
       "added_at": "2026-09-14T21:09:03.611757+00:00",
       "triggered_at": "2026-09-14T22:00:00+00:00"
+    },
+    {
+      "id": "AAVEUSDT_LONG_1h_2026-09-14_19-27-07",
+      "symbol": "AAVEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 127.87,
+      "sl": 124.73,
+      "tp": [
+        132.57,
+        133.83,
+        134.93
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-14_19-27-07",
+      "first_seen": "2026-09-14T19:27:04.500828+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.53,
+      "stage1_score": 7.595,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.396,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 127.87,
+      "added_at": "2026-09-14T19:27:04.500828+00:00",
+      "triggered_at": "2026-09-15T00:00:00+00:00"
+    },
+    {
+      "id": "AAVEUSDT_LONG_1h_2026-09-14_19-40-42",
+      "symbol": "AAVEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 127.87,
+      "sl": 124.73,
+      "tp": [
+        132.57,
+        133.83,
+        134.93
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-14_19-40-42",
+      "first_seen": "2026-09-14T19:40:39.328736+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.08,
+      "stage1_score": 8.887,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.166,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 127.87,
+      "added_at": "2026-09-14T19:40:39.328736+00:00",
+      "triggered_at": "2026-09-15T00:00:00+00:00"
     }
   ],
   "closed": [
@@ -35266,6 +35268,7 @@
     "2026-09-14_23-09-00",
     "2026-09-14_23-24-32",
     "2026-09-14_23-37-03",
-    "2026-09-14_23-50-55"
+    "2026-09-14_23-50-55",
+    "2026-09-15_00-11-44"
   ]
 }
