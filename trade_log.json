@@ -202,6 +202,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.028,
       "added_at": "2026-09-15T22:09:06.813774+00:00"
+    },
+    {
+      "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
+      "symbol": "CHZUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01397,
+      "sl": 0.01478,
+      "tp": [
+        0.01275,
+        0.01243,
+        0.01214
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-25-50",
+      "first_seen": "2026-09-15T22:25:48.969814+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 3.374,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.453,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01397,
+      "added_at": "2026-09-15T22:25:48.969814+00:00"
+    },
+    {
+      "id": "IMXUSDT_SHORT_4h_2026-09-15_22-25-50",
+      "symbol": "IMXUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.11948,
+      "sl": 0.1254,
+      "tp": [
+        0.1106,
+        0.10824,
+        0.10616
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-25-50",
+      "first_seen": "2026-09-15T22:25:48.969814+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.12,
+      "stage1_score": 3.571,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.169,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.11948,
+      "added_at": "2026-09-15T22:25:48.969814+00:00"
     }
   ],
   "open": [
@@ -36868,6 +36926,7 @@
     "2026-09-15_21-25-19",
     "2026-09-15_21-37-55",
     "2026-09-15_21-51-44",
-    "2026-09-15_22-09-10"
+    "2026-09-15_22-09-10",
+    "2026-09-15_22-25-50"
   ]
 }
