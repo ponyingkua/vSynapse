@@ -144,6 +144,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.07404,
       "added_at": "2026-09-15T05:55:13.134435+00:00"
+    },
+    {
+      "id": "ARCUSDT_LONG_1h_2026-09-15_06-11-10",
+      "symbol": "ARCUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.07445,
+      "sl": 0.07265,
+      "tp": [
+        0.07715,
+        0.07786,
+        0.07849
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_06-11-10",
+      "first_seen": "2026-09-15T06:11:08.107141+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.68,
+      "stage1_score": 6.3,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.84,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07445,
+      "added_at": "2026-09-15T06:11:08.107141+00:00"
+    },
+    {
+      "id": "RIFUSDT_LONG_15m_2026-09-15_06-11-10",
+      "symbol": "RIFUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.08075,
+      "sl": 0.08016,
+      "tp": [
+        0.08163,
+        0.08186,
+        0.08207
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_06-11-10",
+      "first_seen": "2026-09-15T06:11:08.107141+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.5,
+      "stage1_score": 11.314,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.832,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08075,
+      "added_at": "2026-09-15T06:11:08.107141+00:00"
     }
   ],
   "open": [
@@ -35577,6 +35635,7 @@
     "2026-09-15_05-11-03",
     "2026-09-15_05-28-01",
     "2026-09-15_05-42-23",
-    "2026-09-15_05-55-14"
+    "2026-09-15_05-55-14",
+    "2026-09-15_06-11-10"
   ]
 }
