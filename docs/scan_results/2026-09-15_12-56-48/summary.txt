@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T12:56:46.258328+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: HUMAUSDT | Side: LONG | Score: 6.03
+   - Entry : 0.02324
+   - SL    : 0.02279
+   - TP    : 0.02392, 0.02410, 0.02426
+   - Invalidation: Close below 0.022792 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: POLUSDT | Side: LONG | Score: 7.02
+   - Entry : 0.09773
+   - SL    : 0.09544
+   - TP    : 0.10116, 0.10208, 0.10288
+   - Invalidation: Close below 0.09544 / loss of recent 1h swing low
+----------------------------------------
