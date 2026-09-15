@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T19:39:29.227493+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: DEEPUSDT | Side: SHORT | Score: 6.81
+   - Entry : 0.01463
+   - SL    : 0.01556
+   - TP    : 0.01323, 0.01286, 0.01254
+   - Invalidation: Close above 0.01556 / reclaim of recent 4h swing high
+----------------------------------------

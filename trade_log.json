@@ -544,6 +544,37 @@
       "triggered_at": "2026-09-15T20:00:00+00:00",
       "partial_check_from": "2026-09-15T19:25:12.091730+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "DEEPUSDT_SHORT_4h_2026-09-15_19-39-32",
+      "symbol": "DEEPUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01463,
+      "sl": 0.01556,
+      "tp": [
+        0.01323,
+        0.01286,
+        0.01254
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_19-39-32",
+      "first_seen": "2026-09-15T19:39:29.227493+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.81,
+      "stage1_score": 4.673,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.834,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01463,
+      "triggered_at": "2026-09-15T20:00:00+00:00",
+      "partial_check_from": "2026-09-15T19:39:29.227493+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -36618,6 +36649,7 @@
     "2026-09-15_18-44-01",
     "2026-09-15_18-56-05",
     "2026-09-15_19-08-13",
-    "2026-09-15_19-25-13"
+    "2026-09-15_19-25-13",
+    "2026-09-15_19-39-32"
   ]
 }
