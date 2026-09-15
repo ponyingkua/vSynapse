@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-15T13:29:06.488000+00:00",
-  "resolved_trades": 796,
+  "generated_at": "2026-09-15T13:43:25.991000+00:00",
+  "resolved_trades": 797,
   "wins": 281,
-  "losses": 505,
+  "losses": 506,
   "breakeven": 10,
   "win_rate_pct": 35.3,
   "avg_r_multiple": -0.06,
@@ -27,9 +27,9 @@
     },
     "PULLBACK": {
       "wins": 60,
-      "losses": 63,
+      "losses": 64,
       "breakeven": 3,
-      "win_rate_pct": 47.6
+      "win_rate_pct": 47.2
     },
     "CONTINUATION": {
       "wins": 10,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 202,
-      "losses": 387,
+      "losses": 388,
       "breakeven": 10,
       "win_rate_pct": 33.7
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 95,
-      "losses": 160,
+      "losses": 161,
       "breakeven": 10,
-      "win_rate_pct": 35.8
+      "win_rate_pct": 35.7
     }
   },
   "by_htf_alignment": {
@@ -87,7 +87,7 @@
     },
     "ALIGNED": {
       "wins": 176,
-      "losses": 325,
+      "losses": 326,
       "breakeven": 10,
       "win_rate_pct": 34.4
     },
@@ -119,9 +119,9 @@
     },
     "7.0-7.9": {
       "wins": 11,
-      "losses": 23,
+      "losses": 24,
       "breakeven": 1,
-      "win_rate_pct": 31.4
+      "win_rate_pct": 30.6
     }
   },
   "by_btc_regime": {
@@ -133,29 +133,29 @@
     },
     "BULLISH": {
       "wins": 72,
-      "losses": 145,
+      "losses": 146,
       "breakeven": 10,
-      "win_rate_pct": 31.7
+      "win_rate_pct": 31.6
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 281,
-      "losses": 505,
+      "losses": 506,
       "breakeven": 10,
       "win_rate_pct": 35.3
     }
   },
   "expired_unresolved": 111,
   "never_triggered": 171,
-  "currently_open": 18,
-  "currently_pending": 3,
+  "currently_open": 19,
+  "currently_pending": 1,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
-  "entry_sl_disambiguated_via_subcandle": 12,
+  "entry_sl_disambiguated_via_subcandle": 13,
   "entry_sl_ambiguous_fallback_to_sl": 6,
   "resolved_in_partial_entry_window": 0,
-  "resolved_at_first_bar": 42,
+  "resolved_at_first_bar": 43,
   "resolved_at_first_bar_wins": 19,
-  "resolved_at_first_bar_losses": 23
+  "resolved_at_first_bar_losses": 24
 }

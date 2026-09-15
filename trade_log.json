@@ -28,64 +28,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0007503,
       "added_at": "2026-09-15T12:32:08.292485+00:00"
-    },
-    {
-      "id": "POLUSDT_LONG_1h_2026-09-15_12-56-48",
-      "symbol": "POLUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.09773,
-      "sl": 0.09544,
-      "tp": [
-        0.10116,
-        0.10208,
-        0.10288
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_12-56-48",
-      "first_seen": "2026-09-15T12:56:46.258328+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.02,
-      "stage1_score": 15.517,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.595,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.09773,
-      "added_at": "2026-09-15T12:56:46.258328+00:00"
-    },
-    {
-      "id": "GRIFFAINUSDT_LONG_15m_2026-09-15_13-10-02",
-      "symbol": "GRIFFAINUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01272,
-      "sl": 0.01195,
-      "tp": [
-        0.01387,
-        0.01418,
-        0.01444
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_13-10-02",
-      "first_seen": "2026-09-15T13:10:00.151725+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.54,
-      "stage1_score": 29.109,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 10.749,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01272,
-      "added_at": "2026-09-15T13:10:00.151725+00:00"
     }
   ],
   "open": [
@@ -634,6 +576,36 @@
       "triggered_at": "2026-09-15T14:00:00+00:00",
       "partial_check_from": "2026-09-15T13:10:00.151725+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "GRIFFAINUSDT_LONG_15m_2026-09-15_13-10-02",
+      "symbol": "GRIFFAINUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01272,
+      "sl": 0.01195,
+      "tp": [
+        0.01387,
+        0.01418,
+        0.01444
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_13-10-02",
+      "first_seen": "2026-09-15T13:10:00.151725+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.54,
+      "stage1_score": 29.109,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 10.749,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01272,
+      "added_at": "2026-09-15T13:10:00.151725+00:00",
+      "triggered_at": "2026-09-15T13:30:00+00:00"
     }
   ],
   "closed": [
@@ -34760,6 +34732,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-15T13:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "POLUSDT_LONG_1h_2026-09-15_12-56-48",
+      "symbol": "POLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.09773,
+      "sl": 0.09544,
+      "tp": [
+        0.10116,
+        0.10208,
+        0.10288
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_12-56-48",
+      "first_seen": "2026-09-15T12:56:46.258328+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.02,
+      "stage1_score": 15.517,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.595,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09773,
+      "added_at": "2026-09-15T12:56:46.258328+00:00",
+      "triggered_at": "2026-09-15T13:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.09544,
+      "tp_index": null,
+      "resolved_via": "subcandle_entry",
+      "bar_time": 1789480799999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-15T13:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -36131,6 +36143,7 @@
     "2026-09-15_12-32-10",
     "2026-09-15_12-56-48",
     "2026-09-15_13-10-02",
-    "2026-09-15_13-29-05"
+    "2026-09-15_13-29-05",
+    "2026-09-15_13-43-25"
   ]
 }
