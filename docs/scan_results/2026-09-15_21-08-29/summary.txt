@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T21:08:28.076911+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AVNTUSDT | Side: SHORT | Score: 6.62
+   - Entry : 0.09627
+   - SL    : 0.10253
+   - TP    : 0.08689, 0.08438, 0.08219
+   - Invalidation: Close above 0.10253 / reclaim of recent 4h swing high
+----------------------------------------
