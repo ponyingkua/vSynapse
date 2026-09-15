@@ -28,6 +28,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.003871,
       "added_at": "2026-09-15T15:27:11.968719+00:00"
+    },
+    {
+      "id": "ARBUSDT_LONG_1h_2026-09-15_17-24-58",
+      "symbol": "ARBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14501,
+      "sl": 0.13402,
+      "tp": [
+        0.16151,
+        0.1659,
+        0.16975
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_17-24-58",
+      "first_seen": "2026-09-15T17:24:56.617872+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.61,
+      "stage1_score": 14.709,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.468,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14501,
+      "added_at": "2026-09-15T17:24:56.617872+00:00"
     }
   ],
   "open": [
@@ -36330,6 +36359,7 @@
     "2026-09-15_16-27-49",
     "2026-09-15_16-42-26",
     "2026-09-15_16-55-02",
-    "2026-09-15_17-07-59"
+    "2026-09-15_17-07-59",
+    "2026-09-15_17-24-58"
   ]
 }

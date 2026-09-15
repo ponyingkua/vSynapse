@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T17:24:56.617872+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ARBUSDT | Side: LONG | Score: 7.61
+   - Entry : 0.14501
+   - SL    : 0.13402
+   - TP    : 0.16151, 0.16590, 0.16975
+   - Invalidation: Close below 0.13402 / loss of recent 1h swing low / breakout invalid if price falls below 0.14397
+----------------------------------------
