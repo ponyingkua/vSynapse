@@ -28,6 +28,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.003871,
       "added_at": "2026-09-15T15:27:11.968719+00:00"
+    },
+    {
+      "id": "INXUSDT_SHORT_15m_2026-09-15_19-08-13",
+      "symbol": "INXUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.005876,
+      "sl": 0.006019,
+      "tp": [
+        0.005661,
+        0.005603,
+        0.005553
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-15_19-08-13",
+      "first_seen": "2026-09-15T19:08:10.706043+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 5.95,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.005876,
+      "added_at": "2026-09-15T19:08:10.706043+00:00"
     }
   ],
   "open": [
@@ -424,6 +453,37 @@
       "sl_after_tp1": 0.14501,
       "added_at": "2026-09-15T17:24:56.617872+00:00",
       "triggered_at": "2026-09-15T18:00:00+00:00"
+    },
+    {
+      "id": "DEEPUSDT_SHORT_4h_2026-09-15_19-08-13",
+      "symbol": "DEEPUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01464,
+      "sl": 0.01556,
+      "tp": [
+        0.01326,
+        0.01289,
+        0.01257
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_19-08-13",
+      "first_seen": "2026-09-15T19:08:10.706043+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.86,
+      "stage1_score": 5.901,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.894,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01464,
+      "triggered_at": "2026-09-15T20:00:00+00:00",
+      "partial_check_from": "2026-09-15T19:08:10.706043+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -36496,6 +36556,7 @@
     "2026-09-15_18-09-31",
     "2026-09-15_18-28-02",
     "2026-09-15_18-44-01",
-    "2026-09-15_18-56-05"
+    "2026-09-15_18-56-05",
+    "2026-09-15_19-08-13"
   ]
 }
