@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T06:34:11.181206+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ARCUSDT | Side: LONG | Score: 6.72
+   - Entry : 0.07445
+   - SL    : 0.07265
+   - TP    : 0.07715, 0.07786, 0.07849
+   - Invalidation: Close below 0.07265 / loss of recent 1h swing low / breakout invalid if price falls below 0.07418
+----------------------------------------
