@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T14:41:56.505486+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AWEUSDT | Side: LONG | Score: 6.34
+   - Entry : 0.06204
+   - SL    : 0.06009
+   - TP    : 0.06496, 0.06574, 0.06642
+   - Invalidation: Close below 0.06009 / loss of recent 4h swing low / breakout invalid if price falls below 0.06173
+----------------------------------------
