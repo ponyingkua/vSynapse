@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T15:27:11.968719+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: GUSDT | Side: LONG | Score: 6.81
+   - Entry : 0.003871
+   - SL    : 0.003798
+   - TP    : 0.003981, 0.004010, 0.004036
+   - Invalidation: Close below 0.0037978985 / loss of recent 1h swing low
+----------------------------------------
