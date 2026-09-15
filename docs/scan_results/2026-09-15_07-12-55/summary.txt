@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T07:12:53.216305+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: COTIUSDT | Side: LONG | Score: 6.02
+   - Entry : 0.01694
+   - SL    : 0.01652
+   - TP    : 0.01757, 0.01774, 0.01789
+   - Invalidation: Close below 0.016516369 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: 1000RATSUSDT | Side: LONG | Score: 6.51
+   - Entry : 0.04148
+   - SL    : 0.04046
+   - TP    : 0.04302, 0.04343, 0.04379
+   - Invalidation: Close below 0.04046 / loss of recent 1h swing low
+----------------------------------------

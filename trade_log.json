@@ -202,6 +202,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.08075,
       "added_at": "2026-09-15T06:11:08.107141+00:00"
+    },
+    {
+      "id": "1000RATSUSDT_LONG_1h_2026-09-15_07-12-55",
+      "symbol": "1000RATSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.04148,
+      "sl": 0.04046,
+      "tp": [
+        0.04302,
+        0.04343,
+        0.04379
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_07-12-55",
+      "first_seen": "2026-09-15T07:12:53.216305+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 15.172,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.856,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.04148,
+      "added_at": "2026-09-15T07:12:53.216305+00:00"
     }
   ],
   "open": [
@@ -751,6 +780,37 @@
       "sl_after_tp1": 0.08036,
       "added_at": "2026-09-15T01:10:32.241180+00:00",
       "triggered_at": "2026-09-15T05:00:00+00:00"
+    },
+    {
+      "id": "COTIUSDT_LONG_1h_2026-09-15_07-12-55",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01694,
+      "sl": 0.01652,
+      "tp": [
+        0.01757,
+        0.01774,
+        0.01789
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_07-12-55",
+      "first_seen": "2026-09-15T07:12:53.216305+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 10.567,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.654,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01694,
+      "triggered_at": "2026-09-15T08:00:00+00:00",
+      "partial_check_from": "2026-09-15T07:12:53.216305+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -35678,6 +35738,7 @@
     "2026-09-15_05-55-14",
     "2026-09-15_06-11-10",
     "2026-09-15_06-34-12",
-    "2026-09-15_06-57-59"
+    "2026-09-15_06-57-59",
+    "2026-09-15_07-12-55"
   ]
 }
