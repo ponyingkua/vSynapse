@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T01:10:32.241180+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: CELOUSDT | Side: LONG | Score: 6.71
+   - Entry : 0.08036
+   - SL    : 0.07882
+   - TP    : 0.08266, 0.08327, 0.08380
+   - Invalidation: Close below 0.078824789 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: STEEMUSDT | Side: LONG | Score: 6.0
+   - Entry : 0.05501
+   - SL    : 0.05095
+   - TP    : 0.06111, 0.06273, 0.06415
+   - Invalidation: Close below 0.0509474 / loss of recent 1h swing low
+----------------------------------------
