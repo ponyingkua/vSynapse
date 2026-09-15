@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T15:09:33.159888+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: DEXEUSDT | Side: SHORT | Score: 6.02
+   - Entry : 1.8027
+   - SL    : 1.8144
+   - TP    : 1.7851, 1.7804, 1.7763
+   - Invalidation: Close above 1.8143855 / reclaim of recent 15m swing high
+----------------------------------------

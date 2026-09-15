@@ -28,6 +28,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.06204,
       "added_at": "2026-09-15T14:41:56.505486+00:00"
+    },
+    {
+      "id": "DEXEUSDT_SHORT_15m_2026-09-15_15-09-35",
+      "symbol": "DEXEUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1.8027,
+      "sl": 1.8144,
+      "tp": [
+        1.7851,
+        1.7804,
+        1.7763
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-15_15-09-35",
+      "first_seen": "2026-09-15T15:09:33.159888+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 6.147,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.547,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.8027,
+      "added_at": "2026-09-15T15:09:33.159888+00:00"
     }
   ],
   "open": [
@@ -36233,6 +36262,7 @@
     "2026-09-15_14-09-07",
     "2026-09-15_14-28-08",
     "2026-09-15_14-41-59",
-    "2026-09-15_14-55-31"
+    "2026-09-15_14-55-31",
+    "2026-09-15_15-09-35"
   ]
 }
