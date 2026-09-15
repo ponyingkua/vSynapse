@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "JSTUSDT_LONG_4h_2026-09-12_18-39-51",
-      "symbol": "JSTUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.10856,
-      "sl": 0.10179,
-      "tp": [
-        0.11871,
-        0.12141,
-        0.12378
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-12_18-39-51",
-      "first_seen": "2026-09-12T18:39:49.393646+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.23,
-      "stage1_score": 5.826,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.338,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.10856,
-      "added_at": "2026-09-12T18:39:49.393646+00:00"
-    },
-    {
       "id": "STEEMUSDT_LONG_1h_2026-09-15_01-10-36",
       "symbol": "STEEMUSDT",
       "side": "LONG",
@@ -34328,6 +34299,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-15T06:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "JSTUSDT_LONG_4h_2026-09-12_18-39-51",
+      "symbol": "JSTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.10856,
+      "sl": 0.10179,
+      "tp": [
+        0.11871,
+        0.12141,
+        0.12378
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-12_18-39-51",
+      "first_seen": "2026-09-12T18:39:49.393646+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.23,
+      "stage1_score": 5.826,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.338,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.10856,
+      "added_at": "2026-09-12T18:39:49.393646+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-15T06:57:59.306000+00:00"
     }
   ],
   "ingested_runs": [
@@ -35675,6 +35677,7 @@
     "2026-09-15_05-42-23",
     "2026-09-15_05-55-14",
     "2026-09-15_06-11-10",
-    "2026-09-15_06-34-12"
+    "2026-09-15_06-34-12",
+    "2026-09-15_06-57-59"
   ]
 }
