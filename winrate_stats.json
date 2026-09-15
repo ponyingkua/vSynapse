@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-15T07:59:15.254000+00:00",
-  "resolved_trades": 784,
+  "generated_at": "2026-09-15T08:15:12.323000+00:00",
+  "resolved_trades": 786,
   "wins": 275,
-  "losses": 501,
+  "losses": 503,
   "breakeven": 8,
-  "win_rate_pct": 35.1,
+  "win_rate_pct": 35.0,
   "avg_r_multiple": -0.07,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 127,
-      "losses": 289,
+      "losses": 290,
       "breakeven": 1,
-      "win_rate_pct": 30.5
+      "win_rate_pct": 30.4
     },
     "BREAKDOWN": {
       "wins": 56,
@@ -27,9 +27,9 @@
     },
     "PULLBACK": {
       "wins": 59,
-      "losses": 62,
+      "losses": 63,
       "breakeven": 3,
-      "win_rate_pct": 47.6
+      "win_rate_pct": 47.2
     },
     "CONTINUATION": {
       "wins": 10,
@@ -41,9 +41,9 @@
   "by_side": {
     "LONG": {
       "wins": 196,
-      "losses": 384,
+      "losses": 386,
       "breakeven": 8,
-      "win_rate_pct": 33.3
+      "win_rate_pct": 33.2
     },
     "SHORT": {
       "wins": 79,
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 89,
-      "losses": 156,
+      "losses": 158,
       "breakeven": 8,
-      "win_rate_pct": 35.2
+      "win_rate_pct": 34.9
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 170,
-      "losses": 321,
+      "losses": 323,
       "breakeven": 8,
-      "win_rate_pct": 34.1
+      "win_rate_pct": 33.9
     },
     "COUNTER": {
       "wins": 64,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 56,
-      "losses": 114,
+      "losses": 116,
       "breakeven": 7,
-      "win_rate_pct": 31.6
+      "win_rate_pct": 31.3
     },
     "8.0-8.9": {
       "wins": 2,
@@ -133,23 +133,23 @@
     },
     "BULLISH": {
       "wins": 66,
-      "losses": 141,
+      "losses": 143,
       "breakeven": 8,
-      "win_rate_pct": 30.7
+      "win_rate_pct": 30.4
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 275,
-      "losses": 501,
+      "losses": 503,
       "breakeven": 8,
-      "win_rate_pct": 35.1
+      "win_rate_pct": 35.0
     }
   },
   "expired_unresolved": 110,
   "never_triggered": 171,
   "currently_open": 18,
-  "currently_pending": 8,
+  "currently_pending": 7,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 11,
