@@ -30,35 +30,6 @@
       "added_at": "2026-09-15T15:27:11.968719+00:00"
     },
     {
-      "id": "INXUSDT_SHORT_15m_2026-09-15_19-08-13",
-      "symbol": "INXUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.005876,
-      "sl": 0.006019,
-      "tp": [
-        0.005661,
-        0.005603,
-        0.005553
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-15_19-08-13",
-      "first_seen": "2026-09-15T19:08:10.706043+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.21,
-      "stage1_score": 5.95,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.365,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.005876,
-      "added_at": "2026-09-15T19:08:10.706043+00:00"
-    },
-    {
       "id": "ADAUSDT_SHORT_4h_2026-09-15_19-25-13",
       "symbol": "ADAUSDT",
       "side": "SHORT",
@@ -575,6 +546,36 @@
       "triggered_at": "2026-09-15T20:00:00+00:00",
       "partial_check_from": "2026-09-15T19:39:29.227493+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "INXUSDT_SHORT_15m_2026-09-15_19-08-13",
+      "symbol": "INXUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.005876,
+      "sl": 0.006019,
+      "tp": [
+        0.005661,
+        0.005603,
+        0.005553
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-15_19-08-13",
+      "first_seen": "2026-09-15T19:08:10.706043+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 5.95,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.005876,
+      "added_at": "2026-09-15T19:08:10.706043+00:00",
+      "triggered_at": "2026-09-15T19:45:00+00:00"
     }
   ],
   "closed": [
@@ -36651,6 +36652,7 @@
     "2026-09-15_19-08-13",
     "2026-09-15_19-25-13",
     "2026-09-15_19-39-32",
-    "2026-09-15_19-52-15"
+    "2026-09-15_19-52-15",
+    "2026-09-15_20-09-34"
   ]
 }
