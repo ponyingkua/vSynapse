@@ -117,35 +117,6 @@
       "added_at": "2026-09-12T18:39:49.393646+00:00"
     },
     {
-      "id": "ZECUSDT_LONG_1h_2026-09-14_19-27-07",
-      "symbol": "ZECUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 1154.18,
-      "sl": 1113.19,
-      "tp": [
-        1215.67,
-        1232.07,
-        1246.41
-      ],
-      "decimals": 2,
-      "run_id": "2026-09-14_19-27-07",
-      "first_seen": "2026-09-14T19:27:04.500828+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.08,
-      "stage1_score": 9.429,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.61,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1154.18,
-      "added_at": "2026-09-14T19:27:04.500828+00:00"
-    },
-    {
       "id": "CELOUSDT_LONG_1h_2026-09-15_01-10-36",
       "symbol": "CELOUSDT",
       "side": "LONG",
@@ -903,6 +874,36 @@
       "sl_after_tp1": 127.87,
       "added_at": "2026-09-14T19:40:39.328736+00:00",
       "triggered_at": "2026-09-15T00:00:00+00:00"
+    },
+    {
+      "id": "ZECUSDT_LONG_1h_2026-09-14_19-27-07",
+      "symbol": "ZECUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1154.18,
+      "sl": 1113.19,
+      "tp": [
+        1215.67,
+        1232.07,
+        1246.41
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-14_19-27-07",
+      "first_seen": "2026-09-14T19:27:04.500828+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.08,
+      "stage1_score": 9.429,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.61,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1154.18,
+      "added_at": "2026-09-14T19:27:04.500828+00:00",
+      "triggered_at": "2026-09-15T01:00:00+00:00"
     }
   ],
   "closed": [
@@ -35334,6 +35335,7 @@
     "2026-09-15_00-11-44",
     "2026-09-15_00-35-38",
     "2026-09-15_00-57-12",
-    "2026-09-15_01-10-36"
+    "2026-09-15_01-10-36",
+    "2026-09-15_01-29-46"
   ]
 }
