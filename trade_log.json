@@ -600,36 +600,6 @@
       "partial_check_done": true
     },
     {
-      "id": "CELOUSDT_LONG_1h_2026-09-15_01-10-36",
-      "symbol": "CELOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.08036,
-      "sl": 0.07882,
-      "tp": [
-        0.08266,
-        0.08327,
-        0.0838
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_01-10-36",
-      "first_seen": "2026-09-15T01:10:32.241180+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.71,
-      "stage1_score": 22.657,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.792,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.08036,
-      "added_at": "2026-09-15T01:10:32.241180+00:00",
-      "triggered_at": "2026-09-15T05:00:00+00:00"
-    },
-    {
       "id": "STEEMUSDT_LONG_1h_2026-09-15_01-10-36",
       "symbol": "STEEMUSDT",
       "side": "LONG",
@@ -34470,6 +34440,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-15T09:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "CELOUSDT_LONG_1h_2026-09-15_01-10-36",
+      "symbol": "CELOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.08036,
+      "sl": 0.07882,
+      "tp": [
+        0.08266,
+        0.08327,
+        0.0838
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_01-10-36",
+      "first_seen": "2026-09-15T01:10:32.241180+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.71,
+      "stage1_score": 22.657,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.792,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08036,
+      "added_at": "2026-09-15T01:10:32.241180+00:00",
+      "triggered_at": "2026-09-15T05:00:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.08266,
+      "tp_index": 0,
+      "bar_time": 1789466399999,
+      "bars_held": 5,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-15T09:59:59.999000+00:00",
+      "r_multiple": 1.49
     }
   ],
   "ingested_runs": [
@@ -35826,6 +35835,7 @@
     "2026-09-15_08-15-11",
     "2026-09-15_08-33-57",
     "2026-09-15_08-58-00",
-    "2026-09-15_09-12-34"
+    "2026-09-15_09-12-34",
+    "2026-09-15_09-34-21"
   ]
 }
