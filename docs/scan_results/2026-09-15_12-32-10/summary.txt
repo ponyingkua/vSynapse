@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-15T12:32:08.292485+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: VTHOUSDT | Side: LONG | Score: 6.35
+   - Entry : 0.0007503
+   - SL    : 0.0006905
+   - TP    : 0.0008401, 0.0008641, 0.0008850
+   - Invalidation: Close below 0.0006905 / loss of recent 15m swing low / breakout invalid if price falls below 0.0007432
+----------------------------------------
