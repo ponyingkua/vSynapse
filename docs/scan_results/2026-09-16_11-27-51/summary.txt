@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T11:27:49.247443+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ARKUSDT | Side: LONG | Score: 6.16
+   - Entry : 0.15100
+   - SL    : 0.14240
+   - TP    : 0.16390, 0.16734, 0.17035
+   - Invalidation: Close below 0.1424 / loss of recent 15m swing low
+----------------------------------------
