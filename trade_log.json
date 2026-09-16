@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0008892,
       "added_at": "2026-09-16T15:27:26.111463+00:00"
+    },
+    {
+      "id": "BOMEUSDT_LONG_1h_2026-09-16_15-40-35",
+      "symbol": "BOMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0008892,
+      "sl": 0.0008536,
+      "tp": [
+        0.0009427,
+        0.000957,
+        0.0009694
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-16_15-40-35",
+      "first_seen": "2026-09-16T15:40:33.799843+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 8.156,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.688,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0008892,
+      "added_at": "2026-09-16T15:40:33.799843+00:00"
     }
   ],
   "open": [
@@ -38122,6 +38151,7 @@
     "2026-09-16_14-42-22",
     "2026-09-16_14-56-11",
     "2026-09-16_15-09-27",
-    "2026-09-16_15-27-28"
+    "2026-09-16_15-27-28",
+    "2026-09-16_15-40-35"
   ]
 }
