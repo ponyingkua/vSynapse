@@ -30,35 +30,6 @@
       "added_at": "2026-09-15T19:25:12.091730+00:00"
     },
     {
-      "id": "IOTAUSDT_SHORT_1h_2026-09-15_20-38-50",
-      "symbol": "IOTAUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.03979,
-      "sl": 0.04208,
-      "tp": [
-        0.03635,
-        0.03543,
-        0.03463
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_20-38-50",
-      "first_seen": "2026-09-15T20:38:48.509452+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.19,
-      "stage1_score": 4.004,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.615,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.03979,
-      "added_at": "2026-09-15T20:38:48.509452+00:00"
-    },
-    {
       "id": "IOTAUSDT_SHORT_1h_2026-09-15_20-53-02",
       "symbol": "IOTAUSDT",
       "side": "SHORT",
@@ -347,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01469,
       "added_at": "2026-09-16T10:28:23.930115+00:00"
+    },
+    {
+      "id": "4USDT_LONG_1h_2026-09-16_11-41-47",
+      "symbol": "4USDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02238,
+      "sl": 0.02092,
+      "tp": [
+        0.02457,
+        0.02515,
+        0.02566
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_11-41-47",
+      "first_seen": "2026-09-16T11:41:46.086587+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.27,
+      "stage1_score": 16.777,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.905,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02238,
+      "added_at": "2026-09-16T11:41:46.086587+00:00"
     }
   ],
   "open": [
@@ -36158,6 +36158,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T11:14:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "IOTAUSDT_SHORT_1h_2026-09-15_20-38-50",
+      "symbol": "IOTAUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03979,
+      "sl": 0.04208,
+      "tp": [
+        0.03635,
+        0.03543,
+        0.03463
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_20-38-50",
+      "first_seen": "2026-09-15T20:38:48.509452+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 4.004,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.615,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03979,
+      "added_at": "2026-09-15T20:38:48.509452+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-16T11:41:47.838000+00:00"
     }
   ],
   "ingested_runs": [
@@ -37615,6 +37646,7 @@
     "2026-09-16_10-42-17",
     "2026-09-16_10-54-23",
     "2026-09-16_11-09-14",
-    "2026-09-16_11-27-51"
+    "2026-09-16_11-27-51",
+    "2026-09-16_11-41-47"
   ]
 }

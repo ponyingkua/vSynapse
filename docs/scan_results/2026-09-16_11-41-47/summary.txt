@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T11:41:46.086587+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 4USDT | Side: LONG | Score: 6.27
+   - Entry : 0.02238
+   - SL    : 0.02092
+   - TP    : 0.02457, 0.02515, 0.02566
+   - Invalidation: Close below 0.020924 / loss of recent 1h swing low
+----------------------------------------
