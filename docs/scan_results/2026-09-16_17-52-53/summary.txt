@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T17:52:51.195488+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: GRIFFAINUSDT | Side: LONG | Score: 6.05
+   - Entry : 0.01292
+   - SL    : 0.01250
+   - TP    : 0.01356, 0.01373, 0.01388
+   - Invalidation: Close below 0.012498745 / loss of recent 15m swing low
+----------------------------------------
