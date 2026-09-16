@@ -405,35 +405,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.91543,
       "added_at": "2026-09-16T12:10:38.453635+00:00"
-    },
-    {
-      "id": "DASHUSDT_LONG_15m_2026-09-16_12-10-41",
-      "symbol": "DASHUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 52.821,
-      "sl": 52.181,
-      "tp": [
-        53.782,
-        54.038,
-        54.262
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-16_12-10-41",
-      "first_seen": "2026-09-16T12:10:38.453635+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.51,
-      "stage1_score": 15.942,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.18,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 52.821,
-      "added_at": "2026-09-16T12:10:38.453635+00:00"
     }
   ],
   "open": [
@@ -956,37 +927,6 @@
       "triggered_at": "2026-09-16T08:00:00+00:00"
     },
     {
-      "id": "BTRUSDT_LONG_1h_2026-09-16_09-08-56",
-      "symbol": "BTRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.05311,
-      "sl": 0.05,
-      "tp": [
-        0.05778,
-        0.05902,
-        0.06011
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_09-08-56",
-      "first_seen": "2026-09-16T09:08:54.080689+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.89,
-      "stage1_score": 16.542,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.214,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.05311,
-      "triggered_at": "2026-09-16T10:00:00+00:00",
-      "partial_check_from": "2026-09-16T09:08:54.080689+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "USELESSUSDT_LONG_1h_2026-09-16_08-09-41",
       "symbol": "USELESSUSDT",
       "side": "LONG",
@@ -1197,6 +1137,36 @@
       "sl_after_tp1": 0.02238,
       "added_at": "2026-09-16T11:41:46.086587+00:00",
       "triggered_at": "2026-09-16T12:00:00+00:00"
+    },
+    {
+      "id": "DASHUSDT_LONG_15m_2026-09-16_12-10-41",
+      "symbol": "DASHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 52.821,
+      "sl": 52.181,
+      "tp": [
+        53.782,
+        54.038,
+        54.262
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-16_12-10-41",
+      "first_seen": "2026-09-16T12:10:38.453635+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 15.942,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.18,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 52.821,
+      "added_at": "2026-09-16T12:10:38.453635+00:00",
+      "triggered_at": "2026-09-16T13:00:00+00:00"
     }
   ],
   "closed": [
@@ -36417,6 +36387,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T12:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "BTRUSDT_LONG_1h_2026-09-16_09-08-56",
+      "symbol": "BTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05311,
+      "sl": 0.05,
+      "tp": [
+        0.05778,
+        0.05902,
+        0.06011
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_09-08-56",
+      "first_seen": "2026-09-16T09:08:54.080689+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 16.542,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.214,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05311,
+      "triggered_at": "2026-09-16T10:00:00+00:00",
+      "partial_check_from": "2026-09-16T09:08:54.080689+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.05,
+      "tp_index": null,
+      "bar_time": 1789567199999,
+      "bars_held": 4,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-16T13:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -37879,6 +37889,7 @@
     "2026-09-16_11-54-05",
     "2026-09-16_12-10-41",
     "2026-09-16_12-33-39",
-    "2026-09-16_12-57-23"
+    "2026-09-16_12-57-23",
+    "2026-09-16_13-11-34"
   ]
 }
