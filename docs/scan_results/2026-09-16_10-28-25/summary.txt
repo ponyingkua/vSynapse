@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T10:28:23.930115+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: 我踏马来了USDT | Side: LONG | Score: 6.54
+   - Entry : 0.01469
+   - SL    : 0.01405
+   - TP    : 0.01565, 0.01590, 0.01613
+   - Invalidation: Close below 0.014047 / loss of recent 15m swing low
+----------------------------------------
