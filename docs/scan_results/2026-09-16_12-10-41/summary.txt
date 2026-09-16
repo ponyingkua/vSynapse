@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T12:10:38.453635+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: ZECUSDT | Side: LONG | Score: 7.81
+   - Entry : 1220.25
+   - SL    : 1138.59
+   - TP    : 1342.73, 1375.39, 1403.97
+   - Invalidation: Close below 1138.59 / loss of recent 1h swing low / breakout invalid if price falls below 1213.67
+----------------------------------------
+2. Symbol: NEARUSDT | Side: LONG | Score: 7.17
+   - Entry : 2.4382
+   - SL    : 2.3110
+   - TP    : 2.6290, 2.6799, 2.7245
+   - Invalidation: Close below 2.311 / loss of recent 1h swing low / breakout invalid if price falls below 2.427
+----------------------------------------
+3. Symbol: ENSOUSDT | Side: LONG | Score: 6.94
+   - Entry : 0.91543
+   - SL    : 0.89920
+   - TP    : 0.93976, 0.94625, 0.95193
+   - Invalidation: Close below 0.8992 / loss of recent 1h swing low / breakout invalid if price falls below 0.913
+----------------------------------------
+4. Symbol: DASHUSDT | Side: LONG | Score: 6.51
+   - Entry : 52.821
+   - SL    : 52.181
+   - TP    : 53.782, 54.038, 54.262
+   - Invalidation: Close below 52.180672 / loss of recent 15m swing low
+----------------------------------------
