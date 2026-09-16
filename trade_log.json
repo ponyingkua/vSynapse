@@ -781,36 +781,6 @@
       "triggered_at": "2026-09-16T01:30:00+00:00"
     },
     {
-      "id": "ARKUSDT_LONG_1h_2026-09-16_04-28-02",
-      "symbol": "ARKUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.14406,
-      "sl": 0.1359,
-      "tp": [
-        0.15631,
-        0.15958,
-        0.16244
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_04-28-02",
-      "first_seen": "2026-09-16T04:28:00.974293+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.19,
-      "stage1_score": 22.327,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.571,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.14406,
-      "added_at": "2026-09-16T04:28:00.974293+00:00",
-      "triggered_at": "2026-09-16T08:00:00+00:00"
-    },
-    {
       "id": "USELESSUSDT_LONG_1h_2026-09-16_08-09-41",
       "symbol": "USELESSUSDT",
       "side": "LONG",
@@ -36471,6 +36441,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T13:44:59.999000+00:00",
       "r_multiple": 2.25
+    },
+    {
+      "id": "ARKUSDT_LONG_1h_2026-09-16_04-28-02",
+      "symbol": "ARKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.14406,
+      "sl": 0.1359,
+      "tp": [
+        0.15631,
+        0.15958,
+        0.16244
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_04-28-02",
+      "first_seen": "2026-09-16T04:28:00.974293+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.19,
+      "stage1_score": 22.327,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.571,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14406,
+      "added_at": "2026-09-16T04:28:00.974293+00:00",
+      "triggered_at": "2026-09-16T08:00:00+00:00",
+      "outcome": "BREAKEVEN",
+      "exit_price": 0.14406,
+      "tp_index": 0,
+      "bar_time": 1789567199999,
+      "bars_held": 6,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-16T13:59:59.999000+00:00",
+      "r_multiple": 0.0
     }
   ],
   "ingested_runs": [
@@ -37936,6 +37945,7 @@
     "2026-09-16_12-57-23",
     "2026-09-16_13-11-34",
     "2026-09-16_13-29-35",
-    "2026-09-16_13-44-20"
+    "2026-09-16_13-44-20",
+    "2026-09-16_13-57-04"
   ]
 }
