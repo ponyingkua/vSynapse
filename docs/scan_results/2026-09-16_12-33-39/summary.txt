@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T12:33:36.830384+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ARCUSDT | Side: LONG | Score: 6.2
+   - Entry : 0.07929
+   - SL    : 0.07415
+   - TP    : 0.08700, 0.08906, 0.09086
+   - Invalidation: Close below 0.07415 / loss of recent 15m swing low / breakout invalid if price falls below 0.07897
+----------------------------------------
+2. Symbol: NEARUSDT | Side: LONG | Score: 6.68
+   - Entry : 2.4382
+   - SL    : 2.3110
+   - TP    : 2.6290, 2.6799, 2.7245
+   - Invalidation: Close below 2.311 / loss of recent 1h swing low / breakout invalid if price falls below 2.427
+----------------------------------------
