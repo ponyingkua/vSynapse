@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T18:57:41.153963+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: COTIUSDT | Side: LONG | Score: 6.17
+   - Entry : 0.01747
+   - SL    : 0.01640
+   - TP    : 0.01909, 0.01952, 0.01989
+   - Invalidation: Close below 0.016396 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: VVVUSDT | Side: LONG | Score: 6.34
+   - Entry : 22.693
+   - SL    : 21.908
+   - TP    : 23.871, 24.185, 24.460
+   - Invalidation: Close below 21.908 / loss of recent 15m swing low
+----------------------------------------
+3. Symbol: CROSSUSDT | Side: LONG | Score: 6.29
+   - Entry : 0.12954
+   - SL    : 0.12623
+   - TP    : 0.13452, 0.13584, 0.13700
+   - Invalidation: Close below 0.12623 / loss of recent 15m swing low
+----------------------------------------

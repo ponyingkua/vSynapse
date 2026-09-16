@@ -231,6 +231,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01747,
       "added_at": "2026-09-16T18:46:15.966629+00:00"
+    },
+    {
+      "id": "VVVUSDT_LONG_15m_2026-09-16_18-57-44",
+      "symbol": "VVVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 22.693,
+      "sl": 21.908,
+      "tp": [
+        23.871,
+        24.185,
+        24.46
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-16_18-57-44",
+      "first_seen": "2026-09-16T18:57:41.153963+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.34,
+      "stage1_score": 35.946,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 7.753,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 22.693,
+      "added_at": "2026-09-16T18:57:41.153963+00:00"
+    },
+    {
+      "id": "CROSSUSDT_LONG_15m_2026-09-16_18-57-44",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.12954,
+      "sl": 0.12623,
+      "tp": [
+        0.13452,
+        0.13584,
+        0.137
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_18-57-44",
+      "first_seen": "2026-09-16T18:57:41.153963+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.29,
+      "stage1_score": 19.226,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.915,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12954,
+      "added_at": "2026-09-16T18:57:41.153963+00:00"
     }
   ],
   "open": [
@@ -1052,6 +1110,37 @@
       "sl_after_tp1": 0.0008892,
       "added_at": "2026-09-16T15:40:33.799843+00:00",
       "triggered_at": "2026-09-16T18:00:00+00:00"
+    },
+    {
+      "id": "COTIUSDT_LONG_1h_2026-09-16_18-57-44",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01747,
+      "sl": 0.0164,
+      "tp": [
+        0.01909,
+        0.01952,
+        0.01989
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_18-57-44",
+      "first_seen": "2026-09-16T18:57:41.153963+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.17,
+      "stage1_score": 13.546,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.725,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01747,
+      "triggered_at": "2026-09-16T19:00:00+00:00",
+      "partial_check_from": "2026-09-16T18:57:41.153963+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -38328,6 +38417,7 @@
     "2026-09-16_17-52-53",
     "2026-09-16_18-10-39",
     "2026-09-16_18-29-38",
-    "2026-09-16_18-46-17"
+    "2026-09-16_18-46-17",
+    "2026-09-16_18-57-44"
   ]
 }
