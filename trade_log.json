@@ -117,35 +117,6 @@
       "added_at": "2026-09-15T22:09:06.813774+00:00"
     },
     {
-      "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
-      "symbol": "CHZUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01397,
-      "sl": 0.01478,
-      "tp": [
-        0.01275,
-        0.01243,
-        0.01214
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_22-25-50",
-      "first_seen": "2026-09-15T22:25:48.969814+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.03,
-      "stage1_score": 3.374,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.453,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01397,
-      "added_at": "2026-09-15T22:25:48.969814+00:00"
-    },
-    {
       "id": "IMXUSDT_SHORT_4h_2026-09-15_22-25-50",
       "symbol": "IMXUSDT",
       "side": "SHORT",
@@ -173,35 +144,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.11948,
       "added_at": "2026-09-15T22:25:48.969814+00:00"
-    },
-    {
-      "id": "DYMUSDT_SHORT_15m_2026-09-16_18-10-39",
-      "symbol": "DYMUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01443,
-      "sl": 0.01459,
-      "tp": [
-        0.01421,
-        0.01415,
-        0.01409
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_18-10-39",
-      "first_seen": "2026-09-16T18:10:37.506380+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.04,
-      "stage1_score": 4.206,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.194,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01443,
-      "added_at": "2026-09-16T18:10:37.506380+00:00"
     },
     {
       "id": "LITUSDT_LONG_1h_2026-09-16_19-26-03",
@@ -260,6 +202,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0186,
       "added_at": "2026-09-16T21:26:53.616787+00:00"
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-16_22-08-45",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02535,
+      "sl": 0.02476,
+      "tp": [
+        0.02623,
+        0.02646,
+        0.02666
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_22-08-45",
+      "first_seen": "2026-09-16T22:08:42.368217+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 6.653,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.668,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02535,
+      "added_at": "2026-09-16T22:08:42.368217+00:00"
     }
   ],
   "open": [
@@ -1233,6 +1204,36 @@
       "sl_after_tp1": 0.12965,
       "added_at": "2026-09-16T19:08:58.573015+00:00",
       "triggered_at": "2026-09-16T20:30:00+00:00"
+    },
+    {
+      "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
+      "symbol": "CHZUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01397,
+      "sl": 0.01478,
+      "tp": [
+        0.01275,
+        0.01243,
+        0.01214
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-25-50",
+      "first_seen": "2026-09-15T22:25:48.969814+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 3.374,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.453,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01397,
+      "added_at": "2026-09-15T22:25:48.969814+00:00",
+      "triggered_at": "2026-09-16T20:00:00+00:00"
     }
   ],
   "closed": [
@@ -37063,6 +37064,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T19:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "DYMUSDT_SHORT_15m_2026-09-16_18-10-39",
+      "symbol": "DYMUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01443,
+      "sl": 0.01459,
+      "tp": [
+        0.01421,
+        0.01415,
+        0.01409
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_18-10-39",
+      "first_seen": "2026-09-16T18:10:37.506380+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.04,
+      "stage1_score": 4.206,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.194,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01443,
+      "added_at": "2026-09-16T18:10:37.506380+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-16T22:08:45.341000+00:00"
     }
   ],
   "ingested_runs": [
@@ -38561,6 +38593,7 @@
     "2026-09-16_21-08-49",
     "2026-09-16_21-26-54",
     "2026-09-16_21-40-40",
-    "2026-09-16_21-52-57"
+    "2026-09-16_21-52-57",
+    "2026-09-16_22-08-45"
   ]
 }
