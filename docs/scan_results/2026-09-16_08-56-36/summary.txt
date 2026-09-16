@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T08:56:34.090827+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: USELESSUSDT | Side: LONG | Score: 6.49
+   - Entry : 0.23378
+   - SL    : 0.21513
+   - TP    : 0.26175, 0.26921, 0.27574
+   - Invalidation: Close below 0.21513 / loss of recent 1h swing low / breakout invalid if price falls below 0.23148
+----------------------------------------
