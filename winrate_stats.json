@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-16T15:40:36.822000+00:00",
-  "resolved_trades": 823,
+  "generated_at": "2026-09-16T15:54:14.184000+00:00",
+  "resolved_trades": 824,
   "wins": 286,
-  "losses": 525,
+  "losses": 526,
   "breakeven": 12,
-  "win_rate_pct": 34.8,
+  "win_rate_pct": 34.7,
   "avg_r_multiple": -0.07,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 132,
-      "losses": 298,
+      "losses": 299,
       "breakeven": 3,
-      "win_rate_pct": 30.5
+      "win_rate_pct": 30.4
     },
     "BREAKDOWN": {
       "wins": 56,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 206,
-      "losses": 404,
+      "losses": 405,
       "breakeven": 12,
       "win_rate_pct": 33.1
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 100,
-      "losses": 180,
+      "losses": 181,
       "breakeven": 12,
-      "win_rate_pct": 34.2
+      "win_rate_pct": 34.1
     }
   },
   "by_htf_alignment": {
@@ -87,7 +87,7 @@
     },
     "ALIGNED": {
       "wins": 181,
-      "losses": 345,
+      "losses": 346,
       "breakeven": 12,
       "win_rate_pct": 33.6
     },
@@ -119,9 +119,9 @@
     },
     "7.0-7.9": {
       "wins": 12,
-      "losses": 25,
+      "losses": 26,
       "breakeven": 1,
-      "win_rate_pct": 31.6
+      "win_rate_pct": 30.8
     }
   },
   "by_btc_regime": {
@@ -133,23 +133,23 @@
     },
     "BULLISH": {
       "wins": 77,
-      "losses": 165,
+      "losses": 166,
       "breakeven": 12,
-      "win_rate_pct": 30.3
+      "win_rate_pct": 30.2
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 286,
-      "losses": 525,
+      "losses": 526,
       "breakeven": 12,
-      "win_rate_pct": 34.8
+      "win_rate_pct": 34.7
     }
   },
   "expired_unresolved": 114,
   "never_triggered": 176,
-  "currently_open": 30,
-  "currently_pending": 11,
+  "currently_open": 31,
+  "currently_pending": 9,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
   "entry_sl_disambiguated_via_subcandle": 14,
