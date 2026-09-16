@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T02:08:50.248414+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: OPENUSDT | Side: SHORT | Score: 6.12
+   - Entry : 0.13420
+   - SL    : 0.13740
+   - TP    : 0.12939, 0.12811, 0.12699
+   - Invalidation: Close above 0.1374 / reclaim of recent 15m swing high
+----------------------------------------
