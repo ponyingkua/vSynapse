@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-16T17:52:53.920000+00:00",
-  "resolved_trades": 828,
-  "wins": 287,
+  "generated_at": "2026-09-16T18:10:40.300000+00:00",
+  "resolved_trades": 829,
+  "wins": 288,
   "losses": 529,
   "breakeven": 12,
   "win_rate_pct": 34.7,
   "avg_r_multiple": -0.07,
   "by_setup_style": {
     "BREAKOUT": {
-      "wins": 132,
+      "wins": 133,
       "losses": 302,
       "breakeven": 3,
-      "win_rate_pct": 30.2
+      "win_rate_pct": 30.4
     },
     "BREAKDOWN": {
       "wins": 56,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 207,
+      "wins": 208,
       "losses": 408,
       "breakeven": 12,
-      "win_rate_pct": 33.0
+      "win_rate_pct": 33.1
     },
     "SHORT": {
       "wins": 80,
@@ -72,10 +72,10 @@
       "win_rate_pct": 38.3
     },
     "v3": {
-      "wins": 101,
+      "wins": 102,
       "losses": 184,
       "breakeven": 12,
-      "win_rate_pct": 34.0
+      "win_rate_pct": 34.2
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 36.0
     },
     "ALIGNED": {
-      "wins": 182,
+      "wins": 183,
       "losses": 349,
       "breakeven": 12,
-      "win_rate_pct": 33.5
+      "win_rate_pct": 33.6
     },
     "COUNTER": {
       "wins": 64,
@@ -118,10 +118,10 @@
       "win_rate_pct": 33.3
     },
     "7.0-7.9": {
-      "wins": 12,
+      "wins": 13,
       "losses": 26,
       "breakeven": 1,
-      "win_rate_pct": 30.8
+      "win_rate_pct": 32.5
     }
   },
   "by_btc_regime": {
@@ -132,15 +132,15 @@
       "win_rate_pct": 36.7
     },
     "BULLISH": {
-      "wins": 78,
+      "wins": 79,
       "losses": 169,
       "breakeven": 12,
-      "win_rate_pct": 30.1
+      "win_rate_pct": 30.4
     }
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 287,
+      "wins": 288,
       "losses": 529,
       "breakeven": 12,
       "win_rate_pct": 34.7
