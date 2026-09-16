@@ -376,6 +376,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.12276,
       "added_at": "2026-09-16T07:41:39.870787+00:00"
+    },
+    {
+      "id": "USELESSUSDT_LONG_1h_2026-09-16_08-09-41",
+      "symbol": "USELESSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.23378,
+      "sl": 0.21513,
+      "tp": [
+        0.26175,
+        0.26921,
+        0.27574
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_08-09-41",
+      "first_seen": "2026-09-16T08:09:39.735240+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.71,
+      "stage1_score": 8.998,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.554,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.23378,
+      "added_at": "2026-09-16T08:09:39.735240+00:00"
     }
   ],
   "open": [
@@ -37365,6 +37394,7 @@
     "2026-09-16_07-10-13",
     "2026-09-16_07-28-24",
     "2026-09-16_07-41-42",
-    "2026-09-16_07-54-18"
+    "2026-09-16_07-54-18",
+    "2026-09-16_08-09-41"
   ]
 }
