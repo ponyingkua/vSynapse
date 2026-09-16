@@ -233,35 +233,6 @@
       "added_at": "2026-09-15T22:25:48.969814+00:00"
     },
     {
-      "id": "PLAYUSDT_SHORT_15m_2026-09-16_04-54-13",
-      "symbol": "PLAYUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.03238,
-      "sl": 0.03411,
-      "tp": [
-        0.02979,
-        0.0291,
-        0.02849
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_04-54-13",
-      "first_seen": "2026-09-16T04:54:09.201619+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.73,
-      "stage1_score": 12.06,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -6.758,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.03238,
-      "added_at": "2026-09-16T04:54:09.201619+00:00"
-    },
-    {
       "id": "CROSSUSDT_LONG_1h_2026-09-16_07-10-13",
       "symbol": "CROSSUSDT",
       "side": "LONG",
@@ -405,6 +376,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.23378,
       "added_at": "2026-09-16T08:29:48.192402+00:00"
+    },
+    {
+      "id": "USELESSUSDT_LONG_1h_2026-09-16_08-44-36",
+      "symbol": "USELESSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.23378,
+      "sl": 0.21513,
+      "tp": [
+        0.26175,
+        0.26921,
+        0.27574
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_08-44-36",
+      "first_seen": "2026-09-16T08:44:34.910306+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.44,
+      "stage1_score": 5.329,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.525,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.23378,
+      "added_at": "2026-09-16T08:44:34.910306+00:00"
     }
   ],
   "open": [
@@ -35990,6 +35990,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T08:29:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "PLAYUSDT_SHORT_15m_2026-09-16_04-54-13",
+      "symbol": "PLAYUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03238,
+      "sl": 0.03411,
+      "tp": [
+        0.02979,
+        0.0291,
+        0.02849
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_04-54-13",
+      "first_seen": "2026-09-16T04:54:09.201619+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.73,
+      "stage1_score": 12.06,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -6.758,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03238,
+      "added_at": "2026-09-16T04:54:09.201619+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-16T08:44:36.689000+00:00"
     }
   ],
   "ingested_runs": [
@@ -37435,6 +37466,7 @@
     "2026-09-16_07-41-42",
     "2026-09-16_07-54-18",
     "2026-09-16_08-09-41",
-    "2026-09-16_08-29-50"
+    "2026-09-16_08-29-50",
+    "2026-09-16_08-44-36"
   ]
 }
