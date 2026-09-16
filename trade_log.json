@@ -747,36 +747,6 @@
       "partial_check_done": true
     },
     {
-      "id": "INXUSDT_SHORT_15m_2026-09-15_19-08-13",
-      "symbol": "INXUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.005876,
-      "sl": 0.006019,
-      "tp": [
-        0.005661,
-        0.005603,
-        0.005553
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-15_19-08-13",
-      "first_seen": "2026-09-15T19:08:10.706043+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.21,
-      "stage1_score": 5.95,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.365,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.005876,
-      "added_at": "2026-09-15T19:08:10.706043+00:00",
-      "triggered_at": "2026-09-15T19:45:00+00:00"
-    },
-    {
       "id": "IMXUSDT_SHORT_4h_2026-09-15_21-51-44",
       "symbol": "IMXUSDT",
       "side": "SHORT",
@@ -36114,6 +36084,40 @@
       "added_at": "2026-09-16T04:54:09.201619+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-16T08:44:36.689000+00:00"
+    },
+    {
+      "id": "INXUSDT_SHORT_15m_2026-09-15_19-08-13",
+      "symbol": "INXUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.005876,
+      "sl": 0.006019,
+      "tp": [
+        0.005661,
+        0.005603,
+        0.005553
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-15_19-08-13",
+      "first_seen": "2026-09-15T19:08:10.706043+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 5.95,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.365,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.005876,
+      "added_at": "2026-09-15T19:08:10.706043+00:00",
+      "triggered_at": "2026-09-15T19:45:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.005759,
+      "closed_at": "2026-09-16T10:59:59.999000+00:00",
+      "r_multiple": 0.82
     }
   ],
   "ingested_runs": [
@@ -37568,6 +37572,7 @@
     "2026-09-16_09-54-26",
     "2026-09-16_10-08-53",
     "2026-09-16_10-28-25",
-    "2026-09-16_10-42-17"
+    "2026-09-16_10-42-17",
+    "2026-09-16_10-54-23"
   ]
 }
