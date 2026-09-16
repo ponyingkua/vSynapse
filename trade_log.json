@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.14406,
       "added_at": "2026-09-16T04:28:00.974293+00:00"
+    },
+    {
+      "id": "PLAYUSDT_SHORT_15m_2026-09-16_04-54-13",
+      "symbol": "PLAYUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03238,
+      "sl": 0.03411,
+      "tp": [
+        0.02979,
+        0.0291,
+        0.02849
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_04-54-13",
+      "first_seen": "2026-09-16T04:54:09.201619+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.73,
+      "stage1_score": 12.06,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -6.758,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03238,
+      "added_at": "2026-09-16T04:54:09.201619+00:00"
     }
   ],
   "open": [
@@ -37213,6 +37242,7 @@
     "2026-09-16_03-53-52",
     "2026-09-16_04-08-31",
     "2026-09-16_04-28-02",
-    "2026-09-16_04-42-20"
+    "2026-09-16_04-42-20",
+    "2026-09-16_04-54-13"
   ]
 }

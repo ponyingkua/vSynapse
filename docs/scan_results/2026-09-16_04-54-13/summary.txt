@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T04:54:09.201619+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PLAYUSDT | Side: SHORT | Score: 6.73
+   - Entry : 0.03238
+   - SL    : 0.03411
+   - TP    : 0.02979, 0.02910, 0.02849
+   - Invalidation: Close above 0.03411 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.03258
+----------------------------------------
