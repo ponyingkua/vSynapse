@@ -376,35 +376,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 2.4382,
       "added_at": "2026-09-16T12:57:20.750675+00:00"
-    },
-    {
-      "id": "ENSOUSDT_LONG_1h_2026-09-16_12-10-41",
-      "symbol": "ENSOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.91543,
-      "sl": 0.8992,
-      "tp": [
-        0.93976,
-        0.94625,
-        0.95193
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_12-10-41",
-      "first_seen": "2026-09-16T12:10:38.453635+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.94,
-      "stage1_score": 10.96,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.858,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.91543,
-      "added_at": "2026-09-16T12:10:38.453635+00:00"
     }
   ],
   "open": [
@@ -1165,6 +1136,67 @@
       "momentum_15m": 2.18,
       "breakeven_after_tp1": true,
       "sl_after_tp1": 52.821,
+      "added_at": "2026-09-16T12:10:38.453635+00:00",
+      "triggered_at": "2026-09-16T13:00:00+00:00"
+    },
+    {
+      "id": "NEARUSDT_LONG_1h_2026-09-16_13-29-35",
+      "symbol": "NEARUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.4533,
+      "sl": 2.311,
+      "tp": [
+        2.6667,
+        2.7236,
+        2.7734
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-16_13-29-35",
+      "first_seen": "2026-09-16T13:29:34.028012+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.02,
+      "stage1_score": 7.948,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.284,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.4533,
+      "triggered_at": "2026-09-16T14:00:00+00:00",
+      "partial_check_from": "2026-09-16T13:29:34.028012+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ENSOUSDT_LONG_1h_2026-09-16_12-10-41",
+      "symbol": "ENSOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.91543,
+      "sl": 0.8992,
+      "tp": [
+        0.93976,
+        0.94625,
+        0.95193
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_12-10-41",
+      "first_seen": "2026-09-16T12:10:38.453635+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.94,
+      "stage1_score": 10.96,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.858,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.91543,
       "added_at": "2026-09-16T12:10:38.453635+00:00",
       "triggered_at": "2026-09-16T13:00:00+00:00"
     }
@@ -37890,6 +37922,7 @@
     "2026-09-16_12-10-41",
     "2026-09-16_12-33-39",
     "2026-09-16_12-57-23",
-    "2026-09-16_13-11-34"
+    "2026-09-16_13-11-34",
+    "2026-09-16_13-29-35"
   ]
 }
