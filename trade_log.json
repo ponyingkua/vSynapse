@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01469,
       "added_at": "2026-09-16T10:28:23.930115+00:00"
+    },
+    {
+      "id": "DASHUSDT_LONG_15m_2026-09-16_14-10-32",
+      "symbol": "DASHUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 53.247,
+      "sl": 52.347,
+      "tp": [
+        54.597,
+        54.958,
+        55.273
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-16_14-10-32",
+      "first_seen": "2026-09-16T14:10:29.928568+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 18.414,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.117,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 53.247,
+      "added_at": "2026-09-16T14:10:29.928568+00:00"
     }
   ],
   "open": [
@@ -1142,6 +1171,37 @@
       "sl_after_tp1": 0.91543,
       "added_at": "2026-09-16T12:10:38.453635+00:00",
       "triggered_at": "2026-09-16T13:00:00+00:00"
+    },
+    {
+      "id": "BOMEUSDT_LONG_1h_2026-09-16_14-10-32",
+      "symbol": "BOMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.0008833,
+      "sl": 0.0008536,
+      "tp": [
+        0.0009278,
+        0.0009397,
+        0.0009501
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-16_14-10-32",
+      "first_seen": "2026-09-16T14:10:29.928568+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 7.066,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.362,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0008833,
+      "triggered_at": "2026-09-16T15:00:00+00:00",
+      "partial_check_from": "2026-09-16T14:10:29.928568+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -37946,6 +38006,7 @@
     "2026-09-16_13-11-34",
     "2026-09-16_13-29-35",
     "2026-09-16_13-44-20",
-    "2026-09-16_13-57-04"
+    "2026-09-16_13-57-04",
+    "2026-09-16_14-10-32"
   ]
 }

@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T14:10:29.928568+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BOMEUSDT | Side: LONG | Score: 6.51
+   - Entry : 0.0008833
+   - SL    : 0.0008536
+   - TP    : 0.0009278, 0.0009397, 0.0009501
+   - Invalidation: Close below 0.0008536 / loss of recent 1h swing low / breakout invalid if price falls below 0.0008804
+----------------------------------------
+2. Symbol: DASHUSDT | Side: LONG | Score: 6.61
+   - Entry : 53.247
+   - SL    : 52.347
+   - TP    : 54.597, 54.958, 55.273
+   - Invalidation: Close below 52.346507 / loss of recent 15m swing low
+----------------------------------------
