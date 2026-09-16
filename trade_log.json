@@ -262,35 +262,6 @@
       "added_at": "2026-09-16T07:41:39.870787+00:00"
     },
     {
-      "id": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT_LONG_15m_2026-09-16_10-28-25",
-      "symbol": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01469,
-      "sl": 0.01405,
-      "tp": [
-        0.01565,
-        0.0159,
-        0.01613
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_10-28-25",
-      "first_seen": "2026-09-16T10:28:23.930115+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.54,
-      "stage1_score": 31.695,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 12.601,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01469,
-      "added_at": "2026-09-16T10:28:23.930115+00:00"
-    },
-    {
       "id": "DASHUSDT_LONG_15m_2026-09-16_14-10-32",
       "symbol": "DASHUSDT",
       "side": "LONG",
@@ -318,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 53.247,
       "added_at": "2026-09-16T14:10:29.928568+00:00"
+    },
+    {
+      "id": "BOMEUSDT_LONG_1h_2026-09-16_14-28-34",
+      "symbol": "BOMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0008838,
+      "sl": 0.0008536,
+      "tp": [
+        0.0009292,
+        0.0009413,
+        0.0009519
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-16_14-28-34",
+      "first_seen": "2026-09-16T14:28:32.391635+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.45,
+      "stage1_score": 5.649,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.249,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0008838,
+      "added_at": "2026-09-16T14:28:32.391635+00:00"
     }
   ],
   "open": [
@@ -36540,6 +36540,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T13:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT_LONG_15m_2026-09-16_10-28-25",
+      "symbol": "\u6211\u8e0f\u9a6c\u6765\u4e86USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01469,
+      "sl": 0.01405,
+      "tp": [
+        0.01565,
+        0.0159,
+        0.01613
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_10-28-25",
+      "first_seen": "2026-09-16T10:28:23.930115+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.54,
+      "stage1_score": 31.695,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 12.601,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01469,
+      "added_at": "2026-09-16T10:28:23.930115+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-16T14:28:34.393000+00:00"
     }
   ],
   "ingested_runs": [
@@ -38007,6 +38038,7 @@
     "2026-09-16_13-29-35",
     "2026-09-16_13-44-20",
     "2026-09-16_13-57-04",
-    "2026-09-16_14-10-32"
+    "2026-09-16_14-10-32",
+    "2026-09-16_14-28-34"
   ]
 }
