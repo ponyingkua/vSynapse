@@ -1044,6 +1044,37 @@
       "sl_after_tp1": 0.14406,
       "added_at": "2026-09-16T04:28:00.974293+00:00",
       "triggered_at": "2026-09-16T08:00:00+00:00"
+    },
+    {
+      "id": "BTRUSDT_LONG_1h_2026-09-16_09-08-56",
+      "symbol": "BTRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.05311,
+      "sl": 0.05,
+      "tp": [
+        0.05778,
+        0.05902,
+        0.06011
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_09-08-56",
+      "first_seen": "2026-09-16T09:08:54.080689+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.89,
+      "stage1_score": 16.542,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.214,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05311,
+      "triggered_at": "2026-09-16T10:00:00+00:00",
+      "partial_check_from": "2026-09-16T09:08:54.080689+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -37497,6 +37528,7 @@
     "2026-09-16_08-09-41",
     "2026-09-16_08-29-50",
     "2026-09-16_08-44-36",
-    "2026-09-16_08-56-36"
+    "2026-09-16_08-56-36",
+    "2026-09-16_09-08-56"
   ]
 }
