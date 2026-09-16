@@ -88,35 +88,6 @@
       "added_at": "2026-09-15T22:09:06.813774+00:00"
     },
     {
-      "id": "IMXUSDT_SHORT_4h_2026-09-15_22-25-50",
-      "symbol": "IMXUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.11948,
-      "sl": 0.1254,
-      "tp": [
-        0.1106,
-        0.10824,
-        0.10616
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_22-25-50",
-      "first_seen": "2026-09-15T22:25:48.969814+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.12,
-      "stage1_score": 3.571,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.169,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.11948,
-      "added_at": "2026-09-15T22:25:48.969814+00:00"
-    },
-    {
       "id": "LITUSDT_LONG_1h_2026-09-16_19-26-03",
       "symbol": "LITUSDT",
       "side": "LONG",
@@ -1265,6 +1236,36 @@
       "sl_after_tp1": 0.0186,
       "added_at": "2026-09-16T21:26:53.616787+00:00",
       "triggered_at": "2026-09-16T23:00:00+00:00"
+    },
+    {
+      "id": "IMXUSDT_SHORT_4h_2026-09-15_22-25-50",
+      "symbol": "IMXUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.11948,
+      "sl": 0.1254,
+      "tp": [
+        0.1106,
+        0.10824,
+        0.10616
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-25-50",
+      "first_seen": "2026-09-15T22:25:48.969814+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.12,
+      "stage1_score": 3.571,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.169,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.11948,
+      "added_at": "2026-09-15T22:25:48.969814+00:00",
+      "triggered_at": "2026-09-16T20:00:00+00:00"
     }
   ],
   "closed": [
@@ -38631,6 +38632,7 @@
     "2026-09-16_22-51-58",
     "2026-09-16_23-08-27",
     "2026-09-16_23-25-21",
-    "2026-09-16_23-38-47"
+    "2026-09-16_23-38-47",
+    "2026-09-16_23-50-45"
   ]
 }
