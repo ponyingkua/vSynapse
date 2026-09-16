@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T07:28:22.065207+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CROSSUSDT | Side: LONG | Score: 6.31
+   - Entry : 0.12276
+   - SL    : 0.11383
+   - TP    : 0.13617, 0.13974, 0.14287
+   - Invalidation: Close below 0.11382512 / loss of recent 1h swing low
+----------------------------------------
