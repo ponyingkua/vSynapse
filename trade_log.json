@@ -318,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05747,
       "added_at": "2026-09-16T01:26:00.903061+00:00"
+    },
+    {
+      "id": "ARKUSDT_LONG_15m_2026-09-16_01-38-46",
+      "symbol": "ARKUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14988,
+      "sl": 0.1427,
+      "tp": [
+        0.16064,
+        0.16351,
+        0.16602
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_01-38-46",
+      "first_seen": "2026-09-16T01:38:44.529028+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.55,
+      "stage1_score": 26.78,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.567,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14988,
+      "added_at": "2026-09-16T01:38:44.529028+00:00"
     }
   ],
   "open": [
@@ -37000,6 +37029,7 @@
     "2026-09-16_00-33-04",
     "2026-09-16_00-55-16",
     "2026-09-16_01-08-15",
-    "2026-09-16_01-26-03"
+    "2026-09-16_01-26-03",
+    "2026-09-16_01-38-46"
   ]
 }
