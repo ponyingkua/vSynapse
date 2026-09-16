@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T19:26:01.321528+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: LITUSDT | Side: LONG | Score: 6.22
+   - Entry : 4.3668
+   - SL    : 4.1793
+   - TP    : 4.6480, 4.7230, 4.7886
+   - Invalidation: Close below 4.1793 / loss of recent 1h swing low / breakout invalid if price falls below 4.3419
+----------------------------------------
