@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T12:57:20.750675+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: NEARUSDT | Side: LONG | Score: 6.63
+   - Entry : 2.4382
+   - SL    : 2.3110
+   - TP    : 2.6290, 2.6799, 2.7245
+   - Invalidation: Close below 2.311 / loss of recent 1h swing low / breakout invalid if price falls below 2.427
+----------------------------------------

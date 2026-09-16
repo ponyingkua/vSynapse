@@ -349,6 +349,35 @@
       "added_at": "2026-09-16T12:33:36.830384+00:00"
     },
     {
+      "id": "NEARUSDT_LONG_1h_2026-09-16_12-57-23",
+      "symbol": "NEARUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.4382,
+      "sl": 2.311,
+      "tp": [
+        2.629,
+        2.6799,
+        2.7245
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-16_12-57-23",
+      "first_seen": "2026-09-16T12:57:20.750675+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.63,
+      "stage1_score": 10.05,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.448,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.4382,
+      "added_at": "2026-09-16T12:57:20.750675+00:00"
+    },
+    {
       "id": "ENSOUSDT_LONG_1h_2026-09-16_12-10-41",
       "symbol": "ENSOUSDT",
       "side": "LONG",
@@ -1137,37 +1166,6 @@
       "sl_after_tp1": 1220.25,
       "triggered_at": "2026-09-16T13:00:00+00:00",
       "partial_check_from": "2026-09-16T12:10:38.453635+00:00",
-      "partial_check_done": true
-    },
-    {
-      "id": "ARCUSDT_LONG_15m_2026-09-16_12-33-39",
-      "symbol": "ARCUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.07929,
-      "sl": 0.07415,
-      "tp": [
-        0.087,
-        0.08906,
-        0.09086
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_12-33-39",
-      "first_seen": "2026-09-16T12:33:36.830384+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.2,
-      "stage1_score": 30.52,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 6.799,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.07929,
-      "triggered_at": "2026-09-16T12:45:00+00:00",
-      "partial_check_from": "2026-09-16T12:33:36.830384+00:00",
       "partial_check_done": true
     },
     {
@@ -36379,6 +36377,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-16T12:59:59.999000+00:00",
       "r_multiple": 1.9
+    },
+    {
+      "id": "ARCUSDT_LONG_15m_2026-09-16_12-33-39",
+      "symbol": "ARCUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.07929,
+      "sl": 0.07415,
+      "tp": [
+        0.087,
+        0.08906,
+        0.09086
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_12-33-39",
+      "first_seen": "2026-09-16T12:33:36.830384+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.2,
+      "stage1_score": 30.52,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.799,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.07929,
+      "triggered_at": "2026-09-16T12:45:00+00:00",
+      "partial_check_from": "2026-09-16T12:33:36.830384+00:00",
+      "partial_check_done": true,
+      "outcome": "LOSS",
+      "exit_price": 0.07415,
+      "tp_index": null,
+      "bar_time": 1789563599999,
+      "bars_held": 1,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-16T12:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -37840,6 +37878,7 @@
     "2026-09-16_11-41-47",
     "2026-09-16_11-54-05",
     "2026-09-16_12-10-41",
-    "2026-09-16_12-33-39"
+    "2026-09-16_12-33-39",
+    "2026-09-16_12-57-23"
   ]
 }
