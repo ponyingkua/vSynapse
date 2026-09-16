@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05726,
       "added_at": "2026-09-16T01:08:12.488960+00:00"
+    },
+    {
+      "id": "STEEMUSDT_LONG_15m_2026-09-16_01-26-03",
+      "symbol": "STEEMUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05747,
+      "sl": 0.05436,
+      "tp": [
+        0.06213,
+        0.06338,
+        0.06447
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_01-26-03",
+      "first_seen": "2026-09-16T01:26:00.903061+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.7,
+      "stage1_score": 33.017,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 6.341,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05747,
+      "added_at": "2026-09-16T01:26:00.903061+00:00"
     }
   ],
   "open": [
@@ -36970,6 +36999,7 @@
     "2026-09-16_00-11-10",
     "2026-09-16_00-33-04",
     "2026-09-16_00-55-16",
-    "2026-09-16_01-08-15"
+    "2026-09-16_01-08-15",
+    "2026-09-16_01-26-03"
   ]
 }

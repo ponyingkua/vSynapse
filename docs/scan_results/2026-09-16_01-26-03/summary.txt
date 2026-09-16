@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T01:26:00.903061+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: STEEMUSDT | Side: LONG | Score: 6.7
+   - Entry : 0.05747
+   - SL    : 0.05436
+   - TP    : 0.06213, 0.06338, 0.06447
+   - Invalidation: Close below 0.05436 / loss of recent 15m swing low / breakout invalid if price falls below 0.05721
+----------------------------------------
