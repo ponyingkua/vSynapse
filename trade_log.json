@@ -1171,6 +1171,37 @@
       "sl_after_tp1": 22.693,
       "added_at": "2026-09-16T18:57:41.153963+00:00",
       "triggered_at": "2026-09-16T19:15:00+00:00"
+    },
+    {
+      "id": "PENDLEUSDT_LONG_15m_2026-09-16_20-27-43",
+      "symbol": "PENDLEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.2673,
+      "sl": 2.1848,
+      "tp": [
+        2.391,
+        2.4241,
+        2.4529
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-16_20-27-43",
+      "first_seen": "2026-09-16T20:27:41.439418+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 16.794,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.534,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.2673,
+      "triggered_at": "2026-09-16T20:30:00+00:00",
+      "partial_check_from": "2026-09-16T20:27:41.439418+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -38492,6 +38523,7 @@
     "2026-09-16_19-26-03",
     "2026-09-16_19-38-55",
     "2026-09-16_19-50-55",
-    "2026-09-16_20-09-23"
+    "2026-09-16_20-09-23",
+    "2026-09-16_20-27-43"
   ]
 }

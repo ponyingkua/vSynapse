@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-16T20:27:41.439418+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PENDLEUSDT | Side: LONG | Score: 6.65
+   - Entry : 2.2673
+   - SL    : 2.1848
+   - TP    : 2.3910, 2.4241, 2.4529
+   - Invalidation: Close below 2.1848 / loss of recent 15m swing low / breakout invalid if price falls below 2.2619
+----------------------------------------
