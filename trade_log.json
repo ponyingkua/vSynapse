@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.03238,
       "added_at": "2026-09-16T04:54:09.201619+00:00"
+    },
+    {
+      "id": "CROSSUSDT_LONG_1h_2026-09-16_07-10-13",
+      "symbol": "CROSSUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.12276,
+      "sl": 0.11383,
+      "tp": [
+        0.13617,
+        0.13974,
+        0.14287
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_07-10-13",
+      "first_seen": "2026-09-16T07:10:10.184234+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.94,
+      "stage1_score": 27.936,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 9.705,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.12276,
+      "added_at": "2026-09-16T07:10:10.184234+00:00"
     }
   ],
   "open": [
@@ -37274,6 +37303,7 @@
     "2026-09-16_05-53-07",
     "2026-09-16_06-10-47",
     "2026-09-16_06-32-43",
-    "2026-09-16_06-56-55"
+    "2026-09-16_06-56-55",
+    "2026-09-16_07-10-13"
   ]
 }
