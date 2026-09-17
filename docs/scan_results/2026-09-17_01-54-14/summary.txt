@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T01:54:12.871495+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: UNIUSDT | Side: LONG | Score: 6.9
+   - Entry : 6.5619
+   - SL    : 6.1160
+   - TP    : 7.2308, 7.4092, 7.5652
+   - Invalidation: Close below 6.116 / loss of recent 1h swing low / breakout invalid if price falls below 6.519
+----------------------------------------
