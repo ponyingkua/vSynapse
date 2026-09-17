@@ -146,35 +146,6 @@
       "added_at": "2026-09-17T18:29:48.643563+00:00"
     },
     {
-      "id": "PIEVERSEUSDT_LONG_15m_2026-09-17_19-11-20",
-      "symbol": "PIEVERSEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 1.1786,
-      "sl": 1.1488,
-      "tp": [
-        1.2233,
-        1.2353,
-        1.2457
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-17_19-11-20",
-      "first_seen": "2026-09-17T19:11:18.860632+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.98,
-      "stage1_score": 30.2,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.915,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 1.1786,
-      "added_at": "2026-09-17T19:11:18.860632+00:00"
-    },
-    {
       "id": "RIFUSDT_LONG_1h_2026-09-17_20-50-47",
       "symbol": "RIFUSDT",
       "side": "LONG",
@@ -38756,6 +38727,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-17T21:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-17_19-11-20",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1.1786,
+      "sl": 1.1488,
+      "tp": [
+        1.2233,
+        1.2353,
+        1.2457
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_19-11-20",
+      "first_seen": "2026-09-17T19:11:18.860632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.98,
+      "stage1_score": 30.2,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.915,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.1786,
+      "added_at": "2026-09-17T19:11:18.860632+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T23:07:29.954000+00:00"
     }
   ],
   "ingested_runs": [
@@ -40351,6 +40353,7 @@
     "2026-09-17_22-08-41",
     "2026-09-17_22-24-45",
     "2026-09-17_22-36-29",
-    "2026-09-17_22-50-50"
+    "2026-09-17_22-50-50",
+    "2026-09-17_23-07-29"
   ]
 }
