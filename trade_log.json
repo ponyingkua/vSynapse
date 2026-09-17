@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "ZAMAUSDT_LONG_1h_2026-09-17_04-09-03",
-      "symbol": "ZAMAUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.04833,
-      "sl": 0.04682,
-      "tp": [
-        0.0506,
-        0.05121,
-        0.05174
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_04-09-03",
-      "first_seen": "2026-09-17T04:09:01.378239+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.09,
-      "stage1_score": 8.437,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.543,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.04833,
-      "added_at": "2026-09-17T04:09:01.378239+00:00"
-    },
-    {
       "id": "ASTERUSDT_LONG_4h_2026-09-17_08-29-16",
       "symbol": "ASTERUSDT",
       "side": "LONG",
@@ -146,35 +117,6 @@
       "added_at": "2026-09-17T16:09:37.350313+00:00"
     },
     {
-      "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
-      "symbol": "CRVUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.32491,
-      "sl": 0.3093,
-      "tp": [
-        0.34831,
-        0.35456,
-        0.36002
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_16-27-36",
-      "first_seen": "2026-09-17T16:27:34.749085+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.76,
-      "stage1_score": 22.108,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.642,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.32491,
-      "added_at": "2026-09-17T16:27:34.749085+00:00"
-    },
-    {
       "id": "VELODROMEUSDT_LONG_1h_2026-09-17_16-27-36",
       "symbol": "VELODROMEUSDT",
       "side": "LONG",
@@ -260,6 +202,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05485,
       "added_at": "2026-09-17T18:29:48.643563+00:00"
+    },
+    {
+      "id": "PIEVERSEUSDT_LONG_15m_2026-09-17_19-11-20",
+      "symbol": "PIEVERSEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 1.1786,
+      "sl": 1.1488,
+      "tp": [
+        1.2233,
+        1.2353,
+        1.2457
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_19-11-20",
+      "first_seen": "2026-09-17T19:11:18.860632+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.98,
+      "stage1_score": 30.2,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.915,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.1786,
+      "added_at": "2026-09-17T19:11:18.860632+00:00"
     }
   ],
   "open": [
@@ -1234,6 +1205,36 @@
       "sl_after_tp1": 0.32515,
       "added_at": "2026-09-17T17:38:51.052938+00:00",
       "triggered_at": "2026-09-17T18:45:00+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.32491,
+      "sl": 0.3093,
+      "tp": [
+        0.34831,
+        0.35456,
+        0.36002
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-27-36",
+      "first_seen": "2026-09-17T16:27:34.749085+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.76,
+      "stage1_score": 22.108,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.642,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.32491,
+      "added_at": "2026-09-17T16:27:34.749085+00:00",
+      "triggered_at": "2026-09-17T19:00:00+00:00"
     }
   ],
   "closed": [
@@ -38539,6 +38540,37 @@
       "added_at": "2026-09-17T15:09:20.357931+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-17T18:58:29.334000+00:00"
+    },
+    {
+      "id": "ZAMAUSDT_LONG_1h_2026-09-17_04-09-03",
+      "symbol": "ZAMAUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.04833,
+      "sl": 0.04682,
+      "tp": [
+        0.0506,
+        0.05121,
+        0.05174
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_04-09-03",
+      "first_seen": "2026-09-17T04:09:01.378239+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.09,
+      "stage1_score": 8.437,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.543,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.04833,
+      "added_at": "2026-09-17T04:09:01.378239+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T19:11:20.856000+00:00"
     }
   ],
   "ingested_runs": [
@@ -40118,6 +40150,7 @@
     "2026-09-17_18-10-47",
     "2026-09-17_18-29-49",
     "2026-09-17_18-46-49",
-    "2026-09-17_18-58-29"
+    "2026-09-17_18-58-29",
+    "2026-09-17_19-11-20"
   ]
 }
