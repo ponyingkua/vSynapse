@@ -347,6 +347,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.03387,
       "added_at": "2026-09-17T09:08:39.648734+00:00"
+    },
+    {
+      "id": "COTIUSDT_LONG_1h_2026-09-17_09-28-00",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01765,
+      "sl": 0.01699,
+      "tp": [
+        0.01864,
+        0.01891,
+        0.01914
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_09-28-00",
+      "first_seen": "2026-09-17T09:27:58.721636+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 12.197,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.124,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01765,
+      "added_at": "2026-09-17T09:27:58.721636+00:00"
     }
   ],
   "open": [
@@ -896,37 +925,6 @@
       "sl_after_tp1": 16.821,
       "added_at": "2026-09-17T00:10:50.558032+00:00",
       "triggered_at": "2026-09-17T00:30:00+00:00"
-    },
-    {
-      "id": "AGTUSDT_LONG_1h_2026-09-17_03-42-01",
-      "symbol": "AGTUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01638,
-      "sl": 0.016,
-      "tp": [
-        0.01693,
-        0.01708,
-        0.01721
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_03-42-01",
-      "first_seen": "2026-09-17T03:41:59.005659+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.07,
-      "stage1_score": 11.697,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.418,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01638,
-      "triggered_at": "2026-09-17T04:00:00+00:00",
-      "partial_check_from": "2026-09-17T03:41:59.005659+00:00",
-      "partial_check_done": true
     },
     {
       "id": "KAIAUSDT_SHORT_4h_2026-09-15_22-09-10",
@@ -37765,6 +37763,46 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-17T07:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "AGTUSDT_LONG_1h_2026-09-17_03-42-01",
+      "symbol": "AGTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01638,
+      "sl": 0.016,
+      "tp": [
+        0.01693,
+        0.01708,
+        0.01721
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_03-42-01",
+      "first_seen": "2026-09-17T03:41:59.005659+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.07,
+      "stage1_score": 11.697,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.418,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01638,
+      "triggered_at": "2026-09-17T04:00:00+00:00",
+      "partial_check_from": "2026-09-17T03:41:59.005659+00:00",
+      "partial_check_done": true,
+      "outcome": "WIN",
+      "exit_price": 0.01708,
+      "tp_index": 1,
+      "bar_time": 1789639199999,
+      "bars_held": 6,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-17T09:59:59.999000+00:00",
+      "r_multiple": 1.84
     }
   ],
   "ingested_runs": [
@@ -39306,6 +39344,7 @@
     "2026-09-17_08-29-16",
     "2026-09-17_08-42-18",
     "2026-09-17_08-53-36",
-    "2026-09-17_09-08-41"
+    "2026-09-17_09-08-41",
+    "2026-09-17_09-28-00"
   ]
 }
