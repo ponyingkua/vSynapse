@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T13:28:08.817346+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: FLOCKUSDT | Side: LONG | Score: 6.11
+   - Entry : 0.06630
+   - SL    : 0.06279
+   - TP    : 0.07158, 0.07298, 0.07421
+   - Invalidation: Close below 0.06279 / loss of recent 1h swing low / breakout invalid if price falls below 0.06594
+----------------------------------------

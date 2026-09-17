@@ -30,35 +30,6 @@
       "added_at": "2026-09-15T22:09:06.813774+00:00"
     },
     {
-      "id": "KMNOUSDT_LONG_1h_2026-09-16_22-25-46",
-      "symbol": "KMNOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02535,
-      "sl": 0.02476,
-      "tp": [
-        0.02623,
-        0.02646,
-        0.02666
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-16_22-25-46",
-      "first_seen": "2026-09-16T22:25:44.978435+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.0,
-      "stage1_score": 7.385,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.275,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02535,
-      "added_at": "2026-09-16T22:25:44.978435+00:00"
-    },
-    {
       "id": "ORDIUSDT_LONG_1h_2026-09-17_00-10-52",
       "symbol": "ORDIUSDT",
       "side": "LONG",
@@ -260,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01765,
       "added_at": "2026-09-17T09:27:58.721636+00:00"
+    },
+    {
+      "id": "FLOCKUSDT_LONG_1h_2026-09-17_13-28-10",
+      "symbol": "FLOCKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0663,
+      "sl": 0.06279,
+      "tp": [
+        0.07158,
+        0.07298,
+        0.07421
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_13-28-10",
+      "first_seen": "2026-09-17T13:28:08.817346+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 17.823,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.415,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0663,
+      "added_at": "2026-09-17T13:28:08.817346+00:00"
     }
   ],
   "open": [
@@ -37861,6 +37861,37 @@
       "added_at": "2026-09-16T22:08:42.368217+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-17T13:10:35.288000+00:00"
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-16_22-25-46",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02535,
+      "sl": 0.02476,
+      "tp": [
+        0.02623,
+        0.02646,
+        0.02666
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-16_22-25-46",
+      "first_seen": "2026-09-16T22:25:44.978435+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 7.385,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.275,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02535,
+      "added_at": "2026-09-16T22:25:44.978435+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T13:28:10.768000+00:00"
     }
   ],
   "ingested_runs": [
@@ -39417,6 +39448,7 @@
     "2026-09-17_12-10-45",
     "2026-09-17_12-32-56",
     "2026-09-17_12-56-01",
-    "2026-09-17_13-10-35"
+    "2026-09-17_13-10-35",
+    "2026-09-17_13-28-10"
   ]
 }
