@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T15:27:23.716782+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: BLESSUSDT | Side: SHORT | Score: 6.21
+   - Entry : 0.008572
+   - SL    : 0.008733
+   - TP    : 0.008330, 0.008265, 0.008209
+   - Invalidation: Close above 0.008733 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.00859
+----------------------------------------
+2. Symbol: TACUSDT | Side: SHORT | Score: 6.14
+   - Entry : 0.001734
+   - SL    : 0.001789
+   - TP    : 0.001651, 0.001628, 0.001609
+   - Invalidation: Close above 0.001789 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.001738
+----------------------------------------
