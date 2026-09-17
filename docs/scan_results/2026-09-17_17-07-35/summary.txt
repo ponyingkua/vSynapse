@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T17:07:32.497429+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CRVUSDT | Side: LONG | Score: 6.5
+   - Entry : 0.32800
+   - SL    : 0.30930
+   - TP    : 0.35605, 0.36353, 0.37008
+   - Invalidation: Close below 0.3093 / loss of recent 15m swing low / breakout invalid if price falls below 0.327
+----------------------------------------
