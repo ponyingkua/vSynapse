@@ -260,64 +260,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.001754,
       "added_at": "2026-09-17T15:09:20.357931+00:00"
-    },
-    {
-      "id": "TACUSDT_SHORT_15m_2026-09-17_15-27-25",
-      "symbol": "TACUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.001734,
-      "sl": 0.001789,
-      "tp": [
-        0.001651,
-        0.001628,
-        0.001609
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-17_15-27-25",
-      "first_seen": "2026-09-17T15:27:23.716782+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.14,
-      "stage1_score": 6.743,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -3.479,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.001734,
-      "added_at": "2026-09-17T15:27:23.716782+00:00"
-    },
-    {
-      "id": "BLESSUSDT_SHORT_15m_2026-09-17_15-27-25",
-      "symbol": "BLESSUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.008572,
-      "sl": 0.008733,
-      "tp": [
-        0.00833,
-        0.008265,
-        0.008209
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-17_15-27-25",
-      "first_seen": "2026-09-17T15:27:23.716782+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.21,
-      "stage1_score": 5.843,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.213,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.008572,
-      "added_at": "2026-09-17T15:27:23.716782+00:00"
     }
   ],
   "open": [
@@ -1021,6 +963,36 @@
       "partial_check_done": true
     },
     {
+      "id": "BLESSUSDT_SHORT_15m_2026-09-17_15-27-25",
+      "symbol": "BLESSUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.008572,
+      "sl": 0.008733,
+      "tp": [
+        0.00833,
+        0.008265,
+        0.008209
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-17_15-27-25",
+      "first_seen": "2026-09-17T15:27:23.716782+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.21,
+      "stage1_score": 5.843,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.213,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008572,
+      "added_at": "2026-09-17T15:27:23.716782+00:00",
+      "triggered_at": "2026-09-17T15:45:00+00:00"
+    },
+    {
       "id": "ETHFIUSDT_LONG_1h_2026-09-17_14-29-30",
       "symbol": "ETHFIUSDT",
       "side": "LONG",
@@ -1049,6 +1021,36 @@
       "sl_after_tp1": 0.61822,
       "added_at": "2026-09-17T14:29:27.411985+00:00",
       "triggered_at": "2026-09-17T15:00:00+00:00"
+    },
+    {
+      "id": "TACUSDT_SHORT_15m_2026-09-17_15-27-25",
+      "symbol": "TACUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.001734,
+      "sl": 0.001789,
+      "tp": [
+        0.001651,
+        0.001628,
+        0.001609
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-17_15-27-25",
+      "first_seen": "2026-09-17T15:27:23.716782+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 6.743,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.479,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.001734,
+      "added_at": "2026-09-17T15:27:23.716782+00:00",
+      "triggered_at": "2026-09-17T15:45:00+00:00"
     }
   ],
   "closed": [
@@ -39725,6 +39727,7 @@
     "2026-09-17_14-55-22",
     "2026-09-17_15-09-22",
     "2026-09-17_15-27-25",
-    "2026-09-17_15-40-18"
+    "2026-09-17_15-40-18",
+    "2026-09-17_15-54-12"
   ]
 }
