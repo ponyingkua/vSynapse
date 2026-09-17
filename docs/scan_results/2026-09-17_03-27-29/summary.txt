@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T03:27:28.017211+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: AGTUSDT | Side: LONG | Score: 6.1
+   - Entry : 0.01635
+   - SL    : 0.01600
+   - TP    : 0.01688, 0.01702, 0.01714
+   - Invalidation: Close below 0.016005 / loss of recent 1h swing low
+----------------------------------------
