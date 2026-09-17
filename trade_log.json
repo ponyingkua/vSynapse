@@ -231,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02543,
       "added_at": "2026-09-17T01:09:10.046266+00:00"
+    },
+    {
+      "id": "UNIUSDT_LONG_1h_2026-09-17_01-26-48",
+      "symbol": "UNIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 6.5619,
+      "sl": 6.116,
+      "tp": [
+        7.2308,
+        7.4092,
+        7.5652
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_01-26-48",
+      "first_seen": "2026-09-17T01:26:46.994344+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 6.974,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.164,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 6.5619,
+      "added_at": "2026-09-17T01:26:46.994344+00:00"
     }
   ],
   "open": [
@@ -38788,6 +38817,7 @@
     "2026-09-17_00-10-52",
     "2026-09-17_00-33-12",
     "2026-09-17_00-56-26",
-    "2026-09-17_01-09-11"
+    "2026-09-17_01-09-11",
+    "2026-09-17_01-26-48"
   ]
 }
