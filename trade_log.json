@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "KMNOUSDT_LONG_1h_2026-09-17_01-09-11",
-      "symbol": "KMNOUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.02543,
-      "sl": 0.02477,
-      "tp": [
-        0.02641,
-        0.02667,
-        0.0269
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_01-09-11",
-      "first_seen": "2026-09-17T01:09:10.046266+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.46,
-      "stage1_score": 8.429,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.587,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02543,
-      "added_at": "2026-09-17T01:09:10.046266+00:00"
-    },
-    {
       "id": "UNIUSDT_LONG_1h_2026-09-17_01-26-48",
       "symbol": "UNIUSDT",
       "side": "LONG",
@@ -260,6 +231,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.001754,
       "added_at": "2026-09-17T15:09:20.357931+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_16-09-39",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.32089,
+      "sl": 0.3093,
+      "tp": [
+        0.33827,
+        0.34291,
+        0.34696
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-09-39",
+      "first_seen": "2026-09-17T16:09:37.350313+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.75,
+      "stage1_score": 21.87,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.481,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.32089,
+      "added_at": "2026-09-17T16:09:37.350313+00:00"
     }
   ],
   "open": [
@@ -1021,6 +1021,37 @@
       "sl_after_tp1": 0.61822,
       "added_at": "2026-09-17T14:29:27.411985+00:00",
       "triggered_at": "2026-09-17T15:00:00+00:00"
+    },
+    {
+      "id": "ETHFIUSDT_LONG_1h_2026-09-17_16-09-39",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.62373,
+      "sl": 0.5941,
+      "tp": [
+        0.66819,
+        0.68004,
+        0.69041
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-09-39",
+      "first_seen": "2026-09-17T16:09:37.350313+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 13.812,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.45,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.62373,
+      "triggered_at": "2026-09-17T17:00:00+00:00",
+      "partial_check_from": "2026-09-17T16:09:37.350313+00:00",
+      "partial_check_done": true
     },
     {
       "id": "TACUSDT_SHORT_15m_2026-09-17_15-27-25",
@@ -38161,6 +38192,37 @@
       "exit_price": 17.115,
       "closed_at": "2026-09-17T15:44:59.999000+00:00",
       "r_multiple": 0.77
+    },
+    {
+      "id": "KMNOUSDT_LONG_1h_2026-09-17_01-09-11",
+      "symbol": "KMNOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02543,
+      "sl": 0.02477,
+      "tp": [
+        0.02641,
+        0.02667,
+        0.0269
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_01-09-11",
+      "first_seen": "2026-09-17T01:09:10.046266+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.46,
+      "stage1_score": 8.429,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.587,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02543,
+      "added_at": "2026-09-17T01:09:10.046266+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T16:09:39.493000+00:00"
     }
   ],
   "ingested_runs": [
@@ -39728,6 +39790,7 @@
     "2026-09-17_15-09-22",
     "2026-09-17_15-27-25",
     "2026-09-17_15-40-18",
-    "2026-09-17_15-54-12"
+    "2026-09-17_15-54-12",
+    "2026-09-17_16-09-39"
   ]
 }
