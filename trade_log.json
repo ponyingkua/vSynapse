@@ -349,6 +349,35 @@
       "added_at": "2026-09-17T09:08:39.648734+00:00"
     },
     {
+      "id": "KASUSDT_LONG_1h_2026-09-17_09-54-29",
+      "symbol": "KASUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.03387,
+      "sl": 0.03323,
+      "tp": [
+        0.03482,
+        0.03508,
+        0.0353
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_09-54-29",
+      "first_seen": "2026-09-17T09:54:26.588584+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.32,
+      "stage1_score": 7.891,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.937,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03387,
+      "added_at": "2026-09-17T09:54:26.588584+00:00"
+    },
+    {
       "id": "COTIUSDT_LONG_1h_2026-09-17_09-28-00",
       "symbol": "COTIUSDT",
       "side": "LONG",
@@ -39346,6 +39375,7 @@
     "2026-09-17_08-53-36",
     "2026-09-17_09-08-41",
     "2026-09-17_09-28-00",
-    "2026-09-17_09-42-23"
+    "2026-09-17_09-42-23",
+    "2026-09-17_09-54-29"
   ]
 }
