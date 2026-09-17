@@ -173,6 +173,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02535,
       "added_at": "2026-09-16T22:25:44.978435+00:00"
+    },
+    {
+      "id": "ORDIUSDT_LONG_1h_2026-09-17_00-10-52",
+      "symbol": "ORDIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 4.0347,
+      "sl": 3.803,
+      "tp": [
+        4.3821,
+        4.4748,
+        4.5559
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_00-10-52",
+      "first_seen": "2026-09-17T00:10:50.558032+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.38,
+      "stage1_score": 15.735,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.287,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.0347,
+      "added_at": "2026-09-17T00:10:50.558032+00:00"
+    },
+    {
+      "id": "TRBUSDT_LONG_15m_2026-09-17_00-10-52",
+      "symbol": "TRBUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 16.821,
+      "sl": 16.441,
+      "tp": [
+        17.391,
+        17.543,
+        17.676
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-17_00-10-52",
+      "first_seen": "2026-09-17T00:10:50.558032+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 20.765,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.682,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 16.821,
+      "added_at": "2026-09-17T00:10:50.558032+00:00"
     }
   ],
   "open": [
@@ -38633,6 +38691,7 @@
     "2026-09-16_23-08-27",
     "2026-09-16_23-25-21",
     "2026-09-16_23-38-47",
-    "2026-09-16_23-50-45"
+    "2026-09-16_23-50-45",
+    "2026-09-17_00-10-52"
   ]
 }

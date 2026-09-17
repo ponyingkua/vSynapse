@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T00:10:50.558032+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: ORDIUSDT | Side: LONG | Score: 6.38
+   - Entry : 4.0347
+   - SL    : 3.8030
+   - TP    : 4.3821, 4.4748, 4.5559
+   - Invalidation: Close below 3.803 / loss of recent 1h swing low / breakout invalid if price falls below 4.017
+----------------------------------------
+2. Symbol: TRBUSDT | Side: LONG | Score: 6.11
+   - Entry : 16.821
+   - SL    : 16.441
+   - TP    : 17.391, 17.543, 17.676
+   - Invalidation: Close below 16.441 / loss of recent 15m swing low / breakout invalid if price falls below 16.786
+----------------------------------------
