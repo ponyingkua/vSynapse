@@ -117,35 +117,6 @@
       "added_at": "2026-09-17T13:28:08.817346+00:00"
     },
     {
-      "id": "BROCCOLI714USDT_LONG_15m_2026-09-17_14-42-35",
-      "symbol": "BROCCOLI714USDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01779,
-      "sl": 0.01763,
-      "tp": [
-        0.01804,
-        0.01811,
-        0.01817
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_14-42-35",
-      "first_seen": "2026-09-17T14:42:34.231802+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.24,
-      "stage1_score": 13.383,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.348,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01779,
-      "added_at": "2026-09-17T14:42:34.231802+00:00"
-    },
-    {
       "id": "TACUSDT_SHORT_15m_2026-09-17_15-09-22",
       "symbol": "TACUSDT",
       "side": "SHORT",
@@ -262,35 +233,6 @@
       "added_at": "2026-09-17T16:53:27.671927+00:00"
     },
     {
-      "id": "CRVUSDT_LONG_15m_2026-09-17_17-07-35",
-      "symbol": "CRVUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.328,
-      "sl": 0.3093,
-      "tp": [
-        0.35605,
-        0.36353,
-        0.37008
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_17-07-35",
-      "first_seen": "2026-09-17T17:07:32.497429+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.5,
-      "stage1_score": 15.502,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.728,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.328,
-      "added_at": "2026-09-17T17:07:32.497429+00:00"
-    },
-    {
       "id": "CRVUSDT_LONG_15m_2026-09-17_17-38-52",
       "symbol": "CRVUSDT",
       "side": "LONG",
@@ -376,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.09702,
       "added_at": "2026-09-17T18:10:44.283651+00:00"
+    },
+    {
+      "id": "PYTHUSDT_LONG_1h_2026-09-17_18-29-49",
+      "symbol": "PYTHUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05485,
+      "sl": 0.05367,
+      "tp": [
+        0.05663,
+        0.0571,
+        0.05751
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_18-29-49",
+      "first_seen": "2026-09-17T18:29:48.643563+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.12,
+      "stage1_score": 7.337,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.165,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05485,
+      "added_at": "2026-09-17T18:29:48.643563+00:00"
     }
   ],
   "open": [
@@ -1260,6 +1231,36 @@
       "triggered_at": "2026-09-17T19:00:00+00:00",
       "partial_check_from": "2026-09-17T18:10:44.283651+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_17-07-35",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.328,
+      "sl": 0.3093,
+      "tp": [
+        0.35605,
+        0.36353,
+        0.37008
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_17-07-35",
+      "first_seen": "2026-09-17T17:07:32.497429+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.5,
+      "stage1_score": 15.502,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.728,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.328,
+      "added_at": "2026-09-17T17:07:32.497429+00:00",
+      "triggered_at": "2026-09-17T18:15:00+00:00"
     }
   ],
   "closed": [
@@ -38503,6 +38504,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-17T17:59:59.999000+00:00",
       "r_multiple": 1.51
+    },
+    {
+      "id": "BROCCOLI714USDT_LONG_15m_2026-09-17_14-42-35",
+      "symbol": "BROCCOLI714USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01779,
+      "sl": 0.01763,
+      "tp": [
+        0.01804,
+        0.01811,
+        0.01817
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_14-42-35",
+      "first_seen": "2026-09-17T14:42:34.231802+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.24,
+      "stage1_score": 13.383,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.348,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01779,
+      "added_at": "2026-09-17T14:42:34.231802+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T18:29:49.900000+00:00"
     }
   ],
   "ingested_runs": [
@@ -40079,6 +40111,7 @@
     "2026-09-17_17-24-14",
     "2026-09-17_17-38-52",
     "2026-09-17_17-52-36",
-    "2026-09-17_18-10-47"
+    "2026-09-17_18-10-47",
+    "2026-09-17_18-29-49"
   ]
 }
