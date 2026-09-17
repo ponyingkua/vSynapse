@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 6.5619,
       "added_at": "2026-09-17T01:54:12.871495+00:00"
+    },
+    {
+      "id": "RAYSOLUSDT_LONG_1h_2026-09-17_03-08-43",
+      "symbol": "RAYSOLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 1.4348,
+      "sl": 1.3601,
+      "tp": [
+        1.547,
+        1.5769,
+        1.603
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_03-08-43",
+      "first_seen": "2026-09-17T03:08:37.401866+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.0,
+      "stage1_score": 9.271,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.445,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 1.4348,
+      "added_at": "2026-09-17T03:08:37.401866+00:00"
     }
   ],
   "open": [
@@ -38862,6 +38891,7 @@
     "2026-09-17_02-09-03",
     "2026-09-17_02-27-31",
     "2026-09-17_02-41-14",
-    "2026-09-17_02-53-56"
+    "2026-09-17_02-53-56",
+    "2026-09-17_03-08-43"
   ]
 }
