@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T15:40:17.393226+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BLESSUSDT | Side: SHORT | Score: 6.18
+   - Entry : 0.008551
+   - SL    : 0.008733
+   - TP    : 0.008278, 0.008205, 0.008141
+   - Invalidation: Close above 0.008733 / reclaim of recent 15m swing high / breakdown invalid if price rises above 0.00856
+----------------------------------------

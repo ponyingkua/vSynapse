@@ -204,35 +204,6 @@
       "added_at": "2026-09-17T13:28:08.817346+00:00"
     },
     {
-      "id": "ETHFIUSDT_LONG_1h_2026-09-17_14-29-30",
-      "symbol": "ETHFIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.61822,
-      "sl": 0.5941,
-      "tp": [
-        0.65439,
-        0.66404,
-        0.67248
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_14-29-30",
-      "first_seen": "2026-09-17T14:29:27.411985+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.05,
-      "stage1_score": 11.351,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.836,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.61822,
-      "added_at": "2026-09-17T14:29:27.411985+00:00"
-    },
-    {
       "id": "BROCCOLI714USDT_LONG_15m_2026-09-17_14-42-35",
       "symbol": "BROCCOLI714USDT",
       "side": "LONG",
@@ -746,36 +717,6 @@
       "triggered_at": "2026-09-16T20:00:00+00:00"
     },
     {
-      "id": "TRBUSDT_LONG_15m_2026-09-17_00-10-52",
-      "symbol": "TRBUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 16.821,
-      "sl": 16.441,
-      "tp": [
-        17.391,
-        17.543,
-        17.676
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-17_00-10-52",
-      "first_seen": "2026-09-17T00:10:50.558032+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.11,
-      "stage1_score": 20.765,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.682,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 16.821,
-      "added_at": "2026-09-17T00:10:50.558032+00:00",
-      "triggered_at": "2026-09-17T00:30:00+00:00"
-    },
-    {
       "id": "KAIAUSDT_SHORT_4h_2026-09-15_22-09-10",
       "symbol": "KAIAUSDT",
       "side": "SHORT",
@@ -1046,6 +987,67 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.21372,
       "added_at": "2026-09-17T14:55:20.677764+00:00",
+      "triggered_at": "2026-09-17T15:00:00+00:00"
+    },
+    {
+      "id": "BLESSUSDT_SHORT_15m_2026-09-17_15-40-18",
+      "symbol": "BLESSUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.008551,
+      "sl": 0.008733,
+      "tp": [
+        0.008278,
+        0.008205,
+        0.008141
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-17_15-40-18",
+      "first_seen": "2026-09-17T15:40:17.393226+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 5.142,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.231,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008551,
+      "triggered_at": "2026-09-17T15:45:00+00:00",
+      "partial_check_from": "2026-09-17T15:40:17.393226+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ETHFIUSDT_LONG_1h_2026-09-17_14-29-30",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.61822,
+      "sl": 0.5941,
+      "tp": [
+        0.65439,
+        0.66404,
+        0.67248
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_14-29-30",
+      "first_seen": "2026-09-17T14:29:27.411985+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 11.351,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.836,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.61822,
+      "added_at": "2026-09-17T14:29:27.411985+00:00",
       "triggered_at": "2026-09-17T15:00:00+00:00"
     }
   ],
@@ -38123,6 +38125,40 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-17T15:59:59.999000+00:00",
       "r_multiple": -1.0
+    },
+    {
+      "id": "TRBUSDT_LONG_15m_2026-09-17_00-10-52",
+      "symbol": "TRBUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 16.821,
+      "sl": 16.441,
+      "tp": [
+        17.391,
+        17.543,
+        17.676
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-17_00-10-52",
+      "first_seen": "2026-09-17T00:10:50.558032+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.11,
+      "stage1_score": 20.765,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.682,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 16.821,
+      "added_at": "2026-09-17T00:10:50.558032+00:00",
+      "triggered_at": "2026-09-17T00:30:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 17.115,
+      "closed_at": "2026-09-17T15:44:59.999000+00:00",
+      "r_multiple": 0.77
     }
   ],
   "ingested_runs": [
@@ -39688,6 +39724,7 @@
     "2026-09-17_14-42-35",
     "2026-09-17_14-55-22",
     "2026-09-17_15-09-22",
-    "2026-09-17_15-27-25"
+    "2026-09-17_15-27-25",
+    "2026-09-17_15-40-18"
   ]
 }
