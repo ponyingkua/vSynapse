@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "ADAUSDT_SHORT_4h_2026-09-15_19-25-13",
-      "symbol": "ADAUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.20052,
-      "sl": 0.2159,
-      "tp": [
-        0.17745,
-        0.1713,
-        0.16592
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_19-25-13",
-      "first_seen": "2026-09-15T19:25:12.091730+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 7.19,
-      "stage1_score": 4.692,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.419,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.20052,
-      "added_at": "2026-09-15T19:25:12.091730+00:00"
-    },
-    {
       "id": "MEUSDT_SHORT_4h_2026-09-15_22-09-10",
       "symbol": "MEUSDT",
       "side": "SHORT",
@@ -987,6 +958,36 @@
       "sl_after_tp1": 0.03387,
       "added_at": "2026-09-17T09:54:26.588584+00:00",
       "triggered_at": "2026-09-17T10:00:00+00:00"
+    },
+    {
+      "id": "ADAUSDT_SHORT_4h_2026-09-15_19-25-13",
+      "symbol": "ADAUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.20052,
+      "sl": 0.2159,
+      "tp": [
+        0.17745,
+        0.1713,
+        0.16592
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_19-25-13",
+      "first_seen": "2026-09-15T19:25:12.091730+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.19,
+      "stage1_score": 4.692,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.419,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.20052,
+      "added_at": "2026-09-15T19:25:12.091730+00:00",
+      "triggered_at": "2026-09-17T12:00:00+00:00"
     }
   ],
   "closed": [
@@ -39411,6 +39412,7 @@
     "2026-09-17_11-26-46",
     "2026-09-17_11-39-47",
     "2026-09-17_11-53-23",
-    "2026-09-17_12-10-45"
+    "2026-09-17_12-10-45",
+    "2026-09-17_12-32-56"
   ]
 }
