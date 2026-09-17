@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T15:09:20.357931+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TACUSDT | Side: SHORT | Score: 6.56
+   - Entry : 0.001754
+   - SL    : 0.001789
+   - TP    : 0.001701, 0.001687, 0.001675
+   - Invalidation: Close above 0.001789 / reclaim of recent 15m swing high
+----------------------------------------

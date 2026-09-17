@@ -318,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.21372,
       "added_at": "2026-09-17T14:55:20.677764+00:00"
+    },
+    {
+      "id": "TACUSDT_SHORT_15m_2026-09-17_15-09-22",
+      "symbol": "TACUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.001754,
+      "sl": 0.001789,
+      "tp": [
+        0.001701,
+        0.001687,
+        0.001675
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-17_15-09-22",
+      "first_seen": "2026-09-17T15:09:20.357931+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.56,
+      "stage1_score": 7.716,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.487,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.001754,
+      "added_at": "2026-09-17T15:09:20.357931+00:00"
     }
   ],
   "open": [
@@ -39578,6 +39607,7 @@
     "2026-09-17_14-09-38",
     "2026-09-17_14-29-30",
     "2026-09-17_14-42-35",
-    "2026-09-17_14-55-22"
+    "2026-09-17_14-55-22",
+    "2026-09-17_15-09-22"
   ]
 }
