@@ -627,37 +627,6 @@
       "partial_check_done": true
     },
     {
-      "id": "PENDLEUSDT_LONG_15m_2026-09-16_20-27-43",
-      "symbol": "PENDLEUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "ENTRY_READY",
-      "entry": 2.2673,
-      "sl": 2.1848,
-      "tp": [
-        2.391,
-        2.4241,
-        2.4529
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-16_20-27-43",
-      "first_seen": "2026-09-16T20:27:41.439418+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.65,
-      "stage1_score": 16.794,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.534,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.2673,
-      "triggered_at": "2026-09-16T20:30:00+00:00",
-      "partial_check_from": "2026-09-16T20:27:41.439418+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
       "symbol": "CHZUSDT",
       "side": "SHORT",
@@ -37854,6 +37823,41 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-17T11:59:59.999000+00:00",
       "r_multiple": 1.51
+    },
+    {
+      "id": "PENDLEUSDT_LONG_15m_2026-09-16_20-27-43",
+      "symbol": "PENDLEUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 2.2673,
+      "sl": 2.1848,
+      "tp": [
+        2.391,
+        2.4241,
+        2.4529
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-16_20-27-43",
+      "first_seen": "2026-09-16T20:27:41.439418+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 16.794,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.534,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.2673,
+      "triggered_at": "2026-09-16T20:30:00+00:00",
+      "partial_check_from": "2026-09-16T20:27:41.439418+00:00",
+      "partial_check_done": true,
+      "outcome": "EXPIRED",
+      "exit_price": 2.3257,
+      "closed_at": "2026-09-17T11:44:59.999000+00:00",
+      "r_multiple": 0.71
     }
   ],
   "ingested_runs": [
@@ -39404,6 +39408,7 @@
     "2026-09-17_10-40-44",
     "2026-09-17_10-53-56",
     "2026-09-17_11-09-01",
-    "2026-09-17_11-26-46"
+    "2026-09-17_11-26-46",
+    "2026-09-17_11-39-47"
   ]
 }
