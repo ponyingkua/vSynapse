@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T14:29:27.411985+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: NOTUSDT | Side: LONG | Score: 6.05
+   - Entry : 0.0004424
+   - SL    : 0.0004342
+   - TP    : 0.0004548, 0.0004581, 0.0004610
+   - Invalidation: Close below 0.0004342 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ETHFIUSDT | Side: LONG | Score: 6.05
+   - Entry : 0.61822
+   - SL    : 0.59410
+   - TP    : 0.65439, 0.66404, 0.67248
+   - Invalidation: Close below 0.5941 / loss of recent 1h swing low / breakout invalid if price falls below 0.6153
+----------------------------------------
