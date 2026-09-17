@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T18:10:44.283651+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: AAVEUSDT | Side: LONG | Score: 7.26
+   - Entry : 127.79
+   - SL    : 122.15
+   - TP    : 136.26, 138.51, 140.49
+   - Invalidation: Close below 122.15 / loss of recent 1h swing low / breakout invalid if price falls below 127.36
+----------------------------------------
+2. Symbol: SUSHIUSDT | Side: LONG | Score: 6.7
+   - Entry : 0.22496
+   - SL    : 0.21780
+   - TP    : 0.23571, 0.23857, 0.24108
+   - Invalidation: Close below 0.2178 / loss of recent 1h swing low / breakout invalid if price falls below 0.224
+----------------------------------------
+3. Symbol: POLUSDT | Side: LONG | Score: 6.32
+   - Entry : 0.09702
+   - SL    : 0.09524
+   - TP    : 0.09969, 0.10040, 0.10103
+   - Invalidation: Close below 0.095239206 / loss of recent 1h swing low
+----------------------------------------

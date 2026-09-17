@@ -347,6 +347,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02456,
       "added_at": "2026-09-17T16:27:34.749085+00:00"
+    },
+    {
+      "id": "POLUSDT_LONG_1h_2026-09-17_18-10-47",
+      "symbol": "POLUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.09702,
+      "sl": 0.09524,
+      "tp": [
+        0.09969,
+        0.1004,
+        0.10103
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_18-10-47",
+      "first_seen": "2026-09-17T18:10:44.283651+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.32,
+      "stage1_score": 10.533,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.193,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09702,
+      "added_at": "2026-09-17T18:10:44.283651+00:00"
     }
   ],
   "open": [
@@ -1169,6 +1198,68 @@
       "sl_after_tp1": 0.001734,
       "added_at": "2026-09-17T15:27:23.716782+00:00",
       "triggered_at": "2026-09-17T15:45:00+00:00"
+    },
+    {
+      "id": "AAVEUSDT_LONG_1h_2026-09-17_18-10-47",
+      "symbol": "AAVEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 127.79,
+      "sl": 122.15,
+      "tp": [
+        136.26,
+        138.51,
+        140.49
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-17_18-10-47",
+      "first_seen": "2026-09-17T18:10:44.283651+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.26,
+      "stage1_score": 5.836,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.02,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 127.79,
+      "triggered_at": "2026-09-17T19:00:00+00:00",
+      "partial_check_from": "2026-09-17T18:10:44.283651+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "SUSHIUSDT_LONG_1h_2026-09-17_18-10-47",
+      "symbol": "SUSHIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.22496,
+      "sl": 0.2178,
+      "tp": [
+        0.23571,
+        0.23857,
+        0.24108
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_18-10-47",
+      "first_seen": "2026-09-17T18:10:44.283651+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.7,
+      "stage1_score": 6.819,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.601,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.22496,
+      "triggered_at": "2026-09-17T19:00:00+00:00",
+      "partial_check_from": "2026-09-17T18:10:44.283651+00:00",
+      "partial_check_done": true
     }
   ],
   "closed": [
@@ -39987,6 +40078,7 @@
     "2026-09-17_17-07-35",
     "2026-09-17_17-24-14",
     "2026-09-17_17-38-52",
-    "2026-09-17_17-52-36"
+    "2026-09-17_17-52-36",
+    "2026-09-17_18-10-47"
   ]
 }
