@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T01:09:10.046266+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: KMNOUSDT | Side: LONG | Score: 6.46
+   - Entry : 0.02543
+   - SL    : 0.02477
+   - TP    : 0.02641, 0.02667, 0.02690
+   - Invalidation: Close below 0.02477 / loss of recent 1h swing low
+----------------------------------------
