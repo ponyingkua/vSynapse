@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T04:27:38.857967+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: GPSUSDT | Side: LONG | Score: 6.87
+   - Entry : 0.01069
+   - SL    : 0.01020
+   - TP    : 0.01143, 0.01162, 0.01180
+   - Invalidation: Close below 0.010199623 / loss of recent 4h swing low
+----------------------------------------
