@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T16:27:34.749085+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: ETHFIUSDT | Side: LONG | Score: 6.41
+   - Entry : 0.62331
+   - SL    : 0.59410
+   - TP    : 0.66712, 0.67880, 0.68903
+   - Invalidation: Close below 0.5941 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: CRVUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.32491
+   - SL    : 0.30930
+   - TP    : 0.34831, 0.35456, 0.36002
+   - Invalidation: Close below 0.3093 / loss of recent 15m swing low / breakout invalid if price falls below 0.3239
+----------------------------------------
+3. Symbol: VELODROMEUSDT | Side: LONG | Score: 8.0
+   - Entry : 0.02456
+   - SL    : 0.02321
+   - TP    : 0.02659, 0.02713, 0.02760
+   - Invalidation: Close below 0.02321 / loss of recent 1h swing low
+----------------------------------------

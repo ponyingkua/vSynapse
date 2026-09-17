@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "UNIUSDT_LONG_1h_2026-09-17_01-26-48",
-      "symbol": "UNIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 6.5619,
-      "sl": 6.116,
-      "tp": [
-        7.2308,
-        7.4092,
-        7.5652
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-17_01-26-48",
-      "first_seen": "2026-09-17T01:26:46.994344+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.18,
-      "stage1_score": 6.974,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.164,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 6.5619,
-      "added_at": "2026-09-17T01:26:46.994344+00:00"
-    },
-    {
       "id": "UNIUSDT_LONG_1h_2026-09-17_01-54-14",
       "symbol": "UNIUSDT",
       "side": "LONG",
@@ -260,6 +231,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.32089,
       "added_at": "2026-09-17T16:09:37.350313+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.32491,
+      "sl": 0.3093,
+      "tp": [
+        0.34831,
+        0.35456,
+        0.36002
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-27-36",
+      "first_seen": "2026-09-17T16:27:34.749085+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.76,
+      "stage1_score": 22.108,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.642,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.32491,
+      "added_at": "2026-09-17T16:27:34.749085+00:00"
+    },
+    {
+      "id": "VELODROMEUSDT_LONG_1h_2026-09-17_16-27-36",
+      "symbol": "VELODROMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02456,
+      "sl": 0.02321,
+      "tp": [
+        0.02659,
+        0.02713,
+        0.0276
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-27-36",
+      "first_seen": "2026-09-17T16:27:34.749085+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.0,
+      "stage1_score": 11.863,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.459,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02456,
+      "added_at": "2026-09-17T16:27:34.749085+00:00"
     }
   ],
   "open": [
@@ -1051,6 +1080,37 @@
       "sl_after_tp1": 0.62373,
       "triggered_at": "2026-09-17T17:00:00+00:00",
       "partial_check_from": "2026-09-17T16:09:37.350313+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "ETHFIUSDT_LONG_1h_2026-09-17_16-27-36",
+      "symbol": "ETHFIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.62331,
+      "sl": 0.5941,
+      "tp": [
+        0.66712,
+        0.6788,
+        0.68903
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-27-36",
+      "first_seen": "2026-09-17T16:27:34.749085+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.41,
+      "stage1_score": 14.545,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.848,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.62331,
+      "triggered_at": "2026-09-17T17:00:00+00:00",
+      "partial_check_from": "2026-09-17T16:27:34.749085+00:00",
       "partial_check_done": true
     },
     {
@@ -38223,6 +38283,37 @@
       "added_at": "2026-09-17T01:09:10.046266+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-17T16:09:39.493000+00:00"
+    },
+    {
+      "id": "UNIUSDT_LONG_1h_2026-09-17_01-26-48",
+      "symbol": "UNIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 6.5619,
+      "sl": 6.116,
+      "tp": [
+        7.2308,
+        7.4092,
+        7.5652
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-17_01-26-48",
+      "first_seen": "2026-09-17T01:26:46.994344+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 6.974,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.164,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 6.5619,
+      "added_at": "2026-09-17T01:26:46.994344+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-17T16:27:36.882000+00:00"
     }
   ],
   "ingested_runs": [
@@ -39791,6 +39882,7 @@
     "2026-09-17_15-27-25",
     "2026-09-17_15-40-18",
     "2026-09-17_15-54-12",
-    "2026-09-17_16-09-39"
+    "2026-09-17_16-09-39",
+    "2026-09-17_16-27-36"
   ]
 }
