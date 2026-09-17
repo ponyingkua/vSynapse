@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T14:42:34.231802+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: BROCCOLI714USDT | Side: LONG | Score: 6.24
+   - Entry : 0.01779
+   - SL    : 0.01763
+   - TP    : 0.01804, 0.01811, 0.01817
+   - Invalidation: Close below 0.01763 / loss of recent 15m swing low
+----------------------------------------

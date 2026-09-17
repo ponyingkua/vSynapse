@@ -1,35 +1,6 @@
 {
   "pending": [
     {
-      "id": "MEUSDT_SHORT_4h_2026-09-15_22-09-10",
-      "symbol": "MEUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.06281,
-      "sl": 0.06783,
-      "tp": [
-        0.05529,
-        0.05328,
-        0.05152
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_22-09-10",
-      "first_seen": "2026-09-15T22:09:06.813774+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 7.77,
-      "stage1_score": 4.205,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.71,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.06281,
-      "added_at": "2026-09-15T22:09:06.813774+00:00"
-    },
-    {
       "id": "ORDIUSDT_LONG_1h_2026-09-17_00-10-52",
       "symbol": "ORDIUSDT",
       "side": "LONG",
@@ -289,6 +260,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.61822,
       "added_at": "2026-09-17T14:29:27.411985+00:00"
+    },
+    {
+      "id": "BROCCOLI714USDT_LONG_15m_2026-09-17_14-42-35",
+      "symbol": "BROCCOLI714USDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01779,
+      "sl": 0.01763,
+      "tp": [
+        0.01804,
+        0.01811,
+        0.01817
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_14-42-35",
+      "first_seen": "2026-09-17T14:42:34.231802+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.24,
+      "stage1_score": 13.383,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.348,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01779,
+      "added_at": "2026-09-17T14:42:34.231802+00:00"
     }
   ],
   "open": [
@@ -989,6 +989,36 @@
       "triggered_at": "2026-09-17T15:00:00+00:00",
       "partial_check_from": "2026-09-17T14:29:27.411985+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "MEUSDT_SHORT_4h_2026-09-15_22-09-10",
+      "symbol": "MEUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06281,
+      "sl": 0.06783,
+      "tp": [
+        0.05529,
+        0.05328,
+        0.05152
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-09-10",
+      "first_seen": "2026-09-15T22:09:06.813774+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.77,
+      "stage1_score": 4.205,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.71,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06281,
+      "added_at": "2026-09-15T22:09:06.813774+00:00",
+      "triggered_at": "2026-09-17T12:00:00+00:00"
     }
   ],
   "closed": [
@@ -39517,6 +39547,7 @@
     "2026-09-17_13-41-56",
     "2026-09-17_13-54-21",
     "2026-09-17_14-09-38",
-    "2026-09-17_14-29-30"
+    "2026-09-17_14-29-30",
+    "2026-09-17_14-42-35"
   ]
 }
