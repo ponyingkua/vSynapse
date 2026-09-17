@@ -289,6 +289,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.04833,
       "added_at": "2026-09-17T04:09:01.378239+00:00"
+    },
+    {
+      "id": "ASTERUSDT_LONG_4h_2026-09-17_08-29-16",
+      "symbol": "ASTERUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.71424,
+      "sl": 0.6675,
+      "tp": [
+        0.78436,
+        0.80305,
+        0.81941
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_08-29-16",
+      "first_seen": "2026-09-17T08:29:14.523307+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.95,
+      "stage1_score": 8.855,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.376,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.71424,
+      "added_at": "2026-09-17T08:29:14.523307+00:00"
     }
   ],
   "open": [
@@ -39244,6 +39273,7 @@
     "2026-09-17_07-28-44",
     "2026-09-17_07-42-56",
     "2026-09-17_07-54-13",
-    "2026-09-17_08-09-13"
+    "2026-09-17_08-09-13",
+    "2026-09-17_08-29-16"
   ]
 }
