@@ -291,33 +291,33 @@
       "added_at": "2026-09-17T03:08:37.401866+00:00"
     },
     {
-      "id": "DASHUSDT_LONG_1h_2026-09-17_03-54-10",
-      "symbol": "DASHUSDT",
+      "id": "ZAMAUSDT_LONG_1h_2026-09-17_04-09-03",
+      "symbol": "ZAMAUSDT",
       "side": "LONG",
       "execution_tf": "1h",
       "setup_style": "BREAKOUT",
       "entry_state": "WAITING_RETEST",
-      "entry": 58.876,
-      "sl": 54.55,
+      "entry": 0.04833,
+      "sl": 0.04682,
       "tp": [
-        65.366,
-        67.097,
-        68.611
+        0.0506,
+        0.05121,
+        0.05174
       ],
-      "decimals": 3,
-      "run_id": "2026-09-17_03-54-10",
-      "first_seen": "2026-09-17T03:54:08.277686+00:00",
+      "decimals": 5,
+      "run_id": "2026-09-17_04-09-03",
+      "first_seen": "2026-09-17T04:09:01.378239+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.86,
-      "stage1_score": 11.48,
+      "score": 6.09,
+      "stage1_score": 8.437,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 3,
-      "momentum_15m": 2.106,
+      "momentum_15m": 1.543,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 58.876,
-      "added_at": "2026-09-17T03:54:08.277686+00:00"
+      "sl_after_tp1": 0.04833,
+      "added_at": "2026-09-17T04:09:01.378239+00:00"
     }
   ],
   "open": [
@@ -1260,6 +1260,67 @@
       "sl_after_tp1": 0.028,
       "added_at": "2026-09-15T22:09:06.813774+00:00",
       "triggered_at": "2026-09-17T00:00:00+00:00"
+    },
+    {
+      "id": "GPSUSDT_LONG_4h_2026-09-17_04-09-03",
+      "symbol": "GPSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01075,
+      "sl": 0.01025,
+      "tp": [
+        0.01148,
+        0.01168,
+        0.01185
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_04-09-03",
+      "first_seen": "2026-09-17T04:09:01.378239+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.49,
+      "stage1_score": 12.288,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.127,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01075,
+      "triggered_at": "2026-09-17T08:00:00+00:00",
+      "partial_check_from": "2026-09-17T04:09:01.378239+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "DASHUSDT_LONG_1h_2026-09-17_03-54-10",
+      "symbol": "DASHUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 58.876,
+      "sl": 54.55,
+      "tp": [
+        65.366,
+        67.097,
+        68.611
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-17_03-54-10",
+      "first_seen": "2026-09-17T03:54:08.277686+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.86,
+      "stage1_score": 11.48,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.106,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 58.876,
+      "added_at": "2026-09-17T03:54:08.277686+00:00",
+      "triggered_at": "2026-09-17T04:00:00+00:00"
     }
   ],
   "closed": [
@@ -39036,6 +39097,7 @@
     "2026-09-17_03-08-43",
     "2026-09-17_03-27-29",
     "2026-09-17_03-42-01",
-    "2026-09-17_03-54-10"
+    "2026-09-17_03-54-10",
+    "2026-09-17_04-09-03"
   ]
 }

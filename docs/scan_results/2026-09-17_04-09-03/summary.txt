@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-17T04:09:01.378239+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: GPSUSDT | Side: LONG | Score: 7.49
+   - Entry : 0.01075
+   - SL    : 0.01025
+   - TP    : 0.01148, 0.01168, 0.01185
+   - Invalidation: Close below 0.010254623 / loss of recent 4h swing low
+----------------------------------------
+2. Symbol: ZAMAUSDT | Side: LONG | Score: 6.09
+   - Entry : 0.04833
+   - SL    : 0.04682
+   - TP    : 0.05060, 0.05121, 0.05174
+   - Invalidation: Close below 0.04682 / loss of recent 1h swing low / breakout invalid if price falls below 0.04816
+----------------------------------------
