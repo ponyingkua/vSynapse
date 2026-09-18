@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T04:52:51.815979+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: GMXUSDT | Side: LONG | Score: 6.32
+   - Entry : 7.5368
+   - SL    : 7.3150
+   - TP    : 7.8696, 7.9583, 8.0360
+   - Invalidation: Close below 7.315 / loss of recent 1h swing low
+----------------------------------------

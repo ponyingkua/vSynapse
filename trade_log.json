@@ -990,6 +990,37 @@
       "partial_check_done": true
     },
     {
+      "id": "GMXUSDT_LONG_1h_2026-09-18_04-52-54",
+      "symbol": "GMXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 7.5368,
+      "sl": 7.315,
+      "tp": [
+        7.8696,
+        7.9583,
+        8.036
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_04-52-54",
+      "first_seen": "2026-09-18T04:52:51.815979+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.32,
+      "stage1_score": 7.288,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.084,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 7.5368,
+      "triggered_at": "2026-09-18T05:00:00+00:00",
+      "partial_check_from": "2026-09-18T04:52:51.815979+00:00",
+      "partial_check_done": true
+    },
+    {
       "id": "JSTUSDT_LONG_15m_2026-09-18_04-40-14",
       "symbol": "JSTUSDT",
       "side": "LONG",
@@ -40880,6 +40911,7 @@
     "2026-09-18_03-53-04",
     "2026-09-18_04-09-06",
     "2026-09-18_04-26-28",
-    "2026-09-18_04-40-14"
+    "2026-09-18_04-40-14",
+    "2026-09-18_04-52-54"
   ]
 }
