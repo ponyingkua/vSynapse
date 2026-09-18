@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T10:27:02.156144+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ORDIUSDT | Side: LONG | Score: 7.36
+   - Entry : 4.2681
+   - SL    : 4.0870
+   - TP    : 4.5396, 4.6121, 4.6754
+   - Invalidation: Close below 4.087 / loss of recent 4h swing low / breakout invalid if price falls below 4.24
+----------------------------------------

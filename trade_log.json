@@ -492,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.48789,
       "added_at": "2026-09-18T09:40:00.631153+00:00"
+    },
+    {
+      "id": "ORDIUSDT_LONG_4h_2026-09-18_10-27-04",
+      "symbol": "ORDIUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 4.2681,
+      "sl": 4.087,
+      "tp": [
+        4.5396,
+        4.6121,
+        4.6754
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_10-27-04",
+      "first_seen": "2026-09-18T10:27:02.156144+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.36,
+      "stage1_score": 8.933,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.576,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 4.2681,
+      "added_at": "2026-09-18T10:27:02.156144+00:00"
     }
   ],
   "open": [
@@ -553,36 +582,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01397,
       "added_at": "2026-09-15T22:25:48.969814+00:00",
-      "triggered_at": "2026-09-16T20:00:00+00:00"
-    },
-    {
-      "id": "AVNTUSDT_SHORT_4h_2026-09-15_21-08-29",
-      "symbol": "AVNTUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.09627,
-      "sl": 0.10253,
-      "tp": [
-        0.08689,
-        0.08438,
-        0.08219
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_21-08-29",
-      "first_seen": "2026-09-15T21:08:28.076911+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.62,
-      "stage1_score": 3.067,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -1.363,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.09627,
-      "added_at": "2026-09-15T21:08:28.076911+00:00",
       "triggered_at": "2026-09-16T20:00:00+00:00"
     },
     {
@@ -39706,6 +39705,45 @@
       "exit_price": 0.3387,
       "closed_at": "2026-09-18T10:14:59.999000+00:00",
       "r_multiple": 0.88
+    },
+    {
+      "id": "AVNTUSDT_SHORT_4h_2026-09-15_21-08-29",
+      "symbol": "AVNTUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.09627,
+      "sl": 0.10253,
+      "tp": [
+        0.08689,
+        0.08438,
+        0.08219
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_21-08-29",
+      "first_seen": "2026-09-15T21:08:28.076911+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.62,
+      "stage1_score": 3.067,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -1.363,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.09627,
+      "added_at": "2026-09-15T21:08:28.076911+00:00",
+      "triggered_at": "2026-09-16T20:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.10253,
+      "tp_index": null,
+      "bar_time": 1789732799999,
+      "bars_held": 10,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-18T11:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -41344,6 +41382,7 @@
     "2026-09-18_09-27-02",
     "2026-09-18_09-40-02",
     "2026-09-18_09-52-34",
-    "2026-09-18_10-09-20"
+    "2026-09-18_10-09-20",
+    "2026-09-18_10-27-04"
   ]
 }
