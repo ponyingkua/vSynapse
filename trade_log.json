@@ -378,6 +378,35 @@
       "added_at": "2026-09-18T08:09:02.476110+00:00"
     },
     {
+      "id": "TWTUSDT_LONG_1h_2026-09-18_08-27-51",
+      "symbol": "TWTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.53802,
+      "sl": 0.5275,
+      "tp": [
+        0.55379,
+        0.558,
+        0.56168
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_08-27-51",
+      "first_seen": "2026-09-18T08:27:48.684060+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.29,
+      "stage1_score": 6.607,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.355,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.53802,
+      "added_at": "2026-09-18T08:27:48.684060+00:00"
+    },
+    {
       "id": "MORPHOUSDT_LONG_4h_2026-09-18_08-09-05",
       "symbol": "MORPHOUSDT",
       "side": "LONG",
@@ -463,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.03459,
       "added_at": "2026-09-18T08:09:02.476110+00:00"
+    },
+    {
+      "id": "PORTALUSDT_LONG_15m_2026-09-18_08-27-51",
+      "symbol": "PORTALUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01813,
+      "sl": 0.01765,
+      "tp": [
+        0.01885,
+        0.01904,
+        0.01921
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_08-27-51",
+      "first_seen": "2026-09-18T08:27:48.684060+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.1,
+      "stage1_score": 23.054,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.602,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01813,
+      "added_at": "2026-09-18T08:27:48.684060+00:00"
     }
   ],
   "open": [
@@ -41216,6 +41274,7 @@
     "2026-09-18_07-26-39",
     "2026-09-18_07-39-56",
     "2026-09-18_07-52-27",
-    "2026-09-18_08-09-05"
+    "2026-09-18_08-09-05",
+    "2026-09-18_08-27-51"
   ]
 }
