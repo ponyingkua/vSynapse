@@ -146,33 +146,33 @@
       "added_at": "2026-09-17T20:50:45.823626+00:00"
     },
     {
-      "id": "GPSUSDT_LONG_15m_2026-09-17_22-08-41",
-      "symbol": "GPSUSDT",
+      "id": "PLUMEUSDT_LONG_1h_2026-09-18_01-25-35",
+      "symbol": "PLUMEUSDT",
       "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.0108,
-      "sl": 0.01069,
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01302,
+      "sl": 0.01273,
       "tp": [
-        0.01097,
-        0.01102,
-        0.01106
+        0.01345,
+        0.01357,
+        0.01367
       ],
       "decimals": 5,
-      "run_id": "2026-09-17_22-08-41",
-      "first_seen": "2026-09-17T22:08:39.766552+00:00",
+      "run_id": "2026-09-18_01-25-35",
+      "first_seen": "2026-09-18T01:25:33.317286+00:00",
       "htf_bias": "BULLISH",
       "config_version": "v3",
-      "score": 6.17,
-      "stage1_score": 16.122,
+      "score": 6.2,
+      "stage1_score": 12.442,
       "btc_regime": "BULLISH",
       "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.76,
+      "tf_agreement": 2,
+      "momentum_15m": 2.469,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.0108,
-      "added_at": "2026-09-17T22:08:39.766552+00:00"
+      "sl_after_tp1": 0.01302,
+      "added_at": "2026-09-18T01:25:33.317286+00:00"
     }
   ],
   "open": [
@@ -907,36 +907,6 @@
       "partial_check_done": true
     },
     {
-      "id": "TACUSDT_SHORT_15m_2026-09-17_15-27-25",
-      "symbol": "TACUSDT",
-      "side": "SHORT",
-      "execution_tf": "15m",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.001734,
-      "sl": 0.001789,
-      "tp": [
-        0.001651,
-        0.001628,
-        0.001609
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-17_15-27-25",
-      "first_seen": "2026-09-17T15:27:23.716782+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.14,
-      "stage1_score": 6.743,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -3.479,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.001734,
-      "added_at": "2026-09-17T15:27:23.716782+00:00",
-      "triggered_at": "2026-09-17T15:45:00+00:00"
-    },
-    {
       "id": "AAVEUSDT_LONG_1h_2026-09-17_18-10-47",
       "symbol": "AAVEUSDT",
       "side": "LONG",
@@ -1178,6 +1148,36 @@
       "sl_after_tp1": 0.09702,
       "added_at": "2026-09-17T18:10:44.283651+00:00",
       "triggered_at": "2026-09-17T21:00:00+00:00"
+    },
+    {
+      "id": "GPSUSDT_LONG_15m_2026-09-17_22-08-41",
+      "symbol": "GPSUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.0108,
+      "sl": 0.01069,
+      "tp": [
+        0.01097,
+        0.01102,
+        0.01106
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_22-08-41",
+      "first_seen": "2026-09-17T22:08:39.766552+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.17,
+      "stage1_score": 16.122,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.76,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0108,
+      "added_at": "2026-09-17T22:08:39.766552+00:00",
+      "triggered_at": "2026-09-18T01:00:00+00:00"
     }
   ],
   "closed": [
@@ -38760,6 +38760,45 @@
       "added_at": "2026-09-17T09:27:58.721636+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T00:33:02.749000+00:00"
+    },
+    {
+      "id": "TACUSDT_SHORT_15m_2026-09-17_15-27-25",
+      "symbol": "TACUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.001734,
+      "sl": 0.001789,
+      "tp": [
+        0.001651,
+        0.001628,
+        0.001609
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-17_15-27-25",
+      "first_seen": "2026-09-17T15:27:23.716782+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.14,
+      "stage1_score": 6.743,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -3.479,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.001734,
+      "added_at": "2026-09-17T15:27:23.716782+00:00",
+      "triggered_at": "2026-09-17T15:45:00+00:00",
+      "outcome": "WIN",
+      "exit_price": 0.001651,
+      "tp_index": 0,
+      "bar_time": 1789694999999,
+      "bars_held": 39,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-18T01:29:59.999000+00:00",
+      "r_multiple": 1.51
     }
   ],
   "ingested_runs": [
@@ -40363,6 +40402,7 @@
     "2026-09-18_00-10-37",
     "2026-09-18_00-33-02",
     "2026-09-18_00-54-52",
-    "2026-09-18_01-08-22"
+    "2026-09-18_01-08-22",
+    "2026-09-18_01-25-35"
   ]
 }
