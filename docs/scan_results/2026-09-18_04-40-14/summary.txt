@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T04:40:11.804743+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: JSTUSDT | Side: LONG | Score: 6.45
+   - Entry : 0.11572
+   - SL    : 0.11389
+   - TP    : 0.11846, 0.11919, 0.11983
+   - Invalidation: Close below 0.11389 / loss of recent 15m swing low
+----------------------------------------
+2. Symbol: ICPUSDT | Side: LONG | Score: 6.67
+   - Entry : 2.6990
+   - SL    : 2.5900
+   - TP    : 2.8625, 2.9061, 2.9442
+   - Invalidation: Close below 2.59 / loss of recent 1h swing low / breakout invalid if price falls below 2.69
+----------------------------------------
