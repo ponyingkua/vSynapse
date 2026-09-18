@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-18T02:28:27.136000+00:00",
-  "resolved_trades": 866,
+  "generated_at": "2026-09-18T02:41:26.073000+00:00",
+  "resolved_trades": 867,
   "wins": 316,
-  "losses": 536,
+  "losses": 537,
   "breakeven": 14,
-  "win_rate_pct": 36.5,
-  "avg_r_multiple": -0.01,
+  "win_rate_pct": 36.4,
+  "avg_r_multiple": -0.02,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 144,
@@ -27,9 +27,9 @@
     },
     "PULLBACK": {
       "wins": 69,
-      "losses": 74,
+      "losses": 75,
       "breakeven": 6,
-      "win_rate_pct": 46.3
+      "win_rate_pct": 46.0
     },
     "CONTINUATION": {
       "wins": 10,
@@ -47,9 +47,9 @@
     },
     "SHORT": {
       "wins": 81,
-      "losses": 124,
+      "losses": 125,
       "breakeven": 0,
-      "win_rate_pct": 39.5
+      "win_rate_pct": 39.3
     }
   },
   "by_config_version": {
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 130,
-      "losses": 191,
+      "losses": 192,
       "breakeven": 14,
-      "win_rate_pct": 38.8
+      "win_rate_pct": 38.7
     }
   },
   "by_htf_alignment": {
@@ -87,7 +87,7 @@
     },
     "ALIGNED": {
       "wins": 211,
-      "losses": 356,
+      "losses": 357,
       "breakeven": 14,
       "win_rate_pct": 36.3
     },
@@ -119,9 +119,9 @@
     },
     "7.0-7.9": {
       "wins": 14,
-      "losses": 26,
+      "losses": 27,
       "breakeven": 1,
-      "win_rate_pct": 34.1
+      "win_rate_pct": 33.3
     }
   },
   "by_btc_regime": {
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 107,
-      "losses": 176,
+      "losses": 177,
       "breakeven": 14,
-      "win_rate_pct": 36.0
+      "win_rate_pct": 35.9
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 316,
-      "losses": 536,
+      "losses": 537,
       "breakeven": 14,
-      "win_rate_pct": 36.5
+      "win_rate_pct": 36.4
     }
   },
   "expired_unresolved": 120,
   "never_triggered": 190,
-  "currently_open": 29,
+  "currently_open": 28,
   "currently_pending": 6,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
