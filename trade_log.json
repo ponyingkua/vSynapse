@@ -492,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.08687,
       "added_at": "2026-09-18T20:39:07.028100+00:00"
+    },
+    {
+      "id": "PEOPLEUSDT_LONG_4h_2026-09-18_20-51-49",
+      "symbol": "PEOPLEUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.008618,
+      "sl": 0.008157,
+      "tp": [
+        0.00931,
+        0.009495,
+        0.009656
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-18_20-51-49",
+      "first_seen": "2026-09-18T20:51:45.369209+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.94,
+      "stage1_score": 7.798,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.284,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008618,
+      "added_at": "2026-09-18T20:51:45.369209+00:00"
     }
   ],
   "open": [
@@ -41948,6 +41977,7 @@
     "2026-09-18_19-50-47",
     "2026-09-18_20-09-02",
     "2026-09-18_20-25-55",
-    "2026-09-18_20-39-08"
+    "2026-09-18_20-39-08",
+    "2026-09-18_20-51-49"
   ]
 }
