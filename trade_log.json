@@ -739,36 +739,6 @@
       "partial_check_done": true
     },
     {
-      "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
-      "symbol": "CRVUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.32491,
-      "sl": 0.3093,
-      "tp": [
-        0.34831,
-        0.35456,
-        0.36002
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_16-27-36",
-      "first_seen": "2026-09-17T16:27:34.749085+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.76,
-      "stage1_score": 22.108,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 4.642,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.32491,
-      "added_at": "2026-09-17T16:27:34.749085+00:00",
-      "triggered_at": "2026-09-17T19:00:00+00:00"
-    },
-    {
       "id": "RIFUSDT_LONG_1h_2026-09-17_20-09-27",
       "symbol": "RIFUSDT",
       "side": "LONG",
@@ -39702,6 +39672,40 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-18T11:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.32491,
+      "sl": 0.3093,
+      "tp": [
+        0.34831,
+        0.35456,
+        0.36002
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-27-36",
+      "first_seen": "2026-09-17T16:27:34.749085+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.76,
+      "stage1_score": 22.108,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 4.642,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.32491,
+      "added_at": "2026-09-17T16:27:34.749085+00:00",
+      "triggered_at": "2026-09-17T19:00:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.3387,
+      "closed_at": "2026-09-18T10:14:59.999000+00:00",
+      "r_multiple": 0.88
     }
   ],
   "ingested_runs": [
@@ -41339,6 +41343,7 @@
     "2026-09-18_09-08-44",
     "2026-09-18_09-27-02",
     "2026-09-18_09-40-02",
-    "2026-09-18_09-52-34"
+    "2026-09-18_09-52-34",
+    "2026-09-18_10-09-20"
   ]
 }
