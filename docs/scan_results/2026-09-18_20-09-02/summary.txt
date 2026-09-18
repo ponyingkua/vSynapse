@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T20:08:59.361716+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: CATIUSDT | Side: LONG | Score: 7.41
+   - Entry : 0.06402
+   - SL    : 0.06082
+   - TP    : 0.06883, 0.07011, 0.07123
+   - Invalidation: Close below 0.06082 / loss of recent 1h swing low
+----------------------------------------

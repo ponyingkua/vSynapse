@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "INJUSDT_LONG_1h_2026-09-18_05-08-14",
-      "symbol": "INJUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 5.8398,
-      "sl": 5.594,
-      "tp": [
-        6.2084,
-        6.3067,
-        6.3927
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-18_05-08-14",
-      "first_seen": "2026-09-18T05:08:12.445225+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.63,
-      "stage1_score": 8.221,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.371,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 5.8398,
-      "added_at": "2026-09-18T05:08:12.445225+00:00"
-    },
-    {
       "id": "INJUSDT_LONG_1h_2026-09-18_05-24-54",
       "symbol": "INJUSDT",
       "side": "LONG",
@@ -494,35 +465,6 @@
       "added_at": "2026-09-18T15:39:32.517952+00:00"
     },
     {
-      "id": "GPSUSDT_LONG_4h_2026-09-18_16-51-42",
-      "symbol": "GPSUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01122,
-      "sl": 0.01053,
-      "tp": [
-        0.01225,
-        0.01253,
-        0.01277
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_16-51-42",
-      "first_seen": "2026-09-18T16:51:40.871709+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.65,
-      "stage1_score": 8.866,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.21,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01122,
-      "added_at": "2026-09-18T16:51:40.871709+00:00"
-    },
-    {
       "id": "GRIFFAINUSDT_LONG_15m_2026-09-18_17-23-40",
       "symbol": "GRIFFAINUSDT",
       "side": "LONG",
@@ -550,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01383,
       "added_at": "2026-09-18T17:23:37.084577+00:00"
+    },
+    {
+      "id": "CATIUSDT_LONG_1h_2026-09-18_20-09-02",
+      "symbol": "CATIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.06402,
+      "sl": 0.06082,
+      "tp": [
+        0.06883,
+        0.07011,
+        0.07123
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_20-09-02",
+      "first_seen": "2026-09-18T20:08:59.361716+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.41,
+      "stage1_score": 9.613,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.991,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06402,
+      "added_at": "2026-09-18T20:08:59.361716+00:00"
     }
   ],
   "open": [
@@ -916,6 +887,36 @@
       "sl_after_tp1": 0.53802,
       "added_at": "2026-09-18T08:27:48.684060+00:00",
       "triggered_at": "2026-09-18T12:00:00+00:00"
+    },
+    {
+      "id": "GPSUSDT_LONG_4h_2026-09-18_16-51-42",
+      "symbol": "GPSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01122,
+      "sl": 0.01053,
+      "tp": [
+        0.01225,
+        0.01253,
+        0.01277
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_16-51-42",
+      "first_seen": "2026-09-18T16:51:40.871709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 8.866,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.21,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01122,
+      "added_at": "2026-09-18T16:51:40.871709+00:00",
+      "triggered_at": "2026-09-18T20:00:00+00:00"
     }
   ],
   "closed": [
@@ -40195,6 +40196,37 @@
       "added_at": "2026-09-18T04:40:11.804743+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T19:50:47.962000+00:00"
+    },
+    {
+      "id": "INJUSDT_LONG_1h_2026-09-18_05-08-14",
+      "symbol": "INJUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.8398,
+      "sl": 5.594,
+      "tp": [
+        6.2084,
+        6.3067,
+        6.3927
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_05-08-14",
+      "first_seen": "2026-09-18T05:08:12.445225+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.63,
+      "stage1_score": 8.221,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.371,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.8398,
+      "added_at": "2026-09-18T05:08:12.445225+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T20:09:02.229000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41871,6 +41903,7 @@
     "2026-09-18_19-09-05",
     "2026-09-18_19-24-24",
     "2026-09-18_19-36-43",
-    "2026-09-18_19-50-47"
+    "2026-09-18_19-50-47",
+    "2026-09-18_20-09-02"
   ]
 }
