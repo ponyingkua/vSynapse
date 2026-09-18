@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T04:09:02.817981+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: PROMUSDT | Side: LONG | Score: 6.12
+   - Entry : 5.5416
+   - SL    : 5.4240
+   - TP    : 5.7181, 5.7651, 5.8063
+   - Invalidation: Close below 5.424 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: ICPUSDT | Side: LONG | Score: 7.46
+   - Entry : 2.6990
+   - SL    : 2.5900
+   - TP    : 2.8625, 2.9061, 2.9442
+   - Invalidation: Close below 2.59 / loss of recent 1h swing low / breakout invalid if price falls below 2.69
+----------------------------------------
+3. Symbol: JSTUSDT | Side: LONG | Score: 6.41
+   - Entry : 0.11508
+   - SL    : 0.11388
+   - TP    : 0.11687, 0.11735, 0.11777
+   - Invalidation: Close below 0.11388 / loss of recent 15m swing low / breakout invalid if price falls below 0.11497
+----------------------------------------
+4. Symbol: TRBUSDT | Side: LONG | Score: 7.4
+   - Entry : 17.315
+   - SL    : 16.986
+   - TP    : 17.809, 17.941, 18.056
+   - Invalidation: Close below 16.986 / loss of recent 1h swing low
+----------------------------------------
