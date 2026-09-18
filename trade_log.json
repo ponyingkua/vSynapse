@@ -347,6 +347,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.25571,
       "added_at": "2026-09-18T04:26:26.808895+00:00"
+    },
+    {
+      "id": "INJUSDT_LONG_1h_2026-09-18_05-08-14",
+      "symbol": "INJUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.8398,
+      "sl": 5.594,
+      "tp": [
+        6.2084,
+        6.3067,
+        6.3927
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_05-08-14",
+      "first_seen": "2026-09-18T05:08:12.445225+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.63,
+      "stage1_score": 8.221,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.371,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.8398,
+      "added_at": "2026-09-18T05:08:12.445225+00:00"
     }
   ],
   "open": [
@@ -529,36 +558,6 @@
       "sl_after_tp1": 0.09627,
       "added_at": "2026-09-15T21:08:28.076911+00:00",
       "triggered_at": "2026-09-16T20:00:00+00:00"
-    },
-    {
-      "id": "KAIAUSDT_SHORT_4h_2026-09-15_22-09-10",
-      "symbol": "KAIAUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.028,
-      "sl": 0.02975,
-      "tp": [
-        0.02537,
-        0.02467,
-        0.02406
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_22-09-10",
-      "first_seen": "2026-09-15T22:09:06.813774+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.86,
-      "stage1_score": 3.91,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.137,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.028,
-      "added_at": "2026-09-15T22:09:06.813774+00:00",
-      "triggered_at": "2026-09-17T00:00:00+00:00"
     },
     {
       "id": "GPSUSDT_LONG_4h_2026-09-17_04-09-03",
@@ -39294,6 +39293,45 @@
       "added_at": "2026-09-17T13:28:08.817346+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T04:40:14.138000+00:00"
+    },
+    {
+      "id": "KAIAUSDT_SHORT_4h_2026-09-15_22-09-10",
+      "symbol": "KAIAUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.028,
+      "sl": 0.02975,
+      "tp": [
+        0.02537,
+        0.02467,
+        0.02406
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-09-10",
+      "first_seen": "2026-09-15T22:09:06.813774+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.86,
+      "stage1_score": 3.91,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.137,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.028,
+      "added_at": "2026-09-15T22:09:06.813774+00:00",
+      "triggered_at": "2026-09-17T00:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.02975,
+      "tp_index": null,
+      "bar_time": 1789718399999,
+      "bars_held": 8,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-18T07:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -40912,6 +40950,7 @@
     "2026-09-18_04-09-06",
     "2026-09-18_04-26-28",
     "2026-09-18_04-40-14",
-    "2026-09-18_04-52-54"
+    "2026-09-18_04-52-54",
+    "2026-09-18_05-08-14"
   ]
 }
