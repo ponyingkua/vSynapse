@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T15:39:32.517952+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: VETUSDT | Side: LONG | Score: 6.17
+   - Entry : 0.007579
+   - SL    : 0.007404
+   - TP    : 0.007842, 0.007912, 0.007974
+   - Invalidation: Close below 0.007404 / loss of recent 1h swing low
+----------------------------------------

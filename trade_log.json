@@ -637,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 243.6,
       "added_at": "2026-09-18T13:55:34.018605+00:00"
+    },
+    {
+      "id": "VETUSDT_LONG_1h_2026-09-18_15-39-33",
+      "symbol": "VETUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.007579,
+      "sl": 0.007404,
+      "tp": [
+        0.007842,
+        0.007912,
+        0.007974
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-18_15-39-33",
+      "first_seen": "2026-09-18T15:39:32.517952+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.17,
+      "stage1_score": 10.597,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.809,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.007579,
+      "added_at": "2026-09-18T15:39:32.517952+00:00"
     }
   ],
   "open": [
@@ -41727,6 +41756,7 @@
     "2026-09-18_14-40-08",
     "2026-09-18_14-53-49",
     "2026-09-18_15-08-41",
-    "2026-09-18_15-26-20"
+    "2026-09-18_15-26-20",
+    "2026-09-18_15-39-33"
   ]
 }
