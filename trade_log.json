@@ -376,6 +376,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 5.8398,
       "added_at": "2026-09-18T05:08:12.445225+00:00"
+    },
+    {
+      "id": "INJUSDT_LONG_1h_2026-09-18_05-24-54",
+      "symbol": "INJUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.8398,
+      "sl": 5.594,
+      "tp": [
+        6.2084,
+        6.3067,
+        6.3927
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_05-24-54",
+      "first_seen": "2026-09-18T05:24:52.118719+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.32,
+      "stage1_score": 9.81,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.96,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.8398,
+      "added_at": "2026-09-18T05:24:52.118719+00:00"
     }
   ],
   "open": [
@@ -40951,6 +40980,7 @@
     "2026-09-18_04-26-28",
     "2026-09-18_04-40-14",
     "2026-09-18_04-52-54",
-    "2026-09-18_05-08-14"
+    "2026-09-18_05-08-14",
+    "2026-09-18_05-24-54"
   ]
 }

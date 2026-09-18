@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T05:24:52.118719+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: INJUSDT | Side: LONG | Score: 7.32
+   - Entry : 5.8398
+   - SL    : 5.5940
+   - TP    : 6.2084, 6.3067, 6.3927
+   - Invalidation: Close below 5.594 / loss of recent 1h swing low / breakout invalid if price falls below 5.817
+----------------------------------------
