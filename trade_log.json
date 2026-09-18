@@ -637,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.007579,
       "added_at": "2026-09-18T15:39:32.517952+00:00"
+    },
+    {
+      "id": "GPSUSDT_LONG_4h_2026-09-18_16-51-42",
+      "symbol": "GPSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01122,
+      "sl": 0.01053,
+      "tp": [
+        0.01225,
+        0.01253,
+        0.01277
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_16-51-42",
+      "first_seen": "2026-09-18T16:51:40.871709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.65,
+      "stage1_score": 8.866,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.21,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01122,
+      "added_at": "2026-09-18T16:51:40.871709+00:00"
     }
   ],
   "open": [
@@ -41763,6 +41792,7 @@
     "2026-09-18_15-54-16",
     "2026-09-18_16-08-13",
     "2026-09-18_16-26-00",
-    "2026-09-18_16-38-50"
+    "2026-09-18_16-38-50",
+    "2026-09-18_16-51-42"
   ]
 }
