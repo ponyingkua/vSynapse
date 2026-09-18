@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "PLUMEUSDT_LONG_1h_2026-09-18_01-25-35",
-      "symbol": "PLUMEUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01302,
-      "sl": 0.01273,
-      "tp": [
-        0.01345,
-        0.01357,
-        0.01367
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_01-25-35",
-      "first_seen": "2026-09-18T01:25:33.317286+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.2,
-      "stage1_score": 12.442,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 2,
-      "momentum_15m": 2.469,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01302,
-      "added_at": "2026-09-18T01:25:33.317286+00:00"
-    },
-    {
       "id": "TAOUSDT_LONG_1h_2026-09-18_03-08-25",
       "symbol": "TAOUSDT",
       "side": "LONG",
@@ -40098,6 +40069,37 @@
       "added_at": "2026-09-18T10:52:09.217668+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T14:40:08.164000+00:00"
+    },
+    {
+      "id": "PLUMEUSDT_LONG_1h_2026-09-18_01-25-35",
+      "symbol": "PLUMEUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01302,
+      "sl": 0.01273,
+      "tp": [
+        0.01345,
+        0.01357,
+        0.01367
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_01-25-35",
+      "first_seen": "2026-09-18T01:25:33.317286+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.2,
+      "stage1_score": 12.442,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 2,
+      "momentum_15m": 2.469,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01302,
+      "added_at": "2026-09-18T01:25:33.317286+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T16:26:00.516000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41759,6 +41761,7 @@
     "2026-09-18_15-26-20",
     "2026-09-18_15-39-33",
     "2026-09-18_15-54-16",
-    "2026-09-18_16-08-13"
+    "2026-09-18_16-08-13",
+    "2026-09-18_16-26-00"
   ]
 }
