@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "PYTHUSDT_LONG_1h_2026-09-17_18-29-49",
-      "symbol": "PYTHUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.05485,
-      "sl": 0.05367,
-      "tp": [
-        0.05663,
-        0.0571,
-        0.05751
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_18-29-49",
-      "first_seen": "2026-09-17T18:29:48.643563+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.12,
-      "stage1_score": 7.337,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.165,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.05485,
-      "added_at": "2026-09-17T18:29:48.643563+00:00"
-    },
-    {
       "id": "RIFUSDT_LONG_1h_2026-09-17_20-50-47",
       "symbol": "RIFUSDT",
       "side": "LONG",
@@ -492,6 +463,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.03459,
       "added_at": "2026-09-18T08:09:02.476110+00:00"
+    },
+    {
+      "id": "SPXUSDT_LONG_1h_2026-09-18_09-40-02",
+      "symbol": "SPXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.48789,
+      "sl": 0.4674,
+      "tp": [
+        0.51861,
+        0.52681,
+        0.53398
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_09-40-02",
+      "first_seen": "2026-09-18T09:40:00.631153+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.01,
+      "stage1_score": 10.261,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.455,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.48789,
+      "added_at": "2026-09-18T09:40:00.631153+00:00"
     }
   ],
   "open": [
@@ -797,36 +797,6 @@
       "triggered_at": "2026-09-17T19:00:00+00:00",
       "partial_check_from": "2026-09-17T18:10:44.283651+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "CRVUSDT_LONG_15m_2026-09-17_16-53-29",
-      "symbol": "CRVUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.32671,
-      "sl": 0.3093,
-      "tp": [
-        0.35282,
-        0.35979,
-        0.36588
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_16-53-29",
-      "first_seen": "2026-09-17T16:53:27.671927+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.51,
-      "stage1_score": 15.986,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.026,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.32671,
-      "added_at": "2026-09-17T16:53:27.671927+00:00",
-      "triggered_at": "2026-09-17T18:30:00+00:00"
     },
     {
       "id": "CRVUSDT_LONG_15m_2026-09-17_16-27-36",
@@ -39649,6 +39619,71 @@
       "exit_price": 0.3361,
       "closed_at": "2026-09-18T09:29:59.999000+00:00",
       "r_multiple": 0.43
+    },
+    {
+      "id": "PYTHUSDT_LONG_1h_2026-09-17_18-29-49",
+      "symbol": "PYTHUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.05485,
+      "sl": 0.05367,
+      "tp": [
+        0.05663,
+        0.0571,
+        0.05751
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_18-29-49",
+      "first_seen": "2026-09-17T18:29:48.643563+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.12,
+      "stage1_score": 7.337,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.165,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05485,
+      "added_at": "2026-09-17T18:29:48.643563+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T09:40:02.586000+00:00"
+    },
+    {
+      "id": "CRVUSDT_LONG_15m_2026-09-17_16-53-29",
+      "symbol": "CRVUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.32671,
+      "sl": 0.3093,
+      "tp": [
+        0.35282,
+        0.35979,
+        0.36588
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_16-53-29",
+      "first_seen": "2026-09-17T16:53:27.671927+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 15.986,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.026,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.32671,
+      "added_at": "2026-09-17T16:53:27.671927+00:00",
+      "triggered_at": "2026-09-17T18:30:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 0.3373,
+      "closed_at": "2026-09-18T09:44:59.999000+00:00",
+      "r_multiple": 0.61
     }
   ],
   "ingested_runs": [
@@ -41284,6 +41319,7 @@
     "2026-09-18_08-41-38",
     "2026-09-18_08-53-38",
     "2026-09-18_09-08-44",
-    "2026-09-18_09-27-02"
+    "2026-09-18_09-27-02",
+    "2026-09-18_09-40-02"
   ]
 }

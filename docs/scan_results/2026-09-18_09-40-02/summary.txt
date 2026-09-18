@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T09:40:00.631153+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SPXUSDT | Side: LONG | Score: 6.01
+   - Entry : 0.48789
+   - SL    : 0.46740
+   - TP    : 0.51861, 0.52681, 0.53398
+   - Invalidation: Close below 0.4674 / loss of recent 1h swing low / breakout invalid if price falls below 0.4859
+----------------------------------------
