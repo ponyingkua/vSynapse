@@ -30,64 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "TRBUSDT_LONG_1h_2026-09-18_04-09-06",
-      "symbol": "TRBUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 17.315,
-      "sl": 16.986,
-      "tp": [
-        17.809,
-        17.941,
-        18.056
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-18_04-09-06",
-      "first_seen": "2026-09-18T04:09:02.817981+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.4,
-      "stage1_score": 11.921,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.374,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 17.315,
-      "added_at": "2026-09-18T04:09:02.817981+00:00"
-    },
-    {
-      "id": "ICPUSDT_LONG_1h_2026-09-18_04-09-06",
-      "symbol": "ICPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.699,
-      "sl": 2.59,
-      "tp": [
-        2.8625,
-        2.9061,
-        2.9442
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-18_04-09-06",
-      "first_seen": "2026-09-18T04:09:02.817981+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.46,
-      "stage1_score": 13.401,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.962,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.699,
-      "added_at": "2026-09-18T04:09:02.817981+00:00"
-    },
-    {
       "id": "ICPUSDT_LONG_1h_2026-09-18_04-40-14",
       "symbol": "ICPUSDT",
       "side": "LONG",
@@ -40189,6 +40131,68 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-18T18:59:59.999000+00:00",
       "r_multiple": 1.91
+    },
+    {
+      "id": "TRBUSDT_LONG_1h_2026-09-18_04-09-06",
+      "symbol": "TRBUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 17.315,
+      "sl": 16.986,
+      "tp": [
+        17.809,
+        17.941,
+        18.056
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-18_04-09-06",
+      "first_seen": "2026-09-18T04:09:02.817981+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.4,
+      "stage1_score": 11.921,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.374,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 17.315,
+      "added_at": "2026-09-18T04:09:02.817981+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T19:09:05.974000+00:00"
+    },
+    {
+      "id": "ICPUSDT_LONG_1h_2026-09-18_04-09-06",
+      "symbol": "ICPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.699,
+      "sl": 2.59,
+      "tp": [
+        2.8625,
+        2.9061,
+        2.9442
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_04-09-06",
+      "first_seen": "2026-09-18T04:09:02.817981+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.46,
+      "stage1_score": 13.401,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.962,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.699,
+      "added_at": "2026-09-18T04:09:02.817981+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T19:09:05.974000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41861,6 +41865,7 @@
     "2026-09-18_18-11-32",
     "2026-09-18_18-28-06",
     "2026-09-18_18-42-18",
-    "2026-09-18_18-52-15"
+    "2026-09-18_18-52-15",
+    "2026-09-18_19-09-05"
   ]
 }
