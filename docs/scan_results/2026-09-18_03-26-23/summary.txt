@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T03:26:22.140260+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TRBUSDT | Side: LONG | Score: 6.59
+   - Entry : 17.257
+   - SL    : 16.986
+   - TP    : 17.663, 17.771, 17.866
+   - Invalidation: Close below 16.986 / loss of recent 1h swing low / breakout invalid if price falls below 17.22
+----------------------------------------
