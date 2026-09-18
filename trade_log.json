@@ -405,6 +405,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 5.8398,
       "added_at": "2026-09-18T05:38:46.677902+00:00"
+    },
+    {
+      "id": "TWTUSDT_LONG_1h_2026-09-18_07-52-27",
+      "symbol": "TWTUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.54425,
+      "sl": 0.5266,
+      "tp": [
+        0.57074,
+        0.5778,
+        0.58398
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_07-52-27",
+      "first_seen": "2026-09-18T07:52:26.016658+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.76,
+      "stage1_score": 8.925,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.257,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.54425,
+      "added_at": "2026-09-18T07:52:26.016658+00:00"
     }
   ],
   "open": [
@@ -41038,6 +41067,7 @@
     "2026-09-18_06-49-17",
     "2026-09-18_07-08-55",
     "2026-09-18_07-26-39",
-    "2026-09-18_07-39-56"
+    "2026-09-18_07-39-56",
+    "2026-09-18_07-52-27"
   ]
 }

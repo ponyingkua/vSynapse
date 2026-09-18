@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T07:52:26.016658+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TWTUSDT | Side: LONG | Score: 6.76
+   - Entry : 0.54425
+   - SL    : 0.52660
+   - TP    : 0.57074, 0.57780, 0.58398
+   - Invalidation: Close below 0.5266 / loss of recent 1h swing low
+----------------------------------------
