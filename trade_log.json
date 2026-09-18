@@ -666,6 +666,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01122,
       "added_at": "2026-09-18T16:51:40.871709+00:00"
+    },
+    {
+      "id": "GRIFFAINUSDT_LONG_15m_2026-09-18_17-23-40",
+      "symbol": "GRIFFAINUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01383,
+      "sl": 0.0133,
+      "tp": [
+        0.01463,
+        0.01485,
+        0.01503
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_17-23-40",
+      "first_seen": "2026-09-18T17:23:37.084577+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.32,
+      "stage1_score": 31.859,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.022,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01383,
+      "added_at": "2026-09-18T17:23:37.084577+00:00"
     }
   ],
   "open": [
@@ -41794,6 +41823,7 @@
     "2026-09-18_16-26-00",
     "2026-09-18_16-38-50",
     "2026-09-18_16-51-42",
-    "2026-09-18_17-08-47"
+    "2026-09-18_17-08-47",
+    "2026-09-18_17-23-40"
   ]
 }
