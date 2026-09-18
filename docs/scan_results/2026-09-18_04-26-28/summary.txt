@@ -1,0 +1,23 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T04:26:26.808895+00:00
+Total Candidates: 3
+========================================
+
+1. Symbol: GMXUSDT | Side: LONG | Score: 6.73
+   - Entry : 7.5365
+   - SL    : 7.3150
+   - TP    : 7.8687, 7.9573, 8.0349
+   - Invalidation: Close below 7.315 / loss of recent 1h swing low
+----------------------------------------
+2. Symbol: PROMUSDT | Side: LONG | Score: 6.05
+   - Entry : 5.5416
+   - SL    : 5.4240
+   - TP    : 5.7180, 5.7650, 5.8062
+   - Invalidation: Close below 5.424 / loss of recent 1h swing low
+----------------------------------------
+3. Symbol: FORMUSDT | Side: LONG | Score: 8.24
+   - Entry : 0.25571
+   - SL    : 0.24780
+   - TP    : 0.26758, 0.27074, 0.27351
+   - Invalidation: Close below 0.2478 / loss of recent 1h swing low / breakout invalid if price falls below 0.2548
+----------------------------------------

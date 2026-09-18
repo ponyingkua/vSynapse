@@ -318,6 +318,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.11508,
       "added_at": "2026-09-18T04:09:02.817981+00:00"
+    },
+    {
+      "id": "FORMUSDT_LONG_1h_2026-09-18_04-26-28",
+      "symbol": "FORMUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.25571,
+      "sl": 0.2478,
+      "tp": [
+        0.26758,
+        0.27074,
+        0.27351
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_04-26-28",
+      "first_seen": "2026-09-18T04:26:26.808895+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 8.24,
+      "stage1_score": 8.573,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.551,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.25571,
+      "added_at": "2026-09-18T04:26:26.808895+00:00"
     }
   ],
   "open": [
@@ -896,6 +925,68 @@
       "sl_after_tp1": 5.5416,
       "triggered_at": "2026-09-18T05:00:00+00:00",
       "partial_check_from": "2026-09-18T04:09:02.817981+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "PROMUSDT_LONG_1h_2026-09-18_04-26-28",
+      "symbol": "PROMUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 5.5416,
+      "sl": 5.424,
+      "tp": [
+        5.718,
+        5.765,
+        5.8062
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_04-26-28",
+      "first_seen": "2026-09-18T04:26:26.808895+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.05,
+      "stage1_score": 11.135,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.475,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.5416,
+      "triggered_at": "2026-09-18T05:00:00+00:00",
+      "partial_check_from": "2026-09-18T04:26:26.808895+00:00",
+      "partial_check_done": true
+    },
+    {
+      "id": "GMXUSDT_LONG_1h_2026-09-18_04-26-28",
+      "symbol": "GMXUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 7.5365,
+      "sl": 7.315,
+      "tp": [
+        7.8687,
+        7.9573,
+        8.0349
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_04-26-28",
+      "first_seen": "2026-09-18T04:26:26.808895+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.73,
+      "stage1_score": 8.211,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.677,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 7.5365,
+      "triggered_at": "2026-09-18T05:00:00+00:00",
+      "partial_check_from": "2026-09-18T04:26:26.808895+00:00",
       "partial_check_done": true
     }
   ],
@@ -40725,6 +40816,7 @@
     "2026-09-18_03-26-23",
     "2026-09-18_03-39-52",
     "2026-09-18_03-53-04",
-    "2026-09-18_04-09-06"
+    "2026-09-18_04-09-06",
+    "2026-09-18_04-26-28"
   ]
 }
