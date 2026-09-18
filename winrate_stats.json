@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-18T17:35:56.565000+00:00",
-  "resolved_trades": 889,
+  "generated_at": "2026-09-18T17:50:45.414000+00:00",
+  "resolved_trades": 890,
   "wins": 326,
-  "losses": 547,
+  "losses": 548,
   "breakeven": 16,
-  "win_rate_pct": 36.7,
+  "win_rate_pct": 36.6,
   "avg_r_multiple": -0.01,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 149,
-      "losses": 304,
+      "losses": 305,
       "breakeven": 3,
-      "win_rate_pct": 32.7
+      "win_rate_pct": 32.6
     },
     "BREAKDOWN": {
       "wins": 57,
@@ -41,7 +41,7 @@
   "by_side": {
     "LONG": {
       "wins": 245,
-      "losses": 414,
+      "losses": 415,
       "breakeven": 14,
       "win_rate_pct": 36.4
     },
@@ -73,9 +73,9 @@
     },
     "v3": {
       "wins": 140,
-      "losses": 202,
+      "losses": 203,
       "breakeven": 16,
-      "win_rate_pct": 39.1
+      "win_rate_pct": 39.0
     }
   },
   "by_htf_alignment": {
@@ -87,9 +87,9 @@
     },
     "ALIGNED": {
       "wins": 221,
-      "losses": 367,
+      "losses": 368,
       "breakeven": 16,
-      "win_rate_pct": 36.6
+      "win_rate_pct": 36.5
     },
     "COUNTER": {
       "wins": 64,
@@ -107,9 +107,9 @@
     },
     "6.0-6.9": {
       "wins": 100,
-      "losses": 156,
+      "losses": 157,
       "breakeven": 15,
-      "win_rate_pct": 36.9
+      "win_rate_pct": 36.8
     },
     "8.0-8.9": {
       "wins": 2,
@@ -133,22 +133,22 @@
     },
     "BULLISH": {
       "wins": 117,
-      "losses": 187,
+      "losses": 188,
       "breakeven": 16,
-      "win_rate_pct": 36.6
+      "win_rate_pct": 36.4
     }
   },
   "by_funding_alert": {
     "NORMAL": {
       "wins": 326,
-      "losses": 547,
+      "losses": 548,
       "breakeven": 16,
-      "win_rate_pct": 36.7
+      "win_rate_pct": 36.6
     }
   },
   "expired_unresolved": 123,
   "never_triggered": 197,
-  "currently_open": 15,
+  "currently_open": 14,
   "currently_pending": 24,
   "intrabar_disambiguated_via_subcandle": 2,
   "intrabar_ambiguous_fallback_to_sl": 0,
