@@ -117,35 +117,6 @@
       "added_at": "2026-09-18T08:09:02.476110+00:00"
     },
     {
-      "id": "KASUSDT_LONG_1h_2026-09-18_08-09-05",
-      "symbol": "KASUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.03459,
-      "sl": 0.03386,
-      "tp": [
-        0.03568,
-        0.03597,
-        0.03622
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_08-09-05",
-      "first_seen": "2026-09-18T08:09:02.476110+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.93,
-      "stage1_score": 9.422,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.833,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.03459,
-      "added_at": "2026-09-18T08:09:02.476110+00:00"
-    },
-    {
       "id": "ORDIUSDT_LONG_4h_2026-09-18_10-27-04",
       "symbol": "ORDIUSDT",
       "side": "LONG",
@@ -40445,6 +40416,37 @@
       "added_at": "2026-09-18T17:23:37.084577+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T21:08:48.022000+00:00"
+    },
+    {
+      "id": "KASUSDT_LONG_1h_2026-09-18_08-09-05",
+      "symbol": "KASUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.03459,
+      "sl": 0.03386,
+      "tp": [
+        0.03568,
+        0.03597,
+        0.03622
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_08-09-05",
+      "first_seen": "2026-09-18T08:09:02.476110+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.93,
+      "stage1_score": 9.422,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.833,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.03459,
+      "added_at": "2026-09-18T08:09:02.476110+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T23:24:53.665000+00:00"
     }
   ],
   "ingested_runs": [
@@ -42134,6 +42136,7 @@
     "2026-09-18_22-25-14",
     "2026-09-18_22-38-24",
     "2026-09-18_22-51-04",
-    "2026-09-18_23-08-28"
+    "2026-09-18_23-08-28",
+    "2026-09-18_23-24-53"
   ]
 }
