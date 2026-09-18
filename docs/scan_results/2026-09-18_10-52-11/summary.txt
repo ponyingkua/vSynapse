@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T10:52:09.217668+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: MORPHOUSDT | Side: LONG | Score: 6.95
+   - Entry : 2.2568
+   - SL    : 2.1011
+   - TP    : 2.4905, 2.5528, 2.6073
+   - Invalidation: Close below 2.1011 / loss of recent 4h swing low / breakout invalid if price falls below 2.2404
+----------------------------------------
+2. Symbol: ENSOUSDT | Side: LONG | Score: 6.66
+   - Entry : 0.91894
+   - SL    : 0.86670
+   - TP    : 0.99731, 1.01820, 1.03649
+   - Invalidation: Close below 0.8667 / loss of recent 15m swing low
+----------------------------------------
