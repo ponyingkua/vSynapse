@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "ICPUSDT_LONG_1h_2026-09-18_04-40-14",
-      "symbol": "ICPUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 2.699,
-      "sl": 2.59,
-      "tp": [
-        2.8625,
-        2.9061,
-        2.9442
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-18_04-40-14",
-      "first_seen": "2026-09-18T04:40:11.804743+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.67,
-      "stage1_score": 6.197,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.436,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 2.699,
-      "added_at": "2026-09-18T04:40:11.804743+00:00"
-    },
-    {
       "id": "INJUSDT_LONG_1h_2026-09-18_05-08-14",
       "symbol": "INJUSDT",
       "side": "LONG",
@@ -40193,6 +40164,37 @@
       "added_at": "2026-09-18T04:09:02.817981+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T19:09:05.974000+00:00"
+    },
+    {
+      "id": "ICPUSDT_LONG_1h_2026-09-18_04-40-14",
+      "symbol": "ICPUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 2.699,
+      "sl": 2.59,
+      "tp": [
+        2.8625,
+        2.9061,
+        2.9442
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_04-40-14",
+      "first_seen": "2026-09-18T04:40:11.804743+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.67,
+      "stage1_score": 6.197,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.436,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 2.699,
+      "added_at": "2026-09-18T04:40:11.804743+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T19:50:47.962000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41868,6 +41870,7 @@
     "2026-09-18_18-52-15",
     "2026-09-18_19-09-05",
     "2026-09-18_19-24-24",
-    "2026-09-18_19-36-43"
+    "2026-09-18_19-36-43",
+    "2026-09-18_19-50-47"
   ]
 }
