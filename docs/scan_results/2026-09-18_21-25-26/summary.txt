@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T21:25:24.124050+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: PEOPLEUSDT | Side: LONG | Score: 7.34
+   - Entry : 0.008618
+   - SL    : 0.008157
+   - TP    : 0.009310, 0.009495, 0.009656
+   - Invalidation: Close below 0.008157 / loss of recent 4h swing low / breakout invalid if price falls below 0.008554
+----------------------------------------
+2. Symbol: ESPUSDT | Side: LONG | Score: 7.01
+   - Entry : 0.08687
+   - SL    : 0.08348
+   - TP    : 0.09196, 0.09331, 0.09450
+   - Invalidation: Close below 0.08348 / loss of recent 4h swing low / breakout invalid if price falls below 0.08634
+----------------------------------------

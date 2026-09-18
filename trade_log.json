@@ -465,6 +465,35 @@
       "added_at": "2026-09-18T20:39:07.028100+00:00"
     },
     {
+      "id": "ESPUSDT_LONG_4h_2026-09-18_21-25-26",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.08687,
+      "sl": 0.08348,
+      "tp": [
+        0.09196,
+        0.09331,
+        0.0945
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_21-25-26",
+      "first_seen": "2026-09-18T21:25:24.124050+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.01,
+      "stage1_score": 7.734,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.025,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08687,
+      "added_at": "2026-09-18T21:25:24.124050+00:00"
+    },
+    {
       "id": "PEOPLEUSDT_LONG_4h_2026-09-18_20-51-49",
       "symbol": "PEOPLEUSDT",
       "side": "LONG",
@@ -492,6 +521,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.008618,
       "added_at": "2026-09-18T20:51:45.369209+00:00"
+    },
+    {
+      "id": "PEOPLEUSDT_LONG_4h_2026-09-18_21-25-26",
+      "symbol": "PEOPLEUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.008618,
+      "sl": 0.008157,
+      "tp": [
+        0.00931,
+        0.009495,
+        0.009656
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-18_21-25-26",
+      "first_seen": "2026-09-18T21:25:24.124050+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.34,
+      "stage1_score": 8.622,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.447,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008618,
+      "added_at": "2026-09-18T21:25:24.124050+00:00"
     },
     {
       "id": "NMRUSDT_LONG_4h_2026-09-18_21-08-47",
@@ -42010,6 +42068,7 @@
     "2026-09-18_20-25-55",
     "2026-09-18_20-39-08",
     "2026-09-18_20-51-49",
-    "2026-09-18_21-08-47"
+    "2026-09-18_21-08-47",
+    "2026-09-18_21-25-26"
   ]
 }
