@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T13:55:34.018605+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TAOUSDT | Side: LONG | Score: 6.29
+   - Entry : 243.60
+   - SL    : 224.61
+   - TP    : 272.09, 279.69, 286.34
+   - Invalidation: Close below 224.61 / loss of recent 4h swing low / breakout invalid if price falls below 242.03
+----------------------------------------
