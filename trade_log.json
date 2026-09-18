@@ -639,35 +639,6 @@
       "added_at": "2026-09-18T12:47:54.343645+00:00"
     },
     {
-      "id": "CATIUSDT_LONG_1h_2026-09-18_13-08-20",
-      "symbol": "CATIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.06294,
-      "sl": 0.06145,
-      "tp": [
-        0.06518,
-        0.06578,
-        0.0663
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_13-08-20",
-      "first_seen": "2026-09-18T13:08:19.186709+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.6,
-      "stage1_score": 6.192,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.475,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.06294,
-      "added_at": "2026-09-18T13:08:19.186709+00:00"
-    },
-    {
       "id": "TAOUSDT_LONG_4h_2026-09-18_13-55-35",
       "symbol": "TAOUSDT",
       "side": "LONG",
@@ -727,36 +698,6 @@
       "sl_after_tp1": 0.25897,
       "added_at": "2026-09-10T16:53:35.231660+00:00",
       "triggered_at": "2026-09-11T12:00:00+00:00"
-    },
-    {
-      "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
-      "symbol": "CHZUSDT",
-      "side": "SHORT",
-      "execution_tf": "4h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01397,
-      "sl": 0.01478,
-      "tp": [
-        0.01275,
-        0.01243,
-        0.01214
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-15_22-25-50",
-      "first_seen": "2026-09-15T22:25:48.969814+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 6.03,
-      "stage1_score": 3.374,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.453,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01397,
-      "added_at": "2026-09-15T22:25:48.969814+00:00",
-      "triggered_at": "2026-09-16T20:00:00+00:00"
     },
     {
       "id": "GPSUSDT_LONG_4h_2026-09-17_04-09-03",
@@ -1152,6 +1093,36 @@
       "sl_after_tp1": 0.53802,
       "added_at": "2026-09-18T08:27:48.684060+00:00",
       "triggered_at": "2026-09-18T12:00:00+00:00"
+    },
+    {
+      "id": "CATIUSDT_LONG_1h_2026-09-18_13-08-20",
+      "symbol": "CATIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06294,
+      "sl": 0.06145,
+      "tp": [
+        0.06518,
+        0.06578,
+        0.0663
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_13-08-20",
+      "first_seen": "2026-09-18T13:08:19.186709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 6.192,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.475,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06294,
+      "added_at": "2026-09-18T13:08:19.186709+00:00",
+      "triggered_at": "2026-09-18T14:00:00+00:00"
     }
   ],
   "closed": [
@@ -40057,6 +40028,45 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-18T13:14:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "CHZUSDT_SHORT_4h_2026-09-15_22-25-50",
+      "symbol": "CHZUSDT",
+      "side": "SHORT",
+      "execution_tf": "4h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01397,
+      "sl": 0.01478,
+      "tp": [
+        0.01275,
+        0.01243,
+        0.01214
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-15_22-25-50",
+      "first_seen": "2026-09-15T22:25:48.969814+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 6.03,
+      "stage1_score": 3.374,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.453,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01397,
+      "added_at": "2026-09-15T22:25:48.969814+00:00",
+      "triggered_at": "2026-09-16T20:00:00+00:00",
+      "outcome": "LOSS",
+      "exit_price": 0.01478,
+      "tp_index": null,
+      "bar_time": 1789747199999,
+      "bars_held": 11,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-18T15:59:59.999000+00:00",
+      "r_multiple": -1.0
     }
   ],
   "ingested_runs": [
@@ -41710,6 +41720,7 @@
     "2026-09-18_13-26-11",
     "2026-09-18_13-40-16",
     "2026-09-18_13-55-35",
-    "2026-09-18_14-08-31"
+    "2026-09-18_14-08-31",
+    "2026-09-18_14-27-22"
   ]
 }
