@@ -552,6 +552,35 @@
       "added_at": "2026-09-18T12:47:54.343645+00:00"
     },
     {
+      "id": "TRBUSDT_LONG_4h_2026-09-18_13-08-20",
+      "symbol": "TRBUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 17.792,
+      "sl": 16.804,
+      "tp": [
+        19.274,
+        19.669,
+        20.015
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-18_13-08-20",
+      "first_seen": "2026-09-18T13:08:19.186709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.9,
+      "stage1_score": 6.888,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.613,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 17.792,
+      "added_at": "2026-09-18T13:08:19.186709+00:00"
+    },
+    {
       "id": "ZAMAUSDT_LONG_4h_2026-09-18_12-30-55",
       "symbol": "ZAMAUSDT",
       "side": "LONG",
@@ -608,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.05255,
       "added_at": "2026-09-18T12:47:54.343645+00:00"
+    },
+    {
+      "id": "CATIUSDT_LONG_1h_2026-09-18_13-08-20",
+      "symbol": "CATIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.06294,
+      "sl": 0.06145,
+      "tp": [
+        0.06518,
+        0.06578,
+        0.0663
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_13-08-20",
+      "first_seen": "2026-09-18T13:08:19.186709+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.6,
+      "stage1_score": 6.192,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.475,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06294,
+      "added_at": "2026-09-18T13:08:19.186709+00:00"
     }
   ],
   "open": [
@@ -41609,6 +41667,7 @@
     "2026-09-18_11-51-50",
     "2026-09-18_12-10-19",
     "2026-09-18_12-30-55",
-    "2026-09-18_12-48-04"
+    "2026-09-18_12-48-04",
+    "2026-09-18_13-08-20"
   ]
 }

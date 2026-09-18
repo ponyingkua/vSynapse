@@ -1,0 +1,17 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T13:08:19.186709+00:00
+Total Candidates: 2
+========================================
+
+1. Symbol: TRBUSDT | Side: LONG | Score: 6.9
+   - Entry : 17.792
+   - SL    : 16.804
+   - TP    : 19.274, 19.669, 20.015
+   - Invalidation: Close below 16.804 / loss of recent 4h swing low / breakout invalid if price falls below 17.693
+----------------------------------------
+2. Symbol: CATIUSDT | Side: LONG | Score: 6.6
+   - Entry : 0.06294
+   - SL    : 0.06145
+   - TP    : 0.06518, 0.06578, 0.06630
+   - Invalidation: Close below 0.06145 / loss of recent 1h swing low / breakout invalid if price falls below 0.06279
+----------------------------------------
