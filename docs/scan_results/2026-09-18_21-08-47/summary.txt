@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T21:08:46.146397+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: NMRUSDT | Side: LONG | Score: 6.74
+   - Entry : 9.2408
+   - SL    : 8.8610
+   - TP    : 9.8106, 9.9626, 10.0955
+   - Invalidation: Close below 8.861 / loss of recent 4h swing low / breakout invalid if price falls below 9.204
+----------------------------------------

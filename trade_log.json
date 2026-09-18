@@ -407,35 +407,6 @@
       "added_at": "2026-09-18T15:39:32.517952+00:00"
     },
     {
-      "id": "GRIFFAINUSDT_LONG_15m_2026-09-18_17-23-40",
-      "symbol": "GRIFFAINUSDT",
-      "side": "LONG",
-      "execution_tf": "15m",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01383,
-      "sl": 0.0133,
-      "tp": [
-        0.01463,
-        0.01485,
-        0.01503
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_17-23-40",
-      "first_seen": "2026-09-18T17:23:37.084577+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.32,
-      "stage1_score": 31.859,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 6.022,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01383,
-      "added_at": "2026-09-18T17:23:37.084577+00:00"
-    },
-    {
       "id": "CATIUSDT_LONG_1h_2026-09-18_20-09-02",
       "symbol": "CATIUSDT",
       "side": "LONG",
@@ -521,6 +492,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.008618,
       "added_at": "2026-09-18T20:51:45.369209+00:00"
+    },
+    {
+      "id": "NMRUSDT_LONG_4h_2026-09-18_21-08-47",
+      "symbol": "NMRUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 9.2408,
+      "sl": 8.861,
+      "tp": [
+        9.8106,
+        9.9626,
+        10.0955
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_21-08-47",
+      "first_seen": "2026-09-18T21:08:46.146397+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.74,
+      "stage1_score": 6.624,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.766,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 9.2408,
+      "added_at": "2026-09-18T21:08:46.146397+00:00"
     }
   ],
   "open": [
@@ -40298,6 +40298,37 @@
       "added_at": "2026-09-18T05:38:46.677902+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-18T20:39:09.058000+00:00"
+    },
+    {
+      "id": "GRIFFAINUSDT_LONG_15m_2026-09-18_17-23-40",
+      "symbol": "GRIFFAINUSDT",
+      "side": "LONG",
+      "execution_tf": "15m",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01383,
+      "sl": 0.0133,
+      "tp": [
+        0.01463,
+        0.01485,
+        0.01503
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_17-23-40",
+      "first_seen": "2026-09-18T17:23:37.084577+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.32,
+      "stage1_score": 31.859,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 6.022,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01383,
+      "added_at": "2026-09-18T17:23:37.084577+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T21:08:48.022000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41978,6 +42009,7 @@
     "2026-09-18_20-09-02",
     "2026-09-18_20-25-55",
     "2026-09-18_20-39-08",
-    "2026-09-18_20-51-49"
+    "2026-09-18_20-51-49",
+    "2026-09-18_21-08-47"
   ]
 }
