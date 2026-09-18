@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "COTIUSDT_LONG_1h_2026-09-17_09-28-00",
-      "symbol": "COTIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.01765,
-      "sl": 0.01699,
-      "tp": [
-        0.01864,
-        0.01891,
-        0.01914
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_09-28-00",
-      "first_seen": "2026-09-17T09:27:58.721636+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.51,
-      "stage1_score": 12.197,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.124,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01765,
-      "added_at": "2026-09-17T09:27:58.721636+00:00"
-    },
-    {
       "id": "FLOCKUSDT_LONG_1h_2026-09-17_13-28-10",
       "symbol": "FLOCKUSDT",
       "side": "LONG",
@@ -38758,6 +38729,37 @@
       "added_at": "2026-09-17T19:11:18.860632+00:00",
       "outcome": "NEVER_TRIGGERED",
       "closed_at": "2026-09-17T23:07:29.954000+00:00"
+    },
+    {
+      "id": "COTIUSDT_LONG_1h_2026-09-17_09-28-00",
+      "symbol": "COTIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.01765,
+      "sl": 0.01699,
+      "tp": [
+        0.01864,
+        0.01891,
+        0.01914
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_09-28-00",
+      "first_seen": "2026-09-17T09:27:58.721636+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.51,
+      "stage1_score": 12.197,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.124,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01765,
+      "added_at": "2026-09-17T09:27:58.721636+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T00:33:02.749000+00:00"
     }
   ],
   "ingested_runs": [
@@ -40358,6 +40360,7 @@
     "2026-09-17_23-22-45",
     "2026-09-17_23-36-04",
     "2026-09-17_23-51-00",
-    "2026-09-18_00-10-37"
+    "2026-09-18_00-10-37",
+    "2026-09-18_00-33-02"
   ]
 }
