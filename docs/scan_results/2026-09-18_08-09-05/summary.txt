@@ -1,0 +1,29 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T08:09:02.476110+00:00
+Total Candidates: 4
+========================================
+
+1. Symbol: MORPHOUSDT | Side: LONG | Score: 8.43
+   - Entry : 2.2568
+   - SL    : 2.1011
+   - TP    : 2.4905, 2.5528, 2.6073
+   - Invalidation: Close below 2.1011 / loss of recent 4h swing low / breakout invalid if price falls below 2.2404
+----------------------------------------
+2. Symbol: TWTUSDT | Side: LONG | Score: 7.8
+   - Entry : 0.53802
+   - SL    : 0.52750
+   - TP    : 0.55379, 0.55800, 0.56168
+   - Invalidation: Close below 0.5275 / loss of recent 1h swing low / breakout invalid if price falls below 0.5365
+----------------------------------------
+3. Symbol: COMPUSDT | Side: LONG | Score: 7.3
+   - Entry : 19.558
+   - SL    : 19.010
+   - TP    : 20.380, 20.600, 20.791
+   - Invalidation: Close below 19.01 / loss of recent 4h swing low
+----------------------------------------
+4. Symbol: KASUSDT | Side: LONG | Score: 6.93
+   - Entry : 0.03459
+   - SL    : 0.03386
+   - TP    : 0.03568, 0.03597, 0.03622
+   - Invalidation: Close below 0.03386 / loss of recent 1h swing low
+----------------------------------------
