@@ -173,6 +173,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01302,
       "added_at": "2026-09-18T01:25:33.317286+00:00"
+    },
+    {
+      "id": "TAOUSDT_LONG_1h_2026-09-18_03-08-25",
+      "symbol": "TAOUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 235.44,
+      "sl": 228.09,
+      "tp": [
+        246.46,
+        249.4,
+        251.98
+      ],
+      "decimals": 2,
+      "run_id": "2026-09-18_03-08-25",
+      "first_seen": "2026-09-18T03:08:22.424860+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.33,
+      "stage1_score": 7.687,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.963,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 235.44,
+      "added_at": "2026-09-18T03:08:22.424860+00:00"
     }
   ],
   "open": [
@@ -40454,6 +40483,7 @@
     "2026-09-18_02-08-55",
     "2026-09-18_02-28-26",
     "2026-09-18_02-41-25",
-    "2026-09-18_02-52-38"
+    "2026-09-18_02-52-38",
+    "2026-09-18_03-08-25"
   ]
 }
