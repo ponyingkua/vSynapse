@@ -552,6 +552,35 @@
       "added_at": "2026-09-18T21:25:24.124050+00:00"
     },
     {
+      "id": "PEOPLEUSDT_LONG_4h_2026-09-18_21-51-01",
+      "symbol": "PEOPLEUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.008618,
+      "sl": 0.008157,
+      "tp": [
+        0.00931,
+        0.009495,
+        0.009656
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-18_21-51-01",
+      "first_seen": "2026-09-18T21:51:00.105053+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.12,
+      "stage1_score": 6.174,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.021,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.008618,
+      "added_at": "2026-09-18T21:51:00.105053+00:00"
+    },
+    {
       "id": "NMRUSDT_LONG_4h_2026-09-18_21-08-47",
       "symbol": "NMRUSDT",
       "side": "LONG",
@@ -42070,6 +42099,7 @@
     "2026-09-18_20-51-49",
     "2026-09-18_21-08-47",
     "2026-09-18_21-25-26",
-    "2026-09-18_21-38-25"
+    "2026-09-18_21-38-25",
+    "2026-09-18_21-51-01"
   ]
 }

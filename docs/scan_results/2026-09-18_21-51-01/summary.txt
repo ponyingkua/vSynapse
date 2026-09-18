@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-18T21:51:00.105053+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PEOPLEUSDT | Side: LONG | Score: 7.12
+   - Entry : 0.008618
+   - SL    : 0.008157
+   - TP    : 0.009310, 0.009495, 0.009656
+   - Invalidation: Close below 0.008157 / loss of recent 4h swing low / breakout invalid if price falls below 0.008554
+----------------------------------------
