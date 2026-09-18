@@ -30,35 +30,6 @@
       "added_at": "2026-09-17T08:29:14.523307+00:00"
     },
     {
-      "id": "INJUSDT_LONG_1h_2026-09-18_05-38-48",
-      "symbol": "INJUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 5.8398,
-      "sl": 5.594,
-      "tp": [
-        6.2084,
-        6.3067,
-        6.3927
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-18_05-38-48",
-      "first_seen": "2026-09-18T05:38:46.677902+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.74,
-      "stage1_score": 7.766,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.577,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 5.8398,
-      "added_at": "2026-09-18T05:38:46.677902+00:00"
-    },
-    {
       "id": "MORPHOUSDT_LONG_4h_2026-09-18_08-09-05",
       "symbol": "MORPHOUSDT",
       "side": "LONG",
@@ -492,6 +463,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.06402,
       "added_at": "2026-09-18T20:08:59.361716+00:00"
+    },
+    {
+      "id": "ESPUSDT_LONG_4h_2026-09-18_20-39-08",
+      "symbol": "ESPUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.08687,
+      "sl": 0.08348,
+      "tp": [
+        0.09196,
+        0.09331,
+        0.0945
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_20-39-08",
+      "first_seen": "2026-09-18T20:39:07.028100+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.94,
+      "stage1_score": 5.963,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.598,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.08687,
+      "added_at": "2026-09-18T20:39:07.028100+00:00"
     }
   ],
   "open": [
@@ -40238,6 +40238,37 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-18T20:59:59.999000+00:00",
       "r_multiple": 1.5
+    },
+    {
+      "id": "INJUSDT_LONG_1h_2026-09-18_05-38-48",
+      "symbol": "INJUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 5.8398,
+      "sl": 5.594,
+      "tp": [
+        6.2084,
+        6.3067,
+        6.3927
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_05-38-48",
+      "first_seen": "2026-09-18T05:38:46.677902+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.74,
+      "stage1_score": 7.766,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.577,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 5.8398,
+      "added_at": "2026-09-18T05:38:46.677902+00:00",
+      "outcome": "NEVER_TRIGGERED",
+      "closed_at": "2026-09-18T20:39:09.058000+00:00"
     }
   ],
   "ingested_runs": [
@@ -41916,6 +41947,7 @@
     "2026-09-18_19-36-43",
     "2026-09-18_19-50-47",
     "2026-09-18_20-09-02",
-    "2026-09-18_20-25-55"
+    "2026-09-18_20-25-55",
+    "2026-09-18_20-39-08"
   ]
 }
