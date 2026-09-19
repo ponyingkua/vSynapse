@@ -637,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.13884,
       "added_at": "2026-09-19T07:38:17.051449+00:00"
+    },
+    {
+      "id": "SLPUSDT_LONG_4h_2026-09-19_09-38-58",
+      "symbol": "SLPUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0006418,
+      "sl": 0.0006053,
+      "tp": [
+        0.0006965,
+        0.0007111,
+        0.0007239
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-19_09-38-58",
+      "first_seen": "2026-09-19T09:38:57.019701+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 7.687,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.354,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0006418,
+      "added_at": "2026-09-19T09:38:57.019701+00:00"
     }
   ],
   "open": [
@@ -42584,6 +42613,7 @@
     "2026-09-19_08-39-49",
     "2026-09-19_08-52-33",
     "2026-09-19_09-08-44",
-    "2026-09-19_09-25-49"
+    "2026-09-19_09-25-49",
+    "2026-09-19_09-38-58"
   ]
 }
