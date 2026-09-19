@@ -782,35 +782,6 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.14502,
       "added_at": "2026-09-19T11:37:18.669157+00:00"
-    },
-    {
-      "id": "AVAAIUSDT_LONG_1h_2026-09-19_12-30-11",
-      "symbol": "AVAAIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.009626,
-      "sl": 0.009392,
-      "tp": [
-        0.009977,
-        0.010071,
-        0.010153
-      ],
-      "decimals": 6,
-      "run_id": "2026-09-19_12-30-11",
-      "first_seen": "2026-09-19T12:30:09.005838+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.61,
-      "stage1_score": 13.471,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.862,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.009626,
-      "added_at": "2026-09-19T12:30:09.005838+00:00"
     }
   ],
   "open": [
@@ -1421,6 +1392,36 @@
       "sl_after_tp1": 0.13884,
       "added_at": "2026-09-19T07:38:17.051449+00:00",
       "triggered_at": "2026-09-19T12:00:00+00:00"
+    },
+    {
+      "id": "AVAAIUSDT_LONG_1h_2026-09-19_12-30-11",
+      "symbol": "AVAAIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.009626,
+      "sl": 0.009392,
+      "tp": [
+        0.009977,
+        0.010071,
+        0.010153
+      ],
+      "decimals": 6,
+      "run_id": "2026-09-19_12-30-11",
+      "first_seen": "2026-09-19T12:30:09.005838+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.61,
+      "stage1_score": 13.471,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.862,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.009626,
+      "added_at": "2026-09-19T12:30:09.005838+00:00",
+      "triggered_at": "2026-09-19T13:00:00+00:00"
     }
   ],
   "closed": [
@@ -42968,6 +42969,7 @@
     "2026-09-19_13-08-30",
     "2026-09-19_13-25-16",
     "2026-09-19_13-37-53",
-    "2026-09-19_13-50-45"
+    "2026-09-19_13-50-45",
+    "2026-09-19_14-08-45"
   ]
 }
