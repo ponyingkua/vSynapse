@@ -666,6 +666,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0006418,
       "added_at": "2026-09-19T09:38:57.019701+00:00"
+    },
+    {
+      "id": "PORTALUSDT_LONG_1h_2026-09-19_10-08-56",
+      "symbol": "PORTALUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01871,
+      "sl": 0.0179,
+      "tp": [
+        0.01993,
+        0.02025,
+        0.02053
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_10-08-56",
+      "first_seen": "2026-09-19T10:08:54.358197+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.95,
+      "stage1_score": 15.574,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.556,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01871,
+      "added_at": "2026-09-19T10:08:54.358197+00:00"
     }
   ],
   "open": [
@@ -42615,6 +42644,7 @@
     "2026-09-19_09-08-44",
     "2026-09-19_09-25-49",
     "2026-09-19_09-38-58",
-    "2026-09-19_09-51-19"
+    "2026-09-19_09-51-19",
+    "2026-09-19_10-08-56"
   ]
 }
