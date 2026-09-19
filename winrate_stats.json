@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-19T11:51:13.685000+00:00",
-  "resolved_trades": 898,
-  "wins": 332,
+  "generated_at": "2026-09-19T12:10:14.690000+00:00",
+  "resolved_trades": 899,
+  "wins": 333,
   "losses": 550,
   "breakeven": 16,
   "win_rate_pct": 37.0,
-  "avg_r_multiple": -0.0,
+  "avg_r_multiple": 0.0,
   "by_setup_style": {
     "BREAKOUT": {
       "wins": 154,
@@ -26,10 +26,10 @@
       "win_rate_pct": 44.3
     },
     "PULLBACK": {
-      "wins": 72,
+      "wins": 73,
       "losses": 81,
       "breakeven": 6,
-      "win_rate_pct": 45.3
+      "win_rate_pct": 45.6
     },
     "CONTINUATION": {
       "wins": 10,
@@ -40,10 +40,10 @@
   },
   "by_side": {
     "LONG": {
-      "wins": 251,
+      "wins": 252,
       "losses": 415,
       "breakeven": 14,
-      "win_rate_pct": 36.9
+      "win_rate_pct": 37.0
     },
     "SHORT": {
       "wins": 81,
@@ -72,10 +72,10 @@
       "win_rate_pct": 38.3
     },
     "v3": {
-      "wins": 146,
+      "wins": 147,
       "losses": 205,
       "breakeven": 16,
-      "win_rate_pct": 39.8
+      "win_rate_pct": 39.9
     }
   },
   "by_htf_alignment": {
@@ -86,10 +86,10 @@
       "win_rate_pct": 36.0
     },
     "ALIGNED": {
-      "wins": 227,
+      "wins": 228,
       "losses": 370,
       "breakeven": 16,
-      "win_rate_pct": 37.0
+      "win_rate_pct": 37.1
     },
     "COUNTER": {
       "wins": 64,
@@ -106,10 +106,10 @@
       "win_rate_pct": 36.7
     },
     "6.0-6.9": {
-      "wins": 102,
+      "wins": 103,
       "losses": 157,
       "breakeven": 15,
-      "win_rate_pct": 37.2
+      "win_rate_pct": 37.5
     },
     "8.0-8.9": {
       "wins": 3,
@@ -132,15 +132,15 @@
       "win_rate_pct": 36.7
     },
     "BULLISH": {
-      "wins": 123,
+      "wins": 124,
       "losses": 190,
       "breakeven": 16,
-      "win_rate_pct": 37.4
+      "win_rate_pct": 37.6
     }
   },
   "by_funding_alert": {
     "NORMAL": {
-      "wins": 332,
+      "wins": 333,
       "losses": 550,
       "breakeven": 16,
       "win_rate_pct": 37.0

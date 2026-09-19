@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T12:10:10.918574+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: TAKEUSDT | Side: LONG | Score: 6.67
+   - Entry : 0.05705
+   - SL    : 0.05257
+   - TP    : 0.06378, 0.06557, 0.06714
+   - Invalidation: Close below 0.05257 / loss of recent 1h swing low
+----------------------------------------
