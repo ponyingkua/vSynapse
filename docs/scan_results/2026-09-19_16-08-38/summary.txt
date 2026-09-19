@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T16:08:37.144853+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: USUSDT | Side: SHORT | Score: 7.29
+   - Entry : 0.01539
+   - SL    : 0.01592
+   - TP    : 0.01458, 0.01437, 0.01418
+   - Invalidation: Close above 0.015923 / reclaim of recent 1h swing high / breakdown invalid if price rises above 0.015465
+----------------------------------------

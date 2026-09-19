@@ -608,6 +608,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.14502,
       "added_at": "2026-09-19T11:37:18.669157+00:00"
+    },
+    {
+      "id": "USUSDT_SHORT_1h_2026-09-19_16-08-38",
+      "symbol": "USUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01539,
+      "sl": 0.01592,
+      "tp": [
+        0.01458,
+        0.01437,
+        0.01418
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_16-08-38",
+      "first_seen": "2026-09-19T16:08:37.144853+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.29,
+      "stage1_score": 4.727,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.385,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01539,
+      "added_at": "2026-09-19T16:08:37.144853+00:00"
     }
   ],
   "open": [
@@ -641,36 +670,6 @@
       "triggered_at": "2026-09-17T08:00:00+00:00",
       "partial_check_from": "2026-09-17T04:27:38.857967+00:00",
       "partial_check_done": true
-    },
-    {
-      "id": "DASHUSDT_LONG_1h_2026-09-17_03-54-10",
-      "symbol": "DASHUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 58.876,
-      "sl": 54.55,
-      "tp": [
-        65.366,
-        67.097,
-        68.611
-      ],
-      "decimals": 3,
-      "run_id": "2026-09-17_03-54-10",
-      "first_seen": "2026-09-17T03:54:08.277686+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.86,
-      "stage1_score": 11.48,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 2.106,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 58.876,
-      "added_at": "2026-09-17T03:54:08.277686+00:00",
-      "triggered_at": "2026-09-17T04:00:00+00:00"
     },
     {
       "id": "GMXUSDT_LONG_1h_2026-09-18_04-26-28",
@@ -41237,6 +41236,40 @@
       "entry_sl_ambiguous_fallback": false,
       "closed_at": "2026-09-19T15:59:59.999000+00:00",
       "r_multiple": 0.0
+    },
+    {
+      "id": "DASHUSDT_LONG_1h_2026-09-17_03-54-10",
+      "symbol": "DASHUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 58.876,
+      "sl": 54.55,
+      "tp": [
+        65.366,
+        67.097,
+        68.611
+      ],
+      "decimals": 3,
+      "run_id": "2026-09-17_03-54-10",
+      "first_seen": "2026-09-17T03:54:08.277686+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.86,
+      "stage1_score": 11.48,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.106,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 58.876,
+      "added_at": "2026-09-17T03:54:08.277686+00:00",
+      "triggered_at": "2026-09-17T04:00:00+00:00",
+      "outcome": "EXPIRED",
+      "exit_price": 59.56,
+      "closed_at": "2026-09-19T16:59:59.999000+00:00",
+      "r_multiple": 0.16
     }
   ],
   "ingested_runs": [
@@ -42992,6 +43025,7 @@
     "2026-09-19_15-08-36",
     "2026-09-19_15-25-01",
     "2026-09-19_15-37-26",
-    "2026-09-19_15-50-39"
+    "2026-09-19_15-50-39",
+    "2026-09-19_16-08-38"
   ]
 }
