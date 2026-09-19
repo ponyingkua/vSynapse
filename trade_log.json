@@ -637,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01539,
       "added_at": "2026-09-19T16:08:37.144853+00:00"
+    },
+    {
+      "id": "MONUSDT_LONG_4h_2026-09-19_17-07-58",
+      "symbol": "MONUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02532,
+      "sl": 0.02351,
+      "tp": [
+        0.02803,
+        0.02875,
+        0.02939
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_17-07-58",
+      "first_seen": "2026-09-19T17:07:53.235328+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.42,
+      "stage1_score": 10.485,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 2.429,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02532,
+      "added_at": "2026-09-19T17:07:53.235328+00:00"
     }
   ],
   "open": [
@@ -43038,6 +43067,7 @@
     "2026-09-19_16-08-38",
     "2026-09-19_16-25-38",
     "2026-09-19_16-38-40",
-    "2026-09-19_16-51-46"
+    "2026-09-19_16-51-46",
+    "2026-09-19_17-07-58"
   ]
 }
