@@ -581,6 +581,35 @@
       "added_at": "2026-09-19T00:54:05.198764+00:00"
     },
     {
+      "id": "SLPUSDT_LONG_4h_2026-09-19_03-39-33",
+      "symbol": "SLPUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.0006303,
+      "sl": 0.00059,
+      "tp": [
+        0.0006908,
+        0.0007069,
+        0.000721
+      ],
+      "decimals": 7,
+      "run_id": "2026-09-19_03-39-33",
+      "first_seen": "2026-09-19T03:39:31.710530+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.54,
+      "stage1_score": 13.38,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.649,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.0006303,
+      "added_at": "2026-09-19T03:39:31.710530+00:00"
+    },
+    {
       "id": "ONTUSDT_LONG_4h_2026-09-19_01-52-20",
       "symbol": "ONTUSDT",
       "side": "LONG",
@@ -42389,6 +42418,7 @@
     "2026-09-19_02-38-36",
     "2026-09-19_02-51-38",
     "2026-09-19_03-08-54",
-    "2026-09-19_03-25-28"
+    "2026-09-19_03-25-28",
+    "2026-09-19_03-39-33"
   ]
 }
