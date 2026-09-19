@@ -641,37 +641,6 @@
   ],
   "open": [
     {
-      "id": "GPSUSDT_LONG_4h_2026-09-17_04-27-40",
-      "symbol": "GPSUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "PULLBACK",
-      "entry_state": "ENTRY_READY",
-      "entry": 0.01069,
-      "sl": 0.0102,
-      "tp": [
-        0.01143,
-        0.01162,
-        0.0118
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-17_04-27-40",
-      "first_seen": "2026-09-17T04:27:38.857967+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.87,
-      "stage1_score": 6.001,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.941,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01069,
-      "triggered_at": "2026-09-17T08:00:00+00:00",
-      "partial_check_from": "2026-09-17T04:27:38.857967+00:00",
-      "partial_check_done": true
-    },
-    {
       "id": "GMXUSDT_LONG_1h_2026-09-18_04-26-28",
       "symbol": "GMXUSDT",
       "side": "LONG",
@@ -41270,6 +41239,46 @@
       "exit_price": 59.56,
       "closed_at": "2026-09-19T16:59:59.999000+00:00",
       "r_multiple": 0.16
+    },
+    {
+      "id": "GPSUSDT_LONG_4h_2026-09-17_04-27-40",
+      "symbol": "GPSUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "ENTRY_READY",
+      "entry": 0.01069,
+      "sl": 0.0102,
+      "tp": [
+        0.01143,
+        0.01162,
+        0.0118
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-17_04-27-40",
+      "first_seen": "2026-09-17T04:27:38.857967+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.87,
+      "stage1_score": 6.001,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.941,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01069,
+      "triggered_at": "2026-09-17T08:00:00+00:00",
+      "partial_check_from": "2026-09-17T04:27:38.857967+00:00",
+      "partial_check_done": true,
+      "outcome": "BREAKEVEN",
+      "exit_price": 0.01069,
+      "tp_index": 0,
+      "bar_time": 1789847999999,
+      "bars_held": 15,
+      "intrabar_ambiguous": false,
+      "entry_sl_ambiguous_fallback": false,
+      "closed_at": "2026-09-19T19:59:59.999000+00:00",
+      "r_multiple": 0.0
     }
   ],
   "ingested_runs": [
@@ -43028,6 +43037,7 @@
     "2026-09-19_15-50-39",
     "2026-09-19_16-08-38",
     "2026-09-19_16-25-38",
-    "2026-09-19_16-38-40"
+    "2026-09-19_16-38-40",
+    "2026-09-19_16-51-46"
   ]
 }
