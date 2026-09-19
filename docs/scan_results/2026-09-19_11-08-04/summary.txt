@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T11:08:02.149614+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: PORTALUSDT | Side: LONG | Score: 6.38
+   - Entry : 0.01888
+   - SL    : 0.01792
+   - TP    : 0.02032, 0.02070, 0.02104
+   - Invalidation: Close below 0.01792 / loss of recent 1h swing low / breakout invalid if price falls below 0.01878
+----------------------------------------
