@@ -668,62 +668,33 @@
       "added_at": "2026-09-19T02:09:03.169254+00:00"
     },
     {
-      "id": "SKRUSDT_LONG_1h_2026-09-19_03-08-54",
-      "symbol": "SKRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
+      "id": "PLAYUSDT_SHORT_15m_2026-09-19_04-25-59",
+      "symbol": "PLAYUSDT",
+      "side": "SHORT",
+      "execution_tf": "15m",
+      "setup_style": "BREAKDOWN",
       "entry_state": "WAITING_RETEST",
-      "entry": 0.02006,
-      "sl": 0.01901,
+      "entry": 0.02636,
+      "sl": 0.02742,
       "tp": [
-        0.02163,
-        0.02205,
-        0.02241
+        0.02477,
+        0.02435,
+        0.02398
       ],
       "decimals": 5,
-      "run_id": "2026-09-19_03-08-54",
-      "first_seen": "2026-09-19T03:08:52.798459+00:00",
-      "htf_bias": "BULLISH",
+      "run_id": "2026-09-19_04-25-59",
+      "first_seen": "2026-09-19T04:25:56.320689+00:00",
+      "htf_bias": "BEARISH",
       "config_version": "v3",
-      "score": 6.26,
-      "stage1_score": 8.366,
+      "score": 6.09,
+      "stage1_score": 5.485,
       "btc_regime": "BULLISH",
       "funding_alert": false,
       "tf_agreement": 3,
-      "momentum_15m": 1.764,
+      "momentum_15m": -3.258,
       "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02006,
-      "added_at": "2026-09-19T03:08:52.798459+00:00"
-    },
-    {
-      "id": "SKRUSDT_LONG_1h_2026-09-19_03-25-28",
-      "symbol": "SKRUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.02006,
-      "sl": 0.01901,
-      "tp": [
-        0.02163,
-        0.02205,
-        0.02241
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-19_03-25-28",
-      "first_seen": "2026-09-19T03:25:26.531698+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.47,
-      "stage1_score": 13.502,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 3.048,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.02006,
-      "added_at": "2026-09-19T03:25:26.531698+00:00"
+      "sl_after_tp1": 0.02636,
+      "added_at": "2026-09-19T04:25:56.320689+00:00"
     }
   ],
   "open": [
@@ -1061,6 +1032,66 @@
       "triggered_at": "2026-09-19T04:00:00+00:00",
       "partial_check_from": "2026-09-19T02:38:34.297405+00:00",
       "partial_check_done": true
+    },
+    {
+      "id": "SKRUSDT_LONG_1h_2026-09-19_03-08-54",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02006,
+      "sl": 0.01901,
+      "tp": [
+        0.02163,
+        0.02205,
+        0.02241
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_03-08-54",
+      "first_seen": "2026-09-19T03:08:52.798459+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.26,
+      "stage1_score": 8.366,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.764,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02006,
+      "added_at": "2026-09-19T03:08:52.798459+00:00",
+      "triggered_at": "2026-09-19T04:00:00+00:00"
+    },
+    {
+      "id": "SKRUSDT_LONG_1h_2026-09-19_03-25-28",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02006,
+      "sl": 0.01901,
+      "tp": [
+        0.02163,
+        0.02205,
+        0.02241
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_03-25-28",
+      "first_seen": "2026-09-19T03:25:26.531698+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 13.502,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.048,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02006,
+      "added_at": "2026-09-19T03:25:26.531698+00:00",
+      "triggered_at": "2026-09-19T04:00:00+00:00"
     }
   ],
   "closed": [
@@ -42421,6 +42452,7 @@
     "2026-09-19_03-25-28",
     "2026-09-19_03-39-33",
     "2026-09-19_03-52-07",
-    "2026-09-19_04-09-02"
+    "2026-09-19_04-09-02",
+    "2026-09-19_04-25-59"
   ]
 }
