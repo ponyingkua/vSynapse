@@ -349,35 +349,6 @@
       "added_at": "2026-09-18T15:39:32.517952+00:00"
     },
     {
-      "id": "CATIUSDT_LONG_1h_2026-09-18_20-09-02",
-      "symbol": "CATIUSDT",
-      "side": "LONG",
-      "execution_tf": "1h",
-      "setup_style": "EXTENDED",
-      "entry_state": "WAITING_PULLBACK",
-      "entry": 0.06402,
-      "sl": 0.06082,
-      "tp": [
-        0.06883,
-        0.07011,
-        0.07123
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-18_20-09-02",
-      "first_seen": "2026-09-18T20:08:59.361716+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 7.41,
-      "stage1_score": 9.613,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 1.991,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.06402,
-      "added_at": "2026-09-18T20:08:59.361716+00:00"
-    },
-    {
       "id": "ESPUSDT_LONG_4h_2026-09-18_20-39-08",
       "symbol": "ESPUSDT",
       "side": "LONG",
@@ -1095,6 +1066,36 @@
       "sl_after_tp1": 0.05249,
       "added_at": "2026-09-19T02:09:03.169254+00:00",
       "triggered_at": "2026-09-19T04:00:00+00:00"
+    },
+    {
+      "id": "CATIUSDT_LONG_1h_2026-09-18_20-09-02",
+      "symbol": "CATIUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "EXTENDED",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.06402,
+      "sl": 0.06082,
+      "tp": [
+        0.06883,
+        0.07011,
+        0.07123
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-18_20-09-02",
+      "first_seen": "2026-09-18T20:08:59.361716+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 7.41,
+      "stage1_score": 9.613,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.991,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.06402,
+      "added_at": "2026-09-18T20:08:59.361716+00:00",
+      "triggered_at": "2026-09-19T06:00:00+00:00"
     }
   ],
   "closed": [
@@ -42463,6 +42464,7 @@
     "2026-09-19_05-24-48",
     "2026-09-19_05-38-19",
     "2026-09-19_05-51-00",
-    "2026-09-19_06-09-54"
+    "2026-09-19_06-09-54",
+    "2026-09-19_06-30-19"
   ]
 }
