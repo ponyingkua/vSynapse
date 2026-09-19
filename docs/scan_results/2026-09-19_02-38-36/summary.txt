@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T02:38:34.297405+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ACUUSDT | Side: LONG | Score: 6.27
+   - Entry : 0.12228
+   - SL    : 0.11306
+   - TP    : 0.13611, 0.13980, 0.14303
+   - Invalidation: Close below 0.11306 / loss of recent 4h swing low
+----------------------------------------
