@@ -811,6 +811,64 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.01888,
       "added_at": "2026-09-19T11:08:02.149614+00:00"
+    },
+    {
+      "id": "PORTALUSDT_LONG_1h_2026-09-19_11-37-22",
+      "symbol": "PORTALUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01888,
+      "sl": 0.01792,
+      "tp": [
+        0.02032,
+        0.0207,
+        0.02104
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_11-37-22",
+      "first_seen": "2026-09-19T11:37:18.669157+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.18,
+      "stage1_score": 8.761,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.524,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01888,
+      "added_at": "2026-09-19T11:37:18.669157+00:00"
+    },
+    {
+      "id": "ARKUSDT_LONG_1h_2026-09-19_11-37-22",
+      "symbol": "ARKUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.14502,
+      "sl": 0.1389,
+      "tp": [
+        0.1542,
+        0.15665,
+        0.15879
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_11-37-22",
+      "first_seen": "2026-09-19T11:37:18.669157+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.26,
+      "stage1_score": 7.735,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.026,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.14502,
+      "added_at": "2026-09-19T11:37:18.669157+00:00"
     }
   ],
   "open": [
@@ -42797,6 +42855,7 @@
     "2026-09-19_10-38-30",
     "2026-09-19_10-50-45",
     "2026-09-19_11-08-04",
-    "2026-09-19_11-24-24"
+    "2026-09-19_11-24-24",
+    "2026-09-19_11-37-22"
   ]
 }
