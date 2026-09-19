@@ -637,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.0006303,
       "added_at": "2026-09-19T00:54:05.198764+00:00"
+    },
+    {
+      "id": "ONTUSDT_LONG_4h_2026-09-19_01-52-20",
+      "symbol": "ONTUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.05249,
+      "sl": 0.0492,
+      "tp": [
+        0.05743,
+        0.05874,
+        0.0599
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_01-52-20",
+      "first_seen": "2026-09-19T01:52:18.677425+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.22,
+      "stage1_score": 7.301,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.789,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.05249,
+      "added_at": "2026-09-19T01:52:18.677425+00:00"
     }
   ],
   "open": [
@@ -42213,6 +42242,7 @@
     "2026-09-19_00-54-06",
     "2026-09-19_01-07-56",
     "2026-09-19_01-25-42",
-    "2026-09-19_01-38-57"
+    "2026-09-19_01-38-57",
+    "2026-09-19_01-52-20"
   ]
 }
