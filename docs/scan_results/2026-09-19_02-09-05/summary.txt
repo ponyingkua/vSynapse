@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T02:09:03.169254+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: ONTUSDT | Side: LONG | Score: 6.84
+   - Entry : 0.05249
+   - SL    : 0.04920
+   - TP    : 0.05743, 0.05874, 0.05990
+   - Invalidation: Close below 0.0492 / loss of recent 4h swing low / breakout invalid if price falls below 0.05225
+----------------------------------------
