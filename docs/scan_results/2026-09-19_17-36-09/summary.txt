@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T17:36:07.715965+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: MONUSDT | Side: LONG | Score: 6.77
+   - Entry : 0.02514
+   - SL    : 0.02351
+   - TP    : 0.02758, 0.02823, 0.02880
+   - Invalidation: Close below 0.02351 / loss of recent 4h swing low
+----------------------------------------

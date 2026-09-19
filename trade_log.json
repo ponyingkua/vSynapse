@@ -610,35 +610,6 @@
       "added_at": "2026-09-19T11:37:18.669157+00:00"
     },
     {
-      "id": "USUSDT_SHORT_1h_2026-09-19_16-08-38",
-      "symbol": "USUSDT",
-      "side": "SHORT",
-      "execution_tf": "1h",
-      "setup_style": "BREAKDOWN",
-      "entry_state": "WAITING_RETEST",
-      "entry": 0.01539,
-      "sl": 0.01592,
-      "tp": [
-        0.01458,
-        0.01437,
-        0.01418
-      ],
-      "decimals": 5,
-      "run_id": "2026-09-19_16-08-38",
-      "first_seen": "2026-09-19T16:08:37.144853+00:00",
-      "htf_bias": "BEARISH",
-      "config_version": "v3",
-      "score": 7.29,
-      "stage1_score": 4.727,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": -2.385,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 0.01539,
-      "added_at": "2026-09-19T16:08:37.144853+00:00"
-    },
-    {
       "id": "MONUSDT_LONG_4h_2026-09-19_17-07-58",
       "symbol": "MONUSDT",
       "side": "LONG",
@@ -666,6 +637,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02532,
       "added_at": "2026-09-19T17:07:53.235328+00:00"
+    },
+    {
+      "id": "MONUSDT_LONG_4h_2026-09-19_17-36-09",
+      "symbol": "MONUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "PULLBACK",
+      "entry_state": "WAITING_PULLBACK",
+      "entry": 0.02514,
+      "sl": 0.02351,
+      "tp": [
+        0.02758,
+        0.02823,
+        0.0288
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_17-36-09",
+      "first_seen": "2026-09-19T17:36:07.715965+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.77,
+      "stage1_score": 6.689,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 1.553,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02514,
+      "added_at": "2026-09-19T17:36:07.715965+00:00"
     }
   ],
   "open": [
@@ -1394,6 +1394,36 @@
       "sl_after_tp1": 0.009626,
       "added_at": "2026-09-19T12:30:09.005838+00:00",
       "triggered_at": "2026-09-19T13:00:00+00:00"
+    },
+    {
+      "id": "USUSDT_SHORT_1h_2026-09-19_16-08-38",
+      "symbol": "USUSDT",
+      "side": "SHORT",
+      "execution_tf": "1h",
+      "setup_style": "BREAKDOWN",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.01539,
+      "sl": 0.01592,
+      "tp": [
+        0.01458,
+        0.01437,
+        0.01418
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_16-08-38",
+      "first_seen": "2026-09-19T16:08:37.144853+00:00",
+      "htf_bias": "BEARISH",
+      "config_version": "v3",
+      "score": 7.29,
+      "stage1_score": 4.727,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": -2.385,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.01539,
+      "added_at": "2026-09-19T16:08:37.144853+00:00",
+      "triggered_at": "2026-09-19T17:00:00+00:00"
     }
   ],
   "closed": [
@@ -43069,6 +43099,7 @@
     "2026-09-19_16-38-40",
     "2026-09-19_16-51-46",
     "2026-09-19_17-07-58",
-    "2026-09-19_17-23-49"
+    "2026-09-19_17-23-49",
+    "2026-09-19_17-36-09"
   ]
 }
