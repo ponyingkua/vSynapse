@@ -666,6 +666,35 @@
       "breakeven_after_tp1": true,
       "sl_after_tp1": 0.02006,
       "added_at": "2026-09-19T03:08:52.798459+00:00"
+    },
+    {
+      "id": "SKRUSDT_LONG_1h_2026-09-19_03-25-28",
+      "symbol": "SKRUSDT",
+      "side": "LONG",
+      "execution_tf": "1h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 0.02006,
+      "sl": 0.01901,
+      "tp": [
+        0.02163,
+        0.02205,
+        0.02241
+      ],
+      "decimals": 5,
+      "run_id": "2026-09-19_03-25-28",
+      "first_seen": "2026-09-19T03:25:26.531698+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.47,
+      "stage1_score": 13.502,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 3.048,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 0.02006,
+      "added_at": "2026-09-19T03:25:26.531698+00:00"
     }
   ],
   "open": [
@@ -42359,6 +42388,7 @@
     "2026-09-19_02-25-55",
     "2026-09-19_02-38-36",
     "2026-09-19_02-51-38",
-    "2026-09-19_03-08-54"
+    "2026-09-19_03-08-54",
+    "2026-09-19_03-25-28"
   ]
 }
