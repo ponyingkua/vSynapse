@@ -1,0 +1,11 @@
+=== SYNAPTIC SCAN SUMMARY ===
+Generated at (UTC): 2026-09-19T00:32:49.521552+00:00
+Total Candidates: 1
+========================================
+
+1. Symbol: SLPUSDT | Side: LONG | Score: 6.65
+   - Entry : 0.0006303
+   - SL    : 0.0005900
+   - TP    : 0.0006908, 0.0007069, 0.0007210
+   - Invalidation: Close below 0.00059 / loss of recent 4h swing low / breakout invalid if price falls below 0.0006273
+----------------------------------------
