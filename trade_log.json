@@ -552,35 +552,6 @@
       "added_at": "2026-09-18T21:51:00.105053+00:00"
     },
     {
-      "id": "NMRUSDT_LONG_4h_2026-09-18_21-08-47",
-      "symbol": "NMRUSDT",
-      "side": "LONG",
-      "execution_tf": "4h",
-      "setup_style": "BREAKOUT",
-      "entry_state": "WAITING_RETEST",
-      "entry": 9.2408,
-      "sl": 8.861,
-      "tp": [
-        9.8106,
-        9.9626,
-        10.0955
-      ],
-      "decimals": 4,
-      "run_id": "2026-09-18_21-08-47",
-      "first_seen": "2026-09-18T21:08:46.146397+00:00",
-      "htf_bias": "BULLISH",
-      "config_version": "v3",
-      "score": 6.74,
-      "stage1_score": 6.624,
-      "btc_regime": "BULLISH",
-      "funding_alert": false,
-      "tf_agreement": 3,
-      "momentum_15m": 0.766,
-      "breakeven_after_tp1": true,
-      "sl_after_tp1": 9.2408,
-      "added_at": "2026-09-18T21:08:46.146397+00:00"
-    },
-    {
       "id": "UBUSDT_LONG_15m_2026-09-18_22-38-24",
       "symbol": "UBUSDT",
       "side": "LONG",
@@ -1002,6 +973,36 @@
       "sl_after_tp1": 0.01122,
       "added_at": "2026-09-18T16:51:40.871709+00:00",
       "triggered_at": "2026-09-18T20:00:00+00:00"
+    },
+    {
+      "id": "NMRUSDT_LONG_4h_2026-09-18_21-08-47",
+      "symbol": "NMRUSDT",
+      "side": "LONG",
+      "execution_tf": "4h",
+      "setup_style": "BREAKOUT",
+      "entry_state": "WAITING_RETEST",
+      "entry": 9.2408,
+      "sl": 8.861,
+      "tp": [
+        9.8106,
+        9.9626,
+        10.0955
+      ],
+      "decimals": 4,
+      "run_id": "2026-09-18_21-08-47",
+      "first_seen": "2026-09-18T21:08:46.146397+00:00",
+      "htf_bias": "BULLISH",
+      "config_version": "v3",
+      "score": 6.74,
+      "stage1_score": 6.624,
+      "btc_regime": "BULLISH",
+      "funding_alert": false,
+      "tf_agreement": 3,
+      "momentum_15m": 0.766,
+      "breakeven_after_tp1": true,
+      "sl_after_tp1": 9.2408,
+      "added_at": "2026-09-18T21:08:46.146397+00:00",
+      "triggered_at": "2026-09-19T00:00:00+00:00"
     }
   ],
   "closed": [
@@ -42210,6 +42211,7 @@
     "2026-09-19_00-11-04",
     "2026-09-19_00-32-51",
     "2026-09-19_00-54-06",
-    "2026-09-19_01-07-56"
+    "2026-09-19_01-07-56",
+    "2026-09-19_01-25-42"
   ]
 }
